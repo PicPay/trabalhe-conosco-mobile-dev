@@ -4,11 +4,11 @@
 
 O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
 
-Você deve fazer um fork deste repositório e soliciar um pull request para nossa avalização.
+Você deve fazer um fork deste repositório e soliciar um pull request para nossa avaliação.
 
 O seu usuário deverá escolher uma pessoa em uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se ele não possuir cartão de crédito cadastrado, deverá informar o dados do cartão (número do cartão, data de validade e CVV, além do id do usuário de destino) antes de finalizar o pagamento.
 
-Os cartões devem ser persistidos no aplicativos para serem usados em pagamentos futuros.
+Os cartões devem ser persistidos no aplicativo para serem usados em pagamentos futuros.
 
 -----
 ###### Lista de usuários
