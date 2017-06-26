@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dark_metal"
+    tools:context="com.example.picpay.MainActivity" >
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="1sp"
+        android:cacheColorHint="@android:color/transparent"
+    	android:divider="@android:color/transparent"
+        android:scrollbarStyle="outsideOverlay"
+    	android:paddingBottom="3dp"
+    	android:paddingLeft="2dp"
+    	android:paddingRight="2dp"
+    	android:paddingTop="3dp"
+    />    
+</RelativeLayout>
+
