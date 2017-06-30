@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gvi-bD-L0H">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Transfers-->
+        <scene sceneID="Q3R-55-XMA">
+            <objects>
+                <tableViewController id="Ofr-9c-UZd" customClass="MyTransfersController" customModule="SendMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="JYk-fn-EOL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myTrasnferCell" textLabel="w4C-7h-fOr" detailTextLabel="j1a-OI-Kij" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="RMd-uI-vY4">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMd-uI-vY4" id="FNO-Ak-j8H">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w4C-7h-fOr">
+                                            <rect key="frame" x="15" y="8" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j1a-OI-Kij">
+                                            <rect key="frame" x="15" y="28.5" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ofr-9c-UZd" id="qH4-O1-43H"/>
+                            <outlet property="delegate" destination="Ofr-9c-UZd" id="XBR-TE-6Nb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Transfers" id="ijz-ba-LIZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TQN-DM-qN8">
+                            <connections>
+                                <segue destination="b9a-Ji-mai" kind="show" id="6gN-Qo-Z4r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noContentView" destination="HYY-bv-fro" id="rIh-rw-mf6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9D-ch-j8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="HYY-bv-fro">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no transfers at the moment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAT-nd-weJ">
+                            <rect key="frame" x="71" y="309" width="233" height="48"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <accessibility key="accessibilityConfiguration" identifier="noContentView"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pAT-nd-weJ" secondAttribute="trailing" constant="71" id="6ku-QO-Yif"/>
+                        <constraint firstItem="pAT-nd-weJ" firstAttribute="centerX" secondItem="HYY-bv-fro" secondAttribute="centerX" id="RMR-lg-Pdi"/>
+                        <constraint firstItem="pAT-nd-weJ" firstAttribute="leading" secondItem="HYY-bv-fro" secondAttribute="leading" constant="71" id="XbY-D1-mcF"/>
+                        <constraint firstItem="pAT-nd-weJ" firstAttribute="centerY" secondItem="HYY-bv-fro" secondAttribute="centerY" id="Yw0-ou-a2A"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="466" y="428"/>
+        </scene>
+        <!--New Transfer-->
+        <scene sceneID="e9f-gu-QhV">
+            <objects>
+                <tableViewController title="New Transfer" id="b9a-Ji-mai" customClass="NewTransferController" customModule="SendMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="OfJ-Yg-5RQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userNewTransferCell" rowHeight="70" id="t4W-yb-NOH" customClass="NewTransferCell" customModule="SendMoney" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t4W-yb-NOH" id="1gX-3o-Jrp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-man.png" translatesAutoresizingMaskIntoConstraints="NO" id="4WS-sG-q7H">
+                                            <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="gfF-Dy-eHs"/>
+                                                <constraint firstAttribute="width" constant="50" id="k6n-F3-hhG"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adriele Cavalcante" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJi-v5-hFK">
+                                            <rect key="frame" x="84" y="13" width="149" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@adriele" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdz-fl-tvG">
+                                            <rect key="frame" x="84" y="35" width="60" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4WS-sG-q7H" firstAttribute="top" secondItem="1gX-3o-Jrp" secondAttribute="top" constant="10" id="KiW-jy-EUx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Qdz-fl-tvG" secondAttribute="bottom" constant="8.5" id="PhW-1s-hzG"/>
+                                        <constraint firstItem="Qdz-fl-tvG" firstAttribute="top" secondItem="rJi-v5-hFK" secondAttribute="bottom" constant="1" id="ejf-se-U2T"/>
+                                        <constraint firstItem="Qdz-fl-tvG" firstAttribute="leading" secondItem="rJi-v5-hFK" secondAttribute="leading" id="qEt-Wh-DrB"/>
+                                        <constraint firstItem="4WS-sG-q7H" firstAttribute="leading" secondItem="1gX-3o-Jrp" secondAttribute="leading" constant="15" id="xld-Tm-rKd"/>
+                                        <constraint firstAttribute="topMargin" secondItem="rJi-v5-hFK" secondAttribute="top" constant="-5" id="yP5-C0-jcW"/>
+                                        <constraint firstItem="rJi-v5-hFK" firstAttribute="leading" secondItem="4WS-sG-q7H" secondAttribute="trailing" constant="19" id="zsa-tz-eRd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblName" destination="rJi-v5-hFK" id="Nba-Ck-6eV"/>
+                                    <outlet property="lblUsername" destination="Qdz-fl-tvG" id="5gl-xY-FqG"/>
+                                    <outlet property="userAvatar" destination="4WS-sG-q7H" id="vjb-Cb-18g"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="b9a-Ji-mai" id="scI-Wm-jiQ"/>
+                            <outlet property="delegate" destination="b9a-Ji-mai" id="Ufa-EE-xJ1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="max-O7-Gxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384.8" y="425.93703148425789"/>
+        </scene>
+        <!--My Transfers-->
+        <scene sceneID="uDs-bA-36X">
+            <objects>
+                <navigationController title="My Transfers" id="gvi-bD-L0H" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kyo-rG-7Jl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ofr-9c-UZd" kind="relationship" relationship="rootViewController" id="cZ1-NT-lQH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBM-yR-pzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-486" y="428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="user-man.png" width="365" height="366"/>
+    </resources>
+</document>

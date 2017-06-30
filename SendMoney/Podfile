@@ -1,0 +1,14 @@
+platform :ios, '8.0'
+
+target 'SendMoney' do
+    
+    use_frameworks!
+    
+    pod 'SwiftGen'
+    pod 'Alamofire', '~> 4.4'
+    pod 'SVProgressHUD'
+    pod 'RealmSwift'
+    pod 'ObjectMapper'
+    pod 'AlamofireObjectMapper', '~> 4.0'
+    
+end

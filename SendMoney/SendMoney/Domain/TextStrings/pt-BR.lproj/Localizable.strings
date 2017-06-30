@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  SendMoney
+
+  Created by Jeferson Nazario on 27/06/17.
+  Copyright © 2017 jnazario.com. All rights reserved.
+*/
+
+// MARK: - SplashScreen
+SendMoney = "Enviar Dinheiro";
+
+// MARK: - My transfers screen
+MyTransfers = "Minhas Transferências";
+
+// MARK: - New transfer
+NewTransfer = "Nova Transferência";
+TitleSelectUsers = "Selecione um usuário";
+TitleConcludeTransfer = "Conluir Transferência";
+Currency = "R$";
+CardInfo = "Dados do cartão";
+CardNumber = "Nº do cartão";
+ExpiryDate = "Expira em";
+Cvv = "CVV";
+SecurityCode = "Código de Segurança";
+Done = "Enviar";
+RequiredFields = "É necessário selecionar um cartão para realizar o pagamento";
+PayTo = "Pagar a";
+TransactionSentSuccess = "Transação concluída com sucesso";
+MyCards = "Cartões";
+NewCardSuccess = "Cartão adicionado com sucesso";
+CardNumberEncripted = "Cartão com final ";
+PayWith = "Pagar com";
+AddNewCard = "Adicionar novo cartão";
+PostError = "Não foi possível completar a operação, tente novamente mais tarde.";
+PutValue = "Por favor, insira o valor a ser enviado";
+YouPaid = "Você pagou a ";
+NoContentTransfer = "Você ainda não possui nenhuma transferência";
+NoContentCards = "Você ainda não possui nenhum cartão cadastrado";
