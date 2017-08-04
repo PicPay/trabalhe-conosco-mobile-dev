@@ -1,0 +1,27 @@
+page-historic {
+	ion-avatar {
+		ion-icon {
+			position: absolute;
+			color: #fff;
+			border-radius: 50%;
+			font-size: 0.75em;
+			top: 4.5em;
+			left: 3.5em;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			width: 20px;
+			height: 20px;
+		}
+
+		ion-icon.success {
+			background: color($colors, secondary);
+		}
+
+		ion-icon.fail {
+			background: color($colors, danger);
+		}
+	}
+}

@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-navbar color="dark">
+		<ion-title>Adicionar um Cartão</ion-title>
+
+		<ion-buttons start>
+			<button ion-button (click)="viewCtrl.dismiss()">
+				<span ion-text color="primary" showWhen="ios">Cancelar</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+	<form [formGroup]="cardForm" (ngSubmit)="saveCard()">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>Número do Cartão</ion-label>
+				<ion-input type="number" formControlName="card_number"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Vencimento do Cartão</ion-label>
+				<ion-datetime displayFormat="MM/YYYY" [min]="minCardDate" [max]="maxCardDate" cancelText="Cancelar" doneText="Selecionar" formControlName="expiry_date"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>CVV</ion-label>
+				<ion-input type="number" formControlName="cvv"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Descrição do Cartão</ion-label>
+				<ion-input type="text" formControlName="description"></ion-input>
+			</ion-item>
+		</ion-list>
+	</form>
+
+	<div margin>
+		<button ion-button rounded icon-left block color="secondary" (click)="saveCard()">
+			<ion-icon name="checkmark"></ion-icon>
+			Salvar Cartão
+		</button>
+	</div>
+</ion-content>

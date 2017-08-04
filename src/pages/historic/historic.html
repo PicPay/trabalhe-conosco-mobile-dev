@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar color="dark">
+		<ion-title class="hasIcon">
+			<img src="./assets/picpay-icon.png">
+			Histórico de Transações
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+	<div text-center padding *ngIf="!payments.payments.length">
+		<ion-icon name="logo-bitcoin" large></ion-icon>
+
+		<p><b>Whoooops! Nenhuma transação foi feita ainda.</b></p>
+	</div>
+
+	<ion-list *ngIf="payments.payments.length">
+		<ion-item *ngFor="let payment of payments.payments">
+			<ion-avatar item-start>
+				<img src="{{ payment.person.img }}">
+
+				<ion-icon name="md-checkmark" class="success" *ngIf="payment.success" item-start></ion-icon>
+				<ion-icon name="md-close" class="fail" *ngIf="!payment.success" item-start></ion-icon>
+			</ion-avatar>
+
+			<h2 *ngIf="payment.success">Transação realizada!</h2>
+			<h2 *ngIf="!payment.success">Transação não realizada!</h2>
+
+			<p text-wrap>
+				Para: {{ payment.person.name }}<br />
+				Valor: {{ utils.convertToReal(payment.value) }}<br />
+				Data: {{ dateFormated(payment.date) }}<br />
+				Cartão: {{ payment.card.description }} <i>({{ utils.lastCardDigits(payment.card.card_number) }})</i>
+			</p>
+		</ion-item>
+	</ion-list>
+</ion-content>
