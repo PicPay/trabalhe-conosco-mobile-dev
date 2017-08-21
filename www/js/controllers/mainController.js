@@ -24,8 +24,10 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
         $rootScope.myCardArray.push($rootScope.newCard);
         $rootScope.myCards = $rootScope.myCardArray;
 
-        var dataObj = $scope.paymentObj; 
+        localStorage.setItem('card', JSON.stringify($rootScope.newCard));
+        $rootScope.newCard = localStorage.getItem('card');
 
+        var dataObj = $scope.paymentObj; 
         $scope.postTransaction(dataObj);        
     }
 
