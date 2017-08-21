@@ -5,10 +5,14 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
     $scope.card = {}; 
     $rootScope.myCards = [];
 
+    //localStorage.setItem('card', JSON.stringify($rootScope.newCard));
+    //$rootScope.newCard = localStorage.getItem('card');
+
     $scope.data = $http.get("http://careers.picpay.com/tests/mobdev/users").success(function(json){
         $scope.response = json;
     });
 
+    
     $scope.getSelectedUser = function(row) {
 		selectedUser = row;
 		$rootScope.selectedUser = row;
@@ -23,9 +27,6 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
 
         $rootScope.myCardArray.push($rootScope.newCard);
         $rootScope.myCards = $rootScope.myCardArray;
-
-        localStorage.setItem('card', JSON.stringify($rootScope.newCard));
-        $rootScope.newCard = localStorage.getItem('card');
 
         var dataObj = $scope.paymentObj; 
         $scope.postTransaction(dataObj);        

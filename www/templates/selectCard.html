@@ -4,8 +4,8 @@
     <h1 class="title">SELECIONAR CARTÃO</h1>
     </div>
     <ion-content class="has-header">
-        <span class="list" ng-hide="newCard.card_number == undefined" ui-sref="resumeScreen">
-            <a class="item item-icon-left card-info" href="#" ng-click="payWithAddedCard()">
+        <span class="list" ng-hide="newCard.card_number == undefined" ng-click="payWithAddedCard()">
+            <a class="item item-icon-left card-info" href="#">
             <i class="icon ion-card"></i>
             {{newCard.card_number}}
             </a>
