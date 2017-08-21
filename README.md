@@ -1,5 +1,16 @@
 ![PicPay](https://user-images.githubusercontent.com/1765696/26998603-711fcf30-4d5c-11e7-9281-0d9eb20337ad.png)
 
+
+##Instructions
+* Download this project;
+* Install ionic ```npm install -g ionic cordova```;
+* In the root path execute ```npm install``` <br>
+(To install all dependencies);
+* Install this extension https://goo.gl/EjEKzN <br>
+(To make requests to the Api server at localhost);
+* Run ```ionic serve``` in the root path.
+
+-----
 # Teste Mobile
 
 O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
