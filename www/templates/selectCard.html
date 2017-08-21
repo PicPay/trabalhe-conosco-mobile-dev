@@ -1,22 +1,22 @@
-<ion-pane ng-controller="mainController">
+<ion-pane>
     <div class="bar bar-header bar-positive">
     <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
     <h1 class="title">SELECIONAR CARTÃO</h1>
     </div>
     <ion-content class="has-header">
-        <span class="list" ng-repeat="card in myCards">
+        <span class="list" ng-hide="newCard.card_number == undefined" ui-sref="resumeScreen">
             <a class="item item-icon-left card-info" href="#">
             <i class="icon ion-card"></i>
-            {{card.card_number}}
+            {{newCard.card_number}}
             </a>
         </span>
-        <div class="no-card" ng-show="myCards[0] === undefined">
+        <div class="no-card" ng-show="newCard.card_number === undefined">
             <div class="info-text centered">VOCÊ NÃO POSSUI CARTÃO</div>
             <div class="info-text centered">ADICIONE UM CARTÃO PARA CONTINUAR</div>
             <img class="no-card-img" src="../img/no-card.png">
         </div>
     </ion-content>
-    <div class="bar bar-footer" ng-show="myCards[0] === undefined">
+    <div class="bar bar-footer" ng-show="newCard.card_number === undefined">
     <button class="button button-full button-positive add-card-button" ui-sref="addNewCard">ADICIONAR CARTÃO</button>
     </div>
 </ion-pane>

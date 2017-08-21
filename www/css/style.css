@@ -73,3 +73,24 @@
     color: #eee;
     font-size: 1.5em;
 }
+
+.failure-proccess-container{
+    text-align: center;
+    margin-top: 12em;
+    margin-bottom: auto;
+}
+
+.failure-proccess-background{
+    background-color: #ee1528;
+}
+
+.failure-proccess{
+    height: 15em;
+    width: auto;
+    margin-top: 2em;
+}
+
+.button-fail{
+    background-color: red;
+    color: white;
+}

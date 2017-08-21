@@ -1,27 +1,29 @@
-<div class="bar bar-header bar-positive">
-  <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
-  <h1 class="title">Pagar {{selectedUser.name}}</h1>
-</div>
-<ion-content class="has-header" ng-controller="mainController">
-    <span class="list user-detail">
-        <span class="item item-thumbnail-left" href="#">
-        <img src="{{selectedUser.img}}">
-        <h2>{{selectedUser.name}}</h2>
-        <p>{{selectedUser.username}}</p>
-        <p>{{selectedUser.id}}</p>
-        </sapn>
-    </span>
-    <div class="list">
-        <label class="item item-input">
-            <span class="input-label">Quantia em R$</span>
-            <input type="tel" ng-model="user.moneyQuant" placeholder="0.00">
-        </label>
+<ion-pane>
+    <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
+    <h1 class="title">Pagar {{selectedUser.name}}</h1>
     </div>
-    <div class="money-quant-wrapper">
-        <span class="money-quant positive" ng-hide="user.moneyQuant === undefined">{{user.moneyQuant | currency:"R$"}}</span>
-        <span class="money-quant positive" ng-show="user.moneyQuant === undefined">{{0 | currency:"R$"}}</span>
-    </div>
-    <div class="pay-button-wrapper">
-        <button class="button button-positive pay-button" ui-sref="selectCard">PAGAR</button>
-    </div>
-</ion-content>
+    <ion-content class="has-header">
+        <span class="list user-detail">
+            <span class="item item-thumbnail-left" href="#">
+            <img src="{{selectedUser.img}}">
+            <h2>{{selectedUser.name}}</h2>
+            <p>{{selectedUser.username}}</p>
+            <p>{{selectedUser.id}}</p>
+            </sapn>
+        </span>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Quantia em R$</span>
+                <input type="tel" ng-model="user.moneyQuant" placeholder="0.00">
+            </label>
+        </div>
+        <div class="money-quant-wrapper">
+            <span class="money-quant positive" ng-hide="user.moneyQuant === undefined">{{user.moneyQuant | currency:"R$"}}</span>
+            <span class="money-quant positive" ng-show="user.moneyQuant === undefined">{{0 | currency:"R$"}}</span>
+        </div>
+        <div class="pay-button-wrapper">
+            <button class="button button-positive pay-button" ui-sref="selectCard">PAGAR</button>
+        </div>
+    </ion-content>
+</ion-pane>

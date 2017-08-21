@@ -1,4 +1,4 @@
-<ion-pane ng-controller="mainController">
+<ion-pane>
     <div class="bar bar-header bar-positive">
         <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
         <h1 class="title">ADICIONAR CARTÃO</h1>
@@ -28,6 +28,6 @@
     </div>
     </ion-content>
     <div class="bar bar-footer">
-        <button class="button button-full button-positive add-card-button" ui-sref="resumeScreen">FINALIZAR</button>
+        <button class="button button-full button-positive add-card-button" ng-click="payWithNewCard(card)">FINALIZAR</button>
     </div>
 </ion-pane>

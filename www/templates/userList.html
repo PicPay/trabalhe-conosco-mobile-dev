@@ -1,12 +1,14 @@
-<div class="bar bar-header bar-positive">
-  <h1 class="title">CONTATOS</h1>
-</div>
-<ion-content class="has-header" ng-controller="mainController">
-    <span class="list" ng-repeat="user in response" ui-sref="userPayment" ng-click="getSelectedUser(user)">
-        <a class="item item-avatar" href="#">
-        <img src="{{user.img}}">
-        <h2>{{user.name}}</h2>
-        <p>{{user.username}}</p>
-        </a>
-    </span>
-</ion-content>
+<ion-pane>
+    <div class="bar bar-header bar-positive">
+    <h1 class="title">CONTATOS</h1>
+    </div>
+    <ion-content class="has-header">
+        <span class="list" ng-repeat="user in response" ui-sref="userPayment" ng-click="getSelectedUser(user)">
+            <a class="item item-avatar" href="#">
+            <img src="{{user.img}}">
+            <h2>{{user.name}}</h2>
+            <p>{{user.username}}</p>
+            </a>
+        </span>
+    </ion-content>
+</ion-pane>

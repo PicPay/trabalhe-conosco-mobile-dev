@@ -4,8 +4,8 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
     
     $scope.moneyQuant;
     $scope.card = {}; 
-    $scope.paymentObj = {"card_number": 1111, "cvv": 152, "expiry_date": 158};
-    $scope.myCards = [];
+    $rootScope.myCards = [];
+
     $scope.data = $http.get("http://careers.picpay.com/tests/mobdev/users").success(function(json){
         $scope.response = json;
     });
@@ -17,22 +17,42 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
 
     $scope.payWithNewCard = function(card) { 
         var card = card;
-        $rootScope.myCards.push(card);
-        $scope.paymentObj = {"card_number": card.cardNumber, "cvv": card.cvv, "value": user.moneyQuant, "expiry_date": card.expiryDate, "destination_user_id": card.userIdManual};
-        $scope.newCard = {"card_number": card.cardNumber, "cvv": card.cvv, "expiry_date": card.expiryDate};
-        var dataObj = $scope.paymentObj;
+        $rootScope.myCardArray = [];
 
-        var res = $http.post('http://careers.picpay.com/tests/mobdev/transaction ', dataObj);
-        if(dataObj.cardNumber === '1111111111111111'){
+        $rootScope.paymentObj = {"card_number": card.cardNumber, "cvv": card.cvv, "value": card.value, "expiry_date": card.expiryDate, "destination_user_id": card.userIdManual};
+        $rootScope.newCard = {"card_number": card.cardNumber, "cvv": card.cvv, "expiry_date": card.expiryDate};
+
+        $rootScope.myCardArray.push($rootScope.newCard);
+        $rootScope.myCards = $rootScope.myCardArray;
+
+        var dataObj = $scope.paymentObj; 
+
+        $scope.postTransaction(dataObj);        
+    }
+
+    $scope.payWithAddedCard = function(card){
+        var card = card;
+        $rootScope.cardTransaction =  {"card_number": $rootScope.newCard.card_number, "cvv": $rootScope.newCard.cvv, "value": $rootScope.user.value, "expiry_date": $rootScope.newCard.expiryDate, "destination_user_id": $scope.selectedUser.id};
+    }
+
+    $scope.postTransaction = function(dataObj){
+        var res = $http.post('http://careers.picpay.com/tests/mobdev/transaction', dataObj);
+        if(dataObj.card_number == '1111111111111111'){
             res.success(function(data, status, headers, config) {
                 $scope.message = data;
-                console.log("Transação efetivada! " + $scope.message);
+                console.log(status, $scope.message);
+                $state.go('resumeScreen');
             });
-        }
-        else {
-            res.error(function(data, status, headers, config) {
+            res.error(function(data, status, headers, config){
                 alert( "Erro de transação: " + JSON.stringify({data: data}));
-            });	
+                $scope.message = data;
+                console.log(status, $scope.message);
+                $state.go('failScreen');
+            });	  
+        }else{
+            $state.go('failScreen');
         }
     }
+
+
 });
