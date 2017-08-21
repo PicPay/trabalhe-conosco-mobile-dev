@@ -2,7 +2,6 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
     window.scope = $scope;
     window.root = $rootScope;
     
-    $scope.moneyQuant;
     $scope.card = {}; 
     $rootScope.myCards = [];
 
@@ -30,9 +29,10 @@ app.controller('mainController', function($http, $scope, $rootScope, $state, $io
         $scope.postTransaction(dataObj);        
     }
 
-    $scope.payWithAddedCard = function(card){
-        var card = card;
-        $rootScope.cardTransaction =  {"card_number": $rootScope.newCard.card_number, "cvv": $rootScope.newCard.cvv, "value": $rootScope.user.value, "expiry_date": $rootScope.newCard.expiryDate, "destination_user_id": $scope.selectedUser.id};
+    $scope.payWithAddedCard = function(){
+        $rootScope.cardTransaction =  {"card_number": $rootScope.newCard.card_number, "cvv": $rootScope.newCard.cvv, "value": $scope.selectedUser.moneyQuant, "expiry_date": $rootScope.newCard.expiry_date, "destination_user_id": $scope.selectedUser.id};
+        var dataObj = $rootScope.cardTransaction; 
+        $scope.postTransaction(dataObj);   
     }
 
     $scope.postTransaction = function(dataObj){

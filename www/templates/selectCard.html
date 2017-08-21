@@ -5,7 +5,7 @@
     </div>
     <ion-content class="has-header">
         <span class="list" ng-hide="newCard.card_number == undefined" ui-sref="resumeScreen">
-            <a class="item item-icon-left card-info" href="#">
+            <a class="item item-icon-left card-info" href="#" ng-click="payWithAddedCard()">
             <i class="icon ion-card"></i>
             {{newCard.card_number}}
             </a>
@@ -16,7 +16,7 @@
             <img class="no-card-img" src="../img/no-card.png">
         </div>
     </ion-content>
-    <div class="bar bar-footer" ng-show="newCard.card_number === undefined">
+    <div class="bar bar-footer">
     <button class="button button-full button-positive add-card-button" ui-sref="addNewCard">ADICIONAR CARTÃO</button>
     </div>
 </ion-pane>

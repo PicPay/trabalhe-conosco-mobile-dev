@@ -15,13 +15,13 @@
         <div class="list">
             <label class="item item-input">
                 <span class="input-label">Quantia em R$</span>
-                <input type="tel" ng-model="user.moneyQuant" placeholder="0.00">
+                <input type="tel" ng-model="selectedUser.moneyQuant" placeholder="0.00"></input>
             </label>
         </div>
-        <div class="money-quant-wrapper">
-            <span class="money-quant positive" ng-hide="user.moneyQuant === undefined">{{user.moneyQuant | currency:"R$"}}</span>
-            <span class="money-quant positive" ng-show="user.moneyQuant === undefined">{{0 | currency:"R$"}}</span>
-        </div>
+        <!--div class="money-quant-wrapper">
+            <span class="money-quant positive" ng-hide="moneyQuant === undefined" ng-bind="selectedUser.moneyQuant">{{selectedUser.moneyQuant | currency:"R$"}}</span>
+            <span class="money-quant positive" ng-show="moneyQuant === undefined">{{0 | currency:"R$"}}</span>
+        </div-->
         <div class="pay-button-wrapper">
             <button class="button button-positive pay-button" ui-sref="selectCard">PAGAR</button>
         </div>
