@@ -1,7 +1,7 @@
 ![PicPay](https://user-images.githubusercontent.com/1765696/26998603-711fcf30-4d5c-11e7-9281-0d9eb20337ad.png)
 
 
-##Instructions
+# Instructions
 * Download this project;
 * Install ionic ```npm install -g ionic cordova```;
 * In the root path execute ```npm install``` <br>
