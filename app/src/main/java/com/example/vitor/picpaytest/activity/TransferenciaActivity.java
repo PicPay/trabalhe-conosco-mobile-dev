@@ -111,12 +111,30 @@ public class TransferenciaActivity extends AppCompatActivity {
                         pagamento.setExpiry_date(cartoes.get(indice).getVencimento());
                         pagamento.setDestination_user_id(usuario.getId());
 
-                        Gson gson = new Gson();
-                        String json;
-                        json = gson.toJson(pagamento);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                        builder.setTitle("Confirmar Pagamento");
+                        builder.setMessage("Confirme os dados\nPara: " + usuario.getUsername() + "\nValor: " + pagamento.getValue() + "\nCartão: " + pagamento.getCard_number());
+                        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                        EnviaPagamento pagamento = new EnviaPagamento(TransferenciaActivity.this);
-                        pagamento.execute();
+
+                                Gson gson = new Gson();
+                                String json;
+                                json = gson.toJson(pagamento);
+
+                                EnviaPagamento pagamento = new EnviaPagamento(TransferenciaActivity.this);
+                                pagamento.execute();
+                            }
+                        });
+                        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                return;
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
 
                     }
                 }else{
@@ -265,7 +283,6 @@ public class TransferenciaActivity extends AppCompatActivity {
                                     byte[] byteArray;
                                     byteArray = stream.toByteArray();
                                     db.salvaHistorico(pagamento.getValue(), usuario.getUsername(), pagamento.getCard_number(), byteArray);
-                                    Log.e("TESTE", "SALVOU");
                                 }finally {
                                     db.close();
                                 }

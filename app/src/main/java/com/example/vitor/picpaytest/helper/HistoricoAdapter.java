@@ -63,7 +63,7 @@ public class HistoricoAdapter extends BaseAdapter {
         img.setImageBitmap(bitmap);
 
         username.setText(historico.getUsername());
-        valor.setText("Valor; R$" + String.valueOf(historico.getValue()));
+        valor.setText("Valor: R$" + String.valueOf(historico.getValue()));
         cartao.setText("Cartão: " + historico.getCartao());
 
         return view;
