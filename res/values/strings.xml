@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PicPay</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Sincronizar</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="title_activity_sync">SyncActivity</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="add_cart">Salvar Dados do Cartão</string>
+    <string name="action_example">Example action</string>
+    <string name="transaction">Adicionar Transação</string>
+    
+    <string name="valid_till">VALID TILL</string>
+    <string name="card_number_hint">ENTER CARD NUMBER</string>
+    <string name="expiry_date_hint">MM/YY</string>
+    <string name="card_name_hint">ENTER CARD NAME</string>
+    <string name="card_logo">Card Logo</string>
+    <string name="brand_logo">Brand Logo</string>
+    <string name="chip_visible">Chip Visible</string>
+    <string name="authorized_signature">Authorized Signature</string>
+    <string name="cvv_hint">CVV</string>
+    <string name="cart_hint">Número do Cartão</string>
+    <string name="ven_hint">MM/YY</string>
+    <string name="ultimas_trans">Últimas transações realizadas</string>
+    <string name="valor">Valor:</string>
+    <string name="timestamp">Timestamp:</string>
+    <string name="id_trans">Transação ID:</string>
+    
+    <string name="font_path">fonts/halter.ttf</string>
+
+</resources>
+

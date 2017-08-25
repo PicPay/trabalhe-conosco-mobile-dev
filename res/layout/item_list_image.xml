@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingTop="2dip"
+    android:paddingBottom="0dip"
+    android:orientation="horizontal"
+    android:background="@drawable/botao_bg">
+ 
+     <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/hello_world"/>
+         
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="2dip"
+        android:paddingEnd="1dip"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tvDES"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:gravity="start"/>
+        
+        <TextView
+            android:id="@+id/tvCOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:textColor="@color/gray"
+            android:textSize="13sp"
+            android:gravity="start"/>
+        
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" 
+        android:paddingTop="5dip">
+
+         	<TextView
+            android:id="@+id/tvDES2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:gravity="start"/>
+         	
+         	<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="end|center_vertical"
+	         >
+	        	<TextView
+	            android:id="@+id/tvVAL"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:textColor="@android:color/white"
+	            android:gravity="end"
+	            android:paddingEnd="3sp"
+	            android:paddingStart="0sp"
+	            android:textSize="14sp"/>
+    		</LinearLayout>
+    	</LinearLayout>
+    </LinearLayout>
+</LinearLayout>
