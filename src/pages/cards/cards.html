@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar color="dark">
+		<ion-title class="hasIcon">
+			<img src="./assets/picpay-icon.png">
+			Meus Cartões
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+	<div text-center padding *ngIf="!userCards.cards.length">
+		<h1><ion-icon name="card" large></ion-icon></h1>
+
+		<p><b>Whoooops! Sem nenhum cartão adicionado.</b></p>
+
+		<div padding>
+			<button ion-button outline color="secondary" block small icon-left (click)="addCart()">
+				<ion-icon name="add-circle"></ion-icon>
+				Adicionar seu primeiro cartão!
+			</button>
+		</div>
+	</div>
+
+	<ion-list *ngIf="userCards.cards.length">
+		<ion-item color="primary" (click)="addCart()">
+			<ion-icon name="add" item-start></ion-icon>
+			<h2 text-wrap>Adicionar um cartão!</h2>
+		</ion-item>
+
+		<ion-item *ngFor="let card of userCards.cards">
+			<!--<ion-avatar item-start>
+				<img src="">
+			</ion-avatar>-->
+
+			<h2>{{ card.description }}</h2>
+			<p>Ultimos Dígitos: {{ utils.lastCardDigits(card.card_number) }}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-title>Realizar Transação</ion-title>
+
+		<ion-buttons start>
+			<button ion-button (click)="viewCtrl.dismiss()">
+				<span ion-text color="primary" showWhen="ios">Cancelar</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+	<form [formGroup]="paymentForm" (ngSubmit)="makePayment()">
+		<ion-list>
+			<ion-item>
+				<ion-avatar item-start>
+					<img src="{{ user.img }}">
+				</ion-avatar>
+
+				<h2>Transferindo para: </h2>
+				<p>{{ user.name }}</p>
+				<p>{{ user.username }}</p>
+			</ion-item>
+
+			<ion-item margin-top>
+				<ion-label floating>Escolher Cartão</ion-label>
+				<ion-select interface="popover" formControlName="card">
+					<ion-option *ngFor="let card of userCards.cards" [value]="card">
+						{{ card.description }} 
+						(Final: {{ utils.lastCardDigits(card.card_number) }})
+					</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Valor</ion-label>
+				<ion-input type="number" formControlName="value" placeholder="R$ 0,00"></ion-input>
+			</ion-item>
+		</ion-list>
+	</form>
+
+	<div margin>
+		<button ion-button rounded icon-left block color="secondary" (click)="makePayment()">
+			<ion-icon name="checkmark"></ion-icon>
+			Transferir Valor
+		</button>
+	</div>
+</ion-content>

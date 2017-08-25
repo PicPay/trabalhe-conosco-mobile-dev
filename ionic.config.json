@@ -1,0 +1,9 @@
+{
+  "name": "PicPayMobileTest",
+  "app_id": "",
+  "type": "ionic-angular",
+  "proxies": {
+  	"path": "*",
+  	"proxyUrl": "http://careers.picpay.com/tests/mobdev/"
+  }
+}

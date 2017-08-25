@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title></title>
+
+		<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style>
+			html {
+				min-height: 100%;
+			}
+
+			body {
+				height: 100%;
+				margin: 0;
+
+				background: #DCE35B;  /* fallback for old browsers */
+				background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			}
+
+			iframe {
+				margin-top: 60px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<iframe src="../www/index.html" style="width: 420px; height: 768px"></iframe>
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Includes JS -->
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">				
+			$('iframe').on('load', function() {
+				console.log("iframe carreogu");
+
+				$(this).contents().find("body").append(jQuery("<style> .overflow-scroll{overflow-y: auto; } .overflow-scroll::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: #F5F5F5;}.overflow-scroll::-webkit-scrollbar{width: 6px;background-color: #F5F5F5;}.overflow-scroll::-webkit-scrollbar-thumb{background-color: rgba(4, 4, 4, 0.14); } </style>"));
+			});
+		</script>
+	</body>
+</html>
+
+
+

@@ -1,0 +1,43 @@
+<ion-header>
+	<ion-navbar color="dark">
+		<ion-title class="hasIcon">
+			<img src="./assets/picpay-icon.png">
+			Fazer Pagamentos
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+	<ion-refresher (ionRefresh)="syncUsers($event)">
+		<ion-refresher-content
+			pullingText="Puxe para atualizar os usuários"
+			refreshingText="Atualizando..."></ion-refresher-content>
+	</ion-refresher>
+
+	<div text-center padding *ngIf="!usersData.users.length">
+		<ion-icon name="md-contacts" large></ion-icon>
+
+		<p><b>Whoooops! Os contatos ainda não foram carregados.</b></p>
+
+		<p margin-top margin-bottom>
+			Para carregar os contatos basta puxar está página para baixo.
+		</p>
+	</div>
+
+	<ion-list *ngIf="usersData.users.length">
+		<ion-item color="primary">
+			<ion-icon name="hand" item-start></ion-icon>
+			<h2 text-wrap>Toque no usuário para fazer um pagamento!</h2>
+		</ion-item>
+
+		<ion-item *ngFor="let user of usersData.users" (click)="makePayment(user)">
+			<ion-avatar item-start>
+				<img src="{{ user.img }}">
+			</ion-avatar>
+
+			<h2>{{ user.name }}</h2>
+			<p>Usuário: {{ user.username }}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>
