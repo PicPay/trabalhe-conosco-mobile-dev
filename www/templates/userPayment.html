@@ -1,0 +1,29 @@
+<ion-pane>
+    <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
+    <h1 class="title">Pagar {{selectedUser.name}}</h1>
+    </div>
+    <ion-content class="has-header">
+        <span class="list user-detail">
+            <span class="item item-thumbnail-left" href="#">
+            <img src="{{selectedUser.img}}">
+            <h2>{{selectedUser.name}}</h2>
+            <p>{{selectedUser.username}}</p>
+            <p>{{selectedUser.id}}</p>
+            </sapn>
+        </span>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Quantia em R$</span>
+                <input type="tel" ng-model="selectedUser.moneyQuant" placeholder="0.00"></input>
+            </label>
+        </div>
+        <!--div class="money-quant-wrapper">
+            <span class="money-quant positive" ng-hide="moneyQuant === undefined" ng-bind="selectedUser.moneyQuant">{{selectedUser.moneyQuant | currency:"R$"}}</span>
+            <span class="money-quant positive" ng-show="moneyQuant === undefined">{{0 | currency:"R$"}}</span>
+        </div-->
+        <div class="pay-button-wrapper">
+            <button class="button button-positive pay-button" ui-sref="selectCard">PAGAR</button>
+        </div>
+    </ion-content>
+</ion-pane>

@@ -1,0 +1,33 @@
+<ion-pane>
+    <div class="bar bar-header bar-positive">
+        <button class="button button-icon icon ion-ios-arrow-left" ui-sref="userList"></button>
+        <h1 class="title">ADICIONAR CARTÃO</h1>
+    </div>
+    <ion-content class="has-header">
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Número</span>
+            <input type="tel" placeholder="1231231231231231" ng-model="card.cardNumber"  clean="false" validate="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Validade</span>
+            <input type="tel" placeholder="05/2050" mask="19/9999"  ng-model="card.expiryDate"  clean="false" validate="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Cod. Verificador</span>
+            <input type="text" placeholder="123" ng-model="card.cvv"  clean="false" validate="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Usuário de destino (ID)</span>
+            <input type="text" placeholder="0000" ng-model="card.userIdManual"  clean="false" validate="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Valor (R$)</span>
+            <input type="text" placeholder="R$ 00.00" ng-model="card.value"  clean="false" validate="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </label>
+    </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-full button-positive add-card-button" ng-click="payWithNewCard(card)">FINALIZAR</button>
+    </div>
+</ion-pane>

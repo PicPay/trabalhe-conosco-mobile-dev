@@ -1,0 +1,96 @@
+.centered {
+    text-align: center;
+}
+
+.info-text {
+    padding-left: 0.5em;
+    color: #747678;
+}
+
+.pay-button-wrapper{
+    text-align: center;
+}
+
+.pay-button{
+    width: 90%;
+}
+
+.money-quant-wrapper{
+    text-align: center;
+    height: 3em;
+    margin-top: 2em;
+}
+
+.money-quant{
+    font-size: 2em;
+}
+
+.input-label, .ion-card, .card-info{
+    color: #747678;
+}
+
+.no-card{
+    text-align: center;
+    margin-top: 12em;
+    margin-bottom: auto;
+}
+
+.no-card-img{
+    height: 6em;
+    width: auto;
+    margin-top: 2em;
+}
+
+.bar-footer {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.add-card-button{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.end-proccess{
+    height: 15em;
+    width: auto;
+    margin-top: 2em;
+}
+
+.end-proccess-container{
+    text-align: center;
+    margin-top: 12em;
+    margin-bottom: auto;
+}
+
+.end-proccess-background {
+    background-color: #21c25e;
+}
+
+.info-text-proccess{
+    color: #eee;
+    font-size: 1.5em;
+}
+
+.failure-proccess-container{
+    text-align: center;
+    margin-top: 12em;
+    margin-bottom: auto;
+}
+
+.failure-proccess-background{
+    background-color: #ee1528;
+}
+
+.failure-proccess{
+    height: 15em;
+    width: auto;
+    margin-top: 2em;
+}
+
+.button-fail{
+    background-color: red;
+    color: white;
+}

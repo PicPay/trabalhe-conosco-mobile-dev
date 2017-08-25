@@ -1,0 +1,101 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ngCordova' ]
+2 info using npm@2.15.9
+3 info using node@v4.6.1
+4 verbose install initial load of C:\Dev\testePicPay\package.json
+5 warn package.json testepicpay@1.1.1 No repository field.
+6 warn package.json testepicpay@1.1.1 No README data
+7 warn package.json testepicpay@1.1.1 No license field.
+8 verbose installManyTop reading scoped package data from C:\Dev\testePicPay\node_modules\angular\package.json
+9 verbose installManyTop reading scoped package data from C:\Dev\testePicPay\node_modules\angular-ui-router\package.json
+10 verbose readDependencies loading dependencies from C:\Dev\testePicPay\package.json
+11 silly cache add args [ 'ngCordova', null ]
+12 verbose cache add spec ngCordova
+13 silly cache add parsed spec Result {
+13 silly cache add   raw: 'ngCordova',
+13 silly cache add   scope: null,
+13 silly cache add   name: 'ngCordova',
+13 silly cache add   rawSpec: '',
+13 silly cache add   spec: 'latest',
+13 silly cache add   type: 'tag' }
+14 silly addNamed ngCordova@latest
+15 verbose addNamed "latest" is being treated as a dist-tag for ngCordova
+16 info addNameTag [ 'ngCordova', 'latest' ]
+17 silly mapToRegistry name ngCordova
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry data Result {
+20 silly mapToRegistry   raw: 'ngCordova',
+20 silly mapToRegistry   scope: null,
+20 silly mapToRegistry   name: 'ngCordova',
+20 silly mapToRegistry   rawSpec: '',
+20 silly mapToRegistry   spec: 'latest',
+20 silly mapToRegistry   type: 'tag' }
+21 silly mapToRegistry uri https://registry.npmjs.org/ngCordova
+22 verbose addNameTag registry:https://registry.npmjs.org/ngCordova not in flight; fetching
+23 verbose request uri https://registry.npmjs.org/ngCordova
+24 verbose request no auth needed
+25 info attempt registry request try #1 at 23:42:28
+26 verbose request id fbd0ac792d33acef
+27 http request GET https://registry.npmjs.org/ngCordova
+28 http 404 https://registry.npmjs.org/ngCordova
+29 verbose headers { 'content-type': 'application/json',
+29 verbose headers   'cache-control': 'max-age=0',
+29 verbose headers   'content-length': '2',
+29 verbose headers   'accept-ranges': 'bytes',
+29 verbose headers   date: 'Fri, 18 Aug 2017 02:42:29 GMT',
+29 verbose headers   via: '1.1 varnish',
+29 verbose headers   age: '0',
+29 verbose headers   connection: 'keep-alive',
+29 verbose headers   'x-served-by': 'cache-gig17022-GIG',
+29 verbose headers   'x-cache': 'MISS',
+29 verbose headers   'x-cache-hits': '0',
+29 verbose headers   'x-timer': 'S1503024148.472304,VS0,VE734',
+29 verbose headers   vary: 'Accept-Encoding' }
+30 silly get cb [ 404,
+30 silly get   { 'content-type': 'application/json',
+30 silly get     'cache-control': 'max-age=0',
+30 silly get     'content-length': '2',
+30 silly get     'accept-ranges': 'bytes',
+30 silly get     date: 'Fri, 18 Aug 2017 02:42:29 GMT',
+30 silly get     via: '1.1 varnish',
+30 silly get     age: '0',
+30 silly get     connection: 'keep-alive',
+30 silly get     'x-served-by': 'cache-gig17022-GIG',
+30 silly get     'x-cache': 'MISS',
+30 silly get     'x-cache-hits': '0',
+30 silly get     'x-timer': 'S1503024148.472304,VS0,VE734',
+30 silly get     vary: 'Accept-Encoding' } ]
+31 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/ngCordova
+31 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+31 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+31 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+31 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+31 verbose stack     at emitTwo (events.js:87:13)
+31 verbose stack     at Request.emit (events.js:172:7)
+31 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+31 verbose stack     at emitOne (events.js:82:20)
+31 verbose stack     at Request.emit (events.js:169:7)
+31 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12)
+32 verbose statusCode 404
+33 verbose pkgid ngCordova
+34 verbose cwd C:\Dev\testePicPay\www\lib
+35 error Windows_NT 10.0.15063
+36 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ngCordova"
+37 error node v4.6.1
+38 error npm  v2.15.9
+39 error code E404
+40 error 404 Registry returned 404 for GET on https://registry.npmjs.org/ngCordova
+40 error 404
+40 error 404 'ngCordova' is not in the npm registry.
+40 error 404 Your package name is not valid, because
+40 error 404
+40 error 404  1. name can no longer contain capital letters
+40 error 404 It was specified as a dependency of 'testepicpay'
+40 error 404
+40 error 404 Note that you can also install from a
+40 error 404 tarball, folder, http url, or git url.
+41 verbose exit [ 1, true ]
