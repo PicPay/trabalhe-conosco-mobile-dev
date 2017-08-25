@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PicpayMobileDev</string>
+    <string name="no_results">Desculpe, nenhum amigo encontrado.</string>
+
+    <string name="selecione_transferencia"><![CDATA[Escolha para quem você quer fazer uma transferência.]]></string>
+    <string name="valor_transf"><![CDATA[Insira o valor da transferência.]]></string>
+    <string name="dados_cartao"><![CDATA[Para continuarmos. Informe rapidamente os dados abaixo.]]></string>
+
+    <string name="num_cartao"><![CDATA[Número do cartão:]]></string>
+    <string name="validade"><![CDATA[Data de validade:]]></string>
+    <string name="num_cvv"><![CDATA[CVV:]]></string>
+
+    <string name="finaliza_transferencia">Finalizar transferência</string>
+    <string name="finaliza_transferencia_cartao_cadastrado">Você confirma a transferência?</string>
+    <string name="finaliza_cartao_final">Tranferir com cartão de final - </string>
+    <string name="remover_cartao">Remover cartão - </string>
+    <string name="transferencia_sucesso">Sua transferência de R$</string>
+    <string name="transferencia_sucesso_para">foi realizada para:</string>
+</resources>

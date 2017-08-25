@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lacourt.picpay.picpaymobiledev.RegisterCard">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/layout_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:text="@string/valor_transf"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/ed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="Ex.: 100.00"
+                android:textColor="#3ec159"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:inputType="numberDecimal|numberSigned"/>
+
+            <Button
+                android:id="@+id/btn_value_ok"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/button_background"
+                android:text="Ok!"
+                android:textSize="13dp"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_horizontal"
+                android:text="@string/dados_cartao"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_card_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/num_cartao"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/ed_card_number"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="0000 0000 0000 0000"
+                android:maxLength="19"
+                android:textAlignment="center"
+                android:textColor="#191919"
+                android:textSize="17dp"
+                android:inputType="phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/num_cvv"
+                android:textSize="15dp"/>
+
+            <EditText
+                android:id="@+id/ed_cvv"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="#191919"
+                android:hint="000"
+                android:maxLength="3"
+                android:textSize="17dp"
+                android:inputType="phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/validade"
+                android:textSize="15dp"/>
+            <com.github.pinball83.maskededittext.MaskedEditText
+                android:id="@+id/ed_expiry_date"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="#191919"
+                android:textSize="17dp"
+                android:hint="00/00/0000"
+                android:inputType="phone"
+                app:mask="**/**/****"
+                app:notMaskedSymbol="*"
+                />
+            <Button
+                android:id="@+id/btn_card_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/button_background"
+                android:text="@string/finaliza_transferencia"
+                android:textSize="13dp"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_card_registered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="@string/finaliza_transferencia_cartao_cadastrado"
+                android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/btn_finish_card_registered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="No Text Error"
+                    android:textSize="13dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_background" />
+                <Button
+                    android:id="@+id/btn_remove_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="No Text Error"
+                    android:textSize="13dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_background" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_succes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/txt_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:text="No Value Error"
+                android:textSize="20dp" />
+            <com.lacourt.picpay.picpaymobiledev.RoundedImageView
+                android:id="@+id/img_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/txt_name_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="35dp"
+                android:layout_marginTop="10dp"
+                android:text="Error No Name"
+                android:textStyle="bold"
+                android:textSize="15dp" />
+            <Button
+                android:id="@+id/btn_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Ok"
+                android:textSize="13dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_background" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+
+</RelativeLayout>
