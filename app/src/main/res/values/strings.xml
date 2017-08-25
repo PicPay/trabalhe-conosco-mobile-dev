@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PicPay Project</string>
+    <string name="cadastrese">Não possui conta? Cadastre-se</string>
+    <string name="enviar">Enviar</string>
+    <string name="title_activity_teste">teste</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="item_addcard">Adicionar Cartão</string>
+    <string name="item_sair">Sair</string>
+    <string name="valor">Valor: R$</string>
+    <string name="selectcard">Selecione o cartão: </string>
+</resources>
