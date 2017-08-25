@@ -18,6 +18,18 @@ allprojects {
     }
 }
 
+ext {
+    applicationId = "br.com.dalcim.picpay"
+
+    minSdk = 16
+    sdk = 25
+    buildTools = "25.0.2"
+    supportVersion = "25.3.1"
+
+    butterKnifeVersion = "8.8.1"
+    retrofitVersion = "2.3.0"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
