@@ -5,4 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".users.UsersActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/users_rec_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 </RelativeLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PicPay</string>
+
+    <!-- MENSAGENS DE ERRO -->
+    <string name="unexpected_error">Erro Inesperado</string>
+    <string name="load">Carregando...</string>
 </resources>

@@ -1,5 +1,6 @@
 package br.com.dalcim.picpay.users;
 
+import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 
 /**
@@ -14,5 +15,13 @@ public class UsersPresenter implements UsersContract.Presenter {
     public UsersPresenter(UsersContract.View view, RepositoryRemote repositoryRemote) {
         this.view = view;
         this.repositoryRemote = repositoryRemote;
+    }
+
+    @Override
+    public void getUsers() {
+    }
+
+    @Override
+    public void userSelected(User user) {
     }
 }
