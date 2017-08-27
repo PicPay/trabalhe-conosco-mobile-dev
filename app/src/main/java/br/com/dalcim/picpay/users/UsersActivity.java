@@ -8,6 +8,7 @@ import java.util.List;
 
 import br.com.dalcim.picpay.BaseActivity;
 import br.com.dalcim.picpay.R;
+import br.com.dalcim.picpay.adapter.UserAdapter;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
 import butterknife.BindView;
@@ -32,22 +33,36 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
 
         recUsers.setLayoutManager(new LinearLayoutManager(this));
         presenter = new UsersPresenter(this, new RepositoryRemoteImpl());
+        presenter.getUsers();
     }
 
     @Override
     public void loadUsers(List<User> users) {
+        recUsers.setAdapter(new UserAdapter(recUsers, users, new UserAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(User user) {
+                presenter.userSelected(user);
+            }
+        }));
     }
 
     @Override
     public void setLoadingIndicator(boolean active) {
+        if(active){
+            this.showLoadDialog();
+        }else{
+            this.hideLoadDialog();
+        }
     }
 
     @Override
     public void showNoUsers() {
+        //TODO
     }
 
     @Override
     public void showFailureLoadUsers(String failure) {
+        //TODO
     }
 
     @Override
