@@ -1,8 +1,11 @@
 package com.lacourt.picpay.picpaymobiledev;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +29,8 @@ public class TransferActivity extends AppCompatActivity implements LoaderManager
     private TextView emptyStateTextView;
     private ProgressBar progressBar;
 
+    LoaderManager loaderManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +41,9 @@ public class TransferActivity extends AppCompatActivity implements LoaderManager
         usersListView = (ListView)findViewById(R.id.list);
         usersListView.setEmptyView(emptyStateTextView);
 
-        LoaderManager loaderManager = getLoaderManager();
-        loaderManager.initLoader(LOADER_ID, null, this);
+        checkInternetConnection();
+//        LoaderManager loaderManager = getLoaderManager();
+//        loaderManager.initLoader(LOADER_ID, null, this);
 
         usersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -52,6 +58,8 @@ public class TransferActivity extends AppCompatActivity implements LoaderManager
 
     @Override
     public Loader<List<User>> onCreateLoader(int id, Bundle args) {
+
+
         return new UserLoader(this, REQUEST_URL);
     }
 
@@ -79,6 +87,26 @@ public class TransferActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onLoaderReset(Loader<List<User>> loader) {
         adapter.clear();
+    }
+
+    private void checkInternetConnection(){
+        ConnectivityManager cm =
+                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        if(isConnected) {
+
+            loaderManager = getLoaderManager();
+            loaderManager.initLoader(LOADER_ID, null, this);
+
+        } else {
+
+            progressBar.setVisibility(View.GONE);
+            emptyStateTextView.setText("Sem conexão com a internet.");
+        }
     }
 
     private void updateUi(List<User> users){
