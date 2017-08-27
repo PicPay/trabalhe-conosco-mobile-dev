@@ -1,7 +1,7 @@
 package com.ghrc.picpay.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 
@@ -20,5 +20,6 @@ public class RegisterCardActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Adicionando Cartão");
         EditText edtNumberCard = (EditText) findViewById(R.id.edt_numbercard);
         edtNumberCard.addTextChangedListener(new CreditCardNumberFormattingTextWatcher());
+        final EditText edtExpiryDate = (EditText) findViewById(R.id.edt_expiry);
     }
 }

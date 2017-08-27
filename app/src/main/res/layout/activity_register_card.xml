@@ -66,6 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
+                        android:maxLength="5"
                         android:inputType="number"
                         android:hint="@string/month_year_expiration"/>
                 </android.support.design.widget.TextInputLayout>
