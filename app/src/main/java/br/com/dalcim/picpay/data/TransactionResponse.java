@@ -1,9 +1,9 @@
 package br.com.dalcim.picpay.data;
 
 /**
- * Created by Wiliam on 25/08/2017.
+ * @author Wiliam
+ * @since 25/08/2017
  */
-
 public class TransactionResponse {
     private Transaction transaction;
 

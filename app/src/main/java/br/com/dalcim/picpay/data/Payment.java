@@ -3,9 +3,9 @@ package br.com.dalcim.picpay.data;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Wiliam on 25/08/2017.
+ * @author Wiliam
+ * @since 25/08/2017
  */
-
 public class Payment {
     @SerializedName("card_number")
     private String cardNumber;

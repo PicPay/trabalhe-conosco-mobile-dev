@@ -12,9 +12,9 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
- * Created by Wiliam on 25/08/2017.
+ * @author Wiliam
+ * @since 25/08/2017
  */
-
 public interface MobDevService {
     @GET("users")
     Call<List<User>> getUsers();
