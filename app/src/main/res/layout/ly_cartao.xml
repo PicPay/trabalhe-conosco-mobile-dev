@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edittext_numero_cartao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número do cartão"
+        android:inputType="number"
+        android:maxLength="16" />
+
+    <EditText
+        android:id="@+id/edittext_cvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CVV"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <EditText
+        android:id="@+id/data_expiracao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data Expiração MM/YYYY"
+        android:inputType="date"
+        android:maxLength="10" />
+
+</LinearLayout>

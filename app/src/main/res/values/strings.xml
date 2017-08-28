@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PicPayChallenge</string>
+    <string name="search_title">Pesquisar</string>
+    <string name="title_activity_cartao">CartaoActivity</string>
+</resources>
