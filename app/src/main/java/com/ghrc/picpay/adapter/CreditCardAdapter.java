@@ -32,8 +32,8 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.tvNumber.setText(mListCard.get(position).getCard_number());
-        holder.tvExpiryDate.setText(mListCard.get(position).getExpiry_date());
+        holder.tvNumber.setText("XXXX XXXX XXXX "+mListCard.get(position).getCard_number().substring(mListCard.get(position).getCard_number().length() -4));
+        holder.tvExpiryDate.setText("Validade " +mListCard.get(position).getExpiry_date());
     }
 
     @Override

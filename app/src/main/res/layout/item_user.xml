@@ -49,7 +49,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/button"
+            android:background="@drawable/button_list"
             android:ellipsize="end"
             android:fontFamily="Arial"
             android:gravity="center"

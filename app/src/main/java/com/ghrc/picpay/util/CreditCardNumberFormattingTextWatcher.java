@@ -29,7 +29,6 @@ public class CreditCardNumberFormattingTextWatcher implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         if (mSelfChange || !mFormattingEnabled) return;
-        // If user enters non-digit characters, do not format.
         if (count > 0 && hasDashOrSpace(s, start, count)) {
             mFormattingEnabled = false;
         }
@@ -38,7 +37,6 @@ public class CreditCardNumberFormattingTextWatcher implements TextWatcher {
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         if (mSelfChange || !mFormattingEnabled) return;
-        // If user deletes non-digit characters, do not format.
         if (count > 0 && hasDashOrSpace(s, start, count)) {
             mFormattingEnabled = false;
         }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.ghrc.picpay.R;
 import com.ghrc.picpay.activity.RegisterCardActivity;
@@ -46,6 +47,9 @@ public class CreditCardFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(llm);
         mListCreditCard = bd.getCards();
+        if(mListCreditCard.size() > 0){
+            ((TextView) view.findViewById(R.id.txtNoCard)).setVisibility(View.GONE);
+        }
         CreditCardAdapter adapter = new CreditCardAdapter(getContext(),mListCreditCard);
         mRecyclerView.setAdapter(adapter);
         Button button = (Button) view.findViewById(R.id.btnAddCard);

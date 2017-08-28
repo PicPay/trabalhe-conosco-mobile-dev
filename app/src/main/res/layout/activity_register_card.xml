@@ -36,9 +36,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:inputType="number"
                     android:maxLength="19"
-                    android:hint="@string/number_card"/>
+                    android:digits="0123456789 "
+                    android:inputType="number"
+                    android:hint="@string/number_card"
+                   />
             </android.support.design.widget.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,11 +69,25 @@
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
                         android:maxLength="5"
+                        android:digits="0123456789/"
                         android:inputType="number"
                         android:hint="@string/month_year_expiration"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
-
+            <Button
+                style="?android:buttonBarButtonStyle"
+                android:textColor="@android:color/white"
+                android:background="@drawable/riple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registar Cartão"
+                android:id="@+id/btnRegisterCard"
+                android:textStyle="bold"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
