@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/tmontovaneli/AndroidStudioProjects/PicPayChallenge/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/tmontovaneli/AndroidStudioProjects/PicPayChallenge/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b18b9bae35da3c2091381980bfa791411c3b8102/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tmontovaneli/AndroidStudioProjects/PicPayChallenge/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="ec22fa21f337c128cae7b4b0d50ecf4fc492615d">
+        <dex dex="/Users/tmontovaneli/AndroidStudioProjects/PicPayChallenge/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d08b517bf666e8e20216a13fc20e5d259f042f3c/classes.dex" />
+    </item>
+
+</items>
