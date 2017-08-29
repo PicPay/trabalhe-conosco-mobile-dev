@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Guilherme on 25/08/2017.
+ * Created by Guilherme on 27/08/2017.
  */
 
 public class User implements Parcelable {

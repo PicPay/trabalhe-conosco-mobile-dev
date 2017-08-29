@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,13 +21,14 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Guilherme on 26/08/2017.
+ * Created by Guilherme on 27/08/2017.
  */
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> implements Filterable {
 
     private Context context;
     private ArrayList<User> mListUser;
+    private ArrayList<User> mFilteredList;
     private LayoutInflater mLayoutInflater;
     private ButtonHackClick button;
 
@@ -58,6 +61,36 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return mListUser.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    mFilteredList = mListUser;
+                } else {
+                    ArrayList<User> filteredList = new ArrayList<>();
+                    for (User user : mListUser) {
+                        if (user.getUsername().contains(charSequence) || user.getName().contains(charSequence)) {
+                            filteredList.add(user);
+                        }
+                    }
+                    mFilteredList = filteredList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mFilteredList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                mFilteredList = (ArrayList<User>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

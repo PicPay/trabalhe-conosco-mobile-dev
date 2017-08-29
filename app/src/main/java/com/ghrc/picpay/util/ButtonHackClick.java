@@ -3,7 +3,7 @@ package com.ghrc.picpay.util;
 import android.view.View;
 
 /**
- * Created by Guilherme on 26/08/2017.
+ * Created by Guilherme on 27/08/2017.
  */
 
 public interface ButtonHackClick {

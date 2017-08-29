@@ -5,10 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.ghrc.picpay.contract.CreditCardContract;
+import com.ghrc.picpay.contract.TransactionContract;
 import com.ghrc.picpay.model.CreditCard;
+import com.ghrc.picpay.model.Transaction;
 
 import java.util.ArrayList;
 
@@ -24,10 +25,18 @@ public class BD {
     }
     public void insertCreditCard(CreditCard card) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreditCardContract.CreditCardEntry.COLUMN_CARD_NUMBER,card.getCard_number());
+        contentValues.put(CreditCardContract.CreditCardEntry.COLUMN_CARD_NUMBER,card.getCard_number().replaceAll("\\s",""));
         contentValues.put(CreditCardContract.CreditCardEntry.COLUMN_CVV,card.getCvv());
         contentValues.put(CreditCardContract.CreditCardEntry.COLUMN_EXPIRY,card.getExpiry_date());
         db.insert(CreditCardContract.CreditCardEntry.TABLE_NAME, null, contentValues);
+    }
+
+    public void inserTransaction(Transaction transaction) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(TransactionContract.TransactionEntity.COLUMN_VALUE,transaction.getValue());
+        contentValues.put(TransactionContract.TransactionEntity.COLUMN_USER_DESTINATION_ID,transaction.getDestination_user_id());
+        contentValues.put(TransactionContract.TransactionEntity.COLUMN_DATE,transaction.getData());
+        db.insert(TransactionContract.TransactionEntity.TABLE_NAME, null, contentValues);
     }
 
     public ArrayList<CreditCard> getCards(){
@@ -62,6 +71,7 @@ public class BD {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CreditCardContract.SQL_CREATE_CREDIT_CARD);
+            db.execSQL(TransactionContract.SQL_CREATE_TRANSACTION);
         }
 
         @Override

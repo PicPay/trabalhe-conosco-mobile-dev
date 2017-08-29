@@ -1,7 +1,7 @@
 package com.ghrc.picpay.util;
 
 /**
- * Created by Guilherme on 26/08/2017.
+ * Created by Guilherme on 27/08/2017.
  */
 
 public class Config {

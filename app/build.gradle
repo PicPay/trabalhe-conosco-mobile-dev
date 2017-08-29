@@ -38,6 +38,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
     compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
     testCompile 'junit:junit:4.12'
 }

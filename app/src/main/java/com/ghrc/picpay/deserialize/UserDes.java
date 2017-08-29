@@ -11,7 +11,7 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- * Created by Guilherme on 25/08/2017.
+ * Created by Guilherme on 27/08/2017.
  */
 
 public class UserDes implements JsonDeserializer<User> {
