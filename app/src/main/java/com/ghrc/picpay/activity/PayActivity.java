@@ -54,6 +54,7 @@ public class PayActivity extends AppCompatActivity {
     private ArrayList<CreditCard> mListCard;
     private int pos;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
