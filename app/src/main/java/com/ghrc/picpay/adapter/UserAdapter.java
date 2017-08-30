@@ -25,7 +25,6 @@ import java.util.ArrayList;
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> implements Filterable {
-
     private Context context;
     private ArrayList<User> mListUser;
     private ArrayList<User> mFilteredList;
@@ -35,6 +34,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     public UserAdapter(Context context, ArrayList<User> mListUser, ButtonHackClick b) {
         this.context = context;
         this.mListUser = mListUser;
+        this.mFilteredList = mListUser;
         this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.button = b;
     }
@@ -53,14 +53,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.tvName.setText(mListUser.get(position).getName() +  " | " + mListUser.get(position).getUsername());
-        holder.tvIdUser.setText(mListUser.get(position).getId());
-        Picasso.with(context).load(mListUser.get(position).getImg()).transform(new CircleTransform()).into(holder.ivPhoto);
+        holder.tvName.setText(mFilteredList.get(position).getName() +  " | " + mFilteredList.get(position).getUsername());
+        holder.tvIdUser.setText(mFilteredList.get(position).getId());
+        Picasso.with(context).load(mFilteredList.get(position).getImg()).transform(new CircleTransform()).into(holder.ivPhoto);
     }
 
     @Override
     public int getItemCount() {
-        return mListUser.size();
+        return mFilteredList.size();
     }
 
     @Override

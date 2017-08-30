@@ -47,6 +47,25 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
 
+        <Button
+            android:id="@+id/btnDeleteCard"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_list"
+            android:ellipsize="end"
+            android:fontFamily="Arial"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Excluir"
+            android:textAllCaps="true"
+            android:textColor="#d50000"
+            android:textSize="11dp"
+            android:textStyle="bold"/>
+
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

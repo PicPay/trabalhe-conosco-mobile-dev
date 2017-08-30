@@ -8,8 +8,14 @@ import android.os.Parcelable;
  */
 
 public class CreditCard implements Parcelable {
-    private String id,card_number, cvv, expiry_date;
+    private String id;
+    private String card_number;
+    private String cvv;
+    private String expiry_date;
 
+    public String getId() {
+        return id;
+    }
     public String getCard_number() {
         return card_number;
     }

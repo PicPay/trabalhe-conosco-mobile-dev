@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.ghrc.picpay.R;
 import com.ghrc.picpay.model.CreditCard;
+import com.ghrc.picpay.util.ButtonHackClick;
 
 import java.util.ArrayList;
 
@@ -19,10 +21,17 @@ import java.util.ArrayList;
 public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.MyViewHolder> {
     private ArrayList<CreditCard> mListCard;
     private LayoutInflater mLayoutInflater;
-
-    public CreditCardAdapter(Context context, ArrayList<CreditCard> mListCard) {
+    private ButtonHackClick mButtonHack;
+    public CreditCardAdapter(Context context, ArrayList<CreditCard> mListCard,ButtonHackClick b) {
         this.mListCard = mListCard;
         this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mButtonHack  = b;
+    }
+
+    public void updateList(ArrayList<CreditCard> newCards) {
+        mListCard.clear();
+        mListCard.addAll(newCards);
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -44,12 +53,19 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvNumber;
         TextView tvExpiryDate;
+        Button btnDeleteCard;
 
         MyViewHolder(View itemView) {
             super(itemView);
             tvNumber = (TextView) itemView.findViewById(R.id.number_card);
             tvExpiryDate = (TextView) itemView.findViewById(R.id.id_expiry_date);
-
+            btnDeleteCard = (Button) itemView.findViewById(R.id.btnDeleteCard);
+            btnDeleteCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mButtonHack.onClickListener(v,getAdapterPosition());
+                }
+            });
         }
     }
 }

@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,6 @@ import com.ghrc.picpay.model.Transaction;
 import com.ghrc.picpay.model.User;
 import com.ghrc.picpay.util.BD;
 import com.ghrc.picpay.util.CircleTransform;
-import com.ghrc.picpay.util.Config;
 import com.ghrc.picpay.util.CurrencyTextWatcher;
 import com.ghrc.picpay.util.DateUtil;
 import com.ghrc.picpay.util.MyApplication;
@@ -42,9 +42,11 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
+
+/**
+ * Created by Guilherme on 27/08/2017.
+ */
 
 public class PayActivity extends AppCompatActivity {
 
@@ -95,6 +97,10 @@ public class PayActivity extends AppCompatActivity {
                     inputLayoutMoney.setError("Informe o valor");
                     return;
                 }
+                if (!mListCard.get(pos).getCard_number().equals("1111111111111111")){
+                    materialBetterSpinner.setError("Informe o cartão com 111.........");
+                    return;
+                }
                 final ProgressDialog progressDialog = new ProgressDialog(PayActivity.this);
                 progressDialog.setMessage("Aguarde... Enviando o pagamento.");
                 progressDialog.setCancelable(false);
@@ -111,12 +117,9 @@ public class PayActivity extends AppCompatActivity {
                                 transaction.setExpiry_date(mListCard.get(pos).getExpiry_date());
                                 transaction.setDestination_user_id(user.getId());
                                 transaction.setValue(NumberUtil.ParseNumber(edtMoney.getText().toString()));
-                                Retrofit retrofit = new Retrofit
-                                        .Builder()
-                                        .baseUrl(Config.API)
-                                        .addConverterFactory(GsonConverterFactory.create())
-                                        .build();
-                                PicPayApi api = retrofit.create(PicPayApi.class);
+                                transaction.setUser_name(user.getName().concat(" | ").concat(user.getUsername()));
+                                transaction.setImg_user(user.getImg());
+                                PicPayApi api = ((MyApplication) getApplicationContext()).getApiInstance();
                                 Gson gson = new GsonBuilder().create();
                                 RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), gson.toJson(transaction));
                                 Call<JsonObject> transCall = api.sendTransaction(body);
@@ -124,15 +127,18 @@ public class PayActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                                         progressDialog.dismiss();
-                                        transaction.setData(DateUtil.getDateTime());
-                                        ((MyApplication)getApplicationContext()).getInstanceBD().inserTransaction(transaction);
-                                        Toast.makeText(getApplicationContext(), "Pagamento feito com sucesso.", Toast.LENGTH_SHORT).show();
-                                        PayActivity.this.finish();
+                                        if(response.body().getAsJsonObject("transaction").get("success").getAsBoolean() ){
+                                            transaction.setData(DateUtil.getDateTime());
+                                            ((MyApplication)getApplicationContext()).getInstanceBD().inserTransaction(transaction);
+                                            Toast.makeText(getApplicationContext(), "Pagamento feito com sucesso.", Toast.LENGTH_SHORT).show();
+                                            PayActivity.this.finish();
+                                        }else {
+                                            Toast.makeText(getApplicationContext(),"Erro ao fazer pagamento, tente novamente!",Toast.LENGTH_LONG).show();
+                                        }
                                     }
-
                                     @Override
                                     public void onFailure(Call<JsonObject> call, Throwable t) {
-
+                                        Toast.makeText(getApplicationContext(),"Erro ao fazer pagamento, tente novamente! Error: " + t.getMessage(),Toast.LENGTH_LONG).show();
                                     }
                                 });
                             }
@@ -144,6 +150,15 @@ public class PayActivity extends AppCompatActivity {
                 }).show();
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

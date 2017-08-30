@@ -1,5 +1,6 @@
 package com.ghrc.picpay.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +14,16 @@ import android.widget.Toast;
 
 import com.ghrc.picpay.R;
 import com.ghrc.picpay.model.CreditCard;
-import com.ghrc.picpay.util.BD;
 import com.ghrc.picpay.util.CreditCardExpiryInputFilter;
 import com.ghrc.picpay.util.CreditCardNumberFormattingTextWatcher;
+import com.ghrc.picpay.util.MyApplication;
+
+/**
+ * Created by Guilherme on 27/08/2017.
+ */
+
 
 public class RegisterCardActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +54,12 @@ public class RegisterCardActivity extends AppCompatActivity {
                     return;
                 }
                 CreditCard c = new CreditCard("0",edtNumberCard.getText().toString(),edtCVV.getText().toString(),edtExpiryDate.getText().toString());
-                BD bd = new BD(RegisterCardActivity.this);
-                bd.insertCreditCard(c);
+                ((MyApplication)getApplicationContext()).getInstanceBD().insertCreditCard(c);
                 Toast.makeText(RegisterCardActivity.this, "Cartão registrado com sucesso.", Toast.LENGTH_SHORT).show();
+                Intent data = new Intent();
+                data.putExtra("issave",true);
+                setResult(RESULT_OK,data);
+                finish();
             }
         });
     }

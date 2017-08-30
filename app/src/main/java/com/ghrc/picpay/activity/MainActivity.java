@@ -9,12 +9,18 @@ import android.view.View;
 
 import com.ghrc.picpay.R;
 import com.ghrc.picpay.fragment.CreditCardFragment;
+import com.ghrc.picpay.fragment.HistoryFragment;
 import com.ghrc.picpay.fragment.UserFragment;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+
+/**
+ * Created by Guilherme on 27/08/2017.
+ */
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Usuários").withIcon(GoogleMaterial.Icon.gmd_account_circle).withIdentifier(0),
                         new PrimaryDrawerItem().withName("Meus Cartões").withIcon(GoogleMaterial.Icon.gmd_credit_card).withIdentifier(1),
-                        new PrimaryDrawerItem().withName("Meus Pagamentos").withIcon(GoogleMaterial.Icon.gmd_history)
+                        new PrimaryDrawerItem().withName("Meus Pagamentos").withIcon(GoogleMaterial.Icon.gmd_history).withIdentifier(2)
                 )
                 .withActionBarDrawerToggleAnimated(true)
+                .withSavedInstance(savedInstanceState)
                 .withDrawerLayout(R.layout.material_drawer_fits_not)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -47,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).withSelectedItem(0)
                 .build();
-        switchAction(0);
+        if (savedInstanceState == null){
+            switchAction(0);
+        }
 
     }
     private void switchAction(long i){
@@ -62,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new CreditCardFragment();
                 title = "Meus cartões";
                 break;
+            case 2:
+                fragment = new HistoryFragment();
+                title = "Meu Histórico de Pagamentos";
+                break;
         }
         if(fragment!= null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -69,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
             getSupportActionBar().setTitle(title);
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState = result.saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
