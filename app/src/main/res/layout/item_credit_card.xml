@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:icon="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv"
+    android:layout_margin="16dp"
+    app:cardUseCompatPadding="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:padding="10dp">
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            icon:iiv_color="@color/colorPrimary"
+            icon:iiv_icon="gmd_credit_card"
+            android:id="@+id/iconicsImageView"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/number_card"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX XXXX XXXX 0000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/iconicsImageView"
+            android:layout_toEndOf="@+id/iconicsImageView"/>
+
+        <TextView
+            android:id="@+id/id_expiry_date"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:text="Data de Vencimento: 05/06"
+            android:layout_alignBottom="@+id/iconicsImageView"
+            android:layout_toRightOf="@+id/iconicsImageView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:id="@+id/btnDeleteCard"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_list"
+            android:ellipsize="end"
+            android:fontFamily="Arial"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Excluir"
+            android:textAllCaps="true"
+            android:textColor="#d50000"
+            android:textSize="11dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

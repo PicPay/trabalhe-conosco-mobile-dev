@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PicPay</string>
+    <string name="mesage_add_credit_card">Você não tem nenhum cartão cadastrado...</string>
+    <string name="number_card">Número do Cartão</string>
+    <string name="cvv">CVV</string>
+    <string name="add_card">Adicionar Cartão</string>
+    <string name="month_year_expiration">Mês/Ano</string>
+</resources>
