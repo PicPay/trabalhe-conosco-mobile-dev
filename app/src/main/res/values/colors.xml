@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3ADC6F</color>
+    <color name="colorPrimaryDark">#3ADC6F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="CorPicPay">#3ADC6F</color>
+    <color name="CorPicPay2">#29A05E</color>
+    <color name="CorPicPay3">#22C35E</color>
+</resources>
