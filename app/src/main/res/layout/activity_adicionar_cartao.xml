@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vitor.picpaytest.activity.AdicionarCartaoActivity">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Número Cartão:"
+            android:textColor="#555555"/>
+
+        <EditText
+            android:id="@+id/numero_cartao_adicionarCartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="11111111111111111"
+            android:inputType="number"
+            android:maxLength="16"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Vencimento Cartão:"
+            android:textColor="#555555"/>
+
+        <EditText
+            android:id="@+id/vencimento_adicionarCartao"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="mm/aa"
+            android:inputType="date"
+            android:maxLength="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="CVV:"
+            android:textColor="#555555"/>
+
+        <EditText
+            android:id="@+id/cvv_adicionarCartao"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="111"
+            android:inputType="date"
+            android:maxLength="3"/>
+
+        <Button
+            android:id="@+id/add_cartao_adicionarCartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADICIONAR CARTÃO"
+            android:textSize="20dp"
+            android:background="@color/CorPicPay3"
+            android:textColor="#CCCCCC"/>
+
+    </LinearLayout>
+
+</LinearLayout>
