@@ -19,6 +19,7 @@ import java.util.List;
  * Created by Vitor on 22/08/2017.
  */
 
+//Adaptador da List de Historico de pagamentos
 public class HistoricoAdapter extends BaseAdapter {
 
     private final List<Historico> historicos;

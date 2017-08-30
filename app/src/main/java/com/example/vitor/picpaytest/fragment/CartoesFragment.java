@@ -24,6 +24,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
+
+//Fragment dentro da MainActivity que lista cartoes
 public class CartoesFragment extends Fragment {
 
     private ListaCartaoAdapter listaAdapter;

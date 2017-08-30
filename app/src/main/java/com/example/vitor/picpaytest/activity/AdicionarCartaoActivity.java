@@ -17,6 +17,7 @@ import com.example.vitor.picpaytest.persistencia.PicPayDB;
 
 import java.util.Date;
 
+//Activity Cadastro de Cartao
 public class AdicionarCartaoActivity extends AppCompatActivity {
 
     EditText numero, cvv, vencimento;

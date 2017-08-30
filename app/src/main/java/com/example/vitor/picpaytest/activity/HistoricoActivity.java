@@ -20,6 +20,7 @@ import com.example.vitor.picpaytest.persistencia.PicPayDB;
 
 import java.util.List;
 
+//Activity Historico
 public class HistoricoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private List<Historico> hist;

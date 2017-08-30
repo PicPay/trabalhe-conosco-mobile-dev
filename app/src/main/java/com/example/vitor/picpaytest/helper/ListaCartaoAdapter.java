@@ -21,6 +21,8 @@ import java.util.List;
  * Created by Vitor on 21/08/2017.
  */
 
+
+//Adaptador da lsita de Cartoes
 public class ListaCartaoAdapter extends BaseAdapter {
 
     private List<Cartao> cartao;

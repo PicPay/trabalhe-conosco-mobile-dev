@@ -17,6 +17,8 @@ import java.util.List;
  * Created by Vitor on 19/08/2017.
  */
 
+
+//Adaptador lista de contatos
 public class ListaAdapter extends BaseAdapter{
 
     private final List<Usuario> usuarios;

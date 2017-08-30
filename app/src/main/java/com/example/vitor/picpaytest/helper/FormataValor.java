@@ -13,6 +13,8 @@ import java.util.Locale;
  * Created by Vitor on 22/08/2017.
  */
 
+
+//Classe que faz a mascara do valor a ser pago no transferenciaActivity
 public class FormataValor implements TextWatcher {
     private final WeakReference<EditText> editTextWeakReference;
     private final Locale locale;

@@ -17,6 +17,7 @@ import com.example.vitor.picpaytest.R;
 import com.example.vitor.picpaytest.helper.SlidingTabLayout;
 import com.example.vitor.picpaytest.helper.TabAdapter;
 
+//Activity Principal
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private SlidingTabLayout slidingTabLayout;

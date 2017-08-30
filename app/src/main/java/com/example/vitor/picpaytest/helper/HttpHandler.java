@@ -16,6 +16,7 @@ import java.net.URL;
  * Created by Vitor on 19/08/2017.
  */
 
+//Classe auxiliar na comunicação HTTP
 public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();

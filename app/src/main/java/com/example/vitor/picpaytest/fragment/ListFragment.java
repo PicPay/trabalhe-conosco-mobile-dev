@@ -39,6 +39,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
+
+//Fragmento dentro de MainActivity que lista contatos
 public class ListFragment extends Fragment{
 
     private boolean listado = false;

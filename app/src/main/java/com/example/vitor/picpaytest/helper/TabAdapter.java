@@ -11,6 +11,7 @@ import com.example.vitor.picpaytest.fragment.ListFragment;
  * Created by Vitor on 19/08/2017.
  */
 
+//Adaptador das guias da MainActivity
 public class TabAdapter extends FragmentStatePagerAdapter {
 
     private String[] tituloAbas = {"CONTATOS", "CARTÕES"};

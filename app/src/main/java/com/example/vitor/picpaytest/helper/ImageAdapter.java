@@ -16,6 +16,8 @@ import android.util.AttributeSet;
  * Created by Vitor on 19/08/2017.
  */
 
+
+//Classe auxiliar para imagens arredondadas
 public class ImageAdapter extends android.support.v7.widget.AppCompatImageView{
 
     public ImageAdapter(Context context) {

@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+//Activity de pagamento
 public class TransferenciaActivity extends AppCompatActivity {
 
     TextView username, name;
@@ -199,6 +200,7 @@ public class TransferenciaActivity extends AppCompatActivity {
         });
     }
 
+    //inicia os componentes da activity
     private void setupComponents(){
         username = (TextView) findViewById(R.id.username_transferencia);
         name = (TextView) findViewById(R.id.name_transferencia);
@@ -211,6 +213,7 @@ public class TransferenciaActivity extends AppCompatActivity {
         botao = (Button) findViewById(R.id.pagar_transferencia);
     }
 
+    //cria a toolbar
     private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Transferência");
@@ -219,6 +222,7 @@ public class TransferenciaActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
+    //classe assincrona para enviar pagamento e não dar conflito com a thread principal
     private class EnviaPagamento extends AsyncTask<Void, Void, Void>{
         private Context context;
         private static final String ENDPOINT = "http://careers.picpay.com/tests/mobdev/transaction";

@@ -19,6 +19,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+//Classe que diz a respeito das guias deslizantes da MainActivity
 public class SlidingTabLayout extends HorizontalScrollView {
 
     public interface TabColorizer {
