@@ -97,10 +97,6 @@ public class PayActivity extends AppCompatActivity {
                     inputLayoutMoney.setError("Informe o valor");
                     return;
                 }
-                if (!mListCard.get(pos).getCard_number().equals("1111111111111111")){
-                    materialBetterSpinner.setError("Informe o cartão com 111.........");
-                    return;
-                }
                 final ProgressDialog progressDialog = new ProgressDialog(PayActivity.this);
                 progressDialog.setMessage("Aguarde... Enviando o pagamento.");
                 progressDialog.setCancelable(false);
@@ -133,7 +129,8 @@ public class PayActivity extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Pagamento feito com sucesso.", Toast.LENGTH_SHORT).show();
                                             PayActivity.this.finish();
                                         }else {
-                                            Toast.makeText(getApplicationContext(),"Erro ao fazer pagamento, tente novamente!",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(),"Erro ao fazer pagamento, tente novamente! Status: "+ response.body().getAsJsonObject("transaction")
+                                                    .get("status").getAsString() ,Toast.LENGTH_LONG).show();
                                         }
                                     }
                                     @Override
