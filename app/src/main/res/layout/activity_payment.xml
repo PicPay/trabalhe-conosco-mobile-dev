@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.PaymentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/space_normal">
+
+        <ImageView
+            android:id="@+id/pay_img_img"
+            style="@style/PicPay.Text.User_Img_Normal"
+            tools:src="@mipmap/ic_launcher_round"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/space_small"
+            android:layout_gravity="center_vertical" >
+            <TextView
+                android:id="@+id/pay_txt_username"
+                style="@style/PicPay.Text.User_Username"
+                tools:text="\@Wiliam.Trancoso"/>
+
+            <TextView
+                android:id="@+id/pay_txt_name"
+                style="@style/PicPay.Text.User_Name"
+                tools:text="Wiliam Trancoso"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <EditText
+        android:id="@+id/pay_edt_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/pay_btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ok"/>
+
+</LinearLayout>
