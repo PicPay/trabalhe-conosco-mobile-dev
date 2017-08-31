@@ -17,6 +17,7 @@ import br.com.dalcim.picpay.data.CreditCard;
 import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.User;
+import br.com.dalcim.picpay.data.local.RepositoryLocaImpl;
 import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
 import br.com.dalcim.picpay.utils.ModelUtils;
@@ -52,6 +53,8 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         ButterKnife.bind(this);
+
+        presenter = new PaymentPresenter(this, new RepositoryRemoteImpl(), new RepositoryLocaImpl());
 
         user = ModelUtils.intentToUser(getIntent());
         repositoryRemote = new RepositoryRemoteImpl();
