@@ -8,4 +8,31 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PicPay"/>
+    <style name="PicPay.Text"/>
+    <style name="PicPay.Image"/>
+
+    <style name="PicPay.Text.User_Username" parent="PicPay.Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textStrong</item>
+    </style>
+
+    <style name="PicPay.Text.User_Name" parent="PicPay.Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PicPay.Text.User_Img_Small" parent="PicPay.Image">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="PicPay.Text.User_Img_Normal" parent="PicPay.Image">
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">75dp</item>
+    </style>
+
+
 </resources>
