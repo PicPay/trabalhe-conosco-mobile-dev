@@ -1,7 +1,11 @@
 package br.com.dalcim.picpay.data.remote;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 
+import br.com.dalcim.picpay.jsonadapter.JsonPaymentAdapter;
 import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.TransactionResponse;
@@ -46,9 +50,11 @@ public class RepositoryRemoteImpl implements RepositoryRemote{
 
     @Override
     public void transaction(Payment payment, final TransactionCallback callback){
+        final Gson gson = new GsonBuilder().registerTypeAdapter(Payment.class, new JsonPaymentAdapter()).create();
+
         MobDevService service = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build().create(MobDevService.class);
 
         service.transaction(payment).enqueue(new Callback<TransactionResponse>() {
@@ -70,6 +76,7 @@ public class RepositoryRemoteImpl implements RepositoryRemote{
 
             @Override
             public void onFailure(Call<TransactionResponse> call, Throwable t) {
+                callback.onFailure("Erro Inesperado");
             }
         });
     }
