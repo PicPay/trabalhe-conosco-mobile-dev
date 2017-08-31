@@ -1,5 +1,6 @@
 package br.com.dalcim.picpay.users;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,8 @@ import br.com.dalcim.picpay.R;
 import br.com.dalcim.picpay.adapter.UserAdapter;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
+import br.com.dalcim.picpay.payment.PaymentActivity;
+import br.com.dalcim.picpay.utils.ModelUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -67,5 +70,8 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
 
     @Override
     public void showPaymentActivity(User user) {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        ModelUtils.populeIntent(intent, user);
+        startActivity(intent);
     }
 }
