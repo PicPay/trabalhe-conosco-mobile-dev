@@ -7,6 +7,7 @@
     <dimen name="space_xx_small">4dp</dimen>
     <dimen name="space_xxx_small">2dp</dimen>
 
+    <dimen name="button_heigth">50dp</dimen>
     <dimen name="user_img_size">52dp</dimen>
-    <dimen name="user_payment_img_size">72dp</dimen>
+    <dimen name="user_payment_img_size">64dp</dimen>
 </resources>

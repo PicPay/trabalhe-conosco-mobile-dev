@@ -39,7 +39,7 @@ public class UserHolder extends RecyclerView.ViewHolder {
         Picasso
                 .with(this.itemView.getContext())
                 .load(user.getImg())
-                .placeholder(R.mipmap.ic_launcher_round)
+                .placeholder(R.drawable.contact)
                 .transform(TrasformationUtils.circleTransform).into(imgImg);
     }
 }

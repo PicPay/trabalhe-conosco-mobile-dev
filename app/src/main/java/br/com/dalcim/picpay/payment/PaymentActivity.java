@@ -20,6 +20,7 @@ import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.local.RepositoryLocaImpl;
 import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
+import br.com.dalcim.picpay.utils.DecimalTextWatcher;
 import br.com.dalcim.picpay.utils.ModelUtils;
 import br.com.dalcim.picpay.utils.TrasformationUtils;
 import butterknife.BindView;
@@ -62,6 +63,8 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         Picasso.with(this).load(user.getImg()).transform(TrasformationUtils.circleTransform).into(imgImg);
         txtName.setText(user.getName());
         txtUsername.setText(user.getUsername());
+        edtValue.addTextChangedListener(new DecimalTextWatcher(edtValue));
+        edtValue.setText("0");
 
         presenter.loadCreditCards();
     }

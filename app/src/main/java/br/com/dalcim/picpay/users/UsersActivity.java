@@ -15,7 +15,6 @@ import br.com.dalcim.picpay.adapter.UserAdapter;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
 import br.com.dalcim.picpay.payment.PaymentActivity;
-import br.com.dalcim.picpay.utils.DialogUtils;
 import br.com.dalcim.picpay.utils.ModelUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +78,6 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
     public void showFailureLoadUsers(String failure) {
         recUsers.setVisibility(View.GONE);
 
-        DialogUtils.showConfirmDialog(this, "Erro", failure);
         txtMessage.setVisibility(View.VISIBLE);
         txtMessage.setText(R.string.not_found);
     }

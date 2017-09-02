@@ -10,6 +10,7 @@
     <style name="PicPay"/>
     <style name="PicPay.Text"/>
     <style name="PicPay.Image"/>
+    <style name="PicPay.Button"/>
 
     <style name="PicPay.Text.User_Username" parent="PicPay.Text">
         <item name="android:layout_width">wrap_content</item>
@@ -31,5 +32,16 @@
     <style name="PicPay.Text.User_Img_Normal" parent="PicPay.Image">
         <item name="android:layout_width">@dimen/user_payment_img_size</item>
         <item name="android:layout_height">@dimen/user_payment_img_size</item>
+    </style>
+
+
+    <style name="PicPay.Button.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_heigth</item>
+        <item name="android:background">@drawable/bg_colored_button</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="fontPath">fonts/Roboto-Medium.ttf</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">17sp</item>
     </style>
 </resources>

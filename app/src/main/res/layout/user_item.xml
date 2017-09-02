@@ -13,15 +13,14 @@
         style="@style/PicPay.Text.User_Img_Small"
         android:layout_marginRight="18dp"
         android:layout_marginLeft="12dp"
-        tools:src="@mipmap/ic_launcher_round"/>
+        tools:src="@drawable/contact"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/user_img_border"
-        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/iuser_img_img"
-        android:layout_alignStart="@+id/iuser_img_img" />
+        android:layout_alignTop="@id/iuser_img_img"/>
 
     <TextView
         android:id="@+id/iuser_txt_username"
