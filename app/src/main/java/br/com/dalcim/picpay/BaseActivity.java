@@ -1,6 +1,7 @@
 package br.com.dalcim.picpay;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +10,21 @@ import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import br.com.dalcim.picpay.utils.DialogUtils;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * @author Wiliam
  * @since 27/08/2017
  */
 public abstract class BaseActivity extends AppCompatActivity{
     private ProgressDialog progressDialog;
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onStop() {
@@ -85,5 +95,9 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     protected void showMessage(@StringRes int resString) {
         Toast.makeText(this, resString, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void showConfirmDialog(String title, String message){
+        DialogUtils.showConfirmDialog(this, title, message);
     }
 }

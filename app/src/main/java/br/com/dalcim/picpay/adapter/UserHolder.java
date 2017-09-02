@@ -36,6 +36,10 @@ public class UserHolder extends RecyclerView.ViewHolder {
     public void onBindModel(User user){
         txtName.setText(user.getName());
         txtUsername.setText(user.getUsername());
-        Picasso.with(this.itemView.getContext()).load(user.getImg()).transform(TrasformationUtils.circleTransform).into(imgImg);
+        Picasso
+                .with(this.itemView.getContext())
+                .load(user.getImg())
+                .placeholder(R.mipmap.ic_launcher_round)
+                .transform(TrasformationUtils.circleTransform).into(imgImg);
     }
 }

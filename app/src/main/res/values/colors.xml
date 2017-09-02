@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#1a7d4a</color>
     <color name="colorAccent">#21c25e</color>
 
-    <color name="textStrong">#000</color>
+    <color name="textDark">#000</color>
+    <color name="textLight">#999</color>
+    <color name="separator">#AAA</color>
 </resources>

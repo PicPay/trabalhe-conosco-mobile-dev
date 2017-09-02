@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -13,6 +15,7 @@ import br.com.dalcim.picpay.adapter.UserAdapter;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
 import br.com.dalcim.picpay.payment.PaymentActivity;
+import br.com.dalcim.picpay.utils.DialogUtils;
 import br.com.dalcim.picpay.utils.ModelUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +29,9 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
     @BindView(R.id.users_rec_users)
     RecyclerView recUsers;
 
+    @BindView(R.id.users_txt_message)
+    TextView txtMessage;
+
     private UsersContract.Presenter presenter;
 
     @Override
@@ -34,13 +40,16 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
         setContentView(R.layout.activity_users);
         ButterKnife.bind(this);
 
-        recUsers.setLayoutManager(new LinearLayoutManager(this));
         presenter = new UsersPresenter(this, new RepositoryRemoteImpl());
         presenter.getUsers();
     }
 
     @Override
     public void loadUsers(List<User> users) {
+        txtMessage.setVisibility(View.GONE);
+
+        recUsers.setVisibility(View.VISIBLE);
+        recUsers.setLayoutManager(new LinearLayoutManager(this));
         recUsers.setAdapter(new UserAdapter(recUsers, users, new UserAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(User user) {
@@ -60,12 +69,19 @@ public class UsersActivity extends BaseActivity implements UsersContract.View {
 
     @Override
     public void showNoUsers() {
-        //TODO
+        recUsers.setVisibility(View.GONE);
+
+        txtMessage.setVisibility(View.VISIBLE);
+        txtMessage.setText(R.string.not_found);
     }
 
     @Override
     public void showFailureLoadUsers(String failure) {
-        //TODO
+        recUsers.setVisibility(View.GONE);
+
+        DialogUtils.showConfirmDialog(this, "Erro", failure);
+        txtMessage.setVisibility(View.VISIBLE);
+        txtMessage.setText(R.string.not_found);
     }
 
     @Override
