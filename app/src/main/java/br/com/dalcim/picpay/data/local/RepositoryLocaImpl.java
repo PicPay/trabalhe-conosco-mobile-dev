@@ -14,4 +14,9 @@ public class RepositoryLocaImpl implements RepositoryLocal {
     public List<CreditCard> getCreditCards() {
         return null;
     }
+
+    @Override
+    public void saveCreditCard(CreditCard creditCard) {
+
+    }
 }

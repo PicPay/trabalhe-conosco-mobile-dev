@@ -1,5 +1,6 @@
 package br.com.dalcim.picpay.payment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import br.com.dalcim.picpay.BaseActivity;
 import br.com.dalcim.picpay.R;
+import br.com.dalcim.picpay.creditcard.CreditCardActivity;
 import br.com.dalcim.picpay.data.CreditCard;
 import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
@@ -72,6 +74,11 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
     @OnClick(R.id.pay_btn_send)
     public void sendOnClick(View view){
         presenter.send(new Payment());
+    }
+
+    @OnClick(R.id.pay_btn_add_card)
+    public void addCardOnClick(View view){
+        startActivity(new Intent(this, CreditCardActivity.class));
     }
 
     @Override

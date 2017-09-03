@@ -31,7 +31,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
 
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
@@ -46,5 +45,6 @@ dependencies {
     compile "com.jakewharton:butterknife:${butterKnifeVersion}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
 
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     testCompile 'junit:junit:4.12'
 }

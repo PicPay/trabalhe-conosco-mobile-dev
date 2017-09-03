@@ -8,4 +8,5 @@
     <color name="textLight">#999</color>
     <color name="separator">#BBBBBB</color>
     <color name="light_container">#F5F5F5</color>
+    <color name="normal_container">#CCC</color>
 </resources>

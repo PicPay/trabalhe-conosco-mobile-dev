@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_credit_card">340dp</dimen>
+    <dimen name="height_credit_card">214dp</dimen>
+
+    <dimen name="margin_credit_card_title">22dp</dimen>
+    <dimen name="margin_credit_card_number_block">16dp</dimen>
+    <dimen name="margin_credit_card_label_component">4dp</dimen>
+    <dimen name="margin_credit_card_date_block">22dp</dimen>
+
+</resources>

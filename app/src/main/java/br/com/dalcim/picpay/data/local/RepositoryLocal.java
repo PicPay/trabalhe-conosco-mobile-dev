@@ -11,4 +11,5 @@ import br.com.dalcim.picpay.data.CreditCard;
 
 public interface RepositoryLocal {
     List<CreditCard> getCreditCards();
+    void saveCreditCard(CreditCard creditCard);
 }

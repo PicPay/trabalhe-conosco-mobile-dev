@@ -13,25 +13,24 @@
     <style name="PicPay.Button"/>
     <style name="PicPay.EditText"/>
 
+    <style name="PicPay.Spinner">
+        <item name="android:layout_height">@dimen/height_component</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@drawable/bg_spinner</item>
+    </style>
+
     <style name="PicPay.Text.Form" parent="PicPay.Text">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/textDark</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">2dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="PicPay.EditText.Form" parent="PicPay.EditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">45dp</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/height_component</item>
+        <item name="android:background">@drawable/bg_edittext</item>
         <item name="android:textColorHint">#CCC</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingTop">6dp</item>
-        <item name="android:textSize">17dp</item>
     </style>
 
     <style name="PicPay.Text.User_Username" parent="PicPay.Text">

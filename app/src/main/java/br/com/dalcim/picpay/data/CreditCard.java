@@ -8,7 +8,7 @@ package br.com.dalcim.picpay.data;
 public class CreditCard {
     private String cardNumber;
     private int cvv;
-    private String expiryData;
+    private String expiryDate;
 
     public String getCardNumber() {
         return cardNumber;
@@ -26,11 +26,11 @@ public class CreditCard {
         this.cvv = cvv;
     }
 
-    public String getExpiryData() {
-        return expiryData;
+    public String getExpiryDate() {
+        return expiryDate;
     }
 
-    public void setExpiryData(String expiryData) {
-        this.expiryData = expiryData;
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
     }
 }

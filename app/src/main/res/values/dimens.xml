@@ -7,7 +7,17 @@
     <dimen name="space_xx_small">4dp</dimen>
     <dimen name="space_xxx_small">2dp</dimen>
 
+    <dimen name="radius_component">1dp</dimen>
+    <dimen name="height_component">30dp</dimen>
     <dimen name="button_heigth">50dp</dimen>
     <dimen name="user_img_size">52dp</dimen>
     <dimen name="user_payment_img_size">64dp</dimen>
+
+    <dimen name="width_credit_card">190dp</dimen>
+    <dimen name="height_credit_card">120dp</dimen>
+
+    <dimen name="margin_credit_card_title">2dp</dimen>
+    <dimen name="margin_credit_card_number_block">5dp</dimen>
+    <dimen name="margin_credit_card_label_component">0dp</dimen>
+    <dimen name="margin_credit_card_date_block">5dp</dimen>
 </resources>

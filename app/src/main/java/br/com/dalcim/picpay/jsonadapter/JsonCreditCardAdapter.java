@@ -27,7 +27,7 @@ public class JsonCreditCardAdapter implements JsonDeserializer<CreditCard>, Json
 
         creditCard.setCardNumber(obj.get("card_number").getAsString());
         creditCard.setCvv(obj.get("cvv").getAsInt());
-        creditCard.setExpiryData(obj.get("expity_date").getAsString());
+        creditCard.setExpiryDate(obj.get("expity_date").getAsString());
 
         return creditCard;
     }
@@ -40,7 +40,7 @@ public class JsonCreditCardAdapter implements JsonDeserializer<CreditCard>, Json
     public JsonObject populeJsonObject(JsonObject jsonObject, CreditCard creditCard){
         jsonObject.addProperty("card_number", creditCard.getCardNumber());
         jsonObject.addProperty("cvv", creditCard.getCvv());
-        jsonObject.addProperty("expity_date", creditCard.getExpiryData());
+        jsonObject.addProperty("expity_date", creditCard.getExpiryDate());
 
         return jsonObject;
     }

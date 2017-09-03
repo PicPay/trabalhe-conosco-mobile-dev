@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_credit_card">580dp</dimen>
+    <dimen name="height_credit_card">365dp</dimen>
+</resources>
