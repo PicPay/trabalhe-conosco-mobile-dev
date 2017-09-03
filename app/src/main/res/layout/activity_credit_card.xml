@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_container"
+    tools:context=".creditcard.CreditCardActivity">
+
+    <TextView
+        style="@style/PicPay.Text.Form"
+        android:text="Número do Cartão"/>
+
+    <EditText
+        android:id="@+id/acc_edt_number"
+        style="@style/PicPay.EditText.Form"
+        android:maxLength="19"
+        android:inputType="number"
+        android:digits="0123456789 "
+        android:hint="1234 1234 1234 1234"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/PicPay.Text.Form"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Validade"/>
+
+        <TextView
+            style="@style/PicPay.Text.Form"
+            android:layout_width="140dp"
+            android:text="CVV"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/acc_edt_expiry_date"
+            style="@style/PicPay.EditText.Form"
+            android:layout_width="0dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:hint="10/25"/>
+
+        <EditText
+            style="@style/PicPay.EditText.Form"
+            android:layout_width="140dp"
+            android:maxLength="3"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:hint="123"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
