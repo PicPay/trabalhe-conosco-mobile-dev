@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="10dp"/>
+    <size android:height="@dimen/height_credit_card"
+        android:width="@dimen/width_credit_card"/>
+    <gradient android:angle="270"
+        android:centerY="80%"
+        android:type="linear"
+        android:startColor="#6b6c7f"
+        android:centerColor="#3a3e6d"
+        android:endColor="#43487e"/>
+
+</shape>

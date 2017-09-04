@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:ignore="MissingPrefix"
+    tools:context=".payment.PaymentActivity">
+
+    <ImageView
+        android:id="@+id/pay_img_img"
+        style="@style/PicPay.Text.User_Img_Normal"
+        tools:src="@mipmap/ic_launcher_round"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginBottom="11dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_img_img"
+        android:layout_alignTop="@id/pay_img_img"
+        tools:src="@drawable/user_img_payment_border"/>
+
+    <TextView
+        android:id="@+id/pay_txt_username"
+        style="@style/PicPay.Text.User_Username"
+        android:layout_alignTop="@id/pay_img_img"
+        android:layout_toRightOf="@id/pay_img_img"
+        android:textSize="12sp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:text="\@Wiliam.Trancoso"/>
+
+    <TextView
+        android:id="@+id/pay_txt_name"
+        style="@style/PicPay.Text.User_Name"
+        android:layout_toRightOf="@id/pay_img_img"
+        android:layout_below="@id/pay_txt_username"
+        android:textSize="12sp"
+        tools:text="Wiliam Trancoso"/>
+
+    <EditText
+        android:id="@+id/pay_edt_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/pay_img_img"
+        android:layout_below="@id/pay_txt_name"
+        android:layout_marginTop="-1dp"
+        android:textColor="@color/textLight"
+        fontPath="fonts/Roboto-Medium.ttf"
+        android:textSize="27sp"
+        android:inputType="number"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:id="@+id/pay_view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@id/pay_img_img"
+        android:background="@color/separator"/>
+
+    <TextView
+        android:id="@+id/pay_txt_label_cards"
+        android:layout_below="@+id/pay_view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_container"
+        android:paddingTop="6dp"
+        android:paddingBottom="4dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="Selecione um cartão"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pay_rec_cards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pay_txt_label_cards"
+        android:layout_above="@+id/pay_rl_bottom"
+        android:overScrollMode="never"
+        tools:listitem="@layout/credit_card_item"/>
+
+
+    <RelativeLayout
+        android:id="@+id/pay_rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/light_container">
+
+        <TextView
+            android:id="@+id/pay_btn_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="3dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="38dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_add_card"
+            android:textColor="@color/colorPrimary"
+            android:text="Adicionar Cartão"
+            android:textSize="13sp"/>
+
+        <Button
+            style="@style/PicPay.Button.Colored"
+            android:id="@+id/pay_btn_send"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/space_xx_small"
+            android:text="Pagar"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

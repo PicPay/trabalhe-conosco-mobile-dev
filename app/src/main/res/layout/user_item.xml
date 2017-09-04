@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:id="@+id/iuser_img_img"
+        style="@style/PicPay.Text.User_Img_Small"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="12dp"
+        tools:src="@drawable/contact"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/user_img_border"
+        android:layout_alignLeft="@+id/iuser_img_img"
+        android:layout_alignTop="@id/iuser_img_img"/>
+
+    <TextView
+        android:id="@+id/iuser_txt_username"
+        style="@style/PicPay.Text.User_Username"
+        android:layout_alignTop="@id/iuser_img_img"
+        android:layout_toRightOf="@id/iuser_img_img"
+        android:textSize="16sp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:text="\@Wiliam.Trancoso" />
+
+    <TextView
+        android:id="@+id/iuser_txt_name"
+        style="@style/PicPay.Text.User_Name"
+        fontPath="fonts/Roboto-Light.ttf"
+        tools:text="Wiliam Trancoso"
+        android:layout_below="@id/iuser_txt_username"
+        android:layout_toRightOf="@+id/iuser_img_img" />
+
+</RelativeLayout>
