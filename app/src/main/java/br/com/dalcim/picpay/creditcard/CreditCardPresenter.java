@@ -16,7 +16,7 @@ public class CreditCardPresenter implements CreditCardContract.Presenter {
     @Override
     public void save(String numberCreditCard, String expiryDate, String cvv) {
         if(numberCreditCard.length() != 16){
-            view.showError("Numero de cartão inválido!");
+            view.showError("Número de cartão inválido!");
         }else if(expiryDate.length() != 7){
             view.showError("Validade inválida!");
         }else if(cvv.length() < 3){

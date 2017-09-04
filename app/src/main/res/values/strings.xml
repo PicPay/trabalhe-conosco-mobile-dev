@@ -2,7 +2,7 @@
     <string name="app_name">PicPay</string>
     <string name="db_name">database</string>
 
-    <string name="title_contacts">contatos</string>
+    <string name="title_main">PicPay</string>
     <string name="title_transfer">Transferencia</string>
     <string name="title_new_card">Adicionar cartão</string>
 

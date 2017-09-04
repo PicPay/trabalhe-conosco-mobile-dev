@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".users.UsersActivity"
-            android:label="@string/title_contacts"
+            android:label="@string/title_main"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>

@@ -68,6 +68,7 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         txtName.setText(user.getName());
         txtUsername.setText(user.getUsername());
         edtValue.addTextChangedListener(new DecimalTextWatcher(edtValue));
+        edtValue.setText("0");
 
         recCards.setLayoutManager(new LinearLayoutManager(this));
         recCards.addItemDecoration(new MarginDecoration(this));
