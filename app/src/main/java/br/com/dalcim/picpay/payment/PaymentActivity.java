@@ -3,6 +3,8 @@ package br.com.dalcim.picpay.payment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +16,8 @@ import java.util.List;
 
 import br.com.dalcim.picpay.BaseActivity;
 import br.com.dalcim.picpay.R;
+import br.com.dalcim.picpay.adapter.CreditCardAdapter;
+import br.com.dalcim.picpay.adapter.MarginDecoration;
 import br.com.dalcim.picpay.creditcard.CreditCardActivity;
 import br.com.dalcim.picpay.data.CreditCard;
 import br.com.dalcim.picpay.data.Payment;
@@ -47,9 +51,13 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
     @BindView(R.id.pay_edt_value)
     EditText edtValue;
 
+    @BindView(R.id.pay_rec_cards)
+    RecyclerView recCards;
+
     private User user;
     private RepositoryRemote repositoryRemote;
     private PaymentContract.Presenter presenter;
+    private CreditCard selectedCard;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,6 +76,9 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         edtValue.addTextChangedListener(new DecimalTextWatcher(edtValue));
         edtValue.setText("0");
 
+        recCards.setLayoutManager(new LinearLayoutManager(this));
+        recCards.addItemDecoration(new MarginDecoration(this));
+
         presenter.loadCreditCards();
     }
 
@@ -83,7 +94,12 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
 
     @Override
     public void loadCards(List<CreditCard> creditCards) {
-        
+        recCards.setAdapter(new CreditCardAdapter(recCards, creditCards, null, new CreditCardAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(CreditCard creditCard) {
+                selectedCard = creditCard;
+            }
+        }));
     }
 
     @Override

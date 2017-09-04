@@ -61,23 +61,30 @@
         android:layout_below="@id/pay_img_img"
         android:background="@color/separator"/>
 
+    <TextView
+        android:id="@+id/pay_txt_label_cards"
+        android:layout_below="@+id/pay_view_separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_container"
+        android:paddingTop="6dp"
+        android:paddingBottom="4dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="Selecione um cartão"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pay_rec_cards"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/pay_view_separator"
-        android:layout_above="@+id/pay_btn_add_card"/>
-
-    <Button
-        android:id="@+id/pay_btn_add_card"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/pay_txt_label_cards"
         android:layout_above="@+id/pay_rl_bottom"
-        android:layout_centerHorizontal="true"
-        android:text="+ Adicionar Cartão"/>
+        android:overScrollMode="never"
+        tools:listitem="@layout/credit_card_item"/>
 
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@+id/pay_rl_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,20 +92,21 @@
         android:orientation="horizontal"
         android:background="@color/light_container">
 
-        <ImageView
+        <TextView
+            android:id="@+id/pay_btn_add_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/credit_card"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center_vertical"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:text="Final ***3755"
-            android:layout_marginLeft="16dp"
-            android:textSize="18sp"/>
+            android:layout_marginLeft="15dp"
+            android:paddingTop="3dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="38dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_add_card"
+            android:textColor="@color/colorPrimary"
+            android:text="Adicionar Cartão"
+            android:textSize="13sp"/>
 
         <Button
             style="@style/PicPay.Button.Colored"
@@ -106,7 +114,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/space_xx_small"
             android:text="Pagar"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>

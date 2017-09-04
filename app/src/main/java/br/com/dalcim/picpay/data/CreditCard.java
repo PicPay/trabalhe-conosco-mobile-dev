@@ -42,4 +42,19 @@ public class CreditCard {
     public void setExpiryDate(String expiryDate) {
         this.expiryDate = expiryDate;
     }
+
+    public String getMaskNumber() {
+        return "**** " + cardNumber.substring(cardNumber.length() - 4, cardNumber.length());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CreditCard that = (CreditCard) o;
+
+        return cardNumber.equals(that.cardNumber);
+
+    }
 }

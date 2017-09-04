@@ -12,15 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".users.UsersActivity">
+        <activity android:name=".users.UsersActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".payment.PaymentActivity" />
-        <activity android:name=".creditcard.CreditCardActivity"></activity>
+        <activity android:name=".payment.PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".creditcard.CreditCardActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

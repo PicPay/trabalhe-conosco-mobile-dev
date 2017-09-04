@@ -38,7 +38,6 @@ public class CreditCardDao extends BaseDao {
     }
 
     public List<CreditCard> getList(){
-
         List<CreditCard> cards;
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = null;
@@ -66,7 +65,7 @@ public class CreditCardDao extends BaseDao {
 
     private List<CreditCard> cursorToList(Cursor cursor){
         List<CreditCard> creditCards = new ArrayList(cursor.getCount());
-        if(cursor.moveToNext()){
+        while(cursor.moveToNext()){
             creditCards.add(cursorToObject(cursor));
         }
 
