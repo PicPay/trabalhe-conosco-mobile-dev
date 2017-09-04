@@ -78,7 +78,7 @@
                 android:id="@+id/acc_spn_month_expiry"
                 style="@style/PicPay.Spinner"
                 android:layout_width="0dp"
-                android:layout_weight="50"
+                android:layout_weight="45"
                 android:entries="@array/months_expiry"/>
 
             <View
@@ -89,7 +89,7 @@
                 android:id="@+id/acc_spn_year_expiry"
                 style="@style/PicPay.Spinner"
                 android:layout_width="0dp"
-                android:layout_weight="25"
+                android:layout_weight="30"
                 android:entries="@array/years_expiry"/>
 
             <View
@@ -97,6 +97,7 @@
                 android:layout_height="0dp"/>
 
             <EditText
+                android:id="@+id/acc_edt_cvv"
                 style="@style/PicPay.EditText.Form"
                 android:layout_width="0dp"
                 android:layout_weight="25"
@@ -109,6 +110,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/acc_btn_save"
         style="@style/PicPay.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,6 +119,5 @@
         android:layout_marginRight="16dp"
         android:layout_alignParentBottom="true"
         android:text="Salvar"/>
-
 
 </RelativeLayout>

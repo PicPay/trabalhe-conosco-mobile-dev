@@ -57,7 +57,7 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         setContentView(R.layout.activity_payment);
         ButterKnife.bind(this);
 
-        presenter = new PaymentPresenter(this, new RepositoryRemoteImpl(), new RepositoryLocaImpl());
+        presenter = new PaymentPresenter(this, new RepositoryRemoteImpl(), new RepositoryLocaImpl(this));
 
         user = ModelUtils.intentToUser(getIntent());
         repositoryRemote = new RepositoryRemoteImpl();

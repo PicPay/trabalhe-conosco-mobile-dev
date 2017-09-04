@@ -8,6 +8,7 @@
     <string name="load">Carregando...</string>
 
     <string name="not_found">Nenhum resultado encontrado.</string>
+    <string name="db_name">database</string>
 
     <string-array name="months_expiry">
         <item>Janeiro</item>
@@ -25,14 +26,14 @@
     </string-array>
 
     <string-array name="years_expiry">
-        <item>17</item>
-        <item>18</item>
-        <item>19</item>
-        <item>20</item>
-        <item>21</item>
-        <item>22</item>
-        <item>23</item>
-        <item>24</item>
-        <item>25</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
     </string-array>
 </resources>
