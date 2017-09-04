@@ -9,11 +9,8 @@ import br.com.dalcim.picpay.data.CreditCard;
 
 public interface CreditCardContract {
     interface View{
-        void onInvalidNumber();
-        void onInvalidExpiryDate();
-        void onInvalidCvv();
-        void onFailure();
         void onSucessSave(CreditCard creditCard);
+        void showError(String error);
     }
 
     interface Presenter{

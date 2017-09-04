@@ -7,7 +7,6 @@ import br.com.dalcim.picpay.data.local.RepositoryLocal;
  * @author Wiliam
  * @since 03/09/2017
  */
-
 public class CreditCardPresenter implements CreditCardContract.Presenter {
 
     CreditCardContract.View view;
@@ -21,11 +20,11 @@ public class CreditCardPresenter implements CreditCardContract.Presenter {
     @Override
     public void save(String numberCreditCard, String expiryDate, String cvv) {
         if(numberCreditCard.length() != 16){
-            view.onInvalidNumber();
+            view.showError("Numero de cartão inválido!");
         }else if(expiryDate.length() != 7){
-            view.onInvalidExpiryDate();
+            view.showError("Validade inválida!");
         }else if(cvv.length() < 3){
-            view.onInvalidCvv();
+            view.showError("CVV inválido!");
         }else{
             CreditCard creditCard = new CreditCard(numberCreditCard, expiryDate, Integer.valueOf(cvv));
 
@@ -37,7 +36,7 @@ public class CreditCardPresenter implements CreditCardContract.Presenter {
 
                 @Override
                 public void onFailure() {
-                    view.onFailure();
+                    view.showError("Erro ao salvar Cartão, tente novamente!");
                 }
             });
         }

@@ -1,19 +1,22 @@
 package br.com.dalcim.picpay.data;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * @author Wiliam
  * @since 25/08/2017
  */
 public class Payment {
 
-    private double value;
-    @SerializedName("destination_user_id")
     private long destinationUserId;
     private CreditCard creditCard;
+    private double value;
 
     public Payment() {
+    }
+
+    public Payment(long destinationUserId, CreditCard creditCard, double value) {
+        this.destinationUserId = destinationUserId;
+        this.creditCard = creditCard;
+        this.value = value;
     }
 
     public double getValue() {

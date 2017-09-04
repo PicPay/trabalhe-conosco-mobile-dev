@@ -3,7 +3,6 @@ package br.com.dalcim.picpay.payment;
 import java.util.List;
 
 import br.com.dalcim.picpay.data.CreditCard;
-import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
 
 /**
@@ -14,13 +13,13 @@ import br.com.dalcim.picpay.data.Transaction;
 public interface PaymentContract {
     interface View{
         void loadCards(List<CreditCard> creditCards);
+        void showNoCards();
         void paymentOnSucess(Transaction transaction);
-        void paymentNotApproved(Transaction transaction);
-        void paymentOnFailure(String failure);
+        void showError(String failure);
     }
 
     interface Presenter{
         void loadCreditCards();
-        void send(Payment payment);
+        void send(CreditCard creditCard, double value, long id);
     }
 }

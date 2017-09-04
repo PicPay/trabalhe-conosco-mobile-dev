@@ -18,5 +18,7 @@ public class PicPayApplication extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+
+        deleteDatabase(getResources().getString(R.string.db_name));
     }
 }

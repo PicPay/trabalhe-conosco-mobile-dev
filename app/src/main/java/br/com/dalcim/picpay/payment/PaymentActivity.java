@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.florent37.tutoshowcase.TutoShowcase;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,7 +22,6 @@ import br.com.dalcim.picpay.adapter.CreditCardAdapter;
 import br.com.dalcim.picpay.adapter.MarginDecoration;
 import br.com.dalcim.picpay.creditcard.CreditCardActivity;
 import br.com.dalcim.picpay.data.CreditCard;
-import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.local.RepositoryLocaImpl;
@@ -82,19 +83,31 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         presenter.loadCreditCards();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == CreditCardActivity.REQUEST_CODE && resultCode == RESULT_OK){
+            presenter.loadCreditCards();
+        }else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
     @OnClick(R.id.pay_btn_send)
     public void sendOnClick(View view){
-        presenter.send(new Payment());
+        double value = Double.valueOf(edtValue.getText().toString().replace("R$", "").replace(",","."));
+
+        presenter.send(selectedCard, value, user.getId());
     }
 
     @OnClick(R.id.pay_btn_add_card)
     public void addCardOnClick(View view){
-        startActivity(new Intent(this, CreditCardActivity.class));
+        startActivityForResult(new Intent(this, CreditCardActivity.class), CreditCardActivity.REQUEST_CODE);
     }
 
     @Override
     public void loadCards(List<CreditCard> creditCards) {
-        recCards.setAdapter(new CreditCardAdapter(recCards, creditCards, null, new CreditCardAdapter.OnItemClickListener() {
+        selectedCard = creditCards.get(0);
+        recCards.setAdapter(new CreditCardAdapter(recCards, creditCards, selectedCard, new CreditCardAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(CreditCard creditCard) {
                 selectedCard = creditCard;
@@ -103,17 +116,22 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
     }
 
     @Override
+    public void showNoCards() {
+        TutoShowcase.from(this)
+                .setContentView(R.layout.add_card_showcase)
+                .on(R.id.pay_btn_add_card)
+                .addCircle()
+                .show();
+    }
+
+    @Override
     public void paymentOnSucess(Transaction transaction) {
-
+        Toast.makeText(this, "Pagamento Efetuado!", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
-    public void paymentNotApproved(Transaction transaction) {
-
-    }
-
-    @Override
-    public void paymentOnFailure(String failure) {
-
+    public void showError(String error) {
+        showConfirmDialog(null, error);
     }
 }

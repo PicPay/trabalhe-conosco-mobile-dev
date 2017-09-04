@@ -1,5 +1,8 @@
 package br.com.dalcim.picpay.payment;
 
+import java.util.List;
+
+import br.com.dalcim.picpay.data.CreditCard;
 import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.local.RepositoryLocal;
@@ -24,26 +27,38 @@ public class PaymentPresenter implements PaymentContract.Presenter {
 
     @Override
     public void loadCreditCards() {
-        view.loadCards(repositoryLocal.getCreditCards());
+        List<CreditCard> cards = repositoryLocal.getCreditCards();
+        if(cards.isEmpty()){
+            view.showNoCards();
+        }else{
+            view.loadCards(cards);
+        }
     }
 
     @Override
-    public void send(Payment payment) {
-        repositoryRemote.transaction(payment, new RepositoryRemote.TransactionCallback() {
-            @Override
-            public void onSucess(Transaction transaction) {
-                view.paymentOnSucess(transaction);
-            }
+    public void send(CreditCard creditCard, double value, long id) {
+        if(creditCard == null){
+            view.showError("Informe um cartão de Crédito Válido!");
+        }else if(value == 0){
+            view.showError("Informe um valor válido!");
+        }else{
+            Payment payment = new Payment(id, creditCard, value);
+            repositoryRemote.transaction(payment, new RepositoryRemote.TransactionCallback() {
+                @Override
+                public void onSucess(Transaction transaction) {
+                    view.paymentOnSucess(transaction);
+                }
 
-            @Override
-            public void notApproved(Transaction transaction) {
-                view.paymentNotApproved(transaction);
-            }
+                @Override
+                public void notApproved(Transaction transaction) {
+                    view.showError("O Pagamento não foi aprovado!");
+                }
 
-            @Override
-            public void onFailure(String failure) {
-                view.paymentOnFailure(failure);
-            }
-        });
+                @Override
+                public void onFailure(String failure) {
+                    view.showError(failure);
+                }
+            });
+        }
     }
 }

@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class CreditCardActivity extends BaseActivity implements CreditCardContract.View{
+    public static final int REQUEST_CODE = 123;
 
     @BindView(R.id.acc_edt_number)
     EditText edtNumber;
@@ -50,30 +51,15 @@ public class CreditCardActivity extends BaseActivity implements CreditCardContra
     }
 
     @Override
-    public void onInvalidNumber() {
-        showConfirmDialog("Numero de cartão inválido!", null);
-    }
-
-    @Override
-    public void onInvalidExpiryDate() {
-        showConfirmDialog("Validade inválida!", null);
-    }
-
-    @Override
-    public void onInvalidCvv() {
-        showConfirmDialog("CVV inválido!", null);
-    }
-
-    @Override
-    public void onFailure() {
-        Toast.makeText(this, "Erro ao salvar Cartão, tente novamente!", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onSucessSave(CreditCard creditCard) {
         Toast.makeText(this, "Cartão Salvo com sucesso", Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
+    }
+
+    @Override
+    public void showError(String error) {
+        showConfirmDialog(null, error);
     }
 
     private String getExpiryDate(){
