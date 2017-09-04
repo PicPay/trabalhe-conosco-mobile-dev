@@ -2,13 +2,7 @@ package br.com.dalcim.picpay;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Surface;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 import br.com.dalcim.picpay.utils.DialogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -28,13 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         super.onStop();
     }
 
-    public void showLoadDialog() {
-        showLoadDialog(true);
-    }
-
-    protected void showLoadDialog(boolean lockOrientation){
-        if(lockOrientation)  lockOrientation();
-
+    protected void showLoadDialog(){
         if(progressDialog == null){
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("");
@@ -46,34 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity{
         progressDialog.show();
     }
 
-    public void hideLoadDialog() {
-        hideLoadDialog(true);
-    }
-
-    protected void hideLoadDialog(boolean liberaOrientacao){
+    protected void hideLoadDialog(){
         if(progressDialog != null && progressDialog.isShowing()) progressDialog.dismiss();
-        if(liberaOrientacao) unlockChangeOrientation();
-    }
-
-    protected void lockOrientation(){
-
-        switch (((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getRotation()) {
-            case Surface.ROTATION_90:
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case Surface.ROTATION_180:
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
-                break;
-            case Surface.ROTATION_270:
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-            default :
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-    }
-
-    private void unlockChangeOrientation(){
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     protected void showConfirmDialog(String title, String message){

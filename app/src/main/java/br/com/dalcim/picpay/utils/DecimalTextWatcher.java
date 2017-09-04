@@ -15,7 +15,7 @@ public class DecimalTextWatcher implements TextWatcher {
 
     private boolean editing = false;
     private final EditText field;
-    private NumberFormat format = NumberFormat.getCurrencyInstance();
+    private final NumberFormat format = NumberFormat.getCurrencyInstance();
 
     public DecimalTextWatcher(EditText field) {
         this.field = field;

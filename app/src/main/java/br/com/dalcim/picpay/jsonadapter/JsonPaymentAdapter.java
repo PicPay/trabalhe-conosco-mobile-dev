@@ -14,7 +14,7 @@ import br.com.dalcim.picpay.data.Payment;
 
 public class JsonPaymentAdapter implements JsonDeserializer<Payment>, JsonSerializer<Payment> {
 
-    private JsonCreditCardAdapter jsonCreditCardAdapter = new JsonCreditCardAdapter();
+    private final JsonCreditCardAdapter jsonCreditCardAdapter = new JsonCreditCardAdapter();
 
     @Override
     public Payment deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

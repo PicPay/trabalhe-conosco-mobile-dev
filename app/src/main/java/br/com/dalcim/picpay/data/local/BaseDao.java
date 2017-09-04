@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import br.com.dalcim.picpay.R;
 
-public abstract class BaseDao extends SQLiteOpenHelper {
-    public BaseDao(Context context) {
+abstract class BaseDao extends SQLiteOpenHelper {
+    BaseDao(Context context) {
         super(context, context.getResources().getString(R.string.db_name), null,  context.getResources().getInteger(R.integer.db_version));
     }
 

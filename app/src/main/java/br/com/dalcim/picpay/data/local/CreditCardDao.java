@@ -45,7 +45,8 @@ public class CreditCardDao extends BaseDao {
             cards = Collections.EMPTY_LIST;
         }finally {
             db.close();
-            cursor.close();
+            if(cursor != null)
+                cursor.close();
         }
 
         return cards;
@@ -60,7 +61,7 @@ public class CreditCardDao extends BaseDao {
     }
 
     private List<CreditCard> cursorToList(Cursor cursor){
-        List<CreditCard> creditCards = new ArrayList(cursor.getCount());
+        List<CreditCard> creditCards = new ArrayList<>(cursor.getCount());
         while(cursor.moveToNext()){
             creditCards.add(cursorToObject(cursor));
         }

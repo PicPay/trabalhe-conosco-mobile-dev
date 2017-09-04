@@ -5,8 +5,8 @@ import br.com.dalcim.picpay.data.local.RepositoryLocal;
 
 public class CreditCardPresenter implements CreditCardContract.Presenter {
 
-    CreditCardContract.View view;
-    RepositoryLocal repositoryLocal;
+    private final CreditCardContract.View view;
+    private final RepositoryLocal repositoryLocal;
 
     public CreditCardPresenter(CreditCardContract.View view, RepositoryLocal repositoryLocal) {
         this.view = view;
