@@ -6,13 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import br.com.dalcim.picpay.R;
 
-/**
- * @author Wiliam
- * @since 03/09/2017
- */
-
 public abstract class BaseDao extends SQLiteOpenHelper {
-    /* CONSTRUCTORS */
     public BaseDao(Context context) {
         super(context, context.getResources().getString(R.string.db_name), null,  context.getResources().getInteger(R.integer.db_version));
     }
@@ -23,7 +17,7 @@ public abstract class BaseDao extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
 
     }
 }

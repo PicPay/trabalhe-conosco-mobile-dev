@@ -19,10 +19,6 @@ import br.com.dalcim.picpay.utils.ModelUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * @author Wiliam
- * @since 27/08/2017
- */
 public class UsersActivity extends BaseActivity implements UsersContract.View {
 
     @BindView(R.id.users_rec_users)

@@ -10,11 +10,6 @@ import br.com.dalcim.picpay.data.CreditCard;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * @author Wiliam
- * @since 03/09/2017
- */
-
 public class CreditCardHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.icc_txt_card_number)

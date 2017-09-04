@@ -11,10 +11,6 @@ import android.view.View;
 
 import br.com.dalcim.picpay.R;
 
-/**
- * @author Wiliam
- * @since 31/08/2017
- */
 public class MarginDecoration extends RecyclerView.ItemDecoration {
     private final Paint mPaint;
 

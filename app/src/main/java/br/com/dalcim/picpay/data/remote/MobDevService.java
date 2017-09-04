@@ -3,7 +3,7 @@ package br.com.dalcim.picpay.data.remote;
 import java.util.List;
 
 import br.com.dalcim.picpay.data.Payment;
-import br.com.dalcim.picpay.data.TransactionResponse;
+import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -21,5 +21,5 @@ public interface MobDevService {
 
     @Headers({"Content-type: application/json"})
     @POST("transaction ")
-    Call<TransactionResponse> transaction(@Body Payment payment);
+    Call<Transaction> transaction(@Body Payment payment);
 }

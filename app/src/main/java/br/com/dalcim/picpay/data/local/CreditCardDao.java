@@ -11,10 +11,6 @@ import java.util.List;
 
 import br.com.dalcim.picpay.data.CreditCard;
 
-/**
- * @author Wiliam
- * @since 03/09/2017
- */
 
 public class CreditCardDao extends BaseDao {
     public CreditCardDao(Context context) {

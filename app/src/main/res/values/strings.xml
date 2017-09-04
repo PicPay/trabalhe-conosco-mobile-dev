@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">PicPay</string>
+    <string name="db_name">database</string>
+
+    <string name="title_contacts">contatos</string>
+    <string name="title_transfer">Transferencia</string>
+    <string name="title_new_card">Adicionar cartão</string>
 
     <!-- MENSAGENS DE ERRO -->
     <string name="unexpected_error">Erro Inesperado</string>
-
+    <string name="not_found">Nenhum resultado encontrado.</string>
 
     <string name="load">Carregando...</string>
-
-    <string name="not_found">Nenhum resultado encontrado.</string>
-    <string name="db_name">database</string>
 
     <string-array name="months_expiry">
         <item>Janeiro</item>

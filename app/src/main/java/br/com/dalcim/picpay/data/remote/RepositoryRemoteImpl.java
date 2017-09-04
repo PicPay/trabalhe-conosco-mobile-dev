@@ -5,11 +5,11 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
-import br.com.dalcim.picpay.jsonadapter.JsonPaymentAdapter;
 import br.com.dalcim.picpay.data.Payment;
 import br.com.dalcim.picpay.data.Transaction;
-import br.com.dalcim.picpay.data.TransactionResponse;
 import br.com.dalcim.picpay.data.User;
+import br.com.dalcim.picpay.jsonadapter.JsonPaymentAdapter;
+import br.com.dalcim.picpay.jsonadapter.JsonTransactioAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,22 +50,27 @@ public class RepositoryRemoteImpl implements RepositoryRemote{
 
     @Override
     public void transaction(Payment payment, final TransactionCallback callback){
-        final Gson gson = new GsonBuilder().registerTypeAdapter(Payment.class, new JsonPaymentAdapter()).create();
+        final Gson gsonPaymentAdapter = new GsonBuilder()
+                .registerTypeAdapter(Payment.class, new JsonPaymentAdapter())
+                .registerTypeAdapter(Transaction.class, new JsonTransactioAdapter())
+                .create();
+//        final Gson gsonTransactionAdapter = new GsonBuilder().create();
 
         MobDevService service = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(gsonPaymentAdapter))
+//                .addConverterFactory(GsonConverterFactory.create(gsonTransactionAdapter))
                 .build().create(MobDevService.class);
 
-        service.transaction(payment).enqueue(new Callback<TransactionResponse>() {
+        service.transaction(payment).enqueue(new Callback<Transaction>() {
             @Override
-            public void onResponse(Call<TransactionResponse> call, Response<TransactionResponse> response) {
-                if (response.body() == null || response.body().getTransaction() == null){
+            public void onResponse(Call<Transaction> call, Response<Transaction> response) {
+                if (response.body() == null || response.body() == null){
                     callback.onFailure("Erro Inesperado");
                     return;
                 }
 
-                Transaction transaction = response.body().getTransaction();
+                Transaction transaction = response.body();
 
                 if(transaction.isSuccess()){
                     callback.onSucess(transaction);
@@ -75,7 +80,7 @@ public class RepositoryRemoteImpl implements RepositoryRemote{
             }
 
             @Override
-            public void onFailure(Call<TransactionResponse> call, Throwable t) {
+            public void onFailure(Call<Transaction> call, Throwable t) {
                 callback.onFailure("Erro Inesperado");
             }
         });

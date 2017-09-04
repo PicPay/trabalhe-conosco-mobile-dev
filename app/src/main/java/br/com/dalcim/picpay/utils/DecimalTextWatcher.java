@@ -19,6 +19,7 @@ public class DecimalTextWatcher implements TextWatcher {
 
     public DecimalTextWatcher(EditText field) {
         this.field = field;
+        field.setText("0");
     }
 
     @Override

@@ -12,11 +12,6 @@ import java.lang.reflect.Type;
 
 import br.com.dalcim.picpay.data.Payment;
 
-/**
- * @author Wiliam
- * @since 29/08/2017
- */
-
 public class JsonPaymentAdapter implements JsonDeserializer<Payment>, JsonSerializer<Payment> {
 
     private JsonCreditCardAdapter jsonCreditCardAdapter = new JsonCreditCardAdapter();

@@ -12,19 +12,12 @@ import java.lang.reflect.Type;
 
 import br.com.dalcim.picpay.data.CreditCard;
 
-/**
- * @author Wiliam
- * @since 30/08/2017
- */
-
 public class JsonCreditCardAdapter implements JsonDeserializer<CreditCard>, JsonSerializer<CreditCard> {
     @Override
     public CreditCard deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject obj = json.getAsJsonObject();
 
         CreditCard creditCard = new CreditCard();
-
-
         creditCard.setCardNumber(obj.get("card_number").getAsString());
         creditCard.setCvv(obj.get("cvv").getAsInt());
         creditCard.setExpiryDate(obj.get("expity_date").getAsString());

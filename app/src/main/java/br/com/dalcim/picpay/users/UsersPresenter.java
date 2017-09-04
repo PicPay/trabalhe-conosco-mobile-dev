@@ -5,10 +5,6 @@ import java.util.List;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 
-/**
- * @author Wiliam
- * @since 27/08/2017
- */
 public class UsersPresenter implements UsersContract.Presenter {
 
     private final UsersContract.View view;

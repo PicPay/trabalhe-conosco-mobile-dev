@@ -10,10 +10,6 @@ import java.util.List;
 import br.com.dalcim.picpay.R;
 import br.com.dalcim.picpay.data.CreditCard;
 
-/**
- * @author Wiliam
- * @since 03/09/2017
- */
 
 public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardHolder> {
     private final LayoutInflater inflater;

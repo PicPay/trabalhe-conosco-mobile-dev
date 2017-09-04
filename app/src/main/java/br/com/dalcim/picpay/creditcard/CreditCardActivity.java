@@ -29,7 +29,7 @@ public class CreditCardActivity extends BaseActivity implements CreditCardContra
     @BindView(R.id.acc_edt_cvv)
     EditText edtCvv;
 
-    CreditCardContract.Presenter presenter;
+    private CreditCardContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class CreditCardActivity extends BaseActivity implements CreditCardContra
         ButterKnife.bind(this);
 
         edtNumber.addTextChangedListener(new NumberCreditCardTextWatcher());
-
         presenter = new CreditCardPresenter(this, new RepositoryLocaImpl(this));
     }
 

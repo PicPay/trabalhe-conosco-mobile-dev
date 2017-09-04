@@ -13,10 +13,6 @@ import android.widget.Toast;
 import br.com.dalcim.picpay.utils.DialogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * @author Wiliam
- * @since 27/08/2017
- */
 public abstract class BaseActivity extends AppCompatActivity{
     private ProgressDialog progressDialog;
 
@@ -78,23 +74,6 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     private void unlockChangeOrientation(){
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-    }
-
-    protected void showMessage(String s){
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-    }
-
-    protected void showErro(Exception e, String s){
-        showMessage(s);
-        Log.e("LOG_PICPAY", s, e);
-    }
-
-    protected void logMessage(String s){
-        Log.i("LOG_PICPAY", s);
-    }
-
-    protected void showMessage(@StringRes int resString) {
-        Toast.makeText(this, resString, Toast.LENGTH_SHORT).show();
     }
 
     protected void showConfirmDialog(String title, String message){

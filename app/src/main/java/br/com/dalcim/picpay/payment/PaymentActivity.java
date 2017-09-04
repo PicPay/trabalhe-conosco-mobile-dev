@@ -25,7 +25,6 @@ import br.com.dalcim.picpay.data.CreditCard;
 import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.User;
 import br.com.dalcim.picpay.data.local.RepositoryLocaImpl;
-import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 import br.com.dalcim.picpay.data.remote.RepositoryRemoteImpl;
 import br.com.dalcim.picpay.utils.DecimalTextWatcher;
 import br.com.dalcim.picpay.utils.ModelUtils;
@@ -34,10 +33,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * @author Wiliam
- * @since 27/08/2017
- */
 public class PaymentActivity extends BaseActivity implements PaymentContract.View{
 
     @BindView(R.id.pay_img_img)
@@ -56,7 +51,6 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
     RecyclerView recCards;
 
     private User user;
-    private RepositoryRemote repositoryRemote;
     private PaymentContract.Presenter presenter;
     private CreditCard selectedCard;
 
@@ -69,13 +63,11 @@ public class PaymentActivity extends BaseActivity implements PaymentContract.Vie
         presenter = new PaymentPresenter(this, new RepositoryRemoteImpl(), new RepositoryLocaImpl(this));
 
         user = ModelUtils.intentToUser(getIntent());
-        repositoryRemote = new RepositoryRemoteImpl();
 
         Picasso.with(this).load(user.getImg()).transform(TrasformationUtils.circleTransform).into(imgImg);
         txtName.setText(user.getName());
         txtUsername.setText(user.getUsername());
         edtValue.addTextChangedListener(new DecimalTextWatcher(edtValue));
-        edtValue.setText("0");
 
         recCards.setLayoutManager(new LinearLayoutManager(this));
         recCards.addItemDecoration(new MarginDecoration(this));

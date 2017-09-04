@@ -8,11 +8,6 @@ import br.com.dalcim.picpay.data.Transaction;
 import br.com.dalcim.picpay.data.local.RepositoryLocal;
 import br.com.dalcim.picpay.data.remote.RepositoryRemote;
 
-/**
- * @author Wiliam
- * @since 27/08/2017
- */
-
 public class PaymentPresenter implements PaymentContract.Presenter {
 
     private final PaymentContract.View view;

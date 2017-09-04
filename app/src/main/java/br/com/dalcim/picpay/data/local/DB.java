@@ -1,10 +1,5 @@
 package br.com.dalcim.picpay.data.local;
 
-/**
- * @author Wiliam
- * @since 03/09/2017
- */
-
 public final class DB {
 
     private DB(){}

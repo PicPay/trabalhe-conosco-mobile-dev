@@ -13,11 +13,6 @@ import br.com.dalcim.picpay.utils.TrasformationUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * @author Wiliam
- * @since 26/08/2017
- */
-
 public class UserHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.iuser_txt_name)
     TextView txtName;
@@ -36,8 +31,7 @@ public class UserHolder extends RecyclerView.ViewHolder {
     public void onBindModel(User user){
         txtName.setText(user.getName());
         txtUsername.setText(user.getUsername());
-        Picasso
-                .with(this.itemView.getContext())
+        Picasso.with(this.itemView.getContext())
                 .load(user.getImg())
                 .placeholder(R.drawable.contact)
                 .transform(TrasformationUtils.circleTransform).into(imgImg);

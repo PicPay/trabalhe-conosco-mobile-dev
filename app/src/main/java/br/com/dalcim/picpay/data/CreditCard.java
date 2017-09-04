@@ -1,10 +1,5 @@
 package br.com.dalcim.picpay.data;
 
-/**
- * @author Wiliam
- * @since 29/08/2017
- */
-
 public class CreditCard {
     private String cardNumber;
     private String expiryDate;

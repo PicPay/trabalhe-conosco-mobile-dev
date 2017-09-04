@@ -1,9 +1,5 @@
 package br.com.dalcim.picpay.data;
 
-/**
- * @author Wiliam
- * @since 25/08/2017
- */
 public class User {
     private long id;
     private String name;

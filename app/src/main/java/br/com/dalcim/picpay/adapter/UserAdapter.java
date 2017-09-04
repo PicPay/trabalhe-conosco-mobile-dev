@@ -10,15 +10,9 @@ import java.util.List;
 import br.com.dalcim.picpay.R;
 import br.com.dalcim.picpay.data.User;
 
-/**
- * @author Wiliam
- * @since 26/08/2017
- */
-
 public class UserAdapter extends RecyclerView.Adapter<UserHolder>{
     private final LayoutInflater inflater;
     private final List<User> users;
-
     private final View.OnClickListener onClickListener;
 
     public UserAdapter(final RecyclerView recyclerView, final List<User> users, final OnItemClickListener onItemClickListener){

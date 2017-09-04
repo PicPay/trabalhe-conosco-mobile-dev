@@ -2,10 +2,6 @@ package br.com.dalcim.picpay.data;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * @author Wiliam
- * @since 25/08/2017
- */
 public class Transaction {
     private long id;
     private long timestamp;
@@ -15,8 +11,7 @@ public class Transaction {
     private boolean success;
     private String status;
 
-    public Transaction() {
-    }
+    public Transaction() {}
 
     public long getId() {
         return id;
