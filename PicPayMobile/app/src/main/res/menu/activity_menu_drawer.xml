@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/mnPerfil"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Perfil" />
+
+            <item
+                android:id="@+id/mnPagamento"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Efetuar Transação"
+                />
+        </menu>
+    </item>
+
+</menu>
