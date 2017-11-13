@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tabs>
+
+        <tab
+            id="@+id/perfil"
+            icon="@drawable/account"
+            title="Meu Perfil"
+            activeColor="#f6fcf6"
+            inActiveColor="#d4d4d4"
+            barColorWhenSelected="#00a791" />
+
+        <tab
+            id="@+id/list"
+            icon="@drawable/contacts"
+            title="Lista de Pessoas"
+            activeColor="#f6fcf6"
+            inActiveColor="#d4d4d4"
+            badgeHidesWhenActive="true"
+            barColorWhenSelected="#00a791"
+            />
+
+        <tab
+            id="@+id/transacoes"
+            icon="@drawable/buffer"
+            title="Transacões"
+            activeColor="#ffffff"
+            inActiveColor="#d4d4d4"
+
+            badgeHidesWhenActive="true"
+            barColorWhenSelected="#00a791"
+            />
+
+        <tab
+            id="@+id/cartoes"
+            icon="@drawable/credit_cd"
+            title="Cartões de Credito"
+            activeColor="#f6fcf6"
+            inActiveColor="#d4d4d4"
+
+            badgeHidesWhenActive="true"
+            barColorWhenSelected="#00a791"
+            />
+
+
+    </tabs>
+
+
+</PreferenceScreen>

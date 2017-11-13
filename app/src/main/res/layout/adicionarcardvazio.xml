@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bta"
+            android:text="bt a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btb"
+            android:text="bt b"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:background="@drawable/backgroundgreengradient"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:padding="9dp"
+            android:text="Cartões Cadastrados"
+            android:textSize="26sp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            />
+
+
+        <ImageView
+            android:id="@+id/addCard"
+            android:src="@drawable/credit_cardadd"
+            android:padding="9dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:padding="6dp"
+        android:layout_marginTop="30dp"
+        android:text="Não há nenhum Cartão adicionado, deseja adicionar um? Clique no Icone abaixo."
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/vazioaddnovo"
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/credit_card_multiple" />
+
+
+
+</LinearLayout>

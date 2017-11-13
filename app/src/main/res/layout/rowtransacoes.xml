@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:background="#F5F5F5"
+    android:id="@+id/layoutssclick"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:id="@+id/statustransacao"
+            android:background="@drawable/radius"
+            android:layout_width="14dp"
+            android:layout_height="match_parent">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:background="#e7e7e7"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="0.96"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/fotouserTransacao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="98dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/teste"
+
+                        android:textAlignment="center"
+                        app:civ_border_color="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="0dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numeroTransacao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Transação Nº: 27832378."
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/nomedaPessoaTransferida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Transferido para: Marina Coelho." />
+
+                    <TextView
+                        android:id="@+id/valordaTransferencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Valor da transferência R$:99,50." />
+
+                    <TextView
+                        android:id="@+id/aprovado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Aprovado: Não." />
+
+                    <TextView
+                        android:id="@+id/cartaousadotransferencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cartão usado final: 8765 Visa. " />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

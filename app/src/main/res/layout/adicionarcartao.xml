@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_contato"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/backgroundgreengradient"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:textColor="#ffffff"
+            android:padding="9dp"
+            android:text="Adicionar novo Cartão"
+            android:textSize="26sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="textStart"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:text="Digite os dados do seu cartão abaixo:"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/numerocartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número do Cartão"
+            android:inputType="phone"
+            android:maxLength="16"
+            android:textColorHint="@color/verdeescuro" />
+
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="phone"
+                android:textColorHint="@color/verdeescuro"
+                android:id="@+id/cvvcartao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="3"
+                android:hint="CVV" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selecione a Bandeira:"
+                        />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                    <Spinner
+
+                        android:layout_gravity="center"
+                        android:id="@+id/BandeiraNome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/Bandeira"
+                        android:prompt="@string/Bandeira" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+     <LinearLayout
+         android:paddingLeft="4dp"
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data de validade:"
+                />
+
+         <LinearLayout
+             android:orientation="horizontal"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent">
+
+            <Spinner
+                android:layout_gravity="center"
+                android:id="@+id/mes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/arryMes"
+                android:prompt="@string/mes" />
+
+             <Spinner
+                 android:id="@+id/ano"
+                 android:layout_width="121dp"
+                 android:layout_height="match_parent"
+                 android:layout_gravity="center"
+                 android:entries="@array/arryAno"
+                 android:prompt="@string/ano" />
+         </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/verdeescuro"
+        android:textColor="#fff"
+        android:text="SALVAR"
+        android:id="@+id/salvarcartao"
+        />
+
+
+
+    </LinearLayout>
+</LinearLayout>
