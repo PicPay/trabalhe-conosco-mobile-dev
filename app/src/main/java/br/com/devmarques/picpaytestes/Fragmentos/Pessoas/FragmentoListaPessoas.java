@@ -61,7 +61,11 @@ public class FragmentoListaPessoas extends Fragment {
             new DownloadFileFromURL().execute("http://careers.picpay.com/tests/mobdev/users");
         }else{
             if (Existe("Lista")){
-                JsonOFF("Lista");
+                try {
+                    JsonOFF("Lista");
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }else {
                 Toast.makeText(getContext(), "Por favor conecte a internet!", Toast.LENGTH_SHORT).show();
             }
@@ -193,7 +197,11 @@ public class FragmentoListaPessoas extends Fragment {
             p.setVisibility(View.GONE);
             //Toast.makeText(getContext(), "Sucesso!",Toast.LENGTH_SHORT).show();
             System.out.println("Downloaded");
-            JsonOFF("Lista");
+            try {
+                JsonOFF("Lista");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
 
             //progressload.setVisibility(View.GONE);
         }
