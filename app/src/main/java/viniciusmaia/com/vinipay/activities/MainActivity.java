@@ -12,10 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import viniciusmaia.com.vinipay.R;
+import viniciusmaia.com.vinipay.fragments.MeuCartaoFragment;
 import viniciusmaia.com.vinipay.fragments.UsuariosFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static int FragmentAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        exibeTelaSelecionada(R.id.nav_usuarios);
+        if (FragmentAtual == 0){
+            exibeTelaSelecionada(R.id.nav_usuarios);
+        }
+        else{
+            exibeTelaSelecionada(FragmentAtual);
+        }
+
     }
 
     @Override
@@ -67,8 +76,11 @@ public class MainActivity extends AppCompatActivity
         switch (id){
             case R.id.nav_usuarios:
                 fragment = new UsuariosFragment();
+                FragmentAtual = R.id.nav_usuarios;
                 break;
             case  R.id.nav_cartoes:
+                fragment = new MeuCartaoFragment();
+                FragmentAtual = R.id.nav_cartoes;
                 break;
 
             default:
