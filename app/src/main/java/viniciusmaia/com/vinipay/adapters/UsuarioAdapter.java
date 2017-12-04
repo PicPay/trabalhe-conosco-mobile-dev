@@ -1,6 +1,7 @@
 package viniciusmaia.com.vinipay.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import viniciusmaia.com.vinipay.R;
+import viniciusmaia.com.vinipay.activities.TransacaoActivity;
 import viniciusmaia.com.vinipay.modelo.Usuario;
 
 /**
@@ -52,10 +54,12 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
         return listaUsuarios != null ? listaUsuarios.size() : 0;
     }
 
-    public class UsuarioViewHolder extends RecyclerView.ViewHolder{
+    public class UsuarioViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView textUsuario;
         public TextView textNomeUsuario;
         public CircleImageView imagemPerfil;
+        private final Context context;
+        //private RecyclerItemClickListener itemClickListener;
 
         public UsuarioViewHolder(View itemView){
             super(itemView);
@@ -63,6 +67,19 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
             textUsuario = (TextView)itemView.findViewById(R.id.textUsuario);
             textNomeUsuario = (TextView)itemView.findViewById(R.id.textNomeUsuario);
             imagemPerfil = (CircleImageView)itemView.findViewById(R.id.imagemPerfil);
+            context = itemView.getContext();
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Usuario usuario = listaUsuarios.get(getAdapterPosition());
+            Intent intentTransacao = new Intent(view.getContext(), TransacaoActivity.class);
+            intentTransacao.putExtra("idUsuario", usuario.getId());
+            intentTransacao.putExtra("usuario", usuario.getUsuario());
+
+            context.startActivity(intentTransacao);
         }
     }
 }

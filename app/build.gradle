@@ -23,6 +23,10 @@ realm {
     syncEnabled = true;
 }
 
+repositories{
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -39,4 +43,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'ru.egslava:MaskedEditText:1.0.5'
+    compile 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
 }

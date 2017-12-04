@@ -1,5 +1,6 @@
 package viniciusmaia.com.vinipay.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import viniciusmaia.com.vinipay.R;
-import viniciusmaia.com.vinipay.fragments.MeuCartaoFragment;
 import viniciusmaia.com.vinipay.fragments.UsuariosFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -77,20 +77,20 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_usuarios:
                 fragment = new UsuariosFragment();
                 FragmentAtual = R.id.nav_usuarios;
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment);
+                fragmentTransaction.commit();
+
                 break;
             case  R.id.nav_cartoes:
-                fragment = new MeuCartaoFragment();
-                FragmentAtual = R.id.nav_cartoes;
+                Intent intentMeuCartao = new Intent(this, MeuCartaoActivity.class);
+                startActivity(intentMeuCartao);
+                //fragment = new MeuCartaoFragment();
+                //fragmentAtual = R.id.nav_cartoes;
                 break;
 
             default:
                 fragment = new UsuariosFragment();
-        }
-
-        if (fragment != null){
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment);
-            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

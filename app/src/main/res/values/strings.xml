@@ -12,6 +12,8 @@
     <string name="text_salvar">Salvar</string>
     <string name="text_mes">Mês</string>
     <string name="text_ano">Ano</string>
+    <string name="text_valor">Valor</string>
+    <string name="text_pagar">Pagar</string>
 
     <string-array name="opcoes_mes">
         <item>01</item>

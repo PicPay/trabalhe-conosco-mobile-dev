@@ -91,6 +91,7 @@ public class UsuariosFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
+                dialogBuilder.show();
             }
         });
     }

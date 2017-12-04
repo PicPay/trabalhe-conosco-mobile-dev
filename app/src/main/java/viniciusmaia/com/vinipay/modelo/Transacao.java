@@ -17,11 +17,11 @@ public class Transacao {
     private String validade;
 
     @SerializedName("destination_user_id")
-    private String idUsuario;
+    private int idUsuario;
 
     public Transacao(){}
 
-    public Transacao(String numero, String codigoSeguranca, String validade, String idUsuario) {
+    public Transacao(String numero, String codigoSeguranca, String validade, int idUsuario) {
         this.numero = numero;
         this.codigoSeguranca = codigoSeguranca;
         this.validade = validade;
@@ -53,11 +53,11 @@ public class Transacao {
         this.validade.replaceAll("\\s+","");
     }
 
-    public String getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
 }

@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MeuCartaoActivity" />
+        <activity android:name=".activities.TransacaoActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
