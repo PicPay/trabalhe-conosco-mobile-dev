@@ -84,7 +84,7 @@ public class MeuCartaoFragment extends Fragment {
             }
 
             for (int i = 0; i < mSpinnerAno.getAdapter().getCount(); i++){
-                if (mSpinnerAno.getAdapter().getItem(i).toString().contains(mes)){
+                if (mSpinnerAno.getAdapter().getItem(i).toString().contains(ano)){
                     mSpinnerAno.setSelection(i);
                     break;
                 }
@@ -96,8 +96,7 @@ public class MeuCartaoFragment extends Fragment {
 
     public void botaoSalvar_click(View view){
         if (isFormularioValido()){
-            CartaoCredito cartao = null;
-            realm = realm.getDefaultInstance();
+            CartaoCredito cartao = new CartaoCredito();
             RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).equalTo("idUsuario", 1).findAll();
 
             if (cartoes != null && cartoes.size() > 0){
@@ -118,9 +117,13 @@ public class MeuCartaoFragment extends Fragment {
                 cartao.setId(proximoId);
             }
 
+            realm.beginTransaction();
+
+            String numeroCartao = mEditNumeroCartao.getText().toString();
+
             cartao.setCodigoSeguranca(mEditCodigoSeguranca.getText().toString());
             cartao.setIdUsuario(1);
-            cartao.setNumero(mEditNumeroCartao.getText().toString());
+            cartao.setNumero(numeroCartao);
 
             StringBuilder validadeBuilder = new StringBuilder(mSpinnerMes.getSelectedItem().toString());
             validadeBuilder.append("/");
@@ -129,7 +132,6 @@ public class MeuCartaoFragment extends Fragment {
             cartao.setValidade(validadeBuilder.toString());
 
             try{
-                realm.beginTransaction();
                 realm.copyToRealm(cartao);
                 realm.commitTransaction();
 
@@ -148,9 +150,13 @@ public class MeuCartaoFragment extends Fragment {
                 });
                 android.os.Process.killProcess(android.os.Process.myPid());
             }
-
-            realm.insertOrUpdate(cartao);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle(R.string.text_cartoes);
     }
 
     private boolean isFormularioValido(){

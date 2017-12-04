@@ -30,7 +30,7 @@ public class CartaoCredito extends RealmObject {
     }
 
     public void setNumero(String numero) {
-        this.numero = numero;
+        this.numero = numero.replace(".", "");
     }
 
     public String getCodigoSeguranca() {

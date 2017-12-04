@@ -25,7 +25,7 @@
         android:layout_marginTop="2dp"
         android:imeOptions="actionNext"
         android:inputType="number"
-        mask:mask="#### #### #### ####"/>
+        mask:mask="####.####.####.####"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_vertical"
         android:textSize="@dimen/tamanho_fonte_label"
-        android:text="@string/text_numero_cartao"/>
+        android:text="@string/text_codigo_seguranca"/>
 
     <EditText
         android:id="@+id/editCodigoSeguranca"
