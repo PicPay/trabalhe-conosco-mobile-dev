@@ -19,6 +19,9 @@ public class Transacao {
     @SerializedName("destination_user_id")
     private int idUsuario;
 
+    @SerializedName("value")
+    private double valor;
+
     public Transacao(){}
 
     public Transacao(String numero, String codigoSeguranca, String validade, int idUsuario) {
@@ -59,5 +62,13 @@ public class Transacao {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 }

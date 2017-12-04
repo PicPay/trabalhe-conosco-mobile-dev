@@ -152,6 +152,8 @@ public class MeuCartaoActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Cartão salvo com sucesso", Toast.LENGTH_LONG).show();
 
+                setResult(RESULT_OK);
+
                 finish();
             }
             catch (Exception e){

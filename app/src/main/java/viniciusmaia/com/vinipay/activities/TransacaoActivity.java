@@ -1,5 +1,7 @@
 package viniciusmaia.com.vinipay.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,15 +9,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import viniciusmaia.com.vinipay.R;
 import viniciusmaia.com.vinipay.modelo.CartaoCredito;
+import viniciusmaia.com.vinipay.modelo.ResponseTransacao;
 import viniciusmaia.com.vinipay.modelo.Transacao;
+import viniciusmaia.com.vinipay.modelo.Usuario;
+import viniciusmaia.com.vinipay.restclient.PicPayRestClient;
 
 /**
  * Created by User on 04/12/2017.
@@ -26,6 +40,7 @@ public class TransacaoActivity extends AppCompatActivity {
     private int idUsuario;
     private String usuario;
     private Realm realm;
+    private Retrofit retrofit;
     private static final int REQUEST_ADICIONAR_CARTAO = 1;
 
     @Override
@@ -80,12 +95,75 @@ public class TransacaoActivity extends AppCompatActivity {
             CartaoCredito cartao = cartoes.get(0);
             Transacao transacao = new Transacao();
 
+            EditText editValor = (EditText) findViewById(R.id.editValor);
+            String valor = editValor.getText().toString();
+            valor = valor.replace(".", "");
+            valor = valor.replace(",", ".");
+            valor = valor.replace("R$", "");
+
             transacao.setCodigoSeguranca(cartao.getCodigoSeguranca());
             transacao.setValidade(cartao.getValidade());
             transacao.setNumero(cartao.getNumero());
             transacao.setIdUsuario(idUsuario);
+            transacao.setValor(Double.parseDouble(valor));
 
-            
+            if (retrofit == null){
+                inicializaRetrofit();
+            }
+
+            try{
+                PicPayRestClient restClient = retrofit.create(PicPayRestClient.class);
+                Call<ResponseTransacao> call = restClient.realizaTransacao(transacao);
+                call.enqueue(new Callback<ResponseTransacao>() {
+                    @Override
+                    public void onResponse(Call<ResponseTransacao> call, Response<ResponseTransacao> response) {
+                        ResponseTransacao responseTransacao = response.body();
+
+                        if (responseTransacao.getResultado().getStatus().equals("Aprovada")){
+                            Toast.makeText(TransacaoActivity.this, "Pagamento realizado com sucesso!", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        else{
+                            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(TransacaoActivity.this);
+                            dialogBuilder.setTitle("Erro");
+                            dialogBuilder.setMessage("Não foi possível realizar o pagamento. Por favor, verifique os dados do seu cartão e tente novamente!");
+                            dialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            dialogBuilder.show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseTransacao> call, Throwable t) {
+                        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(TransacaoActivity.this);
+                        dialogBuilder.setTitle("Erro");
+                        dialogBuilder.setMessage("Não foi possível realizar o pagamento. Por favor, verifique os dados do seu cartão e tente novamente!");
+                        dialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialogBuilder.show();
+                    }
+                });
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(TransacaoActivity.this);
+                dialogBuilder.setTitle("Erro");
+                dialogBuilder.setMessage(e.getMessage());
+                dialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+            }
         }
     }
 
@@ -94,5 +172,12 @@ public class TransacaoActivity extends AppCompatActivity {
         if (requestCode == REQUEST_ADICIONAR_CARTAO && resultCode == RESULT_OK){
             processarPagamento();
         }
+    }
+
+    private void inicializaRetrofit(){
+        retrofit = new Retrofit.Builder().
+                baseUrl(getText(R.string.url_rest).toString()).
+                addConverterFactory(GsonConverterFactory.create()).
+                build();
     }
 }
