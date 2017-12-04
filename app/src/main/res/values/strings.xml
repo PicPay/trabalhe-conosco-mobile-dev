@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ViniPay</string>
+
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+
+    <string name="text_usuarios">Usuários</string>
+    <string name="text_cartoes">Meu cartão</string>
+    <string name="text_numero_cartao">Número do Cartão</string>
+    <string name="text_data_validade">Validade</string>
+    <string name="text_codigo_seguranca">Código de Segurança</string>
+    <string name="text_salvar">Salvar</string>
+
+    <string name="menu_usuarios">@string/text_usuarios</string>
+    <string name="menu_cartoes">@string/text_cartoes</string>
+
+    <string name="url_rest">http://careers.picpay.com/tests/mobdev/</string>
+
+</resources>
