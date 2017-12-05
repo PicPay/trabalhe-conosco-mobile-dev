@@ -1,25 +1,27 @@
 package viniciusmaia.com.vinipay.fragments;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 import viniciusmaia.com.vinipay.R;
-import viniciusmaia.com.vinipay.activities.CadastroActivity;
-import viniciusmaia.com.vinipay.activities.MainActivity;
+import viniciusmaia.com.vinipay.activities.NovaSenhaActivity;
 import viniciusmaia.com.vinipay.modelo.Usuario;
 import viniciusmaia.com.vinipay.util.ControleSessao;
 
@@ -29,37 +31,53 @@ public class MeuPerfilFragment extends Fragment {
     private EditText editNomeCompleto;
     private EditText editUsuario;
     private Realm realm;
+    private ControleSessao controleSessao;
+    private Usuario usuario;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.meu_perfil, container, false);
+        setHasOptionsMenu(true);
 
         editNomeCompleto = (EditText) view.findViewById(R.id.editNomeCompleto);
         editUsuario = (EditText) view.findViewById(R.id.editUsuario);
 
+        controleSessao = new ControleSessao(getActivity());
+
         if (realm == null){
             realm = Realm.getDefaultInstance();
         }
+
+        RealmResults<Usuario> usuarios = realm.where(Usuario.class).equalTo("id", controleSessao.getIdUsuario()).findAll();
+
+        usuario = usuarios.get(0);
+
+        editNomeCompleto.setText(usuario.getNome());
+        editUsuario.setText(usuario.getUsuario().replace("@",""));
 
         Button botaoSalvar = (Button) view.findViewById(R.id.botaoSalvar);
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isEdicaoValida()){
-                    ControleSessao controleSessao = new ControleSessao(getActivity());
-
-                    RealmResults<Usuario> usuarios = realm.where(Usuario.class).equalTo("id", controleSessao.getIdUsuario()).findAll();
-
-                    Usuario usuario = usuarios.get(0);
-
-                    usuario.setNome(editNomeCompleto.getText().toString());
-                    usuario.setUsuario("@" + editUsuario.getText().toString());
-
                     try{
                         realm.beginTransaction();
+
+                        usuario.setNome(editNomeCompleto.getText().toString());
+                        usuario.setUsuario("@" + editUsuario.getText().toString());
+                        
                         realm.copyToRealm(usuario);
                         realm.commitTransaction();
+
+                        NavigationView navigationView = getActivity().findViewById(R.id.nav_view);
+                        View view = navigationView.getHeaderView(0);
+
+                        TextView textUsuario = (TextView) view.findViewById(R.id.textUsuario);
+                        textUsuario.setText(usuario.getUsuario());
+
+                        TextView textNomeCompleto = (TextView) view.findViewById(R.id.textNomeCompleto);
+                        textNomeCompleto.setText(usuario.getNome());
 
                         Toast.makeText(getActivity(), "Edição realizada com sucesso!", Toast.LENGTH_LONG).show();
 
@@ -87,6 +105,25 @@ public class MeuPerfilFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(R.string.text_meu_perfil);
+    }
+
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_nova_senha, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.menu_alterar_senha:
+                Intent novaSenhaIntent = new Intent(getActivity(), NovaSenhaActivity.class);
+                startActivity(novaSenhaIntent);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private boolean isEdicaoValida(){
@@ -130,7 +167,10 @@ public class MeuPerfilFragment extends Fragment {
 
     private boolean isUsuarioValido(String usuario){
         usuario = "@" + usuario;
-        RealmResults<Usuario> usuarios = realm.where(Usuario.class).equalTo("usuario", usuario).findAll();
+        RealmResults<Usuario> usuarios = realm.where(Usuario.class).
+                equalTo("usuario", usuario).
+                notEqualTo("id", controleSessao.getIdUsuario()).
+                findAll();
 
         if (usuarios == null || usuarios.size() == 0){
             return true;

@@ -138,7 +138,7 @@ public class TransacaoActivity extends AppCompatActivity {
                     public void onFailure(Call<ResponseTransacao> call, Throwable t) {
                         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(TransacaoActivity.this);
                         dialogBuilder.setTitle("Erro");
-                        dialogBuilder.setMessage("Não foi possível realizar o pagamento. Por favor, verifique os dados do seu cartão e tente novamente!");
+                        dialogBuilder.setMessage("Não foi possível realizar o pagamento. Por favor, verifique a conexão com a internet, os dados do seu cartão e tente novamente!");
                         dialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

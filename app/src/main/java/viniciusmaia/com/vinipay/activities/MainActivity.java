@@ -13,11 +13,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 import viniciusmaia.com.vinipay.R;
+import viniciusmaia.com.vinipay.fragments.MeuPerfilFragment;
 import viniciusmaia.com.vinipay.fragments.UsuariosFragment;
 import viniciusmaia.com.vinipay.modelo.Usuario;
 import viniciusmaia.com.vinipay.util.ControleSessao;
@@ -51,10 +53,12 @@ public class MainActivity extends AppCompatActivity
         if (usuarios != null && usuarios.size() > 0){
             Usuario usuario = usuarios.get(0);
 
-            TextView textUsuario = (TextView) findViewById(R.id.textUsuario);
+            View headerView = navigationView.getHeaderView(0);
+
+            TextView textUsuario = (TextView) headerView.findViewById(R.id.textUsuario);
             textUsuario.setText(usuario.getUsuario());
 
-            TextView textNome = (TextView) findViewById(R.id.textNomeUsuario);
+            TextView textNome = (TextView) headerView.findViewById(R.id.textNomeCompleto);
             textNome.setText(usuario.getNome());
         }
 
@@ -93,12 +97,13 @@ public class MainActivity extends AppCompatActivity
 
     private void exibeTelaSelecionada(int id){
         Fragment fragment = null;
+        FragmentTransaction fragmentTransaction = null;
 
         switch (id){
             case R.id.nav_usuarios:
                 fragment = new UsuariosFragment();
                 FragmentAtual = R.id.nav_usuarios;
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment);
                 fragmentTransaction.commit();
 
@@ -106,6 +111,14 @@ public class MainActivity extends AppCompatActivity
             case  R.id.nav_cartoes:
                 Intent intentMeuCartao = new Intent(this, MeuCartaoActivity.class);
                 startActivity(intentMeuCartao);
+                break;
+
+            case R.id.nav_perfil:
+                fragment = new MeuPerfilFragment();
+                FragmentAtual = R.id.nav_perfil;
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment);
+                fragmentTransaction.commit();
                 break;
 
             case R.id.nav_logout:
@@ -137,6 +150,12 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FragmentAtual = 0;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

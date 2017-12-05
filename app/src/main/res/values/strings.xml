@@ -17,12 +17,14 @@
     <string name="text_nome_completo">Nome Completo</string>
     <string name="text_usuario">Usuario</string>
     <string name="text_senha">Senha</string>
+    <string name="text_nova_senha">Nova Senha</string>
     <string name="text_confirme_senha">Confirme a Senha</string>
     <string name="text_cadastro">Cadastro</string>
     <string name="text_entrar">Entrar</string>
     <string name="text_criar_conta">Não possui cadatro? Registre-se agora!</string>
     <string name="titulo_transacao">Realizar Pagamento</string>
     <string name="text_meu_perfil">Meu Perfil</string>
+    <string name="titulo_alterar_senha">Alterar Senha</string>
 
     <string-array name="opcoes_mes">
         <item>01</item>
@@ -43,6 +45,7 @@
     <string name="menu_cartoes">@string/text_cartoes</string>
     <string name="menu_meu_perfil">@string/text_meu_perfil</string>
     <string name="menu_sair">Sair</string>
+    <string name="menu_refresh">Atualizar</string>
 
     <string name="url_rest">http://careers.picpay.com/tests/mobdev/</string>
 

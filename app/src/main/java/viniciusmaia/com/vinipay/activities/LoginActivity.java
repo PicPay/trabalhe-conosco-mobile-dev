@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         controleSessao = new ControleSessao(this);
 
         if (controleSessao.isUsuarioLogado()){
-            Intent mainIntent = new Intent(this, MainActivity.class);
-            abreMainActivity();
+            /*Intent mainIntent = new Intent(this, MainActivity.class);
+            abreMainActivity();*/
         }
         else{
             realm = Realm.getDefaultInstance();
