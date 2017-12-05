@@ -13,10 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
 import retrofit2.Call;
@@ -28,8 +24,8 @@ import viniciusmaia.com.vinipay.R;
 import viniciusmaia.com.vinipay.modelo.CartaoCredito;
 import viniciusmaia.com.vinipay.modelo.ResponseTransacao;
 import viniciusmaia.com.vinipay.modelo.Transacao;
-import viniciusmaia.com.vinipay.modelo.Usuario;
 import viniciusmaia.com.vinipay.restclient.PicPayRestClient;
+import viniciusmaia.com.vinipay.util.ControleSessao;
 
 /**
  * Created by User on 04/12/2017.
@@ -61,7 +57,11 @@ public class TransacaoActivity extends AppCompatActivity {
         botaoPagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                processarPagamento();
+                double valorTransacao = getValorTransacao();
+
+                if (isTransacaoValida(valorTransacao)){
+                    processarPagamento(valorTransacao);
+                }
             }
         });
     }
@@ -69,7 +69,7 @@ public class TransacaoActivity extends AppCompatActivity {
     private void inflateToolbar()
     {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.text_cartoes);
+        toolbar.setTitle(R.string.titulo_transacao);
 
         setSupportActionBar(toolbar);
 
@@ -84,8 +84,9 @@ public class TransacaoActivity extends AppCompatActivity {
         });
     }
 
-    private void processarPagamento(){
-        RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).equalTo("idUsuario", 1).findAll();
+    private void processarPagamento(double valor){
+        ControleSessao controleSessao = new ControleSessao(this);
+        RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).equalTo("idUsuario", controleSessao.getIdUsuario()).findAll();
 
         if (cartoes == null || cartoes.size() == 0){
             Intent adicionarCartaoIntent = new Intent(this, MeuCartaoActivity.class);
@@ -95,17 +96,13 @@ public class TransacaoActivity extends AppCompatActivity {
             CartaoCredito cartao = cartoes.get(0);
             Transacao transacao = new Transacao();
 
-            EditText editValor = (EditText) findViewById(R.id.editValor);
-            String valor = editValor.getText().toString();
-            valor = valor.replace(".", "");
-            valor = valor.replace(",", ".");
-            valor = valor.replace("R$", "");
+
 
             transacao.setCodigoSeguranca(cartao.getCodigoSeguranca());
             transacao.setValidade(cartao.getValidade());
             transacao.setNumero(cartao.getNumero());
             transacao.setIdUsuario(idUsuario);
-            transacao.setValor(Double.parseDouble(valor));
+            transacao.setValor(valor);
 
             if (retrofit == null){
                 inicializaRetrofit();
@@ -167,10 +164,44 @@ public class TransacaoActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isTransacaoValida(double valor){
+
+        if (valor <= 0.01){
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            dialogBuilder.setTitle("Atenção");
+            dialogBuilder.setMessage("O valor do pagamento deve ser maior que 0.00");
+            dialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            dialogBuilder.show();
+
+            return false;
+        }
+        return true;
+    }
+
+    private double getValorTransacao(){
+        EditText editValor = (EditText) findViewById(R.id.editValor);
+        String valor = editValor.getText().toString();
+        valor = valor.replace(".", "");
+        valor = valor.replace(",", ".");
+        valor = valor.replace("R$", "");
+
+        return Double.parseDouble(valor);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ADICIONAR_CARTAO && resultCode == RESULT_OK){
-            processarPagamento();
+
+            double valorTransacao = getValorTransacao();
+
+            if(isTransacaoValida(valorTransacao)){
+                processarPagamento(valorTransacao);
+            }
         }
     }
 

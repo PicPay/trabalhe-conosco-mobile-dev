@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="viniciusmaia.com.vinipay">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -13,17 +15,17 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.MeuCartaoActivity" />
+        <activity android:name=".activities.TransacaoActivity" />
+        <activity android:name=".activities.CadastroActivity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MeuCartaoActivity" />
-        <activity android:name=".activities.TransacaoActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

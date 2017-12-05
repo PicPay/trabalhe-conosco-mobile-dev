@@ -21,6 +21,7 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import viniciusmaia.com.vinipay.R;
 import viniciusmaia.com.vinipay.modelo.CartaoCredito;
+import viniciusmaia.com.vinipay.util.ControleSessao;
 
 /**
  * Created by User on 04/12/2017.
@@ -33,6 +34,7 @@ public class MeuCartaoActivity extends AppCompatActivity {
     private Spinner mSpinnerMes;
     private EditText mEditCodigoSeguranca;
     private EditText mEditNumeroCartao;
+    ControleSessao controleSessao;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MeuCartaoActivity extends AppCompatActivity {
         setContentView(R.layout.meu_cartao);
 
         inflateToolbar();
+        controleSessao = new ControleSessao(this);
 
         Button botaoSalvar = (Button)findViewById(R.id.botaoSalvar);
 
@@ -64,7 +67,9 @@ public class MeuCartaoActivity extends AppCompatActivity {
 
         realm = realm.getDefaultInstance();
 
-        RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).equalTo("idUsuario", 1).findAll();
+        RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).
+                equalTo("idUsuario", controleSessao.getIdUsuario()).
+                findAll();
 
         if (cartoes != null && cartoes.size() > 0){
             CartaoCredito cartao = cartoes.get(0);
@@ -112,7 +117,10 @@ public class MeuCartaoActivity extends AppCompatActivity {
     public void botaoSalvar_click(View view){
         if (isFormularioValido()){
             CartaoCredito cartao = new CartaoCredito();
-            RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).equalTo("idUsuario", 1).findAll();
+
+            RealmResults<CartaoCredito> cartoes = realm.where(CartaoCredito.class).
+                    equalTo("idUsuario", controleSessao.getIdUsuario()).
+                    findAll();
 
             if (cartoes != null && cartoes.size() > 0){
                 cartao = cartoes.get(0);
@@ -131,22 +139,21 @@ public class MeuCartaoActivity extends AppCompatActivity {
 
                 cartao.setId(proximoId);
             }
-
-            realm.beginTransaction();
-
-            String numeroCartao = mEditNumeroCartao.getText().toString();
-
-            cartao.setCodigoSeguranca(mEditCodigoSeguranca.getText().toString());
-            cartao.setIdUsuario(1);
-            cartao.setNumero(numeroCartao);
-
-            StringBuilder validadeBuilder = new StringBuilder(mSpinnerMes.getSelectedItem().toString());
-            validadeBuilder.append("/");
-            validadeBuilder.append(mSpinnerAno.getSelectedItem().toString());
-
-            cartao.setValidade(validadeBuilder.toString());
-
             try{
+                realm.beginTransaction();
+
+                String numeroCartao = mEditNumeroCartao.getText().toString();
+
+                cartao.setCodigoSeguranca(mEditCodigoSeguranca.getText().toString());
+                cartao.setNumero(numeroCartao);
+
+                StringBuilder validadeBuilder = new StringBuilder(mSpinnerMes.getSelectedItem().toString());
+                validadeBuilder.append("/");
+                validadeBuilder.append(mSpinnerAno.getSelectedItem().toString());
+
+                cartao.setValidade(validadeBuilder.toString());
+                cartao.setIdUsuario(controleSessao.getIdUsuario());
+
                 realm.copyToRealm(cartao);
                 realm.commitTransaction();
 
