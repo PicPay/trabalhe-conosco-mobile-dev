@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="viniciusmaia.com.vinipay">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_picpay"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_picpay"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.MeuCartaoActivity" />
+        <activity android:name=".activities.TransacaoActivity" />
+        <activity android:name=".activities.CadastroActivity" />
+        <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.NovaSenhaActivity" />
+        <activity android:name=".activities.StartActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">ViniPay</string>
+
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+
+    <string name="text_usuarios">Usuários</string>
+    <string name="text_cartoes">Meu cartão</string>
+    <string name="text_numero_cartao">Número do Cartão</string>
+    <string name="text_data_validade">Validade</string>
+    <string name="text_codigo_seguranca">Código de Segurança</string>
+    <string name="text_salvar">Salvar</string>
+    <string name="text_mes">Mês</string>
+    <string name="text_ano">Ano</string>
+    <string name="text_valor">Valor</string>
+    <string name="text_pagar">Pagar</string>
+    <string name="text_nome_completo">Nome Completo</string>
+    <string name="text_usuario">Usuario</string>
+    <string name="text_senha">Senha</string>
+    <string name="text_nova_senha">Nova Senha</string>
+    <string name="text_confirme_senha">Confirme a Senha</string>
+    <string name="text_cadastro">Cadastro</string>
+    <string name="text_entrar">Entrar</string>
+    <string name="text_criar_conta">Não possui cadatro? Registre-se agora!</string>
+    <string name="titulo_transacao">Realizar Pagamento</string>
+    <string name="text_meu_perfil">Meu Perfil</string>
+    <string name="titulo_alterar_senha">Alterar Senha</string>
+
+    <string-array name="opcoes_mes">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string name="menu_usuarios">@string/text_usuarios</string>
+    <string name="menu_cartoes">@string/text_cartoes</string>
+    <string name="menu_meu_perfil">@string/text_meu_perfil</string>
+    <string name="menu_sair">Sair</string>
+    <string name="menu_refresh">Atualizar</string>
+
+    <string name="url_rest">http://careers.picpay.com/tests/mobdev/</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
