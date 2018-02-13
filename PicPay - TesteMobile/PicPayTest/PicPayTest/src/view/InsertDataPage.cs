@@ -19,14 +19,21 @@ namespace PicPayTest
         int DestinationUserID;
 
 
-        public InsertDataPage(int id)
+        public InsertDataPage(int id, bool flagRegisterCard = false)
         {
             Title = "Informações";
             DestinationUserID = id;
             Stack = new StackLayout();
             Content = Stack;
 
-            DecideHowShowContent();
+            if (!flagRegisterCard)
+            {
+                DecideHowShowContent();
+            }
+            else
+            {
+                BuildRegisterCard_Content();
+            }
 
         }
 
@@ -36,15 +43,33 @@ namespace PicPayTest
 
             if (cards.Count == 0)
             {
-                BuildNoCardContent();
+                BuildNoHaveCard_Content();
             }
             else
             {
-                BuildHaveCardContent(cards);
+                BuildHaveCard_Content(cards);
             }
         }
 
-        private void BuildNoCardContent()
+
+        private void BuildRegisterCard_Content()
+        {
+            CardNumber = new Entry { Placeholder = "Número do Cartão", Keyboard = Keyboard.Numeric };
+            ExpiryDate = new Entry { Placeholder = "Data de Validade" };
+            Cvv = new Entry { Placeholder = "CVV", Keyboard = Keyboard.Numeric };
+
+            var registerNewCard = new Button { Text = "Confirmar" };
+            
+            Stack.Children.Add(CardNumber);
+            Stack.Children.Add(ExpiryDate);
+            Stack.Children.Add(Cvv);
+            Stack.Children.Add(registerNewCard);
+
+            registerNewCard.Clicked += RegisterNewCard_ClickedAsync;
+
+        }        
+
+        private void BuildNoHaveCard_Content()
         {
             Value = new Entry { Placeholder = "Valor que deseja enviar", Keyboard = Keyboard.Numeric };
             CardNumber = new Entry { Placeholder = "Número do Cartão", Keyboard = Keyboard.Numeric };
@@ -62,7 +87,7 @@ namespace PicPayTest
             noHaveCardConfirm.Clicked += Confirm_ClickedAsync;            
         }
 
-        private void BuildHaveCardContent(List<Card> cards)
+        private void BuildHaveCard_Content(List<Card> cards)
         {
             Value = new Entry { Placeholder = "Valor que deseja enviar", Keyboard = Keyboard.Numeric };
 
@@ -79,11 +104,20 @@ namespace PicPayTest
             };
 
             ListView.ItemsSource = cards;
+            var newCardButton = new Button { Text = "Adicionar Novo Cartão" };
+            newCardButton.Clicked += NewCardButton_Clicked;
+            
 
             Stack.Children.Add(Value);
             Stack.Children.Add(ListView);
+            Stack.Children.Add(newCardButton);
 
             ListView.ItemTapped += ListView_ItemTappedAsync;
+        }
+
+        private void NewCardButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new InsertDataPage(DestinationUserID, true));
         }
 
         private async void ListView_ItemTappedAsync(object sender, ItemTappedEventArgs e)
@@ -93,17 +127,19 @@ namespace PicPayTest
 
             src.model.Transaction transaction = new src.model.Transaction();
 
-            if (!String.IsNullOrEmpty(Value.Text))
+            if (card.CardNumber == "1111111111111111")
             {
-                transaction.DestinationUserId = DestinationUserID;
-                transaction.Value = int.Parse(Value.Text);
-                transaction.CardNumber = card.CardNumber;
-                transaction.CVV = card.CVV;
-                transaction.ExpiryDate = card.ExpiryDate;
+                if (!String.IsNullOrEmpty(Value.Text))
+                {
+                    transaction.DestinationUserId = DestinationUserID;
+                    transaction.Value = int.Parse(Value.Text);
+                    transaction.CardNumber = card.CardNumber;
+                    transaction.CVV = card.CVV;
+                    transaction.ExpiryDate = card.ExpiryDate;
 
-                result = await TransactionRequester.PostTransaction(transaction);
+                    result = await TransactionRequester.PostTransaction(transaction);
+                }
             }
-
 
             if (result)
             {
@@ -115,35 +151,32 @@ namespace PicPayTest
                 await DisplayAlert("", "Transação não realizada", "Ok");
             }
         }
-
-        private void HaveCardconfirm_Clicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         private async void Confirm_ClickedAsync(object sender, EventArgs e)
         {
             bool result = false;
             src.model.Transaction transaction = new src.model.Transaction();
 
-            if (!String.IsNullOrEmpty(Cvv.Text) && !String.IsNullOrEmpty(Value.Text) && !String.IsNullOrEmpty(CardNumber.Text) && !String.IsNullOrEmpty(ExpiryDate.Text))
+            if (CardNumber.Text == "1111111111111111")
             {
+                if (!String.IsNullOrEmpty(Cvv.Text) && !String.IsNullOrEmpty(Value.Text) && !String.IsNullOrEmpty(CardNumber.Text) && !String.IsNullOrEmpty(ExpiryDate.Text))
+                {
 
-                transaction.DestinationUserId = DestinationUserID;
-                transaction.Value = int.Parse(Value.Text);
-                transaction.CardNumber = CardNumber.Text;
-                transaction.CVV = int.Parse(Cvv.Text);
-                transaction.ExpiryDate = ExpiryDate.Text;
+                    transaction.DestinationUserId = DestinationUserID;
+                    transaction.Value = int.Parse(Value.Text);
+                    transaction.CardNumber = CardNumber.Text;
+                    transaction.CVV = int.Parse(Cvv.Text);
+                    transaction.ExpiryDate = ExpiryDate.Text;
 
-                result = await TransactionRequester.PostTransaction(transaction);
-            }         
-            
+                    result = await TransactionRequester.PostTransaction(transaction);
+                }
+            }           
 
             if (result)
             {
                 SaveCardInfo(transaction);
                 await DisplayAlert("", "Transação realizada com Sucesso", "Ok");
-                await Navigation.PopAsync();
+                await Navigation.PopToRootAsync();
             }
             else
             {
@@ -151,6 +184,40 @@ namespace PicPayTest
             }
 
         }
+
+        private async void RegisterNewCard_ClickedAsync(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Cvv.Text) && !String.IsNullOrEmpty(CardNumber.Text) && !String.IsNullOrEmpty(ExpiryDate.Text))
+            {
+                var card = new Card
+                {
+                    CardNumber = CardNumber.Text,
+                    CVV = int.Parse(Cvv.Text),
+                    ExpiryDate = ExpiryDate.Text,
+                    Detail = "CVV:  " + Cvv.Text + "   Vencimento  " + ExpiryDate.Text
+                };
+
+                SaveCardInfo(card);
+
+                await DisplayAlert("", "Cadastro realizado com sucesso", "Ok");
+                await Navigation.PushAsync(new InsertDataPage(DestinationUserID));
+            }
+            else
+            {
+                await DisplayAlert("", "Não foi possível cadastrar", "Ok");
+            }
+
+        }
+
+        private void SaveCardInfo(Card card)
+        {
+            var realm = Realm.GetInstance();
+            realm.Write(() =>
+            {
+                realm.Add(card);
+            });
+        }
+
 
         private void SaveCardInfo(src.model.Transaction transaction)
         {
@@ -171,8 +238,6 @@ namespace PicPayTest
         {
             var realm = Realm.GetInstance();
             return realm.All<Card>().ToList();
-
-            //return new List<Card>();
         }
     }
 }

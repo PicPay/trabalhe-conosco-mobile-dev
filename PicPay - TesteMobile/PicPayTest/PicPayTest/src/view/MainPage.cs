@@ -48,6 +48,7 @@ namespace PicPayTest
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var user = (User)e.Item;
+            
             Navigation.PushAsync(new InsertDataPage(user.Id));
         }
     }

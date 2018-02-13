@@ -9,7 +9,7 @@ namespace PicPayTest
     {
         public App()
         {
-            MainPage = new NavigationPage(new MainPage());            
+            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.FromHex("#21c25e")};            
         }
     }
 }
