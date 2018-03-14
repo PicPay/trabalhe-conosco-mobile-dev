@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PicPay</string>
+    <string name="str_app_name">PicPay</string>
+    <string name="str_contact">Contatos</string>
 </resources>
