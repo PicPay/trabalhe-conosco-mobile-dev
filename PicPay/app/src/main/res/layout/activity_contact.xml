@@ -12,8 +12,17 @@
         android:layout_width="match_parent"
         layout="@layout/layout_toolbar"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_contact"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/idLstContact"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"/>
 </LinearLayout>
