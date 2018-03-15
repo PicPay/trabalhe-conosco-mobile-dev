@@ -4,7 +4,7 @@ package br.com.everaldocardosodearaujo.picpay.Object;
  * Created by E. Cardoso de Araújo on 15/03/2018.
  */
 
-public class CreditCard {
+public class CreditCardObject {
     private long id;
     private String flag;
     private String name;
@@ -12,7 +12,7 @@ public class CreditCard {
     private String validity;
     private String ccv;
 
-    public CreditCard(){
+    public CreditCardObject(){
         this.id = 0;
         this.flag = "";
         this.name = "";
@@ -21,7 +21,7 @@ public class CreditCard {
         this.ccv = "";
     }
 
-    public CreditCard(long id,String flag, String name, String numberCard, String validity, String ccv){
+    public CreditCardObject(long id, String flag, String name, String numberCard, String validity, String ccv){
         this.id = id;
         this.flag = flag;
         this.name = name;

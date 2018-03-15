@@ -4,14 +4,14 @@ package br.com.everaldocardosodearaujo.picpay.Object;
  * Created by E. Cardoso de Araújo on 15/03/2018.
  */
 
-public class Transaction {
+public class TransactionObject {
     private String card_number;
     private long ccv;
     private double value;
     private String expiry_date;
     private long destination_user_id;
 
-    public Transaction(){
+    public TransactionObject(){
         this.card_number = "";
         this.ccv = 0;
         this.value = 0.00;
@@ -19,7 +19,7 @@ public class Transaction {
         this.destination_user_id = 0;
     }
 
-    public Transaction(String card_number, long ccv, double value, String expiry_date,long destination_user_id){
+    public TransactionObject(String card_number, long ccv, double value, String expiry_date, long destination_user_id){
         this.card_number = card_number;
         this.ccv = ccv;
         this.value = value;
