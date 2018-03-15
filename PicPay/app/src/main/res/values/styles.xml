@@ -1,7 +1,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/clrGreen_21C25E</item>
-        <item name="colorPrimaryDark">@color/clrGreen_21C25E</item>
+        <item name="colorPrimaryDark">@color/clrGreen_38A86C</item>
         <item name="colorAccent">@color/clrWhite_FFFFFF</item>
         <item name="colorControlNormal">@color/clrRoxo_3B1A61</item>
         <item name="android:colorControlNormal">@color/clrWhite_FFFFFF</item>

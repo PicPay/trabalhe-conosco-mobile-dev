@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="clrGreen_21C25E">#21C25E</color>
-    <color name="clrGreen_38C86E">#38C86E</color>
+    <color name="clrGreen_38A86C">#38A86C</color>
+    <color name="clrGreen_21C15D">#21C15D</color>
     <color name="clrWhite_FFFFFF">#FFFFFF</color>
     <color name="clrRoxo_3B1A61">#3B1A61</color>
 </resources>
