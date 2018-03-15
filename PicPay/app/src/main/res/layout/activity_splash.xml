@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/clrGreen_21C15D"
-    tools:context="br.com.everaldocardosodearaujo.picpay.SplashActivity">
+    tools:context="br.com.everaldocardosodearaujo.picpay.Activity.SplashActivity">
 
 
     <ImageView

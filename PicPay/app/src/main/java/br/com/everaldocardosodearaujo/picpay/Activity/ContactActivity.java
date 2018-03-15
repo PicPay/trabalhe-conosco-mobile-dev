@@ -1,7 +1,9 @@
-package br.com.everaldocardosodearaujo.picpay;
+package br.com.everaldocardosodearaujo.picpay.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import br.com.everaldocardosodearaujo.picpay.R;
 
 public class ContactActivity extends Activity {
 
