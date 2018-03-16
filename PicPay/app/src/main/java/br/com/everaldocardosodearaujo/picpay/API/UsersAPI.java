@@ -2,7 +2,7 @@ package br.com.everaldocardosodearaujo.picpay.API;
 
 import java.util.List;
 
-import br.com.everaldocardosodearaujo.picpay.Object.UsersObject;
+import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -12,6 +12,6 @@ import retrofit2.http.GET;
 
 public interface UsersAPI {
     @GET("tests/mobdev/users")
-    Call<List<UsersObject>> getUsers();
+    Call<List<UserObject>> getUsers();
 }
 

@@ -4,20 +4,20 @@ package br.com.everaldocardosodearaujo.picpay.Object;
  * Created by E. Cardoso de Araújo on 14/03/2018.
  */
 
-public class UsersObject {
+public class UserObject {
     private long id;
     private String name;
     private String img;
     private String username;
 
-    public UsersObject(){
+    public UserObject(){
         this.id = 0;
         this.name = "";
         this.img = "";
         this.username = "";
     }
 
-    public UsersObject(long id, String name, String img, String username){
+    public UserObject(long id, String name, String img, String username){
         this.id = id;
         this.name = name;
         this.img = img;

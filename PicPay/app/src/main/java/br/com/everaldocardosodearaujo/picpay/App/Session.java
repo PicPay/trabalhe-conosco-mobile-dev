@@ -5,4 +5,6 @@ package br.com.everaldocardosodearaujo.picpay.App;
  */
 
 public class Session {
+    public static String DB_NAME = "DB_PICPAY";
+    public static int DB_VERSION = 1;
 }
