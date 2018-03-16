@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.com.everaldocardosodearaujo.picpay.Activity.ContactActivity">
+    tools:context="br.com.everaldocardosodearaujo.picpay.Activity.UsersActivity">
 
     <include
         android:id="@+id/idToolbarContact"

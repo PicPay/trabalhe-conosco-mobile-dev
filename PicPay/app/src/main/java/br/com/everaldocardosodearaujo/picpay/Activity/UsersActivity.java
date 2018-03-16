@@ -11,16 +11,16 @@ import br.com.everaldocardosodearaujo.picpay.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import java.util.List;
 
-public class ContactActivity extends Activity {
+public class UsersActivity extends Activity {
 
     private List<UsersObject> lstUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_users);
+        getUsersFromApi();
     }
 
     private void getUsersFromApi(){
@@ -29,7 +29,7 @@ public class ContactActivity extends Activity {
                     @Override
                     public void onResponse(Call<List<UsersObject>> call, Response<List<UsersObject>> response) {
                         if (response.isSuccessful()){
-
+                            lstUsers = response.body();
                         }
                     }
 

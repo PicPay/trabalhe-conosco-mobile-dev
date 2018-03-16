@@ -18,7 +18,7 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 Intent it;
-                it = new Intent(SplashActivity.this,ContactActivity.class);
+                it = new Intent(SplashActivity.this,UsersActivity.class);
                 SplashActivity.this.startActivity(it);
                 SplashActivity.this.finish();
             }
