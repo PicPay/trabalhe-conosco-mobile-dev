@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -51,7 +52,9 @@ public class UsersActivity extends Activity implements Functions.RecyclerViewTou
 
                     @Override
                     public void onFailure(Call<List<UserObject>> call, Throwable t) {
-
+                        Toast.makeText(UsersActivity.this,
+                                "Ocorreu um erro: " + t.getMessage() +". Causa: " + t.getCause(),
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }
