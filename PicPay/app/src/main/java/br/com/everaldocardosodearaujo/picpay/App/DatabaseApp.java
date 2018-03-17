@@ -4,38 +4,28 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static br.com.everaldocardosodearaujo.picpay.App.Session.DB_NAME;
-import static br.com.everaldocardosodearaujo.picpay.App.Session.DB_VERSION;
+import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.DB_NAME;
+import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.DB_VERSION;
 
 /**
  * Created by E. Cardoso de Araújo on 15/03/2018.
  */
 
-public class DatabaseScripts extends SQLiteOpenHelper {
+public class DatabaseApp extends SQLiteOpenHelper {
 
-    public DatabaseScripts(Context context) {
+    public DatabaseApp(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String SQL;
-
-        SQL =  " CREATE TABLE USERS( ";
-        SQL += "    ID INTEGER PRIMARY KEY , ";
-        SQL += "    NAME TEXT NOT NULL , ";
-        SQL += "    USERNAME TEXT NOT NULL , ";
-        SQL += "    IMG TEXT NULL  ";
-        SQL += " ); ";
-
-        db.execSQL(SQL);
-
         SQL =  " CREATE TABLE CREDIT_CARD( ";
         SQL += "    ID INTEGER PRIMARY KEY AUTOINCREMENT , ";
         SQL += "    FLAG TEXT NOT NULL , ";
         SQL += "    NAME TEXT NOT NULL , ";
-        SQL += "    NUMBERCARD TEXT NULL  ";
-        SQL += "    VALIDITY TEXT NULL  ";
+        SQL += "    NUMBER_CARD TEXT NULL ,  ";
+        SQL += "    VALIDITY TEXT NULL , ";
         SQL += "    CCV TEXT NULL  ";
         SQL += " ); ";
 

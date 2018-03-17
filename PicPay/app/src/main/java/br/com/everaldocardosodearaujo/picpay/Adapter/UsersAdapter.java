@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import br.com.everaldocardosodearaujo.picpay.App.Functions;
+import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import br.com.everaldocardosodearaujo.picpay.R;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -28,7 +28,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     private float scale;
     private int width;
     private int height;
-    private Functions.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack recyclerViewOnClickListenerHack;
+    private FunctionsApp.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack recyclerViewOnClickListenerHack;
 
     public UsersAdapter(Context context, List<UserObject> lstUsers){
         this.context = context;
@@ -39,7 +39,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
         this.height = (this.width / 16) * 9;
     }
 
-    public void setRecyclerViewOnClickListenerHack(Functions.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack r){
+    public void setRecyclerViewOnClickListenerHack(FunctionsApp.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack r){
         recyclerViewOnClickListenerHack = r;
     }
 

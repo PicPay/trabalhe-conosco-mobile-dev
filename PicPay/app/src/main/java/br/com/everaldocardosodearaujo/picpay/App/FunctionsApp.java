@@ -21,7 +21,7 @@ import java.util.Date;
  * Created by E. Cardoso de Araújo on 15/03/2018.
  */
 
-public class Functions {
+public class FunctionsApp {
     public static void startActivity(Context context, Class classe, Bundle paramentros){
         Intent intent = new Intent(context,classe);
         if (paramentros != null){intent.putExtras(paramentros);}

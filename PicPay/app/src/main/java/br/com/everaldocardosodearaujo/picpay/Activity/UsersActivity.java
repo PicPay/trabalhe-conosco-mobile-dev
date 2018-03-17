@@ -18,7 +18,7 @@ import java.util.List;
 
 import br.com.everaldocardosodearaujo.picpay.API.API;
 import br.com.everaldocardosodearaujo.picpay.Adapter.UsersAdapter;
-import br.com.everaldocardosodearaujo.picpay.App.Functions;
+import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import br.com.everaldocardosodearaujo.picpay.R;
 import retrofit2.Call;
@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UsersActivity extends Activity
-        implements Functions.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack,
+        implements FunctionsApp.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack,
         NavigationView.OnNavigationItemSelectedListener,
         LoaderManager.LoaderCallbacks<Cursor> ,
         SwipeRefreshLayout.OnRefreshListener{
@@ -49,7 +49,7 @@ public class UsersActivity extends Activity
 
         this.idRvUsers = (RecyclerView) findViewById(R.id.idRvUsers);
         this.idRvUsers.setHasFixedSize(true);
-        this.idRvUsers.addOnItemTouchListener(new Functions.RecyclerViewTouchListener(UsersActivity.this, this.idRvUsers, this));
+        this.idRvUsers.addOnItemTouchListener(new FunctionsApp.RecyclerViewTouchListener(UsersActivity.this, this.idRvUsers, this));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UsersActivity.this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         this.idRvUsers.setLayoutManager(linearLayoutManager);
