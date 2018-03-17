@@ -7,11 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import br.com.everaldocardosodearaujo.picpay.Activity.CreditCardActivity;
+import br.com.everaldocardosodearaujo.picpay.Activity.UsersActivity;
 import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import br.com.everaldocardosodearaujo.picpay.R;
@@ -69,6 +72,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
                 Picasso.with(context).load(user.getImg()).into(holder.idImg);
                 holder.idImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View view) {
+                    FunctionsApp.startActivity(context, CreditCardActivity.class,null);
+                }
+            });
         }
     }
 
@@ -81,12 +89,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
         public CircleImageView idImg;
         public TextView idUserName;
         public TextView idName;
+        public RecyclerView idRvUsers;
 
         public MyViewHolder(View view){
             super(view);
             idImg = (CircleImageView) view.findViewById(R.id.idImg);
             idUserName = (TextView) view.findViewById(R.id.idUserName);
             idName = (TextView) view.findViewById(R.id.idName);
+            idRvUsers = (RecyclerView) view.findViewById(R.id.idRvUsers);
         }
 
         @Override

@@ -6,21 +6,29 @@
     android:orientation="vertical"
     tools:context="br.com.everaldocardosodearaujo.picpay.Activity.UsersActivity">
 
-    <include
-        android:id="@+id/idToolbarUsers"
-        layout="@layout/layout_toolbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/idToolbarTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="55dp"
+        android:background="@color/clrGreen_21C15D"
+        android:elevation="4dp">
 
-    <TextView
-        android:id="@+id/idUsers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/str_users"
-        android:textStyle="bold" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_logo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/str_users"
+            android:textColor="@color/clrWhite_FFFFFF"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

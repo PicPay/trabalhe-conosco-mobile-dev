@@ -6,10 +6,27 @@
     android:layout_height="match_parent"
     tools:context="br.com.everaldocardosodearaujo.picpay.Activity.TransactionActivity">
 
-    <include
-        android:id="@+id/idToolbarContact"
-        android:layout_height="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/idToolbarTop"
         android:layout_width="match_parent"
-        layout="@layout/layout_toolbar"/>
+        android:layout_height="55dp"
+        android:background="@color/clrGreen_21C15D"
+        android:elevation="4dp">
 
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_logo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/str_transaction"
+            android:textColor="@color/clrWhite_FFFFFF"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.Toolbar>
 </LinearLayout>

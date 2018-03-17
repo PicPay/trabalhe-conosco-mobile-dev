@@ -20,6 +20,6 @@ public class SplashActivity extends Activity {
                 FunctionsApp.startActivity(SplashActivity.this,UsersActivity.class,null);
                 FunctionsApp.closeActivity(SplashActivity.this);
             }
-        }, 4000);
+        }, 3000);
     }
 }
