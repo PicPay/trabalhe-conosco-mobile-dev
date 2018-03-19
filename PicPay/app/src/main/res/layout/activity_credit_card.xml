@@ -8,7 +8,6 @@
     tools:context="br.com.everaldocardosodearaujo.picpay.Activity.CreditCardActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/idToolbarTop"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/clrGreen_21C15D"
@@ -18,12 +17,12 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/ic_logo" />
+            android:src="@mipmap/ic_logo"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_margin="5dp"
             android:text="@string/str_credit_card"
             android:textColor="@color/clrWhite_FFFFFF"
             android:textSize="16dp"
@@ -37,10 +36,27 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:text="@string/str_cc_flag_instructions"
+            android:textStyle="bold" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informe os dados de seu cartão de crédito"/>
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/str_cc_flag" />
+
+        <Spinner
+            android:id="@+id/idSpFlag"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:spinnerMode="dialog" />
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -48,13 +64,13 @@
             android:layout_gravity="center">
 
             <EditText
-                android:id="@+id/idBtnFlag"
+                android:id="@+id/idEdtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
-                android:hint="Selecione a bandeira" />
+                android:hint="@string/str_cc_name_card"
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -63,41 +79,13 @@
             android:layout_gravity="center">
 
             <EditText
-                android:id="@+id/idBtnName"
+                android:id="@+id/idEdtNumberCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:hint="Nome escrito no cartão" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <EditText
-                android:id="@+id/idBtnNumberCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Número do cartão" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <EditText
-                android:id="@+id/idBtnValitity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Validade (mm/aaaa)" />
+                android:hint="@string/str_cc_number_card"
+                android:inputType="number" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -107,22 +95,63 @@
             android:layout_gravity="center">
 
             <EditText
-                android:id="@+id/idBtnCCV"
+                android:id="@+id/idEdtValitity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:hint="CCV" />
+                android:hint="@string/str_cc_valitity"
+                android:inputType="date" />
+
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/idEdtCCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/str_cc_ccv"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/ic_lock" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_cc_communicated"
+                android:textSize="8dp" />
+        </LinearLayout>
+
 
         <Button
-            android:layout_margin="30dp"
-            android:layout_gravity="center"
-            android:layout_width="250dp"
+            android:id="@+id/idBtnSave"
+            android:layout_width="375dp"
             android:layout_height="45dp"
-            android:background="@color/clrGreen_21C25E"
-            android:textColor="@color/clrWhite_FFFFFF"
-            android:text="Salvar"/>
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:background="@drawable/layout_btn_round"
+            android:onClick="onClickSalvar"
+            android:text="@string/str_cc_save"
+            android:textColor="@color/clrWhite_FFFFFF" />
+
 
     </LinearLayout>
 </LinearLayout>

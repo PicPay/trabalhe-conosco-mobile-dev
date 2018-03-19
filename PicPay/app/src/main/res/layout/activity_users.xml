@@ -7,7 +7,6 @@
     tools:context="br.com.everaldocardosodearaujo.picpay.Activity.UsersActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/idToolbarTop"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/clrGreen_21C15D"

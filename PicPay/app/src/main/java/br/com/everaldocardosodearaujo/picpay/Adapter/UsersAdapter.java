@@ -14,11 +14,14 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import br.com.everaldocardosodearaujo.picpay.Activity.CreditCardActivity;
+import br.com.everaldocardosodearaujo.picpay.Activity.TransactionActivity;
 import br.com.everaldocardosodearaujo.picpay.Activity.UsersActivity;
 import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import br.com.everaldocardosodearaujo.picpay.R;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.CREDIT_CARD;
 
 /**
  * Created by E. Cardoso de Araújo on 15/03/2018.
@@ -74,7 +77,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
             }
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View view) {
-                    FunctionsApp.startActivity(context, CreditCardActivity.class,null);
+                    if (CREDIT_CARD != null){
+                        FunctionsApp.startActivity(context, TransactionActivity.class,null);
+                        Toast.makeText(context,"Em desenvolvimento", Toast.LENGTH_LONG).show();
+                    }else{
+                        FunctionsApp.startActivity(context, CreditCardActivity.class,null);
+                    }
                 }
             });
         }

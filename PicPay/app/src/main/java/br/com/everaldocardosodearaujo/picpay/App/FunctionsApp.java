@@ -12,10 +12,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 
 /**
  * Created by E. Cardoso de Araújo on 15/03/2018.
@@ -58,6 +61,11 @@ public class FunctionsApp {
     public static Date getCurrentDate(){
         DateFormat formatter = new SimpleDateFormat();
         return formatter.getCalendar().getTime();
+    }
+
+    public static void formatMask(EditText edt, String mascara){
+        MaskEditTextChangedListener campo = new MaskEditTextChangedListener(mascara,edt);
+        edt.addTextChangedListener(campo);
     }
 
     public static class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListener {

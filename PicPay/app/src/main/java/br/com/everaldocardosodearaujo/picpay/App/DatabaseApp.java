@@ -36,9 +36,6 @@ public class DatabaseApp extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String SQL;
 
-        SQL  = " DROP TABLE USERS; ";
-        db.execSQL(SQL);
-
         SQL  = " DROP TABLE CREDIT_CARD; ";
         db.execSQL(SQL);
     }

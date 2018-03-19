@@ -8,8 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.everaldocardosodearaujo.picpay.Activity.CreditCardActivity;
 import br.com.everaldocardosodearaujo.picpay.App.DatabaseApp;
 import br.com.everaldocardosodearaujo.picpay.Object.CreditCardObject;
+
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.modal;
 
 /**
  * Created by E. Cardoso de Araújo on 15/03/2018.
@@ -45,8 +48,8 @@ public class CreditCardRepository {
             contentValues.put(FIELDS.CCV.name(),creditCard.getCcv());
 
             return this.DB_PicPay.insert(this.TB_CREDIT_CARD,null,contentValues);
-        }catch (Exception e){
-            return 0;
+        }catch (Exception ex){
+            throw ex;
         }
     }
 
@@ -65,7 +68,7 @@ public class CreditCardRepository {
                     new String[]{Long.toString(creditCard.getId())});
             return true;
         }catch (Exception ex){
-            return false;
+            throw ex;
         }
     }
 
@@ -108,7 +111,7 @@ public class CreditCardRepository {
             }
             return list;
         }catch (Exception ex){
-            return null;
+            throw ex;
         }
     }
 }
