@@ -13,5 +13,5 @@
         android:color="@color/clrGreen_21C15D" />
 
     <corners
-        android:radius="10dp" />
+        android:radius="20dp" />
 </shape>

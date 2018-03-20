@@ -1,6 +1,5 @@
 package br.com.everaldocardosodearaujo.picpay.App;
 
-import br.com.everaldocardosodearaujo.picpay.Object.CreditCardObject;
 import br.com.everaldocardosodearaujo.picpay.Repository.CreditCardRepository;
 
 /**
@@ -16,5 +15,4 @@ public class SessionApp {
     public static final String MASK_NUMBER_CREDIT_CARD = "####.####.####.####";
 
     public static CreditCardRepository TB_CREDIT_CARD;
-    public static CreditCardObject CREDIT_CARD;
 }

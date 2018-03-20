@@ -18,7 +18,6 @@ import br.com.everaldocardosodearaujo.picpay.Repository.CreditCardRepository;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.closeActivity;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.formatMask;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.modal;
-import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.CREDIT_CARD;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.MASK_CCV;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.MASK_DATE_MONTH_YEAR;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.MASK_NUMBER_CREDIT_CARD;
@@ -104,7 +103,6 @@ public class CreditCardActivity extends Activity {
             creditCardObject.setCcv(this.idEdtCCV.getText().toString());
 
             TB_CREDIT_CARD.insert(creditCardObject);
-            CREDIT_CARD = TB_CREDIT_CARD.select().get(0);
 
             closeActivity(CreditCardActivity.this);
             Toast.makeText(CreditCardActivity.this,"Cartão salvo com sucesso.", Toast.LENGTH_SHORT).show();

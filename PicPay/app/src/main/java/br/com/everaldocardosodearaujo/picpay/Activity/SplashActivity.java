@@ -4,14 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
-import java.util.List;
-
 import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
-import br.com.everaldocardosodearaujo.picpay.Object.CreditCardObject;
 import br.com.everaldocardosodearaujo.picpay.R;
 import br.com.everaldocardosodearaujo.picpay.Repository.CreditCardRepository;
-
-import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.CREDIT_CARD;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.TB_CREDIT_CARD;
 
 public class SplashActivity extends Activity {
@@ -21,7 +16,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        this.LoadTableCreditCard();
+        TB_CREDIT_CARD = new CreditCardRepository(SplashActivity.this);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -30,12 +25,5 @@ public class SplashActivity extends Activity {
                 FunctionsApp.closeActivity(SplashActivity.this);
             }
         }, 3000);
-    }
-
-    private void LoadTableCreditCard(){
-        TB_CREDIT_CARD = new CreditCardRepository(SplashActivity.this);
-        List<CreditCardObject> lstCreditCard = TB_CREDIT_CARD.select();
-        if (lstCreditCard.size() > 0){CREDIT_CARD = lstCreditCard.get(0);}
-
     }
 }

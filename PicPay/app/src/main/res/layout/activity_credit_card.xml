@@ -143,11 +143,11 @@
 
         <Button
             android:id="@+id/idBtnSave"
-            android:layout_width="375dp"
+            android:layout_width="370dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_margin="30dp"
-            android:background="@drawable/layout_btn_round"
+            android:background="@drawable/layout_btn_round_green"
             android:onClick="onClickSalvar"
             android:text="@string/str_cc_save"
             android:textColor="@color/clrWhite_FFFFFF" />
