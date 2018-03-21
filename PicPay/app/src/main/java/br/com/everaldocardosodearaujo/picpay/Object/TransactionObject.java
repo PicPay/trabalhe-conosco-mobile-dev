@@ -6,20 +6,20 @@ package br.com.everaldocardosodearaujo.picpay.Object;
 
 public class TransactionObject {
     private String card_number;
-    private long ccv;
+    private String ccv;
     private double value;
     private String expiry_date;
     private long destination_user_id;
 
     public TransactionObject(){
         this.card_number = "";
-        this.ccv = 0;
+        this.ccv = "";
         this.value = 0.00;
         this.expiry_date = "";
         this.destination_user_id = -1;
     }
 
-    public TransactionObject(String card_number, long ccv, double value, String expiry_date, long destination_user_id){
+    public TransactionObject(String card_number, String ccv, double value, String expiry_date, long destination_user_id){
         this.card_number = card_number;
         this.ccv = ccv;
         this.value = value;
@@ -35,11 +35,11 @@ public class TransactionObject {
         this.card_number = card_number;
     }
 
-    public long getCcv() {
+    public String getCcv() {
         return ccv;
     }
 
-    public void setCcv(long ccv) {
+    public void setCcv(String ccv) {
         this.ccv = ccv;
     }
 

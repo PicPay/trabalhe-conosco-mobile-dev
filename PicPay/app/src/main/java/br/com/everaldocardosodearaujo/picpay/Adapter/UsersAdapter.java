@@ -81,6 +81,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
                         param.putString("img",user.getImg());
                         param.putString("name",user.getName());
                         param.putString("username",user.getUsername());
+                        param.putLong("destination_user_id",user.getId());
                         FunctionsApp.startActivity(context, TransactionActivity.class,param);
                     }else{
                         FunctionsApp.startActivity(context, CreditCardActivity.class,null);

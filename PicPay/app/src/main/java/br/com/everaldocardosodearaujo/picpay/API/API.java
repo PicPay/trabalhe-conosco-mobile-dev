@@ -2,6 +2,7 @@ package br.com.everaldocardosodearaujo.picpay.API;
 
 import java.util.List;
 
+import br.com.everaldocardosodearaujo.picpay.Object.TransactionObject;
 import br.com.everaldocardosodearaujo.picpay.Object.UserObject;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -18,8 +19,13 @@ public class API {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    public static  Call<List<UserObject>> getUsers() {
+    public static Call<List<UserObject>> getUsers() {
         UsersAPI usersAPI = RETROFIT.create(UsersAPI.class);
         return usersAPI.getUsers();
+    }
+
+    public static Call<TransactionObject> setTransaction(TransactionObject transactionObject) {
+        TransactionAPI transactionAPI = RETROFIT.create(TransactionAPI.class);
+        return transactionAPI.setTransaction(transactionObject);
     }
 }
