@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="clrGreen_21C25E">#21C25E</color>
+    <color name="clrGreen_38A86C">#38A86C</color>
+    <color name="clrGreen_21C15D">#21C15D</color>
+    <color name="clrWhite_FFFFFF">#FFFFFF</color>
+    <color name="clrRoxo_3B1A61">#3B1A61</color>
+    <color name="clrBlack_000000">#000000</color>
+    <color name="clrGrey_616161">#616161</color>
+    <color name="clrGrey_ECEFF1">#ECEFF1</color>
+</resources>

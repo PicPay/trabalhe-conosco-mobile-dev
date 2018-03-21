@@ -1,0 +1,22 @@
+<resources>
+    <string name="str_app_name">PicPay</string>
+    <string name="str_title">PicPay</string>
+    <string name="str_slogan">Envie e receba dinheiro \n pelo smartphone</string>
+    <string name="str_dev">Dev.: Everaldo Cardoso de Araújo</string>
+    <string name="str_users">Usuários</string>
+    <string name="str_user_name">\@everaldocardoso</string>
+    <string name="str_name">Everaldo Cardoso de Araújo</string>
+    <string name="str_credit_card">Novo cartão de crédito</string>
+    <string name="str_transaction">Nova transação</string>
+    <string name="str_cc_flag_instructions">Informe os dados de seu cartão de crédito</string>
+    <string name="str_cc_flag">Informe a bandeira:</string>
+    <string name="str_cc_name_card">Nome escrito no cartão</string>
+    <string name="str_cc_number_card">Número do cartão</string>
+    <string name="str_cc_valitity">Validade (mm/aaaa)</string>
+    <string name="str_cc_ccv">CCV</string>
+    <string name="str_cc_save">Salvar</string>
+    <string name="str_cc_communicated">PicPay é 100% seguro e atende a todos os requisitos internacionais de segurança.
+        Seu cartão só será usado quando você fizer uma compra com o PicPay.</string>
+    <string name="str_tr_cifrao">R$</string>
+    <string name="str_tr_zero">0.00</string>
+</resources>
