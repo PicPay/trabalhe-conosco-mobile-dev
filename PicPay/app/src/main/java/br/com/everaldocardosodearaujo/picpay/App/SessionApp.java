@@ -17,6 +17,7 @@ public class SessionApp {
     public static final String MASK_DATE_MONTH_YEAR = "##/####";
     public static final String MASK_CCV = "###";
     public static final String MASK_NUMBER_CREDIT_CARD = "####.####.####.####";
+    public static final String MASK_NUMBER = "####.##";
 
     public static CreditCardRepository TB_CREDIT_CARD;
 }

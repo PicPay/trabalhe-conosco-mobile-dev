@@ -157,6 +157,7 @@
                     android:background="@drawable/layout_btn_round_green"
                     android:gravity="center"
                     android:text="Pagar"
+                    android:onClick="onClickPay"
                     android:textColor="@color/clrWhite_FFFFFF" />
             </LinearLayout>
         </LinearLayout>
