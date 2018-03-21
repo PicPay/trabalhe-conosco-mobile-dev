@@ -13,7 +13,7 @@ public class CreditCardObject {
     private String ccv;
 
     public CreditCardObject(){
-        this.id = 0;
+        this.id = -1;
         this.flag = "";
         this.name = "";
         this.numberCard = "";

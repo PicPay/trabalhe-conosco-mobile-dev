@@ -14,10 +14,13 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.closeActivity;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.formatMask;
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.startActivity;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.MASK_NUMBER;
 import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.TB_CREDIT_CARD;
 
@@ -68,5 +71,22 @@ public class TransactionActivity extends Activity {
         }catch (Exception ex){
             Toast.makeText(TransactionActivity.this,"Ocorreu um erro: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void onClickShowCreditCard(View view){
+        FunctionsApp.startActivity(TransactionActivity.this,CreditCardActivity.class,null);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        try{
+            String numberCard = TB_CREDIT_CARD.select().get(0).getNumberCard();
+            this.idTxvCardNumber.setText("Cartão de crédito final " + numberCard.substring(15,numberCard.length()));
+        }catch (Exception ex){
+            Toast.makeText(TransactionActivity.this,"Ocorreu um erro: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void onClickReturn(View view){
+        closeActivity(TransactionActivity.this);
     }
 }

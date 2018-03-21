@@ -11,7 +11,7 @@ public class UserObject {
     private String username;
 
     public UserObject(){
-        this.id = 0;
+        this.id = -1;
         this.name = "";
         this.img = "";
         this.username = "";

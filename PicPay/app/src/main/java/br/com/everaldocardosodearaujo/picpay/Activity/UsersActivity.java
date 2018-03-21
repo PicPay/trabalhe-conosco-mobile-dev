@@ -29,6 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.closeActivity;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.closePgDialog;
 import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.showPgDialog;
 
@@ -57,16 +58,11 @@ public class UsersActivity extends Activity
 
     private void inflate(){
         this.idClRefresh = (CoordinatorLayout) findViewById(R.id.idClRefresh);
-
         this.idBtnRefresh = (Button) findViewById(R.id.idBtnRefresh);
-
         this.idLLUsers = (LinearLayout) findViewById(R.id.idLLUsers);
-
         this.idLLListUsers = (LinearLayout) findViewById(R.id.idLLListUsers);
-
         this.idScUsers = (SwipeRefreshLayout) findViewById(R.id.idScUsers);
         this.idScUsers.setOnRefreshListener(this);
-
         this.idRvUsers = (RecyclerView) findViewById(R.id.idRvUsers);
         this.idRvUsers.setHasFixedSize(true);
         this.idRvUsers.addOnItemTouchListener(new FunctionsApp.RecyclerViewTouchListener(UsersActivity.this, this.idRvUsers, this));

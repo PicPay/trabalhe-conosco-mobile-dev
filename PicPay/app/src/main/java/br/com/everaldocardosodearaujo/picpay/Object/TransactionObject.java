@@ -16,7 +16,7 @@ public class TransactionObject {
         this.ccv = 0;
         this.value = 0.00;
         this.expiry_date = "";
-        this.destination_user_id = 0;
+        this.destination_user_id = -1;
     }
 
     public TransactionObject(String card_number, long ccv, double value, String expiry_date, long destination_user_id){

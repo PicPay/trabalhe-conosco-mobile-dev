@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import br.com.everaldocardosodearaujo.picpay.App.FunctionsApp;
 import br.com.everaldocardosodearaujo.picpay.Object.CreditCardObject;
 import br.com.everaldocardosodearaujo.picpay.R;
@@ -31,14 +33,16 @@ public class CreditCardActivity extends Activity {
     private EditText idEdtValitity;
     private EditText idEdtCCV;
     private Button idBtnSave;
+    CreditCardObject creditCardObject = new CreditCardObject();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_card);
-        FunctionsApp.modal(CreditCardActivity.this,"Atenção","Será necessário cadastrar um cartão de crédito","OK");
+
         this.inflate();
         this.loadFlags();
+        this.loadCreditCard();
     }
 
     private void inflate(){
@@ -53,6 +57,8 @@ public class CreditCardActivity extends Activity {
         formatMask(this.idEdtValitity,MASK_DATE_MONTH_YEAR);
         formatMask(this.idEdtCCV,MASK_CCV);
 
+        creditCardObject = new CreditCardObject();
+
         this.idSpFlag.requestFocus();
     }
 
@@ -61,6 +67,36 @@ public class CreditCardActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, flags);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.idSpFlag.setAdapter(adapter);
+    }
+
+    private void loadCreditCard(){
+        try{
+            List<CreditCardObject> lstCreditCardObject = TB_CREDIT_CARD.select();
+            if (lstCreditCardObject.size()>0){
+                this.creditCardObject = lstCreditCardObject.get(0);
+                if (creditCardObject.getId()>=0){
+                    if (creditCardObject.getFlag().toUpperCase().equals("MASTERCARD")){
+                        this.idSpFlag.setSelection(0);
+                    }else if (creditCardObject.getFlag().toUpperCase().equals("VISA")){
+                        this.idSpFlag.setSelection(1);
+                    }else if (creditCardObject.getFlag().toUpperCase().equals("AMERICAN EXPRESS")){
+                        this.idSpFlag.setSelection(2);
+                    }else if (creditCardObject.getFlag().toUpperCase().equals("ELO")){
+                        this.idSpFlag.setSelection(3);
+                    }else if (creditCardObject.getFlag().toUpperCase().equals("HIPERCARD")){
+                        this.idSpFlag.setSelection(4);
+                    }
+                    this.idEdtName.setText(creditCardObject.getName());
+                    this.idEdtCCV.setText(creditCardObject.getCcv());
+                    this.idEdtNumberCard.setText(creditCardObject.getNumberCard());
+                    this.idEdtValitity.setText(creditCardObject.getValidity());
+                }else{
+                    FunctionsApp.modal(CreditCardActivity.this,"Atenção","Será necessário cadastrar um cartão de crédito","OK");
+                }
+            }
+        }catch (Exception ex){
+            modal(CreditCardActivity.this,"Atenção","Ocorreu um erro:" + ex.getMessage(),"OK");
+        }
     }
 
     public void onClickSalvar(View view){
@@ -83,6 +119,12 @@ public class CreditCardActivity extends Activity {
                 return;
             }
 
+            if (this.idEdtNumberCard.getText().toString().length() != 19){
+                modal(CreditCardActivity.this,"Atenção!","O número do cartão deve ter 16 dígitos!","OK");
+                this.idEdtNumberCard.requestFocus();
+                return;
+            }
+
             if (this.idEdtValitity.getText().toString().trim().equals("")){
                 modal(CreditCardActivity.this,"Atenção!","Informe a data de validade!","OK");
                 this.idEdtValitity.requestFocus();
@@ -95,19 +137,26 @@ public class CreditCardActivity extends Activity {
                 return;
             }
 
-            CreditCardObject creditCardObject = new CreditCardObject();
-            creditCardObject.setFlag(this.idSpFlag.getSelectedItem().toString());
+            this.creditCardObject.setFlag(this.idSpFlag.getSelectedItem().toString());
             creditCardObject.setName(this.idEdtName.getText().toString());
             creditCardObject.setNumberCard(this.idEdtNumberCard.getText().toString());
             creditCardObject.setValidity(this.idEdtValitity.getText().toString());
             creditCardObject.setCcv(this.idEdtCCV.getText().toString());
 
-            TB_CREDIT_CARD.insert(creditCardObject);
+            if (creditCardObject.getId() >= 0){
+                TB_CREDIT_CARD.update(creditCardObject);
+            }else{
+                TB_CREDIT_CARD.insert(creditCardObject);
+            }
 
             closeActivity(CreditCardActivity.this);
             Toast.makeText(CreditCardActivity.this,"Cartão salvo com sucesso.", Toast.LENGTH_SHORT).show();
         }catch (Exception ex){
             modal(CreditCardActivity.this,"Atenção","Ocorreu um erro:" + ex.getMessage(),"OK");
         }
+    }
+
+    public void onClickReturn(View view){
+        closeActivity(CreditCardActivity.this);
     }
 }
