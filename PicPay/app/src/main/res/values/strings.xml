@@ -17,4 +17,6 @@
     <string name="str_cc_save">Salvar</string>
     <string name="str_cc_communicated">PicPay é 100% seguro e atende a todos os requisitos internacionais de segurança.
         Seu cartão só será usado quando você fizer uma compra com o PicPay.</string>
+    <string name="str_tr_cifrao">R$</string>
+    <string name="str_tr_zero">0.00</string>
 </resources>

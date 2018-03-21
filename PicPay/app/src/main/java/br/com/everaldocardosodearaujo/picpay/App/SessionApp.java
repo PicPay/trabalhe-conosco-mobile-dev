@@ -1,5 +1,7 @@
 package br.com.everaldocardosodearaujo.picpay.App;
 
+import android.app.ProgressDialog;
+
 import br.com.everaldocardosodearaujo.picpay.Repository.CreditCardRepository;
 
 /**
@@ -7,6 +9,8 @@ import br.com.everaldocardosodearaujo.picpay.Repository.CreditCardRepository;
  */
 
 public class SessionApp {
+    public static ProgressDialog PG_DIALOG;
+
     public static String DB_NAME = "PICPAY_DB";
     public static int DB_VERSION = 1;
 

@@ -1,9 +1,11 @@
 package br.com.everaldocardosodearaujo.picpay.Activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -12,6 +14,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.List;
@@ -25,6 +29,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.closePgDialog;
+import static br.com.everaldocardosodearaujo.picpay.App.FunctionsApp.showPgDialog;
+
 public class UsersActivity extends Activity
         implements FunctionsApp.RecyclerViewTouchListener.RecyclerViewOnClickListenerHack,
         NavigationView.OnNavigationItemSelectedListener,
@@ -33,16 +40,30 @@ public class UsersActivity extends Activity
 
     private RecyclerView idRvUsers;
     private SwipeRefreshLayout idScUsers;
+    private CoordinatorLayout idClRefresh;
+    private Button idBtnRefresh;
+    private LinearLayout idLLUsers;
+    private LinearLayout idLLListUsers;
+    private ProgressDialog pgLoad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
         this.inflate();
+        showPgDialog(UsersActivity.this);
         this.getUsersFromApi();
     }
 
     private void inflate(){
+        this.idClRefresh = (CoordinatorLayout) findViewById(R.id.idClRefresh);
+
+        this.idBtnRefresh = (Button) findViewById(R.id.idBtnRefresh);
+
+        this.idLLUsers = (LinearLayout) findViewById(R.id.idLLUsers);
+
+        this.idLLListUsers = (LinearLayout) findViewById(R.id.idLLListUsers);
+
         this.idScUsers = (SwipeRefreshLayout) findViewById(R.id.idScUsers);
         this.idScUsers.setOnRefreshListener(this);
 
@@ -62,6 +83,9 @@ public class UsersActivity extends Activity
                         if (response.isSuccessful()){
                             idRvUsers.setAdapter(new UsersAdapter(UsersActivity.this,response.body()));
                             idScUsers.setRefreshing(false);
+                            try{idLLUsers.addView(idLLListUsers);}catch(Exception ex){}
+                            try{idLLUsers.removeView(idClRefresh);}catch (Exception ex){}
+                            closePgDialog();
                         }
                     }
 
@@ -72,8 +96,16 @@ public class UsersActivity extends Activity
                                 Toast.LENGTH_LONG)
                                 .show();
                         idScUsers.setRefreshing(false);
+                        try{idLLUsers.removeView(idLLListUsers);}catch (Exception ex){}
+                        try{idLLUsers.addView(idClRefresh);}catch (Exception ex){}
+                        closePgDialog();
                     }
                 });
+    }
+
+    public void onClickBtnRefresh(View view){
+        showPgDialog(UsersActivity.this);
+        this.getUsersFromApi();
     }
 
     @Override

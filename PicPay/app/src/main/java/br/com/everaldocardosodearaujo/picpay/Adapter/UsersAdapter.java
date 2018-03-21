@@ -1,6 +1,7 @@
 package br.com.everaldocardosodearaujo.picpay.Adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +77,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View view) {
                     if (TB_CREDIT_CARD.select().get(0) != null){
-                        FunctionsApp.startActivity(context, TransactionActivity.class,null);
+                        Bundle param = new Bundle();
+                        param.putString("img",user.getImg());
+                        param.putString("name",user.getName());
+                        param.putString("username",user.getUsername());
+                        FunctionsApp.startActivity(context, TransactionActivity.class,param);
                     }else{
                         FunctionsApp.startActivity(context, CreditCardActivity.class,null);
                     }

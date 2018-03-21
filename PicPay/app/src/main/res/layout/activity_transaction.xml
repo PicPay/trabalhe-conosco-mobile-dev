@@ -48,6 +48,7 @@
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/idImg"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:backgroundTint="@color/clrGreen_38A86C"
@@ -63,7 +64,6 @@
                         android:id="@+id/idUserName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="\@suellene.moledo"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -71,7 +71,7 @@
                         android:id="@+id/idName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Suellene Molêdo"
+                        android:text=""
                         android:textSize="16dp" />
 
                     <LinearLayout
@@ -83,7 +83,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="R$"
+                            android:text="@string/str_tr_cifrao"
                             android:textSize="37dp" />
 
                         <EditText
@@ -94,7 +94,7 @@
                             android:backgroundTint="@color/clrWhite_FFFFFF"
                             android:gravity="left|center"
                             android:inputType="numberDecimal"
-                            android:text="0,00"
+                            android:text="@string/str_tr_zero"
                             android:textColor="@color/clrGrey_616161"
                             android:textSize="37dp" />
                     </LinearLayout>
@@ -122,34 +122,35 @@
 
                 <ImageView
                     android:layout_width="45dp"
-                    android:layout_margin="1dp"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_credit_card"
-                    android:backgroundTint="@color/clrGrey_616161"/>
+                    android:layout_margin="1dp"
+                    android:backgroundTint="@color/clrGrey_616161"
+                    android:src="@mipmap/ic_credit_card" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Forma de pagamento:"
-                        android:textSize="13dp"/>
+                        android:textSize="13dp" />
 
                     <TextView
+                        android:id="@+id/idTxvCardNumber"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="0.26"
                         android:gravity="left|center"
-                        android:text="Cartão com final 7292"
                         android:textColor="@color/clrGreen_21C15D"
-                        android:textStyle="bold"
-                        android:layout_weight="0.26" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/idBtnPay"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_margin="10dp"

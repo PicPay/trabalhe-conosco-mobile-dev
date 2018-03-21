@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idLLUsers"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,7 +17,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/ic_logo"/>
+            android:src="@mipmap/ic_logo" />
 
         <TextView
             android:layout_width="match_parent"
@@ -29,22 +30,67 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/idScUsers"
+    <LinearLayout
+        android:id="@+id/idLLListUsers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/idRvUsers"
+        <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/idScUsers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/idRvUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/idClRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="onClickBtnRefresh">
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:onClick="onClickBtnRefresh">
+
+            <Button
+                android:id="@+id/idBtnRefresh"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/ic_refresh"
+                android:gravity="center"
+                android:onClick="onClickBtnRefresh"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toque para atualizar"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:onClick="onClickBtnRefresh"/>
+
+        </LinearLayout>
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
 </LinearLayout>
 
 

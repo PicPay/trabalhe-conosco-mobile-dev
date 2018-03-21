@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,11 +21,27 @@ import java.util.Date;
 
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 
+import static br.com.everaldocardosodearaujo.picpay.App.SessionApp.PG_DIALOG;
+
 /**
  * Created by E. Cardoso de Araújo on 15/03/2018.
  */
 
 public class FunctionsApp {
+
+    public static void showPgDialog(Context context){
+        PG_DIALOG = new ProgressDialog(context);
+        PG_DIALOG.setMessage("Aguarde...");
+        PG_DIALOG.setIndeterminate(false);
+        PG_DIALOG.setCancelable(false);
+        PG_DIALOG.setProgress(0);
+        PG_DIALOG.show();
+    }
+
+    public static void closePgDialog(){
+        if (PG_DIALOG.isShowing()){ PG_DIALOG.dismiss();}
+    }
+
     public static void startActivity(Context context, Class classe, Bundle paramentros){
         Intent intent = new Intent(context,classe);
         if (paramentros != null){intent.putExtras(paramentros);}
