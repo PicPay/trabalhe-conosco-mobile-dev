@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">picpayapp</string>
+    <string name="card_number">Número do Cartão</string>
+    <string name="verification_code">Código de Verificação</string>
+    <string name="owner_name">Nome impresso no cartão</string>
+    <string name="expiration_date">Vencimento</string>
+    <string name="registered_cards">Cartões de crédito</string>
+    <string name="error_card_number">Insira um numero de cartão valido</string>
+    <string name="error_cvv">Código de verificacão deve conter 3 digitos</string>
+    <string name="error_expiration">Insira uma data no formato mm/aa</string>
+    <string name="error_owner_card">Informe o nome impresso no cartão</string>
+    <string name="pay">Pagar</string>
+    <string name="new_transaction">Nova Transação</string>
+    <string name="friends_list">Lista Amigos</string>
+    <string name="action_back">Voltar</string>
+    <string name="adicionar_cartao">Adicionar cartão</string>
+    <string name="my_name">Erick Gomes Ferreira</string>
+    <string name="add_creditcard">Adicionar um cartão de crédito</string>
+    <string name="amount_to_send">Quantia a enviar</string>
+    <string name="confirm">Confirmar</string>
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
+</resources>

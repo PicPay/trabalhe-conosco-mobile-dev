@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="48dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dialog_friend_perfil_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/dialog_friend_name"
+            style="@style/friendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_friend_perfil_img"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/dialog_friend_username"
+            style="@style/friendUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_friend_name"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            style="@style/friendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/et_amount"
+            android:layout_below="@+id/dialog_friend_username"
+            android:layout_marginTop="16dp"
+            android:text="@string/amount_to_send" />
+
+        <EditText
+            android:id="@+id/et_amount"
+            style="@style/myFontStyle"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_amount"
+            android:layout_centerHorizontal="true"
+            android:drawableStart="@drawable/ic_real"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_confirmar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_amount"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@color/green_picpay"
+            android:text="@string/confirm"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
