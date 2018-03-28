@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B092586DE1F8252168949 /* Pods_TestePicPay.framework */; };
+		769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61D8206C0A9A00B00C4F /* AppDelegate.swift */; };
+		769B61DB206C0A9A00B00C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61DA206C0A9A00B00C4F /* ViewController.swift */; };
+		769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DC206C0A9A00B00C4F /* Main.storyboard */; };
+		769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DF206C0A9A00B00C4F /* Assets.xcassets */; };
+		769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */; };
+		769B61EC206C170E00B00C4F /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61EB206C170E00B00C4F /* RestApi.swift */; };
+		769B61EE206C189500B00C4F /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61ED206C189500B00C4F /* Const.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.debug.xcconfig"; sourceTree = "<group>"; };
+		284B092586DE1F8252168949 /* Pods_TestePicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestePicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.release.xcconfig"; sourceTree = "<group>"; };
+		769B61D5206C0A9A00B00C4F /* TestePicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestePicPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		769B61D8206C0A9A00B00C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		769B61DA206C0A9A00B00C4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		769B61DD206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		769B61DF206C0A9A00B00C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		769B61E2206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		769B61E4206C0A9A00B00C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		769B61EB206C170E00B00C4F /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		769B61ED206C189500B00C4F /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		769B61D2206C0A9A00B00C4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54287BC4D2F457D63A4C471E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */,
+				593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		769B61CC206C0A9A00B00C4F = {
+			isa = PBXGroup;
+			children = (
+				769B61D7206C0A9A00B00C4F /* TestePicPay */,
+				769B61D6206C0A9A00B00C4F /* Products */,
+				54287BC4D2F457D63A4C471E /* Pods */,
+				8003060840F7600A20749FCB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		769B61D6206C0A9A00B00C4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				769B61D5206C0A9A00B00C4F /* TestePicPay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		769B61D7206C0A9A00B00C4F /* TestePicPay */ = {
+			isa = PBXGroup;
+			children = (
+				769B61EA206C169D00B00C4F /* Supporting Files */,
+				769B61E4206C0A9A00B00C4F /* Info.plist */,
+				769B61ED206C189500B00C4F /* Const.swift */,
+				769B61DA206C0A9A00B00C4F /* ViewController.swift */,
+				769B61EB206C170E00B00C4F /* RestApi.swift */,
+				769B61DC206C0A9A00B00C4F /* Main.storyboard */,
+			);
+			path = TestePicPay;
+			sourceTree = "<group>";
+		};
+		769B61EA206C169D00B00C4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				769B61D8206C0A9A00B00C4F /* AppDelegate.swift */,
+				769B61DF206C0A9A00B00C4F /* Assets.xcassets */,
+				769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8003060840F7600A20749FCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				284B092586DE1F8252168949 /* Pods_TestePicPay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		769B61D4206C0A9A00B00C4F /* TestePicPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 769B61E7206C0A9A00B00C4F /* Build configuration list for PBXNativeTarget "TestePicPay" */;
+			buildPhases = (
+				3F7987309E6C3368ED579110 /* [CP] Check Pods Manifest.lock */,
+				769B61D1206C0A9A00B00C4F /* Sources */,
+				769B61D2206C0A9A00B00C4F /* Frameworks */,
+				769B61D3206C0A9A00B00C4F /* Resources */,
+				FDA5B7F10EBC5658EBA24456 /* [CP] Embed Pods Frameworks */,
+				73AA09DA7612456B4895DEDA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestePicPay;
+			productName = TestePicPay;
+			productReference = 769B61D5206C0A9A00B00C4F /* TestePicPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		769B61CD206C0A9A00B00C4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = PicPay;
+				TargetAttributes = {
+					769B61D4206C0A9A00B00C4F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 769B61D0206C0A9A00B00C4F /* Build configuration list for PBXProject "TestePicPay" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 769B61CC206C0A9A00B00C4F;
+			productRefGroup = 769B61D6206C0A9A00B00C4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				769B61D4206C0A9A00B00C4F /* TestePicPay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		769B61D3206C0A9A00B00C4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */,
+				769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */,
+				769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F7987309E6C3368ED579110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestePicPay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73AA09DA7612456B4895DEDA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA5B7F10EBC5658EBA24456 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		769B61D1206C0A9A00B00C4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769B61DB206C0A9A00B00C4F /* ViewController.swift in Sources */,
+				769B61EE206C189500B00C4F /* Const.swift in Sources */,
+				769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */,
+				769B61EC206C170E00B00C4F /* RestApi.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		769B61DC206C0A9A00B00C4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				769B61DD206C0A9A00B00C4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				769B61E2206C0A9A00B00C4F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		769B61E5206C0A9A00B00C4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		769B61E6206C0A9A00B00C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		769B61E8206C0A9A00B00C4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestePicPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rodolfogusson.TestePicPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		769B61E9206C0A9A00B00C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestePicPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rodolfogusson.TestePicPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		769B61D0206C0A9A00B00C4F /* Build configuration list for PBXProject "TestePicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				769B61E5206C0A9A00B00C4F /* Debug */,
+				769B61E6206C0A9A00B00C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		769B61E7206C0A9A00B00C4F /* Build configuration list for PBXNativeTarget "TestePicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				769B61E8206C0A9A00B00C4F /* Debug */,
+				769B61E9206C0A9A00B00C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 769B61CD206C0A9A00B00C4F /* Project object */;
+}
