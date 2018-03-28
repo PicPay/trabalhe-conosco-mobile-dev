@@ -1,39 +1,44 @@
-![PicPay](https://user-images.githubusercontent.com/1765696/26998603-711fcf30-4d5c-11e7-9281-0d9eb20337ad.png)
+# Aplicativo teste PicPay
 
-# Teste Mobile
+Aplicativo com função de envio de transações para uma lista de amigos pré estabelecida.
 
-O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
+Autor: Erick Gomes Ferreira
 
-Você deve fazer um ***Fork*** deste repositório e soliciar um ***Pull Request***, **com seu nome na descrição**, para nossa avaliação.
-
-O seu usuário deverá escolher uma pessoa em uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se ele não possuir cartão de crédito cadastrado, deverá informar o dados do cartão (número do cartão, data de validade e CVV, além do id do usuário de destino) antes de finalizar o pagamento.
-
-Os cartões devem ser persistidos no aplicativo para serem usados em pagamentos futuros.
+Email: erick.bgg@hotmail.com
 
 -----
-###### Lista de usuários
+## Imagens Aplicativo
+-----
+### Splash Activity
 
-Para listar as pessoas que podem receber pagamentos, faça uma requisição para o json nessa url: http://careers.picpay.com/tests/mobdev/users
+![PicPay](https://raw.githubusercontent.com/Erickbgg/trabalhe-conosco-mobile-dev/master/Splash.png)
 
 -----
+### Lista de Amigos
 
-###### Pagamento
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Lista%20de%20Amigos.png)
 
-Realizar um `POST` para http://careers.picpay.com/tests/mobdev/transaction com os seguintes atributos:
-+ ID do usuário que irá receber o pagamento
-+ Número do cartão
-+ Vencimento do cartão
-+ CVV
-+ Valor total
+-----
+### Pop up Especifica Quantia
 
-``` json
-{  
-   "card_number":"1111111111111111",
-   "cvv":789,
-   "value":79.9,
-   "expiry_date":"01/18",
-   "destination_user_id":1002
-}
-```
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Pop%20up%20especifica%20quantia.png)
 
-## Para fins de teste, o número de cartão 1111111111111111 aprova a transação, qualquer outro recusa. 
+-----
+### Adiciona Cartao
+
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Tela%20adiciona%20cartao.png)
+
+-----
+### Tela Resumo Transacao
+
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Tela%20Resumo.png)
+
+-----
+### Transacao Aprovada
+
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Transacao%20aprovada.png)
+
+-----
+### Transacao Negada
+
+![PicPay](https://github.com/Erickbgg/trabalhe-conosco-mobile-dev/blob/master/Transacao%20negada.png)
