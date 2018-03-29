@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B092586DE1F8252168949 /* Pods_TestePicPay.framework */; };
 		769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61D8206C0A9A00B00C4F /* AppDelegate.swift */; };
-		769B61DB206C0A9A00B00C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61DA206C0A9A00B00C4F /* ViewController.swift */; };
 		769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DC206C0A9A00B00C4F /* Main.storyboard */; };
 		769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DF206C0A9A00B00C4F /* Assets.xcassets */; };
 		769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */; };
 		769B61EC206C170E00B00C4F /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61EB206C170E00B00C4F /* RestApi.swift */; };
 		769B61EE206C189500B00C4F /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61ED206C189500B00C4F /* Const.swift */; };
+		769B61F1206C209C00B00C4F /* UICircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F0206C209C00B00C4F /* UICircularImageView.swift */; };
+		769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F2206C276D00B00C4F /* UsersTableViewController.swift */; };
+		769B61F6206C662000B00C4F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F5206C662000B00C4F /* User.swift */; };
+		769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 769B61F7206C6DB000B00C4F /* Localizable.strings */; };
+		769B61FC206C710300B00C4F /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* Localizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +27,17 @@
 		593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.release.xcconfig"; sourceTree = "<group>"; };
 		769B61D5206C0A9A00B00C4F /* TestePicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestePicPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769B61D8206C0A9A00B00C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		769B61DA206C0A9A00B00C4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		769B61DD206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		769B61DF206C0A9A00B00C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		769B61E2206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		769B61E4206C0A9A00B00C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		769B61EB206C170E00B00C4F /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		769B61ED206C189500B00C4F /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		769B61F0206C209C00B00C4F /* UICircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICircularImageView.swift; sourceTree = "<group>"; };
+		769B61F2206C276D00B00C4F /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		769B61F5206C662000B00C4F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		769B61F7206C6DB000B00C4F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		769B61FB206C710300B00C4F /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,24 +82,60 @@
 		769B61D7206C0A9A00B00C4F /* TestePicPay */ = {
 			isa = PBXGroup;
 			children = (
-				769B61EA206C169D00B00C4F /* Supporting Files */,
+				769B61F9206C70EC00B00C4F /* util */,
+				769B61F4206C660900B00C4F /* model */,
+				769B61EF206C208700B00C4F /* ui */,
+				769B61EA206C169D00B00C4F /* supporting files */,
 				769B61E4206C0A9A00B00C4F /* Info.plist */,
+				769B61F7206C6DB000B00C4F /* Localizable.strings */,
 				769B61ED206C189500B00C4F /* Const.swift */,
-				769B61DA206C0A9A00B00C4F /* ViewController.swift */,
+				769B61F2206C276D00B00C4F /* UsersTableViewController.swift */,
 				769B61EB206C170E00B00C4F /* RestApi.swift */,
 				769B61DC206C0A9A00B00C4F /* Main.storyboard */,
 			);
 			path = TestePicPay;
 			sourceTree = "<group>";
 		};
-		769B61EA206C169D00B00C4F /* Supporting Files */ = {
+		769B61EA206C169D00B00C4F /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				769B61D8206C0A9A00B00C4F /* AppDelegate.swift */,
 				769B61DF206C0A9A00B00C4F /* Assets.xcassets */,
 				769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */,
 			);
-			path = "Supporting Files";
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		769B61EF206C208700B00C4F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				769B61F0206C209C00B00C4F /* UICircularImageView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		769B61F4206C660900B00C4F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				769B61F5206C662000B00C4F /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		769B61F9206C70EC00B00C4F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				769B61FA206C70F200B00C4F /* extension */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		769B61FA206C70F200B00C4F /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				769B61FB206C710300B00C4F /* Localizer.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		8003060840F7600A20749FCB /* Frameworks */ = {
@@ -165,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */,
+				769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */,
 				769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */,
 				769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */,
 			);
@@ -231,9 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				769B61DB206C0A9A00B00C4F /* ViewController.swift in Sources */,
+				769B61F1206C209C00B00C4F /* UICircularImageView.swift in Sources */,
 				769B61EE206C189500B00C4F /* Const.swift in Sources */,
+				769B61F6206C662000B00C4F /* User.swift in Sources */,
 				769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */,
+				769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */,
+				769B61FC206C710300B00C4F /* Localizer.swift in Sources */,
 				769B61EC206C170E00B00C4F /* RestApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
