@@ -13,5 +13,6 @@ class UICircularImageView : UIImageView {
         super.layoutSubviews()
         layer.cornerRadius = frame.height / 2.0
         layer.masksToBounds = true
+        layer.borderColor = UIColor.white.cgColor
     }
 }

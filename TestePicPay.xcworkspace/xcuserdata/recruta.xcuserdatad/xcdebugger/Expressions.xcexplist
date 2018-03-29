@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "UIRoundedButton.updateCornerRadius():UIRoundedButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "layer.cornerRadius">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UsersTableViewController.prepare(for:sender:):UsersTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+            <PersistentString
+               value = "selectedUser">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PaymentViewController.viewDidLoad():PaymentViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UsersTableViewController.tableView(_:didSelectRowAt:):UsersTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedUserImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

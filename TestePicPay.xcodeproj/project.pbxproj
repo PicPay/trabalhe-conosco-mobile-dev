@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B092586DE1F8252168949 /* Pods_TestePicPay.framework */; };
+		7676FBE9206D2BF7005E9830 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBE8206D2BF7005E9830 /* Currency.swift */; };
+		7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEA206D476F005E9830 /* UIRoundedButton.swift */; };
+		7676FBED206D4A55005E9830 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEC206D4A55005E9830 /* Gradient.swift */; };
+		7676FBEF206D4ACF005E9830 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEE206D4ACF005E9830 /* Colors.swift */; };
 		769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61D8206C0A9A00B00C4F /* AppDelegate.swift */; };
 		769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DC206C0A9A00B00C4F /* Main.storyboard */; };
 		769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DF206C0A9A00B00C4F /* Assets.xcassets */; };
@@ -19,12 +23,17 @@
 		769B61F6206C662000B00C4F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F5206C662000B00C4F /* User.swift */; };
 		769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 769B61F7206C6DB000B00C4F /* Localizable.strings */; };
 		769B61FC206C710300B00C4F /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* Localizer.swift */; };
+		769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FD206C908800B00C4F /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.debug.xcconfig"; sourceTree = "<group>"; };
 		284B092586DE1F8252168949 /* Pods_TestePicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestePicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.release.xcconfig"; sourceTree = "<group>"; };
+		7676FBE8206D2BF7005E9830 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		7676FBEA206D476F005E9830 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
+		7676FBEC206D4A55005E9830 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		7676FBEE206D4ACF005E9830 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		769B61D5206C0A9A00B00C4F /* TestePicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestePicPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769B61D8206C0A9A00B00C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		769B61DD206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +47,7 @@
 		769B61F5206C662000B00C4F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		769B61F7206C6DB000B00C4F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		769B61FB206C710300B00C4F /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		769B61FD206C908800B00C4F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,16 +92,16 @@
 		769B61D7206C0A9A00B00C4F /* TestePicPay */ = {
 			isa = PBXGroup;
 			children = (
+				769B61FF206C90A100B00C4F /* communication */,
 				769B61F9206C70EC00B00C4F /* util */,
 				769B61F4206C660900B00C4F /* model */,
 				769B61EF206C208700B00C4F /* ui */,
 				769B61EA206C169D00B00C4F /* supporting files */,
+				769B61DC206C0A9A00B00C4F /* Main.storyboard */,
 				769B61E4206C0A9A00B00C4F /* Info.plist */,
 				769B61F7206C6DB000B00C4F /* Localizable.strings */,
-				769B61ED206C189500B00C4F /* Const.swift */,
 				769B61F2206C276D00B00C4F /* UsersTableViewController.swift */,
-				769B61EB206C170E00B00C4F /* RestApi.swift */,
-				769B61DC206C0A9A00B00C4F /* Main.storyboard */,
+				769B61FD206C908800B00C4F /* PaymentViewController.swift */,
 			);
 			path = TestePicPay;
 			sourceTree = "<group>";
@@ -110,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				769B61F0206C209C00B00C4F /* UICircularImageView.swift */,
+				7676FBEA206D476F005E9830 /* UIRoundedButton.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -125,7 +136,9 @@
 		769B61F9206C70EC00B00C4F /* util */ = {
 			isa = PBXGroup;
 			children = (
+				769B61ED206C189500B00C4F /* Const.swift */,
 				769B61FA206C70F200B00C4F /* extension */,
+				7676FBEE206D4ACF005E9830 /* Colors.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -133,9 +146,19 @@
 		769B61FA206C70F200B00C4F /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				7676FBEC206D4A55005E9830 /* Gradient.swift */,
 				769B61FB206C710300B00C4F /* Localizer.swift */,
+				7676FBE8206D2BF7005E9830 /* Currency.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		769B61FF206C90A100B00C4F /* communication */ = {
+			isa = PBXGroup;
+			children = (
+				769B61EB206C170E00B00C4F /* RestApi.swift */,
+			);
+			path = communication;
 			sourceTree = "<group>";
 		};
 		8003060840F7600A20749FCB /* Frameworks */ = {
@@ -276,9 +299,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7676FBED206D4A55005E9830 /* Gradient.swift in Sources */,
+				7676FBEF206D4ACF005E9830 /* Colors.swift in Sources */,
 				769B61F1206C209C00B00C4F /* UICircularImageView.swift in Sources */,
 				769B61EE206C189500B00C4F /* Const.swift in Sources */,
 				769B61F6206C662000B00C4F /* User.swift in Sources */,
+				7676FBE9206D2BF7005E9830 /* Currency.swift in Sources */,
+				7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */,
+				769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */,
 				769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */,
 				769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */,
 				769B61FC206C710300B00C4F /* Localizer.swift in Sources */,

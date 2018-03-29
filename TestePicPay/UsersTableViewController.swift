@@ -20,6 +20,8 @@ class UsersTableViewController: UITableViewController {
     
     let sessionManager = Alamofire.SessionManager.default
     var users: [User]?
+    var selectedUser: User?
+    var selectedUserImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,12 @@ class UsersTableViewController: UITableViewController {
         return users?.count ?? 0
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedUser = users?[indexPath.row]
+        let cell =  tableView.cellForRow(at: indexPath) as! UserCell
+        selectedUserImage = cell.profilePic.image
+        performSegue(withIdentifier: "makePayment", sender: self)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
@@ -70,6 +78,7 @@ class UsersTableViewController: UITableViewController {
             let data = try? Data(contentsOf: imageUrl!)
             DispatchQueue.main.async {
                 cell.profilePic.image = UIImage(data: data!)
+                cell.profilePic.layer.borderWidth = 1.0
             }
         }
         cell.nameLabel.text = user.name
@@ -77,14 +86,14 @@ class UsersTableViewController: UITableViewController {
         cell.usernameLabel.text = user.username
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "makePayment" {
+            let nextVC = segue.destination as! PaymentViewController
+            nextVC.recipientUser = selectedUser
+            nextVC.image = selectedUserImage
+        }
     }
-    */
-
 }
