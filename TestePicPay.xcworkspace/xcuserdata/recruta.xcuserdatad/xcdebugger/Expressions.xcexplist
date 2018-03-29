@@ -30,10 +30,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AddCardViewController.chooseBrand(_:):AddCardViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dialog">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UsersTableViewController.tableView(_:didSelectRowAt:):UsersTableViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "selectedUserImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddCardViewController.viewDidLoad():AddCardViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrow.image">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

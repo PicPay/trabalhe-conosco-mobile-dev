@@ -6,3 +6,5 @@
   Copyright © 2018 PicPay. All rights reserved.
 */
 "id_label" = "id: %d";
+"choose_brand" = "Escolha a bandeira";
+"cancel" = "Cancelar";

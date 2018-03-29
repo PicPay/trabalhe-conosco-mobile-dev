@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wIU-Ej-BmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fh4-5N-nO8">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -261,6 +261,7 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="3lu-cW-RHh" firstAttribute="centerY" secondItem="6a3-yb-Zr2" secondAttribute="centerY" id="6BN-Ah-TxZ"/>
                                     <constraint firstAttribute="height" constant="34" id="BZn-Rm-THd"/>
@@ -269,6 +270,9 @@
                                     <constraint firstItem="6a3-yb-Zr2" firstAttribute="top" secondItem="1n9-pm-HgF" secondAttribute="top" id="fpe-xu-rub"/>
                                     <constraint firstItem="3lu-cW-RHh" firstAttribute="leading" secondItem="1n9-pm-HgF" secondAttribute="leading" id="wzf-ys-Wvq"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6VX-7V-HAf" appends="YES" id="Gw3-TI-XN5"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -295,11 +299,107 @@
                         <outlet property="profilePic" destination="TLk-7P-nLK" id="kL9-XK-hHl"/>
                         <outlet property="usernameLabel" destination="Tf8-Ll-RWc" id="UFo-px-lXb"/>
                         <outlet property="value" destination="Okh-Et-cud" id="hSx-tR-c8O"/>
+                        <segue destination="fh4-5N-nO8" kind="show" identifier="addCard" id="fV0-52-4U9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFG-8e-VM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6VX-7V-HAf">
+                    <connections>
+                        <action selector="noCardViewTapped:" destination="Tau-1k-F6D" id="mig-2c-y9T"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1854.375" y="116.19718309859155"/>
+        </scene>
+        <!--Add Card View Controller-->
+        <scene sceneID="Cd7-RL-zFx">
+            <objects>
+                <viewController id="fh4-5N-nO8" customClass="AddCardViewController" customModule="TestePicPay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wMd-3m-bFE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Selecione a bandeira" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UIS-cp-fbl">
+                                <rect key="frame" x="24" y="88" width="272" height="30"/>
+                                <gestureRecognizers/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="uWO-fu-9zM" appends="YES" id="GVG-Z6-su7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome escrito no cartão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaF-qC-wZY">
+                                <rect key="frame" x="24" y="138" width="272" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número do cartão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gD7-fD-gZB" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
+                                <rect key="frame" x="24" y="188" width="272" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Validade (mm/aaaa)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-xj-jsZ" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
+                                <rect key="frame" x="24" y="238" width="272" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Código de segurança" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dY-W9-Z22" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
+                                <rect key="frame" x="24" y="288" width="272" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CEP do endereço da fatura" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZh-j9-deE" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
+                                <rect key="frame" x="24" y="338" width="272" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gD7-fD-gZB" firstAttribute="width" secondItem="JaF-qC-wZY" secondAttribute="width" id="01b-F2-UdN"/>
+                            <constraint firstItem="JaF-qC-wZY" firstAttribute="width" secondItem="UIS-cp-fbl" secondAttribute="width" id="4gZ-Vc-YC7"/>
+                            <constraint firstItem="JWz-xj-jsZ" firstAttribute="centerX" secondItem="gD7-fD-gZB" secondAttribute="centerX" id="6s4-hl-eEq"/>
+                            <constraint firstItem="JaF-qC-wZY" firstAttribute="centerX" secondItem="UIS-cp-fbl" secondAttribute="centerX" id="Jue-dC-ZHm"/>
+                            <constraint firstItem="2dY-W9-Z22" firstAttribute="top" secondItem="JWz-xj-jsZ" secondAttribute="bottom" constant="20" id="LC5-Vc-2kt"/>
+                            <constraint firstItem="YZh-j9-deE" firstAttribute="centerX" secondItem="2dY-W9-Z22" secondAttribute="centerX" id="Mxq-bK-sRh"/>
+                            <constraint firstItem="UIS-cp-fbl" firstAttribute="top" secondItem="cuM-bR-ejT" secondAttribute="top" constant="24" id="P5A-dE-y4F"/>
+                            <constraint firstItem="UIS-cp-fbl" firstAttribute="leading" secondItem="cuM-bR-ejT" secondAttribute="leading" constant="24" id="QbX-7B-116"/>
+                            <constraint firstItem="2dY-W9-Z22" firstAttribute="centerX" secondItem="JWz-xj-jsZ" secondAttribute="centerX" id="W7z-Lb-HC5"/>
+                            <constraint firstItem="JWz-xj-jsZ" firstAttribute="width" secondItem="gD7-fD-gZB" secondAttribute="width" id="ZG3-WT-A0j"/>
+                            <constraint firstItem="JWz-xj-jsZ" firstAttribute="top" secondItem="gD7-fD-gZB" secondAttribute="bottom" constant="20" id="bPe-Ed-stH"/>
+                            <constraint firstItem="gD7-fD-gZB" firstAttribute="top" secondItem="JaF-qC-wZY" secondAttribute="bottom" constant="20" id="df1-Ag-MI6"/>
+                            <constraint firstItem="YZh-j9-deE" firstAttribute="top" secondItem="2dY-W9-Z22" secondAttribute="bottom" constant="20" id="eO0-rt-hhv"/>
+                            <constraint firstItem="gD7-fD-gZB" firstAttribute="centerX" secondItem="JaF-qC-wZY" secondAttribute="centerX" id="gYo-xF-BLz"/>
+                            <constraint firstItem="JaF-qC-wZY" firstAttribute="top" secondItem="UIS-cp-fbl" secondAttribute="bottom" constant="20" id="gmq-Rb-NBs"/>
+                            <constraint firstItem="cuM-bR-ejT" firstAttribute="trailing" secondItem="UIS-cp-fbl" secondAttribute="trailing" constant="24" id="pbA-S7-JYS"/>
+                            <constraint firstItem="YZh-j9-deE" firstAttribute="width" secondItem="2dY-W9-Z22" secondAttribute="width" id="rnx-v1-CG1"/>
+                            <constraint firstItem="2dY-W9-Z22" firstAttribute="width" secondItem="JWz-xj-jsZ" secondAttribute="width" id="u0U-3L-Tel"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cuM-bR-ejT"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardBrand" destination="UIS-cp-fbl" id="UGb-3E-mLk"/>
+                        <outlet property="cardNumber" destination="gD7-fD-gZB" id="2fH-0u-dyE"/>
+                        <outlet property="cardVerificationCode" destination="2dY-W9-Z22" id="GHC-WY-3tN"/>
+                        <outlet property="cep" destination="YZh-j9-deE" id="Mgq-Qi-XJm"/>
+                        <outlet property="expireDate" destination="JWz-xj-jsZ" id="8bi-6i-fFC"/>
+                        <outlet property="name" destination="JaF-qC-wZY" id="qLY-FN-DVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WON-GJ-RwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uWO-fu-9zM" userLabel="Card Brand Tap Gesture">
+                    <connections>
+                        <action selector="chooseBrand:" destination="fh4-5N-nO8" id="5rz-Sh-uql"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2587.5" y="114.08450704225352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qoi-bS-TUC">

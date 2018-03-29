@@ -42,8 +42,10 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
         let newLength = currentCharacterCount + string.count - range.length
         return newLength <= 11
     }
-    
 
+    @IBAction func noCardViewTapped(_ sender: Any) {
+        performSegue(withIdentifier: "addCard", sender: sender)
+    }
     /*
     // MARK: - Navigation
 
