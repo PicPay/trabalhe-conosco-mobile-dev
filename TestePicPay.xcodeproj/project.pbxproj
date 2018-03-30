@@ -43,7 +43,87 @@
 		769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 769B61F7206C6DB000B00C4F /* Localizable.strings */; };
 		769B61FC206C710300B00C4F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* StringExtension.swift */; };
 		769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FD206C908800B00C4F /* PaymentViewController.swift */; };
+		76EE0142206E6719008642A9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; };
+		76EE0143206E6733008642A9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; };
+		76EE0144206E6733008642A9 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		76EE0149206E6EB3008642A9 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE0148206E6EB3008642A9 /* CreditCard.swift */; };
+		76EE014B206E77E1008642A9 /* DBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE014A206E77E1008642A9 /* DBUtil.swift */; };
+		76EE014D206E8803008642A9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE014C206E8803008642A9 /* DateExtension.swift */; };
+		76EE0175206E95D7008642A9 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76EE0134206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		76EE0136206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		76EE0138206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		76EE013A206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		76EE013C206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		76EE013E206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		76EE0140206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		76EE0145206E6733008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		76EE0147206E6734008642A9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				76EE0144206E6733008642A9 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +166,11 @@
 		769B61F7206C6DB000B00C4F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		769B61FB206C710300B00C4F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		769B61FD206C908800B00C4F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		76EE012A206E66E5008642A9 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		76EE0148206E6EB3008642A9 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		76EE014A206E77E1008642A9 /* DBUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtil.swift; sourceTree = "<group>"; };
+		76EE014C206E8803008642A9 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +178,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EE0142206E6719008642A9 /* SQLite.framework in Frameworks */,
 				376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */,
+				76EE0143206E6733008642A9 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +304,7 @@
 		769B61CC206C0A9A00B00C4F = {
 			isa = PBXGroup;
 			children = (
+				76EE012A206E66E5008642A9 /* SQLite.xcodeproj */,
 				769B61D7206C0A9A00B00C4F /* TestePicPay */,
 				769B61D6206C0A9A00B00C4F /* Products */,
 				54287BC4D2F457D63A4C471E /* Pods */,
@@ -266,6 +354,7 @@
 				769B61F0206C209C00B00C4F /* UICircularImageView.swift */,
 				7676FBEA206D476F005E9830 /* UIRoundedButton.swift */,
 				7676FBF0206D7236005E9830 /* ThemeManager.swift */,
+				76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -274,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				769B61F5206C662000B00C4F /* User.swift */,
+				76EE0148206E6EB3008642A9 /* CreditCard.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -285,6 +375,7 @@
 				769B61FA206C70F200B00C4F /* extension */,
 				7676FBEE206D4ACF005E9830 /* Colors.swift */,
 				769B61ED206C189500B00C4F /* Const.swift */,
+				76EE014A206E77E1008642A9 /* DBUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -294,6 +385,7 @@
 			children = (
 				7676FBEC206D4A55005E9830 /* UIViewExtension.swift */,
 				769B61FB206C710300B00C4F /* StringExtension.swift */,
+				76EE014C206E8803008642A9 /* DateExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -304,6 +396,20 @@
 				769B61EB206C170E00B00C4F /* RestApi.swift */,
 			);
 			path = communication;
+			sourceTree = "<group>";
+		};
+		76EE012B206E66E5008642A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76EE0135206E66E5008642A9 /* SQLite.framework */,
+				76EE0137206E66E5008642A9 /* SQLiteTests iOS.xctest */,
+				76EE0139206E66E5008642A9 /* SQLite.framework */,
+				76EE013B206E66E5008642A9 /* SQLiteTests Mac.xctest */,
+				76EE013D206E66E5008642A9 /* SQLite.framework */,
+				76EE013F206E66E5008642A9 /* SQLiteTests tvOS.xctest */,
+				76EE0141206E66E5008642A9 /* SQLite.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8003060840F7600A20749FCB /* Frameworks */ = {
@@ -327,10 +433,12 @@
 				769B61D3206C0A9A00B00C4F /* Resources */,
 				FDA5B7F10EBC5658EBA24456 /* [CP] Embed Pods Frameworks */,
 				73AA09DA7612456B4895DEDA /* [CP] Copy Pods Resources */,
+				76EE0147206E6734008642A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				76EE0146206E6733008642A9 /* PBXTargetDependency */,
 			);
 			name = TestePicPay;
 			productName = TestePicPay;
@@ -364,12 +472,70 @@
 			mainGroup = 769B61CC206C0A9A00B00C4F;
 			productRefGroup = 769B61D6206C0A9A00B00C4F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 76EE012B206E66E5008642A9 /* Products */;
+					ProjectRef = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				769B61D4206C0A9A00B00C4F /* TestePicPay */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		76EE0135206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0134206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0137206E66E5008642A9 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 76EE0136206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0139206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0138206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013B206E66E5008642A9 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 76EE013A206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013D206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE013C206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013F206E66E5008642A9 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 76EE013E206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0141206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0140206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		769B61D3206C0A9A00B00C4F /* Resources */ = {
@@ -427,10 +593,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MonthYearPicker/MonthYearPicker.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonthYearPicker.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,6 +612,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EE0149206E6EB3008642A9 /* CreditCard.swift in Sources */,
+				76EE014D206E8803008642A9 /* DateExtension.swift in Sources */,
 				7676FC21206DDD14005E9830 /* TextInputViewDelegateCall.swift in Sources */,
 				7676FC1F206DDD14005E9830 /* TextInputView.swift in Sources */,
 				7676FBF3206D76E9005E9830 /* AddCardViewController.swift in Sources */,
@@ -463,11 +633,13 @@
 				769B61F6206C662000B00C4F /* User.swift in Sources */,
 				7676FBF1206D7236005E9830 /* ThemeManager.swift in Sources */,
 				7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */,
+				76EE0175206E95D7008642A9 /* MonthYearPickerView.swift in Sources */,
 				769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */,
 				769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */,
 				7676FC18206DDD14005E9830 /* AttributedTextInputField.swift in Sources */,
 				769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */,
 				7676FC1D206DDD14005E9830 /* TextInputFieldDelegate.swift in Sources */,
+				76EE014B206E77E1008642A9 /* DBUtil.swift in Sources */,
 				769B61FC206C710300B00C4F /* StringExtension.swift in Sources */,
 				7676FC11206DDD14005E9830 /* String+Extension.swift in Sources */,
 				7676FC13206DDD14005E9830 /* TextFormatterProtocol.swift in Sources */,
@@ -479,6 +651,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76EE0146206E6733008642A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 76EE0145206E6733008642A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		769B61DC206C0A9A00B00C4F /* Main.storyboard */ = {
@@ -611,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestePicPay/Info.plist;
@@ -626,6 +807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestePicPay/Info.plist;

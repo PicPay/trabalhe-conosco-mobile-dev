@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'TestePicPay' do
     pod 'Alamofire', '~> 4.7'
+    pod "MonthYearPicker"
 end

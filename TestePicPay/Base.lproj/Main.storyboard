@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fh4-5N-nO8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wIU-Ej-BmM">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -341,11 +341,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Validade (mm/aaaa)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-xj-jsZ" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Validade (mm/aaaa)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-xj-jsZ">
                                 <rect key="frame" x="24" y="238" width="272" height="30"/>
+                                <gestureRecognizers/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HLM-Xp-rqD" appends="YES" id="Y72-6A-RWc"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Código de segurança" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dY-W9-Z22" customClass="TextInputField" customModule="TestePicPay" customModuleProvider="target">
                                 <rect key="frame" x="24" y="288" width="272" height="30"/>
@@ -400,7 +404,7 @@
                         <outlet property="cardNumber" destination="gD7-fD-gZB" id="2fH-0u-dyE"/>
                         <outlet property="cardVerificationCode" destination="2dY-W9-Z22" id="GHC-WY-3tN"/>
                         <outlet property="cep" destination="YZh-j9-deE" id="Mgq-Qi-XJm"/>
-                        <outlet property="expireDate" destination="JWz-xj-jsZ" id="8bi-6i-fFC"/>
+                        <outlet property="expiryDate" destination="JWz-xj-jsZ" id="8bi-6i-fFC"/>
                         <outlet property="name" destination="JaF-qC-wZY" id="qLY-FN-DVD"/>
                     </connections>
                 </viewController>
@@ -408,6 +412,11 @@
                 <tapGestureRecognizer id="uWO-fu-9zM" userLabel="Card Brand Tap Gesture">
                     <connections>
                         <action selector="chooseBrand:" destination="fh4-5N-nO8" id="5rz-Sh-uql"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HLM-Xp-rqD" userLabel="Expire Date Tap Gesture">
+                    <connections>
+                        <action selector="pickDate:" destination="fh4-5N-nO8" id="bJ2-9W-56h"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

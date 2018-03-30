@@ -8,62 +8,95 @@
 
 import UIKit
 
-class AddCardViewController: UIViewController {
+class AddCardViewController: UIViewController{
     
     @IBOutlet weak var cardBrand: UITextField!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var cardNumber: TextInputField!
-    @IBOutlet weak var expireDate: TextInputField!
+    @IBOutlet weak var expiryDate: UITextField!
     @IBOutlet weak var cardVerificationCode: TextInputField!
     @IBOutlet weak var cep: TextInputField!
+    @IBOutlet weak var addCardButton: UIRoundedButton!
     
     let cardNumberFormatter = TextInputFormatter(textPattern: "#### #### #### ####")
-    let expireDateFormatter = TextInputFormatter(textPattern: "##/####")
     let cardVerificationCodeFormatter = TextInputFormatter(textPattern: "###")
     let cepFormatter = TextInputFormatter(textPattern: "#####-###")
     
     let cardNumberController = TextInputController()
-    let expireDateController = TextInputController()
     let cardVerificationCodeController = TextInputController()
     let cepController = TextInputController()
     
     var dialog: UIAlertController?
     var errorDialog: UIAlertController?
-    
-    @IBOutlet weak var addCardButton: UIRoundedButton!
+    var expiryDatePicker: MonthYearPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFields()
         setupDialogs()
-        cardBrand.rightViewMode = .always
-        let arrow = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        arrow.image = UIImage(named: "ic_arrow_drop_down")
-        arrow.tintColor = Colors.mediumGreen
-        cardBrand.rightView = arrow
-        cardBrand.tintColor = UIColor.clear
-        addCardButton.addTarget(self, action: #selector(addCard), for: .touchUpInside)
+        setupPicker()
     }
     
     func setupFields(){
         cardNumberFormatter.allowedSymbolsRegex = "[0-9]"
-        expireDateFormatter.allowedSymbolsRegex = "[0-9]"
         cardVerificationCodeFormatter.allowedSymbolsRegex = "[0-9]"
         cepFormatter.allowedSymbolsRegex = "[0-9]"
         
         cardNumberController.textInput = cardNumber
         cardNumberController.formatter = cardNumberFormatter
-        expireDateController.textInput = expireDate
-        expireDateController.formatter = expireDateFormatter
         cardVerificationCodeController.textInput = cardVerificationCode
         cardVerificationCodeController.formatter = cardVerificationCodeFormatter
         cepController.textInput = cep
         cepController.formatter = cepFormatter
+        
+        let arrow1 = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        arrow1.image = UIImage(named: "ic_arrow_drop_down")
+        arrow1.tintColor = Colors.mediumGreen
+        
+        cardBrand.rightViewMode = .always
+        cardBrand.rightView = arrow1
+        cardBrand.tintColor = UIColor.clear
+        
+        let arrow2 = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        arrow2.image = UIImage(named: "ic_arrow_drop_down")
+        arrow2.tintColor = Colors.mediumGreen
+        
+        expiryDate.rightViewMode = .always
+        expiryDate.rightView = arrow2
+        expiryDate.tintColor = UIColor.clear
+        
+        addCardButton.addTarget(self, action: #selector(addCard), for: .touchUpInside)
+    }
+    
+    func setupPicker(){
+        expiryDatePicker = MonthYearPickerView(frame: CGRect(x: 0, y: self.view.frame.size.height - 170, width: self.view.frame.size.width, height: 170))
+        expiryDatePicker.onDateSelected = { [weak self] (month: Int, year: Int) in
+            guard let strongSelf = self else {return}
+            let string = String(format: "%02d/%d", month, year)
+            strongSelf.expiryDate.text = string
+        }
+        expiryDatePicker.backgroundColor = UIColor.white
+        expiryDatePicker.isHidden = true
+        view.addSubview(expiryDatePicker)
     }
     
     @IBAction func chooseBrand(_ sender: Any) {
         cardBrand.endEditing(true)
         self.present(dialog!, animated: true, completion: nil)
+    }
+    
+    @IBAction func pickDate(_ sender: Any) {
+        expiryDate.endEditing(true)
+        expiryDatePicker.isHidden = false
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePickingDate))
+        self.navigationItem.setRightBarButton(doneButton, animated: true)
+    }
+    
+    @objc func donePickingDate(){
+        self.navigationItem.rightBarButtonItem = nil
+        let string = String(format: "%02d/%d", expiryDatePicker.month, expiryDatePicker.year)
+        expiryDate.text = string
+        expiryDatePicker.isHidden = true
     }
     
     func setupDialogs(){
@@ -101,12 +134,13 @@ class AddCardViewController: UIViewController {
             errorDialog?.message = String(format: "field_incorrect".localized, "card_number".localized)
             return false
         }
-        if (expireDate.content?.isEmpty)! || expireDate.content?.digitsOnly().count != 6{
+        if (expiryDate.text?.isEmpty)! || expiryDate.text?.digitsOnly().count != 6{
             errorDialog?.message = String(format: "field_incorrect".localized, "expire_date".localized)
             return false
         } else {
-            let month = Int(expireDate.content!.digitsOnly()[0...1])!
-            let year = Int(expireDate.content!.digitsOnly()[2...5])!
+            let monthAndYear = expiryDate.text!.elementsFromExpiryDate()
+            let month = monthAndYear.0
+            let year = monthAndYear.1
             let date = Date()
             let calendar = Calendar.current
             let currentYear = calendar.component(.year, from: date)
@@ -128,7 +162,16 @@ class AddCardViewController: UIViewController {
     
     @objc func addCard(){
         if isInputValid() {
-            //add Card to DB
+            let brand = CreditCardBrand(rawValue: cardBrand.text!)!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let monthAndYear = expiryDate.text!.elementsFromExpiryDate()
+            let date = formatter.date(from: "\(01)/\(monthAndYear.0)/\(monthAndYear.1)")
+            let card = CreditCard(brand: brand, name: name.text!, number: cardNumber.content!, expireDate: date!, cvc: cardVerificationCode.content!, cep: cep.content!)
+            
+            let database = DBUtil.shared
+            database.addCard(card)
+        
         } else {
             self.present(errorDialog!, animated: true, completion: nil)
         }

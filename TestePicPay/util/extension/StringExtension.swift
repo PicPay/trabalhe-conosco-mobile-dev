@@ -16,6 +16,12 @@ extension String {
         return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
     }
     
+    func elementsFromExpiryDate() -> (Int,Int){
+        let month = Int(self.digitsOnly()[0...1])!
+        let year = Int(self.digitsOnly()[2...5])!
+        return (month,year)
+    }
+    
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
         
