@@ -9,6 +9,7 @@
 import Foundation
 
 class CreditCard {
+    var id: Int?
     var brand: CreditCardBrand?
     var name: String?
     var number: String?
@@ -16,7 +17,13 @@ class CreditCard {
     var cvc: String?
     var cep: String?
     
-    init(brand: CreditCardBrand, name: String, number: String, expireDate: Date, cvc: String, cep: String) {
+    var last4Digits: String? {
+        get {
+            return number?.digitsOnly()[12...15]
+        }
+    }
+    
+    init(id: Int? = nil, brand: CreditCardBrand, name: String, number: String, expireDate: Date, cvc: String, cep: String) {
         self.brand = brand
         self.name = name
         self.number = number

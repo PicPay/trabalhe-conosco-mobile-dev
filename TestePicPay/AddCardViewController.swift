@@ -138,13 +138,7 @@ class AddCardViewController: UIViewController{
             errorDialog?.message = String(format: "field_incorrect".localized, "expire_date".localized)
             return false
         } else {
-            let monthAndYear = expiryDate.text!.elementsFromExpiryDate()
-            let month = monthAndYear.0
-            let year = monthAndYear.1
-            let date = Date()
-            let calendar = Calendar.current
-            let currentYear = calendar.component(.year, from: date)
-            if month < 1 || month > 12 || year < currentYear {
+            guard let date = Date.fromExpire(expiryDate.text!), date > Date() else {
                 errorDialog?.message = String(format: "field_incorrect".localized, "expire_date".localized)
                 return false
             }
@@ -163,15 +157,11 @@ class AddCardViewController: UIViewController{
     @objc func addCard(){
         if isInputValid() {
             let brand = CreditCardBrand(rawValue: cardBrand.text!)!
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            let monthAndYear = expiryDate.text!.elementsFromExpiryDate()
-            let date = formatter.date(from: "\(01)/\(monthAndYear.0)/\(monthAndYear.1)")
+            let date = Date.fromExpire(expiryDate.text!)
             let card = CreditCard(brand: brand, name: name.text!, number: cardNumber.content!, expireDate: date!, cvc: cardVerificationCode.content!, cep: cep.content!)
-            
             let database = DBUtil.shared
             database.addCard(card)
-        
+            navigationController?.popViewController(animated: true)
         } else {
             self.present(errorDialog!, animated: true, completion: nil)
         }

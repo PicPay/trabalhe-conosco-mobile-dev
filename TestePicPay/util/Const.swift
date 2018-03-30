@@ -8,6 +8,10 @@
 
 import Foundation
 struct Const{
+    //Defaults Keys
+    static let lastUsedCardId = "last_used_card_id"
+    
+    //Paths
     static let getUsersPath = "users"
     static let sendTransactionPath = "transaction"
 }

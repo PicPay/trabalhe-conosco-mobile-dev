@@ -8,10 +8,10 @@
 
 import Foundation
 extension Date {
-//    static func fromExpire(month: Int, year: Int) -> Date?{
-//        let date = Date()
-//        let calendar = Calendar.current
-//        let currentYear = calendar.component(.year, from: date)
-//        guard month ~= 01...12, year ~= currentYear...
-//    }
+    static func fromExpire(_ string: String) -> Date?{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let monthAndYear = string.elementsFromExpiryDate()
+        return formatter.date(from: "\(01)/\(monthAndYear.0)/\(monthAndYear.1)")
+    }
 }

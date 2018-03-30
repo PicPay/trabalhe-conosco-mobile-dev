@@ -9,6 +9,9 @@
 "id_label" = "id: %d";
 "ok" = "OK";
 
+//Payment:
+"card_to_be_used" = "Cartão de crédito com final %@";
+
 //Add Card:
 "choose_brand" = "Escolha a bandeira";
 "cancel" = "Cancelar";

@@ -73,7 +73,8 @@ class DBUtil {
         }
     }
     
-    func listCards(){
+    func listCards() -> [CreditCard]{
+        var cardsList = [CreditCard]()
         do{
             let cards = try database.prepare(cardsTable)
             for card in cards {
@@ -84,11 +85,14 @@ class DBUtil {
                     number: \(card[self.number]),
                     expire: \(card[self.expire]),
                     cvc: \(card[self.cvc]),
-                    cep: \(card[self.id])
+                    cep: \(card[self.cep])
                     """)
+                let cardObj = CreditCard(id: card[self.id], brand: CreditCardBrand(rawValue: card[self.brand])!, name: card[self.name], number: card[self.number], expireDate: card[self.expire], cvc: card[self.cvc], cep: card[self.cep])
+                cardsList.append(cardObj)
             }
         } catch {
             print(error)
         }
+        return cardsList
     }
 }

@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="height" constant="1" id="bTo-ek-utz"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1n9-pm-HgF">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1n9-pm-HgF" userLabel="NoCardView">
                                 <rect key="frame" x="19.5" y="436" width="281.5" height="34"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-yb-Zr2">
@@ -274,6 +274,45 @@
                                     <outletCollection property="gestureRecognizers" destination="6VX-7V-HAf" appends="YES" id="Gw3-TI-XN5"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkk-6n-fcJ" userLabel="cardToBeUsedView">
+                                <rect key="frame" x="69.5" y="436" width="182" height="34"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yfs-Fl-6G1">
+                                        <rect key="frame" x="40" y="0.0" width="142" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forma de pagamento:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7D-8U-wZZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cartão" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhh-Y0-UOA">
+                                                <rect key="frame" x="0.0" y="17" width="44" height="17"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_green" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-Sr-9fL">
+                                        <rect key="frame" x="0.0" y="3" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Yht-ly-Zbt"/>
+                                            <constraint firstAttribute="width" constant="28" id="t47-P8-MRs"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Yfs-Fl-6G1" firstAttribute="leading" secondItem="pTh-Sr-9fL" secondAttribute="trailing" constant="12" id="AEx-9n-UCN"/>
+                                    <constraint firstItem="pTh-Sr-9fL" firstAttribute="leading" secondItem="Nkk-6n-fcJ" secondAttribute="leading" id="N3q-aO-FJC"/>
+                                    <constraint firstAttribute="height" constant="34" id="fEU-Y4-6RJ"/>
+                                    <constraint firstItem="Yfs-Fl-6G1" firstAttribute="top" secondItem="Nkk-6n-fcJ" secondAttribute="top" id="ik8-UC-YKO"/>
+                                    <constraint firstItem="pTh-Sr-9fL" firstAttribute="centerY" secondItem="Yfs-Fl-6G1" secondAttribute="centerY" id="nfH-H1-2wW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yfs-Fl-6G1" secondAttribute="trailing" id="s9E-qT-b2z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -283,8 +322,10 @@
                             <constraint firstItem="rjd-qQ-yLb" firstAttribute="top" secondItem="kO6-YN-GT6" secondAttribute="top" constant="24" id="Ebh-oa-HxR"/>
                             <constraint firstItem="kO6-YN-GT6" firstAttribute="bottom" secondItem="F7L-o7-cIu" secondAttribute="bottom" constant="24" id="SbR-mg-WRv"/>
                             <constraint firstItem="kO6-YN-GT6" firstAttribute="trailing" secondItem="F7L-o7-cIu" secondAttribute="trailing" constant="16" id="ZNq-iT-gxg"/>
+                            <constraint firstItem="Nkk-6n-fcJ" firstAttribute="top" secondItem="1ml-HC-Hyp" secondAttribute="bottom" constant="20" id="cnl-1q-ZUb"/>
                             <constraint firstItem="1n9-pm-HgF" firstAttribute="centerX" secondItem="kO6-YN-GT6" secondAttribute="centerX" id="dZv-fL-lks"/>
                             <constraint firstItem="rjd-qQ-yLb" firstAttribute="centerX" secondItem="kO6-YN-GT6" secondAttribute="centerX" id="dj7-1b-fgc"/>
+                            <constraint firstItem="Nkk-6n-fcJ" firstAttribute="centerX" secondItem="kO6-YN-GT6" secondAttribute="centerX" id="hZY-WH-Vc5"/>
                             <constraint firstItem="kO6-YN-GT6" firstAttribute="trailing" secondItem="1ml-HC-Hyp" secondAttribute="trailing" constant="24" id="n99-2s-cVh"/>
                             <constraint firstItem="1ml-HC-Hyp" firstAttribute="leading" secondItem="kO6-YN-GT6" secondAttribute="leading" constant="24" id="tHW-Og-WvF"/>
                             <constraint firstItem="F7L-o7-cIu" firstAttribute="top" secondItem="1ml-HC-Hyp" secondAttribute="bottom" constant="80" id="wt5-GM-yIA"/>
@@ -293,8 +334,11 @@
                         <viewLayoutGuide key="safeArea" id="kO6-YN-GT6"/>
                     </view>
                     <connections>
+                        <outlet property="cardToBeUsedLabel" destination="Zhh-Y0-UOA" id="bqz-pk-cOi"/>
+                        <outlet property="cardToBeUsedView" destination="Nkk-6n-fcJ" id="hvQ-yK-c82"/>
                         <outlet property="idLabel" destination="RTY-Nu-yMb" id="bbY-Ay-Wq9"/>
                         <outlet property="nameLabel" destination="CMe-lp-4Ri" id="hrT-6O-UJb"/>
+                        <outlet property="noCardView" destination="1n9-pm-HgF" id="d25-he-Pro"/>
                         <outlet property="payButton" destination="F7L-o7-cIu" id="gAz-hG-fWi"/>
                         <outlet property="profilePic" destination="TLk-7P-nLK" id="kL9-XK-hHl"/>
                         <outlet property="usernameLabel" destination="Tf8-Ll-RWc" id="UFo-px-lXb"/>
@@ -443,6 +487,7 @@
     </scenes>
     <resources>
         <image name="alert" width="20" height="20"/>
+        <image name="card_green" width="28" height="28"/>
         <image name="down" width="32" height="32"/>
         <image name="pagar" width="28" height="28"/>
     </resources>

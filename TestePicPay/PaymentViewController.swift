@@ -16,6 +16,9 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var value: UITextField!
     @IBOutlet weak var payButton: UIRoundedButton!
+    @IBOutlet weak var noCardView: UIView!
+    @IBOutlet weak var cardToBeUsedView: UIView!
+    @IBOutlet weak var cardToBeUsedLabel: UILabel!
     var recipientUser: User?
     var image: UIImage?
     
@@ -26,10 +29,46 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
         value.delegate = self
     }
     
+    func hideCardViews(){
+        noCardView.alpha = 0
+        cardToBeUsedView.alpha = 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideCardViews()
+        showRelevantCardView()
+    }
+    
     @objc func inputDidChange() {
         if let amount = value.text {
             let formattedAmount = amount.currencyInputFormatting()
             value.text = formattedAmount
+        }
+    }
+    
+    func showRelevantCardView() {
+        if let card = getCardToShow(){
+            //show card to be used view
+            cardToBeUsedView.alpha = 1
+            cardToBeUsedLabel.text = String(format: "card_to_be_used".localized, card.last4Digits!)
+        } else {
+            //show no card view
+            noCardView.alpha = 1
+        }
+    }
+    
+    func getCardToShow() -> CreditCard? {
+        let database = DBUtil.shared
+        let cards = database.listCards()
+        if cards.isEmpty {
+            return nil
+        }
+        let defaults = UserDefaults.standard
+        let cardId = defaults.integer(forKey: Const.lastUsedCardId)
+        if cardId != 0 { //if there was a last used card id saved in defaults
+            return cards.first(where:{$0.id == cardId})
+        } else {
+            return cards[0]
         }
     }
     
