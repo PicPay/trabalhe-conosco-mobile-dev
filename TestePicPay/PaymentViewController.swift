@@ -19,14 +19,21 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var noCardView: UIView!
     @IBOutlet weak var cardToBeUsedView: UIView!
     @IBOutlet weak var cardToBeUsedLabel: UILabel!
-    var recipientUser: User?
+    var recipientUser: User!
     var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePic.image = image
+        setupUserInfo()
         value.addTarget(self, action: #selector(inputDidChange), for: .editingChanged)
         value.delegate = self
+    }
+    
+    func setupUserInfo(){
+        profilePic.image = image
+        nameLabel.text = recipientUser.name
+        idLabel.text = String(format: "id_label".localized, recipientUser.id!)
+        usernameLabel.text = recipientUser.username
     }
     
     func hideCardViews(){
