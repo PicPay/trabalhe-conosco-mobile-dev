@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B092586DE1F8252168949 /* Pods_TestePicPay.framework */; };
-		7676FBE9206D2BF7005E9830 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBE8206D2BF7005E9830 /* Currency.swift */; };
 		7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEA206D476F005E9830 /* UIRoundedButton.swift */; };
-		7676FBED206D4A55005E9830 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEC206D4A55005E9830 /* Gradient.swift */; };
+		7676FBED206D4A55005E9830 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEC206D4A55005E9830 /* UIViewExtension.swift */; };
 		7676FBEF206D4ACF005E9830 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEE206D4ACF005E9830 /* Colors.swift */; };
 		7676FBF1206D7236005E9830 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF0206D7236005E9830 /* ThemeManager.swift */; };
 		7676FBF3206D76E9005E9830 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF2206D76E9005E9830 /* AddCardViewController.swift */; };
@@ -42,7 +41,7 @@
 		769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F2206C276D00B00C4F /* UsersTableViewController.swift */; };
 		769B61F6206C662000B00C4F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F5206C662000B00C4F /* User.swift */; };
 		769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 769B61F7206C6DB000B00C4F /* Localizable.strings */; };
-		769B61FC206C710300B00C4F /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* Localizer.swift */; };
+		769B61FC206C710300B00C4F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* StringExtension.swift */; };
 		769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FD206C908800B00C4F /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,9 +49,8 @@
 		0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.debug.xcconfig"; sourceTree = "<group>"; };
 		284B092586DE1F8252168949 /* Pods_TestePicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestePicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.release.xcconfig"; sourceTree = "<group>"; };
-		7676FBE8206D2BF7005E9830 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		7676FBEA206D476F005E9830 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
-		7676FBEC206D4A55005E9830 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		7676FBEC206D4A55005E9830 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7676FBEE206D4ACF005E9830 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7676FBF0206D7236005E9830 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		7676FBF2206D76E9005E9830 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +84,7 @@
 		769B61F2206C276D00B00C4F /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		769B61F5206C662000B00C4F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		769B61F7206C6DB000B00C4F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		769B61FB206C710300B00C4F /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		769B61FB206C710300B00C4F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		769B61FD206C908800B00C4F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,9 +292,8 @@
 		769B61FA206C70F200B00C4F /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				7676FBEC206D4A55005E9830 /* Gradient.swift */,
-				769B61FB206C710300B00C4F /* Localizer.swift */,
-				7676FBE8206D2BF7005E9830 /* Currency.swift */,
+				7676FBEC206D4A55005E9830 /* UIViewExtension.swift */,
+				769B61FB206C710300B00C4F /* StringExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -450,7 +447,7 @@
 				7676FC21206DDD14005E9830 /* TextInputViewDelegateCall.swift in Sources */,
 				7676FC1F206DDD14005E9830 /* TextInputView.swift in Sources */,
 				7676FBF3206D76E9005E9830 /* AddCardViewController.swift in Sources */,
-				7676FBED206D4A55005E9830 /* Gradient.swift in Sources */,
+				7676FBED206D4A55005E9830 /* UIViewExtension.swift in Sources */,
 				7676FC1B206DDD14005E9830 /* TextInputDelegate.swift in Sources */,
 				7676FC14206DDD14005E9830 /* TextInputFormatterProtocol.swift in Sources */,
 				7676FC20206DDD14005E9830 /* TextInputViewDelegate.swift in Sources */,
@@ -464,7 +461,6 @@
 				769B61EE206C189500B00C4F /* Const.swift in Sources */,
 				7676FC1C206DDD14005E9830 /* TextInputField.swift in Sources */,
 				769B61F6206C662000B00C4F /* User.swift in Sources */,
-				7676FBE9206D2BF7005E9830 /* Currency.swift in Sources */,
 				7676FBF1206D7236005E9830 /* ThemeManager.swift in Sources */,
 				7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */,
 				769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */,
@@ -472,7 +468,7 @@
 				7676FC18206DDD14005E9830 /* AttributedTextInputField.swift in Sources */,
 				769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */,
 				7676FC1D206DDD14005E9830 /* TextInputFieldDelegate.swift in Sources */,
-				769B61FC206C710300B00C4F /* Localizer.swift in Sources */,
+				769B61FC206C710300B00C4F /* StringExtension.swift in Sources */,
 				7676FC11206DDD14005E9830 /* String+Extension.swift in Sources */,
 				7676FC13206DDD14005E9830 /* TextFormatterProtocol.swift in Sources */,
 				7676FC15206DDD14005E9830 /* TextFormatter.swift in Sources */,

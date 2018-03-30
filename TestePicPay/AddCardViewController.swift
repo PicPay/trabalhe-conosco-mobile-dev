@@ -10,8 +10,6 @@ import UIKit
 
 class AddCardViewController: UIViewController {
     
-
-
     @IBOutlet weak var cardBrand: UITextField!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var cardNumber: TextInputField!
@@ -30,17 +28,21 @@ class AddCardViewController: UIViewController {
     let cepController = TextInputController()
     
     var dialog: UIAlertController?
+    var errorDialog: UIAlertController?
+    
+    @IBOutlet weak var addCardButton: UIRoundedButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFields()
-        setupDialog()
+        setupDialogs()
         cardBrand.rightViewMode = .always
         let arrow = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         arrow.image = UIImage(named: "ic_arrow_drop_down")
         arrow.tintColor = Colors.mediumGreen
         cardBrand.rightView = arrow
         cardBrand.tintColor = UIColor.clear
+        addCardButton.addTarget(self, action: #selector(addCard), for: .touchUpInside)
     }
     
     func setupFields(){
@@ -64,7 +66,7 @@ class AddCardViewController: UIViewController {
         self.present(dialog!, animated: true, completion: nil)
     }
     
-    func setupDialog(){
+    func setupDialogs(){
         dialog = UIAlertController(
             title: "choose_brand".localized,
             message: nil,
@@ -81,5 +83,54 @@ class AddCardViewController: UIViewController {
         dialog?.addAction(action1)
         dialog?.addAction(action2)
         dialog?.addAction(cancelAction)
+        
+        errorDialog = UIAlertController(title: "error".localized, message: nil, preferredStyle: .alert)
+        errorDialog?.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
+    }
+    
+    func isInputValid() -> Bool{
+        if (cardBrand.text?.isEmpty)! {
+            errorDialog?.message = String(format: "field_incorrect".localized, "card_brand".localized)
+            return false
+        }
+        if (name.text?.isEmpty)! {
+            errorDialog?.message = String(format: "field_incorrect".localized, "name_card".localized)
+            return false
+        }
+        if (cardNumber.content?.isEmpty)! || cardNumber.content?.digitsOnly().count != 16 {
+            errorDialog?.message = String(format: "field_incorrect".localized, "card_number".localized)
+            return false
+        }
+        if (expireDate.content?.isEmpty)! || expireDate.content?.digitsOnly().count != 6{
+            errorDialog?.message = String(format: "field_incorrect".localized, "expire_date".localized)
+            return false
+        } else {
+            let month = Int(expireDate.content!.digitsOnly()[0...1])!
+            let year = Int(expireDate.content!.digitsOnly()[2...5])!
+            let date = Date()
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: date)
+            if month < 1 || month > 12 || year < currentYear {
+                errorDialog?.message = String(format: "field_incorrect".localized, "expire_date".localized)
+                return false
+            }
+        }
+        if (cardVerificationCode.content?.isEmpty)! || cardVerificationCode.content?.digitsOnly().count != 3 {
+            errorDialog?.message = String(format: "field_incorrect".localized, "cvc".localized)
+            return false
+        }
+        if (cep.content?.isEmpty)! || cep.content?.digitsOnly().count != 8 {
+            errorDialog?.message = String(format: "field_incorrect".localized, "cep".localized)
+            return false
+        }
+        return true
+    }
+    
+    @objc func addCard(){
+        if isInputValid() {
+            //add Card to DB
+        } else {
+            self.present(errorDialog!, animated: true, completion: nil)
+        }
     }
 }

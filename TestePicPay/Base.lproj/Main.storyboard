@@ -359,10 +359,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXE-S9-4CB" customClass="UIRoundedButton" customModule="TestePicPay" customModuleProvider="target">
+                                <rect key="frame" x="16" y="496" width="288" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Ztl-M8-uaz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="CADASTRAR"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gD7-fD-gZB" firstAttribute="width" secondItem="JaF-qC-wZY" secondAttribute="width" id="01b-F2-UdN"/>
+                            <constraint firstItem="uXE-S9-4CB" firstAttribute="leading" secondItem="cuM-bR-ejT" secondAttribute="leading" constant="16" id="1yM-uF-NhJ"/>
                             <constraint firstItem="JaF-qC-wZY" firstAttribute="width" secondItem="UIS-cp-fbl" secondAttribute="width" id="4gZ-Vc-YC7"/>
                             <constraint firstItem="JWz-xj-jsZ" firstAttribute="centerX" secondItem="gD7-fD-gZB" secondAttribute="centerX" id="6s4-hl-eEq"/>
                             <constraint firstItem="JaF-qC-wZY" firstAttribute="centerX" secondItem="UIS-cp-fbl" secondAttribute="centerX" id="Jue-dC-ZHm"/>
@@ -373,8 +382,10 @@
                             <constraint firstItem="2dY-W9-Z22" firstAttribute="centerX" secondItem="JWz-xj-jsZ" secondAttribute="centerX" id="W7z-Lb-HC5"/>
                             <constraint firstItem="JWz-xj-jsZ" firstAttribute="width" secondItem="gD7-fD-gZB" secondAttribute="width" id="ZG3-WT-A0j"/>
                             <constraint firstItem="JWz-xj-jsZ" firstAttribute="top" secondItem="gD7-fD-gZB" secondAttribute="bottom" constant="20" id="bPe-Ed-stH"/>
+                            <constraint firstItem="cuM-bR-ejT" firstAttribute="bottom" secondItem="uXE-S9-4CB" secondAttribute="bottom" constant="24" id="dex-kP-EZX"/>
                             <constraint firstItem="gD7-fD-gZB" firstAttribute="top" secondItem="JaF-qC-wZY" secondAttribute="bottom" constant="20" id="df1-Ag-MI6"/>
                             <constraint firstItem="YZh-j9-deE" firstAttribute="top" secondItem="2dY-W9-Z22" secondAttribute="bottom" constant="20" id="eO0-rt-hhv"/>
+                            <constraint firstItem="cuM-bR-ejT" firstAttribute="trailing" secondItem="uXE-S9-4CB" secondAttribute="trailing" constant="16" id="fdd-1z-oyL"/>
                             <constraint firstItem="gD7-fD-gZB" firstAttribute="centerX" secondItem="JaF-qC-wZY" secondAttribute="centerX" id="gYo-xF-BLz"/>
                             <constraint firstItem="JaF-qC-wZY" firstAttribute="top" secondItem="UIS-cp-fbl" secondAttribute="bottom" constant="20" id="gmq-Rb-NBs"/>
                             <constraint firstItem="cuM-bR-ejT" firstAttribute="trailing" secondItem="UIS-cp-fbl" secondAttribute="trailing" constant="24" id="pbA-S7-JYS"/>
@@ -384,6 +395,7 @@
                         <viewLayoutGuide key="safeArea" id="cuM-bR-ejT"/>
                     </view>
                     <connections>
+                        <outlet property="addCardButton" destination="uXE-S9-4CB" id="y3s-NO-Q9q"/>
                         <outlet property="cardBrand" destination="UIS-cp-fbl" id="UGb-3E-mLk"/>
                         <outlet property="cardNumber" destination="gD7-fD-gZB" id="2fH-0u-dyE"/>
                         <outlet property="cardVerificationCode" destination="2dY-W9-Z22" id="GHC-WY-3tN"/>

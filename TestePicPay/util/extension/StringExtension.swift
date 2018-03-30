@@ -1,13 +1,21 @@
 //
-//  Currency.swift
+//  Localizer.swift
 //  TestePicPay
 //
-//  Created by Rodolfo Gusson on 29/03/18.
+//  Created by Rodolfo Gusson on 28/03/18.
 //  Copyright © 2018 PicPay. All rights reserved.
 //
 
 import Foundation
 extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
+    func digitsOnly() -> String{
+        return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
+    
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
         
@@ -35,5 +43,27 @@ extension String {
         }
         
         return formatter.string(from: number)!
+    }
+    
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+    
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+    
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+    
+    subscript (bounds: CountablePartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(endIndex, offsetBy: -1)
+        return String(self[start ... end])
     }
 }
