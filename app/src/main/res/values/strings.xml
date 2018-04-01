@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PicPay Test</string>
+    <string name="new_transaction">Nova transação</string>
+    <string name="pay">Pagar</string>
+    <string name="no_card_selected">Nenhum cartão selecionado</string>
+    <string name="add_credit_card">Add Cartão de Crédito</string>
+    <string name="choose_credit_card">Escolher Cartão de Crédito</string>
+    <string name="final_card">Cartão com final: %s</string>
+    <string name="credit_card_number">Número do Cartão de Crédito</string>
+    <string name="expiry_hint">mmaa</string>
+
+</resources>
