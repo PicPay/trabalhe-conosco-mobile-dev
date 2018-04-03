@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  TestePicPay
+
+  Created by Rodolfo Gusson on 28/03/18.
+  Copyright © 2018 PicPay. All rights reserved.
+*/
+
+"id_label" = "id: %d";
+"ok" = "OK";
+
+//Payment:
+"card_to_be_used" = "Cartão de crédito com final %@";
+
+//Add Card:
+"choose_brand" = "Escolha a bandeira";
+"cancel" = "Cancelar";
+"error" = "Erro";
+"field_incorrect" = "O campo %@ não foi preenchido corretamente.";
+"card_brand" = "Bandeira do cartão";
+"name_card" = "Nome escrito no cartão";
+"card_number" = "Número do cartão";
+"expire_date" = "Validade";
+"cvc" = "Código de segurança";
+"cep" = "Cep";
+

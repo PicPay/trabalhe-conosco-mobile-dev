@@ -1,0 +1,846 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284B092586DE1F8252168949 /* Pods_TestePicPay.framework */; };
+		7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEA206D476F005E9830 /* UIRoundedButton.swift */; };
+		7676FBED206D4A55005E9830 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEC206D4A55005E9830 /* UIViewExtension.swift */; };
+		7676FBEF206D4ACF005E9830 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBEE206D4ACF005E9830 /* Colors.swift */; };
+		7676FBF1206D7236005E9830 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF0206D7236005E9830 /* ThemeManager.swift */; };
+		7676FBF3206D76E9005E9830 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF2206D76E9005E9830 /* AddCardViewController.swift */; };
+		7676FC11206DDD14005E9830 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF6206DDD14005E9830 /* String+Extension.swift */; };
+		7676FC12206DDD14005E9830 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBF8206DDD14005E9830 /* MulticastDelegate.swift */; };
+		7676FC13206DDD14005E9830 /* TextFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBFB206DDD14005E9830 /* TextFormatterProtocol.swift */; };
+		7676FC14206DDD14005E9830 /* TextInputFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBFC206DDD14005E9830 /* TextInputFormatterProtocol.swift */; };
+		7676FC15206DDD14005E9830 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBFE206DDD14005E9830 /* TextFormatter.swift */; };
+		7676FC16206DDD14005E9830 /* TextInputFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FBFF206DDD14005E9830 /* TextInputFormatter.swift */; };
+		7676FC17206DDD14005E9830 /* AttributedStringConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC02206DDD14005E9830 /* AttributedStringConstructor.swift */; };
+		7676FC18206DDD14005E9830 /* AttributedTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC03206DDD14005E9830 /* AttributedTextInputField.swift */; };
+		7676FC19206DDD14005E9830 /* AttributedTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC04206DDD14005E9830 /* AttributedTextInputView.swift */; };
+		7676FC1A206DDD14005E9830 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC05206DDD14005E9830 /* TextInput.swift */; };
+		7676FC1B206DDD14005E9830 /* TextInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC06206DDD14005E9830 /* TextInputDelegate.swift */; };
+		7676FC1C206DDD14005E9830 /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC08206DDD14005E9830 /* TextInputField.swift */; };
+		7676FC1D206DDD14005E9830 /* TextInputFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC09206DDD14005E9830 /* TextInputFieldDelegate.swift */; };
+		7676FC1E206DDD14005E9830 /* TextInputFieldDelegateCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC0A206DDD14005E9830 /* TextInputFieldDelegateCall.swift */; };
+		7676FC1F206DDD14005E9830 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC0C206DDD14005E9830 /* TextInputView.swift */; };
+		7676FC20206DDD14005E9830 /* TextInputViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC0D206DDD14005E9830 /* TextInputViewDelegate.swift */; };
+		7676FC21206DDD14005E9830 /* TextInputViewDelegateCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC0E206DDD14005E9830 /* TextInputViewDelegateCall.swift */; };
+		7676FC22206DDD14005E9830 /* TextInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7676FC10206DDD14005E9830 /* TextInputController.swift */; };
+		769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61D8206C0A9A00B00C4F /* AppDelegate.swift */; };
+		769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DC206C0A9A00B00C4F /* Main.storyboard */; };
+		769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769B61DF206C0A9A00B00C4F /* Assets.xcassets */; };
+		769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */; };
+		769B61EC206C170E00B00C4F /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61EB206C170E00B00C4F /* RestApi.swift */; };
+		769B61EE206C189500B00C4F /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61ED206C189500B00C4F /* Const.swift */; };
+		769B61F1206C209C00B00C4F /* UICircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F0206C209C00B00C4F /* UICircularImageView.swift */; };
+		769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F2206C276D00B00C4F /* UsersTableViewController.swift */; };
+		769B61F6206C662000B00C4F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61F5206C662000B00C4F /* User.swift */; };
+		769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 769B61F7206C6DB000B00C4F /* Localizable.strings */; };
+		769B61FC206C710300B00C4F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FB206C710300B00C4F /* StringExtension.swift */; };
+		769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B61FD206C908800B00C4F /* PaymentViewController.swift */; };
+		76EE0142206E6719008642A9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; };
+		76EE0143206E6733008642A9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; };
+		76EE0144206E6733008642A9 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE0135206E66E5008642A9 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		76EE0149206E6EB3008642A9 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE0148206E6EB3008642A9 /* CreditCard.swift */; };
+		76EE014B206E77E1008642A9 /* DBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE014A206E77E1008642A9 /* DBUtil.swift */; };
+		76EE014D206E8803008642A9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE014C206E8803008642A9 /* DateExtension.swift */; };
+		76EE0175206E95D7008642A9 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76EE0134206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		76EE0136206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		76EE0138206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		76EE013A206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		76EE013C206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		76EE013E206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		76EE0140206E66E5008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		76EE0145206E6733008642A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		76EE0147206E6734008642A9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				76EE0144206E6733008642A9 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.debug.xcconfig"; sourceTree = "<group>"; };
+		284B092586DE1F8252168949 /* Pods_TestePicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestePicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestePicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay.release.xcconfig"; sourceTree = "<group>"; };
+		7676FBEA206D476F005E9830 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
+		7676FBEC206D4A55005E9830 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		7676FBEE206D4ACF005E9830 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7676FBF0206D7236005E9830 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		7676FBF2206D76E9005E9830 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		7676FBF6206DDD14005E9830 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7676FBF8206DDD14005E9830 /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		7676FBFB206DDD14005E9830 /* TextFormatterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatterProtocol.swift; sourceTree = "<group>"; };
+		7676FBFC206DDD14005E9830 /* TextInputFormatterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputFormatterProtocol.swift; sourceTree = "<group>"; };
+		7676FBFE206DDD14005E9830 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		7676FBFF206DDD14005E9830 /* TextInputFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputFormatter.swift; sourceTree = "<group>"; };
+		7676FC02206DDD14005E9830 /* AttributedStringConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringConstructor.swift; sourceTree = "<group>"; };
+		7676FC03206DDD14005E9830 /* AttributedTextInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedTextInputField.swift; sourceTree = "<group>"; };
+		7676FC04206DDD14005E9830 /* AttributedTextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedTextInputView.swift; sourceTree = "<group>"; };
+		7676FC05206DDD14005E9830 /* TextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		7676FC06206DDD14005E9830 /* TextInputDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputDelegate.swift; sourceTree = "<group>"; };
+		7676FC08206DDD14005E9830 /* TextInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
+		7676FC09206DDD14005E9830 /* TextInputFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputFieldDelegate.swift; sourceTree = "<group>"; };
+		7676FC0A206DDD14005E9830 /* TextInputFieldDelegateCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputFieldDelegateCall.swift; sourceTree = "<group>"; };
+		7676FC0C206DDD14005E9830 /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
+		7676FC0D206DDD14005E9830 /* TextInputViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewDelegate.swift; sourceTree = "<group>"; };
+		7676FC0E206DDD14005E9830 /* TextInputViewDelegateCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewDelegateCall.swift; sourceTree = "<group>"; };
+		7676FC10206DDD14005E9830 /* TextInputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputController.swift; sourceTree = "<group>"; };
+		769B61D5206C0A9A00B00C4F /* TestePicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestePicPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		769B61D8206C0A9A00B00C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		769B61DD206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		769B61DF206C0A9A00B00C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		769B61E2206C0A9A00B00C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		769B61E4206C0A9A00B00C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		769B61EB206C170E00B00C4F /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		769B61ED206C189500B00C4F /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		769B61F0206C209C00B00C4F /* UICircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICircularImageView.swift; sourceTree = "<group>"; };
+		769B61F2206C276D00B00C4F /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		769B61F5206C662000B00C4F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		769B61F7206C6DB000B00C4F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		769B61FB206C710300B00C4F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		769B61FD206C908800B00C4F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		76EE012A206E66E5008642A9 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		76EE0148206E6EB3008642A9 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		76EE014A206E77E1008642A9 /* DBUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtil.swift; sourceTree = "<group>"; };
+		76EE014C206E8803008642A9 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		769B61D2206C0A9A00B00C4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76EE0142206E6719008642A9 /* SQLite.framework in Frameworks */,
+				376BD5C1603E96AA06973009 /* Pods_TestePicPay.framework in Frameworks */,
+				76EE0143206E6733008642A9 /* SQLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54287BC4D2F457D63A4C471E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */,
+				593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7676FBF4206DDD14005E9830 /* anyformatkit */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBF5206DDD14005E9830 /* Categories */,
+				7676FBF7206DDD14005E9830 /* MulticastDelegate */,
+				7676FBF9206DDD14005E9830 /* TextFormatter */,
+				7676FC00206DDD14005E9830 /* TextInput */,
+				7676FC0F206DDD14005E9830 /* TextInputControllers */,
+			);
+			path = anyformatkit;
+			sourceTree = "<group>";
+		};
+		7676FBF5206DDD14005E9830 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBF6206DDD14005E9830 /* String+Extension.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7676FBF7206DDD14005E9830 /* MulticastDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBF8206DDD14005E9830 /* MulticastDelegate.swift */,
+			);
+			path = MulticastDelegate;
+			sourceTree = "<group>";
+		};
+		7676FBF9206DDD14005E9830 /* TextFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBFA206DDD14005E9830 /* TextFormatterProtocols */,
+				7676FBFD206DDD14005E9830 /* TextInputFormatters */,
+			);
+			path = TextFormatter;
+			sourceTree = "<group>";
+		};
+		7676FBFA206DDD14005E9830 /* TextFormatterProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBFB206DDD14005E9830 /* TextFormatterProtocol.swift */,
+				7676FBFC206DDD14005E9830 /* TextInputFormatterProtocol.swift */,
+			);
+			path = TextFormatterProtocols;
+			sourceTree = "<group>";
+		};
+		7676FBFD206DDD14005E9830 /* TextInputFormatters */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBFE206DDD14005E9830 /* TextFormatter.swift */,
+				7676FBFF206DDD14005E9830 /* TextInputFormatter.swift */,
+			);
+			path = TextInputFormatters;
+			sourceTree = "<group>";
+		};
+		7676FC00206DDD14005E9830 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				7676FC01206DDD14005E9830 /* AttributedTextInput */,
+				7676FC05206DDD14005E9830 /* TextInput.swift */,
+				7676FC06206DDD14005E9830 /* TextInputDelegate.swift */,
+				7676FC07206DDD14005E9830 /* TextInputField */,
+				7676FC0B206DDD14005E9830 /* TextInputView */,
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
+		7676FC01206DDD14005E9830 /* AttributedTextInput */ = {
+			isa = PBXGroup;
+			children = (
+				7676FC02206DDD14005E9830 /* AttributedStringConstructor.swift */,
+				7676FC03206DDD14005E9830 /* AttributedTextInputField.swift */,
+				7676FC04206DDD14005E9830 /* AttributedTextInputView.swift */,
+			);
+			path = AttributedTextInput;
+			sourceTree = "<group>";
+		};
+		7676FC07206DDD14005E9830 /* TextInputField */ = {
+			isa = PBXGroup;
+			children = (
+				7676FC08206DDD14005E9830 /* TextInputField.swift */,
+				7676FC09206DDD14005E9830 /* TextInputFieldDelegate.swift */,
+				7676FC0A206DDD14005E9830 /* TextInputFieldDelegateCall.swift */,
+			);
+			path = TextInputField;
+			sourceTree = "<group>";
+		};
+		7676FC0B206DDD14005E9830 /* TextInputView */ = {
+			isa = PBXGroup;
+			children = (
+				7676FC0C206DDD14005E9830 /* TextInputView.swift */,
+				7676FC0D206DDD14005E9830 /* TextInputViewDelegate.swift */,
+				7676FC0E206DDD14005E9830 /* TextInputViewDelegateCall.swift */,
+			);
+			path = TextInputView;
+			sourceTree = "<group>";
+		};
+		7676FC0F206DDD14005E9830 /* TextInputControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7676FC10206DDD14005E9830 /* TextInputController.swift */,
+			);
+			path = TextInputControllers;
+			sourceTree = "<group>";
+		};
+		769B61CC206C0A9A00B00C4F = {
+			isa = PBXGroup;
+			children = (
+				76EE012A206E66E5008642A9 /* SQLite.xcodeproj */,
+				769B61D7206C0A9A00B00C4F /* TestePicPay */,
+				769B61D6206C0A9A00B00C4F /* Products */,
+				54287BC4D2F457D63A4C471E /* Pods */,
+				8003060840F7600A20749FCB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		769B61D6206C0A9A00B00C4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				769B61D5206C0A9A00B00C4F /* TestePicPay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		769B61D7206C0A9A00B00C4F /* TestePicPay */ = {
+			isa = PBXGroup;
+			children = (
+				769B61FF206C90A100B00C4F /* communication */,
+				769B61F9206C70EC00B00C4F /* util */,
+				769B61F4206C660900B00C4F /* model */,
+				769B61EF206C208700B00C4F /* ui */,
+				769B61EA206C169D00B00C4F /* supporting files */,
+				769B61DC206C0A9A00B00C4F /* Main.storyboard */,
+				769B61E4206C0A9A00B00C4F /* Info.plist */,
+				769B61F7206C6DB000B00C4F /* Localizable.strings */,
+				769B61F2206C276D00B00C4F /* UsersTableViewController.swift */,
+				769B61FD206C908800B00C4F /* PaymentViewController.swift */,
+				7676FBF2206D76E9005E9830 /* AddCardViewController.swift */,
+			);
+			path = TestePicPay;
+			sourceTree = "<group>";
+		};
+		769B61EA206C169D00B00C4F /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				769B61D8206C0A9A00B00C4F /* AppDelegate.swift */,
+				769B61DF206C0A9A00B00C4F /* Assets.xcassets */,
+				769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		769B61EF206C208700B00C4F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				769B61F0206C209C00B00C4F /* UICircularImageView.swift */,
+				7676FBEA206D476F005E9830 /* UIRoundedButton.swift */,
+				7676FBF0206D7236005E9830 /* ThemeManager.swift */,
+				76EE016E206E95D7008642A9 /* MonthYearPickerView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		769B61F4206C660900B00C4F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				769B61F5206C662000B00C4F /* User.swift */,
+				76EE0148206E6EB3008642A9 /* CreditCard.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		769B61F9206C70EC00B00C4F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBF4206DDD14005E9830 /* anyformatkit */,
+				769B61FA206C70F200B00C4F /* extension */,
+				7676FBEE206D4ACF005E9830 /* Colors.swift */,
+				769B61ED206C189500B00C4F /* Const.swift */,
+				76EE014A206E77E1008642A9 /* DBUtil.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		769B61FA206C70F200B00C4F /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				7676FBEC206D4A55005E9830 /* UIViewExtension.swift */,
+				769B61FB206C710300B00C4F /* StringExtension.swift */,
+				76EE014C206E8803008642A9 /* DateExtension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		769B61FF206C90A100B00C4F /* communication */ = {
+			isa = PBXGroup;
+			children = (
+				769B61EB206C170E00B00C4F /* RestApi.swift */,
+			);
+			path = communication;
+			sourceTree = "<group>";
+		};
+		76EE012B206E66E5008642A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76EE0135206E66E5008642A9 /* SQLite.framework */,
+				76EE0137206E66E5008642A9 /* SQLiteTests iOS.xctest */,
+				76EE0139206E66E5008642A9 /* SQLite.framework */,
+				76EE013B206E66E5008642A9 /* SQLiteTests Mac.xctest */,
+				76EE013D206E66E5008642A9 /* SQLite.framework */,
+				76EE013F206E66E5008642A9 /* SQLiteTests tvOS.xctest */,
+				76EE0141206E66E5008642A9 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8003060840F7600A20749FCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				284B092586DE1F8252168949 /* Pods_TestePicPay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		769B61D4206C0A9A00B00C4F /* TestePicPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 769B61E7206C0A9A00B00C4F /* Build configuration list for PBXNativeTarget "TestePicPay" */;
+			buildPhases = (
+				3F7987309E6C3368ED579110 /* [CP] Check Pods Manifest.lock */,
+				769B61D1206C0A9A00B00C4F /* Sources */,
+				769B61D2206C0A9A00B00C4F /* Frameworks */,
+				769B61D3206C0A9A00B00C4F /* Resources */,
+				FDA5B7F10EBC5658EBA24456 /* [CP] Embed Pods Frameworks */,
+				73AA09DA7612456B4895DEDA /* [CP] Copy Pods Resources */,
+				76EE0147206E6734008642A9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76EE0146206E6733008642A9 /* PBXTargetDependency */,
+			);
+			name = TestePicPay;
+			productName = TestePicPay;
+			productReference = 769B61D5206C0A9A00B00C4F /* TestePicPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		769B61CD206C0A9A00B00C4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = PicPay;
+				TargetAttributes = {
+					769B61D4206C0A9A00B00C4F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 769B61D0206C0A9A00B00C4F /* Build configuration list for PBXProject "TestePicPay" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 769B61CC206C0A9A00B00C4F;
+			productRefGroup = 769B61D6206C0A9A00B00C4F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 76EE012B206E66E5008642A9 /* Products */;
+					ProjectRef = 76EE012A206E66E5008642A9 /* SQLite.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				769B61D4206C0A9A00B00C4F /* TestePicPay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		76EE0135206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0134206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0137206E66E5008642A9 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 76EE0136206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0139206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0138206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013B206E66E5008642A9 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 76EE013A206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013D206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE013C206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE013F206E66E5008642A9 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 76EE013E206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76EE0141206E66E5008642A9 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 76EE0140206E66E5008642A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		769B61D3206C0A9A00B00C4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769B61E3206C0A9A00B00C4F /* LaunchScreen.storyboard in Resources */,
+				769B61F8206C6DB000B00C4F /* Localizable.strings in Resources */,
+				769B61E0206C0A9A00B00C4F /* Assets.xcassets in Resources */,
+				769B61DE206C0A9A00B00C4F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F7987309E6C3368ED579110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestePicPay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73AA09DA7612456B4895DEDA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA5B7F10EBC5658EBA24456 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MonthYearPicker/MonthYearPicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonthYearPicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestePicPay/Pods-TestePicPay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		769B61D1206C0A9A00B00C4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76EE0149206E6EB3008642A9 /* CreditCard.swift in Sources */,
+				76EE014D206E8803008642A9 /* DateExtension.swift in Sources */,
+				7676FC21206DDD14005E9830 /* TextInputViewDelegateCall.swift in Sources */,
+				7676FC1F206DDD14005E9830 /* TextInputView.swift in Sources */,
+				7676FBF3206D76E9005E9830 /* AddCardViewController.swift in Sources */,
+				7676FBED206D4A55005E9830 /* UIViewExtension.swift in Sources */,
+				7676FC1B206DDD14005E9830 /* TextInputDelegate.swift in Sources */,
+				7676FC14206DDD14005E9830 /* TextInputFormatterProtocol.swift in Sources */,
+				7676FC20206DDD14005E9830 /* TextInputViewDelegate.swift in Sources */,
+				7676FBEF206D4ACF005E9830 /* Colors.swift in Sources */,
+				7676FC16206DDD14005E9830 /* TextInputFormatter.swift in Sources */,
+				7676FC1E206DDD14005E9830 /* TextInputFieldDelegateCall.swift in Sources */,
+				7676FC12206DDD14005E9830 /* MulticastDelegate.swift in Sources */,
+				769B61F1206C209C00B00C4F /* UICircularImageView.swift in Sources */,
+				7676FC19206DDD14005E9830 /* AttributedTextInputView.swift in Sources */,
+				7676FC22206DDD14005E9830 /* TextInputController.swift in Sources */,
+				769B61EE206C189500B00C4F /* Const.swift in Sources */,
+				7676FC1C206DDD14005E9830 /* TextInputField.swift in Sources */,
+				769B61F6206C662000B00C4F /* User.swift in Sources */,
+				7676FBF1206D7236005E9830 /* ThemeManager.swift in Sources */,
+				7676FBEB206D476F005E9830 /* UIRoundedButton.swift in Sources */,
+				76EE0175206E95D7008642A9 /* MonthYearPickerView.swift in Sources */,
+				769B61FE206C908800B00C4F /* PaymentViewController.swift in Sources */,
+				769B61D9206C0A9A00B00C4F /* AppDelegate.swift in Sources */,
+				7676FC18206DDD14005E9830 /* AttributedTextInputField.swift in Sources */,
+				769B61F3206C276D00B00C4F /* UsersTableViewController.swift in Sources */,
+				7676FC1D206DDD14005E9830 /* TextInputFieldDelegate.swift in Sources */,
+				76EE014B206E77E1008642A9 /* DBUtil.swift in Sources */,
+				769B61FC206C710300B00C4F /* StringExtension.swift in Sources */,
+				7676FC11206DDD14005E9830 /* String+Extension.swift in Sources */,
+				7676FC13206DDD14005E9830 /* TextFormatterProtocol.swift in Sources */,
+				7676FC15206DDD14005E9830 /* TextFormatter.swift in Sources */,
+				769B61EC206C170E00B00C4F /* RestApi.swift in Sources */,
+				7676FC17206DDD14005E9830 /* AttributedStringConstructor.swift in Sources */,
+				7676FC1A206DDD14005E9830 /* TextInput.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76EE0146206E6733008642A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 76EE0145206E6733008642A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		769B61DC206C0A9A00B00C4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				769B61DD206C0A9A00B00C4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		769B61E1206C0A9A00B00C4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				769B61E2206C0A9A00B00C4F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		769B61E5206C0A9A00B00C4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		769B61E6206C0A9A00B00C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		769B61E8206C0A9A00B00C4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C7195928A315754A2349D57 /* Pods-TestePicPay.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestePicPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rodolfogusson.TestePicPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		769B61E9206C0A9A00B00C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593D94583EEDD9B9A92728CF /* Pods-TestePicPay.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestePicPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rodolfogusson.TestePicPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		769B61D0206C0A9A00B00C4F /* Build configuration list for PBXProject "TestePicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				769B61E5206C0A9A00B00C4F /* Debug */,
+				769B61E6206C0A9A00B00C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		769B61E7206C0A9A00B00C4F /* Build configuration list for PBXNativeTarget "TestePicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				769B61E8206C0A9A00B00C4F /* Debug */,
+				769B61E9206C0A9A00B00C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 769B61CD206C0A9A00B00C4F /* Project object */;
+}
