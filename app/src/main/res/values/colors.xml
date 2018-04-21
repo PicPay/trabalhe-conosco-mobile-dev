@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4db6ac</color>
+    <color name="colorPrimaryDark">#009688</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="duck_egg_blue">#b4f4e5</color>
+    <color name="light_teal">#7de6c6</color>
+    <color name="dark_teal">#4f9b84</color>
+    <color name="white_two">#d8d8d8</color>
+    <color name="black_40">#66000000</color>
+    <color name="medium_pink">#ef5778</color>
+    <color name="light_teal_24">#3d7de6c6</color>
+    <color name="background_color">#1d1e2a</color>
+    <color name="dusk_two_24">#61474971</color>
+    <color name="cool_grey">#acb1bd</color>
+    <color name="black">#000</color>
+    <color name="pine_green">#05181c</color>
+    <color name="background_light_color">#3c3e64</color>
+    <color name="white_10">#1affffff</color>
+    <color name="white_24">#61ffffff</color>
+    <color name="text_color_default">#fff</color>
+    <color name="white">#fff</color>
+    <color name="light_teal_two">#a1f0da</color>
+    <color name="dusk_two">#474971</color>
+</resources>

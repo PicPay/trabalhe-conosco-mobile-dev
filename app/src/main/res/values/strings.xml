@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mobile Test</string>
+    <string name="user_image">Foto do usuário</string>
+    <string name="pay_image">Icone de pagar</string>
+    <string name="name_default">Vincíus Picanço</string>
+    <string name="id_default">id: 888888</string>
+    <string name="username_default">\@louco</string>
+    <string name="pay_text">Pagar</string>
+    <string name="test_recyclerview_id">ID: 1003</string>
+    <string name="default_text_to_value">R$ 0,00</string>
+    <string name="content_description_edit_pay">Inseira o valor a ser pago</string>
+    <string name="voltar">Voltar</string>
+    <string name="content_description_alert">Icone de alerta</string>
+    <string name="none_credit_card_text">Nenhum cartão de crédito cadastrado.</string>
+    <string name="register_now_text">Cadastrar agora.</string>
+    <string name="payment_method_text">Forma de pagamento:</string>
+    <string name="credit_card_example">Carto de Crédito com final 111</string>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_marginTop="@dimen/double_default_space"
+    tools:showIn="@layout/activity_payment_method">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_alert"
+            android:id="@+id/alert_image"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/content_description_alert"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/alert_image"
+            android:layout_marginStart="@dimen/default_space">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_text"
+                android:text="@string/none_credit_card_text"
+                android:id="@+id/txt_none_credit_card"
+                android:textColor="@color/medium_pink"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_none_credit_card"
+                android:textColor="@color/medium_pink"
+                android:textStyle="bold"
+                android:text="@string/register_now_text"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

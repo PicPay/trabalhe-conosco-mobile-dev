@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="72dp" android:background="@drawable/gradient_cards" android:layout_marginBottom="@dimen/minimum_space">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_space"
+        android:id="@+id/rl_dados"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:contentDescription="@string/user_image"
+            android:id="@+id/user_image"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/user_image"
+            android:layout_marginStart="@dimen/default_space">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="140dp"
+                android:maxLines="1"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/primary_text_redux"
+                android:text="@string/name_default"
+                android:textColor="@color/text_color_default"
+                android:textSize="@dimen/primary_text"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="140dp"
+                android:layout_marginTop="@dimen/default_space"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_name"
+                >
+
+                <TextView
+                    android:id="@+id/txt_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_default"
+                    android:text="@string/id_default"
+                    android:textSize="@dimen/second_text"
+                    android:maxLines="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_username"
+                    android:layout_toEndOf="@id/txt_id"
+                    android:textColor="@color/text_color_default"
+                    android:text="@string/username_default"
+                    android:textSize="@dimen/second_text"
+                    android:maxLines="1"
+                    android:layout_marginStart="@dimen/default_space"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/default_space"
+        >
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_pagar"
+            android:contentDescription="@string/pay_image"
+            android:id="@+id/pay_image"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/half_default_space"
+            android:textStyle="bold"
+            android:text="@string/pay_text"
+            android:textSize="@dimen/normal_text"
+            android:textColor="@color/text_color_default"
+            android:layout_toEndOf="@id/pay_image"
+            android:id="@+id/txt_pay"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/half_default_space"
+            android:src="@drawable/ic_down"
+            android:contentDescription="@string/pay_image"
+            android:layout_toEndOf="@id/txt_pay"
+            android:id="@+id/arrow_image"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
