@@ -8,12 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		F8C6883C208CDA4E00FA78FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */; };
-		F8C6883E208CDA4E00FA78FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6883D208CDA4E00FA78FA /* ViewController.swift */; };
 		F8C68841208CDA4E00FA78FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C6883F208CDA4E00FA78FA /* Main.storyboard */; };
 		F8C68843208CDA4F00FA78FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C68842208CDA4F00FA78FA /* Assets.xcassets */; };
 		F8C68846208CDA4F00FA78FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C68844208CDA4F00FA78FA /* LaunchScreen.storyboard */; };
 		F8C68851208CDA5000FA78FA /* picpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C68850208CDA5000FA78FA /* picpayTests.swift */; };
 		F8C6885C208CDA5000FA78FA /* picpayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6885B208CDA5000FA78FA /* picpayUITests.swift */; };
+		F8C6886B208CDB5000FA78FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6886A208CDB5000FA78FA /* User.swift */; };
+		F8C6886E208CDCB700FA78FA /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6886D208CDCB700FA78FA /* TransactionResponse.swift */; };
+		F8C68870208CDCC200FA78FA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6886F208CDCC200FA78FA /* Transaction.swift */; };
+		F8C68872208CDEF600FA78FA /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C68871208CDEF600FA78FA /* UIImageView.swift */; };
+		F8C68876208CE2A300FA78FA /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C68875208CE2A300FA78FA /* Keychain.swift */; };
+		F8C68898208CE6DD00FA78FA /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C68897208CE6DD00FA78FA /* UserEndPoint.swift */; };
+		F8C688A1208CE88800FA78FA /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6889E208CE88700FA78FA /* ParameterEncoding.swift */; };
+		F8C688A2208CE88800FA78FA /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6889F208CE88700FA78FA /* URLParameterEncoding.swift */; };
+		F8C688A3208CE88800FA78FA /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688A0208CE88700FA78FA /* JSONParameterEncoder.swift */; };
+		F8C688A5208CE91800FA78FA /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688A4208CE91800FA78FA /* CreditCard.swift */; };
+		F8C688AE208CEB6300FA78FA /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688A8208CEB6200FA78FA /* HTTPTask.swift */; };
+		F8C688AF208CEB6300FA78FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688A9208CEB6200FA78FA /* HTTPMethod.swift */; };
+		F8C688B0208CEB6300FA78FA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688AA208CEB6200FA78FA /* Router.swift */; };
+		F8C688B1208CEB6300FA78FA /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688AB208CEB6200FA78FA /* NetworkLogger.swift */; };
+		F8C688B2208CEB6300FA78FA /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688AC208CEB6200FA78FA /* EndPointType.swift */; };
+		F8C688B6208CEC2E00FA78FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688B5208CEC2E00FA78FA /* NetworkManager.swift */; };
+		F8C688B9208CF19200FA78FA /* ListUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688B8208CF19200FA78FA /* ListUsersTableViewController.swift */; };
+		F8C688BB208CF1F600FA78FA /* ListUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688BA208CF1F600FA78FA /* ListUsersViewModel.swift */; };
+		F8C688BD208CF2CF00FA78FA /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +54,6 @@
 /* Begin PBXFileReference section */
 		F8C68838208CDA4E00FA78FA /* picpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picpay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8C6883D208CDA4E00FA78FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8C68840208CDA4E00FA78FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8C68842208CDA4F00FA78FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8C68845208CDA4F00FA78FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,25 @@
 		F8C68857208CDA5000FA78FA /* picpayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picpayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C6885B208CDA5000FA78FA /* picpayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picpayUITests.swift; sourceTree = "<group>"; };
 		F8C6885D208CDA5000FA78FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C6886A208CDB5000FA78FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8C6886D208CDCB700FA78FA /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		F8C6886F208CDCC200FA78FA /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		F8C68871208CDEF600FA78FA /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F8C68875208CE2A300FA78FA /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		F8C68897208CE6DD00FA78FA /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
+		F8C6889E208CE88700FA78FA /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		F8C6889F208CE88700FA78FA /* URLParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		F8C688A0208CE88700FA78FA /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		F8C688A4208CE91800FA78FA /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		F8C688A8208CEB6200FA78FA /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		F8C688A9208CEB6200FA78FA /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		F8C688AA208CEB6200FA78FA /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F8C688AB208CEB6200FA78FA /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		F8C688AC208CEB6200FA78FA /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		F8C688B5208CEC2E00FA78FA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F8C688B8208CF19200FA78FA /* ListUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersTableViewController.swift; sourceTree = "<group>"; };
+		F8C688BA208CF1F600FA78FA /* ListUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersViewModel.swift; sourceTree = "<group>"; };
+		F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +133,12 @@
 		F8C6883A208CDA4E00FA78FA /* picpay */ = {
 			isa = PBXGroup;
 			children = (
+				F8C688B7208CF17400FA78FA /* List of users */,
+				F8C68874208CE28C00FA78FA /* Security */,
+				F8C68873208CE02100FA78FA /* Networking */,
+				F8C6886C208CDC7000FA78FA /* Extensions */,
+				F8C68869208CDB3400FA78FA /* Model */,
 				F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */,
-				F8C6883D208CDA4E00FA78FA /* ViewController.swift */,
 				F8C6883F208CDA4E00FA78FA /* Main.storyboard */,
 				F8C68842208CDA4F00FA78FA /* Assets.xcassets */,
 				F8C68844208CDA4F00FA78FA /* LaunchScreen.storyboard */,
@@ -123,6 +163,93 @@
 				F8C6885D208CDA5000FA78FA /* Info.plist */,
 			);
 			path = picpayUITests;
+			sourceTree = "<group>";
+		};
+		F8C68869208CDB3400FA78FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8C6886A208CDB5000FA78FA /* User.swift */,
+				F8C6886D208CDCB700FA78FA /* TransactionResponse.swift */,
+				F8C6886F208CDCC200FA78FA /* Transaction.swift */,
+				F8C688A4208CE91800FA78FA /* CreditCard.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8C6886C208CDC7000FA78FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8C68871208CDEF600FA78FA /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8C68873208CE02100FA78FA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688B4208CEC2E00FA78FA /* Manager */,
+				F8C688B3208CEC1400FA78FA /* EndPoint */,
+				F8C688A6208CEB6200FA78FA /* Service */,
+				F8C6889D208CE88700FA78FA /* Encoding */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F8C68874208CE28C00FA78FA /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				F8C68875208CE2A300FA78FA /* Keychain.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		F8C6889D208CE88700FA78FA /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				F8C6889E208CE88700FA78FA /* ParameterEncoding.swift */,
+				F8C6889F208CE88700FA78FA /* URLParameterEncoding.swift */,
+				F8C688A0208CE88700FA78FA /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		F8C688A6208CEB6200FA78FA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688A8208CEB6200FA78FA /* HTTPTask.swift */,
+				F8C688A9208CEB6200FA78FA /* HTTPMethod.swift */,
+				F8C688AA208CEB6200FA78FA /* Router.swift */,
+				F8C688AB208CEB6200FA78FA /* NetworkLogger.swift */,
+				F8C688AC208CEB6200FA78FA /* EndPointType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F8C688B3208CEC1400FA78FA /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				F8C68897208CE6DD00FA78FA /* UserEndPoint.swift */,
+			);
+			name = EndPoint;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		F8C688B4208CEC2E00FA78FA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688B5208CEC2E00FA78FA /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F8C688B7208CF17400FA78FA /* List of users */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688B8208CF19200FA78FA /* ListUsersTableViewController.swift */,
+				F8C688BA208CF1F600FA78FA /* ListUsersViewModel.swift */,
+				F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */,
+			);
+			path = "List of users";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +383,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C6883E208CDA4E00FA78FA /* ViewController.swift in Sources */,
+				F8C688B1208CEB6300FA78FA /* NetworkLogger.swift in Sources */,
+				F8C688AE208CEB6300FA78FA /* HTTPTask.swift in Sources */,
+				F8C688A5208CE91800FA78FA /* CreditCard.swift in Sources */,
+				F8C6886E208CDCB700FA78FA /* TransactionResponse.swift in Sources */,
+				F8C688BD208CF2CF00FA78FA /* UserTableViewCell.swift in Sources */,
+				F8C688B9208CF19200FA78FA /* ListUsersTableViewController.swift in Sources */,
 				F8C6883C208CDA4E00FA78FA /* AppDelegate.swift in Sources */,
+				F8C688B0208CEB6300FA78FA /* Router.swift in Sources */,
+				F8C688A3208CE88800FA78FA /* JSONParameterEncoder.swift in Sources */,
+				F8C6886B208CDB5000FA78FA /* User.swift in Sources */,
+				F8C688A2208CE88800FA78FA /* URLParameterEncoding.swift in Sources */,
+				F8C688A1208CE88800FA78FA /* ParameterEncoding.swift in Sources */,
+				F8C688B6208CEC2E00FA78FA /* NetworkManager.swift in Sources */,
+				F8C68898208CE6DD00FA78FA /* UserEndPoint.swift in Sources */,
+				F8C688AF208CEB6300FA78FA /* HTTPMethod.swift in Sources */,
+				F8C688BB208CF1F600FA78FA /* ListUsersViewModel.swift in Sources */,
+				F8C68872208CDEF600FA78FA /* UIImageView.swift in Sources */,
+				F8C68870208CDCC200FA78FA /* Transaction.swift in Sources */,
+				F8C68876208CE2A300FA78FA /* Keychain.swift in Sources */,
+				F8C688B2208CEB6300FA78FA /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
