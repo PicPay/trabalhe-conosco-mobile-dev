@@ -3,12 +3,9 @@ package com.v1pi.picpay_teste.Utils
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.util.Log
 import android.widget.ImageView
 import java.lang.ref.WeakReference
-import java.nio.Buffer
 
 
 class DownloadImageTask(bmImage: ImageView?) : AsyncTask<String, Unit, Bitmap>() {
@@ -16,6 +13,7 @@ class DownloadImageTask(bmImage: ImageView?) : AsyncTask<String, Unit, Bitmap>()
 
     override fun doInBackground(vararg urls: String?): Bitmap? {
         val urldisplay = urls[0]
+        Log.i("LOGGER", urldisplay)
         var mIcon11: Bitmap? = null
         try {
             val inputS = java.net.URL(urldisplay).openStream()

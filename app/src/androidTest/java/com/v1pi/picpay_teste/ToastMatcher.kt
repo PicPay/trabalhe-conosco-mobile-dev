@@ -1,6 +1,5 @@
 package com.v1pi.picpay_teste
 
-import android.os.IBinder
 import android.support.test.espresso.Root
 import android.view.WindowManager
 import org.hamcrest.Description

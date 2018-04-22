@@ -7,7 +7,7 @@ data class User(val id: Int, val name: String = "", val img: String = "", val us
 
     override fun equals(other: Any?): Boolean {
         if(other is User) {
-            return other.id == this.id
+            return other.id == this.id && this.name == other.name && this.img == other.img && this.username == other.username
         }
         return false
     }

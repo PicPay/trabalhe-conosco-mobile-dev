@@ -5,6 +5,7 @@
     <string name="name_default">Vincíus Picanço</string>
     <string name="id_default">id: 888888</string>
     <string name="username_default">\@louco</string>
+    <string name="id">id: %1$s</string>
     <string name="pay_text">Pagar</string>
     <string name="test_recyclerview_id">ID: 1003</string>
     <string name="default_text_to_value">R$ 0,00</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_color">
 
+    <!--
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/default_space"
@@ -27,13 +27,12 @@
             android:textStyle="bold"
             android:layout_centerVertical="true"
             android:textColor="@color/white"/>
-    </RelativeLayout>
+    </RelativeLayout> -->
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rl_dados"
-        android:layout_below="@+id/rl_back_to_main"
         android:layout_marginTop="@dimen/maximum_space"
         android:layout_centerHorizontal="true">
 
@@ -63,7 +62,7 @@
                 android:textStyle="bold" />
 
             <RelativeLayout
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/default_space"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_name"

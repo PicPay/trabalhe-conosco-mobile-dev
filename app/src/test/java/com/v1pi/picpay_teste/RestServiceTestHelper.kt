@@ -1,6 +1,5 @@
 package com.v1pi.picpay_teste
 
-import android.content.Context
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStream

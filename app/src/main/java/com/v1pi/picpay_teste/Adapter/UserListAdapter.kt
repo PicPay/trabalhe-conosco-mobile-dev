@@ -5,16 +5,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import com.v1pi.picpay_teste.Domains.User
+import com.v1pi.picpay_teste.Listeners.RecyclerViewListener
 import com.v1pi.picpay_teste.R
 import com.v1pi.picpay_teste.Utils.DownloadImageTask
 import kotlinx.android.synthetic.main.user_item.view.*
 
 class UserListAdapter(private val users : List<User>,
                       private val context: Context) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.user_item, parent, false)
@@ -30,9 +28,12 @@ class UserListAdapter(private val users : List<User>,
         holder?.bindView(user)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     class ViewHolder(itemView : View) :
-            RecyclerView.ViewHolder(itemView),
-            View.OnClickListener {
+            RecyclerView.ViewHolder(itemView) {
 
         fun bindView(user : User) {
             val id = itemView.txt_id
@@ -40,19 +41,14 @@ class UserListAdapter(private val users : List<User>,
             val img = itemView.user_image
             val username = itemView.txt_username
 
-            id.text = user.id.toString()
+            id.text = itemView.context.getString(R.string.id, user.id.toString())
             name.text = user.name
             if(img.drawable == null)
                 DownloadImageTask(img).execute(user.img)
+
             username.text = user.username
 
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(view: View?) {
-            view?.let {
-                Toast.makeText(itemView.context, "ID: " + view.txt_id.text.toString(), Toast.LENGTH_SHORT).show()
-            }
+            itemView.setOnClickListener(RecyclerViewListener(user.img))
         }
     }
 

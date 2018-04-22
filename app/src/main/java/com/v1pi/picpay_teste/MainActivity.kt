@@ -1,7 +1,7 @@
 package com.v1pi.picpay_teste
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.v1pi.picpay_teste.Adapter.UserListAdapter
@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = user_list_rv
-
         val llm = LinearLayoutManager(this)
         llm.orientation = LinearLayoutManager.VERTICAL
 

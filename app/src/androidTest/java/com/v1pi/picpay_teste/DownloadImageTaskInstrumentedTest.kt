@@ -1,7 +1,5 @@
 package com.v1pi.picpay_teste
 
-import android.support.test.InstrumentationRegistry
-import android.util.Log
 import com.v1pi.picpay_teste.Utils.DownloadImageTask
 import org.junit.Assert
 import org.junit.Test

@@ -41,7 +41,7 @@
                 android:layout_below="@+id/txt_payment_method"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:id="txt_credita_card"
+                android:id="@+id/text_credit_card"
                 android:text="@string/credit_card_example"/>
 
         </RelativeLayout>
