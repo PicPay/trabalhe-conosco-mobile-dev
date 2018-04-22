@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8C6883C208CDA4E00FA78FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */; };
+		F8C6883E208CDA4E00FA78FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6883D208CDA4E00FA78FA /* ViewController.swift */; };
+		F8C68841208CDA4E00FA78FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C6883F208CDA4E00FA78FA /* Main.storyboard */; };
+		F8C68843208CDA4F00FA78FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C68842208CDA4F00FA78FA /* Assets.xcassets */; };
+		F8C68846208CDA4F00FA78FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C68844208CDA4F00FA78FA /* LaunchScreen.storyboard */; };
+		F8C68851208CDA5000FA78FA /* picpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C68850208CDA5000FA78FA /* picpayTests.swift */; };
+		F8C6885C208CDA5000FA78FA /* picpayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6885B208CDA5000FA78FA /* picpayUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8C6884D208CDA5000FA78FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8C68830208CDA4E00FA78FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8C68837208CDA4E00FA78FA;
+			remoteInfo = picpay;
+		};
+		F8C68858208CDA5000FA78FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8C68830208CDA4E00FA78FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8C68837208CDA4E00FA78FA;
+			remoteInfo = picpay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F8C68838208CDA4E00FA78FA /* picpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picpay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8C6883D208CDA4E00FA78FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8C68840208CDA4E00FA78FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8C68842208CDA4F00FA78FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8C68845208CDA4F00FA78FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8C68847208CDA4F00FA78FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C6884C208CDA5000FA78FA /* picpayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picpayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C68850208CDA5000FA78FA /* picpayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picpayTests.swift; sourceTree = "<group>"; };
+		F8C68852208CDA5000FA78FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C68857208CDA5000FA78FA /* picpayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picpayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C6885B208CDA5000FA78FA /* picpayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picpayUITests.swift; sourceTree = "<group>"; };
+		F8C6885D208CDA5000FA78FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8C68835208CDA4E00FA78FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C68849208CDA5000FA78FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C68854208CDA5000FA78FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8C6882F208CDA4E00FA78FA = {
+			isa = PBXGroup;
+			children = (
+				F8C6883A208CDA4E00FA78FA /* picpay */,
+				F8C6884F208CDA5000FA78FA /* picpayTests */,
+				F8C6885A208CDA5000FA78FA /* picpayUITests */,
+				F8C68839208CDA4E00FA78FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8C68839208CDA4E00FA78FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8C68838208CDA4E00FA78FA /* picpay.app */,
+				F8C6884C208CDA5000FA78FA /* picpayTests.xctest */,
+				F8C68857208CDA5000FA78FA /* picpayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8C6883A208CDA4E00FA78FA /* picpay */ = {
+			isa = PBXGroup;
+			children = (
+				F8C6883B208CDA4E00FA78FA /* AppDelegate.swift */,
+				F8C6883D208CDA4E00FA78FA /* ViewController.swift */,
+				F8C6883F208CDA4E00FA78FA /* Main.storyboard */,
+				F8C68842208CDA4F00FA78FA /* Assets.xcassets */,
+				F8C68844208CDA4F00FA78FA /* LaunchScreen.storyboard */,
+				F8C68847208CDA4F00FA78FA /* Info.plist */,
+			);
+			path = picpay;
+			sourceTree = "<group>";
+		};
+		F8C6884F208CDA5000FA78FA /* picpayTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8C68850208CDA5000FA78FA /* picpayTests.swift */,
+				F8C68852208CDA5000FA78FA /* Info.plist */,
+			);
+			path = picpayTests;
+			sourceTree = "<group>";
+		};
+		F8C6885A208CDA5000FA78FA /* picpayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F8C6885B208CDA5000FA78FA /* picpayUITests.swift */,
+				F8C6885D208CDA5000FA78FA /* Info.plist */,
+			);
+			path = picpayUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8C68837208CDA4E00FA78FA /* picpay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C68860208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpay" */;
+			buildPhases = (
+				F8C68834208CDA4E00FA78FA /* Sources */,
+				F8C68835208CDA4E00FA78FA /* Frameworks */,
+				F8C68836208CDA4E00FA78FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = picpay;
+			productName = picpay;
+			productReference = F8C68838208CDA4E00FA78FA /* picpay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8C6884B208CDA5000FA78FA /* picpayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C68863208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpayTests" */;
+			buildPhases = (
+				F8C68848208CDA5000FA78FA /* Sources */,
+				F8C68849208CDA5000FA78FA /* Frameworks */,
+				F8C6884A208CDA5000FA78FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8C6884E208CDA5000FA78FA /* PBXTargetDependency */,
+			);
+			name = picpayTests;
+			productName = picpayTests;
+			productReference = F8C6884C208CDA5000FA78FA /* picpayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F8C68856208CDA5000FA78FA /* picpayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C68866208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpayUITests" */;
+			buildPhases = (
+				F8C68853208CDA5000FA78FA /* Sources */,
+				F8C68854208CDA5000FA78FA /* Frameworks */,
+				F8C68855208CDA5000FA78FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8C68859208CDA5000FA78FA /* PBXTargetDependency */,
+			);
+			name = picpayUITests;
+			productName = picpayUITests;
+			productReference = F8C68857208CDA5000FA78FA /* picpayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8C68830208CDA4E00FA78FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Lucas Romano Marquez Rizzi";
+				TargetAttributes = {
+					F8C68837208CDA4E00FA78FA = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					F8C6884B208CDA5000FA78FA = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = F8C68837208CDA4E00FA78FA;
+					};
+					F8C68856208CDA5000FA78FA = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = F8C68837208CDA4E00FA78FA;
+					};
+				};
+			};
+			buildConfigurationList = F8C68833208CDA4E00FA78FA /* Build configuration list for PBXProject "picpay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8C6882F208CDA4E00FA78FA;
+			productRefGroup = F8C68839208CDA4E00FA78FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8C68837208CDA4E00FA78FA /* picpay */,
+				F8C6884B208CDA5000FA78FA /* picpayTests */,
+				F8C68856208CDA5000FA78FA /* picpayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8C68836208CDA4E00FA78FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C68846208CDA4F00FA78FA /* LaunchScreen.storyboard in Resources */,
+				F8C68843208CDA4F00FA78FA /* Assets.xcassets in Resources */,
+				F8C68841208CDA4E00FA78FA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C6884A208CDA5000FA78FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C68855208CDA5000FA78FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8C68834208CDA4E00FA78FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C6883E208CDA4E00FA78FA /* ViewController.swift in Sources */,
+				F8C6883C208CDA4E00FA78FA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C68848208CDA5000FA78FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C68851208CDA5000FA78FA /* picpayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C68853208CDA5000FA78FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C6885C208CDA5000FA78FA /* picpayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8C6884E208CDA5000FA78FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8C68837208CDA4E00FA78FA /* picpay */;
+			targetProxy = F8C6884D208CDA5000FA78FA /* PBXContainerItemProxy */;
+		};
+		F8C68859208CDA5000FA78FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8C68837208CDA4E00FA78FA /* picpay */;
+			targetProxy = F8C68858208CDA5000FA78FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8C6883F208CDA4E00FA78FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C68840208CDA4E00FA78FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F8C68844208CDA4F00FA78FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C68845208CDA4F00FA78FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8C6885E208CDA5000FA78FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8C6885F208CDA5000FA78FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8C68861208CDA5000FA78FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8C68862208CDA5000FA78FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8C68864208CDA5000FA78FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/picpay.app/picpay";
+			};
+			name = Debug;
+		};
+		F8C68865208CDA5000FA78FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/picpay.app/picpay";
+			};
+			name = Release;
+		};
+		F8C68867208CDA5000FA78FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = picpay;
+			};
+			name = Debug;
+		};
+		F8C68868208CDA5000FA78FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picpayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = picpay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8C68833208CDA4E00FA78FA /* Build configuration list for PBXProject "picpay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C6885E208CDA5000FA78FA /* Debug */,
+				F8C6885F208CDA5000FA78FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8C68860208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C68861208CDA5000FA78FA /* Debug */,
+				F8C68862208CDA5000FA78FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8C68863208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C68864208CDA5000FA78FA /* Debug */,
+				F8C68865208CDA5000FA78FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8C68866208CDA5000FA78FA /* Build configuration list for PBXNativeTarget "picpayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C68867208CDA5000FA78FA /* Debug */,
+				F8C68868208CDA5000FA78FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8C68830208CDA4E00FA78FA /* Project object */;
+}
