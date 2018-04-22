@@ -27,4 +27,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    /*biblioteca usada para obter informações sobre o cartão do usuario. Uso para obter a bandeira*/
+    implementation 'us.fatehi:credit_card_number:2.01.02'
+
 }
