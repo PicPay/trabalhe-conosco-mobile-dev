@@ -1,6 +1,9 @@
 package gilianmarques.dev.picpay_test.activities;
 
 import android.app.FragmentTransaction;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,6 +66,7 @@ public class SendCashActivity extends AppCompatActivity implements TransactionCa
         if (mActionBar != null) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
             mActionBar.setElevation(0f);
+            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
 
         FragmentTransaction mTransaction = getFragmentManager().beginTransaction();
@@ -83,7 +87,7 @@ public class SendCashActivity extends AppCompatActivity implements TransactionCa
             public void onAnimationEnd(Animation animation) {
                 final FragmentTransaction mTransaction = getFragmentManager().beginTransaction();
                 mTransaction.addToBackStack(null);
-                mTransaction.replace(R.id.container, new PaymentFragment().newInstance(mContact).attachCallback(SendCashActivity.this)).commit();
+                mTransaction.replace(R.id.container, new PaymentFragment().newInstance(mContact).attachCallback(SendCashActivity.this,SendCashActivity.this)).commit();
                 container.startAnimation(fadeIn);
 
             }

@@ -41,7 +41,7 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
         myViewHolder.tvNome.setText(mContact.getName());
         myViewHolder.tvId.setText(String.format(Locale.getDefault(), mContext.getString(R.string.id), mContact.getId()));
         myViewHolder.tvUsername.setText(mContact.getUserName());
-        myViewHolder.ivProfileImage.setImageDrawable(mContact.getPhotoDrawable());
+        myViewHolder.ivProfileImage.setImageDrawable(ProfilePicHolder.getInstance().getPic(mContact.getPhoto()));
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

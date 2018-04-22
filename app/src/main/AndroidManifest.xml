@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="gilianmarques.dev.picpay_test.utils.MyApp"
+        android:name=".utils.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="gilianmarques.dev.picpay_test.activities.MainActivity"
+            android:screenOrientation="portrait"
+            android:name=".activities.MainActivity"
             android:configChanges="screenSize|orientation|keyboard">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,16 +25,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="gilianmarques.dev.picpay_test.activities.SendCashActivity"
+            android:screenOrientation="portrait"
+            android:name=".activities.SendCashActivity"
             android:configChanges="screenSize|orientation|keyboard"
-            android:theme="@style/AppTheme"
-
             android:label="@string/enviar_dinheiro"
-            android:parentActivityName="gilianmarques.dev.picpay_test.activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".activities.AddCreditCard"></activity>
     </application>
 
 </manifest>

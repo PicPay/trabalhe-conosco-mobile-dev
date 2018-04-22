@@ -5,7 +5,7 @@
         android:width="10dp"
         android:height="1dp" />
     <gradient
-        android:endColor="@color/colorPrimary"
+        android:endColor="@color/almostPrimary"
         android:startColor="@color/colorAccent" />
 
 </shape>

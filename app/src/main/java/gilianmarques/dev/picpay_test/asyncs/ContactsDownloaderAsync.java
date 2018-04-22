@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gilianmarques.dev.picpay_test.models.Contact;
+import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 
 
 public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
@@ -110,7 +111,7 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
             new RoundImageAsync(new RoundImageAsync.Callback() {
                 @Override
                 public void result(Drawable mDrawable) {
-                    mContact.setPhotoDrawable(mDrawable);
+                    ProfilePicHolder.getInstance().addPic(mContact.getPhoto(),mDrawable);
                     /*chama o callback apenas quando a ultima foto é carregada*/
                  //   if (finalI == jsonArray.length() - 1) callback.resut(mContacts, -1);
                 }

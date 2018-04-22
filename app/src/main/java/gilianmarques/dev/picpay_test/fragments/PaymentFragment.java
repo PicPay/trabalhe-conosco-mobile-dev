@@ -1,12 +1,20 @@
 package gilianmarques.dev.picpay_test.fragments;
 
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
-import android.transition.TransitionInflater;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +26,17 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Locale;
 
 import gilianmarques.dev.picpay_test.R;
+import gilianmarques.dev.picpay_test.activities.AddCreditCard;
+import gilianmarques.dev.picpay_test.crud.Database;
 import gilianmarques.dev.picpay_test.models.Contact;
+import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.utils.AppPatterns;
+import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 import gilianmarques.dev.picpay_test.utils.TransactionCallback;
 
 /**
@@ -31,6 +44,7 @@ import gilianmarques.dev.picpay_test.utils.TransactionCallback;
  */
 public class PaymentFragment extends Fragment implements TextWatcher {
 
+    private static final int ADD_CARD_REQ_CODE = 1;
     private TransactionCallback callback;
     private Contact mContact;
     private View rootView;
@@ -38,14 +52,20 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     private String currencySimbol, amount = "";
     private RelativeLayout container;
     private Button payButton;
+    private Activity mActivity;
+    private ArrayList<CreditCard> mCards = new ArrayList<>();
+    private TextView tvCreditCardInfo;
+    private CreditCard choosedCreditCard;
 
     /**
      * @param callback c
      * @return r
      * @see ContactsListFragment para uma descrição
      */
-    public PaymentFragment attachCallback(TransactionCallback callback) {
+    public PaymentFragment attachCallback(TransactionCallback callback, Activity mActivity) {
         this.callback = callback;
+        /*Fragment.getActivity() as vezes retorna null*/
+        this.mActivity = mActivity;
         return this;
     }
 
@@ -58,7 +78,11 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mContact = (Contact) getArguments().getSerializable("contact");
+        Bundle mBundle = getArguments();
+
+        if (mBundle != null) {
+            mContact = (Contact) mBundle.getSerializable("contact");
+        }
         rootView = view;
         init();
     }
@@ -68,7 +92,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         currencySimbol = mCurrency.getSymbol();
 
 
-        ((ImageView) rootView.findViewById(R.id.iv_profile_image)).setImageDrawable(mContact.getPhotoDrawable());
+        ((ImageView) rootView.findViewById(R.id.iv_profile_image)).setImageDrawable(ProfilePicHolder.getInstance().getPic(mContact.getPhoto()));
         ((TextView) rootView.findViewById(R.id.tv_name)).setText(mContact.getName());
         ((TextView) rootView.findViewById(R.id.tv_id)).setText(String.format(Locale.getDefault(), getActivity().getString(R.string.id), mContact.getId()));
         ((TextView) rootView.findViewById(R.id.tv_user_name)).setText(mContact.getUserName());
@@ -79,9 +103,79 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         edtAmount = rootView.findViewById(R.id.edt_amount);
         edtAmount.addTextChangedListener(this);
         payButton = rootView.findViewById(R.id.btn_pay);
-      //  payButton.setVisibility(View.GONE);
+        //  payButton.setVisibility(View.GONE);
 
-        View noCreditCard = getActivity().getLayoutInflater().inflate(R.layout.view_no_credit_card, container);
+
+        /*Runnable que verificara qual o proximo Runnable a ser executado*/
+        Runnable mRunnable = new Runnable() {
+            @Override
+            public void run() {
+                mCards = Database.getInstance().getCards();
+                handleCreditCardViews(mCards.size() > 0);
+            }
+        };
+
+        /*Faz a magica aontecer!*/
+        new Thread(mRunnable).start();
+
+    }
+
+    /**
+     * Infla a view de cartoes de credito no layout principal de acordo copm a condição recebida
+     *
+     * @param hasCards variavel de controle que indica qual view devera ser inflada
+     */
+    private void handleCreditCardViews(boolean hasCards) {
+
+        /*Runnable que exibira na tela uma view para CADASTRAR o primeiro cartao*/
+        final Runnable uiRunnableEmpty = new Runnable() {
+            @Override
+            public void run() {
+                View.OnClickListener mClickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(mActivity, AddCreditCard.class), ADD_CARD_REQ_CODE);
+                    }
+                };
+                container.removeAllViews();
+                /*infla a view no RelativeLayout container e ja seta um listener de cliques*/
+                mActivity.getLayoutInflater().inflate(R.layout.view_no_credit_card, container).setOnClickListener(mClickListener);
+
+            }
+        };
+
+        /*======================================================== SEPARADOR ========================================================*/
+
+
+        /*Runnable que exibira na tela uma view para ESCOLHER o  cartao a ser usado na transação*/
+        final Runnable uiRunnable = new Runnable() {
+            @Override
+            public void run() {
+
+                View.OnClickListener mClickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        selectCreditCard();
+                    }
+                };
+                container.removeAllViews();
+                View gotCard = mActivity.getLayoutInflater().inflate(R.layout.view_got_credit_card, container);
+                gotCard.setOnClickListener(mClickListener);
+                tvCreditCardInfo = gotCard.findViewById(R.id.tv_credit_card_info);
+                /*Uma vez que o usuario já possui pelo menos um cartão, já seto o primeiro da lista como forma de pagamento*/
+                setChoosedCreditCard(mCards.get(0));
+            }
+        };
+
+        /*======================================================== SEPARADOR ========================================================*/
+
+        /*Este metodo pode ser chamado de uma Thread secundaria. Eu poderia chamar sempre pela UIThread mas assim  teria
+         * que criar um metodo para executar o código de cada Runnable separadamente, então, optei por esa abbordagem.*/
+        mActivity.runOnUiThread(hasCards ? uiRunnable : uiRunnableEmpty);
+
+    }
+
+    private void selectCreditCard() {
 
     }
 
@@ -126,13 +220,45 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         edtAmount.setText(formattedAmount);
         edtAmount.setSelection(edtAmount.getText().length());
         edtAmount.addTextChangedListener(this);
-        if (amount.length()>2) payButton.setVisibility(View.VISIBLE);
+        if (amount.length() > 2) payButton.setVisibility(View.VISIBLE);
 
 
     }
 
     @Override
     public void afterTextChanged(Editable s) {
+
+    }
+
+    public void setChoosedCreditCard(CreditCard mCreditCard) {
+        choosedCreditCard = mCreditCard;
+        if (tvCreditCardInfo != null) {
+            String brand = mCreditCard.getBrand();
+            String nbrs = String.valueOf(mCreditCard.getNumber());
+            int lastDigits = Integer.parseInt(nbrs.substring(nbrs.length() - 4, nbrs.length()));
+            String strLastDigits = String.valueOf(lastDigits);
+
+            //estilizando texto
+            String text = String.format(Locale.getDefault(), getString(R.string.forma_de_pagamento_), brand, lastDigits);
+
+            SpannableString spString = new SpannableString(text);
+
+            int start1 = text.split(brand)[0].length();
+            int end1 = text.split(brand)[0].length() + brand.length();
+            spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start1, end1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            int start2 = text.split(strLastDigits)[0].length();
+            int end2 = text.split(strLastDigits)[0].length() + strLastDigits.length();
+            spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            int start3 = text.split(strLastDigits)[0].length() + strLastDigits.length()+2;
+            int end3 = text.length();
+
+            spString.setSpan(new UnderlineSpan(), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mActivity,R.color.gray)), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            tvCreditCardInfo.setText(spString);
+        }
 
     }
     /*============================================ TextWatcher interface END ============================================*/
