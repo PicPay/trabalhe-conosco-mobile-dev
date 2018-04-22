@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="layout_default_padding">16dp</dimen>
+    <dimen name="view_default_padding">8dp</dimen>
+    <dimen name="textview_margin_end_start">4dp</dimen>
+    <dimen name="textview_margin_bottom_top">2dp</dimen>
+    <dimen name="button_margin_top">24dp</dimen>
+    <dimen name="button_margin_end">16dp</dimen>
+</resources>

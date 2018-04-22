@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PicPay_test</string>
+    <string name="enviar_dinheiro">Enviar dinheiro</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="id">id: %1$d</string>
+    <string name="carregando_contatos">Carregando contatos</string>
+    <string name="nenhum_cart_o_de_cr_dito_cadastrado">Nenhum cartão de crédito cadastrado.\n<u><b>Cadastrar agora.</b></u></string>
+    <string name="finalizar_pagamento">Finalizar pagamento</string>
+</resources>
