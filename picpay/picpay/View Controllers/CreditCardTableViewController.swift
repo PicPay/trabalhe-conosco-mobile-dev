@@ -35,6 +35,10 @@ class CreditCardTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func closebarButtomTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         do {
             if try viewModel.saveAndValidationForm() {

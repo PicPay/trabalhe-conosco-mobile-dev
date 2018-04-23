@@ -46,6 +46,7 @@ class ConfirmPaymentViewController: UIViewController {
     }
     
     @IBAction func payButtonTapped(_ sender: Any) {
+        let _ = LoadingView.instantiateAndSet(in: self.containerView)
         viewModel.confirmPaymment(onSuccess: { [weak self] in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
@@ -59,6 +60,7 @@ class ConfirmPaymentViewController: UIViewController {
         }, onError: { [weak self] message in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
+                LoadingView.remove(from: strongSelf.containerView)
                 let alert = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(action)

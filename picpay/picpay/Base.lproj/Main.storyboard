@@ -179,7 +179,13 @@
                             <outlet property="delegate" destination="kcv-7B-y6N" id="vAA-QG-GLA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tRP-Mu-PrV"/>
+                    <navigationItem key="navigationItem" title="Cartão" id="tRP-Mu-PrV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Sik-K8-rAJ">
+                            <connections>
+                                <action selector="closebarButtomTapped:" destination="kcv-7B-y6N" id="YYq-z0-IVb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cvvTextField" destination="yHr-La-gPh" id="zQi-sx-HdI"/>
                         <outlet property="expiredDateTextField" destination="mY5-a2-ckn" id="3Mh-q4-flW"/>

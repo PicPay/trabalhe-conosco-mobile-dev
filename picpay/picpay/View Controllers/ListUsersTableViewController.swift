@@ -90,14 +90,17 @@ class ListUsersTableViewController: UITableViewController {
 extension ListUsersTableViewController {
     
     func getListaOfUsers() {
+        let _ = LoadingView.instantiateAndSet(in: self.tableView)
         viewModel.getUsers(onSuccess: { [weak self] in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
+                LoadingView.remove(from: strongSelf.tableView)
                 strongSelf.tableView.reloadData()
             }
         }, onError: { [weak self] message in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
+                LoadingView.remove(from: strongSelf.tableView)
                 let alert = UIAlertController(title: "Ops", message: message, preferredStyle: .alert)
                 let actionAgain = UIAlertAction(title: "Tentar novamente", style: .default, handler: { _ in
                     strongSelf.getListaOfUsers()

@@ -40,6 +40,8 @@
 		F8C688D2208D7B6000FA78FA /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688D1208D7B6000FA78FA /* ConfirmPaymentViewController.swift */; };
 		F8C688D4208D7BBA00FA78FA /* ConfirmPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688D3208D7BBA00FA78FA /* ConfirmPaymentViewModel.swift */; };
 		F8C688D6208D843E00FA78FA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688D5208D843E00FA78FA /* String.swift */; };
+		F8C688DD208D8DA500FA78FA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688DB208D8DA500FA78FA /* LoadingView.swift */; };
+		F8C688DE208D8DA500FA78FA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8C688DC208D8DA500FA78FA /* LoadingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		F8C688D1208D7B6000FA78FA /* ConfirmPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewController.swift; sourceTree = "<group>"; };
 		F8C688D3208D7BBA00FA78FA /* ConfirmPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewModel.swift; sourceTree = "<group>"; };
 		F8C688D5208D843E00FA78FA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F8C688DB208D8DA500FA78FA /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F8C688DC208D8DA500FA78FA /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,9 +311,19 @@
 		F8C688D9208D898E00FA78FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F8C688DA208D8D9800FA78FA /* Loading */,
 				F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F8C688DA208D8D9800FA78FA /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688DB208D8DA500FA78FA /* LoadingView.swift */,
+				F8C688DC208D8DA500FA78FA /* LoadingView.xib */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C68846208CDA4F00FA78FA /* LaunchScreen.storyboard in Resources */,
+				F8C688DE208D8DA500FA78FA /* LoadingView.xib in Resources */,
 				F8C68843208CDA4F00FA78FA /* Assets.xcassets in Resources */,
 				F8C68841208CDA4E00FA78FA /* Main.storyboard in Resources */,
 			);
@@ -469,6 +484,7 @@
 				F8C688BB208CF1F600FA78FA /* ListUsersViewModel.swift in Sources */,
 				F8C68872208CDEF600FA78FA /* UIImageView.swift in Sources */,
 				F8C68870208CDCC200FA78FA /* Transaction.swift in Sources */,
+				F8C688DD208D8DA500FA78FA /* LoadingView.swift in Sources */,
 				F8C68876208CE2A300FA78FA /* Keychain.swift in Sources */,
 				F8C688D2208D7B6000FA78FA /* ConfirmPaymentViewController.swift in Sources */,
 				F8C688B2208CEB6300FA78FA /* EndPointType.swift in Sources */,
