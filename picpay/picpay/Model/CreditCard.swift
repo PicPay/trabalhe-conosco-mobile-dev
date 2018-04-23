@@ -10,7 +10,7 @@ import Foundation
 
 struct CreditCard {
     
-    var cardNumber: Int
+    var cardNumber: Int64
     var cvv: Int
     var expireDate: Date
     
@@ -26,7 +26,7 @@ extension CreditCard: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        cardNumber = try values.decode(Int.self, forKey: .cardNumber)
+        cardNumber = try values.decode(Int64.self, forKey: .cardNumber)
         cvv = try values.decode(Int.self, forKey: .cvv)
         let stringDate = try values.decode(String.self, forKey: .expireDate)
         let dateFormatter = DateFormatter()

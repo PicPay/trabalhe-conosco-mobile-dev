@@ -32,6 +32,11 @@
 		F8C688B9208CF19200FA78FA /* ListUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688B8208CF19200FA78FA /* ListUsersTableViewController.swift */; };
 		F8C688BB208CF1F600FA78FA /* ListUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688BA208CF1F600FA78FA /* ListUsersViewModel.swift */; };
 		F8C688BD208CF2CF00FA78FA /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */; };
+		F8C688C0208CFBA700FA78FA /* ColorsContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688BF208CFBA700FA78FA /* ColorsContants.swift */; };
+		F8C688C5208D5AFD00FA78FA /* CreditCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688C4208D5AFD00FA78FA /* CreditCardViewModel.swift */; };
+		F8C688C7208D5CF200FA78FA /* KeysConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688C6208D5CF200FA78FA /* KeysConstant.swift */; };
+		F8C688C9208D5F2E00FA78FA /* CreditCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C688C8208D5F2E00FA78FA /* CreditCardTableViewController.swift */; };
+		F8C688CF208D6CC300FA78FA /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C688CE208D6CC300FA78FA /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +88,13 @@
 		F8C688B8208CF19200FA78FA /* ListUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersTableViewController.swift; sourceTree = "<group>"; };
 		F8C688BA208CF1F600FA78FA /* ListUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersViewModel.swift; sourceTree = "<group>"; };
 		F8C688BC208CF2CF00FA78FA /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		F8C688BF208CFBA700FA78FA /* ColorsContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsContants.swift; sourceTree = "<group>"; };
+		F8C688C4208D5AFD00FA78FA /* CreditCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewModel.swift; sourceTree = "<group>"; };
+		F8C688C6208D5CF200FA78FA /* KeysConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysConstant.swift; sourceTree = "<group>"; };
+		F8C688C8208D5F2E00FA78FA /* CreditCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardTableViewController.swift; sourceTree = "<group>"; };
+		F8C688CC208D6CAC00FA78FA /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		F8C688CD208D6CC200FA78FA /* picpay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "picpay-Bridging-Header.h"; sourceTree = "<group>"; };
+		F8C688CE208D6CC300FA78FA /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +145,9 @@
 		F8C6883A208CDA4E00FA78FA /* picpay */ = {
 			isa = PBXGroup;
 			children = (
+				F8C688CA208D6C8600FA78FA /* Objective-C */,
+				F8C688C1208D5AC600FA78FA /* Credit Card */,
+				F8C688BE208CFB9600FA78FA /* Constants */,
 				F8C688B7208CF17400FA78FA /* List of users */,
 				F8C68874208CE28C00FA78FA /* Security */,
 				F8C68873208CE02100FA78FA /* Networking */,
@@ -252,6 +267,34 @@
 			path = "List of users";
 			sourceTree = "<group>";
 		};
+		F8C688BE208CFB9600FA78FA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688BF208CFBA700FA78FA /* ColorsContants.swift */,
+				F8C688C6208D5CF200FA78FA /* KeysConstant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F8C688C1208D5AC600FA78FA /* Credit Card */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688C4208D5AFD00FA78FA /* CreditCardViewModel.swift */,
+				F8C688C8208D5F2E00FA78FA /* CreditCardTableViewController.swift */,
+			);
+			path = "Credit Card";
+			sourceTree = "<group>";
+		};
+		F8C688CA208D6C8600FA78FA /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				F8C688CD208D6CC200FA78FA /* picpay-Bridging-Header.h */,
+				F8C688CC208D6CAC00FA78FA /* Util.h */,
+				F8C688CE208D6CC300FA78FA /* Util.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +363,7 @@
 				TargetAttributes = {
 					F8C68837208CDA4E00FA78FA = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					F8C6884B208CDA5000FA78FA = {
 						CreatedOnToolsVersion = 9.3;
@@ -385,13 +429,18 @@
 			files = (
 				F8C688B1208CEB6300FA78FA /* NetworkLogger.swift in Sources */,
 				F8C688AE208CEB6300FA78FA /* HTTPTask.swift in Sources */,
+				F8C688C9208D5F2E00FA78FA /* CreditCardTableViewController.swift in Sources */,
 				F8C688A5208CE91800FA78FA /* CreditCard.swift in Sources */,
+				F8C688C7208D5CF200FA78FA /* KeysConstant.swift in Sources */,
 				F8C6886E208CDCB700FA78FA /* TransactionResponse.swift in Sources */,
+				F8C688C0208CFBA700FA78FA /* ColorsContants.swift in Sources */,
 				F8C688BD208CF2CF00FA78FA /* UserTableViewCell.swift in Sources */,
 				F8C688B9208CF19200FA78FA /* ListUsersTableViewController.swift in Sources */,
 				F8C6883C208CDA4E00FA78FA /* AppDelegate.swift in Sources */,
 				F8C688B0208CEB6300FA78FA /* Router.swift in Sources */,
 				F8C688A3208CE88800FA78FA /* JSONParameterEncoder.swift in Sources */,
+				F8C688C5208D5AFD00FA78FA /* CreditCardViewModel.swift in Sources */,
+				F8C688CF208D6CC300FA78FA /* Util.m in Sources */,
 				F8C6886B208CDB5000FA78FA /* User.swift in Sources */,
 				F8C688A2208CE88800FA78FA /* URLParameterEncoding.swift in Sources */,
 				F8C688A1208CE88800FA78FA /* ParameterEncoding.swift in Sources */,
@@ -575,7 +624,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSLGG8X94D;
 				INFOPLIST_FILE = picpay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,6 +634,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "picpay/Objective-C/picpay-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -592,7 +645,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSLGG8X94D;
 				INFOPLIST_FILE = picpay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -600,6 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasromanomr.picpayteste.picpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "picpay/Objective-C/picpay-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

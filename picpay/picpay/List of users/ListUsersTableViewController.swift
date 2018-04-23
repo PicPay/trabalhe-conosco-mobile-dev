@@ -17,6 +17,7 @@ class ListUsersTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView() // Remove as linhas de baixo da tabela
+        tableView.backgroundColor = ColorConstant.background
         getListaOfUsers()
     }
 
@@ -48,6 +49,29 @@ class ListUsersTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "payment" {
+            if let data = Keychain.getData(key: KeysConstant.creditCardKey) {
+                do {
+                    let crediCard = try JSONDecoder().decode(CreditCard.self, from: data)
+                } catch {
+                    return false
+                }
+            } else {
+                let alert = UIAlertController(title: "Atenção", message: "Você não possui um cartão de crédito cadastrado, deseja cadastrar agora?", preferredStyle: .alert)
+                let actionRegister = UIAlertAction(title: "Cadastrar", style: .default) { action in
+                    self.performSegue(withIdentifier: "registerCreditCard", sender: nil)
+                }
+                let actionCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+                alert.addAction(actionRegister)
+                alert.addAction(actionCancel)
+                self.present(alert, animated: true, completion: nil)
+                return false
+            }
+        }
+        return true
     }
 
 }

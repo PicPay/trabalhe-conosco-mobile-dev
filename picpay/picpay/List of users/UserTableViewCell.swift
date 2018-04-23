@@ -44,10 +44,10 @@ class UserTableViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 10
         containerView.clipsToBounds = true
         containerView.layer.masksToBounds = false
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 1)
         containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 0.15
-        containerView.layer.shadowRadius = 0.9
+        containerView.layer.shadowOpacity = 0.20
+        containerView.layer.shadowRadius = 1
         self.backgroundColor = UIColor.clear
     }
 }
