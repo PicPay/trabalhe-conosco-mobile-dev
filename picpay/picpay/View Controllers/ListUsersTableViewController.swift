@@ -47,15 +47,22 @@ class ListUsersTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "payment" {
+            if let vc = segue.destination as? ConfirmPaymentViewController {
+                guard let cell = sender as? UserTableViewCell else { return }
+                guard let user = cell.user else { return }
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalPresentationCapturesStatusBarAppearance = true
+                vc.viewModel = ConfirmPaymentViewModel(with: user)
+            }
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "payment" {
             if let data = Keychain.getData(key: KeysConstant.creditCardKey) {
                 do {
-                    let crediCard = try JSONDecoder().decode(CreditCard.self, from: data)
+                    let _ = try JSONDecoder().decode(CreditCard.self, from: data)
                 } catch {
                     return false
                 }
@@ -72,6 +79,10 @@ class ListUsersTableViewController: UITableViewController {
             }
         }
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

@@ -47,7 +47,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         do {
             switch route.task {
             case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             case .requestParameters(let bodyParameters,
                                     let bodyEncoding,
                                     let urlParameters):

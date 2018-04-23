@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="odg-3t-Woc">
+            <objects>
+                <navigationController id="Mri-co-UIH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0uP-da-t6r">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kcv-7B-y6N" kind="relationship" relationship="rootViewController" id="7mi-Ls-qyG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5x-Ru-Umz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="-723"/>
+        </scene>
         <!--Cartão-->
         <scene sceneID="1Cm-7L-fcW">
             <objects>
@@ -163,6 +179,7 @@
                             <outlet property="delegate" destination="kcv-7B-y6N" id="vAA-QG-GLA"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="tRP-Mu-PrV"/>
                     <connections>
                         <outlet property="cvvTextField" destination="yHr-La-gPh" id="zQi-sx-HdI"/>
                         <outlet property="expiredDateTextField" destination="mY5-a2-ckn" id="3Mh-q4-flW"/>
@@ -172,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1w-7p-5PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="-636"/>
+            <point key="canvasLocation" x="2151" y="-723"/>
         </scene>
         <!--Lista de usuário-->
         <scene sceneID="iwE-uu-5KY">
@@ -193,7 +210,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDL-ZW-cy7">
                                             <rect key="frame" x="15" y="7" width="345" height="62"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyO-B5-09N">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyO-B5-09N">
                                                     <rect key="frame" x="10" y="10" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="Ljg-Yn-VMp"/>
@@ -244,7 +261,7 @@
                                     <outlet property="containerView" destination="MDL-ZW-cy7" id="djp-eK-zdp"/>
                                     <outlet property="nameLabel" destination="sMm-5L-VQa" id="7bl-Pw-AjZ"/>
                                     <outlet property="usernameLabel" destination="FVd-Zn-hsR" id="08O-kq-J6S"/>
-                                    <segue destination="Tuj-JR-YX0" kind="show" identifier="payment" id="af0-6i-O60"/>
+                                    <segue destination="Tuj-JR-YX0" kind="presentation" identifier="payment" id="af0-6i-O60"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -256,32 +273,132 @@
                     <navigationItem key="navigationItem" title="Lista de usuário" id="PDH-HW-UJv">
                         <barButtonItem key="rightBarButtonItem" image="credit-card" id="rdH-8J-yJN">
                             <connections>
-                                <segue destination="kcv-7B-y6N" kind="show" id="Nbz-he-NJy"/>
+                                <segue destination="Mri-co-UIH" kind="show" id="Ke3-WL-Txx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="kcv-7B-y6N" kind="show" identifier="registerCreditCard" id="Cq9-f2-QNJ"/>
+                        <segue destination="Mri-co-UIH" kind="show" identifier="registerCreditCard" id="gtf-z5-s1N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPh-1c-6Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="69"/>
+            <point key="canvasLocation" x="540" y="69"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirm Payment View Controller-->
         <scene sceneID="Rgv-st-cEL">
             <objects>
-                <viewController id="Tuj-JR-YX0" sceneMemberID="viewController">
+                <viewController id="Tuj-JR-YX0" customClass="ConfirmPaymentViewController" customModule="picpay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xnm-gy-Op5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oK-d4-vqq">
+                                <rect key="frame" x="30" y="50" width="315" height="102"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZYI-bU-LdN">
+                                        <rect key="frame" x="10" y="10" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="oMf-I7-VyA"/>
+                                            <constraint firstAttribute="width" constant="42" id="zQT-LR-fMj"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-6c-3SZ">
+                                        <rect key="frame" x="60" y="10" width="245" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcI-ot-7rG">
+                                                <rect key="frame" x="0.0" y="0.0" width="245" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJf-hc-9H8">
+                                                <rect key="frame" x="0.0" y="15.5" width="245" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZyC-jb-Rd9">
+                                        <rect key="frame" x="10" y="62" width="295" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valor" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-7d-Mbc">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <connections>
+                                                    <action selector="valueTextFieldDidChange:" destination="Tuj-JR-YX0" eventType="editingChanged" id="6I2-6a-cn4"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ui2-cW-1IU">
+                                                <rect key="frame" x="195" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="J4d-mR-VJF"/>
+                                                </constraints>
+                                                <state key="normal" title="Pagar">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="payButtonTapped:" destination="Tuj-JR-YX0" eventType="touchUpInside" id="7xU-zZ-qJg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.74117647060000003" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZyC-jb-Rd9" firstAttribute="leading" secondItem="7oK-d4-vqq" secondAttribute="leading" constant="10" id="4Wk-6G-t7N"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZyC-jb-Rd9" secondAttribute="bottom" constant="10" id="IV9-XZ-ohE"/>
+                                    <constraint firstItem="o5n-6c-3SZ" firstAttribute="top" secondItem="7oK-d4-vqq" secondAttribute="top" constant="10" id="MRK-Ei-wRg"/>
+                                    <constraint firstItem="o5n-6c-3SZ" firstAttribute="leading" secondItem="ZYI-bU-LdN" secondAttribute="trailing" constant="8" id="N4T-pN-0eh"/>
+                                    <constraint firstItem="ZYI-bU-LdN" firstAttribute="top" secondItem="7oK-d4-vqq" secondAttribute="top" constant="10" id="hsj-sR-jPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZyC-jb-Rd9" secondAttribute="trailing" constant="10" id="iV4-kW-BZN"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5n-6c-3SZ" secondAttribute="trailing" constant="10" id="pQT-hc-s5k"/>
+                                    <constraint firstItem="ZyC-jb-Rd9" firstAttribute="top" secondItem="ZYI-bU-LdN" secondAttribute="bottom" constant="10" id="rNj-kO-Dnm"/>
+                                    <constraint firstItem="ZYI-bU-LdN" firstAttribute="leading" secondItem="7oK-d4-vqq" secondAttribute="leading" constant="10" id="upu-CQ-xwb"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ik5-hf-iwu" appends="YES" id="z6S-xa-OK6"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7oK-d4-vqq" firstAttribute="top" secondItem="XvT-1Z-fi3" secondAttribute="top" constant="30" id="7hL-5f-k9z"/>
+                            <constraint firstItem="7oK-d4-vqq" firstAttribute="leading" secondItem="XvT-1Z-fi3" secondAttribute="leading" constant="30" id="tsk-MI-jHy"/>
+                            <constraint firstItem="XvT-1Z-fi3" firstAttribute="trailing" secondItem="7oK-d4-vqq" secondAttribute="trailing" constant="30" id="uxF-bC-Qyi"/>
+                            <constraint firstItem="7oK-d4-vqq" firstAttribute="centerX" secondItem="XvT-1Z-fi3" secondAttribute="centerX" id="wsZ-hl-VS7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XvT-1Z-fi3"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Eai-s0-77b" appends="YES" id="tI4-a8-NTY"/>
+                        </connections>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="ZYI-bU-LdN" id="ZfR-e1-1zO"/>
+                        <outlet property="containerView" destination="7oK-d4-vqq" id="L5X-yy-ykr"/>
+                        <outlet property="nameLabel" destination="eJf-hc-9H8" id="s06-0W-gZ5"/>
+                        <outlet property="payButton" destination="Ui2-cW-1IU" id="RcC-3G-gdq"/>
+                        <outlet property="usernameLabel" destination="pcI-ot-7rG" id="BbH-gX-ZRL"/>
+                        <outlet property="valueTextField" destination="KZu-7d-Mbc" id="K6W-w2-VVi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwS-x7-TBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Eai-s0-77b">
+                    <connections>
+                        <action selector="tapGestureAction:" destination="Tuj-JR-YX0" id="qVZ-LU-d2Z"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ik5-hf-iwu">
+                    <connections>
+                        <action selector="panGestureAction:" destination="Tuj-JR-YX0" id="rgh-Uy-7Aj"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1334" y="69"/>
+            <point key="canvasLocation" x="1333.5999999999999" y="68.815592203898049"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dd3-4m-6Po">
@@ -304,6 +421,6 @@
         <image name="credit-card" width="24" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nbz-he-NJy"/>
+        <segue reference="gtf-z5-s1N"/>
     </inferredMetricsTieBreakers>
 </document>

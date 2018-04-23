@@ -33,7 +33,7 @@ extension UserApi: EndPointType {
         case .list:
             return "users"
         case .makeTransaction( _, _, _):
-            return "transaction "
+            return "transaction"
         }
     }
     

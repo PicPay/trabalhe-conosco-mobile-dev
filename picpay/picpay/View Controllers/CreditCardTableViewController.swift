@@ -38,7 +38,12 @@ class CreditCardTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         do {
             if try viewModel.saveAndValidationForm() {
-                
+                let alert = UIAlertController(title: "Sucesso", message: "Cartão salvo com sucesso", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default) { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
         } catch (let error) {
             switch error {
