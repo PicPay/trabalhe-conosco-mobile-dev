@@ -102,9 +102,7 @@ extension ListUsersTableViewController {
                 let actionAgain = UIAlertAction(title: "Tentar novamente", style: .default, handler: { _ in
                     strongSelf.getListaOfUsers()
                 })
-                let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(actionAgain)
-                alert.addAction(actionOk)
                 strongSelf.present(alert, animated: true, completion: nil)
             }
         })
