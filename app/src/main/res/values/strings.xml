@@ -6,12 +6,15 @@
     <string name="carregando_contatos">Carregando contatos</string>
     <string name="nenhum_cart_o_de_cr_dito_cadastrado">Nenhum cartão de crédito cadastrado.\n<u><b>Cadastrar agora.</b></u></string>
     <string name="finalizar_pagamento">Finalizar pagamento</string>
-    <string name="forma_de_pagamento_">Forma de pagamento: %1$s com final %2$d\n alterar</string>
+    <string name="forma_de_pagamento_">Forma de pagamento: %1$s com final %2$d\n Usar outro cartão</string>
     <string name="nome_escrito_no_cart_o">Nome escrito no cartão</string>
     <string name="numero_do_cartao">Número do cartão</string>
     <string name="validade_mm_aaaa">Validade (mm/aaaa)</string>
     <string name="codigo_de_seguranca">Código de segurança</string>
-    <string name="cadastrar">Cadastrar</string>
+    <string name="cadastrar">Cadastrar cartão</string>
+    <string name="novo_cartao">Novo cartão</string>
     <string name="selecione_a_bandeira">Selecione a bandeira</string>
     <string name="erro_ao_cadastrar_cartao">Erro ao cadastrar cartão</string>
+    <string name="add_vector_path" translatable="false">M50 20,L50 80,M20 50,L80 50</string>
+    <string name="remove_vector_path" translatable="false">M60 25,L75 45,M25 75,L60 25</string>
 </resources>

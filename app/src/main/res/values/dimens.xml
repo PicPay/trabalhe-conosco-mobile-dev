@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="cross_tick_stroke_width">2dp</dimen>
 
     <dimen name="layout_default_padding">16dp</dimen>
     <dimen name="view_default_padding">8dp</dimen>

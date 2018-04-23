@@ -16,6 +16,7 @@ import java.util.Locale;
 import gilianmarques.dev.picpay_test.R;
 import gilianmarques.dev.picpay_test.models.Contact;
 import gilianmarques.dev.picpay_test.asyncs.RoundImageAsync;
+import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 
 public class ContactsListAdapter extends AnimatedRecyclerView {
     private List<Contact> mContacts;
@@ -34,6 +35,7 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
         return new MyViewHolder(View.inflate(mContext, R.layout.item_contact, null));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
         final MyViewHolder myViewHolder = (MyViewHolder) holder;
@@ -49,8 +51,6 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
             }
         });
 
-
-        /*anima as views um vez por view*/
         super.onBindViewHolder(holder, position);
     }
 

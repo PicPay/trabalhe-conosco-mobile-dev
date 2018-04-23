@@ -31,4 +31,5 @@ dependencies {
     /*biblioteca usada para obter informações sobre o cartão do usuario. Uso para obter a bandeira*/
     implementation 'us.fatehi:credit_card_number:2.01.02'
 
+    implementation 'com.android.support:cardview-v7:27.1.1'
 }

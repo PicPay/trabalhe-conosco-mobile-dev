@@ -36,7 +36,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activities.AddCreditCard"></activity>
+        <activity android:name=".activities.AddCreditCard"
+            android:label="@string/novo_cartao"
+            android:windowSoftInputMode="stateVisible"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

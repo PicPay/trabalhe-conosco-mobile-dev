@@ -4,16 +4,12 @@ package gilianmarques.dev.picpay_test.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,15 +32,16 @@ import gilianmarques.dev.picpay_test.crud.Database;
 import gilianmarques.dev.picpay_test.models.Contact;
 import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.utils.AppPatterns;
+import gilianmarques.dev.picpay_test.utils.DialogSelectCreditCard;
 import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 import gilianmarques.dev.picpay_test.utils.TransactionCallback;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PaymentFragment extends Fragment implements TextWatcher {
+public class PaymentFragment extends Fragment {
 
-    private static final int ADD_CARD_REQ_CODE = 1;
+    private static final int ADD_CARD_REQ_CODE = 1, ADD_CARD_REQ_CODE_FROM_DIALOG = 2;
     private TransactionCallback callback;
     private Contact mContact;
     private View rootView;
@@ -56,6 +53,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     private ArrayList<CreditCard> mCards = new ArrayList<>();
     private TextView tvCreditCardInfo;
     private CreditCard choosedCreditCard;
+    DialogSelectCreditCard mDialogSelectCreditCard;
 
     /**
      * @param callback c
@@ -69,6 +67,14 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         return this;
     }
 
+    public PaymentFragment newInstance(Contact mContact) {
+        PaymentFragment mPaymentFragment = new PaymentFragment();
+        Bundle mBundle = new Bundle();
+        mBundle.putSerializable("contact", mContact);
+        mPaymentFragment.setArguments(mBundle);
+
+        return mPaymentFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -101,7 +107,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         container = rootView.findViewById(R.id.rl_container);
 
         edtAmount = rootView.findViewById(R.id.edt_amount);
-        edtAmount.addTextChangedListener(this);
+        edtAmount.addTextChangedListener(currencyFormatterTYextWatcher);
         payButton = rootView.findViewById(R.id.btn_pay);
         //  payButton.setVisibility(View.GONE);
 
@@ -176,57 +182,20 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     }
 
     private void selectCreditCard() {
+        DialogSelectCreditCard.DialogCallback callback = new DialogSelectCreditCard.DialogCallback() {
+            @Override
+            public void cardSelected(CreditCard mCreditCard) {
+                setChoosedCreditCard(mCreditCard);
+            }
 
-    }
+            @Override
+            public void addNewCard() {
+                startActivityForResult(new Intent(mActivity, AddCreditCard.class), ADD_CARD_REQ_CODE_FROM_DIALOG);
+            }
+        };
 
-
-    public PaymentFragment newInstance(Contact mContact) {
-        PaymentFragment mPaymentFragment = new PaymentFragment();
-        Bundle mBundle = new Bundle();
-        mBundle.putSerializable("contact", mContact);
-        mPaymentFragment.setArguments(mBundle);
-
-        return mPaymentFragment;
-    }
-
-
-    /*============================================ TextWatcher interface BEGIN ============================================*/
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
-
-    /**
-     * @param s      s
-     * @param start  start
-     * @param before before
-     * @param count  count
-     *               Faz a formatação do valor em tempo real
-     */
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-        edtAmount.removeTextChangedListener(this);
-        String newChar = String.valueOf(s.length() > 0 ? s.charAt(s.length() - 1) : "");
-
-        if (before == 0)
-            amount = amount.concat(newChar);
-        else if (amount.length() > 0)
-            amount = amount.substring(0, amount.length() - 1);/*usuario apagou um caracter*/
-
-        String amountDecimal = AppPatterns.toDecimal(amount).divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN).toString();
-        String formattedAmount = AppPatterns.convertCurrency(amountDecimal).replace(currencySimbol, "");
-
-        edtAmount.setText(formattedAmount);
-        edtAmount.setSelection(edtAmount.getText().length());
-        edtAmount.addTextChangedListener(this);
-        if (amount.length() > 2) payButton.setVisibility(View.VISIBLE);
-
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
+        mDialogSelectCreditCard = new DialogSelectCreditCard(mActivity, mCards, callback);
+        mDialogSelectCreditCard.show();
 
     }
 
@@ -251,15 +220,73 @@ public class PaymentFragment extends Fragment implements TextWatcher {
             int end2 = text.split(strLastDigits)[0].length() + strLastDigits.length();
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-            int start3 = text.split(strLastDigits)[0].length() + strLastDigits.length()+2;
+            int start3 = text.split(strLastDigits)[0].length() + strLastDigits.length() + 2;
             int end3 = text.length();
 
             spString.setSpan(new UnderlineSpan(), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            spString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mActivity,R.color.gray)), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            // spString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mActivity, R.color.gray)), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             tvCreditCardInfo.setText(spString);
         }
 
     }
-    /*============================================ TextWatcher interface END ============================================*/
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ADD_CARD_REQ_CODE && resultCode == Activity.RESULT_OK) {
+            mCards = Database.getInstance().getCards();
+            handleCreditCardViews(mCards.size() > 0);
+        } else if (requestCode == ADD_CARD_REQ_CODE_FROM_DIALOG && resultCode == Activity.RESULT_OK) {
+            mCards = Database.getInstance().getCards();
+            handleCreditCardViews(mCards.size() > 0);
+            if (mDialogSelectCreditCard != null && mDialogSelectCreditCard.isShowing())
+                mDialogSelectCreditCard.update();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private TextWatcher currencyFormatterTYextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        /**
+         * @param s      s
+         * @param start  start
+         * @param before before
+         * @param count  count
+         *               Faz a formatação do valor em tempo real
+         */
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            edtAmount.removeTextChangedListener(this);
+            String newChar = String.valueOf(s.length() > 0 ? s.charAt(s.length() - 1) : "");
+
+            if (before == 0)
+                amount = amount.concat(newChar);
+            else if (amount.length() > 0)
+                amount = amount.substring(0, amount.length() - 1);/*usuario apagou um caracter*/
+
+            String amountDecimal = AppPatterns.toDecimal(amount).divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN).toString();
+            String formattedAmount = AppPatterns.convertCurrency(amountDecimal).replace(currencySimbol, "");
+
+            edtAmount.setText(formattedAmount);
+            edtAmount.setSelection(edtAmount.getText().length());
+            edtAmount.addTextChangedListener(this);
+            if (amount.length() > 2) payButton.setVisibility(View.VISIBLE);
+
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+
+    };
+
 }

@@ -28,32 +28,32 @@ public class AppPatterns {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
             if (type == SUCCESS)
-                mVibrator.vibrate(VibrationEffect.createWaveform(new long[]{70, 70, 70}, VibrationEffect.DEFAULT_AMPLITUDE));
+                mVibrator.vibrate(VibrationEffect.createWaveform(new long[]{75, 75, 150}, VibrationEffect.DEFAULT_AMPLITUDE));
             else
-                mVibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                mVibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE));
 
         } else {
-            //depreciado  na  API 26
 
-
+            //depreciado  na  API 26 anroid Oreo
             if (type == SUCCESS)
-
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         for (int i = 0; i < 2; i++) {
-                            mVibrator.vibrate(500);
+                            mVibrator.vibrate(75);
                             try {
                                 Thread.sleep(45);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
+                        mVibrator.vibrate(150);
+
                     }
                 }).start();
 
 
-            else mVibrator.vibrate(500);
+            else mVibrator.vibrate(300);
         }
     }
 

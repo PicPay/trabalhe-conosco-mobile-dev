@@ -9,4 +9,7 @@
     <color name="text_secundary">#99ffffff</color>
     <color name="transparent">#00ac0366</color>
     <color name="gray">#ada4b1</color>
+    <color name="gray_2">#6c7885</color>
+    <color name="transparent_50">#89010101</color>
+    <color name="transparent_20">#eb010101</color>
 </resources>

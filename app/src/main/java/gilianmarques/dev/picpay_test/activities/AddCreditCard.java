@@ -1,16 +1,24 @@
 package gilianmarques.dev.picpay_test.activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,7 +34,6 @@ import us.fatehi.creditcardnumber.BankCard;
 
 public class AddCreditCard extends AppCompatActivity {
     private TextInputEditText edtOwnername, edtNumber, edtCvv, edtExpiryDate;
-    private Button btnDone;
     private Spinner spinnerFlags;
     private ArrayList<String> mflags = new ArrayList<>();
     private TranslateAnimation mErrorAnimation;
@@ -44,16 +51,16 @@ public class AddCreditCard extends AppCompatActivity {
         mflags.add("Visa");
         mflags.add("Diners");
         mflags.add("Desconhecido");
-
         edtCvv = findViewById(R.id.edt_cvv);
         edtExpiryDate = findViewById(R.id.edt_expiry_date);
         edtNumber = findViewById(R.id.edt_number);
         edtOwnername = findViewById(R.id.edt_owner_name);
-        btnDone = findViewById(R.id.btn_done);
+        Button btnDone = findViewById(R.id.btn_done);
         spinnerFlags = findViewById(R.id.spinner_flags);
 
         edtNumber.addTextChangedListener(mNumberTextWatcher);
         edtExpiryDate.addTextChangedListener(mExpiryTextWatcher);
+        edtCvv.addTextChangedListener(mCvvTextWatcher);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,9 +76,25 @@ public class AddCreditCard extends AppCompatActivity {
         mErrorAnimation.setRepeatMode(Animation.REVERSE);
         mErrorAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
 
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        ActionBar mActionBar = getSupportActionBar();
+        if (mActionBar != null) {
+            mActionBar.setDisplayShowHomeEnabled(true);
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+            mActionBar.setElevation(15f);
+
+
+        }
         setSpinnerAdapter();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     private void notifyUser(View mView) {
         mView.startAnimation(mErrorAnimation);
@@ -119,24 +142,39 @@ public class AddCreditCard extends AppCompatActivity {
 
     private void verifyDataAndClose() {
         int successCount = 0;
+        if (!edtOwnername.getText().toString().isEmpty()) successCount++;
+        else {
+            notifyUser(edtOwnername);
+            return;
+        }
 
         /*Considera-se que um cartão pode ter entre 13 e 16 dígitos (que eu saiba)*/
         String number = edtNumber.getText().toString().replace(" ", "");
         if (number.length() > 12 && number.length() < 17) {
             successCount++;
-        } else notifyUser(edtNumber);
+        } else {
+            notifyUser(edtNumber);
+            return;
+        }
 
-        if (!edtOwnername.getText().toString().isEmpty()) successCount++;
-        else notifyUser(edtOwnername);
 
         if (edtExpiryDate.getText().length() == 7) successCount++;
-        else notifyUser(edtExpiryDate);
+        else {
+            notifyUser(edtExpiryDate);
+            return;
+        }
 
         if (edtCvv.getText().length() == 3) successCount++;
-        else notifyUser(edtCvv);
+        else {
+            notifyUser(edtCvv);
+            return;
+        }
 
         if (spinnerFlags.getSelectedItemPosition() > 0) successCount++;
-        else notifyUser(spinnerFlags);
+        else {
+            notifyUser(spinnerFlags);
+            return;
+        }
 
 
         if (successCount == 5) {
@@ -152,6 +190,7 @@ public class AddCreditCard extends AppCompatActivity {
 
             if (success) {
                 AppPatterns.vibrate(AppPatterns.SUCCESS);
+                setResult(RESULT_OK);
                 finish();
             } else
                 AppPatterns.notifyUser(AddCreditCard.this, getString(R.string.erro_ao_cadastrar_cartao), AppPatterns.ERROR);
@@ -228,6 +267,27 @@ public class AddCreditCard extends AppCompatActivity {
                     edtExpiryDate.addTextChangedListener(this);
                     edtCvv.requestFocus();
                 }
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
+    private TextWatcher mCvvTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (s.length() == 3) {
+                InputMethodManager mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (mInputMethodManager != null)
+                mInputMethodManager.hideSoftInputFromWindow(edtCvv.getWindowToken(), 0);
             }
         }
 

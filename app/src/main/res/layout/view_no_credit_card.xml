@@ -13,7 +13,6 @@
         android:fontFamily="@font/roboto"
         android:gravity="center_vertical"
         android:text="@string/nenhum_cart_o_de_cr_dito_cadastrado"
-        android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="14sp" />
 

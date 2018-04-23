@@ -44,4 +44,14 @@ public class CreditCard {
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
+
+    /**
+     * @return uma {@link String} com o numero do cartão espaçado a cada 4 caracteres
+     */
+    public String getSpacedNumber() {
+        String numbers = String.valueOf(getNumber());
+        return numbers.replaceAll("....(?!$)", "$0 ");
+    }
+
+
 }

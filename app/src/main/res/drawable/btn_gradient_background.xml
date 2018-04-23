@@ -14,11 +14,7 @@
         android:type="linear" />
     <size
         android:width="96dp"
-        android:height="24dp" />
-    <padding
-        android:bottom="16dp"
-        android:top="16dp"
-        android:left="16dp"
-        android:right="16dp" />
+        android:height="16dp" />
+
 
 </shape>
