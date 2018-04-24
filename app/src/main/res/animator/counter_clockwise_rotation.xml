@@ -5,5 +5,5 @@
     android:duration="@android:integer/config_longAnimTime"
     android:propertyName="rotation"
     android:valueFrom="180"
-    android:valueTo="0"
+    android:valueTo="270"
     android:valueType="floatType"/>

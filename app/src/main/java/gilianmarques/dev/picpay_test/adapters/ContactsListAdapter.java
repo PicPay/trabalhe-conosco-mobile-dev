@@ -1,22 +1,19 @@
 package gilianmarques.dev.picpay_test.adapters;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
 
 import gilianmarques.dev.picpay_test.R;
+import gilianmarques.dev.picpay_test.asyncs.ProfilePictureUtils;
 import gilianmarques.dev.picpay_test.models.Contact;
-import gilianmarques.dev.picpay_test.asyncs.RoundImageAsync;
-import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 
 public class ContactsListAdapter extends AnimatedRecyclerView {
     private List<Contact> mContacts;
@@ -43,7 +40,8 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
         myViewHolder.tvNome.setText(mContact.getName());
         myViewHolder.tvId.setText(String.format(Locale.getDefault(), mContext.getString(R.string.id), mContact.getId()));
         myViewHolder.tvUsername.setText(mContact.getUserName());
-        myViewHolder.ivProfileImage.setImageDrawable(ProfilePicHolder.getInstance().getPic(mContact.getPhoto()));
+        // TODO: 23/04/2018 repetindo fotos dos usuarios
+        new ProfilePictureUtils(mContact).loadProfilePicture(myViewHolder.ivProfileImage);
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

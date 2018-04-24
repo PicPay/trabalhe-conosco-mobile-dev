@@ -60,10 +60,13 @@ public class SpinnerFlagsAdapter extends BaseAdapter {
 
         if (position == 0) {
 
-           iv.setVisibility(View.GONE);
+            iv.setVisibility(View.GONE);
             tvName.setTextColor(ContextCompat.getColor(MyApp.getContext(), R.color.text_secundary));
 
-        } else iv.setVisibility(View.VISIBLE);
+        } else {
+            tvName.setTextColor(ContextCompat.getColor(MyApp.getContext(), R.color.white));
+            iv.setVisibility(View.VISIBLE);
+        }
 
         return convertView;
     }

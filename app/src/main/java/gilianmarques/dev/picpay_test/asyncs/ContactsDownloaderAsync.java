@@ -1,6 +1,5 @@
 package gilianmarques.dev.picpay_test.asyncs;
 
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gilianmarques.dev.picpay_test.models.Contact;
-import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 
 
 public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
@@ -54,7 +52,6 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
 
         return null;
     }
-
 
 
     @Nullable
@@ -108,20 +105,19 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
 
             /*evita que as imagens sejam baixadas ao carregar os dados do usuario no recyclerview VEJA a classe Contact*/
             final int finalI = i;
-            new RoundImageAsync(new RoundImageAsync.Callback() {
-                @Override
-                public void result(Drawable mDrawable) {
-                    ProfilePicHolder.getInstance().addPic(mContact.getPhoto(),mDrawable);
-                    /*chama o callback apenas quando a ultima foto é carregada*/
-                 //   if (finalI == jsonArray.length() - 1) callback.resut(mContacts, -1);
-                }
-            }).execute(mContact.getPhoto());
 
+            ProfilePictureUtils.SaveCallback mCallback = new ProfilePictureUtils.SaveCallback() {
+                @Override
+                public void done() {
+                    /*chama o callback apenas quando a ultima foto é cacheada*/
+                    if (finalI == jsonArray.length() - 1) callback.resut(mContacts, -1);
+                }
+            };
+
+            new ProfilePictureUtils(mContact).saveProfilePic( mCallback);
             mContacts.add(mContact);
         }
-
-        callback.resut(mContacts, -1);
-    }
+        }
 
     /**
      * Interface usada para reotrnar os valores obtidos

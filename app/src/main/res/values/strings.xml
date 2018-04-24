@@ -17,4 +17,8 @@
     <string name="erro_ao_cadastrar_cartao">Erro ao cadastrar cartão</string>
     <string name="add_vector_path" translatable="false">M50 20,L50 80,M20 50,L80 50</string>
     <string name="remove_vector_path" translatable="false">M60 25,L75 45,M25 75,L60 25</string>
+    <string name="selecione_um_contato">Selecione um contato</string>
+    <string name="Insira_os_dados">Insira os dados</string>
+    <string name="selecione_uma_forma_de_pagamento"><b>Selecione uma forma de pagamento</b></string>
+
 </resources>

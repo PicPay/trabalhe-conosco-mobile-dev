@@ -2,11 +2,17 @@ package gilianmarques.dev.picpay_test.fragments;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
@@ -28,12 +34,12 @@ import java.util.Locale;
 
 import gilianmarques.dev.picpay_test.R;
 import gilianmarques.dev.picpay_test.activities.AddCreditCard;
+import gilianmarques.dev.picpay_test.asyncs.ProfilePictureUtils;
 import gilianmarques.dev.picpay_test.crud.Database;
 import gilianmarques.dev.picpay_test.models.Contact;
 import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.utils.AppPatterns;
 import gilianmarques.dev.picpay_test.utils.DialogSelectCreditCard;
-import gilianmarques.dev.picpay_test.utils.ProfilePicHolder;
 import gilianmarques.dev.picpay_test.utils.TransactionCallback;
 
 /**
@@ -46,7 +52,7 @@ public class PaymentFragment extends Fragment {
     private Contact mContact;
     private View rootView;
     private EditText edtAmount;
-    private String currencySimbol, amount = "";
+    private String amount = "";
     private RelativeLayout container;
     private Button payButton;
     private Activity mActivity;
@@ -55,20 +61,21 @@ public class PaymentFragment extends Fragment {
     private CreditCard choosedCreditCard;
     DialogSelectCreditCard mDialogSelectCreditCard;
 
-    /**
-     * @param callback c
-     * @return r
-     * @see ContactsListFragment para uma descrição
-     */
-    public PaymentFragment attachCallback(TransactionCallback callback, Activity mActivity) {
-        this.callback = callback;
-        /*Fragment.getActivity() as vezes retorna null*/
-        this.mActivity = mActivity;
-        return this;
+
+    @Override
+    public void onAttach(Context context) {
+        mActivity = getActivity();
+        if (mActivity != null) {
+            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
+            if (mActionBar != null) mActionBar.setTitle(getString(R.string.Insira_os_dados));
+        }
+        super.onAttach(context);
     }
 
-    public PaymentFragment newInstance(Contact mContact) {
+
+    public static PaymentFragment newInstance(TransactionCallback callback, Contact mContact) {
         PaymentFragment mPaymentFragment = new PaymentFragment();
+        mPaymentFragment.callback = callback;
         Bundle mBundle = new Bundle();
         mBundle.putSerializable("contact", mContact);
         mPaymentFragment.setArguments(mBundle);
@@ -76,13 +83,14 @@ public class PaymentFragment extends Fragment {
         return mPaymentFragment;
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_payment, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle mBundle = getArguments();
 
@@ -94,20 +102,23 @@ public class PaymentFragment extends Fragment {
     }
 
     private void init() {
-        Currency mCurrency = Currency.getInstance(Locale.getDefault());
-        currencySimbol = mCurrency.getSymbol();
 
 
-        ((ImageView) rootView.findViewById(R.id.iv_profile_image)).setImageDrawable(ProfilePicHolder.getInstance().getPic(mContact.getPhoto()));
+        new ProfilePictureUtils(mContact).loadProfilePicture(((ImageView) rootView.findViewById(R.id.iv_profile_image)));
         ((TextView) rootView.findViewById(R.id.tv_name)).setText(mContact.getName());
-        ((TextView) rootView.findViewById(R.id.tv_id)).setText(String.format(Locale.getDefault(), getActivity().getString(R.string.id), mContact.getId()));
+        ((TextView) rootView.findViewById(R.id.tv_id)).setText(String.format(Locale.getDefault(), mActivity.getString(R.string.id), mContact.getId()));
         ((TextView) rootView.findViewById(R.id.tv_user_name)).setText(mContact.getUserName());
 
-        ((TextView) rootView.findViewById(R.id.edt_currency_type)).setText(currencySimbol);
         container = rootView.findViewById(R.id.rl_container);
 
         edtAmount = rootView.findViewById(R.id.edt_amount);
-        edtAmount.addTextChangedListener(currencyFormatterTYextWatcher);
+        edtAmount.setHint(AppPatterns.convertCurrency("0"));
+        InputFilter[] mInputFilters = new InputFilter[1];
+        mInputFilters[0] = new InputFilter.LengthFilter(String.valueOf(Currency.getInstance(Locale.getDefault()).getSymbol()).concat("999.999,99").length());
+        edtAmount.setFilters(mInputFilters);
+
+
+        edtAmount.addTextChangedListener(currencyFormatterTextWatcher);
         payButton = rootView.findViewById(R.id.btn_pay);
         //  payButton.setVisibility(View.GONE);
 
@@ -117,7 +128,12 @@ public class PaymentFragment extends Fragment {
             @Override
             public void run() {
                 mCards = Database.getInstance().getCards();
-                handleCreditCardViews(mCards.size() > 0);
+                mActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        handleCreditCardViews(mCards.size() > 0);
+                    }
+                });
             }
         };
 
@@ -131,6 +147,7 @@ public class PaymentFragment extends Fragment {
      *
      * @param hasCards variavel de controle que indica qual view devera ser inflada
      */
+    @UiThread
     private void handleCreditCardViews(boolean hasCards) {
 
         /*Runnable que exibira na tela uma view para CADASTRAR o primeiro cartao*/
@@ -150,7 +167,6 @@ public class PaymentFragment extends Fragment {
             }
         };
 
-        /*======================================================== SEPARADOR ========================================================*/
 
 
         /*Runnable que exibira na tela uma view para ESCOLHER o  cartao a ser usado na transação*/
@@ -168,16 +184,13 @@ public class PaymentFragment extends Fragment {
                 View gotCard = mActivity.getLayoutInflater().inflate(R.layout.view_got_credit_card, container);
                 gotCard.setOnClickListener(mClickListener);
                 tvCreditCardInfo = gotCard.findViewById(R.id.tv_credit_card_info);
-                /*Uma vez que o usuario já possui pelo menos um cartão, já seto o primeiro da lista como forma de pagamento*/
-                setChoosedCreditCard(mCards.get(0));
+                tvCreditCardInfo.setText(R.string.selecione_uma_forma_de_pagamento);
             }
         };
 
-        /*======================================================== SEPARADOR ========================================================*/
 
-        /*Este metodo pode ser chamado de uma Thread secundaria. Eu poderia chamar sempre pela UIThread mas assim  teria
-         * que criar um metodo para executar o código de cada Runnable separadamente, então, optei por esa abbordagem.*/
-        mActivity.runOnUiThread(hasCards ? uiRunnable : uiRunnableEmpty);
+        Runnable exRunnable = (hasCards ? uiRunnable : uiRunnableEmpty);
+        exRunnable.run();
 
     }
 
@@ -247,7 +260,7 @@ public class PaymentFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private TextWatcher currencyFormatterTYextWatcher = new TextWatcher() {
+    private TextWatcher currencyFormatterTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -272,7 +285,7 @@ public class PaymentFragment extends Fragment {
                 amount = amount.substring(0, amount.length() - 1);/*usuario apagou um caracter*/
 
             String amountDecimal = AppPatterns.toDecimal(amount).divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN).toString();
-            String formattedAmount = AppPatterns.convertCurrency(amountDecimal).replace(currencySimbol, "");
+            String formattedAmount = AppPatterns.convertCurrency(amountDecimal);
 
             edtAmount.setText(formattedAmount);
             edtAmount.setSelection(edtAmount.getText().length());
@@ -288,5 +301,6 @@ public class PaymentFragment extends Fragment {
         }
 
     };
+
 
 }

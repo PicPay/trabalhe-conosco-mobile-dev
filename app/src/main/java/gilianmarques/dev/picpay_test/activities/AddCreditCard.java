@@ -1,9 +1,6 @@
 package gilianmarques.dev.picpay_test.activities;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,24 +15,25 @@ import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import gilianmarques.dev.picpay_test.R;
 import gilianmarques.dev.picpay_test.adapters.SpinnerFlagsAdapter;
 import gilianmarques.dev.picpay_test.crud.Database;
 import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.utils.AppPatterns;
-import us.fatehi.creditcardnumber.AccountNumber;
-import us.fatehi.creditcardnumber.BankCard;
 
 public class AddCreditCard extends AppCompatActivity {
     private TextInputEditText edtOwnername, edtNumber, edtCvv, edtExpiryDate;
-    private Spinner spinnerFlags;
-    private ArrayList<String> mflags = new ArrayList<>();
+    private Spinner spinnerBrands;
+    private ArrayList<String> mBrands = new ArrayList<>();
+    private List<String> originalBrandsList;
+
     private TranslateAnimation mErrorAnimation;
 
     @Override
@@ -46,17 +44,18 @@ public class AddCreditCard extends AppCompatActivity {
     }
 
     private void init() {
-        mflags.add(getString(R.string.selecione_a_bandeira));
-        mflags.add("Mastercard");
-        mflags.add("Visa");
-        mflags.add("Diners");
-        mflags.add("Desconhecido");
+
+        originalBrandsList = Arrays.asList(getResources().getStringArray(R.array.accepted_brands));
+        mBrands.add(getString(R.string.selecione_a_bandeira));
+        mBrands.addAll(originalBrandsList);
+        mBrands.add("NAN");
+
         edtCvv = findViewById(R.id.edt_cvv);
         edtExpiryDate = findViewById(R.id.edt_expiry_date);
         edtNumber = findViewById(R.id.edt_number);
         edtOwnername = findViewById(R.id.edt_owner_name);
         Button btnDone = findViewById(R.id.btn_done);
-        spinnerFlags = findViewById(R.id.spinner_flags);
+        spinnerBrands = findViewById(R.id.spinner_flags);
 
         edtNumber.addTextChangedListener(mNumberTextWatcher);
         edtExpiryDate.addTextChangedListener(mExpiryTextWatcher);
@@ -104,40 +103,48 @@ public class AddCreditCard extends AppCompatActivity {
 
     private void setSpinnerAdapter() {
 
-        spinnerFlags.setAdapter(new SpinnerFlagsAdapter(mflags));
+        spinnerBrands.setAdapter(new SpinnerFlagsAdapter(mBrands));
     }
 
     /**
      * @param number o numero do cartão
-     *               <p>
-     *               Usa uma biblioteca de terceiros para sugerir a bandeira do cartão. Outra abordagem seria usar regex mas o numero de padrões para as
-     *               bandeiras que encontrei na  internet foi pequeno e adquirir mais consumiria muito do meu tempo em pesquisas.
-     *               <p>
-     *               Padrões de algumas bandeiras:
-     *               <p>
-     *               Visa: ^4[0-9]{12}(?:[0-9]{3})
-     *               Mastercard: ^5[1-5][0-9]{14}
-     *               Amex: ^3[47][0-9]{13}
-     *               Diners Club: ^3(?:0[0-5]|[68][0-9])[0-9]{11}
-     *               Discover: ^6(?:011|5[0-9]{2})[0-9]{12}
-     *               JCB: ^(?:2131|1800|35\d{3})\d{11}
+     *               Usa regex para achar a bandeira do cartão automaticamente.
+     *              OBS: Pra funcionar eu preciso saber em qual posição está a string
+     *               com o nome correto do cartão em arrays.xml
+     *
+     *               Regex pattern explanation: https://stackoverflow.com/a/42758017/7953908
      */
-    private void getBrand(long number) {
-        BankCard card = new BankCard(new AccountNumber(String.valueOf(number)));
-        String brand = card.getPrimaryAccountNumber().getCardBrand().toString();
+    private void setBrand(long number) {
+        String strNumber = String.valueOf(number);
 
-        int index = mflags.indexOf(brand);
+        if (strNumber.matches("^3[47][0-9]{13}$")/*Amex*/) {
+            /*busco no array de bandeiras original a string com o nome do cartão (Amex nesse caso) encontro a posição dele no mBrands e seto no spinnerBrands*/
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(0)));
+        } else if (strNumber.matches("^(6541|6556)[0-9]{12}$")/*BCG*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(1)));
+        } else if (strNumber.matches("^3(?:0[0-5]|[68][0-9])[0-9]{11}$")/*Diners*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(2)));
+        } else if (strNumber.matches("^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$")/*Discover*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(3)));
+        } else if (strNumber.matches("^(?:2131|1800|35\\d{3})\\d{11}$")/*JCB*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(4)));
+        } else if (strNumber.matches("^(6304|6706|6709|6771)[0-9]{12,15}$")/*Laser*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(5)));
+        } else if (strNumber.matches("^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$")/*Maestro*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(6)));
+        } else if (strNumber.matches("^5[1-5][0-9]{14}$")/*Mastercard*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(7)));
+        } else if (strNumber.matches("^(6334|6767)[0-9]{12}|(6334|6767)[0-9]{14}|(6334|6767)[0-9]{15}$")/*Solo*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(8)));
+        } else if (strNumber.matches("^(4903|4905|4911|4936|6333|6759)[0-9]{12}|(4903|4905|4911|4936|6333|6759)[0-9]{14}|(4903|4905|4911|4936|6333|6759)[0-9]{15}|564182[0-9]{10}|564182[0-9]{12}|564182[0-9]{13}|633110[0-9]{10}|633110[0-9]{12}|633110[0-9]{13}$")/*Switch*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(9)));
+        } else if (strNumber.matches("^(62[0-9]{14,17})$")/*Uniom pay*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(10)));
+        } else if (strNumber.matches("^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$")/*Visa*/) {
+            spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(11)));
+        }else spinnerBrands.setSelection(mBrands.size()-1);
 
 
-        if (brand.equalsIgnoreCase("Unknown")) {
-            /*Não foi possível identificar a bandeira*/
-            spinnerFlags.setSelection(spinnerFlags.getAdapter().getCount() - 1);
-        } else if (index < 0 || index > mflags.size()) {
-            /*bandeira não existe no array de bandeiras*/
-            mflags.add(mflags.size() - 1, brand);
-            setSpinnerAdapter();
-            getBrand(number);
-        } else spinnerFlags.setSelection(index);
     }
 
     private void verifyDataAndClose() {
@@ -170,9 +177,9 @@ public class AddCreditCard extends AppCompatActivity {
             return;
         }
 
-        if (spinnerFlags.getSelectedItemPosition() > 0) successCount++;
+        if (spinnerBrands.getSelectedItemPosition() > 0) successCount++;
         else {
-            notifyUser(spinnerFlags);
+            notifyUser(spinnerBrands);
             return;
         }
 
@@ -184,7 +191,10 @@ public class AddCreditCard extends AppCompatActivity {
             mCreditCard.setExpireDate(edtExpiryDate.getText().toString());
             mCreditCard.setCvv(Integer.parseInt(edtCvv.getText().toString()));
             mCreditCard.setNumber(Long.parseLong(edtNumber.getText().toString().replace(" ", "")));
-            mCreditCard.setBrand(mflags.get(spinnerFlags.getSelectedItemPosition()));
+
+
+
+            mCreditCard.setBrand(mBrands.get(spinnerBrands.getSelectedItemPosition()));
 
             boolean success = Database.getInstance().insertCard(mCreditCard);
 
@@ -214,7 +224,7 @@ public class AddCreditCard extends AppCompatActivity {
                 edtNumber.addTextChangedListener(this);
             }
             if (s.length() == 19) {
-                getBrand(Long.parseLong(s.toString().replace(" ", "")));
+                setBrand(Long.parseLong(s.toString().replace(" ", "")));
                 edtExpiryDate.requestFocus();
             }
 
@@ -287,7 +297,7 @@ public class AddCreditCard extends AppCompatActivity {
             if (s.length() == 3) {
                 InputMethodManager mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (mInputMethodManager != null)
-                mInputMethodManager.hideSoftInputFromWindow(edtCvv.getWindowToken(), 0);
+                    mInputMethodManager.hideSoftInputFromWindow(edtCvv.getWindowToken(), 0);
             }
         }
 

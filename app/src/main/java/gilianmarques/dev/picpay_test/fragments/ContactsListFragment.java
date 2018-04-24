@@ -1,15 +1,19 @@
 package gilianmarques.dev.picpay_test.fragments;
 
 
-import android.app.Fragment;
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,15 +34,23 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
     private List<Contact> mContacts;
     private View rootView;
     private TransactionCallback callback;
+    private Activity mActivity;
 
-    /**
-     * @param callback um callback para notificar a activity que um contato foi selecionado
-     * @return a atual instancia deste fragmento. O truque serve para chamar o metodo direto na
-     * declaração uma vez que o construtor de um fragmento deve ser vazio.
-     */
-    public ContactsListFragment attachCallback(TransactionCallback callback) {
-        this.callback = callback;
-        return this;
+    public static ContactsListFragment newInstance(TransactionCallback callback) {
+
+        ContactsListFragment mContactsListFragment = new ContactsListFragment();
+        mContactsListFragment.callback = callback;
+        return mContactsListFragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        mActivity = getActivity();
+        if (mActivity != null) {
+            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
+            if (mActionBar != null) mActionBar.setTitle(getString(R.string.selecione_um_contato));
+        }
+        super.onAttach(context);
     }
 
     @Override
@@ -55,31 +67,32 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
             public void resut(List<Contact> mContacts, int errorCode) {
                 if (errorCode == -1) {
                     ContactsListFragment.this.mContacts = mContacts;
-                    getActivity().runOnUiThread(new Runnable() {
+                    if (mActivity != null) mActivity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             init();
                         }
                     });
                 } else {
-                    AppPatterns.notifyUser(getActivity(), "Error code: ".concat(String.valueOf(errorCode)), AppPatterns.SUCCESS);
+                    AppPatterns.notifyUser(mActivity, "Error code: ".concat(String.valueOf(errorCode)), AppPatterns.SUCCESS);
+                    mActivity.finish();
                 }
             }
         };
-        new ContactsDownloaderAsync(callback).execute();
+        new ContactsDownloaderAsync(callback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     public void init() {
 
-        ContactsListAdapter mAdapter = new ContactsListAdapter(getActivity(), mContacts, this);
+        ContactsListAdapter mAdapter = new ContactsListAdapter(mActivity, mContacts, this);
 
-        Drawable mDrawable = ContextCompat.getDrawable(getActivity(), R.drawable.divider);
+        Drawable mDrawable = ContextCompat.getDrawable(mActivity, R.drawable.divider);
 
-        DividerItemDecoration decor = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration decor = new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL);
         if (mDrawable != null) decor.setDrawable(mDrawable);
 
         RecyclerView mRecyclerView = rootView.findViewById(R.id.rv_contacts);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(decor);
         mRecyclerView.setAdapter(mAdapter);
@@ -87,9 +100,10 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
         rootView.findViewById(R.id.loading_view).setVisibility(View.GONE);
     }
 
-
     @Override
-    public void onContactClick( Contact mContact) {
-     if (callback != null) callback.contactSelected(mContact);
+    public void onContactClick(Contact mContact) {
+        if (callback != null) callback.contactSelected(mContact);
     }
+
+
 }

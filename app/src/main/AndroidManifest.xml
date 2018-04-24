@@ -30,7 +30,7 @@
             android:configChanges="screenSize|orientation|keyboard"
             android:label="@string/enviar_dinheiro"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -30,35 +30,19 @@
         android:animateLayoutChanges="true"
         android:padding="@dimen/view_default_padding">
 
-        <TextView
-            android:id="@+id/edt_currency_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="false"
-            android:background="@color/transparent"
-            android:fontFamily="@font/nunito_sans"
-            android:minWidth="30dp"
-            android:paddingEnd="8dp"
-            android:paddingStart="16dp"
-            android:text="rs"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            android:textSize="48sp" />
-
         <EditText
             android:id="@+id/edt_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="false"
             android:layout_centerHorizontal="true"
-            android:layout_toEndOf="@+id/edt_currency_type"
             android:background="@color/transparent"
             android:cursorVisible="false"
             android:fontFamily="@font/nunito_sans"
-            android:hint="0,00"
             android:inputType="number"
-            android:maxLength="10"
+            android:maxLength="12"
             android:paddingEnd="16dp"
+            android:paddingStart="16dp"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -70,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="2dp"
             android:layout_alignEnd="@+id/edt_amount"
-            android:layout_alignStart="@+id/edt_currency_type"
+            android:layout_alignStart="@+id/edt_amount"
             android:layout_below="@+id/edt_amount"
             android:layout_marginTop="8dp"
             android:background="@color/colorAccent" />

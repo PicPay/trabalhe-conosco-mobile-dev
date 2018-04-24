@@ -47,7 +47,7 @@
             android:layout_alignBottom="@id/tv_owner_name"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@id/tv_number"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:srcCompat="@drawable/vec_check" />
 
         <ImageView
@@ -86,7 +86,7 @@
             android:gravity="center"
             android:text="12/2048"
             android:textColor="@color/text_secundary"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <View
             android:id="@+id/view2"
