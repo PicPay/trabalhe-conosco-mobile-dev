@@ -19,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_alert" />
-                            <entry key="sourceFile" value="E:\DOWNLOADS\alert.svg" />
+                            <entry key="outputName" value="ic_check_mark" />
+                            <entry key="sourceFile" value="E:\DOWNLOADS\check-mark.svg" />
                           </map>
                         </option>
                       </PersistentState>

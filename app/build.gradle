@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -28,7 +30,7 @@ android {
 
 dependencies {
     //Room
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'

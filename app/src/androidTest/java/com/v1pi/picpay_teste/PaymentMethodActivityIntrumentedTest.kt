@@ -1,18 +1,27 @@
 package com.v1pi.picpay_teste
 
+import android.app.Activity
+import android.app.Instrumentation
 import android.content.Intent
-import android.support.test.InstrumentationRegistry
+import android.os.Bundle
 import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.espresso.matcher.ViewMatchers.withText
+import android.support.test.espresso.intent.Intents
+import android.support.test.espresso.intent.Intents.intended
+import android.support.test.espresso.intent.matcher.IntentMatchers
+import android.support.test.espresso.intent.matcher.IntentMatchers.toPackage
+import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
+import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Domains.User
 import com.v1pi.picpay_teste.EspressoTestsMatchers.Companion.noDrawable
+import com.v1pi.picpay_teste.EspressoTestsMatchers.Companion.withDrawable
+import com.v1pi.picpay_teste.Fragments.WithCreditCardFragment
+import com.v1pi.picpay_teste.Fragments.WithoutCreditCardFragment
+import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
-import org.junit.Assert
-import org.junit.Rule
-import org.junit.Test
+import org.junit.*
 
 
 class PaymentMethodActivityIntrumentedTest {
@@ -32,6 +41,17 @@ class PaymentMethodActivityIntrumentedTest {
         }
     }
 
+    @Before
+    fun setUp(){
+        Intents.init()
+        Intents.intending(not(IntentMatchers.isInternal())).respondWith(Instrumentation.ActivityResult(Activity.RESULT_OK, null))
+    }
+
+    @After
+    fun finished(){
+        Intents.release()
+    }
+
     @Test
     fun shouldGetIntentExtras(){
         Assert.assertTrue(activityTestRule.activity.controller.user == user)
@@ -45,4 +65,33 @@ class PaymentMethodActivityIntrumentedTest {
         onView(withId(R.id.user_image)).check(matches(not(noDrawable())))
     }
 
+    @Test
+    fun shouldHasLayoutForNoCreditCard() {
+        activityTestRule.activity.changeCreditCardFragment(WithoutCreditCardFragment())
+        onView(withId(R.id.alert_image)).check(matches(withDrawable(R.drawable.ic_alert)))
+        onView(withId(R.id.txt_none_credit_card)).check(matches(withText(R.string.none_credit_card_text)))
+        onView(withId(R.id.txt_register_now)).check(matches(withText(R.string.register_now_text)))
+    }
+
+    @Test
+    fun shouldHasLayoutForCreditCard(){
+
+        val creditCard = CreditCard(0, "1111 1111 1111 1111", 700, "23/04/2028")
+        val withCreditCardFragment = WithCreditCardFragment()
+        val bundle = Bundle()
+        bundle.putString("number", creditCard.number)
+        withCreditCardFragment.arguments = bundle
+
+
+        activityTestRule.activity.changeCreditCardFragment(withCreditCardFragment)
+        onView(withId(R.id.credit_card_image)).check(matches(withDrawable(R.drawable.ic_credit_card)))
+        onView(withId(R.id.txt_payment_method)).check(matches(withText(R.string.payment_method_text)))
+        onView(withId(R.id.txt_credit_card)).check(matches(withText(R.string.credit_card_example)))
+    }
+
+    @Test
+    fun shouldCallChooseCreditCard() {
+        onView(withId(R.id.fragment_credit_card)).perform(click())
+        intended(allOf(toPackage(ChooseCreditCardActivity::class.java.`package`.name)))
+    }
 }

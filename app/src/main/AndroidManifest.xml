@@ -23,6 +23,9 @@
         <activity android:name=".PaymentMethodActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".ChooseCreditCardActivity"
+            android:parentActivityName=".PaymentMethodActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,9 +5,11 @@
     <dimen name="second_text">12sp</dimen>
     <dimen name="normal_text">14sp</dimen>
     <dimen name="featured_text">24sp</dimen>
+    <dimen name="height_credit_card_item">72dp</dimen>
     <dimen name="default_space">10dp</dimen>
     <dimen name="double_default_space">20dp</dimen>
     <dimen name="half_default_space">5dp</dimen>
     <dimen name="minimum_space">1dp</dimen>
     <dimen name="maximum_space">30dp</dimen>
+    <dimen name="low_image">28dp</dimen>
 </resources>

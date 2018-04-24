@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/transparent"
-    android:layout_marginTop="@dimen/double_default_space"
-    tools:showIn="@layout/activity_payment_method">
+    android:background="@android:color/transparent">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -17,14 +15,14 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/ic_credit_card"
-            android:id="@+id/alert_image"
+            android:id="@+id/credit_card_image"
             android:layout_centerVertical="true"
             android:contentDescription="@string/content_description_alert"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/alert_image"
+            android:layout_toEndOf="@+id/credit_card_image"
             android:layout_marginStart="@dimen/default_space">
 
             <TextView
@@ -41,7 +39,7 @@
                 android:layout_below="@+id/txt_payment_method"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:id="@+id/text_credit_card"
+                android:id="@+id/txt_credit_card"
                 android:text="@string/credit_card_example"/>
 
         </RelativeLayout>

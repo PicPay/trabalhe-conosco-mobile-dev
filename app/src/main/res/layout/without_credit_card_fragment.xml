@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    android:layout_marginTop="@dimen/double_default_space"
     tools:showIn="@layout/activity_payment_method">
 
     <RelativeLayout
@@ -41,6 +40,7 @@
                 android:layout_below="@+id/txt_none_credit_card"
                 android:textColor="@color/medium_pink"
                 android:textStyle="bold"
+                android:id="@+id/txt_register_now"
                 android:text="@string/register_now_text"/>
 
         </RelativeLayout>

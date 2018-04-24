@@ -123,12 +123,16 @@
             android:background="@color/white_two"
             android:layout_height="1dp"/>
 
-        <include layout="@layout/with_credit_card" android:id="@+id/include_method"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_credit_card"
+            android:layout_marginTop="@dimen/double_default_space"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/include_method"
+            android:layout_below="@+id/fragment_credit_card"
             android:layout_marginTop="@dimen/double_default_space"
             android:layout_centerHorizontal="true"
             android:text="@string/pay_text"
