@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.filipe.enviadinheiro.TransacaoActivity"
+    tools:showIn="@layout/activity_transacao"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/imv_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="56dp"
+        android:text="Filipe Cardoso de Oliveira"
+        android:textColor="@color/colorSegundaryText"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/edt_valor"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginLeft="56dp"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:text="R$0,00"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_pagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EnviaDinheiro</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_transacao">TransacaoActivity</string>
+    <string name="title_activity_sem_cartao">SemCartaoActivity</string>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLinha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imv_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:text="Filipe Fico"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_below="@+id/txt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:text="Filipe Cardoso de Oliveira"
+            android:textColor="@color/colorSegundaryText"
+            android:textSize="14sp"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/vw_divider"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLinha"
+        android:background="@color/colorDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.3"/>
+
+</RelativeLayout>
