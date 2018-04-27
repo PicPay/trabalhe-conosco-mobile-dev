@@ -27,6 +27,8 @@ abstract class DatabaseManager : RoomDatabase() {
         }
 
         fun destroyInstance() {
+            INSTANCE?.beginTransaction()
+            INSTANCE?.close()
             INSTANCE = null
         }
     }

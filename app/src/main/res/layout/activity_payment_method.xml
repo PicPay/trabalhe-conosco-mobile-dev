@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background_color">
+    android:background="@drawable/gradient_background">
 
     <!--
     <RelativeLayout
@@ -114,7 +114,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/default_space"
+        android:layout_marginBottom="@dimen/double_default_space"
         android:layout_alignParentBottom="true">
         
         <View
@@ -130,13 +130,14 @@
             android:layout_marginTop="@dimen/double_default_space"/>
 
         <Button
-            android:layout_width="300dp"
+            android:layout_width="@dimen/default_size_button"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_credit_card"
             android:layout_marginTop="@dimen/double_default_space"
             android:layout_centerHorizontal="true"
             android:text="@string/pay_text"
             android:textSize="@dimen/normal_text"
+            android:id="@+id/btn_pay"
             android:background="@drawable/btn_corners_gradient"
             android:textColor="@color/dusk_two"/>
     </RelativeLayout>

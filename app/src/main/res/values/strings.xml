@@ -17,11 +17,24 @@
     <string name="none_credit_card_text">Nenhum cartão de crédito cadastrado.</string>
     <string name="register_now_text">Cadastrar agora.</string>
     <string name="payment_method_text">Forma de pagamento:</string>
-    <string name="credit_card_example">Cartão de Crédito com final 111</string>
+    <string name="credit_card_example">Cartão de Crédito com final 1111</string>
     <string name="credit_card_text">Cartão de Crédito com final %1$s</string>
     <string name="sucesso">Sucesso!</string>
     <string name="registred_credit_cards">Cartões Cadastrados</string>
     <string name="new_register">Cadastrar novo cartão</string>
     <string name="select_card">Selecionar Cartão</string>
     <string name="test">test</string>
+    <string name="register">Cadastrar</string>
+    <string name="choose_flag">Selecione a bandeira</string>
+    <string name="cardholder_name">Nome escrito no cartão</string>
+    <string name="credit_card_number">Número do Cartão</string>
+    <string name="expiration_date">Data de validade (mm/aaaa)</string>
+    <string name="security_code">Código de segurança</string>
+    <string name="invoice_code">CEP do endereço da fatura</string>
+
+    <string-array name="credit_card_flags">
+        <item>VISA</item>
+        <item>MASTER CARD</item>
+        <item>MAESTRO</item>
+    </string-array>
 </resources>

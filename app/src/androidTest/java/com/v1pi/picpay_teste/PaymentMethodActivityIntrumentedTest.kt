@@ -2,23 +2,31 @@ package com.v1pi.picpay_teste
 
 import android.app.Activity
 import android.app.Instrumentation
+import android.arch.core.executor.testing.InstantTaskExecutorRule
+import android.arch.persistence.room.Room
 import android.content.Intent
 import android.os.Bundle
+import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.contrib.ActivityResultMatchers.hasResultData
 import android.support.test.espresso.intent.Intents
 import android.support.test.espresso.intent.Intents.intended
+import android.support.test.espresso.intent.Intents.intending
 import android.support.test.espresso.intent.matcher.IntentMatchers
-import android.support.test.espresso.intent.matcher.IntentMatchers.toPackage
+import android.support.test.espresso.intent.matcher.IntentMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
+import android.util.Log
+import com.v1pi.picpay_teste.Database.DatabaseManager
 import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Domains.User
 import com.v1pi.picpay_teste.EspressoTestsMatchers.Companion.noDrawable
 import com.v1pi.picpay_teste.EspressoTestsMatchers.Companion.withDrawable
 import com.v1pi.picpay_teste.Fragments.WithCreditCardFragment
 import com.v1pi.picpay_teste.Fragments.WithoutCreditCardFragment
+import junit.framework.Assert.assertTrue
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
 import org.junit.*
@@ -94,4 +102,21 @@ class PaymentMethodActivityIntrumentedTest {
         onView(withId(R.id.fragment_credit_card)).perform(click())
         intended(allOf(toPackage(ChooseCreditCardActivity::class.java.`package`.name)))
     }
+
+    @Test
+    fun shouldGetDataForActivityResult() {
+        val intent = Intent()
+        val creditCard = CreditCard(0, "1111 1111 1111 1111", 520, "10/26")
+        intent.putExtra("number", creditCard.number)
+        intent.putExtra("uid", creditCard.uid)
+        intent.putExtra("cvv", creditCard.cvv)
+        intent.putExtra("expiry_date", creditCard.expiry_date)
+
+        intending(hasComponent(ChooseCreditCardActivity::class.java.name)).respondWith(Instrumentation.ActivityResult(Activity.RESULT_OK, intent))
+        activityTestRule.activity.startActivityForResult(Intent(activityTestRule.activity, ChooseCreditCardActivity::class.java), 1)
+        val newCreditCard = activityTestRule.activity.controller.selectedCreditCard
+        assert(newCreditCard == creditCard)
+    }
+
+
 }

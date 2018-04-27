@@ -5,8 +5,11 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.v1pi.picpay_teste.Controllers.PaymentMethodController
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Domains.User
 import com.v1pi.picpay_teste.Utils.DownloadImageTask
@@ -54,8 +57,8 @@ class PaymentMethodActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
             data?.let {
-                val creditCard = CreditCard(it.getIntExtra("uid", 0), it.getStringExtra("number"), it.getIntExtra("cvv", 0), it.getStringExtra("expiry_date"))
-                changeCreditCardFragment(controller.createwithCreditCardFragmentWithBundle(creditCard))
+                controller.selectedCreditCard = CreditCard(it.getIntExtra("uid", 0), it.getStringExtra("number"), it.getIntExtra("cvv", 0), it.getStringExtra("expiry_date"))
+                changeCreditCardFragment(controller.createwithCreditCardFragmentWithBundle())
             }
         }
 

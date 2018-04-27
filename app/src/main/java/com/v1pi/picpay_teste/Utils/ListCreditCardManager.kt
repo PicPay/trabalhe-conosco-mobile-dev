@@ -1,20 +1,23 @@
 package com.v1pi.picpay_teste.Utils
 
 import android.app.Activity
+import android.util.Log
 import android.view.View
 import com.v1pi.picpay_teste.Components.CreditCardItem
 import com.v1pi.picpay_teste.Domains.CreditCard
+import com.v1pi.picpay_teste.Listeners.ListCreditCardChooseListener
 
-class ListCreditCardManager(private val activity: Activity) : View.OnClickListener {
+class ListCreditCardManager(private val activity: Activity) {
     private val list : MutableList<CreditCardItem> = mutableListOf()
-    private var selectedItem : Int? = null
+    var selectedItem : Int? = null
+        private set
 
-    fun selectedCreditCard() = list.filter { it.id == selectedItem }[0].creditCard
+    fun selectedCreditCard() : CreditCard? = if (selectedItem != null) list.filter { it.id == selectedItem }[0].creditCard else null
 
-    val size = list.size
+    val size = if (list.isNotEmpty()) list.size else 0
 
     fun insertNewItem(creditCard: CreditCard) {
-        list.add(CreditCardItem(activity, creditCard, this, list.lastOrNull()?.id))
+        list.add(CreditCardItem(activity, creditCard, ListCreditCardChooseListener(this), list.lastOrNull()?.id))
     }
 
     fun selectItem(index : Int){
@@ -22,24 +25,33 @@ class ListCreditCardManager(private val activity: Activity) : View.OnClickListen
         selectedItem = list.getOrNull(index)?.id
     }
 
+    fun clear() {
+        if(list.isNotEmpty()) {
+            selectedItem = null
+            list.clear()
+        }
+    }
+
+    fun getIndexFromId(id : Int) : Int {
+
+        list.mapIndexed { index, creditCardItem ->
+            if(creditCardItem.creditCard.uid == id)
+                return index
+        }
+
+        return 0
+    }
+
     private fun deselectItem(index : Int){
         list.getOrNull(index)?.deselect()
     }
 
-    private fun changeSelectedItem(id : Int) {
+    fun changeSelectedItem(id : Int) {
         list.mapIndexed { index, creditCardItem ->
             if(creditCardItem.id == id)
                 selectItem(index)
             else
                 deselectItem(index)
-        }
-    }
-
-    override fun onClick(view: View?) {
-        view?.let {
-            if(view.id != selectedItem) {
-                changeSelectedItem(view.id)
-            }
         }
     }
 

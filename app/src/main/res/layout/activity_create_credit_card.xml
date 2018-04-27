@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context=".CreateCreditCardActivity"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/form_register_credit_card"
+        android:layout_marginTop="@dimen/maximum_space"
+        android:layout_centerHorizontal="true">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+            android:id="@+id/spinner_credit_card_flag"
+            android:backgroundTint="@color/cool_grey"
+            android:prompt="@string/choose_flag"
+            tools:targetApi="lollipop">
+
+        </android.support.v7.widget.AppCompatSpinner>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="@dimen/default_form_height"
+            android:hint="@string/cardholder_name"
+            android:layout_marginTop="@dimen/default_space"
+            android:inputType="text"
+            android:layout_below="@id/spinner_credit_card_flag"
+            android:textSize="@dimen/primary_text"
+            android:id="@+id/edit_name"
+            android:theme="@style/EditTextTheme"
+            android:textColor="@color/white"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="@dimen/default_form_height"
+            android:hint="@string/credit_card_number"
+            android:layout_marginTop="@dimen/default_space"
+            android:inputType="text"
+            android:layout_below="@id/edit_name"
+            android:textSize="@dimen/primary_text"
+            android:id="@+id/edit_number"
+            android:theme="@style/EditTextTheme"
+            android:textColor="@color/white"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="@dimen/default_form_height"
+            android:hint="@string/credit_card_number"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/default_space"
+            android:layout_below="@id/edit_name"
+            android:textSize="@dimen/primary_text"
+            android:id="@+id/edit_expiry_date"
+            android:theme="@style/EditTextTheme"
+            android:textColor="@color/white"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="@dimen/default_form_height"
+            android:hint="@string/security_code"
+            android:layout_marginTop="@dimen/default_space"
+            android:inputType="number"
+            android:layout_below="@id/edit_expiry_date"
+            android:textSize="@dimen/primary_text"
+            android:id="@+id/edit_cvv"
+            android:theme="@style/EditTextTheme"
+            android:textColor="@color/white"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="@dimen/default_form_width"
+            android:layout_height="@dimen/default_form_height"
+            android:hint="@string/invoice_code"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/default_space"
+            android:layout_below="@id/edit_cvv"
+            android:textSize="@dimen/primary_text"
+            android:id="@+id/edit_invoice_code"
+            android:theme="@style/EditTextTheme"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_corners_gradient"
+        android:layout_marginBottom="@dimen/double_default_space"
+        android:text="@string/register"
+        android:onClick="register"
+        android:textColor="@color/dusk_two"
+        android:width="@dimen/default_size_button"/>
+
+</RelativeLayout>

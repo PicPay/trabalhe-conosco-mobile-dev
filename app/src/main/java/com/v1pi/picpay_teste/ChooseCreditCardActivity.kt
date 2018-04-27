@@ -1,19 +1,9 @@
 package com.v1pi.picpay_teste
 
-import android.graphics.Typeface
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.TypedValue
 import android.view.MenuItem
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import com.v1pi.picpay_teste.Controllers.ChooseCreditCardActivityController
-import kotlinx.android.synthetic.main.activity_choose_credit_card.*
-import java.util.*
 import android.content.Intent
 import android.view.View
 
@@ -49,6 +39,12 @@ class ChooseCreditCardActivity : AppCompatActivity() {
     fun onSelectCardPressed(view : View) {
         controller.setResultParams()
         finish()
+    }
+
+    fun registerCreditCard(view : View) {
+        val intent = Intent(this, CreateCreditCardActivity::class.java)
+        startActivity(intent)
+
     }
 
 
