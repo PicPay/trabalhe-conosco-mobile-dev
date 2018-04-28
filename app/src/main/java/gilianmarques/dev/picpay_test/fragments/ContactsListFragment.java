@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -36,6 +37,9 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
     private TransactionCallback callback;
     private Activity mActivity;
 
+
+    // TODO: 28/04/2018 continuar a verificar a partir daqui
+
     public static ContactsListFragment newInstance(TransactionCallback callback) {
 
         ContactsListFragment mContactsListFragment = new ContactsListFragment();
@@ -46,22 +50,22 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
     @Override
     public void onAttach(Context context) {
         mActivity = getActivity();
-        if (mActivity != null) {
-            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
-            if (mActionBar != null) mActionBar.setTitle(getString(R.string.selecione_um_contato));
-        }
         super.onAttach(context);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_users_list, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rootView = view;
+        if (mActivity != null) {
+            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
+            if (mActionBar != null) mActionBar.setTitle(getString(R.string.selecione_um_contato));
+        }
         ContactsDownloaderAsync.ContactsCallback callback = new ContactsDownloaderAsync.ContactsCallback() {
             @Override
             public void resut(List<Contact> mContacts, int errorCode) {
@@ -82,7 +86,7 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
         new ContactsDownloaderAsync(callback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    public void init() {
+    private void init() {
 
         ContactsListAdapter mAdapter = new ContactsListAdapter(mActivity, mContacts, this);
 

@@ -22,9 +22,7 @@ import gilianmarques.dev.picpay_test.models.Contact;
 
 public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
 
-    private ContactsCallback callback;
-    private final String CONTACT_LIST_URL = "http://careers.picpay.com/tests/mobdev/users";
-
+    private final ContactsCallback callback;
 
     public ContactsDownloaderAsync(@NonNull ContactsCallback callback) {
         this.callback = callback;
@@ -38,7 +36,7 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
 
-        String json = getJson();
+        String json = downloadJson();
 
         if (json == null)
             callback.resut(null, 0);
@@ -53,17 +51,16 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
-
     @Nullable
-    private String getJson() {
+    private String downloadJson() {
         /*ultilizo instancias de HttpURLConnection + InputStreamReader + BufferedReader para obter o Json da nuvem*/
 
         HttpURLConnection urlConnection = null;
         StringBuilder mStringBuilder = new StringBuilder();
 
         try {
-            URL url = new URL(CONTACT_LIST_URL);
-            urlConnection = (HttpURLConnection) url.openConnection();
+            final String URL = "http://careers.picpay.com/tests/mobdev/users";
+            urlConnection = (HttpURLConnection) new URL(URL).openConnection();
 
             InputStream mInputStream = new BufferedInputStream(urlConnection.getInputStream());
             BufferedReader mReader = new BufferedReader(new InputStreamReader(mInputStream));
@@ -93,7 +90,6 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
     private void createArray(@NonNull String json) throws JSONException {
         final List<Contact> mContacts = new ArrayList<>();
         final JSONArray jsonArray = new JSONArray(json);
-
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject mObject = jsonArray.getJSONObject(i);
 
@@ -103,9 +99,7 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
             mContact.setUserName(mObject.getString("username"));
             mContact.setId(mObject.getInt("id"));
 
-            /*evita que as imagens sejam baixadas ao carregar os dados do usuario no recyclerview VEJA a classe Contact*/
             final int finalI = i;
-
             ProfilePictureUtils.SaveCallback mCallback = new ProfilePictureUtils.SaveCallback() {
                 @Override
                 public void done() {
@@ -114,10 +108,10 @@ public class ContactsDownloaderAsync extends AsyncTask<Void, Void, Void> {
                 }
             };
 
-            new ProfilePictureUtils(mContact).saveProfilePic( mCallback);
+            new ProfilePictureUtils(mContact).saveProfilePic(mCallback);
             mContacts.add(mContact);
         }
-        }
+    }
 
     /**
      * Interface usada para reotrnar os valores obtidos

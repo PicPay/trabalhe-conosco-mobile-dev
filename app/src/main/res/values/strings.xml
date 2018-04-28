@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">PicPay_test</string>
-    <string name="enviar_dinheiro">Enviar dinheiro</string>
+    <string name="enviar_dinheiro">Transferir dinheiro</string>
 
     <string name="id">id: %1$d</string>
     <string name="carregando_contatos">Carregando contatos</string>
     <string name="nenhum_cart_o_de_cr_dito_cadastrado">Nenhum cartão de crédito cadastrado.\n<u><b>Cadastrar agora.</b></u></string>
-    <string name="finalizar_pagamento">Finalizar pagamento</string>
+    <string name="finalizar_pagamento">Transferir</string>
     <string name="forma_de_pagamento_">Forma de pagamento: %1$s com final %2$d\n Usar outro cartão</string>
     <string name="nome_escrito_no_cart_o">Nome escrito no cartão</string>
     <string name="numero_do_cartao">Número do cartão</string>
-    <string name="validade_mm_aaaa">Validade (mm/aaaa)</string>
+    <string name="validade_mm_aa">Validade (mm/aaaa)</string>
     <string name="codigo_de_seguranca">Código de segurança</string>
     <string name="cadastrar">Cadastrar cartão</string>
     <string name="novo_cartao">Novo cartão</string>
@@ -20,5 +20,18 @@
     <string name="selecione_um_contato">Selecione um contato</string>
     <string name="Insira_os_dados">Insira os dados</string>
     <string name="selecione_uma_forma_de_pagamento"><b>Selecione uma forma de pagamento</b></string>
+    <string name="selecione_uma_forma">Selecione uma forma de pagamento</string>
+    <string name="o_valor_minimo_para_transacoes">O valor mínimo para transações é de <b>%1$s</b></string>
+    <string name="arraste_o_card_para_baixo_para_confirmar">Para transferir, deslize para cima</string>
+    <string name="alterar_dados">Alterar dados</string>
+    <string name="cartao_info">%1$s com final %2$d</string>
+    <string name="verifique_os_dados_da_transfer_ncia">Revise os dados</string>
+    <string name="Tentar_novamente">Tentar novamente</string>
+    <string name="a_transferencia_falhou">A transferência falhou</string>
+    <string name="sair">Sair</string>
+    <string name="fazer_outra_transfer_ncia">Fazer outra transferência</string>
+    <string name="cartoes_cadastrados">Cartões Cadastrados</string>
+    <string name="voce_esta_offline">Você está offline, conecte-se para continuar a usar o app.</string>
+    <string name="sem_conexao_com_a">Sem conexão com a internet</string>
 
 </resources>

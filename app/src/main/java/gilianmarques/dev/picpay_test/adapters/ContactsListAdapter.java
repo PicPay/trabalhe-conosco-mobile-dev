@@ -1,6 +1,7 @@
 package gilianmarques.dev.picpay_test.adapters;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,9 +17,9 @@ import gilianmarques.dev.picpay_test.asyncs.ProfilePictureUtils;
 import gilianmarques.dev.picpay_test.models.Contact;
 
 public class ContactsListAdapter extends AnimatedRecyclerView {
-    private List<Contact> mContacts;
-    private ItemClickCallback mItemClickCallback;
-    private Context mContext;
+    private final List<Contact> mContacts;
+    private final ItemClickCallback mItemClickCallback;
+    private final Context mContext;
 
     public ContactsListAdapter(Context mContext, List<Contact> mContacts, ItemClickCallback mItemClickCallback) {
         this.mContacts = mContacts;
@@ -37,11 +38,18 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
         final MyViewHolder myViewHolder = (MyViewHolder) holder;
         final Contact mContact = mContacts.get(position);
+
         myViewHolder.tvNome.setText(mContact.getName());
         myViewHolder.tvId.setText(String.format(Locale.getDefault(), mContext.getString(R.string.id), mContact.getId()));
         myViewHolder.tvUsername.setText(mContact.getUserName());
-        // TODO: 23/04/2018 repetindo fotos dos usuarios
-        new ProfilePictureUtils(mContact).loadProfilePicture(myViewHolder.ivProfileImage);
+
+        ProfilePictureUtils.getPicAsync(mContact, new ProfilePictureUtils.Callback() {
+            @Override
+            public void result(Drawable mDrawable) {
+                myViewHolder.ivProfileImage.setImageDrawable(mDrawable);
+            }
+        });
+
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +65,12 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
         return mContacts.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvNome, tvId, tvUsername;
-        public ImageView ivProfileImage;
+        final TextView tvNome, tvId,tvUsername;
+        final ImageView ivProfileImage;
 
-
-        public MyViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
             tvNome = itemView.findViewById(R.id.tv_name);
             tvId = itemView.findViewById(R.id.tv_id);
@@ -77,7 +84,6 @@ public class ContactsListAdapter extends AnimatedRecyclerView {
      * Ajuda a detectar  o clique na view do contato selecionado
      */
     public interface ItemClickCallback {
-
         void onContactClick(Contact mContact);
     }
 }

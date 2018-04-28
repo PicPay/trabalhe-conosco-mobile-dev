@@ -1,9 +1,5 @@
 package gilianmarques.dev.picpay_test.asyncs;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,29 +10,25 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.util.Log;
-import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-import gilianmarques.dev.picpay_test.R;
 import gilianmarques.dev.picpay_test.models.Contact;
 import gilianmarques.dev.picpay_test.utils.MyApp;
 
 public class ProfilePictureUtils {
-    private static String bitmapID, mCachePath, photoUrl;
+    private final String bitmapID;
+    private final String mCachePath;
+    private final String photoUrl;
+//    private static final String TAG = ProfilePictureUtils.class.getSimpleName();
 
     public ProfilePictureUtils(Contact mContact) {
         mCachePath = MyApp.getContext().getCacheDir().getAbsolutePath().concat(File.separator);
@@ -59,9 +51,22 @@ public class ProfilePictureUtils {
                     }
                 }
             };
-            new ProfilePicDownloader(mCallback).execute(photoUrl);
+            /*  Executo essa Asynck em conjunto com as outras para melhorar a performance. Nos testes
+                a resposta foi 500mls mais rapida  */
+            new ProfilePicDownloader(mCallback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, photoUrl);
+
         } else mSaveCallback.done();
 
+    }
+
+    @Nullable
+    public Drawable getProfilePic() {
+        try {
+            return getCachePic();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void saveCachePic(Bitmap mBitmap) throws IOException {
@@ -69,6 +74,7 @@ public class ProfilePictureUtils {
         try {
             mOutputStream = new FileOutputStream(new File(mCachePath, bitmapID));
             mBitmap.compress(Bitmap.CompressFormat.PNG, 100, mOutputStream);
+            //Log.i(TAG, "saveCachePic: Bitmap salvo em: " + mCachePath.concat(bitmapID));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -80,30 +86,22 @@ public class ProfilePictureUtils {
         return new File(mCachePath, bitmapID).exists();
     }
 
-    private static BitmapDrawable getCachePic() {
+    private BitmapDrawable getCachePic() throws IOException {
 
         File mFile = new File(mCachePath, bitmapID);
-        Bitmap mBitmap;
-        try {
-            mBitmap = BitmapFactory.decodeStream(new FileInputStream(mFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+        FileInputStream mFileInputStream = new FileInputStream(mFile);
+        Bitmap mBitmap = BitmapFactory.decodeStream(mFileInputStream);
+        mFileInputStream.close();
         return new BitmapDrawable(MyApp.getContext().getResources(), mBitmap);
     }
 
-    public void loadProfilePicture(final ImageView ivProfileImage) {
-        new ProfilePictureLoader(ivProfileImage).execute();
-    }
-
-    public interface SaveCallback {
-        void done();
+    public static void getPicAsync(Contact mContact, Callback mCallback) {
+        new AsyncProfilePic(mContact, mCallback).execute();
     }
 
     private static class ProfilePicDownloader extends AsyncTask<String, Void, Bitmap> {
 
-        private Callback mCallback;
+        private final Callback mCallback;
 
         ProfilePicDownloader(Callback mCallback) {
             this.mCallback = mCallback;
@@ -151,39 +149,44 @@ public class ProfilePictureUtils {
             return mResultBitmap;
         }
 
-        public interface Callback {
+        interface Callback {
             void result(@Nullable Bitmap mBitmap);
         }
     }
 
-    private static class ProfilePictureLoader extends AsyncTask<Void, Void, Drawable> {
-        @SuppressLint("StaticFieldLeak")
-        private ImageView ivProfileImage;
+    /**
+     * Obtem a foto de perfil do contato de forma asincrona
+     */
+    private static class AsyncProfilePic extends AsyncTask<Void, Void, Drawable> {
+        private final Contact mContact;
+        private final Callback mCallback;
 
-        ProfilePictureLoader(ImageView ivProfileImage) {
-            this.ivProfileImage = ivProfileImage;
+        private AsyncProfilePic(Contact mContact, Callback mCallback) {
+            this.mContact = mContact;
+            this.mCallback = mCallback;
         }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            ivProfileImage.setImageResource(R.drawable.vec_place_holder);
-        }
 
         @Override
         protected Drawable doInBackground(Void... voids) {
-            return getCachePic();
+            /*crio uma nova instancia pra poder acessar os metodos e variaveis n estaticos*/
+            return new ProfilePictureUtils(mContact).getProfilePic();
         }
-
 
         @Override
-        protected void onPostExecute(Drawable mDrawable) {
-            if (mDrawable != null) ivProfileImage.setImageDrawable(mDrawable);
-            super.onPostExecute(mDrawable);
+        protected void onPostExecute(Drawable drawable) {
+            mCallback.result(drawable);
+            super.onPostExecute(drawable);
+
         }
-
-
     }
 
+    public interface SaveCallback {
+        void done();
+    }
+
+    public interface Callback {
+        void result(Drawable mDrawable);
+    }
 
 }

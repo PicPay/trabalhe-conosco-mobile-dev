@@ -17,7 +17,7 @@ import gilianmarques.dev.picpay_test.utils.MyApp;
 
 public class SpinnerFlagsAdapter extends BaseAdapter {
 
-    private ArrayList<String> mFlags;
+    private final ArrayList<String> mFlags;
 
     public SpinnerFlagsAdapter(ArrayList<String> mFlags) {
         this.mFlags = mFlags;
@@ -59,7 +59,7 @@ public class SpinnerFlagsAdapter extends BaseAdapter {
         iv.setImageResource(R.drawable.vec_credit_card);
 
         if (position == 0) {
-
+            /*a primeira posiçao do adapter é a @string/selecione_a_bandeira*/
             iv.setVisibility(View.GONE);
             tvName.setTextColor(ContextCompat.getColor(MyApp.getContext(), R.color.text_secundary));
 

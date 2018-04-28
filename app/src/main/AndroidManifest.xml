@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:name=".utils.MyApp"
         android:allowBackup="true"
@@ -14,10 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity
-            android:screenOrientation="portrait"
             android:name=".activities.MainActivity"
-            android:configChanges="screenSize|orientation|keyboard">
+            android:configChanges="screenSize|orientation|keyboard"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,21 +30,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".activities.SendCashActivity"
             android:configChanges="screenSize|orientation|keyboard"
             android:label="@string/enviar_dinheiro"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <activity android:name=".activities.AddCreditCard"
+        <activity
+            android:name=".activities.AddCreditCard"
             android:label="@string/novo_cartao"
-            android:windowSoftInputMode="stateVisible"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".activities.TransactionActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

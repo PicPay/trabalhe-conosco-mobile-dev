@@ -28,10 +28,10 @@ import gilianmarques.dev.picpay_test.crud.Database;
 import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.utils.AppPatterns;
 
-public class AddCreditCard extends AppCompatActivity {
+public class AddCreditCard extends MyActivity {
     private TextInputEditText edtOwnername, edtNumber, edtCvv, edtExpiryDate;
     private Spinner spinnerBrands;
-    private ArrayList<String> mBrands = new ArrayList<>();
+    private final ArrayList<String> mBrands = new ArrayList<>();
     private List<String> originalBrandsList;
 
     private TranslateAnimation mErrorAnimation;
@@ -48,7 +48,6 @@ public class AddCreditCard extends AppCompatActivity {
         originalBrandsList = Arrays.asList(getResources().getStringArray(R.array.accepted_brands));
         mBrands.add(getString(R.string.selecione_a_bandeira));
         mBrands.addAll(originalBrandsList);
-        mBrands.add("NAN");
 
         edtCvv = findViewById(R.id.edt_cvv);
         edtExpiryDate = findViewById(R.id.edt_expiry_date);
@@ -109,9 +108,9 @@ public class AddCreditCard extends AppCompatActivity {
     /**
      * @param number o numero do cartão
      *               Usa regex para achar a bandeira do cartão automaticamente.
-     *              OBS: Pra funcionar eu preciso saber em qual posição está a string
+     *               OBS: Pra funcionar eu preciso saber em qual posição está a string
      *               com o nome correto do cartão em arrays.xml
-     *
+     *               <p>
      *               Regex pattern explanation: https://stackoverflow.com/a/42758017/7953908
      */
     private void setBrand(long number) {
@@ -142,73 +141,68 @@ public class AddCreditCard extends AppCompatActivity {
             spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(10)));
         } else if (strNumber.matches("^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$")/*Visa*/) {
             spinnerBrands.setSelection(mBrands.indexOf(originalBrandsList.get(11)));
-        }else spinnerBrands.setSelection(mBrands.size()-1);
+        } else spinnerBrands.setSelection(0);
 
 
     }
 
     private void verifyDataAndClose() {
-        int successCount = 0;
-        if (!edtOwnername.getText().toString().isEmpty()) successCount++;
-        else {
+        if (edtOwnername.getText().toString().isEmpty()) {
             notifyUser(edtOwnername);
             return;
         }
 
-        /*Considera-se que um cartão pode ter entre 13 e 16 dígitos (que eu saiba)*/
         String number = edtNumber.getText().toString().replace(" ", "");
-        if (number.length() > 12 && number.length() < 17) {
-            successCount++;
-        } else {
+        if (number.length() != 16) {
             notifyUser(edtNumber);
             return;
         }
 
 
-        if (edtExpiryDate.getText().length() == 7) successCount++;
-        else {
+        if (edtExpiryDate.getText().length() != 7) {
             notifyUser(edtExpiryDate);
             return;
         }
 
-        if (edtCvv.getText().length() == 3) successCount++;
-        else {
+        if (edtCvv.getText().length() != 3) {
             notifyUser(edtCvv);
             return;
         }
 
-        if (spinnerBrands.getSelectedItemPosition() > 0) successCount++;
-        else {
+        if (spinnerBrands.getSelectedItemPosition() == 0) {
             notifyUser(spinnerBrands);
             return;
         }
 
 
-        if (successCount == 5) {
-
-            CreditCard mCreditCard = new CreditCard();
-            mCreditCard.setOwnerName(edtOwnername.getText().toString().toUpperCase());
-            mCreditCard.setExpireDate(edtExpiryDate.getText().toString());
-            mCreditCard.setCvv(Integer.parseInt(edtCvv.getText().toString()));
-            mCreditCard.setNumber(Long.parseLong(edtNumber.getText().toString().replace(" ", "")));
+        CreditCard mCreditCard = new CreditCard();
+        mCreditCard.setOwnerName(edtOwnername.getText().toString().toUpperCase());
+        mCreditCard.setExpireDate(edtExpiryDate.getText().toString());
+        mCreditCard.setCvv(Integer.parseInt(edtCvv.getText().toString()));
+        mCreditCard.setNumber(Long.parseLong(edtNumber.getText().toString().replace(" ", "")));
 
 
+        /*para que a bandeira certa seja definida é preciso que sua posição no Spinner coincida com a ID na classe CreditCard
+        * EX: Amex é a primeira bandeira da lista e sua constante na clase CreditCard tem valor 0*/
+        /*o -1 se da por conta da String que adiciono na primeira posiçao do spinner*/
+        mCreditCard.setBrandId(spinnerBrands.getSelectedItemPosition() - 1);
 
-            mCreditCard.setBrand(mBrands.get(spinnerBrands.getSelectedItemPosition()));
+        boolean success = Database.getInstance().insertCard(mCreditCard);
 
-            boolean success = Database.getInstance().insertCard(mCreditCard);
+        if (success) {
+            AppPatterns.vibrate(AppPatterns.SUCCESS);
+            setResult(RESULT_OK);
+            finish();
+        } else
+            AppPatterns.notifyUser(AddCreditCard.this, getString(R.string.erro_ao_cadastrar_cartao), AppPatterns.ERROR);
 
-            if (success) {
-                AppPatterns.vibrate(AppPatterns.SUCCESS);
-                setResult(RESULT_OK);
-                finish();
-            } else
-                AppPatterns.notifyUser(AddCreditCard.this, getString(R.string.erro_ao_cadastrar_cartao), AppPatterns.ERROR);
-        }
     }
+
     /*===================================================== TEXTWATCHERS BEGIN ===================================================== */
 
-    private TextWatcher mNumberTextWatcher = new TextWatcher() {
+        /*Esses TextWatchers são responsaveis por formatar os campos de texto*/
+
+    private final TextWatcher mNumberTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -237,7 +231,7 @@ public class AddCreditCard extends AppCompatActivity {
         }
     };
 
-    private TextWatcher mExpiryTextWatcher = new TextWatcher() {
+    private final TextWatcher mExpiryTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -286,7 +280,7 @@ public class AddCreditCard extends AppCompatActivity {
         }
     };
 
-    private TextWatcher mCvvTextWatcher = new TextWatcher() {
+    private final TextWatcher mCvvTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

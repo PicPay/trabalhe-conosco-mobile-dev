@@ -6,7 +6,7 @@
     android:foreground="?android:attr/selectableItemBackgroundBorderless">
 
     <RelativeLayout
-        android:id="@+id/parent"
+        android:id="@+id/fade_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/layout_default_padding">
@@ -24,7 +24,7 @@
             android:fontFamily="@font/nunito_sans"
             android:gravity="start"
             android:text="Desconhecido"
-            android:textColor="@color/text_secundary"
+            android:textColor="@color/white"
             android:textSize="10sp" />
 
         <TextView
@@ -82,7 +82,7 @@
             android:layout_marginStart="@dimen/textview_margin_end_start"
             android:layout_toEndOf="@+id/tv_number"
             android:layout_toStartOf="@+id/iv_check"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/nunito_sans"
             android:gravity="center"
             android:text="12/2048"
             android:textColor="@color/text_secundary"
@@ -104,7 +104,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/parent"
+        android:layout_below="@+id/fade_parent"
         android:background="@drawable/divider" />
 
 </RelativeLayout>

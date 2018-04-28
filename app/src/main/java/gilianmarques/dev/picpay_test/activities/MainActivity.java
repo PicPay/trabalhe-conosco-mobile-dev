@@ -1,80 +1,42 @@
 package gilianmarques.dev.picpay_test.activities;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
-
-import java.security.SecureRandom;
-
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.spec.SecretKeySpec;
 
 import gilianmarques.dev.picpay_test.R;
-import gilianmarques.dev.picpay_test.crud.Database;
-import gilianmarques.dev.picpay_test.utils.AppPatterns;
-import gilianmarques.dev.picpay_test.utils.DialogSelectCreditCard;
+import gilianmarques.dev.picpay_test.utils.MyApp;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    String TAG = "cript";
+public class MainActivity extends MyActivity implements View.OnClickListener {
+    private ConnectivityManager mConnectivityManager;
+    private AlertDialog mAlertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_send_cash).setOnClickListener(this);
-//=============================================//=============================================
-//https://www.developer.com/ws/android/encrypting-with-android-cryptography-api.html
-        // Original text
-        String theTestText = "teste de criptografia";
+        mConnectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    }
 
+    @Override
+    protected void onStart() {
+        registerReceiver(networkChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")); // register the receiver
+        super.onStart();
+    }
 
-
-
-        // Set up secret key spec for 128-bit AES encryption and decryption
-        SecretKeySpec sks = null;
-        try {
-            SecureRandom mSecureRandom = SecureRandom.getInstance("SHA1PRNG");
-            mSecureRandom.setSeed("any data used as random seed".getBytes());
-            KeyGenerator kg = KeyGenerator.getInstance("AES");
-            kg.init(256, mSecureRandom);
-            sks = new SecretKeySpec((kg.generateKey()).getEncoded(), "AES");
-        } catch (Exception e) {
-            Log.e(TAG, "AES secret key spec error");
-        }
-
-
-
-        // Encode the original data with AES
-        byte[] encodedBytes = null;
-        try {
-            Cipher c = Cipher.getInstance("AES");
-            c.init(Cipher.ENCRYPT_MODE, sks);
-            encodedBytes = c.doFinal(theTestText.getBytes());
-        } catch (Exception e) {
-            Log.e(TAG, "AES encryption error");
-        }
-        Log.d(TAG, "onCreate: " + "[ENCODED]: " + Base64.encodeToString(encodedBytes, Base64.DEFAULT) +"\n");
-
-
-
-
-
-        // Decode the encoded data with AES
-        byte[] decodedBytes = null;
-        try {
-            Cipher c = Cipher.getInstance("AES");
-            c.init(Cipher.DECRYPT_MODE, sks);
-            decodedBytes = c.doFinal(encodedBytes);
-        } catch (Exception e) {
-            Log.e(TAG, "AES decryption error");
-        }
-        Log.d(TAG, "onCreate: " + "[DECODED]: " + new String(decodedBytes) + "\n");
-//=============================================//=============================================
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver); // unregister the receiver
+        super.onDestroy();
     }
 
     public void onClick(View v) {
@@ -83,7 +45,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.btn_send_cash) {
             startActivity(new Intent(this, SendCashActivity.class));
         }
-
-
     }
+
+    BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (mConnectivityManager == null) return;
+
+            NetworkInfo activeNetwork = mConnectivityManager.getActiveNetworkInfo();
+
+            if (activeNetwork == null) {
+                Activity mActivity = ((MyApp) MainActivity.this.getApplicationContext()).getCurrentActivity();
+
+                mAlertDialog = new AlertDialog.Builder(mActivity, R.style.Theme_AppCompat_DayNight).create();
+                mAlertDialog.setMessage(getString(R.string.voce_esta_offline));
+                mAlertDialog.setTitle(getString(R.string.sem_conexao_com_a));
+                mAlertDialog.setIcon(R.drawable.vec_alert);
+                mAlertDialog.setCancelable(false);
+                mAlertDialog.show();
+
+            } else if (mAlertDialog != null && mAlertDialog.isShowing()) mAlertDialog.dismiss();
+        }
+    };
+
 }

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -22,17 +21,14 @@ import gilianmarques.dev.picpay_test.utils.MyApp;
 public class Database extends SQLiteOpenHelper {
 
     private static final Database instance = new Database();
-    private static final String TAG = Database.class.getSimpleName();
 
-    public Database() {
+    private Database() {
         super(MyApp.getContext(), BuildConfig.APPLICATION_ID.concat(".sqlite"), null, 1);
     }
-
 
     public static Database getInstance() {
         return instance;
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -40,11 +36,10 @@ public class Database extends SQLiteOpenHelper {
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(MyApp.getContext());
 
 
-        if (mPreferences.getBoolean("fist_time", true)) {
+        if (mPreferences.getBoolean("first_time", true)) {
             createCardsTable(db);
             SharedPreferences.Editor mEditor = mPreferences.edit();
             mEditor.putBoolean("first_time", false).apply();
-            Log.i(TAG, "onCreate: Tabela de cartoes criada");
         }
 
     }
@@ -54,10 +49,9 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-
     private void createCardsTable(SQLiteDatabase db) {
         /*Constantes seriam usadas em um sistema mais robusto*/
-        db.execSQL("CREATE TABLE IF NOT EXISTS CARDS (NUMBER INTEGER, CVV INTEGER, EXPIRE_DATE TEXT,OWNER_NAME TEXT,BRAND TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS CARDS (ID INTEGER,ENCRYPT_CARD)");
     }
 
     /**
@@ -67,13 +61,8 @@ public class Database extends SQLiteOpenHelper {
     public boolean insertCard(CreditCard mCreditCard) {
 
         ContentValues mValues = new ContentValues();
-
-        mValues.put("NUMBER", mCreditCard.getNumber());
-        mValues.put("CVV", mCreditCard.getCvv());
-        mValues.put("EXPIRE_DATE", mCreditCard.getExpireDate());
-        mValues.put("OWNER_NAME", mCreditCard.getOwnerName());
-        mValues.put("BRAND", mCreditCard.getBrand());
-
+        mValues.put("ID", mCreditCard.getId());
+        mValues.put("ENCRYPT_CARD", mCreditCard.toEncryptedString());
         return getWritableDatabase().insert("CARDS", null, mValues) != -1;
     }
 
@@ -84,12 +73,12 @@ public class Database extends SQLiteOpenHelper {
      * N foi pedido mas foi implementado para fins de teste
      */
     public boolean removeCard(CreditCard mCreditCard) {
-        String whereClause = "NUMBER = '" + mCreditCard.getNumber() + "' AND CVV = '" + mCreditCard.getCvv() + "'";
+        String whereClause = "ID = '" + mCreditCard.getNumber() + "'";
         return getWritableDatabase().delete("CARDS", whereClause, null) > 0;
     }
 
-    public @NonNull
-    ArrayList<CreditCard> getCards() {
+    @NonNull
+    public ArrayList<CreditCard> getCards() {
         ArrayList<CreditCard> mCards = new ArrayList<>();
 
         String query = "SELECT * FROM CARDS";
@@ -98,16 +87,7 @@ public class Database extends SQLiteOpenHelper {
 
         if (mCursor.moveToFirst()) {
             do {
-
-                CreditCard mCard = new CreditCard();
-
-                mCard.setNumber(mCursor.getLong(0));
-                mCard.setCvv(mCursor.getInt(1));
-                mCard.setExpireDate(mCursor.getString(2));
-                mCard.setOwnerName(mCursor.getString(3));
-                mCard.setBrand(mCursor.getString(4));
-                mCards.add(mCard);
-
+                mCards.add(CreditCard.fromEncrypetdString(mCursor.getString(0), mCursor.getString(1)));
             } while (mCursor.moveToNext());
         }
         mCursor.close();

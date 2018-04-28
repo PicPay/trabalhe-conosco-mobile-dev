@@ -54,12 +54,11 @@ public class PaymentFragment extends Fragment {
     private EditText edtAmount;
     private String amount = "";
     private RelativeLayout container;
-    private Button payButton;
     private Activity mActivity;
     private ArrayList<CreditCard> mCards = new ArrayList<>();
     private TextView tvCreditCardInfo;
     private CreditCard choosedCreditCard;
-    DialogSelectCreditCard mDialogSelectCreditCard;
+    private DialogSelectCreditCard mDialogSelectCreditCard;
 
 
     @Override
@@ -101,10 +100,11 @@ public class PaymentFragment extends Fragment {
         init();
     }
 
+
     private void init() {
+        String currencySymbol = Currency.getInstance(Locale.getDefault()).getSymbol();
 
-
-        new ProfilePictureUtils(mContact).loadProfilePicture(((ImageView) rootView.findViewById(R.id.iv_profile_image)));
+        ((ImageView) rootView.findViewById(R.id.iv_profile_image)).setImageDrawable(new ProfilePictureUtils(mContact).getProfilePic());
         ((TextView) rootView.findViewById(R.id.tv_name)).setText(mContact.getName());
         ((TextView) rootView.findViewById(R.id.tv_id)).setText(String.format(Locale.getDefault(), mActivity.getString(R.string.id), mContact.getId()));
         ((TextView) rootView.findViewById(R.id.tv_user_name)).setText(mContact.getUserName());
@@ -114,16 +114,19 @@ public class PaymentFragment extends Fragment {
         edtAmount = rootView.findViewById(R.id.edt_amount);
         edtAmount.setHint(AppPatterns.convertCurrency("0"));
         InputFilter[] mInputFilters = new InputFilter[1];
-        mInputFilters[0] = new InputFilter.LengthFilter(String.valueOf(Currency.getInstance(Locale.getDefault()).getSymbol()).concat("999.999,99").length());
+        mInputFilters[0] = new InputFilter.LengthFilter(String.valueOf(currencySymbol).concat("999.999,99").length());
         edtAmount.setFilters(mInputFilters);
 
 
         edtAmount.addTextChangedListener(currencyFormatterTextWatcher);
-        payButton = rootView.findViewById(R.id.btn_pay);
-        //  payButton.setVisibility(View.GONE);
+        Button payButton = rootView.findViewById(R.id.btn_pay);
+        payButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notifyTransactionReadyToGo();
+            }
+        });
 
-
-        /*Runnable que verificara qual o proximo Runnable a ser executado*/
         Runnable mRunnable = new Runnable() {
             @Override
             public void run() {
@@ -132,6 +135,7 @@ public class PaymentFragment extends Fragment {
                     @Override
                     public void run() {
                         handleCreditCardViews(mCards.size() > 0);
+
                     }
                 });
             }
@@ -140,7 +144,9 @@ public class PaymentFragment extends Fragment {
         /*Faz a magica aontecer!*/
         new Thread(mRunnable).start();
 
+
     }
+
 
     /**
      * Infla a view de cartoes de credito no layout principal de acordo copm a condição recebida
@@ -207,15 +213,15 @@ public class PaymentFragment extends Fragment {
             }
         };
 
-        mDialogSelectCreditCard = new DialogSelectCreditCard(mActivity, mCards, callback);
+        mDialogSelectCreditCard = new DialogSelectCreditCard(mActivity, callback);
         mDialogSelectCreditCard.show();
 
     }
 
-    public void setChoosedCreditCard(CreditCard mCreditCard) {
+    private void setChoosedCreditCard(CreditCard mCreditCard) {
         choosedCreditCard = mCreditCard;
         if (tvCreditCardInfo != null) {
-            String brand = mCreditCard.getBrand();
+            String brand = mCreditCard.getBrandName();
             String nbrs = String.valueOf(mCreditCard.getNumber());
             int lastDigits = Integer.parseInt(nbrs.substring(nbrs.length() - 4, nbrs.length()));
             String strLastDigits = String.valueOf(lastDigits);
@@ -224,18 +230,18 @@ public class PaymentFragment extends Fragment {
             String text = String.format(Locale.getDefault(), getString(R.string.forma_de_pagamento_), brand, lastDigits);
 
             SpannableString spString = new SpannableString(text);
-
+            /*BANDEIRA*/
             int start1 = text.split(brand)[0].length();
             int end1 = text.split(brand)[0].length() + brand.length();
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start1, end1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
+            /*4 ultimos digitos*/
             int start2 = text.split(strLastDigits)[0].length();
             int end2 = text.split(strLastDigits)[0].length() + strLastDigits.length();
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+            /*Usar outro cartão*/
             int start3 = text.split(strLastDigits)[0].length() + strLastDigits.length() + 2;
             int end3 = text.length();
-
             spString.setSpan(new UnderlineSpan(), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             // spString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mActivity, R.color.gray)), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -245,22 +251,46 @@ public class PaymentFragment extends Fragment {
 
     }
 
+    private void notifyTransactionReadyToGo() {
+        String strAmount = edtAmount.getText().toString();
+
+        float amount = strAmount.isEmpty() ? 0f : AppPatterns.toDecimal(strAmount).floatValue();
+
+        if (amount < 0.10) {
+            AppPatterns.notifyUser(mActivity, String.format(Locale.getDefault(), getString(R.string.o_valor_minimo_para_transacoes), AppPatterns.convertCurrency("0.10")), AppPatterns.ERROR);
+            return;
+        }
+
+        if (choosedCreditCard == null) {
+            AppPatterns.notifyUser(mActivity, getString(R.string.selecione_uma_forma), AppPatterns.ERROR);
+            return;
+        }
+
+        if (callback != null) callback.cardAndAmountSet(choosedCreditCard, amount);
+
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADD_CARD_REQ_CODE && resultCode == Activity.RESULT_OK) {
+
             mCards = Database.getInstance().getCards();
             handleCreditCardViews(mCards.size() > 0);
+            if (mCards.size() == 1) setChoosedCreditCard(mCards.get(0));
+
         } else if (requestCode == ADD_CARD_REQ_CODE_FROM_DIALOG && resultCode == Activity.RESULT_OK) {
+
             mCards = Database.getInstance().getCards();
             handleCreditCardViews(mCards.size() > 0);
             if (mDialogSelectCreditCard != null && mDialogSelectCreditCard.isShowing())
-                mDialogSelectCreditCard.update();
+                mDialogSelectCreditCard.update(mCards.get(mCards.size()-1));
         }
 
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private TextWatcher currencyFormatterTextWatcher = new TextWatcher() {
+    private final TextWatcher currencyFormatterTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -290,8 +320,6 @@ public class PaymentFragment extends Fragment {
             edtAmount.setText(formattedAmount);
             edtAmount.setSelection(edtAmount.getText().length());
             edtAmount.addTextChangedListener(this);
-            if (amount.length() > 2) payButton.setVisibility(View.VISIBLE);
-
 
         }
 

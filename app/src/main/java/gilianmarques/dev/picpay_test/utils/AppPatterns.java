@@ -9,10 +9,12 @@ import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Currency;
+import java.util.Date;
 import java.util.Locale;
 
 public class AppPatterns {
@@ -27,15 +29,15 @@ public class AppPatterns {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            if (type == SUCCESS)
+            if (type != SUCCESS)
                 mVibrator.vibrate(VibrationEffect.createWaveform(new long[]{75, 75, 150}, VibrationEffect.DEFAULT_AMPLITUDE));
             else
-                mVibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE));
+                mVibrator.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE));
 
         } else {
 
             //depreciado  na  API 26 anroid Oreo
-            if (type == SUCCESS)
+            if (type != SUCCESS)
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -53,7 +55,7 @@ public class AppPatterns {
                 }).start();
 
 
-            else mVibrator.vibrate(300);
+            else mVibrator.vibrate(150);
         }
     }
 
@@ -103,6 +105,34 @@ public class AppPatterns {
         } catch (ParseException e) {
             e.printStackTrace();
             return new BigDecimal("0");
+        }
+    }
+
+
+    /**
+     * converte a timeMillis simples em uma timeMillis completa com nomes e etc...
+     * é necessario remover 1 do mes ja que o indice dos meses começa com 0
+     * jan=0, fev=1, etc...
+     *
+     * @param timeMillis d
+     * @return s
+     */
+    public static String formatDate(long timeMillis, boolean full) {
+        try {
+
+            Date date = new Date();
+            date.setTime(timeMillis);
+            String result;
+            if (full) result = DateFormat.getDateInstance(DateFormat.FULL).format(date);
+            else result = DateFormat.getDateInstance(DateFormat.MEDIUM).format(date);
+            String c = result.charAt(0) + "";
+            c = c.toUpperCase();
+            result = result.substring(1, result.length());
+            result = c.concat(result);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return String.valueOf(timeMillis);
         }
     }
 
