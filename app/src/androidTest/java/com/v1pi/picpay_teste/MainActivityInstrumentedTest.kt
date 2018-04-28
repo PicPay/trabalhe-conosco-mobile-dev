@@ -13,7 +13,7 @@ import android.support.test.espresso.intent.rule.IntentsTestRule
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import com.v1pi.picpay_teste.Adapter.UserListAdapter
 import com.v1pi.picpay_teste.Domains.User
-import com.v1pi.picpay_teste.Utils.RequestState
+import com.v1pi.picpay_teste.Utils.RESTState
 import org.hamcrest.CoreMatchers.*
 import org.junit.Before
 import org.junit.Rule
@@ -35,7 +35,7 @@ class MainActivityInstrumentedTest {
     @Test
     fun testLaunchActivityOnClickInRecycler() {
         //Gambiarra
-        while(RequestState.REQUEST_USER != RequestState.STATES.READY);
+        while(RESTState.RESPONSE_USER != RESTState.STATES.READY);
 
         // A requisição deve retornar um usuário desse tipo
         val user = User(1001, "Eduardo Santos", "https://randomuser.me/api/portraits/men/9.jpg", "@eduardo.santos")

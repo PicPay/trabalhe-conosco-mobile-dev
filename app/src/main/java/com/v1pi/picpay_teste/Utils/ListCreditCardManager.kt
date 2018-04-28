@@ -1,11 +1,10 @@
 package com.v1pi.picpay_teste.Utils
 
 import android.app.Activity
-import android.util.Log
-import android.view.View
 import com.v1pi.picpay_teste.Components.CreditCardItem
 import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Listeners.ListCreditCardChooseListener
+import kotlinx.android.synthetic.main.activity_choose_credit_card.*
 
 class ListCreditCardManager(private val activity: Activity) {
     private val list : MutableList<CreditCardItem> = mutableListOf()
@@ -27,13 +26,13 @@ class ListCreditCardManager(private val activity: Activity) {
 
     fun clear() {
         if(list.isNotEmpty()) {
+            activity.rl_credit_cards.removeAllViews()
             selectedItem = null
             list.clear()
         }
     }
 
     fun getIndexFromId(id : Int) : Int {
-
         list.mapIndexed { index, creditCardItem ->
             if(creditCardItem.creditCard.uid == id)
                 return index

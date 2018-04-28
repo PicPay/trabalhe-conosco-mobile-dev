@@ -16,5 +16,11 @@
         <item name="android:textColorHint">@drawable/hide_hint</item>
         <item name="android:textColorHintInverse">@color/light_teal</item>
     </style>
+    
+    <style name="TextViewResultTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/normal_text</item>
+        <item name="android:textColor">@color/light_teal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

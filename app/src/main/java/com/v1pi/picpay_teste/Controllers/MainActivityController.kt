@@ -19,7 +19,7 @@ class MainActivityController(activity: MainActivity) {
 
         recyclerView.layoutManager = llm
 
-        retrofit.requestUsers(activity.updateRecyclerView(recyclerView))
+        retrofit.responseUsers(activity.updateRecyclerView(recyclerView))
 
     }
 }

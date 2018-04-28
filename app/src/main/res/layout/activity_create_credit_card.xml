@@ -5,6 +5,8 @@
     tools:context=".CreateCreditCardActivity"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     android:background="@drawable/gradient_background">
 
     <RelativeLayout
@@ -42,7 +44,8 @@
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/credit_card_number"
             android:layout_marginTop="@dimen/default_space"
-            android:inputType="text"
+            android:inputType="numberSigned"
+            android:maxLength="16"
             android:layout_below="@id/edit_name"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_number"
@@ -52,10 +55,10 @@
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="@dimen/default_form_width"
             android:layout_height="@dimen/default_form_height"
-            android:hint="@string/credit_card_number"
-            android:inputType="number"
+            android:hint="@string/expiration_date"
+            android:inputType="date"
             android:layout_marginTop="@dimen/default_space"
-            android:layout_below="@id/edit_name"
+            android:layout_below="@id/edit_number"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_expiry_date"
             android:theme="@style/EditTextTheme"
@@ -66,7 +69,8 @@
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/security_code"
             android:layout_marginTop="@dimen/default_space"
-            android:inputType="number"
+            android:maxLength="3"
+            android:inputType="numberSigned"
             android:layout_below="@id/edit_expiry_date"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_cvv"
@@ -77,11 +81,12 @@
             android:layout_width="@dimen/default_form_width"
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/invoice_code"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:layout_marginTop="@dimen/default_space"
             android:layout_below="@id/edit_cvv"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_invoice_code"
+            android:maxLength="8"
             android:theme="@style/EditTextTheme"
             android:textColor="@color/white"/>
 
@@ -98,5 +103,14 @@
         android:onClick="register"
         android:textColor="@color/dusk_two"
         android:width="@dimen/default_size_button"/>
+
+
+    <ProgressBar
+        android:id="@+id/create_credit_card_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_centerVertical="true"/>
 
 </RelativeLayout>

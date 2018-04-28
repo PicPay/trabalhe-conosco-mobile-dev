@@ -31,6 +31,23 @@
     <string name="expiration_date">Data de validade (mm/aaaa)</string>
     <string name="security_code">Código de segurança</string>
     <string name="invoice_code">CEP do endereço da fatura</string>
+    <string name="message_to_insert_sucess">Inserido com sucesso!!</string>
+    <string name="message_to_insert_failed">Algo deu errado, tente novamente!</string>
+    <string name="erroneous_message_to_pay">Valor à ser pago inválido!</string>
+    <string name="payment_confirmed">Pagamento confirmado!</string>
+    <string name="transaction">Transação</string>
+    <string name="transaction_example">8888888</string>
+    <string name="date">Data</string>
+    <string name="date_example">88/88/88 – 88:88</string>
+    <string name="card">Cartão</string>
+    <string name="card_example">**** **** **** 1111</string>
+    <string name="card_text">**** **** **** %1$s</string>
+    <string name="value">Valor</string>
+    <string name="value_example">R$ 8080,88</string>
+    <string name="value_text">R$ %1$s</string>
+    <string name="payment_declined">Pagamento recusado!</string>
+    <string name="back">Voltar</string>
+    <string name="pay_again">Pagar Novamente</string>
 
     <string-array name="credit_card_flags">
         <item>VISA</item>

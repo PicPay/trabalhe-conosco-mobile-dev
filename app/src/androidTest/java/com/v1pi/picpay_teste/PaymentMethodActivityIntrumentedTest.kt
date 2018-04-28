@@ -118,5 +118,4 @@ class PaymentMethodActivityIntrumentedTest {
         assert(newCreditCard == creditCard)
     }
 
-
 }

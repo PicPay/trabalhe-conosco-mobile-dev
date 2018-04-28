@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="primary_text_big">20sp</dimen>
     <dimen name="primary_text">18sp</dimen>
     <dimen name="primary_text_redux">16sp</dimen>
     <dimen name="second_text">12sp</dimen>
@@ -14,5 +15,6 @@
     <dimen name="half_default_space">5dp</dimen>
     <dimen name="minimum_space">1dp</dimen>
     <dimen name="maximum_space">30dp</dimen>
+    <dimen name="maximum_space_extra">40dp</dimen>
     <dimen name="low_image">28dp</dimen>
 </resources>

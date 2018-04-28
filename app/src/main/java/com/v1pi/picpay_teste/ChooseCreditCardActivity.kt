@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.v1pi.picpay_teste.Controllers.ChooseCreditCardActivityController
 import android.content.Intent
 import android.view.View
+import com.v1pi.picpay_teste.Fragments.WithoutCreditCardFragment
 
 
 class ChooseCreditCardActivity : AppCompatActivity() {
@@ -18,6 +19,11 @@ class ChooseCreditCardActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         controller = ChooseCreditCardActivityController(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        controller.setUpCreditCardsFromDb()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -40,7 +40,11 @@ class CreditCardDaoInstrumentedTest {
     fun getCreditCardWhenNoUserInserted() {
         mDatabase.creditCardDao().getAll()
                 .test()
-                .assertNoValues()
+                .assertValue(object : Predicate<List<CreditCard>> {
+                    override fun test(t: List<CreditCard>): Boolean {
+                        return t.isEmpty()
+                    }
+                })
     }
 
     @Test
@@ -65,8 +69,12 @@ class CreditCardDaoInstrumentedTest {
 
         mDatabase.creditCardDao().deleteTable()
 
-        mDatabase.creditCardDao().getAll()
+        mDatabase.creditCardDao().getAll().firstElement()
                 .test()
-                .assertNoValues()
+                .assertValue(object : Predicate<List<CreditCard>> {
+                    override fun test(t: List<CreditCard>): Boolean {
+                        return t.isEmpty()
+                    }
+                })
     }
 }

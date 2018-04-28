@@ -29,6 +29,15 @@
         <activity android:name=".CreateCreditCardActivity"
             android:parentActivityName=".ChooseCreditCardActivity">
         </activity>
+
+        <activity android:name=".PaymentStatusActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

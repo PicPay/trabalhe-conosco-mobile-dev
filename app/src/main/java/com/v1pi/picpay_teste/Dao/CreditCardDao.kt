@@ -8,7 +8,7 @@ import io.reactivex.Single
 @Dao
 interface CreditCardDao {
     @Query("SELECT * FROM creditCard")
-    fun getAll() : Flowable<CreditCard>
+    fun getAll() : Flowable<List<CreditCard>>
 
     @Query("SELECT * FROM creditCard WHERE uid = :id")
     fun findById(id : Int) : Single<CreditCard>

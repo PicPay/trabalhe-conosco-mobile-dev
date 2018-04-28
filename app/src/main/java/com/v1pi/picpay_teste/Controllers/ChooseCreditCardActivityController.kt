@@ -15,8 +15,9 @@ class ChooseCreditCardActivityController(private val activity : ChooseCreditCard
     private val listManager = ListCreditCardManager(activity)
     private val databaseManager: DatabaseManager? = DatabaseManager.getInstance(activity)
 
-    init {
+    fun setUpCreditCardsFromDb() {
         val intent = activity.intent
+        listManager.clear()
 
         // Efeito visual para selecionar o q ele ja havia selecionada na tela anterior
         if (intent != null)
@@ -29,10 +30,12 @@ class ChooseCreditCardActivityController(private val activity : ChooseCreditCard
     private fun getCreditCardsFromDb(id : Int = -1){
 
         databaseManager?.creditCardDao()?.getAll()?.map {
-            activity.runOnUiThread {
-                listManager.insertNewItem(it)
-                if(id >= 0 && id == it.uid)
-                    listManager.selectItem(listManager.getIndexFromId(id))
+            it.map {
+                activity.runOnUiThread {
+                    listManager.insertNewItem(it)
+                    if(id >= 0 && id == it.uid)
+                        listManager.selectItem(listManager.getIndexFromId(id))
+                }
             }
         }?.subscribeOn(Schedulers.io())?.subscribe()
     }
