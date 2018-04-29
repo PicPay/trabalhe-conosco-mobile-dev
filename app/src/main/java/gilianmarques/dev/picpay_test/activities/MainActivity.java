@@ -17,7 +17,7 @@ import gilianmarques.dev.picpay_test.utils.MyApp;
 
 
 /*
- * Bibliotecas que teriam salvo horas, senão dias de trabalho:
+ * Bibliotecas que teriam salvo horas, senão dias de trabalho caso isso não fosse um teste:
  *
  *  Picasso
  *  CircleImageView
@@ -26,7 +26,6 @@ import gilianmarques.dev.picpay_test.utils.MyApp;
  *  credit_card_number
  *  SQLCypher
  */
-
 
 
 public class MainActivity extends MyActivity implements View.OnClickListener {
@@ -64,11 +63,13 @@ public class MainActivity extends MyActivity implements View.OnClickListener {
     BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            System.out.println("MainActivity.onReceive conexao mudou");
             if (mConnectivityManager == null) return;
 
             NetworkInfo activeNetwork = mConnectivityManager.getActiveNetworkInfo();
 
             if (activeNetwork == null) {
+                System.out.println("MainActivity.onReceive sem conexao");
                 Activity mActivity = ((MyApp) MainActivity.this.getApplicationContext()).getCurrentActivity();
 
                 mAlertDialog = new AlertDialog.Builder(mActivity, R.style.Theme_AppCompat_DayNight).create();
@@ -78,7 +79,13 @@ public class MainActivity extends MyActivity implements View.OnClickListener {
                 mAlertDialog.setCancelable(false);
                 mAlertDialog.show();
 
-            } else if (mAlertDialog != null && mAlertDialog.isShowing()) mAlertDialog.dismiss();
+            } else {
+                System.out.println("MainActivity.onReceive  conectado");
+                if (mAlertDialog != null && mAlertDialog.isShowing()) {
+                    mAlertDialog.dismiss();
+                    System.out.println("MainActivity.onReceive fechando dialogo");
+                }
+            }
         }
     };
 
