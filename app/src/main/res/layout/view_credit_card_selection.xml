@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+    <RelativeLayout
+        android:id="@+id/fade_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/layout_default_padding">
+
+        <TextView
+            android:id="@+id/tv_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_owner_name"
+            android:layout_alignParentEnd="false"
+            android:layout_marginEnd="@dimen/textview_margin_end_start"
+            android:layout_marginStart="@dimen/textview_margin_end_start"
+            android:layout_toEndOf="@+id/tv_owner_name"
+            android:layout_toStartOf="@+id/iv_check"
+            android:fontFamily="@font/nunito_sans"
+            android:gravity="start"
+            android:text="Desconhecido"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_owner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_number"
+            android:layout_marginEnd="@dimen/textview_margin_end_start"
+            android:layout_marginStart="@dimen/textview_margin_end_start"
+            android:layout_toEndOf="@+id/view2"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:text="Owner name"
+            android:textColor="@color/text_secundary"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignBottom="@id/tv_owner_name"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/tv_number"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/vec_check" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_owner_name"
+            android:layout_alignTop="@id/tv_number"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            app:srcCompat="@drawable/vec_credit_card" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/textview_margin_end_start"
+            android:layout_marginStart="@dimen/textview_margin_end_start"
+            android:layout_toEndOf="@+id/view2"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:text="1234 5678 9123 4567"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_expity_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_number"
+            android:layout_alignParentEnd="false"
+            android:layout_marginEnd="@dimen/textview_margin_end_start"
+            android:layout_marginStart="@dimen/textview_margin_end_start"
+            android:layout_toEndOf="@+id/tv_number"
+            android:layout_toStartOf="@+id/iv_check"
+            android:fontFamily="@font/nunito_sans"
+            android:gravity="center"
+            android:text="12/2048"
+            android:textColor="@color/text_secundary"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_owner_name"
+            android:layout_alignTop="@id/tv_number"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:background="@color/gray" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fade_parent"
+        android:background="@drawable/divider" />
+
+</RelativeLayout>

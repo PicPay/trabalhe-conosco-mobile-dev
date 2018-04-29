@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="accepted_brands">visa
+        <item name="amex">Amex</item>
+        <item name="bcg">BCG</item>
+        <item name="diners">Diners</item>
+        <item name="discover">Discover</item>
+        <item name="jcb">JCB</item>
+        <item name="laser">Laser</item>
+        <item name="maestro">Maestro</item>
+        <item name="mastercard">Mastercard</item>
+        <item name="solo">Solo</item>
+        <item name="switch_">Switch</item>
+        <item name="union_pay">Union Pay</item>
+        <item name="visa">Visa</item>
+    </string-array>
+
+</resources>

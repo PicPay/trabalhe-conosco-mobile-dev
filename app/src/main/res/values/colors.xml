@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#361e40</color>
+    <color name="colorPrimaryDark">#311739</color>
+    <color name="colorAccent">#ac0366</color>
+    <color name="white">#ffffff</color>
+    <color name="text_secundary">#99ffffff</color>
+    <color name="transparent">#00ac0366</color>
+    <color name="gray">#ada4b1</color>
+    <color name="transparent_50">#89010101</color>
+    <color name="pink_t">#d0ac0366</color>
+    <color name="primary_t">#f6502e5e</color>
+    <color name="gradient_1">#9255fc</color>
+    <color name="gradient_2">#3d78ef</color>
+
+
+
+
+
+
+
+</resources>

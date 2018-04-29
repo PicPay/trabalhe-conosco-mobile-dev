@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:padding="@dimen/layout_default_padding"
+    tools:context=".fragments.PaymentFragment">
+
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="false"
+        android:layout_marginBottom="@dimen/button_margin_top"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:background="@drawable/btn_gradient_background"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:text="@string/finalizar_pagamento" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:animateLayoutChanges="true"
+        android:padding="@dimen/view_default_padding">
+
+        <EditText
+            android:id="@+id/edt_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true"
+            android:background="@color/transparent"
+            android:cursorVisible="false"
+            android:fontFamily="@font/nunito_sans"
+            android:inputType="number"
+            android:maxLength="12"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@color/transparent"
+            android:textSize="48sp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignEnd="@+id/edt_amount"
+            android:layout_alignStart="@+id/edt_amount"
+            android:layout_below="@+id/edt_amount"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/iv_profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp"
+            android:foreground="@drawable/circular_border"
+            android:transitionName="abc"
+            app:srcCompat="@drawable/vec_place_holder" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_profile_image"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_profile_image"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/textview_margin_bottom_top"
+                android:layout_marginEnd="@dimen/textview_margin_end_start"
+                android:layout_marginStart="@dimen/textview_margin_end_start"
+                android:layout_marginTop="@dimen/textview_margin_bottom_top"
+                android:fontFamily="@font/roboto_bold"
+                android:fontFeatureSettings="te"
+                android:text="Nome Do Usuario"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:transitionName="t_tv_name" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginBottom="@dimen/textview_margin_bottom_top"
+                android:layout_marginEnd="@dimen/textview_margin_end_start"
+                android:layout_marginStart="@dimen/textview_margin_end_start"
+                android:layout_marginTop="@dimen/textview_margin_bottom_top"
+                android:layout_toEndOf="@+id/tv_id"
+                android:fontFamily="@font/roboto"
+                android:fontFeatureSettings="te"
+                android:text="username"
+                android:textColor="@color/text_secundary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:transitionName="t_tv_user_name" />
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginBottom="@dimen/textview_margin_bottom_top"
+                android:layout_marginEnd="@dimen/textview_margin_end_start"
+                android:layout_marginStart="@dimen/textview_margin_end_start"
+                android:layout_marginTop="@dimen/textview_margin_bottom_top"
+                android:fontFamily="@font/roboto"
+                android:fontFeatureSettings="te"
+                android:text="id: 1234"
+                android:textColor="@color/text_secundary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:transitionName="t_tv_id" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_pay"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:animateLayoutChanges="true">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:alpha="0.5"
+            android:background="@color/colorAccent" />
+
+        <RelativeLayout
+            android:id="@+id/rl_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:animateLayoutChanges="true"
+            android:padding="@dimen/view_default_padding">
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

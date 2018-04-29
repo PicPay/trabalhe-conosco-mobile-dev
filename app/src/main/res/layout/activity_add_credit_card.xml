@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.AddCreditCard">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:padding="@dimen/layout_default_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btn_done"
+            android:layout_alignParentTop="false"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColorHint="@color/text_secundary">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:hint="@string/nome_escrito_no_cart_o"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColorHint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColorHint="@color/text_secundary">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:hint="@string/numero_do_cartao"
+                    android:inputType="number"
+                    android:maxLength="19"
+                    android:textColorHint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColorHint="@color/text_secundary">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_expiry_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:hint="@string/validade_mm_aa"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:textColorHint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColorHint="@color/text_secundary">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:hint="@string/codigo_de_seguranca"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textColorHint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spinner_flags"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:popupBackground="@color/colorPrimary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    android:alpha="0.7"
+                    android:background="@color/gray" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/button_margin_top"
+            android:layout_marginTop="@dimen/button_margin_top"
+            android:background="@drawable/btn_gradient_background"
+            android:text="@string/cadastrar" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
