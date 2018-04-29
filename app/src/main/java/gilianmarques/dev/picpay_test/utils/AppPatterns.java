@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
@@ -17,10 +18,16 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * Possui metodos-chave que serão acessados de diversos lugares do app  e devem ser acessados de forma simples
+ *
+ * O objetivo dessa classe é evitar a criação de metodos repetidos por tod.o o projeto
+ */
 public class AppPatterns {
+
+
+
     public static final int ERROR = -1, SUCCESS = -2;
-
-
     public static void vibrate(int type) {
         if (type != ERROR && type != SUCCESS) return;
 
@@ -28,6 +35,7 @@ public class AppPatterns {
         if (mVibrator == null) return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            /*NÃO DISPONHO DE UM DISPOSITIVO FÍSICO COM ANDROID O E PORTANTO, NÃO FUI CAPAZ DE TESTAR ESSA FUNÇÃO */
 
             if (type != SUCCESS)
                 mVibrator.vibrate(VibrationEffect.createWaveform(new long[]{75, 75, 150}, VibrationEffect.DEFAULT_AMPLITUDE));
@@ -59,21 +67,20 @@ public class AppPatterns {
         }
     }
 
-
     /**
      * @param mActivity uma instancia de activity para  rodar o metodo na {@link android.support.annotation.UiThread}
      *                  evitando um possivel erro ( Can't toast on a thread that has not called Looper.prepare())
      * @param message   a mensagem a ser exibida
      * @param type      o tipo de vibração que varia entre ERRO e SUCESSO
      *                  <p>
-     *                  notifica o usuariosobre o resultado de uma açãoque pode ser bem ou mal sucedida
+     *                  notifica o usuario sobre o resultado de uma ação que pode ser bem ou mal sucedida
      */
     public static void notifyUser(final Activity mActivity, final String message, final int type) {
 
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+                Snackbar.make(mActivity.findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG).show();
                 vibrate(type);
             }
         });
@@ -83,6 +90,10 @@ public class AppPatterns {
         return dp * MyApp.getContext().getResources().getDisplayMetrics().density;
     }
 
+    /**
+     * @param amount o valor a ser formatado
+     * @return Uma String com o valor formatado de acordo com as configurações de idioma e entrada do usuário
+     */
     public static String convertCurrency(@NonNull String amount) {
 
         try {
@@ -96,6 +107,13 @@ public class AppPatterns {
         }
     }
 
+    /**
+     * @param amount o valor formatado e ser convertido em decimal
+     *
+     * @return um {@link BigDecimal} com o valor formatado
+     *
+     * Faz o oposto de convertCurrency();
+     */
     public static BigDecimal toDecimal(@NonNull String amount){
         try {
             amount = amount.replaceAll("[^\\d.,]", "");
@@ -110,12 +128,10 @@ public class AppPatterns {
 
 
     /**
-     * converte a timeMillis simples em uma timeMillis completa com nomes e etc...
-     * é necessario remover 1 do mes ja que o indice dos meses começa com 0
-     * jan=0, fev=1, etc...
+     * converte a timeMillis simples em uma String formatada de acordo com as preferências de idioma do usuário
      *
-     * @param timeMillis d
-     * @return s
+     * @param timeMillis Os millis a serem convertidos
+     * @return  uma string com a data formatada
      */
     public static String formatDate(long timeMillis, boolean full) {
         try {

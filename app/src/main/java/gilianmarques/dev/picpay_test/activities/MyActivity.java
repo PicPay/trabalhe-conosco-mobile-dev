@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import gilianmarques.dev.picpay_test.utils.MyApp;
 
+/**
+ * Essa activity existe para manter uma instancia de activity salva na classe aplication
+ * me permitindo obter a activity que esta sendo exibida na tela para mostrar um dialogo quando o dispositivo
+ * ficar sem conexão
+ */
 public  class MyActivity extends AppCompatActivity {
 
     protected MyApp mMyApp;

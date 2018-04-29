@@ -38,10 +38,7 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
     private Activity mActivity;
 
 
-    // TODO: 28/04/2018 continuar a verificar a partir daqui
-
     public static ContactsListFragment newInstance(TransactionCallback callback) {
-
         ContactsListFragment mContactsListFragment = new ContactsListFragment();
         mContactsListFragment.callback = callback;
         return mContactsListFragment;
@@ -65,25 +62,26 @@ public class ContactsListFragment extends Fragment implements ContactsListAdapte
         if (mActivity != null) {
             ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
             if (mActionBar != null) mActionBar.setTitle(getString(R.string.selecione_um_contato));
-        }
-        ContactsDownloaderAsync.ContactsCallback callback = new ContactsDownloaderAsync.ContactsCallback() {
-            @Override
-            public void resut(List<Contact> mContacts, int errorCode) {
-                if (errorCode == -1) {
-                    ContactsListFragment.this.mContacts = mContacts;
-                    if (mActivity != null) mActivity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            init();
-                        }
-                    });
-                } else {
-                    AppPatterns.notifyUser(mActivity, "Error code: ".concat(String.valueOf(errorCode)), AppPatterns.SUCCESS);
-                    mActivity.finish();
+
+            ContactsDownloaderAsync.ContactsCallback callback = new ContactsDownloaderAsync.ContactsCallback() {
+                @Override
+                public void resut(List<Contact> mContacts, int errorCode) {
+                    if (errorCode == -1) {
+                        ContactsListFragment.this.mContacts = mContacts;
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                init();
+                            }
+                        });
+                    } else {
+                        AppPatterns.notifyUser(mActivity, "Error code: ".concat(String.valueOf(errorCode)), AppPatterns.SUCCESS);
+                        mActivity.finish();
+                    }
                 }
-            }
-        };
-        new ContactsDownloaderAsync(callback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            };
+            new ContactsDownloaderAsync(callback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
     }
 
     private void init() {

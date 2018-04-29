@@ -2,7 +2,6 @@ package gilianmarques.dev.picpay_test.utils;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -36,13 +35,13 @@ import gilianmarques.dev.picpay_test.models.Contact;
 import gilianmarques.dev.picpay_test.models.CreditCard;
 import gilianmarques.dev.picpay_test.models.Transaction;
 
-public class DialogConfirmTransaction extends AlertDialog implements View.OnClickListener, DialogInterface.OnShowListener {
+public class DialogConfirmTransaction extends AlertDialog implements View.OnClickListener {
     private final Activity mActivity;
     private final DialogCallback dialogCallback;
     private final Transaction mTransaction;
     private View rootView;
     private View parent;
-    private final View activityContainer;
+    private final View actContainer;
     private final long ALPHA_ANIM_DURATION = 300;
     private final long TRANSLATE_ANIM_DURATION = 400;
     private final float DP;
@@ -55,25 +54,23 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
         this.mActivity = mActivity;
         this.dialogCallback = dialogCallback;
         this.mTransaction = mTransaction;
-        this.activityContainer = container;
+        this.actContainer = container;
         DP = mActivity.getResources().getDisplayMetrics().density;
         init();
     }
 
     private void init() {
-        setCancelable(false);
+
         rootView = mActivity.getLayoutInflater().inflate(R.layout.dialog_confirm_trasaction, null);
         parent = rootView.findViewById(R.id.fade_parent);
-        setView(rootView);
         mCardView = rootView.findViewById(R.id.card_view);
         mCardView.setOnTouchListener(new LayoutAnimation());
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(MyApp.getContext());
-
         if (!mPreferences.getBoolean("first_transaction", true))
             rootView.findViewById(R.id.tv_hint).setVisibility(View.GONE);
 
-
+        /*Animações de abertura do diálogo*/
         mCardView.post(new Runnable() {
             @Override
             public void run() {
@@ -107,8 +104,6 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
             }
         });
 
-        //
-
         ProfilePictureUtils.getPicAsync(mTransaction.getContact(), new ProfilePictureUtils.Callback() {
             @Override
             public void result(Drawable mDrawable) {
@@ -116,18 +111,22 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
             }
         });
 
-        rootView.findViewById(R.id.btn_back).setOnClickListener(this);
-
+        rootView.findViewById(R.id.btn_alterar_dados).setOnClickListener(this);
 
         applyStyles();
-        setOnShowListener(this);
+
         Window mWindow = getWindow();
-        if (mWindow != null)
+        if (mWindow != null) {
             mWindow.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
+        }
 
-
+        setView(rootView);
+        setCancelable(false);
     }
 
+    /**
+     * Customiza o texto que será exibido na tela
+     */
     private void applyStyles() {
         CreditCard mCard = mTransaction.getCard();
         Contact mContact = mTransaction.getContact();
@@ -157,7 +156,7 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_back) {
+        if (id == R.id.btn_alterar_dados) {
 
 
             AlphaAnimation anim2 = new AlphaAnimation(1, 0);
@@ -189,43 +188,51 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
         }
     }
 
-    @Override
-    public void onShow(DialogInterface dialog) {
-
-
-    }
 
     public interface DialogCallback {
         void trasactionConfirmed();
-
         //  void viewMoved(int percentValue);
-
-
     }
+
+    private void finish(long duration) {
+        Runnable mRunnableCallback = new Runnable() {
+            @Override
+            public void run() {
+                mPreferences.edit().putBoolean("first_transaction", false).apply();
+                dialogCallback.trasactionConfirmed();
+            }
+        };
+
+        new Handler().postDelayed(mRunnableCallback, (duration / 10) * 6);
+    }
+
 
     class LayoutAnimation implements View.OnTouchListener {
         private final long MIN_ANIMATION_TIME_MILLIS = 500;
         private final long MAX_ANIMATION_TIME_MILLIS = 1000;
 
         /*O valor contido nessa constante indica o quanto % a view pode se mecher com base em seu tamanho
-         * EX: se a view tem 100px e o valor da constante é 120 a view podera se mecher  100+120% do seu tamanho, nesse caso 120 mesmo
+         * EX: se a view tem 100px e o valor da constante é 120 a view podera se mecher  100+120% do seu tamanho, nesse caso, 120 mesmo,
          * o valor de movimento em px será de 220px pra cima ou baixo*/
         private final int PERCENT_TO_MOVE = 120;
 
         /*Aqui eu digo a disatancia que a view tem que se mecher em relação a sua posição atual para
          * ser lançada*/
         private int pxMovedToLaunch;
+
         /*usado pra rastrear qts px o dedo do usuario percorreu na tela pra dps somar esse valor com o valor Y da view para move-la suavemente*/
         private float initialTouchY;
+
         /*mantem salva a posição inicial da view*/
         private float initialViewY = -1, initialActivityViewY;
-        private float viewHeigth = -1;
+        private float viewHeigth;
+
         /*maxMovimentDown e maxMovimentUp mantem salvos a distancia em px que a view pode ser arrastada
          * com base na porcentagem definida em PERCENT_TO_MOVE */
-        private float maxMovimentDown = -1;
-        private float maxMovimentUp = -1;
+        private float maxMovimentDown;
+        private float maxMovimentUp;
 
-        private float maxMovimentActContainer = -1;
+        private float maxMovimentActContainer;
 
 
         private float tension = 1;
@@ -240,10 +247,9 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
                     v.performClick();
                     initialTouchY = event.getY();
                     if (initialViewY == -1) initVars(v);
-
                     break;
                 case MotionEvent.ACTION_MOVE:
-
+                    /*para a nimação que balança suavemente a vie dando a impressão de que esta flutuando no ar*/
                     mCardView.clearAnimation();
                     viewIsUping = v.getY() - initialViewY < 0;
                     moveY(event.getY(), v);
@@ -261,26 +267,27 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
         }
 
         private void moveY(float y, View v) {
-            float movementPercent = (getViewMovimentPercent(v));
+            float movementPercent = getViewMovimentPercent(v);
             float yRunnedByFinger = initialTouchY - y;
-            float mCorrectY = (v.getY() - yRunnedByFinger) - tension;
+            float yToRun = (v.getY() - yRunnedByFinger) - tension;
 
-            //impede que a tensão fique tão forte a ponto de fazer a view andar pra tras
-            if ((tension + TENSION_INCREMENTER) < mCorrectY)
+            //impede que a tensão fique tão forte a ponto de fazer a view andar pra trás
+            if ((tension + TENSION_INCREMENTER) < yToRun)
+                // modifica a tensão para qd a view suir e descer
                 if (viewIsUping) tension -= TENSION_INCREMENTER;
                 else tension += TENSION_INCREMENTER;
 
 
-            if (mCorrectY >= maxMovimentUp && mCorrectY <= maxMovimentDown) {
-                v.setY(mCorrectY);
+            if (yToRun >= maxMovimentUp && yToRun <= maxMovimentDown) {
+                v.setY(yToRun);
             }
 
-            if (activityContainer != null) {
+            if (actContainer != null) {
                 /*descubro qts % o dialogo se moveu e uso esse valor para obter a quantidade proporcional de pixeis da view
                  * da activity compradando sua posição com o seu movimento maximo permitido*/
                 float movPercent = getViewMovimentPercent(v);
                 float moveFinal = initialActivityViewY + percentValue(maxMovimentActContainer, (int) movPercent);
-                activityContainer.setY(moveFinal);
+                actContainer.setY(moveFinal);
 
             }
 
@@ -292,10 +299,13 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
 
         }
 
+        /**
+         * @param v Determina se a view foi arrastada na posição correte e pela distância suficiente para ser lançada
+         *          e faz as animções necessárias
+         */
         private void animate(final View v) {
             float y = v.getY();
-            float movimentPercent = (getViewMovimentPercent(v));
-
+            float movimentPercent = getViewMovimentPercent(v);
 
             long duration = (long) (viewIsUping ? (initialViewY - y) : (y - initialViewY));
 
@@ -349,21 +359,25 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
             alphaAnim.addUpdateListener(mValueAnimator);
             moveAnim.addUpdateListener(mUpdateListener);
 
+
+            /*Aplico a tensão corerspondete a distância percorrida pela view.
+            * Que a minha professora de física me perdoe!*/
             float tension = movimentPercent / 15;
             tension = tension < 0 ? tension * -1 : tension;
             moveAnim.setInterpolator(new OvershootInterpolator(tension));
 
-            if (activityContainer != null) {
+            // A view da activity precisa voltar pro lugar tbm
+            if (actContainer != null) {
 
                 ValueAnimator.AnimatorUpdateListener mActivityViewUpdateListener = new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         float val = (float) valueAnimator.getAnimatedValue();
-                        activityContainer.setY(val);
+                        actContainer.setY(val);
                     }
                 };
 
-                moveAnimActivityView = ValueAnimator.ofFloat(activityContainer.getY(), initialActivityViewY);
+                moveAnimActivityView = ValueAnimator.ofFloat(actContainer.getY(), initialActivityViewY);
                 moveAnimActivityView.setDuration(duration);
                 moveAnimActivityView.setInterpolator(new OvershootInterpolator(tension));
                 moveAnimActivityView.addUpdateListener(mActivityViewUpdateListener);
@@ -376,7 +390,6 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
 
         }
 
-
         private void initVars(View v) {
 
             initialViewY = v.getY();
@@ -384,10 +397,10 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
             maxMovimentDown = initialViewY + percentValue(v.getMeasuredHeight(), PERCENT_TO_MOVE);
             maxMovimentUp = initialViewY - percentValue(v.getMeasuredHeight(), PERCENT_TO_MOVE);
             pxMovedToLaunch = (int) percentValue((initialViewY - v.getMeasuredHeight()), 60);
-            if (activityContainer != null) {
-                maxMovimentActContainer = activityContainer.getY() - percentValue(v.getMeasuredHeight(), 30);
-                initialActivityViewY = activityContainer.getY();
 
+            if (actContainer != null) {
+                maxMovimentActContainer = actContainer.getY() - percentValue(v.getMeasuredHeight(), 30);
+                initialActivityViewY = actContainer.getY();
             }
 
 
@@ -411,7 +424,7 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
              * ao remover initialViewY de maxMovimentUp descubro quantos px a view tem que andar da sua posição inicial até a posição
              * maxima de animação, assim descubro em quantos % a view andou apartir de seu ponto de origem até o ponto de movimento final
              *
-             * A VARIAVEL maxMovimentUp USADA COMO foi usada como referencia pq reotnou uma porcentagem melhor
+             * A VARIAVEL maxMovimentUp  foi usada como referencia pq reotnou uma porcentagem melhor
              * do que a maxMovimentDown mesmo q na lógica elas tenha um valor bem parecido*/
             return percent(initialViewY - v.getY(), initialViewY - maxMovimentUp);
 
@@ -429,16 +442,5 @@ public class DialogConfirmTransaction extends AlertDialog implements View.OnClic
         }
     }
 
-    private void finish(long duration) {
-        Runnable mRunnableCallback = new Runnable() {
-            @Override
-            public void run() {
-                mPreferences.edit().putBoolean("first_transaction", false).apply();
-                dialogCallback.trasactionConfirmed();
-            }
-        };
-
-        new Handler().postDelayed(mRunnableCallback, (duration / 10) * 6);
-    }
 
 }

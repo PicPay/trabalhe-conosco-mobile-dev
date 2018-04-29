@@ -161,8 +161,11 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
     }
 
 
+    /**
+     * Criei como subclasse para facilitar a comunicação das classes
+     */
     class CardsAdapter extends BaseAdapter {
-        private int indexRunned;
+        private int indexRunned;// uado para animar
         private ArrayList<CreditCard> mCards;
         private final LayoutInflater mInflater;
         private View lastViewSelected;
@@ -199,15 +202,28 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
             }
 
             final CreditCard mCard = mCards.get(position);
+
             ((TextView) convertView.findViewById(R.id.tv_number)).setText(mCard.getSpacedNumber());
             ((TextView) convertView.findViewById(R.id.tv_brand)).setText(mCard.getBrandName());
             ((TextView) convertView.findViewById(R.id.tv_owner_name)).setText(mCard.getOwnerName());
             ((TextView) convertView.findViewById(R.id.tv_expity_date)).setText(mCard.getExpireDate());
 
             if (position == getCount() - 1) {
+                //apago o divisor
                 convertView.findViewById(R.id.divider).setVisibility(View.INVISIBLE);
             }
 
+            /* Se houver apenas um cartão o marco como selecionado */
+            if (getCount() == 1) markViewAsSelected(convertView, mCard);
+
+            /*se o ccartão encontrado no array for o mesmo marcado como selecionado, marco a view*/
+            if (cardSelected != null && cardSelected.getId() == mCard.getId()) {
+
+                /*mudo o valor de cardSelected pq markViewAsSelected vai verificar se o cartão que passei e o cartão
+                 * selecionado são os mesmos e caso sejam vai desselecionar a view e marcar cardSelected como null*/
+                cardSelected = null;
+                markViewAsSelected(convertView, mCard);
+            }
 
             View.OnClickListener mListener = new View.OnClickListener() {
                 @Override
@@ -215,19 +231,6 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
                     markViewAsSelected(v, mCard);
                 }
             };
-
-
-            /* Se houver apenas um cartão o marco como selecionado */
-            if (getCount() == 1) markViewAsSelected(convertView, mCard);
-
-            /*se o ccartão encontrado no array for o mesmo marcado como selecionado, marco a view*/
-            if (cardSelected!=null&&cardSelected.getId()==mCard.getId()) {
-
-                /*mudo o valor de cardSelected pq markViewAsSelected vai verificar se o cartão que passei e o cartão
-                 * selecionado são os mesmos e caso sejam vai desselecionar a view e marcar cardSelected como null*/
-                 cardSelected = null;
-                markViewAsSelected(convertView, mCard);
-            }
 
             convertView.setOnClickListener(mListener);
 
@@ -238,18 +241,19 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
 
         private void animateView(View convertView, int position) {
             if (position > indexRunned) {
+
                 indexRunned = position;
+
                 TranslateAnimation transAnim = new TranslateAnimation(0f, 0f, 300f, 0f);
                 AlphaAnimation fadeAnim = new AlphaAnimation(0, 1);
 
                 fadeAnim.setDuration(400);
                 transAnim.setDuration(400);
 
-                //noinspection UnusedAssignment
-                transAnim.setStartOffset((position++) * 75);
-                fadeAnim.setStartOffset(transAnim.getStartOffset());
+                transAnim.setStartOffset(position * 75);
+                fadeAnim.setStartOffset(position * 75);
 
-                AnimationSet set = new AnimationSet(true);
+                AnimationSet set = new AnimationSet(false);
                 set.addAnimation(transAnim);
                 set.addAnimation(fadeAnim);
 
@@ -266,8 +270,8 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
          */
         private void markViewAsSelected(View itemView, CreditCard mCard) {
             if (!Objects.equals(cardSelected, mCard)) {
-                /*se esse cartão não é o cartão atualmente selecionado desmarco a view selecionada  */
 
+                /*se esse cartão não é o cartão atualmente selecionado desmarco a view selecionada  */
                 if (lastViewSelected != null) {
                     lastViewSelected.findViewById(R.id.fade_parent).setBackgroundColor(0);
                     lastViewSelected.findViewById(R.id.iv_check).setVisibility(View.INVISIBLE);
@@ -300,11 +304,23 @@ public class DialogSelectCreditCard extends AlertDialog implements View.OnClickL
 
 
         void update() {
-            mCards = Database.getInstance().getCards();
-            indexRunned = -1;
-            notifyDataSetChanged();
+
+            Runnable mRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    mCards = Database.getInstance().getCards();
+                    indexRunned = -1;
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
+            };
+            /*faço a leitura a partir de uma WorkerThread*/
+            new Thread(mRunnable).start();
+
         }
-
-
     }
 }

@@ -45,6 +45,7 @@
         <activity
             android:name=".activities.TransactionActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activities.MyActivity" />
 
     </application>
 

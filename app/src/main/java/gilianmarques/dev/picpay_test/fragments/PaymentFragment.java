@@ -61,17 +61,6 @@ public class PaymentFragment extends Fragment {
     private DialogSelectCreditCard mDialogSelectCreditCard;
 
 
-    @Override
-    public void onAttach(Context context) {
-        mActivity = getActivity();
-        if (mActivity != null) {
-            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
-            if (mActionBar != null) mActionBar.setTitle(getString(R.string.Insira_os_dados));
-        }
-        super.onAttach(context);
-    }
-
-
     public static PaymentFragment newInstance(TransactionCallback callback, Contact mContact) {
         PaymentFragment mPaymentFragment = new PaymentFragment();
         mPaymentFragment.callback = callback;
@@ -92,6 +81,12 @@ public class PaymentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle mBundle = getArguments();
+
+        mActivity = getActivity();
+        if (mActivity != null) {
+            ActionBar mActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
+            if (mActionBar != null) mActionBar.setTitle(getString(R.string.Insira_os_dados));
+        }
 
         if (mBundle != null) {
             mContact = (Contact) mBundle.getSerializable("contact");
@@ -195,11 +190,15 @@ public class PaymentFragment extends Fragment {
         };
 
 
-        Runnable exRunnable = (hasCards ? uiRunnable : uiRunnableEmpty);
-        exRunnable.run();
+        if (hasCards) uiRunnable.run();
+        else uiRunnableEmpty.run();
+
 
     }
 
+    /**
+     * Exibe um dialogo que permite ao usuario escolher ou adicionar um cartão de crédito
+     */
     private void selectCreditCard() {
         DialogSelectCreditCard.DialogCallback callback = new DialogSelectCreditCard.DialogCallback() {
             @Override
@@ -218,6 +217,12 @@ public class PaymentFragment extends Fragment {
 
     }
 
+    /**
+     * @param mCreditCard  O cartão que seleciondo pelo usuario
+     *
+     * Salva na declaração choosedCreditCard a instancia do cartão de crédito  selecionado pelo usuário
+     * e altera o {@link TextView} com a informação de pagamento
+     */
     private void setChoosedCreditCard(CreditCard mCreditCard) {
         choosedCreditCard = mCreditCard;
         if (tvCreditCardInfo != null) {
@@ -230,10 +235,12 @@ public class PaymentFragment extends Fragment {
             String text = String.format(Locale.getDefault(), getString(R.string.forma_de_pagamento_), brand, lastDigits);
 
             SpannableString spString = new SpannableString(text);
+
             /*BANDEIRA*/
             int start1 = text.split(brand)[0].length();
             int end1 = text.split(brand)[0].length() + brand.length();
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start1, end1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
             /*4 ultimos digitos*/
             int start2 = text.split(strLastDigits)[0].length();
             int end2 = text.split(strLastDigits)[0].length() + strLastDigits.length();
@@ -244,13 +251,16 @@ public class PaymentFragment extends Fragment {
             int end3 = text.length();
             spString.setSpan(new UnderlineSpan(), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             spString.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            // spString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mActivity, R.color.gray)), start3, end3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             tvCreditCardInfo.setText(spString);
         }
 
     }
 
+    /**
+     * Verifica se os dados do formulário foram corretamente inseridos, caso sim notifica a {@link gilianmarques.dev.picpay_test.activities.SendCashActivity}
+     *  de que a transação pode prosseguir, caso não, notifca o usuário de que o campo está preenchido de forma incorreta
+     */
     private void notifyTransactionReadyToGo() {
         String strAmount = edtAmount.getText().toString();
 
@@ -284,7 +294,7 @@ public class PaymentFragment extends Fragment {
             mCards = Database.getInstance().getCards();
             handleCreditCardViews(mCards.size() > 0);
             if (mDialogSelectCreditCard != null && mDialogSelectCreditCard.isShowing())
-                mDialogSelectCreditCard.update(mCards.get(mCards.size()-1));
+                mDialogSelectCreditCard.update(mCards.get(mCards.size() - 1));
         }
 
         super.onActivityResult(requestCode, resultCode, data);

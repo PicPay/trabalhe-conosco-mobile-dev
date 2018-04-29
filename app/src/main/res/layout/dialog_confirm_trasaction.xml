@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_alignParentEnd="false"
-                    android:layout_below="@+id/btn_back"
+                    android:layout_below="@+id/btn_alterar_dados"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="12dp"
                     android:clickable="false"
@@ -240,7 +240,7 @@
                     android:background="@color/colorAccent" />
 
                 <Button
-                    android:id="@+id/btn_back"
+                    android:id="@+id/btn_alterar_dados"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@+id/tv_payment_info"

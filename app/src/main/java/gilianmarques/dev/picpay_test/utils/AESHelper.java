@@ -15,6 +15,11 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * Helper para proteger com um certo nível de segurança os dados inseridos nesse teste
+ * Metodos são auto-comentados por isso não contém javadocs
+ */
+@SuppressLint("GetInstance")
 public class AESHelper {
 
     private static final String ALGORITHM = "AES";
@@ -50,7 +55,7 @@ public class AESHelper {
     public static String decryptMsg(String cipherText, SecretKey secret) {
         try {
             byte[] bytes = toByte(cipherText);
-            @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance(ALGORITHM_PARAMS);
+            Cipher cipher = Cipher.getInstance(ALGORITHM_PARAMS);
             cipher.init(Cipher.DECRYPT_MODE, secret);
             return new String(cipher.doFinal(bytes), ENCODING);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | UnsupportedEncodingException | IllegalBlockSizeException | InvalidKeyException e) {
@@ -89,8 +94,6 @@ public class AESHelper {
             result[i] = Integer.valueOf(hexString.substring(2 * i, 2 * i + 2), 16).byteValue();
         return result;
     }
-
-
 
 
 }

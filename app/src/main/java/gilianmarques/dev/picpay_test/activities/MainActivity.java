@@ -9,11 +9,25 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import gilianmarques.dev.picpay_test.R;
 import gilianmarques.dev.picpay_test.utils.MyApp;
+
+
+
+/*
+ * Bibliotecas que teriam salvo horas, senão dias de trabalho:
+ *
+ *  Picasso
+ *  CircleImageView
+ *  volley
+ *  Gson
+ *  credit_card_number
+ *  SQLCypher
+ */
+
+
 
 public class MainActivity extends MyActivity implements View.OnClickListener {
     private ConnectivityManager mConnectivityManager;

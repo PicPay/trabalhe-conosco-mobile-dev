@@ -8,6 +8,13 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.TextView;
 
+
+/**
+ * Incrível que o Android até a versão 7 ainda não tinha uma view que se ajustasse para exibir o texto corretamente
+ * forçando uma inplementação customizada...
+ *
+ *
+ */
 class AutoResizeTextView extends android.support.v7.widget.AppCompatTextView {
 
     private static final float MIN_TEXT_SIZE = 20;
