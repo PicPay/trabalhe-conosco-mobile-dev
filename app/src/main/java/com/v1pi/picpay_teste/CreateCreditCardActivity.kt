@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.v1pi.picpay_teste.Controllers.CreateCreditCardController
 import com.v1pi.picpay_teste.Domains.CreditCard
+import com.v1pi.picpay_teste.Utils.MaskWatcher
 import kotlinx.android.synthetic.main.activity_create_credit_card.*
 import kotlinx.android.synthetic.main.activity_payment_method.*
 
@@ -25,6 +27,9 @@ class CreateCreditCardActivity : AppCompatActivity() {
         spinner_credit_card_flag.adapter = arrayAdapter
 
         controller = CreateCreditCardController(this)
+
+        edit_expiry_date.addTextChangedListener(MaskWatcher("##/##"))
+        edit_invoice_code.addTextChangedListener(MaskWatcher("#####-###"))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -38,6 +43,14 @@ class CreateCreditCardActivity : AppCompatActivity() {
     }
 
     fun register(view : View) {
+
+        if(edit_number.text.isEmpty() || edit_cvv.text.isEmpty() || edit_expiry_date.text.isEmpty() ||
+                edit_cvv.text.length != 3 || edit_number.text.length != 16 || edit_expiry_date.text.length != 5) {
+            Toast.makeText(this, getString(R.string.no_fill_required_fields), Toast.LENGTH_SHORT).show()
+
+            return
+        }
+
         // Não vi necessidade de adicionar os campos diferentes desses no modelo do Cartão de Crédito já que não são utilizados
         val creditCard = CreditCard(0, edit_number.text.toString(), edit_cvv.text.toString().toInt(), edit_expiry_date.text.toString())
         controller.insertCreditCard(creditCard)

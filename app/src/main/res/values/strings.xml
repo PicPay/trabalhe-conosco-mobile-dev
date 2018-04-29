@@ -27,9 +27,9 @@
     <string name="register">Cadastrar</string>
     <string name="choose_flag">Selecione a bandeira</string>
     <string name="cardholder_name">Nome escrito no cartão</string>
-    <string name="credit_card_number">Número do Cartão</string>
-    <string name="expiration_date">Data de validade (mm/aaaa)</string>
-    <string name="security_code">Código de segurança</string>
+    <string name="credit_card_number">Número do Cartão*</string>
+    <string name="expiration_date">Data de validade (mm/aa)*</string>
+    <string name="security_code">Código de segurança*</string>
     <string name="invoice_code">CEP do endereço da fatura</string>
     <string name="message_to_insert_sucess">Inserido com sucesso!!</string>
     <string name="message_to_insert_failed">Algo deu errado, tente novamente!</string>
@@ -45,9 +45,15 @@
     <string name="value">Valor</string>
     <string name="value_example">R$ 8080,88</string>
     <string name="value_text">R$ %1$s</string>
-    <string name="payment_declined">Pagamento recusado!</string>
+    <string name="payment_declined">O pagamento foi recusado</string>
     <string name="back">Voltar</string>
     <string name="pay_again">Pagar Novamente</string>
+    <string name="reload_image">Imagem de recarregamento</string>
+    <string name="required_fields">* Campos obrigatórios.</string>
+    <string name="no_fill_required_fields">Campos obrigatórios não preenchidos corretamente</string>
+    <string name="error_download_images">Erro ao carregar as imagens, tente novamente</string>
+    
+    <string name="no_connection">Não há conexão com a internet, tente novamente</string>
 
     <string-array name="credit_card_flags">
         <item>VISA</item>

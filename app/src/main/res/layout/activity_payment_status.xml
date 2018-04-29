@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/primary_text_big"
             android:textColor="@color/white"
-            android:id="@+id/txt_payment_confirmed"
+            android:id="@+id/txt_payment_status"
             android:layout_centerHorizontal="true"
             android:text="@string/payment_confirmed"
             android:textStyle="bold"/>
@@ -28,7 +28,7 @@
             android:id="@+id/rl_transaction_data"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/double_default_space"
-            android:layout_below="@id/txt_payment_confirmed">
+            android:layout_below="@id/txt_payment_status">
 
             <RelativeLayout
                 android:layout_width="match_parent"

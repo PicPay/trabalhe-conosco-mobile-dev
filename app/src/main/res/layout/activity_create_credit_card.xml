@@ -44,7 +44,7 @@
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/credit_card_number"
             android:layout_marginTop="@dimen/default_space"
-            android:inputType="numberSigned"
+            android:inputType=""
             android:maxLength="16"
             android:layout_below="@id/edit_name"
             android:textSize="@dimen/primary_text"
@@ -59,6 +59,7 @@
             android:inputType="date"
             android:layout_marginTop="@dimen/default_space"
             android:layout_below="@id/edit_number"
+            android:maxLength="5"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_expiry_date"
             android:theme="@style/EditTextTheme"
@@ -81,14 +82,22 @@
             android:layout_width="@dimen/default_form_width"
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/invoice_code"
-            android:inputType="numberSigned"
+            android:inputType="phone"
             android:layout_marginTop="@dimen/default_space"
             android:layout_below="@id/edit_cvv"
             android:textSize="@dimen/primary_text"
             android:id="@+id/edit_invoice_code"
-            android:maxLength="8"
+            android:maxLength="9"
             android:theme="@style/EditTextTheme"
             android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_default_space"
+            android:textColor="@color/gray_form"
+            android:layout_below="@id/edit_invoice_code"
+            android:text="@string/required_fields"/>
 
     </RelativeLayout>
 

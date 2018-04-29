@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -11,5 +12,16 @@
         android:id="@+id/user_list_rv">
 
     </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/reload_image"
+        android:visibility="gone"
+        android:onClick="onClickRefresh"
+        android:id="@+id/img_refresh"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_restart"/>
 
 </RelativeLayout>

@@ -2,6 +2,7 @@ package com.v1pi.picpay_teste
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.v1pi.picpay_teste.Controllers.PaymentStatusController
@@ -39,6 +40,16 @@ class PaymentStatusActivity : AppCompatActivity() {
         rl_data_status.txt_name.text = user.name
         rl_data_status.txt_username.text = user.username
         DownloadImageTask(rl_data_status.user_image).execute(user.img)
+
+        transaction.success?.let {
+            if(it){
+                changeColor(ContextCompat.getColor(this, R.color.light_teal))
+                txt_payment_status.text = getString(R.string.payment_confirmed)
+            } else {
+                changeColor(ContextCompat.getColor(this, R.color.medium_pink))
+                txt_payment_status.text = getString(R.string.payment_declined)
+            }
+        }
     }
 
     fun backToMain(view : View) {
@@ -49,6 +60,13 @@ class PaymentStatusActivity : AppCompatActivity() {
 
     fun payAgain(view : View) {
         finish()
+    }
+
+    private fun changeColor(color : Int) {
+        txt_value.setTextColor(color)
+        txt_card.setTextColor(color)
+        txt_date.setTextColor(color)
+        txt_transaction.setTextColor(color)
     }
 
 }

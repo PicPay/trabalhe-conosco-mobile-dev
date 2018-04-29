@@ -17,6 +17,7 @@ import org.hamcrest.CoreMatchers
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import java.text.SimpleDateFormat
 import java.util.*
 
 class PaymentStatusActivityInstrumentedTest {
@@ -44,7 +45,7 @@ class PaymentStatusActivityInstrumentedTest {
         onView(withId(R.id.txt_transaction)).check(matches(withText(transaction.id.toString())))
         onView(withId(R.id.txt_card)).check(matches(withText("**** **** **** " + transaction.card_number.substring(transaction.card_number.length-4))))
         transaction.timestamp?.let {
-            onView(withId(R.id.txt_date)).check(matches(withText(Date(it*1000).toString())))
+            onView(withId(R.id.txt_date)).check(matches(withText(SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.US).format(Date(it *1000)))))
         }
         onView(withId(R.id.txt_value)).check(matches(withText("R$ ${transaction.value}")))
 

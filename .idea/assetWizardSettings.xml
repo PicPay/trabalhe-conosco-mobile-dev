@@ -18,9 +18,9 @@
                       <PersistentState>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_check_mark" />
-                            <entry key="sourceFile" value="E:\DOWNLOADS\check-mark.svg" />
+                            <entry key="color" value="ef5778" />
+                            <entry key="outputName" value="ic_android" />
+                            <entry key="sourceFile" value="E:\DOWNLOADS\icons8-restart.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -1,6 +1,8 @@
 package com.v1pi.picpay_teste.Controllers
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.v1pi.picpay_teste.Database.DatabaseManager
 import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Domains.Transaction
@@ -9,6 +11,8 @@ import com.v1pi.picpay_teste.Fragments.WithCreditCardFragment
 import com.v1pi.picpay_teste.Fragments.WithoutCreditCardFragment
 import com.v1pi.picpay_teste.Listeners.FragmentCreditCardListener
 import com.v1pi.picpay_teste.PaymentMethodActivity
+import com.v1pi.picpay_teste.R
+import com.v1pi.picpay_teste.Utils.InternetCheck
 import com.v1pi.picpay_teste.Utils.RetrofitManager
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
@@ -64,7 +68,14 @@ class PaymentMethodController(private val activity: PaymentMethodActivity) {
     }
 
     fun requestToPay(transaction : Transaction) {
-        retrofit.requestTransaction(transaction, activity)
+        InternetCheck(object : Consumer<Boolean> {
+            override fun accept(t: Boolean) {
+                if(t)
+                    retrofit.requestTransaction(transaction, activity)
+                else
+                    Toast.makeText(activity, activity.getString(R.string.no_connection), Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 
