@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here.  white_two -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/white_two</item>
+        <item name="colorAccent">@color/medium_pink</item>
+    </style>
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/gray_form</item>
+        <item name="colorControlActivated">@color/light_teal</item>
+        <item name="colorControlHighlight">@color/light_teal</item>
+        <item name="android:textColorHint">@drawable/hide_hint</item>
+        <item name="android:textColorHintInverse">@color/light_teal</item>
+    </style>
+    
+    <style name="TextViewResultTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/normal_text</item>
+        <item name="android:textColor">@color/light_teal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

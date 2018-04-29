@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Mobile Test</string>
+    <string name="hello_world">Hello World</string>
+    <string name="user_image">Foto do usuário</string>
+    <string name="pay_image">Icone de pagar</string>
+    <string name="name_default">Vincíus Picanço</string>
+    <string name="id_default">id: 888888</string>
+    <string name="username_default">\@louco</string>
+    <string name="id">id: %1$s</string>
+    <string name="pay_text">Pagar</string>
+    <string name="test_recyclerview_id">ID: 1003</string>
+    <string name="default_text_to_value">R$ 0,00</string>
+    <string name="content_description_edit_pay">Inseira o valor a ser pago</string>
+    <string name="voltar">Voltar</string>
+    <string name="content_description_alert">Icone de alerta</string>
+    <string name="credit_card_number_example">1111 1111 1111 1111</string>
+    <string name="none_credit_card_text">Nenhum cartão de crédito cadastrado.</string>
+    <string name="register_now_text">Cadastrar agora.</string>
+    <string name="payment_method_text">Forma de pagamento:</string>
+    <string name="credit_card_example">Cartão de Crédito com final 1111</string>
+    <string name="credit_card_text">Cartão de Crédito com final %1$s</string>
+    <string name="sucesso">Sucesso!</string>
+    <string name="registred_credit_cards">Cartões Cadastrados</string>
+    <string name="new_register">Cadastrar novo cartão</string>
+    <string name="select_card">Selecionar Cartão</string>
+    <string name="test">test</string>
+    <string name="register">Cadastrar</string>
+    <string name="choose_flag">Selecione a bandeira</string>
+    <string name="cardholder_name">Nome escrito no cartão</string>
+    <string name="credit_card_number">Número do Cartão*</string>
+    <string name="expiration_date">Data de validade (mm/aa)*</string>
+    <string name="security_code">Código de segurança*</string>
+    <string name="invoice_code">CEP do endereço da fatura</string>
+    <string name="message_to_insert_sucess">Inserido com sucesso!!</string>
+    <string name="message_to_insert_failed">Algo deu errado, tente novamente!</string>
+    <string name="erroneous_message_to_pay">Valor à ser pago inválido!</string>
+    <string name="payment_confirmed">Pagamento confirmado!</string>
+    <string name="transaction">Transação</string>
+    <string name="transaction_example">8888888</string>
+    <string name="date">Data</string>
+    <string name="date_example">88/88/88 – 88:88</string>
+    <string name="card">Cartão</string>
+    <string name="card_example">**** **** **** 1111</string>
+    <string name="card_text">**** **** **** %1$s</string>
+    <string name="value">Valor</string>
+    <string name="value_example">R$ 8080,88</string>
+    <string name="value_text">R$ %1$s</string>
+    <string name="payment_declined">O pagamento foi recusado</string>
+    <string name="back">Voltar</string>
+    <string name="pay_again">Pagar Novamente</string>
+    <string name="reload_image">Imagem de recarregamento</string>
+    <string name="required_fields">* Campos obrigatórios.</string>
+    <string name="no_fill_required_fields">Campos obrigatórios não preenchidos corretamente</string>
+    <string name="error_download_images">Erro ao carregar as imagens, tente novamente</string>
+    
+    <string name="no_connection">Não há conexão com a internet, tente novamente</string>
+
+    <string-array name="credit_card_flags">
+        <item>VISA</item>
+        <item>MASTER CARD</item>
+        <item>MAESTRO</item>
+    </string-array>
+</resources>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".PaymentStatusActivity">
+
+    <include layout="@layout/include_user" android:id="@+id/rl_data_status"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_data_status"
+        android:layout_marginTop="@dimen/maximum_space_extra"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/primary_text_big"
+            android:textColor="@color/white"
+            android:id="@+id/txt_payment_status"
+            android:layout_centerHorizontal="true"
+            android:text="@string/payment_confirmed"
+            android:textStyle="bold"/>
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_transaction_data"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/double_default_space"
+            android:layout_below="@id/txt_payment_status">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_transaction">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transaction"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextViewResultTheme"
+                    android:id="@+id/txt_transaction"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/transaction_example"
+                    tools:ignore="RelativeOverlap" />
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/half_default_space"
+                    android:layout_below="@id/txt_transaction"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white_two"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_space"
+                android:id="@+id/rl_date"
+                android:layout_below="@id/rl_transaction">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextViewResultTheme"
+                    android:id="@+id/txt_date"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/date_example"
+                    tools:ignore="RelativeOverlap" />
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/half_default_space"
+                    android:layout_below="@id/txt_date"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white_two"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_space"
+                android:id="@+id/rl_card"
+                android:layout_below="@id/rl_date">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextViewResultTheme"
+                    android:id="@+id/txt_card"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/card_example"
+                    tools:ignore="RelativeOverlap" />
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/half_default_space"
+                    android:layout_below="@id/txt_card"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white_two"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_space"
+                android:id="@+id/rl_value"
+                android:layout_below="@id/rl_card">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextViewResultTheme"
+                    android:id="@+id/txt_value"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/value_example"
+                    tools:ignore="RelativeOverlap" />
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/half_default_space"
+                    android:layout_below="@id/txt_value"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white_two"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/double_default_space"
+        android:id="@+id/rl_buttons">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_back_payment_status"
+            android:onClick="backToMain"
+            android:background="@drawable/btn_corners_transparent"
+            android:text="@string/back"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/btn_back_payment_status"
+            android:text="@string/pay_again"
+            android:layout_marginStart="@dimen/double_default_space"
+            android:onClick="payAgain"
+            android:background="@drawable/btn_corners_gradient"/>
+    </RelativeLayout>
+</RelativeLayout>

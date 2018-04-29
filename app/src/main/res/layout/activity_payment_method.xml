@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background">
+
+    <!--
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/default_space"
+        android:id="@+id/rl_back_to_main"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/voltar"
+            android:rotation="180"
+            android:id="@+id/back_arrow_image"
+            android:src="@drawable/ic_down"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voltar"
+            android:layout_toEndOf="@+id/back_arrow_image"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout> -->
+    <include layout="@layout/include_user" android:id="@+id/rl_dados"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/maximum_space"
+        android:layout_below="@+id/rl_dados">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/default_text_to_value"
+            android:inputType="numberDecimal"
+            android:textSize="48sp"
+            android:id="@+id/edit_value"
+            app:backgroundTint="@color/dusk_two"
+            android:textColor="@color/white_two"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/double_default_space"
+        android:layout_alignParentBottom="true">
+        
+        <View
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white_two"
+            android:layout_height="1dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_credit_card"
+            android:layout_marginTop="@dimen/double_default_space"/>
+
+        <Button
+            android:layout_width="@dimen/default_size_button"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_credit_card"
+            android:layout_marginTop="@dimen/double_default_space"
+            android:layout_centerHorizontal="true"
+            android:text="@string/pay_text"
+            android:textSize="@dimen/normal_text"
+            android:onClick="pay"
+            android:id="@+id/btn_pay"
+            android:background="@drawable/btn_corners_gradient"
+            android:textColor="@color/dusk_two"/>
+    </RelativeLayout>
+</RelativeLayout>
