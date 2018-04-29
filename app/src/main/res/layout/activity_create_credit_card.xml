@@ -44,7 +44,7 @@
             android:layout_height="@dimen/default_form_height"
             android:hint="@string/credit_card_number"
             android:layout_marginTop="@dimen/default_space"
-            android:inputType=""
+            android:inputType="numberSigned"
             android:maxLength="16"
             android:layout_below="@id/edit_name"
             android:textSize="@dimen/primary_text"

@@ -16,7 +16,8 @@ class ListCreditCardManager(private val activity: Activity) {
     val size = if (list.isNotEmpty()) list.size else 0
 
     fun insertNewItem(creditCard: CreditCard) {
-        list.add(CreditCardItem(activity, creditCard, ListCreditCardChooseListener(this), list.lastOrNull()?.id))
+        list.add(CreditCardItem(activity, creditCard, ListCreditCardChooseListener(this), size,list.lastOrNull()?.id))
+
     }
 
     fun selectItem(index : Int){

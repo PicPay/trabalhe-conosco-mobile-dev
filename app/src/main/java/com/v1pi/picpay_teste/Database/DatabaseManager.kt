@@ -3,7 +3,6 @@ package com.v1pi.picpay_teste.Database
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
-import android.arch.persistence.room.migration.Migration
 import android.content.Context
 import com.v1pi.picpay_teste.Dao.CreditCardDao
 import com.v1pi.picpay_teste.Domains.CreditCard

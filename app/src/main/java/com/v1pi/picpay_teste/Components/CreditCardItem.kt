@@ -1,7 +1,6 @@
 package com.v1pi.picpay_teste.Components
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.support.v4.content.ContextCompat
@@ -15,7 +14,7 @@ import com.v1pi.picpay_teste.R
 import kotlinx.android.synthetic.main.activity_choose_credit_card.*
 import java.util.*
 
-class CreditCardItem(private val activity: Activity, val creditCard: CreditCard, private val clickListener: View.OnClickListener, private val bellowTo : Int? = null) {
+class CreditCardItem(private val activity: Activity, val creditCard: CreditCard, private val clickListener: View.OnClickListener, private val position : Int, private val bellowTo : Int? = null) {
     var id : Int? = null
         private set
     private val imgCreditCard = ImageView(activity)
@@ -40,7 +39,7 @@ class CreditCardItem(private val activity: Activity, val creditCard: CreditCard,
 
         createCheckIcon()
 
-        rlCreditCards.addView(content)
+        rlCreditCards.addView(content, position)
     }
 
     fun select() {

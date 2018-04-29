@@ -10,10 +10,4 @@ class UserUnitTest {
         Assert.assertEquals(true, User(5) == User(5))
         Assert.assertEquals(false, User(6) == User(7))
     }
-
-    @Test
-    fun toStringIsCorrect() {
-        val u : String = User(2, "Pedro").toString()
-        Assert.assertEquals("Nome: Pedro", u)
-    }
 }

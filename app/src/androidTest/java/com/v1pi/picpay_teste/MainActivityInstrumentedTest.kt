@@ -34,7 +34,6 @@ class MainActivityInstrumentedTest {
 
     @Test
     fun testLaunchActivityOnClickInRecycler() {
-        //Gambiarra
         while(RESTState.RESPONSE_USER != RESTState.STATES.READY);
 
         // A requisição deve retornar um usuário desse tipo

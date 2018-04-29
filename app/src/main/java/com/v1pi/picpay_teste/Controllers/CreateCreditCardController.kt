@@ -16,14 +16,6 @@ import java.util.concurrent.Callable
 class CreateCreditCardController(private val activity : CreateCreditCardActivity) {
     private val databaseManager: DatabaseManager? = DatabaseManager.getInstance(activity)
 
-    /*init {
-        Observable.fromCallable(object: Callable<Unit> {
-            override fun call() {
-                databaseManager?.creditCardDao()?.deleteTable()
-            }
-        }).subscribeOn(Schedulers.io()).subscribe()
-    }*/
-
     fun insertCreditCard(creditCard: CreditCard) {
         activity.create_credit_card_progress.visibility = View.VISIBLE
 

@@ -7,9 +7,9 @@ import com.v1pi.picpay_teste.ChooseCreditCardActivity
 import com.v1pi.picpay_teste.Database.DatabaseManager
 import com.v1pi.picpay_teste.Domains.CreditCard
 import com.v1pi.picpay_teste.Utils.ListCreditCardManager
-import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.Callable
 
 class ChooseCreditCardActivityController(private val activity : ChooseCreditCardActivity) {
     private val listManager = ListCreditCardManager(activity)
@@ -17,7 +17,6 @@ class ChooseCreditCardActivityController(private val activity : ChooseCreditCard
 
     fun setUpCreditCardsFromDb() {
         val intent = activity.intent
-        listManager.clear()
 
         // Efeito visual para selecionar o q ele ja havia selecionada na tela anterior
         if (intent != null)
@@ -28,16 +27,21 @@ class ChooseCreditCardActivityController(private val activity : ChooseCreditCard
     }
 
     private fun getCreditCardsFromDb(id : Int = -1){
+        Log.i("LOGGER", "fui chamado")
+        listManager.clear()
 
-        databaseManager?.creditCardDao()?.getAll()?.map {
-            it.map {
-                activity.runOnUiThread {
-                    listManager.insertNewItem(it)
-                    if(id >= 0 && id == it.uid)
-                        listManager.selectItem(listManager.getIndexFromId(id))
-                }
-            }
-        }?.subscribeOn(Schedulers.io())?.subscribe()
+        databaseManager?.creditCardDao()?.getAll()?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe(object : Consumer<List<CreditCard>> {
+                    override fun accept(t: List<CreditCard>) {
+                        t.map {
+                            listManager.insertNewItem(it)
+                            if(id >= 0 && id == it.uid) {
+                                listManager.selectItem(listManager.getIndexFromId(id))
+                            }
+                        }
+                    }
+                })
     }
 
     fun setResultParams(){
