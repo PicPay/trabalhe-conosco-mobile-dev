@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7de6c6</color>
+    <color name="colorPrimaryDark">#6eccaf</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteTwo">#d8d8d8</color>
+    <color name="colorMenuText">#474971</color>
+    <color name="colorDusk">#3c3e64</color>
+    <color name="colorDuskTwo">#474971</color>
+    <color name="colorDark">#1d1e2a</color>
+    <color name="colorDuckEggBlue">#b4f4e5</color>
+    <color name="colorDuckEggBlueTwo">#7de6c6</color>
+    <color name="colorMediumPink">#ef5778</color>
+    <color name="colorCoolGrey">#acb1bd</color>
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".Fragment.CardFragment">
+
+    <RelativeLayout
+        android:id="@+id/rl_card_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/ic_card_back"
+            android:layout_width="15dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="@string/action_back"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/action_back"
+            android:layout_toRightOf="@+id/ic_card_back"
+            android:layout_toEndOf="@+id/ic_card_back" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_card_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_card_voltar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/tv_card_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cards"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_cards"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            android:layout_below="@+id/tv_card_1"
+            android:layout_marginTop="20dp"
+            android:scrollbars="none">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_card_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_card_1"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp">
+
+        <View
+            android:id="@+id/v_card_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorWhiteTwo"
+            android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_card_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:id="@+id/ic_card_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_add"/>
+
+            <TextView
+                android:id="@+id/tv_card_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:layout_toRightOf="@id/ic_card_add"
+                android:text="@string/newCard"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@id/ic_card_add"
+                android:layout_marginStart="10dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="40dp">
+
+        <Button
+            android:id="@+id/bt_selectCard"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_gradient"
+            android:textColor="@color/colorDuskTwo"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@string/button_select"
+            android:layout_marginTop="20dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

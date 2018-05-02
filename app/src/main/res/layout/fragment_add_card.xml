@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gradient_background"
+    tools:context=".Fragment.AddCardFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_addCard_voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/ic_addCard_back"
+                android:layout_width="15dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/action_back"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/action_back"
+                android:layout_toRightOf="@+id/ic_addCard_back"
+                android:layout_toEndOf="@+id/ic_addCard_back" />
+
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/sn_addCard_bandeira"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_addCard_voltar"
+            android:popupBackground="@color/colorWhite"
+            android:backgroundTint="@color/colorCoolGrey"
+            android:layout_marginTop="40dp">
+        </Spinner>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tvl_addCard_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorCoolGrey"
+            android:layout_below="@+id/sn_addCard_bandeira"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/et_addCard_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_nome"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="40"
+                android:backgroundTint="@color/colorCoolGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tvl_addCard_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorCoolGrey"
+            android:layout_below="@+id/tvl_addCard_1"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/et_addCard_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_numero"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="16"
+                android:backgroundTint="@color/colorCoolGrey"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tvl_addCard_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorCoolGrey"
+            android:layout_below="@+id/tvl_addCard_2"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/et_addCard_validade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_validade"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:maxLength="7"
+                android:inputType="number"
+                android:backgroundTint="@color/colorCoolGrey" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tvl_addCard_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorCoolGrey"
+            android:layout_below="@+id/tvl_addCard_3"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/et_addCard_cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_cvv"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:inputType="number"
+                android:maxLength="3"
+                android:backgroundTint="@color/colorCoolGrey" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tvl_addCard_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorCoolGrey"
+            android:layout_below="@+id/tvl_addCard_4"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/et_addCard_cep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_cep"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:backgroundTint="@color/colorCoolGrey"
+                android:maxLines="1"
+                android:maxLength="8"
+                android:inputType="number" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_below="@+id/tvl_addCard_5">
+
+            <Button
+                android:id="@+id/bt_addCard"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/button_gradient"
+                android:textColor="@color/colorDuskTwo"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="40dp"
+                android:text="@string/button_add"
+                android:layout_marginTop="40dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

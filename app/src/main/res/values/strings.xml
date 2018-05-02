@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Picpay | Edney Oliveira</string>
+    <string name="action_settings">Edney Oliveira</string>
+    <string name="action_back">Voltar</string>
+    <string name="without_card">Nenhum cartão de crédito cadastrado.</string>
+    <string name="action_register_card">Cadastrar agora.</string>
+    <string name="payment">Forma de pagamento:</string>
+    <string name="button_pay">PAGAR</string>
+    <string name="button_add">CADASTRAR</string>
+    <string name="button_select">SELECIONAR CARTÃO</string>
+    <string name="button_payAgain">PAGAR NOVAMENTE</string>
+    <string name="button_back">VOLTAR</string>
+    <string name="cards">Cartões Cadastrados</string>
+    <string name="newCard">Cadastrar novo cartão</string>
+    <string name="transacao">Transação</string>
+    <string name="data">Data</string>
+    <string name="cartao">Cartão</string>
+    <string name="valor">Valor</string>
+    <string name="currency">R$</string>
+    <string name="et_nome">Nome escrito no cartão</string>
+    <string name="et_numero">Número do Cartão</string>
+    <string name="et_validade">Validade (mm/aaaa)</string>
+    <string name="et_cvv">Código de segurança</string>
+    <string name="et_cep">CEP do endereço da fatura</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

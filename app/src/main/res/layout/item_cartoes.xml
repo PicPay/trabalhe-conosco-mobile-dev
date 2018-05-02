@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_itemCard_main"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/rl_itemCard_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/ic_itemCard_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_card" />
+
+        <TextView
+            android:id="@+id/tv_itemCard_numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:text=""
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/ic_itemCard_card"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/ic_itemCard_card" />
+
+        <ImageView
+            android:id="@+id/ic_itemCard_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:visibility="invisible"
+            android:src="@drawable/ic_check"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/tv_itemCard_numero"
+            android:layout_toEndOf="@+id/tv_itemCard_numero"
+            android:layout_marginStart="20dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
