@@ -10,39 +10,61 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    var persons: [Person]?
+    var persons = [Person]()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        let urlString = "http://careers.picpay.com/tests/mobdev/users"
-        
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            
-            guard let data = data else { return }
-            
-            do {
-                let persons = try JSONDecoder().decode([Person].self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.persons = persons
-                }
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-        }.resume()
-    }
+    var pickedPerson: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         clearsSelectionOnViewWillAppear = false
+        
+        let _ = PicPayService().loadPersons { persons, error in
+            if error == nil {
+                self.persons = persons!
+            }
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationController = segue.destination as? UINavigationController,
+            let picker = navigationController.viewControllers.first as? PersonPickerController {
+            picker.displayedPersons = persons
+            picker.delegate = self
+        }
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0 else {
+            return
+        }
+        
+        if let person = pickedPerson {
+            cell.textLabel?.text = person.name
+            cell.textLabel?.textColor = .darkText
+            cell.detailTextLabel?.text = person.username
+            cell.detailTextLabel?.textColor = .darkText
+        } else {
+            cell.textLabel?.text = "Pessoa"
+            cell.textLabel?.textColor = .lightGray
+            cell.detailTextLabel?.text = nil
+        }
+    }
+}
+
+extension MainViewController: PersonPickerControllerDelegate {
+    func personPickerDidCancel(_ picker: PersonPickerController) {
+        tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+        picker.dismiss(animated: true)
+    }
+    
+    func personPickerController(_ picker: PersonPickerController, didPickPerson person: Person) {
+        pickedPerson = person
+        tableView.reloadData()
+        picker.dismiss(animated: true)
     }
 }
