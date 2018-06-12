@@ -9,57 +9,67 @@
 import UIKit
 
 protocol PersonPickerControllerDelegate: class {
-    func personPickerController(_ picker: PersonPickerController, didPickPerson person: Person)
-    func personPickerDidCancel(_ picker: PersonPickerController)
+    func personPickerController(_ pickerController: PersonPickerController, didPickPerson person: Person)
+    func personPickerControllerDidCancel(_ pickerController: PersonPickerController)
 }
 
 private let reuseIdentifier = "cell"
 
 class PersonPickerController: UICollectionViewController {
 
-    var displayedPersons: [Person]?
+    fileprivate var persons = [Person]()
     
     weak var delegate: PersonPickerControllerDelegate?
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        delegate?.personPickerDidCancel(self)
+        delegate?.personPickerControllerDidCancel(self)
     }
     
-    // MARK: UICollectionViewDataSource
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let _ = PicPayService().loadPersons { persons, error in
+            if error == nil {
+                self.persons = persons!
+                
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+            }
+        }
     }
+    
+    // MARK: Collection view data source
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return displayedPersons?.count ?? 0
+        return persons.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PersonView
     }
     
-    // MARK: UICollectionViewDelegate
+    // MARK: Collection view delegate
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         let cell = cell as! PersonView
-        let person = displayedPersons![indexPath.row]
+        let person = persons[indexPath.row]
         cell.titleLabel.text = person.name
         cell.subtitleLabel.text = person.username
         let client = WebClient(baseUrl: person.photoURL.deletingLastPathComponent())
         let _ = client.request(path: person.photoURL.lastPathComponent, body: nil) { data, error in
-            DispatchQueue.main.async {
-                if let imageData = data {
-                    cell.imageView.image = UIImage(data: imageData)
-                } else {
-                    cell.imageView.image = nil
+            if error == nil {
+                let image = UIImage(data: data!)
+                
+                DispatchQueue.main.async {
+                    cell.imageView.image = image
                 }
             }
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.personPickerController(self, didPickPerson: displayedPersons![indexPath.row])
+        delegate?.personPickerController(self, didPickPerson: persons[indexPath.row])
     }
 }

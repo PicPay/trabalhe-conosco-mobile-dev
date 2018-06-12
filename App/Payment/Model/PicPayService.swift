@@ -13,8 +13,8 @@ final class PicPayService {
     
     func loadPersons(completion: @escaping ([Person]?, WebError?) -> ()) -> URLSessionDataTask? {
         return client.request(path: "users", body: nil) { data, error in
-            if let jsonData = data {
-                completion(try? JSONDecoder().decode([Person].self, from: jsonData), nil)
+            if let json = data {
+                completion(try? JSONDecoder().decode([Person].self, from: json), nil)
             } else {
                 completion(nil, error)
             }
