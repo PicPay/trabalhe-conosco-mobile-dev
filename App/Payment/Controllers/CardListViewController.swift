@@ -9,36 +9,17 @@
 import UIKit
 
 protocol CardListViewControllerDelegate: class {
-    func cardListViewController(_ cardListController: CardListViewController, didSelectCard card: Card)
-    func cardListViewControllerDone(_ cardListController: CardListViewController)
+    func cardListViewController(_ cardListController: CardListViewController, didSelectCard card: Card?)
+    func cardListViewControllerDoneButtonTapped(_ cardListController: CardListViewController)
 }
 
 private let reuseIdentifier = "cell"
 
 class CardListViewController: UITableViewController {
 
-    fileprivate var cards = [Card]() {
-        didSet {
-            if cards.isEmpty {
-                navigationItem.rightBarButtonItem = addButtonItem
-            } else {
-                navigationItem.rightBarButtonItem = editButtonItem
-            }
-        }
-    }
+    var cards = PicPayService.loadCards()
     
-    var indexPathForSelectedCard: IndexPath? {
-        willSet {
-            if let indexPath = indexPathForSelectedCard, isViewLoaded {
-                tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            }
-        }
-        didSet {
-            if let indexPath = indexPathForSelectedCard {
-                delegate?.cardListViewController(self, didSelectCard: cards[indexPath.row])
-            }
-        }
-    }
+    var indexPathForSelectedCard: IndexPath?
     
     weak var delegate: CardListViewControllerDelegate?
     
@@ -46,7 +27,28 @@ class CardListViewController: UITableViewController {
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-        delegate?.cardListViewControllerDone(self)
+        if let indexPath = indexPathForSelectedCard {
+            let userData = NSKeyedArchiver.archivedData(withRootObject: indexPath)
+            UserDefaults.standard.set(userData, forKey: reuseIdentifier)
+        } else {
+            UserDefaults.standard.removeObject(forKey: reuseIdentifier)
+        }
+        
+        delegate?.cardListViewControllerDoneButtonTapped(self)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        if let userData = UserDefaults.standard.object(forKey: reuseIdentifier) as? Data {
+            indexPathForSelectedCard = NSKeyedUnarchiver.unarchiveObject(with: userData) as? IndexPath
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateNavigationItems(animated)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -56,6 +58,16 @@ class CardListViewController: UITableViewController {
             navigationItem.setLeftBarButton(addButtonItem, animated: animated)
         } else {
             navigationItem.setLeftBarButton(doneButtonItem, animated: animated)
+        }
+    }
+    
+    func updateNavigationItems(_ animated: Bool) {
+        if cards.isEmpty {
+            navigationItem.setLeftBarButton(doneButtonItem, animated: animated)
+            navigationItem.setRightBarButton(addButtonItem, animated: animated)
+        } else {
+            navigationItem.setLeftBarButton(isEditing ? addButtonItem : doneButtonItem, animated: animated)
+            navigationItem.setRightBarButton(editButtonItem, animated: animated)
         }
     }
     
@@ -74,14 +86,26 @@ class CardListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        PicPayService.deleteCard(cards.remove(at: indexPath.row))
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        updateNavigationItems(true)
         
-        cell.textLabel?.text = cards[indexPath.row].cardNumber
-
-        return cell
+        if indexPathForSelectedCard == indexPath {
+            indexPathForSelectedCard = nil
+            delegate?.cardListViewController(self, didSelectCard: nil)
+        }
     }
     
     // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.accessoryType = indexPath == indexPathForSelectedCard ? .checkmark : .none
+        cell.textLabel?.text = cards[indexPath.row].number
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditing {
@@ -90,37 +114,28 @@ class CardListViewController: UITableViewController {
             cardController.delegate = self
             show(cardController, sender: self)
         } else {
+            if let oldIndexPath = indexPathForSelectedCard {
+                tableView.cellForRow(at: oldIndexPath)?.accessoryType = .none
+            }
             indexPathForSelectedCard = indexPath
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            delegate?.cardListViewController(self, didSelectCard: cards[indexPath.row])
         }
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 }
 
 extension CardListViewController: CardViewControllerDelegate {
-    func cardViewControllerDidUpdateDisplayedCard(_ cardController: CardViewController) {
+    func cardViewControllerSaveButtonTapped(_ cardController: CardViewController) {
+        PicPayService.saveCard(cardController.displayedCard!)
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             cards[indexPath.row] = cardController.displayedCard!
             tableView.reloadData()
+            
+            if indexPath == indexPathForSelectedCard {
+                delegate?.cardListViewController(self, didSelectCard: cardController.displayedCard!)
+            }
         } else {
             cards.append(cardController.displayedCard!)
             let indexPath = IndexPath(row: cards.count-1, section: 0)

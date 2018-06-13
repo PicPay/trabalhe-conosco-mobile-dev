@@ -21,6 +21,7 @@
 		7AD6368120CAF7DC00B984DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368020CAF7DC00B984DF /* Assets.xcassets */; };
 		7AD6368C20CAF8E700B984DF /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368B20CAF8E700B984DF /* Launch.storyboard */; };
 		7AD6368E20CAF92900B984DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368D20CAF92900B984DF /* Main.storyboard */; };
+		7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEE2D6920D004ED00B632CC /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7AD6368520CAF7DC00B984DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AD6368B20CAF8E700B984DF /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		7AD6368D20CAF92900B984DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AEE2D6920D004ED00B632CC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Model/DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7A114CF020CEC2350048826E /* WebClient.swift */,
+				7AEE2D6920D004ED00B632CC /* DataManager.swift */,
 				7A114CEE20CEC2340048826E /* PicPayService.swift */,
 				7A114CEF20CEC2340048826E /* Person.swift */,
 				7A4C717520CF306200B1ED58 /* Card.swift */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A114CED20CEC1CC0048826E /* ExpiresButton.swift in Sources */,
+				7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */,
 				7A847B4C20CD5E3C0033C6EA /* PersonView.swift in Sources */,
 				7A97494E20CF444C009E5C27 /* MainViewController.swift in Sources */,
 				7A114CF320CEC2350048826E /* WebClient.swift in Sources */,

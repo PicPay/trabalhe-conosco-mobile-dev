@@ -26,7 +26,8 @@ struct Card: Codable {
         return dateFormatter.date(from: date) != nil
     }
     
-    let cardNumber: String
+    let id: String
+    let number: String
+    let expires: String
     let securityCode: String
-    let expirationDate: String
 }

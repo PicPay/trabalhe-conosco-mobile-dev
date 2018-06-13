@@ -25,6 +25,7 @@ class MainViewController: UITableViewController {
         if let pickerController = rootViewController as? PersonPickerController {
             pickerController.delegate = self
         } else if let cardListController = rootViewController as? CardListViewController {
+            if selectedCard == nil { cardListController.indexPathForSelectedCard = nil }
             cardListController.delegate = self
         }
     }
@@ -46,7 +47,7 @@ class MainViewController: UITableViewController {
             }
         case 1:
             if let card = selectedCard {
-                cell.textLabel?.text = card.cardNumber
+                cell.textLabel?.text = card.number
                 cell.textLabel?.textColor = .darkText
             } else {
                 cell.textLabel?.text = "Cartão"
@@ -72,12 +73,12 @@ extension MainViewController: PersonPickerControllerDelegate {
 }
 
 extension MainViewController: CardListViewControllerDelegate {
-    func cardListViewController(_ cardListController: CardListViewController, didSelectCard card: Card) {
+    func cardListViewController(_ cardListController: CardListViewController, didSelectCard card: Card?) {
         selectedCard = card
         tableView.reloadData()
     }
     
-    func cardListViewControllerDone(_ cardListController: CardListViewController) {
+    func cardListViewControllerDoneButtonTapped(_ cardListController: CardListViewController) {
         tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
         cardListController.dismiss(animated: true)
     }

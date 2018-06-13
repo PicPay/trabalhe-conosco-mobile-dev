@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CardViewControllerDelegate: class {
-    func cardViewControllerDidUpdateDisplayedCard(_ cardController: CardViewController)
+    func cardViewControllerSaveButtonTapped(_ cardController: CardViewController)
 }
 
 class CardViewController: UITableViewController {
@@ -46,19 +46,26 @@ class CardViewController: UITableViewController {
     @IBAction func save(_ sender: UIBarButtonItem) {
         
         displayedCard = Card(
-            cardNumber: cardNumberField.text!,
-            securityCode: securityCodeField.text!,
-            expirationDate: expiresButton.titleLabel!.text!)
+            id: displayedCard?.id ?? NSUUID().uuidString,
+            number: cardNumberField.text!,
+            expires: expiresButton.titleLabel!.text!,
+            securityCode: securityCodeField.text!)
         
-        delegate?.cardViewControllerDidUpdateDisplayedCard(self)
+        delegate?.cardViewControllerSaveButtonTapped(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardNumberField.text = displayedCard?.cardNumber
-        expiresButton.setTitle(displayedCard?.expirationDate ?? "MM/AAAA", for: .normal)
-        securityCodeField.text = displayedCard?.securityCode
+        if let card = displayedCard {
+            cardNumberField.text = card.number
+            expiresButton.setTitle(card.expires, for: .normal)
+            securityCodeField.text = card.securityCode
+        } else {
+            cardNumberField.text = nil
+            expiresButton.setTitle("MM/AAAA", for: .normal)
+            securityCodeField.text = nil
+        }
         
         saveButtonItem.isEnabled = isValidCard
     }
