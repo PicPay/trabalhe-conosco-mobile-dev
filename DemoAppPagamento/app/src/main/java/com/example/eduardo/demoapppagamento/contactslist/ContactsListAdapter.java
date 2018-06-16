@@ -13,27 +13,39 @@ import com.example.eduardo.demoapppagamento.data.Contact;
 import java.util.List;
 
 class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewHolder> {
+
+    private RecyclerViewClickListener mListener;
     private List<Contact> mDataset;
+
+
+    public ContactsListAdapter(List<Contact> contacts, RecyclerViewClickListener listener) {
+        mDataset = contacts;
+        mListener = listener;
+    }
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
         public ImageView mImageView;
         public TextView mNameView;
         public TextView mDescriptionView;
+        private RecyclerViewClickListener mListener;
 
-        public ViewHolder(View v) {
+        public ViewHolder(View v, RecyclerViewClickListener listener) {
             super(v);
             mImageView = (ImageView) v.findViewById(R.id.contact_img);
             mNameView = (TextView) v.findViewById(R.id.contact_name);
             mDescriptionView = (TextView) v.findViewById(R.id.contact_description);
+            mListener = listener;
+            v.setOnClickListener(this);
         }
-    }
 
-    public ContactsListAdapter(List<Contact> contacts) {
-        mDataset = contacts;
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(view, getAdapterPosition());
+        }
     }
 
     @Override
@@ -42,7 +54,7 @@ class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewH
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.contact_item, parent, false);
 
-        ViewHolder vh = new ViewHolder(v);
+        ViewHolder vh = new ViewHolder(v, mListener);
         return vh;
     }
 

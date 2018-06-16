@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,17 +38,20 @@ public class ContactsListActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerViewClickListener mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts_list_layout);
 
+        mListener = new ContactsListListener();
+
         mRecyclerView = (RecyclerView) findViewById(R.id.contacts_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new ContactsListAdapter(new ArrayList<Contact>() );
+        mAdapter = new ContactsListAdapter(new ArrayList<Contact>(), mListener);
         mRecyclerView.setAdapter(mAdapter);
 
         loadContacts();
@@ -73,7 +77,17 @@ public class ContactsListActivity extends AppCompatActivity {
     }
 
     private void setAdapter(List<Contact> contacts) {
-        mAdapter = new ContactsListAdapter(contacts);
+        mAdapter = new ContactsListAdapter(contacts, mListener);
         mRecyclerView.setAdapter(mAdapter);
     }
+
+
+    public class ContactsListListener implements RecyclerViewClickListener {
+
+        @Override
+        public void onClick(View view, int position) {
+            Toast.makeText(getBaseContext(), "Position " + position, Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
