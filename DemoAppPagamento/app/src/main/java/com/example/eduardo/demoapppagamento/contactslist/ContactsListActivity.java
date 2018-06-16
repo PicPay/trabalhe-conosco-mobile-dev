@@ -2,7 +2,10 @@ package com.example.eduardo.demoapppagamento.contactslist;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,29 +34,26 @@ import java.util.List;
 
 public class ContactsListActivity extends AppCompatActivity {
 
-    //final List<Contact> contacts = new ArrayList<>();
-
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts_list_layout);
 
-        /*setContentView(R.layout.activity_main);
-
-        final TextView text = (TextView) findViewById(R.id.textId);
-        text.setText("Meu nome e Joao!");
-        */
-
-        // Create the presenter
-        /*mContactsPresenter = new ContactsListPresenter(
-                RepositoryInjection.provideContactsRepository(getApplicationContext()));
-        */
+        mRecyclerView = (RecyclerView) findViewById(R.id.contacts_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new ContactsListAdapter(new ArrayList<Contact>() );
+        mRecyclerView.setAdapter(mAdapter);
 
         loadContacts();
     }
 
-    // Presenter
+
 
     private void loadContacts() {
 
@@ -62,7 +62,7 @@ public class ContactsListActivity extends AppCompatActivity {
         dataSource.getContacts(new ContactsDataSource.LoadContactsCallback() {
             @Override
             public void onContactsLoaded(List<Contact> contacts) {
-                setListContacts(contacts);
+                setAdapter(contacts);
             }
 
             @Override
@@ -72,54 +72,8 @@ public class ContactsListActivity extends AppCompatActivity {
         });
     }
 
-    private void setListContacts(List<Contact> contacts) {
-        ListView contactsListView = (ListView) findViewById(R.id.contacts_list);
-        ContactsAdapter contactsAdapter = new ContactsAdapter(contacts);
-        contactsListView.setAdapter(contactsAdapter);
-    }
-
-
-    // View
-
-    class ContactsAdapter extends BaseAdapter {
-
-        private final List<Contact> contacts;
-        //private final Context context;
-
-
-        public ContactsAdapter(List<Contact> values) {
-            super();
-            contacts = values;
-        }
-
-        @Override
-        public int getCount() {
-            return contacts.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return contacts.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            //LayoutInflater inflater = (LayoutInflater) context
-            //        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rowView = getLayoutInflater().inflate(R.layout.contact_item, null);
-            ImageView imageView = (ImageView) rowView.findViewById(R.id.contact_img);
-            TextView nameView = (TextView) rowView.findViewById(R.id.contact_name);
-            TextView descriptionView = (TextView) rowView.findViewById(R.id.contact_description);
-
-            //imageView.setImageResource(R.drawable.bigb);
-            nameView.setText(contacts.get(i).getName());
-            descriptionView.setText(contacts.get(i).getUsername());
-            return rowView;
-        }
+    private void setAdapter(List<Contact> contacts) {
+        mAdapter = new ContactsListAdapter(contacts);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

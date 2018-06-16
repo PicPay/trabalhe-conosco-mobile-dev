@@ -51,9 +51,6 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
 
         String url = "http://careers.picpay.com/tests/mobdev/users";
 
-        Log.d("Response", "blablablablaablalbalbalblablalbalblb");
-
-
         RequestQueue queue = Volley.newRequestQueue(App.getContext());  // this = context
         // prepare the Request
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -64,22 +61,7 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                         // display response
                         //Log.d("Response", response.toString());
 
-                        List<Contact> contacts = new ArrayList<Contact>();
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jsonObject = response.getJSONObject(i);
-                                int id = jsonObject.getInt("id");
-                                String name = jsonObject.getString("name");
-                                String img = jsonObject.getString("img");
-                                String username = jsonObject.getString("username");
-                                //Log.d("--->", name );
-                                contacts.add(new Contact(id, name, img, username));
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        callback.onContactsLoaded(contacts);
+                        callback.onContactsLoaded(parseContacts(response));
                     }
                 },
                 new Response.ErrorListener()
@@ -97,13 +79,32 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
         queue.add(getRequest);
     }
 
-/*
-    private static void requestImage(String url) {
+    private List<Contact> parseContacts(JSONArray response){
+        List<Contact> contacts = new ArrayList<Contact>();
+        try {
+            for (int i = 0; i < response.length(); i++) {
+                JSONObject jsonObject = response.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                String img = jsonObject.getString("img");
+                String username = jsonObject.getString("username");
+                //Log.d("--->", name );
+                contacts.add(new Contact(id, name, img, username));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return contacts;
+    }
+
+    /*
+    private static void requestImage(String url, Bitmap img) {
         ImageRequest request = new ImageRequest(url,
             new Response.Listener<Bitmap>() {
                 @Override
                 public void onResponse(Bitmap bitmap) {
-
+                    img = bitmap;
                 }
             }, 0, 0, null,
             new Response.ErrorListener() {
