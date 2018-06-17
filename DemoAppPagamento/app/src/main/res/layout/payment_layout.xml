@@ -5,6 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".payment.PaymentActivity">
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -17,7 +18,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
@@ -48,6 +49,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <TextView
@@ -90,7 +92,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:orientation="horizontal">
 
             <TextView
@@ -101,21 +103,43 @@
                 android:text="CARTÃO DE CRÉDITO:" />
 
             <Button
-                android:id="@+id/add_card_button"
+                android:id="@+id/add_new_card_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="0dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
-                android:text="+"
+                android:drawableTop="@drawable/add_icon"
+                android:paddingTop="8dp"
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
+
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/credit_cards_recycle_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/credit_cards_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/confirm_payment_button"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/colorPrimary"
+            android:text="TRANSFERIR"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
