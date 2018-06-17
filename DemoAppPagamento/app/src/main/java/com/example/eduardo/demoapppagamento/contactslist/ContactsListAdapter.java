@@ -14,26 +14,22 @@ import java.util.List;
 
 class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewHolder> {
 
-    private RecyclerViewClickListener mListener;
+    private ContactsListClickListener mListener;
     private List<Contact> mDataset;
 
-
-    public ContactsListAdapter(List<Contact> contacts, RecyclerViewClickListener listener) {
+    public ContactsListAdapter(List<Contact> contacts, ContactsListClickListener listener) {
         mDataset = contacts;
         mListener = listener;
     }
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // each data item is just a string in this case
+
         public ImageView mImageView;
         public TextView mNameView;
         public TextView mDescriptionView;
-        private RecyclerViewClickListener mListener;
+        private ContactsListClickListener mListener;
 
-        public ViewHolder(View v, RecyclerViewClickListener listener) {
+        public ViewHolder(View v, ContactsListClickListener listener) {
             super(v);
             mImageView = (ImageView) v.findViewById(R.id.contact_img);
             mNameView = (TextView) v.findViewById(R.id.contact_name);

@@ -61,6 +61,11 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                         // display response
                         //Log.d("Response", response.toString());
 
+                        /*try {
+                            Thread.sleep(3000);
+                        } catch (Exception e){
+
+                        }*/
                         callback.onContactsLoaded(parseContacts(response));
                     }
                 },

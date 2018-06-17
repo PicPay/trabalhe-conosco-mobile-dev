@@ -7,9 +7,11 @@ import android.arch.persistence.room.Ignore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.io.Serializable;
+
 //Ex: {"id":1001,"name":"Eduardo Santos","img":"https://randomuser.me/api/portraits/men/9.jpg","username":"@eduardo.santos"}
 @Entity(tableName = "contacts")
-public final class Contact {
+public final class Contact implements Serializable {
 
     @PrimaryKey
     @NonNull
