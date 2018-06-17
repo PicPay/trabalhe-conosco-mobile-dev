@@ -6,10 +6,11 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity(tableName = "cards")
-public class Card {
+public class Card implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp"
-    tools:context=".new_card.NewCardActivity">>
+    android:layout_margin="16dp"
+    tools:context=".new_card.NewCardActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,14 +23,15 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nome" />
+            android:text="@string/name" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/input_owner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="@string/hint_name_owner"
             android:inputType="textPersonName" />
 
     </LinearLayout>
@@ -42,11 +40,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +52,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Numero" />
+            android:text="@string/number" />
 
         <EditText
             android:id="@+id/input_card_num"
@@ -66,7 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:hint="@string/hint_card_number"
+            android:inputType="number|text" />
 
     </LinearLayout>
 
@@ -74,11 +69,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,28 +80,23 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mês/Ano (expiração)" />
+            android:text="@string/expiry" />
 
         <EditText
-            android:id="@+id/input_expiration"
+            android:id="@+id/input_expiry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="@string/expiry"
             android:inputType="number" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginBottom="149dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/add_card_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
@@ -120,14 +106,15 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CVV" />
+            android:text="@string/cvv" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/input_cvv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="@string/hint_card_cvv"
             android:inputType="number" />
 
     </LinearLayout>
@@ -136,14 +123,9 @@
         android:id="@+id/add_card_button"
         android:layout_width="0dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
-        android:text="ADICIONAR"
+        android:text="@string/add"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,12 +9,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:text="DESTINATÁRIO:"
+                android:text="@string/recipient"
                 android:textSize="14sp" />
 
             <TextView
@@ -42,7 +37,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="contact_name"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -58,7 +52,7 @@
                 android:layout_height="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
-                android:text="VALOR:" />
+                android:text="@string/value" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,20 +62,18 @@
 
                 <TextView
                     android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="32dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp"
-                    android:layout_weight="1"
-                    android:text="R$"
+                    android:text="@string/currency_symbol"
                     android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/value_payment"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:ems="10"
-                    android:hint="00.00"
+                    android:hint="@string/hint_value"
                     android:inputType="numberDecimal"
                     android:textSize="24sp" />
 
@@ -100,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="CARTÃO DE CRÉDITO:" />
+                android:text="@string/credit_card" />
 
             <Button
                 android:id="@+id/add_new_card_button"
@@ -113,13 +105,15 @@
                 android:drawableTop="@drawable/add_icon"
                 android:paddingTop="8dp"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginStart="38dp"
+                android:layout_marginEnd="0dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -127,6 +121,7 @@
                 android:id="@+id/credit_cards_recycle_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
 
             </android.support.v7.widget.RecyclerView>
@@ -138,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:background="@color/colorPrimary"
-            android:text="TRANSFERIR"
+            android:text="@string/transfer"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

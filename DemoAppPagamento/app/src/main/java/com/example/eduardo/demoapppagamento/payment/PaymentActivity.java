@@ -28,6 +28,7 @@ import java.util.Locale;
 
 public class PaymentActivity extends AppCompatActivity implements CardsListClickListener {
 
+    static final int PICK_CARD_REQUEST = 1;
     private Contact mRecipient;
 
     private RecyclerView mRecyclerView;
@@ -62,7 +63,7 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(), "Add Card!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(PaymentActivity.this, NewCardActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, PICK_CARD_REQUEST);
             }
         });
 
@@ -75,20 +76,6 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
         mRecyclerView.setAdapter(mAdapter);
 
         loadCards();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        String s = "?";
-        /*Intent intent = getIntent();
-        if (intent.hasExtra("card")){
-            s = intent.getStringExtra("card");
-        }*/
-
-        Toast.makeText(getBaseContext(), "On resume: "+ s, Toast.LENGTH_SHORT).show();
-
     }
 
     private void loadCards() {
@@ -125,6 +112,24 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
 
         //Toast.makeText(getBaseContext(), "Position " + position, Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // Get new card added in NewCardActiviry, save in database and reload list
+        if (requestCode == PICK_CARD_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                if (data.hasExtra("newCard")){
+                    Card newCard = (Card) data.getSerializableExtra("newCard");
+                    Toast.makeText(getBaseContext(), newCard.getNumber(), Toast.LENGTH_SHORT).show();
+
+                    CardsDataSource cardsSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
+                    cardsSource.saveCard(newCard);
+                    loadCards();
+                }
+            }
+        }
     }
 
     class CurrencyMask implements TextWatcher {
