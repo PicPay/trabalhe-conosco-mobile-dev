@@ -3,7 +3,7 @@ package com.example.eduardo.demoapppagamento.util;
 import android.app.Application;
 import android.content.Context;
 
-public class App extends Application {
+public class AppSingleton extends Application {
 
     private static Application sApplication;
 

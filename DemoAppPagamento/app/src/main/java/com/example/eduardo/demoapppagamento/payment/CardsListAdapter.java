@@ -5,9 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.example.eduardo.demoapppagamento.R;
 import com.example.eduardo.demoapppagamento.data.Card;
@@ -17,32 +15,60 @@ import java.util.List;
 
 public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.ViewHolder> {
 
-    private CardsListClickListener.Delete mListener;
+    private CardsListClickListener.Delete mDeleteListener;
+    private CardsListClickListener.Select mSelectListener;
     private List<Card> mDataset;
-    private int mSelectedItem;
+    private static int mLastSelectedPosition;
+    //private static int mSelected;
 
-    public CardsListAdapter(List<Card> cards, CardsListClickListener.Delete listener) {
+    public CardsListAdapter(List<Card> cards, CardsListClickListener.Select selectListener,
+                            CardsListClickListener.Delete deleteListener) {
         mDataset = cards;
-        mListener = listener;
+        mDeleteListener = deleteListener;
+        mSelectListener = selectListener;
+        //mLastSelectedRadioButton = null;
+        //
+        if (mDataset.size() == 0) {
+            mLastSelectedPosition = -1;
+        }
+        else {
+            mLastSelectedPosition = 0;
+            mSelectListener.onClick(null, 0);
+            notifyDataSetChanged();
+        }
+
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public RadioButton mRadioButtonView;
         public Button mExcludeButtonView;
-        private CardsListClickListener.Delete mListener;
+        private CardsListClickListener.Delete mDeleteListener;
+        private CardsListClickListener.Select mSelectListener;
 
-        public ViewHolder(View v, CardsListClickListener.Delete listener) {
+        public ViewHolder(View v, CardsListClickListener.Select selectListener,
+                          CardsListClickListener.Delete deleteListener) {
             super(v);
             mRadioButtonView = (RadioButton) v.findViewById(R.id.radio_button);
             mExcludeButtonView = (Button) v.findViewById(R.id.exclude_button);
-            mListener = listener;
+
+            mDeleteListener = deleteListener;
             mExcludeButtonView.setOnClickListener(this);
+
+            mSelectListener = selectListener;
+            mRadioButtonView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            mListener.onClick(view, getAdapterPosition());
+            if (view.equals(mExcludeButtonView)) {
+                mDeleteListener.onClick(view, getAdapterPosition());
+            }
+            else {
+                mSelectListener.onClick(view, getAdapterPosition());
+                mLastSelectedPosition = getAdapterPosition();
+                notifyDataSetChanged();
+            }
         }
     }
 
@@ -52,7 +78,9 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item, parent, false);
 
-        CardsListAdapter.ViewHolder vh = new CardsListAdapter.ViewHolder(v, mListener);
+        CardsListAdapter.ViewHolder vh = new CardsListAdapter.ViewHolder(v,
+                mSelectListener, mDeleteListener);
+
         return vh;
     }
 
@@ -62,8 +90,9 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
         String maskedNum =  applyMaskCardNum(mDataset.get(position).getNumber());
         holder.mRadioButtonView.setText(maskedNum);
 
-
-
+        //since only one radio button is allowed to be selected,
+        // this condition un-checks previous selections
+        holder.mRadioButtonView.setChecked(position == mLastSelectedPosition);
     }
 
 

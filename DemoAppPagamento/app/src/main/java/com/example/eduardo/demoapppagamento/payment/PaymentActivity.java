@@ -39,9 +39,10 @@ public class PaymentActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Card> mDataset;
-    private int mSelectedItem;
+    private static Card mSelectedCard;
 
     private CardsListClickListener.Delete mDeleteCardCallback;
+    private CardsListClickListener.Select mSelectCardCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,17 +74,18 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
-        // Initialize a CardsDataSource
+        // Initialize a CardsDataSource, callback classes
         mDataSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
-
-        // Initialize callback implementation to delete cards
         mDeleteCardCallback = new DeleteCardOnList();
+        mSelectCardCallback = new SelectCardOnList();
+        mSelectedCard = null;
 
         mRecyclerView = (RecyclerView) findViewById(R.id.credit_cards_recycle_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new CardsListAdapter(new ArrayList<Card>(), mDeleteCardCallback);
+        mAdapter = new CardsListAdapter(new ArrayList<Card>(),
+                mSelectCardCallback, mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
 
         setPaymentButton();
@@ -145,13 +147,15 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onDataNotAvailable() {
                 Log.d("Todo", "onDataNotAvailable");
+                setAdapter(new ArrayList<Card>());
             }
         });
     }
 
     private void setAdapter(List<Card> cards) {
+        Toast.makeText(getApplicationContext(), "num cartoes: "+ cards.size(), Toast.LENGTH_LONG).show();
         mDataset = cards;
-        mAdapter = new CardsListAdapter(cards, mDeleteCardCallback);
+        mAdapter = new CardsListAdapter(cards, mSelectCardCallback, mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -203,6 +207,16 @@ public class PaymentActivity extends AppCompatActivity {
             });
             AlertDialog dialog = builder.create();
             dialog.show();
+        }
+    }
+
+    class SelectCardOnList implements CardsListClickListener.Select {
+
+        // Callback to select a card on the list
+        @Override
+        public void onClick(View view, int position) {
+            mSelectedCard = mDataset.get(position);
+            Toast.makeText(getApplicationContext(), "Cartao "+mSelectedCard.getNumber() + " selecionado", Toast.LENGTH_LONG).show();
         }
     }
 }

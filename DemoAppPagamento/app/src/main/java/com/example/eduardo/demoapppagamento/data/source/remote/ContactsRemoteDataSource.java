@@ -1,6 +1,5 @@
 package com.example.eduardo.demoapppagamento.data.source.remote;
 
-import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -8,22 +7,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.eduardo.demoapppagamento.contactslist.ContactsListActivity;
 import com.example.eduardo.demoapppagamento.data.Contact;
 import com.example.eduardo.demoapppagamento.data.source.ContactsDataSource;
-import com.example.eduardo.demoapppagamento.util.App;
+import com.example.eduardo.demoapppagamento.util.AppSingleton;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class ContactsRemoteDataSource implements ContactsDataSource {
 
@@ -34,7 +28,7 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
     public static ContactsRemoteDataSource getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new ContactsRemoteDataSource();
-            INSTANCE.queue = Volley.newRequestQueue(App.getContext());
+            INSTANCE.queue = Volley.newRequestQueue(AppSingleton.getContext());
         }
         return INSTANCE;
     }
@@ -51,7 +45,7 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
 
         String url = "http://careers.picpay.com/tests/mobdev/users";
 
-        RequestQueue queue = Volley.newRequestQueue(App.getContext());  // this = context
+        RequestQueue queue = Volley.newRequestQueue(AppSingleton.getContext());  // this = context
         // prepare the Request
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>()
