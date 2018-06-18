@@ -17,33 +17,33 @@ import java.util.List;
 
 public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.ViewHolder> {
 
-    private CardsListClickListener mListener;
+    private CardsListClickListener.Delete mListener;
     private List<Card> mDataset;
     private int mSelectedItem;
 
-    public CardsListAdapter(List<Card> cards, CardsListClickListener listener) {
+    public CardsListAdapter(List<Card> cards, CardsListClickListener.Delete listener) {
         mDataset = cards;
         mListener = listener;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {// implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public RadioButton mRadioButtonView;
         public Button mExcludeButtonView;
-        private CardsListClickListener mListener;
+        private CardsListClickListener.Delete mListener;
 
-        public ViewHolder(View v, CardsListClickListener listener) {
+        public ViewHolder(View v, CardsListClickListener.Delete listener) {
             super(v);
             mRadioButtonView = (RadioButton) v.findViewById(R.id.radio_button);
             mExcludeButtonView = (Button) v.findViewById(R.id.exclude_button);
             mListener = listener;
-            //v.setOnClickListener(this);
+            mExcludeButtonView.setOnClickListener(this);
         }
 
-        /*@Override
+        @Override
         public void onClick(View view) {
             mListener.onClick(view, getAdapterPosition());
-        }*/
+        }
     }
 
     @Override
@@ -61,6 +61,7 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
 
         String maskedNum =  applyMaskCardNum(mDataset.get(position).getNumber());
         holder.mRadioButtonView.setText(maskedNum);
+
 
 
     }

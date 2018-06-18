@@ -6,7 +6,7 @@
     <string name="hint_card_expiry">00/00</string>
     <string name="hint_card_cvv">000</string>
 
-    <string name="hint_value">00.00</string>
+    <string name="hint_value">0.00</string>
 
     <string name="name">Nome</string>
     <string name="expiry">Mês/Ano (expiração)</string>

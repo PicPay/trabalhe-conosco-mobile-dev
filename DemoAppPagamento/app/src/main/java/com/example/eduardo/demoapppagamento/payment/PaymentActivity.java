@@ -1,5 +1,7 @@
 package com.example.eduardo.demoapppagamento.payment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,21 +23,25 @@ import com.example.eduardo.demoapppagamento.data.source.CardsDataSource;
 import com.example.eduardo.demoapppagamento.data.source.RepositoryInjection;
 import com.example.eduardo.demoapppagamento.new_card.NewCardActivity;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class PaymentActivity extends AppCompatActivity implements CardsListClickListener {
+public class PaymentActivity extends AppCompatActivity {
 
     static final int PICK_CARD_REQUEST = 1;
     private Contact mRecipient;
 
+    CardsDataSource mDataSource;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Card> mDataset;
     private int mSelectedItem;
+
+    private CardsListClickListener.Delete mDeleteCardCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,7 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
 
         // Set number mask for currency value
         EditText valueEditText =  (EditText) findViewById(R.id.value_payment);
-        valueEditText.addTextChangedListener(new CurrencyMask(valueEditText));
+        //valueEditText.addTextChangedListener(new CurrencyMask(valueEditText));
 
         // Set action for add credit card button
         Button addCardButton = (Button) findViewById(R.id.add_new_card_button);
@@ -67,22 +73,70 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
             }
         });
 
+        // Initialize a CardsDataSource
+        mDataSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
+
+        // Initialize callback implementation to delete cards
+        mDeleteCardCallback = new DeleteCardOnList();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.credit_cards_recycle_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new CardsListAdapter(new ArrayList<Card>(), this);
+        mAdapter = new CardsListAdapter(new ArrayList<Card>(), mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
 
+        setPaymentButton();
         loadCards();
     }
 
+    private void setPaymentButton() {
+        Button paymentButton = (Button) findViewById(R.id.confirm_payment_button);
+        paymentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                EditText valueEditText = (EditText) findViewById(R.id.value_payment);
+                String value = valueEditText.getText().toString();
+                if (value.length() > 1) {
+                    double parsed = Double.parseDouble(value);
+                    DecimalFormat df = new DecimalFormat("#.00");
+                    value = df.format(parsed);
+                    setPaymentConfirmationDialog(value);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Valor da transferência não foi definido", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void setPaymentConfirmationDialog(String value) {
+        // Create AlertDialog to confirm or decline payment
+        AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
+        builder.setTitle("Confirmar transferência de R$ "+ value + " para "+ mRecipient.getName() +"?");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                // if post success
+                Toast.makeText(getApplicationContext(), "Transferência efetuada", Toast.LENGTH_LONG).show();
+                finish();
+
+                // if rejected
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     private void loadCards() {
-
-        CardsDataSource dataSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
-
-        dataSource.getCards(new CardsDataSource.LoadCardsCallback() {
+        mDataSource.getCards(new CardsDataSource.LoadCardsCallback() {
             @Override
             public void onCardsLoaded(List<Card> cards) {
                 setAdapter(cards);
@@ -97,22 +151,11 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
 
     private void setAdapter(List<Card> cards) {
         mDataset = cards;
-        mAdapter = new CardsListAdapter(cards, this);
+        mAdapter = new CardsListAdapter(cards, mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    @Override
-    public void onClick(View view, int position) {
-        mSelectedItem = position;
-        Log.d("CLICK", "Position "+ position);
-        //Contact c = mDataset.get(position);
-        //Intent intent = new Intent(PaymentActivity.this, PaymentActivity.class);
-        //intent.putExtra("recipient", c);
-        //startActivity(intent);
 
-        //Toast.makeText(getBaseContext(), "Position " + position, Toast.LENGTH_SHORT).show();
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -132,46 +175,34 @@ public class PaymentActivity extends AppCompatActivity implements CardsListClick
         }
     }
 
-    class CurrencyMask implements TextWatcher {
+    class DeleteCardOnList implements CardsListClickListener.Delete {
 
-        boolean ignoreChange = false;
-        final EditText editText;
-
-        public CurrencyMask(EditText editText) {
-            super();
-            this.editText = editText;
-        }
-
+        // Callback to delete a card on the list
         @Override
-        public void onTextChanged(CharSequence s, int start,
-                                  int before, int count) {
-            if (!ignoreChange) {
-                String string = s.toString();
-                string = string.replace(".", "");
-                string = string.replace(" ", "");
-                if (string.length() == 0)
-                    string = ".     ";
-                else if (string.length() == 1)
-                    string = ".  " + string;
-                else if (string.length() == 2)
-                    string = "." + string;
-                else if (string.length() > 2)
-                    string = string.substring(0, string.length() - 2) + "." + string.substring(string.length() - 2, string.length());
-                ignoreChange = true;
-                editText.setText(string);
-                editText.setSelection(editText.getText().length());
-                ignoreChange = false;
-            }
-        }
+        public void onClick(View view, int position) {
 
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            final Card card = mDataset.get(position);
+            String cardNumber = card.getNumber();
+            String lastFourDigits = cardNumber.substring(cardNumber.length() - 4);
 
-        }
+            // Create AlertDialog to confirm or decline deletion
+            AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
+            builder.setTitle("Excuir cartão terminado em \""+lastFourDigits+"\" ?");
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
 
+                    mDataSource.deleteCard(card);
+                    loadCards();
+                }
+            });
+            builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
     }
 }
