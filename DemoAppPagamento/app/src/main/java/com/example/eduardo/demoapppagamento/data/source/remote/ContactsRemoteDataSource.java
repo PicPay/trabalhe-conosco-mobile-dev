@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.eduardo.demoapppagamento.data.Contact;
 import com.example.eduardo.demoapppagamento.data.source.ContactsDataSource;
+import com.example.eduardo.demoapppagamento.util.RequestQueueSingleton;
 import com.example.eduardo.demoapppagamento.util.AppSingleton;
 
 import org.json.JSONArray;
@@ -22,13 +23,13 @@ import java.util.List;
 public class ContactsRemoteDataSource implements ContactsDataSource {
 
     private static ContactsRemoteDataSource INSTANCE = null;
-    RequestQueue queue;
+    private RequestQueue mQueue;
 
 
     public static ContactsRemoteDataSource getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new ContactsRemoteDataSource();
-            INSTANCE.queue = Volley.newRequestQueue(AppSingleton.getContext());
+            INSTANCE.mQueue = RequestQueueSingleton.getInstance().getRequestQueue();
         }
         return INSTANCE;
     }

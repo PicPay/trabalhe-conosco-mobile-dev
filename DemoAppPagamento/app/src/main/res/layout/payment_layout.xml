@@ -98,16 +98,16 @@
                 android:id="@+id/add_new_card_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
                 android:layout_marginLeft="38dp"
                 android:layout_marginRight="0dp"
+                android:layout_marginStart="38dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:drawableTop="@drawable/add_icon"
                 android:paddingTop="8dp"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="0dp" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -134,7 +134,8 @@
             android:layout_height="42dp"
             android:background="@color/colorPrimary"
             android:text="@string/transfer"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

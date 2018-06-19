@@ -110,7 +110,7 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
             last4 = num.substring(numLen - 4);
         }
 
-        return "xxxx xxxx xxxx " + last4;
+        return "**** **** **** " + last4;
     }
 }
 

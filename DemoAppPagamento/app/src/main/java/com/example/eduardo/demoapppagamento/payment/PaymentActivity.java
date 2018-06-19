@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,12 +20,11 @@ import com.example.eduardo.demoapppagamento.data.Contact;
 import com.example.eduardo.demoapppagamento.data.source.CardsDataSource;
 import com.example.eduardo.demoapppagamento.data.source.RepositoryInjection;
 import com.example.eduardo.demoapppagamento.new_card.NewCardActivity;
+import com.example.eduardo.demoapppagamento.payment_processing.PaymentProcActivity;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -100,20 +97,21 @@ public class PaymentActivity extends AppCompatActivity {
 
                 EditText valueEditText = (EditText) findViewById(R.id.value_payment);
                 String value = valueEditText.getText().toString();
-                if (value.length() > 1) {
-                    double parsed = Double.parseDouble(value);
-                    DecimalFormat df = new DecimalFormat("#.00");
-                    value = df.format(parsed);
-                    setPaymentConfirmationDialog(value);
+                if (value.length() == 0) {
+                    Toast.makeText(getApplicationContext(),
+                            "Valor da transferência não foi definido", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                else {
-                    Toast.makeText(getApplicationContext(), "Valor da transferência não foi definido", Toast.LENGTH_LONG).show();
-                }
+
+                double parsed = Double.parseDouble(value);
+                DecimalFormat df = new DecimalFormat("#.00");
+                value = df.format(parsed);
+                setPaymentConfirmationDialog(value);
             }
         });
     }
 
-    private void setPaymentConfirmationDialog(String value) {
+    private void setPaymentConfirmationDialog(final String value) {
         // Create AlertDialog to confirm or decline payment
         AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
         builder.setTitle("Confirmar transferência de R$ "+ value + " para "+ mRecipient.getName() +"?");
@@ -121,9 +119,14 @@ public class PaymentActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
+                Intent intent = new Intent(PaymentActivity.this, PaymentProcActivity.class);
+                intent.putExtra("recipient", mRecipient);
+                intent.putExtra("card", mSelectedCard);
+                intent.putExtra("value", value);
+                startActivity(intent);
                 // if post success
-                Toast.makeText(getApplicationContext(), "Transferência efetuada", Toast.LENGTH_LONG).show();
-                finish();
+                //Toast.makeText(getApplicationContext(), "Transferência efetuada", Toast.LENGTH_LONG).show();
+                //finish();
 
                 // if rejected
             }
