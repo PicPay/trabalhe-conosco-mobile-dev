@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A114CED20CEC1CC0048826E /* DatePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */; };
+		7A114CF120CEC2350048826E /* PicPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEE20CEC2340048826E /* PicPayService.swift */; };
+		7A114CF220CEC2350048826E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEF20CEC2340048826E /* Person.swift */; };
+		7A114CF320CEC2350048826E /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CF020CEC2350048826E /* WebClient.swift */; };
+		7A4C717620CF306200B1ED58 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C717520CF306200B1ED58 /* Card.swift */; };
+		7A6EF1A720D1B06800C1EA46 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EF1A620D1B06800C1EA46 /* Payment.swift */; };
+		7A6EF1A920D20B4900C1EA46 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */; };
+		7A76D55620D8949000FA8F99 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76D55520D8949000FA8F99 /* Transaction.swift */; };
+		7A97494E20CF444C009E5C27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494A20CF444B009E5C27 /* MainViewController.swift */; };
+		7A97494F20CF444C009E5C27 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494B20CF444B009E5C27 /* CardViewController.swift */; };
+		7A97495020CF444C009E5C27 /* PersonPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494C20CF444C009E5C27 /* PersonPickerController.swift */; };
+		7A97495120CF444C009E5C27 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494D20CF444C009E5C27 /* CardListViewController.swift */; };
+		7AD6367A20CAF7D600B984DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6367920CAF7D600B984DF /* AppDelegate.swift */; };
+		7AD6368120CAF7DC00B984DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368020CAF7DC00B984DF /* Assets.xcassets */; };
+		7AD6368C20CAF8E700B984DF /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368B20CAF8E700B984DF /* Launch.storyboard */; };
+		7AD6368E20CAF92900B984DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368D20CAF92900B984DF /* Main.storyboard */; };
+		7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEE2D6920D004ED00B632CC /* DataManager.swift */; };
+		7AFC551720D80F6300A38518 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC551620D80F6300A38518 /* HistoryViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerButton.swift; sourceTree = "<group>"; };
+		7A114CEE20CEC2340048826E /* PicPayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PicPayService.swift; path = Model/PicPayService.swift; sourceTree = "<group>"; };
+		7A114CEF20CEC2340048826E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = Model/Person.swift; sourceTree = "<group>"; };
+		7A114CF020CEC2350048826E /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebClient.swift; path = Model/WebClient.swift; sourceTree = "<group>"; };
+		7A4C717520CF306200B1ED58 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Model/Card.swift; sourceTree = "<group>"; };
+		7A6EF1A620D1B06800C1EA46 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Payment.swift; path = Model/Payment.swift; sourceTree = "<group>"; };
+		7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		7A76D55520D8949000FA8F99 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Model/Transaction.swift; sourceTree = "<group>"; };
+		7A97494A20CF444B009E5C27 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7A97494B20CF444B009E5C27 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		7A97494C20CF444C009E5C27 /* PersonPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPickerController.swift; sourceTree = "<group>"; };
+		7A97494D20CF444C009E5C27 /* CardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		7AD6367620CAF7D500B984DF /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD6367920CAF7D600B984DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7AD6368020CAF7DC00B984DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AD6368520CAF7DC00B984DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AD6368B20CAF8E700B984DF /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		7AD6368D20CAF92900B984DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AEE2D6920D004ED00B632CC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Model/DataManager.swift; sourceTree = "<group>"; };
+		7AFC551620D80F6300A38518 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AD6367320CAF7D500B984DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A847B4D20CD5F310033C6EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A97494920CF4419009E5C27 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A97494A20CF444B009E5C27 /* MainViewController.swift */,
+				7AFC551620D80F6300A38518 /* HistoryViewController.swift */,
+				7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */,
+				7A97494C20CF444C009E5C27 /* PersonPickerController.swift */,
+				7A97494D20CF444C009E5C27 /* CardListViewController.swift */,
+				7A97494B20CF444B009E5C27 /* CardViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7AD6366D20CAF7D500B984DF = {
+			isa = PBXGroup;
+			children = (
+				7AD6367820CAF7D600B984DF /* Payment */,
+				7AD6367720CAF7D600B984DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7AD6367720CAF7D600B984DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AD6367620CAF7D500B984DF /* Payment.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AD6367820CAF7D600B984DF /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				7AD6369920CC552F00B984DF /* Model */,
+				7A847B4D20CD5F310033C6EA /* View */,
+				7A97494920CF4419009E5C27 /* Controllers */,
+				7AD6367920CAF7D600B984DF /* AppDelegate.swift */,
+				7AD6368B20CAF8E700B984DF /* Launch.storyboard */,
+				7AD6368D20CAF92900B984DF /* Main.storyboard */,
+				7AD6368020CAF7DC00B984DF /* Assets.xcassets */,
+				7AD6368520CAF7DC00B984DF /* Info.plist */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		7AD6369920CC552F00B984DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A114CF020CEC2350048826E /* WebClient.swift */,
+				7AEE2D6920D004ED00B632CC /* DataManager.swift */,
+				7A114CEE20CEC2340048826E /* PicPayService.swift */,
+				7A76D55520D8949000FA8F99 /* Transaction.swift */,
+				7A6EF1A620D1B06800C1EA46 /* Payment.swift */,
+				7A114CEF20CEC2340048826E /* Person.swift */,
+				7A4C717520CF306200B1ED58 /* Card.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AD6367520CAF7D500B984DF /* Payment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AD6368820CAF7DC00B984DF /* Build configuration list for PBXNativeTarget "Payment" */;
+			buildPhases = (
+				7AD6367220CAF7D500B984DF /* Sources */,
+				7AD6367320CAF7D500B984DF /* Frameworks */,
+				7AD6367420CAF7D500B984DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Payment;
+			productName = Payment;
+			productReference = 7AD6367620CAF7D500B984DF /* Payment.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AD6366E20CAF7D500B984DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = PicPay;
+				TargetAttributes = {
+					7AD6367520CAF7D500B984DF = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 7AD6367120CAF7D500B984DF /* Build configuration list for PBXProject "Payment" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7AD6366D20CAF7D500B984DF;
+			productRefGroup = 7AD6367720CAF7D600B984DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AD6367520CAF7D500B984DF /* Payment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AD6367420CAF7D500B984DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AD6368E20CAF92900B984DF /* Main.storyboard in Resources */,
+				7AD6368120CAF7DC00B984DF /* Assets.xcassets in Resources */,
+				7AD6368C20CAF8E700B984DF /* Launch.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AD6367220CAF7D500B984DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A114CED20CEC1CC0048826E /* DatePickerButton.swift in Sources */,
+				7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */,
+				7A97494E20CF444C009E5C27 /* MainViewController.swift in Sources */,
+				7A114CF320CEC2350048826E /* WebClient.swift in Sources */,
+				7AD6367A20CAF7D600B984DF /* AppDelegate.swift in Sources */,
+				7AFC551720D80F6300A38518 /* HistoryViewController.swift in Sources */,
+				7A97495020CF444C009E5C27 /* PersonPickerController.swift in Sources */,
+				7A114CF120CEC2350048826E /* PicPayService.swift in Sources */,
+				7A6EF1A720D1B06800C1EA46 /* Payment.swift in Sources */,
+				7A97495120CF444C009E5C27 /* CardListViewController.swift in Sources */,
+				7A114CF220CEC2350048826E /* Person.swift in Sources */,
+				7A6EF1A920D20B4900C1EA46 /* PaymentViewController.swift in Sources */,
+				7A97494F20CF444C009E5C27 /* CardViewController.swift in Sources */,
+				7A4C717620CF306200B1ED58 /* Card.swift in Sources */,
+				7A76D55620D8949000FA8F99 /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7AD6368620CAF7DC00B984DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7AD6368720CAF7DC00B984DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AD6368920CAF7DC00B984DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Payment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.picpay.Payment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AD6368A20CAF7DC00B984DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Payment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.picpay.Payment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AD6367120CAF7D500B984DF /* Build configuration list for PBXProject "Payment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD6368620CAF7DC00B984DF /* Debug */,
+				7AD6368720CAF7DC00B984DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AD6368820CAF7DC00B984DF /* Build configuration list for PBXNativeTarget "Payment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD6368920CAF7DC00B984DF /* Debug */,
+				7AD6368A20CAF7DC00B984DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AD6366E20CAF7D500B984DF /* Project object */;
+}
