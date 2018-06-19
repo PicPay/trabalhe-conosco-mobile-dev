@@ -10,29 +10,53 @@ import Foundation
 
 public class DataManager {
 
-    static fileprivate var documentUrls: [URL] {
+    static fileprivate var userDocuments: [URL] {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     }
     
-    static func delete(_ path: String) throws {
-        let url = documentUrls.first!.appendingPathComponent(path, isDirectory: false)
-        try FileManager.default.removeItem(at: url)
+    static func delete(at path: String) -> Bool {
+        
+        let file = userDocuments.first!.appendingPathComponent(path, isDirectory: false)
+        
+        do {
+            try FileManager.default.removeItem(at: file)
+        } catch {
+            return false
+        }
+        
+        return true
     }
     
-    static func save <T:Encodable>(_ object: T, with path: String) throws {
-        let data = try JSONEncoder().encode(object)
-        let url = documentUrls.first!.appendingPathComponent(path, isDirectory: false)
-        FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+    static func save <T:Encodable>(_ object: T, at path: String) -> Bool {
+        
+        let file = userDocuments.first!.appendingPathComponent(path, isDirectory: false)
+        
+        let dir = file.deletingLastPathComponent()
+        
+        do {
+            if !FileManager.default.fileExists(atPath: dir.path) {
+                try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+            }
+            
+            FileManager.default.createFile(atPath: file.path, contents: try JSONEncoder().encode(object))
+        } catch {
+            return false
+        }
+        
+        return true
     }
     
-    static func load <T:Decodable>(_ path: String, with type: T.Type) throws -> T {
-        let url = documentUrls.first!.appendingPathComponent(path, isDirectory: false)
-        let data = FileManager.default.contents(atPath:url.path)
-        return try JSONDecoder().decode(type, from: data!)
-    }
-    
-    static func loadAll <T:Decodable>(_ type: T.Type) throws -> [T] {
-        return try FileManager.default.contentsOfDirectory(atPath: documentUrls.first!.path)
-            .map({ try load($0, with: type) })
+    static func loadAll <T:Decodable>(_ value: T.Type, at path: String) -> [T] {
+        
+        let dir = userDocuments.first!.appendingPathComponent(path, isDirectory: true)
+        
+        do {
+            return try FileManager.default.contentsOfDirectory(atPath: dir.path)
+                .map({ dir.appendingPathComponent($0, isDirectory: false) })
+                .map({ FileManager.default.contents(atPath: $0.path)! })
+                .map({ try JSONDecoder().decode(value, from: $0) })
+        } catch {
+            return []
+        }
     }
 }

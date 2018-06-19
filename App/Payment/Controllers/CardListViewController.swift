@@ -90,7 +90,7 @@ class CardListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        PicPayService.deleteCard(cards.remove(at: indexPath.row))
+        let _ = PicPayService.deleteCard(cards.remove(at: indexPath.row))
         tableView.deleteRows(at: [indexPath], with: .automatic)
         updateNavigationItems(true)
         
@@ -103,13 +103,16 @@ class CardListViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let numberPrefix = String(repeating: "•••• ", count: 3)
+        let numberSufix = cards[indexPath.row].number.suffix(4)
+        
+        cell.textLabel?.text = "\(cards[indexPath.row].description) (\(numberPrefix)\(numberSufix))"
         cell.accessoryType = indexPath == indexPathForSelectedCard ? .checkmark : .none
-        cell.textLabel?.text = cards[indexPath.row].number
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditing {
-            let cardController = storyboard!.instantiateViewController(withIdentifier: "CardViewController") as! CardViewController
+            let cardController = storyboard!.instantiateViewController(withIdentifier: "Card") as! CardViewController
             cardController.displayedCard = cards[indexPath.row]
             cardController.delegate = self
             show(cardController, sender: self)
@@ -127,7 +130,7 @@ class CardListViewController: UITableViewController {
 
 extension CardListViewController: CardViewControllerDelegate {
     func cardViewControllerSaveButtonTapped(_ cardController: CardViewController) {
-        PicPayService.saveCard(cardController.displayedCard!)
+        let _ = PicPayService.saveCard(cardController.displayedCard!)
         
         if let indexPath = tableView.indexPathForSelectedRow {
             cards[indexPath.row] = cardController.displayedCard!

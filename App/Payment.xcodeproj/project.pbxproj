@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A114CED20CEC1CC0048826E /* ExpiresButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEC20CEC1CC0048826E /* ExpiresButton.swift */; };
+		7A114CED20CEC1CC0048826E /* DatePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */; };
 		7A114CF120CEC2350048826E /* PicPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEE20CEC2340048826E /* PicPayService.swift */; };
 		7A114CF220CEC2350048826E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CEF20CEC2340048826E /* Person.swift */; };
 		7A114CF320CEC2350048826E /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A114CF020CEC2350048826E /* WebClient.swift */; };
 		7A4C717620CF306200B1ED58 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C717520CF306200B1ED58 /* Card.swift */; };
-		7A847B4C20CD5E3C0033C6EA /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A847B4B20CD5E3B0033C6EA /* PersonView.swift */; };
+		7A6EF1A720D1B06800C1EA46 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EF1A620D1B06800C1EA46 /* Payment.swift */; };
+		7A6EF1A920D20B4900C1EA46 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */; };
+		7A76D55620D8949000FA8F99 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76D55520D8949000FA8F99 /* Transaction.swift */; };
 		7A97494E20CF444C009E5C27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494A20CF444B009E5C27 /* MainViewController.swift */; };
 		7A97494F20CF444C009E5C27 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494B20CF444B009E5C27 /* CardViewController.swift */; };
 		7A97495020CF444C009E5C27 /* PersonPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97494C20CF444C009E5C27 /* PersonPickerController.swift */; };
@@ -22,15 +24,18 @@
 		7AD6368C20CAF8E700B984DF /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368B20CAF8E700B984DF /* Launch.storyboard */; };
 		7AD6368E20CAF92900B984DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6368D20CAF92900B984DF /* Main.storyboard */; };
 		7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEE2D6920D004ED00B632CC /* DataManager.swift */; };
+		7AFC551720D80F6300A38518 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC551620D80F6300A38518 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7A114CEC20CEC1CC0048826E /* ExpiresButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiresButton.swift; sourceTree = "<group>"; };
+		7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerButton.swift; sourceTree = "<group>"; };
 		7A114CEE20CEC2340048826E /* PicPayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PicPayService.swift; path = Model/PicPayService.swift; sourceTree = "<group>"; };
 		7A114CEF20CEC2340048826E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = Model/Person.swift; sourceTree = "<group>"; };
 		7A114CF020CEC2350048826E /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebClient.swift; path = Model/WebClient.swift; sourceTree = "<group>"; };
 		7A4C717520CF306200B1ED58 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Model/Card.swift; sourceTree = "<group>"; };
-		7A847B4B20CD5E3B0033C6EA /* PersonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		7A6EF1A620D1B06800C1EA46 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Payment.swift; path = Model/Payment.swift; sourceTree = "<group>"; };
+		7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		7A76D55520D8949000FA8F99 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Model/Transaction.swift; sourceTree = "<group>"; };
 		7A97494A20CF444B009E5C27 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7A97494B20CF444B009E5C27 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		7A97494C20CF444C009E5C27 /* PersonPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPickerController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		7AD6368B20CAF8E700B984DF /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		7AD6368D20CAF92900B984DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7AEE2D6920D004ED00B632CC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Model/DataManager.swift; sourceTree = "<group>"; };
+		7AFC551620D80F6300A38518 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +64,7 @@
 		7A847B4D20CD5F310033C6EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7A847B4B20CD5E3B0033C6EA /* PersonView.swift */,
-				7A114CEC20CEC1CC0048826E /* ExpiresButton.swift */,
+				7A114CEC20CEC1CC0048826E /* DatePickerButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -68,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				7A97494A20CF444B009E5C27 /* MainViewController.swift */,
+				7AFC551620D80F6300A38518 /* HistoryViewController.swift */,
+				7A6EF1A820D20B4900C1EA46 /* PaymentViewController.swift */,
 				7A97494C20CF444C009E5C27 /* PersonPickerController.swift */,
 				7A97494D20CF444C009E5C27 /* CardListViewController.swift */,
 				7A97494B20CF444B009E5C27 /* CardViewController.swift */,
@@ -112,6 +119,8 @@
 				7A114CF020CEC2350048826E /* WebClient.swift */,
 				7AEE2D6920D004ED00B632CC /* DataManager.swift */,
 				7A114CEE20CEC2340048826E /* PicPayService.swift */,
+				7A76D55520D8949000FA8F99 /* Transaction.swift */,
+				7A6EF1A620D1B06800C1EA46 /* Payment.swift */,
 				7A114CEF20CEC2340048826E /* Person.swift */,
 				7A4C717520CF306200B1ED58 /* Card.swift */,
 			);
@@ -188,18 +197,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A114CED20CEC1CC0048826E /* ExpiresButton.swift in Sources */,
+				7A114CED20CEC1CC0048826E /* DatePickerButton.swift in Sources */,
 				7AEE2D6A20D004ED00B632CC /* DataManager.swift in Sources */,
-				7A847B4C20CD5E3C0033C6EA /* PersonView.swift in Sources */,
 				7A97494E20CF444C009E5C27 /* MainViewController.swift in Sources */,
 				7A114CF320CEC2350048826E /* WebClient.swift in Sources */,
 				7AD6367A20CAF7D600B984DF /* AppDelegate.swift in Sources */,
+				7AFC551720D80F6300A38518 /* HistoryViewController.swift in Sources */,
 				7A97495020CF444C009E5C27 /* PersonPickerController.swift in Sources */,
 				7A114CF120CEC2350048826E /* PicPayService.swift in Sources */,
+				7A6EF1A720D1B06800C1EA46 /* Payment.swift in Sources */,
 				7A97495120CF444C009E5C27 /* CardListViewController.swift in Sources */,
 				7A114CF220CEC2350048826E /* Person.swift in Sources */,
+				7A6EF1A920D20B4900C1EA46 /* PaymentViewController.swift in Sources */,
 				7A97494F20CF444C009E5C27 /* CardViewController.swift in Sources */,
 				7A4C717620CF306200B1ED58 /* Card.swift in Sources */,
+				7A76D55620D8949000FA8F99 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -311,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -324,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Payment/Info.plist;
@@ -343,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Payment/Info.plist;

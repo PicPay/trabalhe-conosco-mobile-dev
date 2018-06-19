@@ -28,10 +28,9 @@ class PersonPickerController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let _ = PicPayService().loadPersons { persons, error in
-            if error == nil {
+        let _ = PicPayService().loadPersons { persons in
+            if persons != nil {
                 self.persons = persons!
-                
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
                 }
@@ -46,30 +45,42 @@ class PersonPickerController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PersonView
+        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
     
     // MARK: Collection view delegate
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        let cell = cell as! PersonView
         let person = persons[indexPath.row]
-        cell.titleLabel.text = person.name
-        cell.subtitleLabel.text = person.username
-        let client = WebClient(baseUrl: person.photoURL.deletingLastPathComponent())
-        let _ = client.request(path: person.photoURL.lastPathComponent, body: nil) { data, error in
-            if error == nil {
-                let image = UIImage(data: data!)
-                
-                DispatchQueue.main.async {
-                    cell.imageView.image = image
-                }
+        
+        DispatchQueue.global(qos: .background).async {
+            let image: UIImage?
+            
+            do {
+                image = UIImage(data: try Data(contentsOf: person.photoURL))
+            } catch {
+                image = UIImage(named: "Placeholder")
+            }
+            
+            DispatchQueue.main.async {
+                let imageView = cell.contentView.viewWithTag(1) as? UIImageView
+                imageView?.image = image
             }
         }
+        
+        let titleLabel = cell.contentView.viewWithTag(2) as? UILabel
+        titleLabel?.text = person.name
+        
+        let subtitleLabel = cell.contentView.viewWithTag(3) as? UILabel
+        subtitleLabel?.text = person.username
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.personPickerController(self, didPickPerson: persons[indexPath.row])
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let imageView = cell.contentView.viewWithTag(1) as? UIImageView
+        imageView?.image = UIImage(named: "Placeholder")
     }
 }

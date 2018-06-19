@@ -8,20 +8,9 @@
 
 import Foundation
 
-enum WebError: Error {
-    case serverUnreachable
-    case unexpectedCondition(String)
-}
-
-extension WebError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .serverUnreachable:
-            return "Não foi possível conectar."
-        case .unexpectedCondition(let message):
-            return message
-        }
-    }
+enum Response<T> {
+    case success(T)
+    case failure(Error)
 }
 
 final class WebClient {
@@ -31,23 +20,24 @@ final class WebClient {
         self.baseUrl = baseUrl
     }
     
-    func request(path: String, body: Data?, completion: @escaping (Data?, WebError?) -> ()) -> URLSessionDataTask? {
+    func request(path: String, body: Data?, completion: @escaping (Response<Data>) -> ()) -> URLSessionDataTask? {
         var urlRequest = URLRequest(url: URL(fileURLWithPath: path, relativeTo: baseUrl))
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = body == nil ? "GET" : "POST"
+        urlRequest.httpBody = body
         
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            
             guard let _ = response else {
-                completion(nil, .serverUnreachable)
+                completion(.failure(error!))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode else {
-                completion(nil, .unexpectedCondition(error!.localizedDescription))
+            guard let httpResponse = response as? HTTPURLResponse, (200..<600) ~= httpResponse.statusCode else {
+                completion(.failure(error!))
                 return
             }
             
-            completion(data, nil)
+            completion(.success(data!))
         }
         
         dataTask.resume()

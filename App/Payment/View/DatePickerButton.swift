@@ -1,5 +1,5 @@
 //
-//  ExpiresButton.swift
+//  DatePickerButton.swift
 //  Payment
 //
 //  Created by Carlos Alexandre Moscoso on 11/06/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpiresButton: UIButton {
+class DatePickerButton: UIButton {
 
     let pickerView = UIPickerView()
     
@@ -31,7 +31,7 @@ class ExpiresButton: UIButton {
     }
 }
 
-extension ExpiresButton: UIPickerViewDataSource {
+extension DatePickerButton: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
@@ -48,7 +48,7 @@ extension ExpiresButton: UIPickerViewDataSource {
     }
 }
 
-extension ExpiresButton: UIPickerViewDelegate {
+extension DatePickerButton: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return pickerView.bounds.width/2.0
     }

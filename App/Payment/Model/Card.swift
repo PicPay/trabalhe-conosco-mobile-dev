@@ -19,15 +19,20 @@ struct Card: Codable {
             code.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
     
-    static func isValidExpirationDate(_ date: String) -> Bool {
+    static func isValidDate(_ date: String) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/yyyy"
         
         return dateFormatter.date(from: date) != nil
     }
     
+    static func isValidDescription(_ description: String) -> Bool {
+        return !description.isEmpty
+    }
+    
     let id: String
     let number: String
     let expires: String
+    let description: String
     let securityCode: String
 }
