@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.eduardo.demoapppagamento.R;
 import com.example.eduardo.demoapppagamento.data.Contact;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -24,14 +25,14 @@ class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewH
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView mImageView;
+        public SimpleDraweeView mImageView;
         public TextView mNameView;
         public TextView mDescriptionView;
         private ContactsListClickListener mListener;
 
         public ViewHolder(View v, ContactsListClickListener listener) {
             super(v);
-            mImageView = (ImageView) v.findViewById(R.id.contact_img);
+            mImageView = (SimpleDraweeView) v.findViewById(R.id.contact_img);
             mNameView = (TextView) v.findViewById(R.id.contact_name);
             mDescriptionView = (TextView) v.findViewById(R.id.contact_description);
             mListener = listener;
@@ -56,10 +57,11 @@ class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewH
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        Contact c = mDataset.get(position);
         //holder.mImageView.setImageResource(R.drawable.bigb);
-        holder.mNameView.setText(mDataset.get(position).getName());
-        holder.mDescriptionView.setText(mDataset.get(position).getUsername());
+        holder.mNameView.setText(c.getName());
+        holder.mDescriptionView.setText(c.getUsername());
+        holder.mImageView.setImageURI(c.getImg());
     }
 
 

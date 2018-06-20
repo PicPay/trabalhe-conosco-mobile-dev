@@ -22,7 +22,7 @@
         android:layout_alignRight="@+id/radio_button"
         android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/delete_icon"
+        android:drawableTop="@drawable/ic_delete"
         android:paddingTop="6dp"
          />
 

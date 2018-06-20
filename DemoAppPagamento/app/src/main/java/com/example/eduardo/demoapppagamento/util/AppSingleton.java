@@ -3,6 +3,8 @@ package com.example.eduardo.demoapppagamento.util;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 public class AppSingleton extends Application {
 
     private static Application sApplication;
@@ -19,5 +21,7 @@ public class AppSingleton extends Application {
     public void onCreate() {
         super.onCreate();
         sApplication = this;
+        Fresco.initialize(this);
+
     }
 }

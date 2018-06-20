@@ -104,7 +104,7 @@
                 android:layout_marginStart="38dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
-                android:drawableTop="@drawable/add_icon"
+                android:drawableTop="@drawable/ic_add"
                 android:paddingTop="8dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp" />
