@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_metade">8dp</dimen>
+    <dimen name="margin_text">4dp</dimen>
+    <dimen name="margin_dir">2dp</dimen>
+
+    <dimen name="tam_fab">64dp</dimen>
+    <dimen name="tam_foto">64dp</dimen>
+
+    <dimen name="margin_fab">10dp</dimen>
+    <dimen name="ele_fab">6dp</dimen>
+    <dimen name="ele_navi">4dp</dimen>
+
+
+    <dimen name="titulo_context">16sp</dimen>
+    <dimen name="info_context">14sp</dimen>
+    <dimen name="contato_text_margin">4dp</dimen>
+    <dimen name="largura_line">1dp</dimen>
+
+    <!-- Dimen Excluir -->
+    <dimen name="titulo_excluir">18sp</dimen>
+    <dimen name="carteira_text">16sp</dimen>
+
+    <!-- Dimen Pagamento -->
+    <dimen name="pagamento_cifra">24sp</dimen>
+    <dimen name="bot_pagar_x">100dp</dimen>
+    <dimen name="bot_pagar_y">40dp</dimen>
+    <dimen name="text_pro">12sp</dimen>
+    <dimen name="bot_pro">40dp</dimen>
+    <dimen name="text_valor">24sp</dimen>
+    <dimen name="tam_valor">150dp</dimen>
+    <dimen name="sem_cartao">32dp</dimen>
+
+</resources>

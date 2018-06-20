@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">PicPay</string>
+    <string name="toolbar_contato">Contatos</string>
+    <string name="toolbar_carteira">Carteira</string>
+    <string name="toolbar_novo">Adicionar Cartão</string>
+    <string name="toolbar_pagamento">Nova transação</string>
+
+    <!-- String menu home -->
+
+    <string name="inicio_home">Início</string>
+    <string name="carteira_home">Carteira</string>
+    <string name="pagar_home"> </string>
+
+    <!-- String Cadastro Cartão -->
+
+    <string name="erro_cadastro">Campo obrigatório</string>
+    <string name="text_salvando">Salvando…</string>
+    <string name="text_select">Selecione a bandeira</string>
+    <string name="text_nome">Nome escrito no cartão</string>
+    <string name="text_numero">Número do cartão</string>
+    <string name="text_validade">Validade(mm/aaaa)</string>
+    <string name="text_cvv">CVV(Código de segurança)</string>
+    <string name="text_cep">CEP do endereço da fatura"</string>
+    <string name="text_segu">PicPay é 100% seguro e atende a todos os requisitos internacionais de segurança. Seu cartão só será usado quando você fizer uma compra com o PicPay</string>
+    <string name="bot_salvar">SALVAR</string>
+
+    <!-- String Carteira -->
+
+    <string name="carteira_cartao">Cartões Cadastrados</string>
+    <string name="bot_carteira">Editar</string>
+    <string name="add_cartao">Adicionar cartão de crédito</string>
+    <string name="text_final">Cartão com final&#160;</string>
+
+    <!-- String Cartao -->
+    <string name="cartao_visa">Visa</string>
+    <string name="cartao_master">Mastercard</string>
+    <string name="cartao_america">American Express</string>
+    <string name="cartao_elo">Elo</string>
+    <string name="cartao_hiper">Hipercard</string>
+
+    <!-- String Cartão Vazio -->
+    <string name="cartao_vazio_titulo">Cadastre seu cartão de crédito</string>
+    <string name="cartao_vazio_info">Cadastre um cartão de crédito para poder fazer pagamento mesmo quando não tiver saldo no seu PicPay</string>
+
+    <!-- String Feed Pagameto -->
+    <string name="pagamento_voce"><b>Você</b> pagou a&#160;</string>
+    <string name="cifrao_pagamnto">R$&#160;</string>
+
+    <!-- Dialog Excluir -->
+    <string name="dialog_cancelar">Cancelar</string>
+    <string name="dialog_excluir">Excluir</string>
+    <string name="titulo_excluir">Remover cartão de crédito?</string>
+    <string name="excluir_termos">Tem certza que deseja remover o Cartão com final XXXX?</string>
+
+    <!-- Dialog Text -->
+    <string name="bot_ok">OK</string>
+    <string name="text_pro">Parcelamento disponível somente quando o destinatário do pagamento for usuário PicPay PRO</string>
+    <string name="text_valor_vazio">Digite o valor que deseja pagar</string>
+    <string name="text_cartao_vazio">Adicione um cartão para realizar o pagamento</string>
+
+    <!-- String Pagamento -->
+    <string name="bot_pagar">PAGAR</string>
+    <string name="pagar_final">Cartão com final&#160;</string>
+    <string name="pagar_forma">Forma de pagamento:</string>
+    <string name="pagar_text">Escreva uma mensagem legal aqui :)</string>
+    <string name="bot_pro">1x</string>
+    <string name="pagar_vazio">0,00</string>
+
+    <string name="pagar_final_sem">Adicione seu cartão</string>
+
+    <!-- Strings Erro -->
+    <string name="cod_erro">Sem acesso a internet, confira sua rede e tente novamente mais tarde</string>
+    <string name="cod_vazio">Nenhum conteúdo foi encontrado</string>
+    <string name="sem_valor">Digite o valor que deseja pagar.</string>
+    <string name="text_aguarde">Aguarde…</string>
+
+    <string name="sem_cartao">Adicione um cartão para realizar o pagamento.</string>
+    <string name="erro_pagar">Aconteceu algum erro ao receber o seu pagamento, tente novamente mais tarde.</string>
+
+    <string name="erro_cartao">Seu pagamento <b>não</b> foi realizado com sucesso, verifique os dados do seu cartão e tente novamente.</string>
+
+    <string name="internet_pagar">Não recebemos o seu pagamento, verifique sua conexão com a internet e tente novamente mais tarde.</string>
+
+</resources>

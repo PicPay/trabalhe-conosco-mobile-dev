@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Pagamento.PagamentoActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar_home" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imagem_contato"
+                        android:layout_width="@dimen/tam_foto"
+                        android:layout_height="@dimen/tam_foto"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:src="@drawable/fundo_teste" />
+
+
+                    <TextView
+                        android:id="@+id/text_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_text"
+                        android:layout_toEndOf="@+id/imagem_contato" />
+
+                    <TextView
+                        android:id="@+id/text_valor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_username"
+                        android:layout_marginEnd="@dimen/margin_dir"
+                        android:layout_toEndOf="@+id/imagem_contato"
+                        android:textColor="@color/info_cinza"
+                        android:text="@string/cifrao_pagamnto"
+                        android:textSize="@dimen/pagamento_cifra"
+                        android:textStyle="bold" />
+
+                    <faranjit.currency.edittext.CurrencyEditText
+                        android:id="@+id/valor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_username"
+                        android:layout_toEndOf="@+id/text_valor"
+                        android:textSize="@dimen/text_valor"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/info_cinza"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/pagar_vazio"
+                        android:textStyle="bold"
+                        android:maxLength="8"
+                        app:monetaryDivider=","
+                        app:locale="pt_BR" />
+
+                    <Button
+                        android:id="@+id/bot_pro"
+                        android:layout_width="@dimen/bot_pro"
+                        android:layout_height="@dimen/bot_pro"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/border_button_1"
+                        android:text="@string/bot_pro"
+                        android:textAllCaps="false"
+                        android:textColor="@color/botao_1"
+                        android:textSize="@dimen/text_pro" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/largura_line"
+                    android:layout_gravity="center"
+                    android:background="@color/cinza_line"
+                    android:focusable="false" />
+
+                <EditText
+                    android:id="@+id/msg_pagamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/pagar_text"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:cardBackgroundColor="@color/branco_bar"
+                app:cardCornerRadius="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_text"
+                    android:layout_marginBottom="@dimen/margin_text">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/pagamento_muda1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imagem_cartao1"
+                                android:layout_width="@dimen/sem_cartao"
+                                android:layout_height="@dimen/sem_cartao"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin"
+                                android:src="@drawable/fundo_teste" />
+
+                            <TextView
+                                android:id="@+id/text_forma1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent1"
+                                android:layout_toEndOf="@id/imagem_cartao1"
+                                android:text="@string/pagar_forma"/>
+
+                            <TextView
+                                android:id="@+id/text_cartao1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@id/text_forma1"
+                                android:layout_below="@id/text_forma1"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/colorAccent1"
+                                android:text="@string/pagar_final_sem"/>
+
+                            <TextView
+                                android:id="@+id/final_cartao1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/text_cartao1"
+                                android:textColor="@color/colorAccent1"
+                                android:layout_alignBaseline="@+id/text_cartao1" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/pagamento_muda"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/imagem_cartao"
+                                android:layout_alignParentStart="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/cartao"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin"/>
+
+                            <TextView
+                                android:id="@+id/text_forma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/imagem_cartao"
+                                android:text="@string/pagar_forma"/>
+
+                            <TextView
+                                android:id="@+id/text_cartao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@id/text_forma"
+                                android:layout_below="@id/text_forma"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/colorAccent1"
+                                android:text="@string/pagar_final"/>
+
+                            <TextView
+                                android:id="@+id/final_cartao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/text_cartao"
+                                android:textColor="@color/colorAccent1"
+                                android:layout_alignBaseline="@+id/text_cartao" />
+
+                        </RelativeLayout>
+
+                    </FrameLayout>
+
+                    <Button
+                        android:id="@+id/pagar_pessoa"
+                        android:layout_width="@dimen/bot_pagar_x"
+                        android:layout_height="@dimen/bot_pagar_y"
+                        android:text="@string/bot_pagar"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/botao_pagar"
+                        android:textColor="@color/branco_bar"
+                        android:layout_margin="@dimen/margin_dir"
+                        />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
