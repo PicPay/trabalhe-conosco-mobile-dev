@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Padrão APP -->
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#C7C7C7</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimary1">#21C25E</color>
+    <color name="colorPrimaryDark1">#00b248</color>
+    <color name="colorAccent1">#01d155</color>
+
+    <!-- Personalizarda -->
+
+    <color name="branco_bar">#e7e7e7</color>
+    <color name="verde_escuro">#0f5b48</color>
+
+    <color name="text_black">#dd000000</color>
+    <color name="info_cinza">#828282</color>
+
+    <color name="cinza_line">#D5D5D5</color>
+    <color name="botao_1">#C7C7C7</color>
+
+</resources>
