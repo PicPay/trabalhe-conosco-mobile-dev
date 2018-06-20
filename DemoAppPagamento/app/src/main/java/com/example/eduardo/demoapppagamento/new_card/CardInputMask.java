@@ -6,7 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-public abstract class MaskEditUtil {
+public abstract class CardInputMask {
 
     /**
      * Método que deve ser chamado para realizar a formatação
@@ -16,19 +16,23 @@ public abstract class MaskEditUtil {
      * @return
      */
     public static TextWatcher mask(final EditText ediTxt, final String mask) {
+
         return new TextWatcher() {
             boolean isUpdating;
             String old = "";
 
             @Override
-            public void afterTextChanged(final Editable s) {}
+            public void beforeTextChanged(final CharSequence s, final int start, final int count,
+                                          final int after) {}
 
             @Override
-            public void beforeTextChanged(final CharSequence s, final int start, final int count, final int after) {}
+            public void onTextChanged(final CharSequence s, final int start, final int before,
+                                      final int count) {
 
-            @Override
-            public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
-                final String str = MaskEditUtil.unmask(s.toString());
+                if (mask == null)
+                    return;
+
+                final String str = CardInputMask.unmask(s.toString());
                 String mascara = "";
                 if (isUpdating) {
                     old = str;
@@ -51,6 +55,11 @@ public abstract class MaskEditUtil {
                 isUpdating = true;
                 ediTxt.setText(mascara);
                 ediTxt.setSelection(mascara.length());
+            }
+
+
+            @Override
+            public void afterTextChanged(final Editable s) {
             }
         };
     }

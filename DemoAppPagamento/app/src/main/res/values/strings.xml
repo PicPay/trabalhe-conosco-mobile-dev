@@ -21,4 +21,12 @@
     <string name="currency_symbol">R$</string>
     <string name="credit_card">CARTÃO DE CRÉDITO:</string>
 
+    <string name="card_visa">Visa</string>
+    <string name="card_master">Mastercard</string>
+    <string name="card_american">AmericanExpress</string>
+
+    <string name="card_name_label">"Nome escrito no cartão"</string>
+    <string name="card_num_label">"Número do cartão"</string>
+    <string name="card_expiry_label">"Validade (mm/aa)"</string>
+    <string name="card_cvv_label">"Código de segurança"</string>
 </resources>

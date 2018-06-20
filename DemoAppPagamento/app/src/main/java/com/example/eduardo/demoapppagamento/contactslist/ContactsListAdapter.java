@@ -61,7 +61,7 @@ class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewH
         //holder.mImageView.setImageResource(R.drawable.bigb);
         holder.mNameView.setText(c.getName());
         holder.mDescriptionView.setText(c.getUsername());
-        holder.mImageView.setImageURI(c.getImg());
+        holder.mImageView.setImageURI(c.getImg()); // Get thumbnails by img url
     }
 
 
