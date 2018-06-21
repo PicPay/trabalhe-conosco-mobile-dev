@@ -21,6 +21,7 @@ import com.example.eduardo.demoapppagamento.data.source.CardsDataSource;
 import com.example.eduardo.demoapppagamento.data.source.RepositoryInjection;
 import com.example.eduardo.demoapppagamento.new_card.NewCardActivity;
 import com.example.eduardo.demoapppagamento.payment_processing.PaymentProcActivity;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -52,7 +53,10 @@ public class PaymentActivity extends AppCompatActivity {
             mRecipient = (Contact) intent.getSerializableExtra("recipient");
         }
 
-        // Set recipient name
+        // Set recipient thumbnail and name
+
+        SimpleDraweeView imgView = (SimpleDraweeView) findViewById(R.id.recipient_img);
+        imgView.setImageURI(mRecipient.getImg());
         TextView recipientName = (TextView) findViewById(R.id.recipient_payment);
         recipientName.setText(mRecipient.getName());
 
@@ -219,7 +223,7 @@ public class PaymentActivity extends AppCompatActivity {
         @Override
         public void onClick(View view, int position) {
             mSelectedCard = mDataset.get(position);
-            Toast.makeText(getApplicationContext(), "Cartao "+mSelectedCard.getNumber() + " selecionado", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Cartao "+mSelectedCard.getNumber() + " selecionado", Toast.LENGTH_LONG).show();
         }
     }
 }

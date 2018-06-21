@@ -43,7 +43,8 @@
         android:layout_height="32dp"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/imageView2"
-        fresco:srcCompat="@drawable/ic_monetization" />
+        fresco:srcCompat="@drawable/ic_monetization"
+        android:layout_toLeftOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -51,7 +52,8 @@
         android:layout_height="36dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        fresco:srcCompat="@drawable/ic_chevron_right" />
+        fresco:srcCompat="@drawable/ic_chevron_right"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>
 

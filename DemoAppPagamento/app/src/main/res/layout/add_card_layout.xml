@@ -134,10 +134,11 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/btn_filled_dark_bg"
         android:text="@string/add"
         android:textColor="@android:color/white"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

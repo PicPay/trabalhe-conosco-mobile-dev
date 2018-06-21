@@ -14,12 +14,12 @@
     <string name="number">Número</string>
 
 
-    <string name="add">ADICIONAR</string>
-    <string name="transfer">TRANSFERIR</string>
-    <string name="recipient">DESTINATÁRIO:</string>
-    <string name="value">VALOR:</string>
+    <string name="add">Adicionar</string>
+    <string name="transfer">Transferir</string>
+    <string name="recipient">Destinatário:</string>
+
     <string name="currency_symbol">R$</string>
-    <string name="credit_card">CARTÃO DE CRÉDITO:</string>
+    <string name="credit_card">Cartão de Crédito:</string>
 
     <string name="card_visa">Visa</string>
     <string name="card_master">Mastercard</string>
@@ -29,4 +29,15 @@
     <string name="card_num_label">"Número do cartão"</string>
     <string name="card_expiry_label">"Validade (mm/aa)"</string>
     <string name="card_cvv_label">"Código de segurança"</string>
+
+    <string name="transaction">Transação</string>
+    <string name="date">Data</string>
+    <string name="card">Cartão</string>
+    <string name="value">Valor</string>
+
+    <string name="payment_confirmed">Pagamento Confirmado!</string>
+
+    <string name="back">Voltar</string>
+    <string name="pay_again">Pagar Novamente</string>
+
 </resources>
