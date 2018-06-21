@@ -160,7 +160,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void setAdapter(List<Card> cards) {
-        Toast.makeText(getApplicationContext(), "num cartoes: "+ cards.size(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "num cartoes: "+ cards.size(), Toast.LENGTH_LONG).show();
         mDataset = cards;
         mAdapter = new CardsListAdapter(cards, mSelectCardCallback, mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
