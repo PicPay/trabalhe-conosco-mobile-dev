@@ -46,7 +46,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="34dp"
         android:baselineAligned="false"
-        android:gravity="right|end"
+        android:gravity="end"
         android:text="@string/currency_symbol"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/value_payment"
@@ -87,7 +87,7 @@
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="@string/credit_cards"
+        android:text="@string/available_credit_cards"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/add_new_card_button"
         app:layout_constraintEnd_toStartOf="@+id/add_new_card_button"
@@ -95,34 +95,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/add_new_card_button"
         app:layout_constraintVertical_bias="0.411" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/credit_cards_recycle_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_new_card_button">
-
-    </android.support.v7.widget.RecyclerView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="312dp"
-        android:layout_height="17dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_payment_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_cards_recycle_view"></LinearLayout>
 
     <Button
         android:id="@+id/confirm_payment_button"
@@ -137,5 +109,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_squared_border"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_payment_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credit_card_header">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/credit_cards_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_payment_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_new_card_button">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

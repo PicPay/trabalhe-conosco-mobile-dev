@@ -47,14 +47,6 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                 {
                     @Override
                     public void onResponse(JSONArray response) {
-                        // display response
-                        //Log.d("Response", response.toString());
-
-                        /*try {
-                            Thread.sleep(3000);
-                        } catch (Exception e){
-
-                        }*/
                         callback.onContactsLoaded(parseContacts(response));
                     }
                 },
@@ -62,10 +54,7 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.toString());
-
-                        //List<Contact> contacts = new ArrayList<Contact>();
-                        //callback.onContactsLoaded(contacts);
+                        //Log.d("Error.Response", error.toString());
                         callback.onDataNotAvailable();
                     }
                 }
@@ -83,7 +72,6 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                 String name = jsonObject.getString("name");
                 String img = jsonObject.getString("img");
                 String username = jsonObject.getString("username");
-                //Log.d("--->", name );
                 contacts.add(new Contact(id, name, img, username));
             }
         } catch (Exception e) {
@@ -92,23 +80,4 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
 
         return contacts;
     }
-
-    /*
-    private static void requestImage(String url, Bitmap img) {
-        ImageRequest request = new ImageRequest(url,
-            new Response.Listener<Bitmap>() {
-                @Override
-                public void onResponse(Bitmap bitmap) {
-                    img = bitmap;
-                }
-            }, 0, 0, null,
-            new Response.ErrorListener() {
-                public void onErrorResponse(VolleyError error) {
-
-                }
-            });
-    }
-*/
-
-
 }

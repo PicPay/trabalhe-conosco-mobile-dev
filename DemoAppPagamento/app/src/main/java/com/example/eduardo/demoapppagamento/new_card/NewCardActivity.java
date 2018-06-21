@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.eduardo.demoapppagamento.R;
 import com.example.eduardo.demoapppagamento.data.Card;
@@ -141,8 +138,6 @@ public class NewCardActivity extends AppCompatActivity implements  View.OnClickL
                 mInputExpiry.requestFocus();
                 return false;
             }
-
-            Toast.makeText(getApplicationContext(), month+"/"+year, Toast.LENGTH_LONG).show();
 
             if (month > 12 || month < 1) {
                 mInputLayoutExpiry.setError("O mês de expiração é inválido");

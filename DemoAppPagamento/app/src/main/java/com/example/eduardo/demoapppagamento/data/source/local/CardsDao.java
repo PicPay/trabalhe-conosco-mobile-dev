@@ -12,7 +12,7 @@ import com.example.eduardo.demoapppagamento.data.Card;
 import java.util.List;
 
 /**
- * Data Access Object for the tasks table.
+ * Data Access Object for the Cards table.
  */
 @Dao
 public interface CardsDao {

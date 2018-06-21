@@ -21,7 +21,7 @@
     <string name="recipient">Destinatário:</string>
 
     <string name="currency_symbol">$</string>
-    <string name="credit_cards">Cartões de Crédito</string>
+    <string name="available_credit_cards">Cartões de crédito cadastrados:</string>
 
     <string name="card_visa">Visa</string>
     <string name="card_master">Mastercard</string>

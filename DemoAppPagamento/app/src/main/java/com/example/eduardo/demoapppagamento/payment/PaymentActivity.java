@@ -58,7 +58,6 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
         // Set recipient thumbnail and name
-
         SimpleDraweeView imgView = (SimpleDraweeView) findViewById(R.id.recipient_img);
         imgView.setImageURI(mRecipient.getImg());
         TextView recipientName = (TextView) findViewById(R.id.recipient_payment);
@@ -70,13 +69,11 @@ public class PaymentActivity extends AppCompatActivity {
         mCurrencySymbol = currency.getSymbol();
         currencySymbolText.setText(mCurrencySymbol);
 
-
         // Set action for add credit card button
         Button addCardButton = (Button) findViewById(R.id.add_new_card_button);
         addCardButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), "Add Card!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(PaymentActivity.this, NewCardActivity.class);
                 startActivityForResult(intent, PICK_CARD_REQUEST);
             }
@@ -111,12 +108,12 @@ public class PaymentActivity extends AppCompatActivity {
                 String value = valueEditText.getText().toString();
                 if (value.length() == 0) {
                     Toast.makeText(getApplicationContext(),
-                            "Valor da transferência não foi definido", Toast.LENGTH_LONG).show();
+                            "Defina um valor para o pagamento", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (mSelectedCard == null) {
                     Toast.makeText(getApplicationContext(),
-                            "Não há cartões cadastrados", Toast.LENGTH_LONG).show();
+                            "Adicione um cartão de crédito para pagar", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -135,14 +132,17 @@ public class PaymentActivity extends AppCompatActivity {
 
 
     private void setPaymentConfirmationDialog(final String value) {
+
         // Create AlertDialog to confirm or decline payment
         AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
-        builder.setTitle("Confirmar transferência de " + mCurrencySymbol + " "+ value + " para "+ mRecipient.getName() +"?");
+        builder.setTitle("Confirmar transferência de " + mCurrencySymbol + " "+ value +
+                " para "+ mRecipient.getName() +"?");
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
-                Intent intent = new Intent(PaymentActivity.this, PaymentProcActivity.class);
+                Intent intent = new Intent(PaymentActivity.this,
+                        PaymentProcActivity.class);
                 intent.putExtra("recipient", mRecipient);
                 intent.putExtra("card", mSelectedCard);
 
@@ -184,7 +184,6 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void setAdapter(List<Card> cards) {
-        //Toast.makeText(getApplicationContext(), "num cartoes: "+ cards.size(), Toast.LENGTH_LONG).show();
         mDataset = cards;
         mAdapter = new CardsListAdapter(cards, mSelectCardCallback, mDeleteCardCallback);
         mRecyclerView.setAdapter(mAdapter);
@@ -242,11 +241,10 @@ public class PaymentActivity extends AppCompatActivity {
 
     class SelectCardOnList implements CardsListClickListener.Select {
 
-        // Callback to select a card on the list
+        // Callback for selecting a card on the list
         @Override
         public void onClick(View view, int position) {
             mSelectedCard = mDataset.get(position);
-            //Toast.makeText(getApplicationContext(), "Cartao "+mSelectedCard.getNumber() + " selecionado", Toast.LENGTH_LONG).show();
         }
     }
 }

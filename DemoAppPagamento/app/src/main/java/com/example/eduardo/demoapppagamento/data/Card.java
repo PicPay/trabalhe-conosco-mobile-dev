@@ -18,29 +18,8 @@ public class Card implements Serializable {
     private int expiryMonth;
     private int expiryYear;
     private int cvv;
-
-    /*
-
-    @PrimaryKey(autoGenerate = true)
-    @NonNull
-    @ColumnInfo(name = "id")
-    private int id;
-
-    @ColumnInfo(name = "card_type")
-    public String type;
-
-    @ColumnInfo(name = "card_number")
-    public String number;
-
-    @ColumnInfo(name = "expiry_month")
-    public int expiry_month;
-
-    @ColumnInfo(name = "expiry_year")
-    public int expiry_year;
-
-    @ColumnInfo(name = "cvv")
-    public int cvv;*/
-
+    //private String nameOwner;
+    //private int company;
 
     public Card (int id, String number, int expiryMonth, int expiryYear, int cvv) {
         this.id = id;

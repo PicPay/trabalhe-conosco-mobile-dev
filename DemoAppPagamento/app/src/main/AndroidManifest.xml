@@ -14,15 +14,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".contactslist.ContactsListActivity">
+
+        <activity android:name=".contactslist.ContactsListActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".payment.PaymentActivity"></activity>
-        <activity android:name=".new_card.NewCardActivity"></activity>
-        <activity android:name=".payment_processing.PaymentProcActivity"></activity>
+
+        <activity android:name=".payment.PaymentActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".new_card.NewCardActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".payment_processing.PaymentProcActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

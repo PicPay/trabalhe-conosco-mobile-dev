@@ -13,12 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.eduardo.demoapppagamento.R;
-import com.example.eduardo.demoapppagamento.data.Card;
 import com.example.eduardo.demoapppagamento.data.Contact;
-import com.example.eduardo.demoapppagamento.data.source.CardsDataSource;
 import com.example.eduardo.demoapppagamento.data.source.ContactsDataSource;
 import com.example.eduardo.demoapppagamento.data.source.RepositoryInjection;
-import com.example.eduardo.demoapppagamento.data.source.local.CardsDatabase;
 import com.example.eduardo.demoapppagamento.payment.PaymentActivity;
 
 import java.util.ArrayList;

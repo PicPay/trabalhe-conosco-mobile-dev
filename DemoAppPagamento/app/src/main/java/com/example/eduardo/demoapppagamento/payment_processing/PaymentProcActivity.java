@@ -103,7 +103,6 @@ public class PaymentProcActivity extends AppCompatActivity {
         return json;
     }
 
-
     private JsonObjectRequest buildJsonRequest(JSONObject json) {
 
         String url = "http://careers.picpay.com/tests/mobdev/transaction";

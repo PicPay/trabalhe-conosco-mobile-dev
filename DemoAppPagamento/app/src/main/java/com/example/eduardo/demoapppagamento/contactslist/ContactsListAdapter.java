@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.eduardo.demoapppagamento.R;
@@ -58,12 +57,10 @@ class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ViewH
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Contact c = mDataset.get(position);
-        //holder.mImageView.setImageResource(R.drawable.bigb);
         holder.mNameView.setText(c.getName());
         holder.mDescriptionView.setText(c.getUsername());
         holder.mImageView.setImageURI(c.getImg()); // Get thumbnails by img url
     }
-
 
     @Override
     public int getItemCount() {

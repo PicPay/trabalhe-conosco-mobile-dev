@@ -19,15 +19,13 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
     private CardsListClickListener.Select mSelectListener;
     private List<Card> mDataset;
     private static int mLastSelectedPosition;
-    //private static int mSelected;
 
     public CardsListAdapter(List<Card> cards, CardsListClickListener.Select selectListener,
                             CardsListClickListener.Delete deleteListener) {
         mDataset = cards;
         mDeleteListener = deleteListener;
         mSelectListener = selectListener;
-        //mLastSelectedRadioButton = null;
-        //
+
         if (mDataset.size() == 0) {
             mLastSelectedPosition = -1;
         }
@@ -36,7 +34,6 @@ public class CardsListAdapter extends RecyclerView.Adapter<CardsListAdapter.View
             mSelectListener.onClick(null, 0);
             notifyDataSetChanged();
         }
-
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
