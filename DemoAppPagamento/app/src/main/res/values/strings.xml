@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">DemoAppPagamento</string>
+
+    <string name="connection_error">Erro de conexão!</string>
+    <string name="try_again">Tentar novamente</string>
+
+    <string name="hint_name_owner">Nome do proprietário</string>
+    <string name="hint_card_number">0000 0000 0000 0000</string>
+    <string name="hint_card_expiry">00/00</string>
+    <string name="hint_card_cvv">000</string>
+    <string name="hint_value">0.00</string>
+
+    <string name="name">Nome</string>
+    <string name="expiry">Mês/Ano (expiração)</string>
+    <string name="cvv">CVV</string>
+    <string name="number">Número</string>
+
+
+    <string name="add">Adicionar</string>
+    <string name="transfer">Transferir</string>
+    <string name="recipient">Destinatário:</string>
+
+    <string name="currency_symbol">$</string>
+    <string name="select_a_credit_card">Selecione um cartão de crédito:</string>
+
+    <string name="card_visa">Visa</string>
+    <string name="card_master">Mastercard</string>
+    <string name="card_american">AmericanExpress</string>
+
+    <string name="card_name_label">"Nome escrito no cartão"</string>
+    <string name="card_num_label">"Número do cartão"</string>
+    <string name="card_expiry_label">"Validade (mm/aa)"</string>
+    <string name="card_cvv_label">"Código de segurança"</string>
+
+    <string name="transaction">Transação</string>
+    <string name="date">Data</string>
+    <string name="card">Cartão</string>
+    <string name="value">Valor</string>
+
+    <string name="payment_confirmed">Pagamento Confirmado!</string>
+
+    <string name="back">Voltar</string>
+    <string name="pay_again">Pagar Novamente</string>
+
+</resources>
