@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,7 +34,7 @@ public class PaymentProcActivity extends AppCompatActivity {
 
     private Contact mRecipient;
     private Card mCreditCard;
-    private String mValue;
+    private Double mValue;
 
     private LinearLayout mReportLayout;
     private TextView mStatusText;
@@ -66,7 +67,7 @@ public class PaymentProcActivity extends AppCompatActivity {
             mCreditCard = (Card) intent.getSerializableExtra("card");
         }
         if (intent.hasExtra("value")){
-            mValue = intent.getStringExtra("value");
+            mValue = intent.getDoubleExtra("value", 0);
         }
 
         JSONObject json = buildJson(mValue, mRecipient, mCreditCard);
@@ -79,7 +80,7 @@ public class PaymentProcActivity extends AppCompatActivity {
         queue.add(jsonRequest);
     }
 
-    private JSONObject buildJson(String value, Contact recipient, Card creditCard) {
+    private JSONObject buildJson(Double value, Contact recipient, Card creditCard) {
 
         String cardNumber = creditCard.getNumber();
         int cvv = creditCard.getCvv();
@@ -87,19 +88,12 @@ public class PaymentProcActivity extends AppCompatActivity {
         String expiry_year = Integer.toString(creditCard.getExpiryYear());
         String expiry_date = expiry_month +"/"+ expiry_year;
         Log.d("concat",expiry_date);
-        Double valueDouble;
-        try {
-            valueDouble = Double.parseDouble(value);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            return null;
-        }
 
         JSONObject json = new JSONObject();
         try {
             json.put("card_number",cardNumber);
             json.put("cvv", cvv);
-            json.put("value", valueDouble);
+            json.put("value", value);
             json.put("expiry_date", expiry_date);
             json.put("destination_user_id", recipient.getId());
         } catch (JSONException e) {
@@ -176,7 +170,9 @@ public class PaymentProcActivity extends AppCompatActivity {
             String cardNumLastFour = mCreditCard.getNumber().substring(12);
             cardText.setText("**** **** **** " + cardNumLastFour);
 
-            valueText.setText("R$ " + mValue);
+            NumberFormat nf = NumberFormat.getCurrencyInstance();
+            String value = nf.format(mValue);
+            valueText.setText(value);
 
             mStatusText.setText("Pagamento confirmado!");
             mReportLayout.setVisibility(LinearLayout.VISIBLE);

@@ -24,8 +24,11 @@ import com.example.eduardo.demoapppagamento.payment_processing.PaymentProcActivi
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
+import java.util.Locale;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -38,6 +41,7 @@ public class PaymentActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Card> mDataset;
     private static Card mSelectedCard;
+    private String mCurrencySymbol;
 
     private CardsListClickListener.Delete mDeleteCardCallback;
     private CardsListClickListener.Select mSelectCardCallback;
@@ -61,8 +65,11 @@ public class PaymentActivity extends AppCompatActivity {
         recipientName.setText(mRecipient.getName());
 
         // Set number mask for currency value
-        EditText valueEditText =  (EditText) findViewById(R.id.value_payment);
-        //valueEditText.addTextChangedListener(new CurrencyMask(valueEditText));
+        Currency currency = Currency.getInstance(Locale.getDefault());
+        TextView currencySymbolText = (TextView) findViewById(R.id.currency_symbol_text);
+        mCurrencySymbol = currency.getSymbol();
+        currencySymbolText.setText(mCurrencySymbol);
+
 
         // Set action for add credit card button
         Button addCardButton = (Button) findViewById(R.id.add_new_card_button);
@@ -99,6 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                // Validate value and card
                 EditText valueEditText = (EditText) findViewById(R.id.value_payment);
                 String value = valueEditText.getText().toString();
                 if (value.length() == 0) {
@@ -106,19 +114,30 @@ public class PaymentActivity extends AppCompatActivity {
                             "Valor da transferência não foi definido", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (mSelectedCard == null) {
+                    Toast.makeText(getApplicationContext(),
+                            "Não há cartões cadastrados", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
-                double parsed = Double.parseDouble(value);
-                DecimalFormat df = new DecimalFormat("#.00");
-                value = df.format(parsed);
+                try {
+                    double parsed = Double.parseDouble(value);
+                    DecimalFormat df = new DecimalFormat("#.00");
+                    value = df.format(parsed);
+                } catch (Exception e) {
+
+                }
+
                 setPaymentConfirmationDialog(value);
             }
         });
     }
 
+
     private void setPaymentConfirmationDialog(final String value) {
         // Create AlertDialog to confirm or decline payment
         AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
-        builder.setTitle("Confirmar transferência de R$ "+ value + " para "+ mRecipient.getName() +"?");
+        builder.setTitle("Confirmar transferência de " + mCurrencySymbol + " "+ value + " para "+ mRecipient.getName() +"?");
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -126,13 +145,18 @@ public class PaymentActivity extends AppCompatActivity {
                 Intent intent = new Intent(PaymentActivity.this, PaymentProcActivity.class);
                 intent.putExtra("recipient", mRecipient);
                 intent.putExtra("card", mSelectedCard);
-                intent.putExtra("value", value);
-                startActivity(intent);
-                // if post success
-                //Toast.makeText(getApplicationContext(), "Transferência efetuada", Toast.LENGTH_LONG).show();
-                //finish();
 
-                // if rejected
+                NumberFormat nf = new DecimalFormat("#,###.00");
+                Double valueDouble;
+                try {
+                    valueDouble = nf.parse(value).doubleValue();
+                    intent.putExtra("value", valueDouble);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),
+                            "Erro ao ler valor do pagamento", Toast.LENGTH_LONG).show();
+                }
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -176,7 +200,6 @@ public class PaymentActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data.hasExtra("newCard")){
                     Card newCard = (Card) data.getSerializableExtra("newCard");
-                    Toast.makeText(getBaseContext(), newCard.getNumber(), Toast.LENGTH_SHORT).show();
 
                     CardsDataSource cardsSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
                     cardsSource.saveCard(newCard);

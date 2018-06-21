@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">DemoAppPagamento</string>
 
+    <string name="connection_error">Erro de conexão!</string>
+    <string name="try_again">Tentar novamente</string>
+
     <string name="hint_name_owner">Nome do proprietário</string>
     <string name="hint_card_number">0000 0000 0000 0000</string>
     <string name="hint_card_expiry">00/00</string>
     <string name="hint_card_cvv">000</string>
-
     <string name="hint_value">0.00</string>
 
     <string name="name">Nome</string>
@@ -18,7 +20,7 @@
     <string name="transfer">Transferir</string>
     <string name="recipient">Destinatário:</string>
 
-    <string name="currency_symbol">R$</string>
+    <string name="currency_symbol">$</string>
     <string name="credit_cards">Cartões de Crédito</string>
 
     <string name="card_visa">Visa</string>

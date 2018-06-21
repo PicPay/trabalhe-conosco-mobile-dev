@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -29,15 +31,23 @@ public class ContactsListActivity extends AppCompatActivity implements ContactsL
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Contact> mDataset;
     private ProgressBar mSpinner;
+    private LinearLayout mErrorLayout;
+    private Button mTryAgainButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts_list_layout);
-        this.setTitle("Pagar a ...");
+        this.setTitle("Contatos");
 
         mSpinner = (ProgressBar) findViewById(R.id.contacts_progress_bar);
         mSpinner.setVisibility(View.GONE);
+
+        mErrorLayout = (LinearLayout) findViewById(R.id.contacts_error_layout);
+        mErrorLayout.setVisibility(LinearLayout.INVISIBLE);
+
+        mTryAgainButton = (Button) findViewById(R.id.contacts_try_again_button);
+        setTryAgainCallback(mTryAgainButton);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.contacts_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -46,40 +56,8 @@ public class ContactsListActivity extends AppCompatActivity implements ContactsL
         mAdapter = new ContactsListAdapter(new ArrayList<Contact>(), this);
         mRecyclerView.setAdapter(mAdapter);
 
-        //
-        /*CardsDataSource cardsSource = RepositoryInjection.provideCardsRepository(getApplicationContext());
-        cardsSource.getCards(new CardsDataSource.LoadCardsCallback() {
-            @Override
-            public void onCardsLoaded(List<Card> cards) {
-                for (Card c: cards) {
-                    Log.d("----------->",c.getNumber());
-                }
-            }
-
-            @Override
-            public void onDataNotAvailable() {
-                Log.d("----------->","No data");
-            }
-        });*/
-
-        //Card c0 = new Card("123456",12,18, 321);
-        //cardsSource.
-
-        /*CardsDatabase db = CardsDatabase.getInstance(getApplicationContext());
-        Card c0 = new Card("123456",12,18, 321);
-        db.cardsDao().insertCard(c0);
-        List<Card> ls = db.cardsDao().loadAllCards();
-        for (Card c: ls) {
-            Log.d("Card",c.getNumber());
-        }*/
-        //finish();
-
-        //
-
         loadContacts();
     }
-
-
 
     private void loadContacts() {
 
@@ -89,14 +67,26 @@ public class ContactsListActivity extends AppCompatActivity implements ContactsL
         dataSource.getContacts(new ContactsDataSource.LoadContactsCallback() {
             @Override
             public void onContactsLoaded(List<Contact> contacts) {
-                mSpinner.setVisibility(View.GONE);
+                mSpinner.setVisibility(View.INVISIBLE);
                 setAdapter(contacts);
             }
 
             @Override
             public void onDataNotAvailable() {
                 Log.d("Todo", "onDataNotAvailable");
+                mSpinner.setVisibility(View.INVISIBLE);
+                mErrorLayout.setVisibility(LinearLayout.VISIBLE);
+            }
+        });
+    }
 
+    private void setTryAgainCallback(Button button) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(), "Tentando novamente", Toast.LENGTH_SHORT).show();
+                mErrorLayout.setVisibility(LinearLayout.INVISIBLE);
+                loadContacts();
             }
         });
     }
@@ -107,15 +97,11 @@ public class ContactsListActivity extends AppCompatActivity implements ContactsL
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
     @Override
     public void onClick(View view, int position) {
         Contact c = mDataset.get(position);
         Intent intent = new Intent(ContactsListActivity.this, PaymentActivity.class);
         intent.putExtra("recipient", c);
         startActivity(intent);
-
-        //Toast.makeText(getBaseContext(), "Position " + position, Toast.LENGTH_SHORT).show();
-
     }
 }

@@ -38,12 +38,6 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
     public void getContacts(@NonNull final LoadContactsCallback callback) {
         //checkNotNull(callback);
 
-        /*contacts.add(new Contact(100,"Antonio da Silva","img.jpg","@antonio.silva"));
-        contacts.add(new Contact(101,"Maria da Silva","img.jpg","@maria.silva"));
-        contacts.add(new Contact(102,"Jose da Silva","img.jpg","@jose.silva"));
-        contacts.add(new Contact(103,"Pedro da Silva","img.jpg","@pedro.silva"));
-        */
-
         String url = "http://careers.picpay.com/tests/mobdev/users";
 
         RequestQueue queue = Volley.newRequestQueue(AppSingleton.getContext());  // this = context
@@ -70,8 +64,9 @@ public class ContactsRemoteDataSource implements ContactsDataSource {
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error.Response", error.toString());
 
-                        List<Contact> contacts = new ArrayList<Contact>();
-                        callback.onContactsLoaded(contacts);
+                        //List<Contact> contacts = new ArrayList<Contact>();
+                        //callback.onContactsLoaded(contacts);
+                        callback.onDataNotAvailable();
                     }
                 }
         );

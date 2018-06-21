@@ -5,6 +5,31 @@
     android:layout_height="match_parent">
 
 
+    <LinearLayout
+        android:id="@+id/contacts_error_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/connection_error"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/contacts_try_again_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/btn_border_dark_bg"
+            android:text="@string/try_again"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
     <ProgressBar
         android:id="@+id/contacts_progress_bar"
         style="?android:attr/progressBarStyle"

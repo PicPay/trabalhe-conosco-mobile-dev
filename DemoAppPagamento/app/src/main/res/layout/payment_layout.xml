@@ -14,8 +14,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:adjustViewBounds="false"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +27,6 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
@@ -40,22 +37,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
+        android:id="@+id/currency_symbol_text"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="64dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="34dp"
         android:baselineAligned="false"
+        android:gravity="right|end"
         android:text="@string/currency_symbol"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/value_payment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipient_img" />
 
-    <EditText
+    <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/value_payment"
         android:layout_width="188dp"
         android:layout_height="wrap_content"
