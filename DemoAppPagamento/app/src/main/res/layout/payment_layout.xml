@@ -87,7 +87,7 @@
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="@string/available_credit_cards"
+        android:text="@string/select_a_credit_card"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/add_new_card_button"
         app:layout_constraintEnd_toStartOf="@+id/add_new_card_button"

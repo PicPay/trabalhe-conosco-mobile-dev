@@ -111,7 +111,7 @@ public class PaymentActivity extends AppCompatActivity {
                             "Defina um valor para o pagamento", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (mSelectedCard == null) {
+                if (mSelectedCard == null || mDataset.size() == 0) {
                     Toast.makeText(getApplicationContext(),
                             "Adicione um cartão de crédito para pagar", Toast.LENGTH_LONG).show();
                     return;
