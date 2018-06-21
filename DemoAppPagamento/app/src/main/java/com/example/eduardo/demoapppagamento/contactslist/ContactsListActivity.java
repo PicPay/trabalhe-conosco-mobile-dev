@@ -96,6 +96,7 @@ public class ContactsListActivity extends AppCompatActivity implements ContactsL
             @Override
             public void onDataNotAvailable() {
                 Log.d("Todo", "onDataNotAvailable");
+
             }
         });
     }

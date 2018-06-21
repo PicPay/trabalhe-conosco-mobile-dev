@@ -65,7 +65,7 @@ public class NewCardActivity extends AppCompatActivity implements  View.OnClickL
         String cardNum;
         int month, year, cvv;
 
-        cardNum = mInputNum.getText().toString();
+        cardNum = mInputNum.getText().toString().replaceAll(" ","");
 
         String expiry = mInputExpiry.getText().toString();
         try {
@@ -145,13 +145,13 @@ public class NewCardActivity extends AppCompatActivity implements  View.OnClickL
             Toast.makeText(getApplicationContext(), month+"/"+year, Toast.LENGTH_LONG).show();
 
             if (month > 12 || month < 1) {
-                mInputLayoutExpiry.setError("Mês de expiração ("+ month + ") é inválido");
+                mInputLayoutExpiry.setError("O mês de expiração é inválido");
                 mInputExpiry.requestFocus();
                 return false;
             }
 
             if (year < 18) {
-                mInputLayoutExpiry.setError("Ano de expiração (" + year + ") é inválido");
+                mInputLayoutExpiry.setError("O ano de expiração é inválido");
                 mInputExpiry.requestFocus();
                 return false;
             }
