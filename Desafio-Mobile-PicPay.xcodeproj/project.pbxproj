@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		38080040210BDE0A00505665 /* PaymentHistoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3808003F210BDE0A00505665 /* PaymentHistoryCollectionViewController.swift */; };
+		38080042210CAD1900505665 /* PaymentHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38080041210CAD1900505665 /* PaymentHistoryCollectionViewCell.swift */; };
+		38080045210CECF200505665 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38080044210CECF200505665 /* StringExtensions.swift */; };
+		38080047210D1ADB00505665 /* JsonTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38080046210D1ADB00505665 /* JsonTransaction.swift */; };
+		38080069210DD3D500505665 /* JsonTransactionApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38080068210DD3D500505665 /* JsonTransactionApiObject.swift */; };
+		3808006B210E088300505665 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3808006A210E088300505665 /* DateExtensions.swift */; };
+		3820163020CC29DD001CAF8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820162F20CC29DD001CAF8F /* AppDelegate.swift */; };
+		3820163220CC29DD001CAF8F /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820163120CC29DD001CAF8F /* ContactsTableViewController.swift */; };
+		3820163520CC29DD001CAF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3820163320CC29DD001CAF8F /* Main.storyboard */; };
+		3820163720CC29DF001CAF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3820163620CC29DF001CAF8F /* Assets.xcassets */; };
+		3820163A20CC29DF001CAF8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3820163820CC29DF001CAF8F /* LaunchScreen.storyboard */; };
+		3820164320CC3422001CAF8F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820164220CC3422001CAF8F /* Contact.swift */; };
+		388F5D1A21048A3A00CB57AB /* RegisterCreditCardPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5D1921048A3A00CB57AB /* RegisterCreditCardPopUpViewController.swift */; };
+		38B04AC521017112004DD76D /* EmptyCardsHeadeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B04AC421017112004DD76D /* EmptyCardsHeadeCell.xib */; };
+		38B04AC92101804E004DD76D /* EmptyCardsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B04AC82101804E004DD76D /* EmptyCardsHeaderCell.swift */; };
+		38CD368920CC3B44004BDCEE /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD368820CC3B44004BDCEE /* ApiClient.swift */; };
+		38CD368B20CC4139004BDCEE /* apiCliente+PicPayApiConvenienceMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD368A20CC4139004BDCEE /* apiCliente+PicPayApiConvenienceMethods.swift */; };
+		38CD368E20CC423F004BDCEE /* ClientStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD368D20CC423F004BDCEE /* ClientStrings.swift */; };
+		38CD369120CC47E1004BDCEE /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369020CC47E1004BDCEE /* ContactsTableViewCell.swift */; };
+		38CD369320CC4AE4004BDCEE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369220CC4AE4004BDCEE /* CustomImageView.swift */; };
+		38CD369620CC5FA2004BDCEE /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369520CC5FA2004BDCEE /* PaymentViewController.swift */; };
+		38CD369820CCB45F004BDCEE /* CreditCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CD369720CCB45F004BDCEE /* CreditCard.storyboard */; };
+		38CD369B20CD48E9004BDCEE /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369A20CD48E9004BDCEE /* CardListViewController.swift */; };
+		38CD369E20CD4D9D004BDCEE /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369D20CD4D9D004BDCEE /* CardTableViewCell.swift */; };
+		38CD36A020CD5372004BDCEE /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD369F20CD5372004BDCEE /* CardViewController.swift */; };
+		38CD36A320CD5654004BDCEE /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36A120CD5654004BDCEE /* DatabaseModel.xcdatamodeld */; };
+		38CD36A620CD5B10004BDCEE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36A520CD5B10004BDCEE /* CoreDataManager.swift */; };
+		38CD36A820CD7760004BDCEE /* cardListViewController+FetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36A720CD7760004BDCEE /* cardListViewController+FetchResultController.swift */; };
+		38CD36AA20CD865B004BDCEE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36A920CD865B004BDCEE /* CustomActivityIndicator.swift */; };
+		38CD36B020CD8E90004BDCEE /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36AF20CD8E90004BDCEE /* CustomAlertController.swift */; };
+		38CD36B220CDA896004BDCEE /* cardViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD36B120CDA896004BDCEE /* cardViewController+TextFieldDelegate.swift */; };
+		38D425192103835B004F8D6A /* CreditCardRegisterHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D425182103835B004F8D6A /* CreditCardRegisterHeader.xib */; };
+		38D4251B21038C05004F8D6A /* RegisterCreditCardHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4251A21038C05004F8D6A /* RegisterCreditCardHeaderCell.swift */; };
+		38DD7B20210E3082005709B6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7B1F210E3082005709B6 /* Strings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3808003F210BDE0A00505665 /* PaymentHistoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryCollectionViewController.swift; sourceTree = "<group>"; };
+		38080041210CAD1900505665 /* PaymentHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		38080044210CECF200505665 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		38080046210D1ADB00505665 /* JsonTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTransaction.swift; sourceTree = "<group>"; };
+		38080068210DD3D500505665 /* JsonTransactionApiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTransactionApiObject.swift; sourceTree = "<group>"; };
+		3808006A210E088300505665 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		3820162C20CC29DD001CAF8F /* Desafio-Mobile-PicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-Mobile-PicPay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3820162F20CC29DD001CAF8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3820163120CC29DD001CAF8F /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		3820163420CC29DD001CAF8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3820163620CC29DF001CAF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3820163920CC29DF001CAF8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3820163B20CC29DF001CAF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3820164220CC3422001CAF8F /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		388F5D1921048A3A00CB57AB /* RegisterCreditCardPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCreditCardPopUpViewController.swift; sourceTree = "<group>"; };
+		38B04AC421017112004DD76D /* EmptyCardsHeadeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCardsHeadeCell.xib; sourceTree = "<group>"; };
+		38B04AC82101804E004DD76D /* EmptyCardsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCardsHeaderCell.swift; sourceTree = "<group>"; };
+		38CD368820CC3B44004BDCEE /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		38CD368A20CC4139004BDCEE /* apiCliente+PicPayApiConvenienceMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "apiCliente+PicPayApiConvenienceMethods.swift"; sourceTree = "<group>"; };
+		38CD368D20CC423F004BDCEE /* ClientStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStrings.swift; sourceTree = "<group>"; };
+		38CD369020CC47E1004BDCEE /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		38CD369220CC4AE4004BDCEE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		38CD369520CC5FA2004BDCEE /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		38CD369720CCB45F004BDCEE /* CreditCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreditCard.storyboard; sourceTree = "<group>"; };
+		38CD369A20CD48E9004BDCEE /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		38CD369D20CD4D9D004BDCEE /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		38CD369F20CD5372004BDCEE /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		38CD36A220CD5654004BDCEE /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
+		38CD36A520CD5B10004BDCEE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		38CD36A720CD7760004BDCEE /* cardListViewController+FetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "cardListViewController+FetchResultController.swift"; sourceTree = "<group>"; };
+		38CD36A920CD865B004BDCEE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		38CD36AF20CD8E90004BDCEE /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		38CD36B120CDA896004BDCEE /* cardViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "cardViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		38D425182103835B004F8D6A /* CreditCardRegisterHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardRegisterHeader.xib; sourceTree = "<group>"; };
+		38D4251A21038C05004F8D6A /* RegisterCreditCardHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCreditCardHeaderCell.swift; sourceTree = "<group>"; };
+		38DD7B1F210E3082005709B6 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3820162920CC29DD001CAF8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3808003D210BDD8600505665 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				38CD369520CC5FA2004BDCEE /* PaymentViewController.swift */,
+				388F5D1921048A3A00CB57AB /* RegisterCreditCardPopUpViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		3808003E210BDDE000505665 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3808003F210BDE0A00505665 /* PaymentHistoryCollectionViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		38080043210CECD500505665 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38080044210CECF200505665 /* StringExtensions.swift */,
+				3808006A210E088300505665 /* DateExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38080066210DD1CD00505665 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				38080046210D1ADB00505665 /* JsonTransaction.swift */,
+				3820164220CC3422001CAF8F /* Contact.swift */,
+				38080068210DD3D500505665 /* JsonTransactionApiObject.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		3820162320CC29DD001CAF8F = {
+			isa = PBXGroup;
+			children = (
+				3820162E20CC29DD001CAF8F /* Desafio-Mobile-PicPay */,
+				3820162D20CC29DD001CAF8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3820162D20CC29DD001CAF8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3820162C20CC29DD001CAF8F /* Desafio-Mobile-PicPay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3820162E20CC29DD001CAF8F /* Desafio-Mobile-PicPay */ = {
+			isa = PBXGroup;
+			children = (
+				38080043210CECD500505665 /* Extensions */,
+				38CD36AE20CD8E75004BDCEE /* Utils */,
+				38CD369420CC5F72004BDCEE /* Controller */,
+				38CD368F20CC47C5004BDCEE /* View */,
+				38CD368620CC3AF0004BDCEE /* Client */,
+				3820164120CC3410001CAF8F /* Model */,
+				3820162F20CC29DD001CAF8F /* AppDelegate.swift */,
+				3820163620CC29DF001CAF8F /* Assets.xcassets */,
+				3820163820CC29DF001CAF8F /* LaunchScreen.storyboard */,
+				3820163B20CC29DF001CAF8F /* Info.plist */,
+			);
+			path = "Desafio-Mobile-PicPay";
+			sourceTree = "<group>";
+		};
+		3820164120CC3410001CAF8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38080066210DD1CD00505665 /* Json */,
+				38CD36A120CD5654004BDCEE /* DatabaseModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38CD368620CC3AF0004BDCEE /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				38CD36A420CD5AFD004BDCEE /* CoreData */,
+				38CD368C20CC4227004BDCEE /* Utils */,
+				38CD368720CC3AF8004BDCEE /* Api */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		38CD368720CC3AF8004BDCEE /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				38CD368820CC3B44004BDCEE /* ApiClient.swift */,
+				38CD368A20CC4139004BDCEE /* apiCliente+PicPayApiConvenienceMethods.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		38CD368C20CC4227004BDCEE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				38CD368D20CC423F004BDCEE /* ClientStrings.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		38CD368F20CC47C5004BDCEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38CD369C20CD4D81004BDCEE /* Cell */,
+				38CD369920CCB499004BDCEE /* Storyboards */,
+				38CD369220CC4AE4004BDCEE /* CustomImageView.swift */,
+				38CD36A920CD865B004BDCEE /* CustomActivityIndicator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38CD369420CC5F72004BDCEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3808003E210BDDE000505665 /* History */,
+				3808003D210BDD8600505665 /* Payment */,
+				38CD36AC20CD8E43004BDCEE /* Card */,
+				38CD36AB20CD8E1B004BDCEE /* Contacts */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38CD369920CCB499004BDCEE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3820163320CC29DD001CAF8F /* Main.storyboard */,
+				38CD369720CCB45F004BDCEE /* CreditCard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		38CD369C20CD4D81004BDCEE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38D425152103826D004F8D6A /* CreditCard */,
+				38CD369020CC47E1004BDCEE /* ContactsTableViewCell.swift */,
+				38080041210CAD1900505665 /* PaymentHistoryCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		38CD36A420CD5AFD004BDCEE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				38CD36A520CD5B10004BDCEE /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		38CD36AB20CD8E1B004BDCEE /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				3820163120CC29DD001CAF8F /* ContactsTableViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		38CD36AC20CD8E43004BDCEE /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				38CD369A20CD48E9004BDCEE /* CardListViewController.swift */,
+				38CD36A720CD7760004BDCEE /* cardListViewController+FetchResultController.swift */,
+				38CD369F20CD5372004BDCEE /* CardViewController.swift */,
+				38CD36B120CDA896004BDCEE /* cardViewController+TextFieldDelegate.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		38CD36AE20CD8E75004BDCEE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				38CD36AF20CD8E90004BDCEE /* CustomAlertController.swift */,
+				38DD7B1F210E3082005709B6 /* Strings.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		38D425152103826D004F8D6A /* CreditCard */ = {
+			isa = PBXGroup;
+			children = (
+				38CD369D20CD4D9D004BDCEE /* CardTableViewCell.swift */,
+				38D4251721038286004F8D6A /* Register */,
+				38D425162103827B004F8D6A /* List */,
+			);
+			path = CreditCard;
+			sourceTree = "<group>";
+		};
+		38D425162103827B004F8D6A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				38B04AC421017112004DD76D /* EmptyCardsHeadeCell.xib */,
+				38B04AC82101804E004DD76D /* EmptyCardsHeaderCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		38D4251721038286004F8D6A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				38D425182103835B004F8D6A /* CreditCardRegisterHeader.xib */,
+				38D4251A21038C05004F8D6A /* RegisterCreditCardHeaderCell.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3820162B20CC29DD001CAF8F /* Desafio-Mobile-PicPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3820163E20CC29DF001CAF8F /* Build configuration list for PBXNativeTarget "Desafio-Mobile-PicPay" */;
+			buildPhases = (
+				3820162820CC29DD001CAF8F /* Sources */,
+				3820162920CC29DD001CAF8F /* Frameworks */,
+				3820162A20CC29DD001CAF8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Desafio-Mobile-PicPay";
+			productName = "Desafio-Mobile-PicPay";
+			productReference = 3820162C20CC29DD001CAF8F /* Desafio-Mobile-PicPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3820162420CC29DD001CAF8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Luiz Hammerli";
+				TargetAttributes = {
+					3820162B20CC29DD001CAF8F = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 3820162720CC29DD001CAF8F /* Build configuration list for PBXProject "Desafio-Mobile-PicPay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3820162320CC29DD001CAF8F;
+			productRefGroup = 3820162D20CC29DD001CAF8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3820162B20CC29DD001CAF8F /* Desafio-Mobile-PicPay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3820162A20CC29DD001CAF8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3820163A20CC29DF001CAF8F /* LaunchScreen.storyboard in Resources */,
+				38B04AC521017112004DD76D /* EmptyCardsHeadeCell.xib in Resources */,
+				38D425192103835B004F8D6A /* CreditCardRegisterHeader.xib in Resources */,
+				38CD369820CCB45F004BDCEE /* CreditCard.storyboard in Resources */,
+				3820163720CC29DF001CAF8F /* Assets.xcassets in Resources */,
+				3820163520CC29DD001CAF8F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3820162820CC29DD001CAF8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38080069210DD3D500505665 /* JsonTransactionApiObject.swift in Sources */,
+				38080045210CECF200505665 /* StringExtensions.swift in Sources */,
+				38CD369120CC47E1004BDCEE /* ContactsTableViewCell.swift in Sources */,
+				38080042210CAD1900505665 /* PaymentHistoryCollectionViewCell.swift in Sources */,
+				38CD369E20CD4D9D004BDCEE /* CardTableViewCell.swift in Sources */,
+				3808006B210E088300505665 /* DateExtensions.swift in Sources */,
+				38DD7B20210E3082005709B6 /* Strings.swift in Sources */,
+				38CD36B020CD8E90004BDCEE /* CustomAlertController.swift in Sources */,
+				38B04AC92101804E004DD76D /* EmptyCardsHeaderCell.swift in Sources */,
+				38D4251B21038C05004F8D6A /* RegisterCreditCardHeaderCell.swift in Sources */,
+				38CD369320CC4AE4004BDCEE /* CustomImageView.swift in Sources */,
+				3820164320CC3422001CAF8F /* Contact.swift in Sources */,
+				38CD36B220CDA896004BDCEE /* cardViewController+TextFieldDelegate.swift in Sources */,
+				3820163220CC29DD001CAF8F /* ContactsTableViewController.swift in Sources */,
+				38CD369B20CD48E9004BDCEE /* CardListViewController.swift in Sources */,
+				3820163020CC29DD001CAF8F /* AppDelegate.swift in Sources */,
+				38CD368E20CC423F004BDCEE /* ClientStrings.swift in Sources */,
+				38080047210D1ADB00505665 /* JsonTransaction.swift in Sources */,
+				38CD36A020CD5372004BDCEE /* CardViewController.swift in Sources */,
+				38CD368920CC3B44004BDCEE /* ApiClient.swift in Sources */,
+				38080040210BDE0A00505665 /* PaymentHistoryCollectionViewController.swift in Sources */,
+				38CD369620CC5FA2004BDCEE /* PaymentViewController.swift in Sources */,
+				38CD368B20CC4139004BDCEE /* apiCliente+PicPayApiConvenienceMethods.swift in Sources */,
+				38CD36A820CD7760004BDCEE /* cardListViewController+FetchResultController.swift in Sources */,
+				38CD36AA20CD865B004BDCEE /* CustomActivityIndicator.swift in Sources */,
+				38CD36A620CD5B10004BDCEE /* CoreDataManager.swift in Sources */,
+				388F5D1A21048A3A00CB57AB /* RegisterCreditCardPopUpViewController.swift in Sources */,
+				38CD36A320CD5654004BDCEE /* DatabaseModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3820163320CC29DD001CAF8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3820163420CC29DD001CAF8F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3820163820CC29DF001CAF8F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3820163920CC29DF001CAF8F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3820163C20CC29DF001CAF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3820163D20CC29DF001CAF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3820163F20CC29DF001CAF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BFAAL6Z5ND;
+				INFOPLIST_FILE = "Desafio-Mobile-PicPay/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Desafio-Mobile-PicPay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3820164020CC29DF001CAF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BFAAL6Z5ND;
+				INFOPLIST_FILE = "Desafio-Mobile-PicPay/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Desafio-Mobile-PicPay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3820162720CC29DD001CAF8F /* Build configuration list for PBXProject "Desafio-Mobile-PicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3820163C20CC29DF001CAF8F /* Debug */,
+				3820163D20CC29DF001CAF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3820163E20CC29DF001CAF8F /* Build configuration list for PBXNativeTarget "Desafio-Mobile-PicPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3820163F20CC29DF001CAF8F /* Debug */,
+				3820164020CC29DF001CAF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38CD36A120CD5654004BDCEE /* DatabaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38CD36A220CD5654004BDCEE /* DatabaseModel.xcdatamodel */,
+			);
+			currentVersion = 38CD36A220CD5654004BDCEE /* DatabaseModel.xcdatamodel */;
+			path = DatabaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3820162420CC29DD001CAF8F /* Project object */;
+}
