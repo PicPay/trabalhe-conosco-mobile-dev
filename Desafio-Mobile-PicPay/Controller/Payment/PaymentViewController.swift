@@ -120,7 +120,8 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.popToRootViewController(animated: true)
             })
         }else{
-            CustomAlertController.showCustomAlert("", message: "Erro ao realizar transferência!", delegate: self, handler: nil)
+            guard let message = message else {return}
+            CustomAlertController.showCustomAlert("Erro ao realizar transferência", message: "\(message)", delegate: self, handler: nil)
         }
     }
 }

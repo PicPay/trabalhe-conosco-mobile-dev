@@ -35,7 +35,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartão" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-nJ-qIP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartao" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-nJ-qIP">
                     <rect key="frame" x="258" y="41" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5sr-56-Odl"/>
@@ -58,6 +58,6 @@
         </view>
     </objects>
     <resources>
-        <image name="cartão" width="50" height="50"/>
+        <image name="cartao" width="50" height="50"/>
     </resources>
 </document>
