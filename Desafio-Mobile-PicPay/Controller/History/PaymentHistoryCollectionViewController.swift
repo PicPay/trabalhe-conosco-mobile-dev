@@ -6,6 +6,8 @@
 //  Copyright © 2018 Luiz Hammerli. All rights reserved.
 //
 
+//Tela desenvolvida utilizando View Code para demonstrar conhecimento
+
 import UIKit
 
 class PaymentHistoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{

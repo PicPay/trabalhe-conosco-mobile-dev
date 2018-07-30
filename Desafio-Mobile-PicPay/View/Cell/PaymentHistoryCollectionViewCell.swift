@@ -6,6 +6,8 @@
 //  Copyright © 2018 Luiz Hammerli. All rights reserved.
 //
 
+//View desenvolvida utilizando View Code para demonstrar conhecimento
+
 import UIKit
 
 class PaymentHistoryCollectionViewCell: UICollectionViewCell {
