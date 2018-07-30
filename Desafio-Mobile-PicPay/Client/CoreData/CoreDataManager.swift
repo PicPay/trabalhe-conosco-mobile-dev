@@ -23,7 +23,7 @@ class CoreDataManager {
     
     func fetchCards() -> NSFetchedResultsController<Card> {
         let fetchRequest = NSFetchRequest<Card>(entityName: "Card")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: "Card")
         return fetchedResultController
     }
@@ -64,6 +64,7 @@ class CoreDataManager {
         card.cvv = cvv
         card.expiry_date = date
         card.url_string_id = card.objectID.uriRepresentation().absoluteString
+        card.date = Date()
         self.save()
         if(UserDefaults.standard.object(forKey: "selectedCardID") == nil){
             UserDefaults.standard.set(card.url_string_id, forKey: "selectedCardID")

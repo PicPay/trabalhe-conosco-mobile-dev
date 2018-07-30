@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Card" representedClassName="Card" syncable="YES" codeGenerationType="class">
         <attribute name="card_number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cvv" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="expiry_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url_string_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,8 +23,8 @@
         <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="transaction_user" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="-288" positionY="-138" width="128" height="120"/>
-        <element name="TransactionUser" positionX="-38" positionY="27" width="128" height="103"/>
+        <element name="Card" positionX="-288" positionY="-138" width="128" height="135"/>
         <element name="Transaction" positionX="-288" positionY="15" width="128" height="133"/>
+        <element name="TransactionUser" positionX="-38" positionY="27" width="128" height="103"/>
     </elements>
 </model>
