@@ -19,7 +19,7 @@ class ListUsersActivity : BaseActivity(), ListUsersMvpView {
 
     }
 
-    override fun getAllUsers() {
+    private fun getAllUsers() {
         presenter.getAllUsers()
     }
 

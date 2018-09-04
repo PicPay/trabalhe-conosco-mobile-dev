@@ -5,7 +5,6 @@ import com.picpay.david.davidrockpicpay.models.User
 
 interface ListUsersMvpView : MvpView {
 
-    fun getAllUsers()
     fun hideLoading()
     fun showError(message: String?)
     fun fillList(users : List<User>)

@@ -7,11 +7,16 @@
     tools:context=".features.UsersList.ListUsersActivity">
 
     <!--<br.com.vix.v1motorista.views.AppBarLayout-->
-        <!--android:id="@+id/app_toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:elevation="3dp">-->
+    <!--android:id="@+id/app_toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:elevation="3dp">-->
 
     <!--</br.com.vix.v1motorista.views.AppBarLayout>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_users"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>

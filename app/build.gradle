@@ -51,5 +51,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }
