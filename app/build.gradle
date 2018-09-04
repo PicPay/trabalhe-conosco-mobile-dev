@@ -10,6 +10,7 @@ android {
         applicationId "com.picpay.david.davidrockpicpay"
         minSdkVersion 22
         targetSdkVersion 27
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -21,9 +22,9 @@ android {
         }
     }
 
-    realm {
-        syncEnabled = true;
-    }
+//    realm {
+//        syncEnabled = true
+//    }
 }
 
 dependencies {

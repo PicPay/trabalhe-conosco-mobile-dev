@@ -22,9 +22,6 @@ class DavidRockPicPayApplication: Application() {
         lateinit var api: IPicPayAPI
         lateinit var httpClient: OkHttpClient
 
-        fun getGeocoder(): Geocoder {
-            return Geocoder(instance, Locale.getDefault())
-        }
     }
 
     override fun onCreate() {
@@ -35,7 +32,7 @@ class DavidRockPicPayApplication: Application() {
         api = PicPayAPI(httpClient).getInstance()
 
         configFonts()
-        configLocalDb()
+        //configLocalDb()
     }
 
     private fun configClient() {
