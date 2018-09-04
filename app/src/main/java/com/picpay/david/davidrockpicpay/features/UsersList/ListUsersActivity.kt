@@ -8,18 +8,23 @@ import com.picpay.david.davidrockpicpay.models.User
 
 class ListUsersActivity : BaseActivity(), ListUsersMvpView {
 
-    override fun getAllUsers() {
-        super.showMessage("Ok TOAST!")
-    }
-
-    override fun fillList(users: List<User>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    private val presenter = ListUsersPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_users)
+        presenter.attachView(this)
 
         getAllUsers()
+
     }
+
+    override fun getAllUsers() {
+        presenter.getAllUsers()
+    }
+
+    override fun fillList(users: List<User>) {
+        
+    }
+
 }
