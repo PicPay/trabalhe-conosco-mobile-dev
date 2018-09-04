@@ -2,6 +2,7 @@ package com.picpay.david.davidrockpicpay.features.UsersList
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.picpay.david.davidrockpicpay.R
 
 class ListUsersActivity : AppCompatActivity() {
 

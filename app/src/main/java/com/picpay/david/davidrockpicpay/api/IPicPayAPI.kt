@@ -8,7 +8,7 @@ import io.reactivex.Single
 interface IPicPayAPI{
 
     @GET("/users")
-    fun GetUsers(@Query("login") login: String): Single<User>
+    fun GetUsers(): Single<List<User>>
 
     @POST("/transaction")
     fun SendMoney(@Body disponibilidade: TransactionResponse): Single<TransactionResponse>

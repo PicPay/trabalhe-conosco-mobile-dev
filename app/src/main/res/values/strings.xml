@@ -1,3 +1,11 @@
 <resources>
+    <string name="webservice">http://careers.picpay.com/tests/mobdev</string>
     <string name="app_name">DavidRockPicPay</string>
+    <string name="txt_connection_error">"Não há conexões de rede no momento. Verifique sua conexão de rede.</string>
+
+
+    <!-- Validations -->
+    <string name="validate_empty">%1$s é obrigatório</string>
+    <string name="validate_email">%1$s não é um e-mail válido</string>
+    <string name="validate_length">%1$s deve ter %2$d caracteres</string>
 </resources>
