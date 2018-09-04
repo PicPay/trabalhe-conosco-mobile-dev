@@ -13,7 +13,7 @@ class PicPayAPI(client: OkHttpClient) {
 
     init  {
         retrofit = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("http://careers.picpay.com/tests/mobdev/")
                 .addConverterFactory(GsonConverterFactory.create()).client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

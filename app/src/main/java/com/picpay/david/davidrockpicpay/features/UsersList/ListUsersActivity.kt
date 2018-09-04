@@ -24,7 +24,7 @@ class ListUsersActivity : BaseActivity(), ListUsersMvpView {
     }
 
     override fun fillList(users: List<User>) {
-        
+        //codigo pra preencher o recyclerview
     }
 
 }

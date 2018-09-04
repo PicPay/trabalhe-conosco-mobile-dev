@@ -9,7 +9,7 @@ class ListUsersPresenter : BasePresenter<ListUsersMvpView>() {
 
     fun getAllUsers() {
         checkViewAttached()
-        mvpView?.getAllUsers()
+        //mvpView?.getAllUsers()
 
         val call = DavidRockPicPayApplication.api.GetUsers()
         call.subscribeOn(Schedulers.io())
