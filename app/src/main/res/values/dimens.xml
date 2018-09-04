@@ -8,5 +8,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="card_view_radius">0dp</dimen>
-    <dimen name="bottom_offset_dp">10dp</dimen>
+    <dimen name="bottom_offset_dp">2dp</dimen>
 </resources>
