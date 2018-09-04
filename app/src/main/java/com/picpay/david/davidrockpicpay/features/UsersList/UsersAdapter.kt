@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.models.User
-import java.text.DecimalFormat
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.user_card.view.*
 
 class UsersAdapter(private val context: Context, private val users: ArrayList<User>) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
@@ -33,14 +34,17 @@ class UsersAdapter(private val context: Context, private val users: ArrayList<Us
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val flag = itemView.us
-        val nota = itemView.nota
-        var labelNotaRecebida = itemView.
+        val id = itemView.tvId
+        val name = itemView.tvName
+        val userName = itemView.tvUserName
+        var img = itemView.userImage
 
         fun bind(item: User) {
-            val notaRecebida = "${item.UserName}/${item.Id} - "
-            labelNotaRecebida.text = notaRecebida
-            nota.text = DecimalFormat("##.##").format(item.Name)
+            Picasso.get().load(item.Img).into(img)
+            id.text = item.Id.toString()
+            name.text = item.Name
+            userName.text = item.UserName
+
         }
     }
 
