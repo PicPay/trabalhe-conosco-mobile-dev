@@ -60,6 +60,30 @@
                 app:layout_constraintStart_toEndOf="@+id/tvId"
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
+            <ImageView
+                android:id="@+id/imgMoney"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgChevron"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/if_money" />
+
+            <ImageView
+                android:id="@+id/imgChevron"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/if_right" />
+
+
         </android.support.constraint.ConstraintLayout>
 
 

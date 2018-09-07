@@ -16,7 +16,9 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_users"
+        android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:focusable="true" />
 
 </android.support.constraint.ConstraintLayout>
