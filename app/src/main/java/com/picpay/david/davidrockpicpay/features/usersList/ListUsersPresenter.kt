@@ -1,4 +1,4 @@
-package com.picpay.david.davidrockpicpay.features.UsersList
+package com.picpay.david.davidrockpicpay.features.usersList
 
 import com.picpay.david.davidrockpicpay.DavidRockPicPayApplication
 import com.picpay.david.davidrockpicpay.features.base.BasePresenter
