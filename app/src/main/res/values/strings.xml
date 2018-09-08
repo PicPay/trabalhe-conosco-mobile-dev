@@ -8,4 +8,7 @@
     <string name="validate_empty">%1$s é obrigatório</string>
     <string name="validate_email">%1$s não é um e-mail válido</string>
     <string name="validate_length">%1$s deve ter %2$d caracteres</string>
+
+    <!-- Send Money -->
+    <string name="user_not_found">Ocorreu um erro ao identificar o usuário de destino. Volte e tente novamente</string>
 </resources>

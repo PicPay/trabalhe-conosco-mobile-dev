@@ -55,4 +55,5 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
 }

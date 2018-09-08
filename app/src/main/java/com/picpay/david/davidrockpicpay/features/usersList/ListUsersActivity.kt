@@ -1,13 +1,16 @@
 package com.picpay.david.davidrockpicpay.features.usersList
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
+import com.google.gson.Gson
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
+import com.picpay.david.davidrockpicpay.features.sendMoney.SendMoneyActivity
 import com.picpay.david.davidrockpicpay.models.User
 import com.picpay.david.davidrockpicpay.util.UiUtil
 
@@ -33,30 +36,18 @@ class ListUsersActivity : BaseActivity(), ListUsersMvpView {
     }
 
     override fun fillList(users: List<User>) {
-//        adapter = UsersAdapter(this, ArrayList(users), object : UsersAdapter.OnItemClickListener {
-//            override fun onItemClick(item: User) {
-//
-//                Toast.makeText(baseContext, "FOi : " + item.Name, Toast.LENGTH_LONG).show()
-////                if (UiUtil.isOnlineOrMessage(context)) {
-////                    presenter.associarVeiculo(item.Placa!!.toString())
-////                }
-//            }
-//        })
 
-//        adapter = RecyclerUsersAdapter(ArrayList(users), View.OnClickListener {
-//            Toast.makeText(this, "VAIIIII CACETEEEEE ", Toast.LENGTH_LONG).show()
-//        })
-//
         adapter = RecyclerUsersAdapter(ArrayList(users), object : RecyclerUsersAdapter.OnItemClickListener {
             override fun onItemClick(item: User) {
-                Toast.makeText(baseContext, "VAI " + item.Name, Toast.LENGTH_LONG).show()
+                showMessage("Pagando " + item.Name)
+
+                var user = Gson().toJson(item)
+                var i = Intent(baseContext, SendMoneyActivity::class.java)
+                i.putExtra("user", user)
+                startActivity(i)
             }
         })
-//        recycler.setAdapter(ContentAdapter(items, object:ContentAdapter.OnItemClickListener() {
-//            fun onItemClick(item:ContentItem) {
-//                Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_LONG).show()
-//            }
-//        }))
+
         recyclerViewUsers.adapter = adapter
         UiUtil.Layout.decorateRecyclerView(this, recyclerViewUsers)
     }
