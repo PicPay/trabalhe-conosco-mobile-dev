@@ -56,4 +56,5 @@ dependencies {
 
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
+    implementation 'com.github.satyan:sugar:1.3'
 }
