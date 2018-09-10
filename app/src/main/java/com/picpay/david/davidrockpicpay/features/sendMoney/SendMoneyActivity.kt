@@ -20,10 +20,12 @@ import android.graphics.Paint.UNDERLINE_TEXT_FLAG
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import com.picpay.david.davidrockpicpay.entities.CreditCard
 
 
 class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
 
+    private val presenter = SendMoneyPresenter()
     private lateinit var user: User
     private lateinit var name: TextView
     private lateinit var userName: TextView
@@ -31,12 +33,15 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     private lateinit var imgUser: ImageView
     private lateinit var valor: CurrencyEditText
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send_money)
+        presenter.attachView(this)
+
 
         buildView()
-
+        presenter.getCreditCard()
 
     }
 
@@ -69,6 +74,14 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
                 showMessage("Uau")
             }
 
+        }
+    }
+
+
+    override fun updateCreditCardSection(cc: CreditCard?) {
+        if (cc != null) {
+            tvCardTitle.text = resources.getString(R.string.cc_title)
+            txtLink.text = cc.CardNumber
         }
     }
 

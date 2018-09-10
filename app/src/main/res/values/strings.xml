@@ -12,5 +12,10 @@
     <!-- Send Money -->
     <string name="user_not_found">Ocorreu um erro ao identificar o usuário de destino. Volte e tente novamente</string>
     <string name="pagar">Pagar</string>
+    <string name="new_creditcard_title">Nenhum cartão de crédito cadastrado</string>
     <string name="new_creditcard">Cadastrar agora.</string>
+    <string name="cc_title">Forma de Pagamento:</string>
+    <string name="cc_value">Cartão de crédito com final </string>
+
+
 </resources>
