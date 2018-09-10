@@ -28,4 +28,6 @@
     <color name="warning_transparent">#40d84315</color>
     <color name="red">#CC0001</color>
     <color name="skyblue">#448aff</color>
+    <color name="danger">#ef5350</color>
+
 </resources>

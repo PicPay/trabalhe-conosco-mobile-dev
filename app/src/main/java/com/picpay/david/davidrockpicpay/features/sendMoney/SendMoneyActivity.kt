@@ -16,6 +16,9 @@ import java.util.*
 import kotlin.concurrent.schedule
 import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.graphics.Paint.UNDERLINE_TEXT_FLAG
+import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 
 
@@ -54,14 +57,18 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             imgUser = userImage
             valor = edValor
             valor.requestFocus()
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(valor, InputMethodManager.SHOW_IMPLICIT)
 
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
 
             name.text = user.Name
             userId.text = "id: " + user.Id
             userName.text = user.UserName
             Picasso.get().load(user.Img).into(imgUser)
+
+            txtLink.setOnClickListener {
+                showMessage("Uau")
+            }
+
         }
     }
 
