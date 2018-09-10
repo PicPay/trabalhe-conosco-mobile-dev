@@ -1,17 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
     </style>
 
     <style name="V1AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccentSecondary</item>
+    </style>
+
+    <style name="MyActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

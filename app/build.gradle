@@ -21,7 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    packagingOptions{
+    packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
@@ -71,4 +71,9 @@ dependencies {
     implementation 'com.rilixtech:materialfancybuttons:1.8.7'
     implementation 'com.rilixtech:fontawesome-typeface:4.7.0.4'
     implementation "io.objectbox:objectbox-kotlin:$objectboxVersion"
+    implementation ('com.weiwangcn.betterspinner:library-material:1.1.0') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.rengwuxian.materialedittext', module: 'library'
+    }
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 }

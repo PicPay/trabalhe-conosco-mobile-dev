@@ -16,11 +16,13 @@ import java.util.*
 import kotlin.concurrent.schedule
 import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Intent
 import android.graphics.Paint.UNDERLINE_TEXT_FLAG
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import com.picpay.david.davidrockpicpay.entities.CreditCard
+import com.picpay.david.davidrockpicpay.features.creditCard.NewCreditCardActivity
 
 
 class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
@@ -71,7 +73,9 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             Picasso.get().load(user.Img).into(imgUser)
 
             txtLink.setOnClickListener {
-                showMessage("Uau")
+                showMessage("Carregnado...")
+                var i = Intent(baseContext, NewCreditCardActivity::class.java)
+                startActivity(i)
             }
 
         }

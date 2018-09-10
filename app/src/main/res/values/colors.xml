@@ -16,7 +16,7 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="inativo">#797a7e</color>
-    <color name="white">#FFF</color>
+    <color name="white">#ffffff</color>
     <!--<color name="azulinho">#140e2c51</color>-->
     <color name="azulinho">@android:color/transparent</color>
 

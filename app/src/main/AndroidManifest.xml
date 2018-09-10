@@ -22,7 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".features.sendMoney.SendMoneyActivity" />
+        <activity android:name=".features.sendMoney.SendMoneyActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".features.creditCard.NewCreditCardActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
