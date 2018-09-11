@@ -17,5 +17,8 @@
     <string name="cc_title">Forma de Pagamento:</string>
     <string name="cc_value">Cartão de crédito com final </string>
 
+    <!-- New Card -->
+    <string name="newcard_number">Número do Cartão</string>
+    <string name="newcard_holder">Nome do Cartão</string>
 
 </resources>
