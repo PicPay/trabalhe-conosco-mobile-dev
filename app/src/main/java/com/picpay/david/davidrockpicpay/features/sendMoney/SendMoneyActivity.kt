@@ -16,11 +16,13 @@ import java.util.*
 import kotlin.concurrent.schedule
 import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Paint.UNDERLINE_TEXT_FLAG
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.features.creditCard.NewCreditCardActivity
 import com.picpay.david.davidrockpicpay.models.TransactionModel
@@ -112,7 +114,13 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     }
 
     override fun showReceipt(response: TransactionResponse) {
-        UiUtil.Dialogs.dialogAlertAction(this, response.Transaction!!.Status, null, false)
+        UiUtil.Dialogs.dialogAlertAction(this, response.Transaction!!.Status, DialogInterface.OnClickListener { dialog, which ->
+            run {
+                Toast.makeText(this, "hmmm", Toast.LENGTH_SHORT).show()
+                var i = Intent(baseContext, ReceiptActivity::class.java)
+                startActivity(i)
+            }
+        }, false)
     }
 
 
