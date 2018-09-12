@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:8209274165247958451",
-      "lastPropertyId": "6:3559613885691444174",
+      "lastPropertyId": "8:2417090562520364227",
       "name": "CreditCard",
       "properties": [
         {
@@ -17,20 +17,20 @@
           "name": "CardNumber"
         },
         {
-          "id": "3:6372560851842922202",
-          "name": "ValidMonth"
-        },
-        {
-          "id": "4:5393949065008914618",
-          "name": "ValidYear"
-        },
-        {
           "id": "5:3667642299334639477",
           "name": "Cvv"
         },
         {
           "id": "6:3559613885691444174",
           "name": "Default"
+        },
+        {
+          "id": "7:8465190466243895887",
+          "name": "CardHolder"
+        },
+        {
+          "id": "8:2417090562520364227",
+          "name": "Validity"
         }
       ],
       "relations": []
@@ -44,7 +44,10 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    6372560851842922202,
+    5393949065008914618
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

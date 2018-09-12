@@ -54,31 +54,31 @@ object UiUtil {
         fun progress(context: Context, @StringRes message: Int, show: Boolean = true, cancelable: Boolean = true): ProgressDialog {
             return progress(context, context.getString(message), show, cancelable)
         }
-//
-//        fun dialogAlertAction(context: Context, message: String?, action: DialogInterface.OnClickListener? = null, cancelable: Boolean = false, show: Boolean = true): Dialog {
-//            val dialog = Dialog(context)
-//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//            dialog.setCancelable(cancelable)
-//            dialog.setContentView(R.layout.custom_alert_dialogbox)
-//            val text = dialog.findViewById(R.id.mensagem) as TextView
-//            text.text = message
-//
-//            val okButton = dialog.findViewById(R.id.btnOk) as Button
-//            if (action == null) {
-//                okButton.setOnClickListener {
-//                    dialog.dismiss()
-//                }
-//            } else {
-//                okButton.setOnClickListener { action.onClick(dialog, R.id.btnOk) }
-//            }
-//            if (show)
-//                dialog.show()
-//            return dialog
-//        }
 
-//        fun dialogAlertAction(context: Context, @StringRes message: Int, action: DialogInterface.OnClickListener? = null, cancelable: Boolean = false, show: Boolean = true): Dialog {
-//            return dialogAlertAction(context, context.getString(message), action, cancelable, show)
-//        }
+        fun dialogAlertAction(context: Context, message: String?, action: DialogInterface.OnClickListener? = null, cancelable: Boolean = false, show: Boolean = true): Dialog {
+            val dialog = Dialog(context)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(cancelable)
+            dialog.setContentView(R.layout.custom_alert_dialogbox)
+            val text = dialog.findViewById(R.id.mensagem) as TextView
+            text.text = message
+
+            val okButton = dialog.findViewById(R.id.btnOk) as Button
+            if (action == null) {
+                okButton.setOnClickListener {
+                    dialog.dismiss()
+                }
+            } else {
+                okButton.setOnClickListener { action.onClick(dialog, R.id.btnOk) }
+            }
+            if (show)
+                dialog.show()
+            return dialog
+        }
+
+        fun dialogAlertAction(context: Context, @StringRes message: Int, action: DialogInterface.OnClickListener? = null, cancelable: Boolean = false, show: Boolean = true): Dialog {
+            return dialogAlertAction(context, context.getString(message), action, cancelable, show)
+        }
     }
 
     object Messages {

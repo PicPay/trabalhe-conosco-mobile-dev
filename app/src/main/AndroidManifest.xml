@@ -23,9 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".features.sendMoney.SendMoneyActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".features.creditCard.NewCreditCardActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme" />
     </application>
 

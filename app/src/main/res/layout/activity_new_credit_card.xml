@@ -7,22 +7,22 @@
     tools:context=".features.creditCard.NewCreditCardActivity">
 
 
-    <android.support.v7.widget.Toolbar
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/toolbar"
-        style="@style/MyActionBarTheme"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="122dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="?attr/homeAsUpIndicator" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    </android.support.v7.widget.Toolbar>
 
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:hint="@string/newcard_select_brand"
         android:textColorHint="#05ab9a"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.button.MaterialButton
-        android:id="@+id/next_button"
+        android:id="@+id/btnCreateNewCreditCard"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

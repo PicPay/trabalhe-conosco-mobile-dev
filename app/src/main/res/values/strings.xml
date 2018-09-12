@@ -26,5 +26,6 @@
     <string name="newcard_cardvalidity">Validade (mm/aaaa)</string>
     <string name="newcard_csc">Código de Segurança</string>
     <string name="newcard_cep">Validade do Cartão</string>
+    <string name="newcard_error_all_required">Preencha todos os campos!</string>
 
 </resources>
