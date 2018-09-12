@@ -23,6 +23,9 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.features.creditCard.NewCreditCardActivity
+import com.picpay.david.davidrockpicpay.models.TransactionModel
+import com.picpay.david.davidrockpicpay.models.TransactionResponse
+import com.picpay.david.davidrockpicpay.util.UiUtil
 
 
 class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
@@ -40,7 +43,6 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send_money)
         presenter.attachView(this)
-
 
         buildView()
         presenter.getCreditCard()
@@ -73,8 +75,25 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             Picasso.get().load(user.Img).into(imgUser)
 
             txtLink.setOnClickListener {
-                var i = Intent(baseContext, ReceiptActivity::class.java)
+                var i = Intent(baseContext, NewCreditCardActivity::class.java)
                 startActivity(i)
+            }
+
+            btnPay.setOnClickListener {
+
+                var card = CreditCard().getDefaultCard()
+
+                if (card != null) {
+                    var model = TransactionModel(
+                            card.CardNumber,
+                            card.Cvv,
+                            edValor.text.toString().removePrefix("R$").replace(",", ".").toDouble(),
+                            card.Validity,
+                            user.Id!!)
+
+                    presenter.sendMoney(model)
+                }
+
             }
 
         }
@@ -87,5 +106,14 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             txtLink.text = cc.CardNumber
         }
     }
+
+    override fun showLoading() {
+        UiUtil.Dialogs.progress(this, "Enviando", true, false)
+    }
+
+    override fun showReceipt(response: TransactionResponse) {
+        UiUtil.Dialogs.dialogAlertAction(this, response.Transaction!!.Status, null, false)
+    }
+
 
 }

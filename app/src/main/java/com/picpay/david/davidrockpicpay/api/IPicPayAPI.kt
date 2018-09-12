@@ -1,4 +1,5 @@
 package com.picpay.david.davidrockpicpay.api
+import com.picpay.david.davidrockpicpay.models.TransactionModel
 import com.picpay.david.davidrockpicpay.models.TransactionResponse
 import com.picpay.david.davidrockpicpay.models.User
 import retrofit2.http.*
@@ -11,7 +12,7 @@ interface IPicPayAPI{
     fun GetUsers(): Single<List<User>>
 
     @POST("transaction")
-    fun SendMoney(@Body disponibilidade: TransactionResponse): Single<TransactionResponse>
+    fun SendMoney(@Body model: TransactionModel): Single<TransactionResponse>
 
 
 }

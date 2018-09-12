@@ -1,6 +1,8 @@
 package com.picpay.david.davidrockpicpay.models
 
+import com.google.gson.annotations.SerializedName
 
-data class TransactionResponse(val Id: Int, val Timestamp: Int, val Value:String, val Success:Boolean, val Status: String, val DestinationUser: User){
-
+class TransactionResponse {
+    @SerializedName("transaction")
+    var Transaction: Transaction? = null
 }

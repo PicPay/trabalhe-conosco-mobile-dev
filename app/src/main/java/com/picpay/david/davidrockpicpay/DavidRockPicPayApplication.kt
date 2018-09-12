@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat
 import com.picpay.david.davidrockpicpay.api.IPicPayAPI
 import com.picpay.david.davidrockpicpay.api.PicPayAPI
 import com.picpay.david.davidrockpicpay.entities.MyObjectBox
+import com.readystatesoftware.chuck.ChuckInterceptor
 import io.objectbox.BoxStore
 //import io.realm.Realm
 //import io.realm.RealmConfiguration
@@ -45,7 +46,7 @@ class DavidRockPicPayApplication : Application() {
                 .connectionPool(ConnectionPool(0, 1, TimeUnit.NANOSECONDS))
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-
+                .addInterceptor(ChuckInterceptor(this))
         httpClient = clientBuilder.build()
     }
 
