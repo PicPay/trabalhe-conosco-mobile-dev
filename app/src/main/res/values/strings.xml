@@ -27,5 +27,8 @@
     <string name="newcard_csc">Código de Segurança</string>
     <string name="newcard_cep">Validade do Cartão</string>
     <string name="newcard_error_all_required">Preencha todos os campos!</string>
+    <string name="sendmoney_pgto_confirmed">Pagamento Confirmado</string>
+    <string name="sendmoney_pay_again">PAGAR NOVAMENTE</string>
+    <string name="sendmoney_back">VOLTAR</string>
 
 </resources>

@@ -22,13 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".features.sendMoney.SendMoneyActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".features.sendMoney.SendMoneyActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".features.creditCard.NewCreditCardActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".features.sendMoney.ReceiptActivity"></activity>
     </application>
 
 </manifest>

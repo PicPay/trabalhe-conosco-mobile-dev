@@ -73,7 +73,6 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             Picasso.get().load(user.Img).into(imgUser)
 
             txtLink.setOnClickListener {
-                showMessage("Carregnado...")
                 var i = Intent(baseContext, NewCreditCardActivity::class.java)
                 startActivity(i)
             }
