@@ -1,11 +1,11 @@
 package com.picpay.david.davidrockpicpay.features.creditCard
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
-import com.picpay.david.davidrockpicpay.R
 import android.widget.ArrayAdapter
+import com.picpay.david.davidrockpicpay.R
 import kotlinx.android.synthetic.main.activity_new_credit_card.*
 
 
@@ -22,8 +22,12 @@ class NewCreditCardActivity : AppCompatActivity() {
         }
 
         val items = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6")
-        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.setAdapter(adapter)
+        val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items)
+        spinner.setAdapter(arrayAdapter)
+//
+//
+//        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        spinner.setAdapter(adapter)
     }
 }

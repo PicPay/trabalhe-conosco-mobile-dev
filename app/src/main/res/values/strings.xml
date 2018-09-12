@@ -18,7 +18,13 @@
     <string name="cc_value">Cartão de crédito com final </string>
 
     <!-- New Card -->
-    <string name="newcard_number">Número do Cartão</string>
-    <string name="newcard_holder">Nome do Cartão</string>
+    <string name="newcard_cadastrar">CADASTRAR</string>
+    <string name="newcard_select_brand">Selecione a bandeira</string>
+    <string name="newcard_creditcard_title">Informe os dados do cartão</string>
+    <string name="newcard_cardholder">Nome escrito no cartão</string>
+    <string name="newcard_cardnumber">Número do Cartão</string>
+    <string name="newcard_cardvalidity">Validade (mm/aaaa)</string>
+    <string name="newcard_csc">Código de Segurança</string>
+    <string name="newcard_cep">Validade do Cartão</string>
 
 </resources>
