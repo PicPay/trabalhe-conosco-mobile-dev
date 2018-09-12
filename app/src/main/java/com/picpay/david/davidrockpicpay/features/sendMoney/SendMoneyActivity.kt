@@ -73,7 +73,7 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             Picasso.get().load(user.Img).into(imgUser)
 
             txtLink.setOnClickListener {
-                var i = Intent(baseContext, NewCreditCardActivity::class.java)
+                var i = Intent(baseContext, ReceiptActivity::class.java)
                 startActivity(i)
             }
 
