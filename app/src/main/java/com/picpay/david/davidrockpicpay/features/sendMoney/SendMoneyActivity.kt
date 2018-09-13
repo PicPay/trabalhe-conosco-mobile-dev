@@ -43,6 +43,11 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     private lateinit var imgUser: ImageView
     private lateinit var valor: CurrencyEditText
 
+    override fun onPostResume() {
+        super.onPostResume()
+        updateCreditCardSection()
+        //updateCreditCardSection()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,7 +110,9 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     }
 
 
-    override fun updateCreditCardSection(cc: CreditCard?) {
+    override fun updateCreditCardSection() {
+
+        var cc = CreditCard().getDefaultCard()
         if (cc != null) {
             tvCardTitle.text = resources.getString(R.string.cc_title)
             txtLink.text = "Cartão de crédito com final " + cc.CardNumber!!.takeLast(4)
@@ -135,9 +142,7 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
         }, false)
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onCardChangedEvent(it: CreditCard) {
-        updateCreditCardSection(it)
-    }
+
+
 
 }

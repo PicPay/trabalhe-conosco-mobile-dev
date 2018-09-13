@@ -52,6 +52,8 @@ open class CreditCard {
         card.Default = true
         box.put(card)
 
+        var lista = box.all
+
     }
 
     fun getAll(): List<CreditCard> {

@@ -18,7 +18,7 @@ class SendMoneyPresenter : BasePresenter<SendMoneyMvpView>() {
     fun getCreditCard() {
         //Get CreditCard from ObjectBox Database
         val box: Box<CreditCard> = boxStore.boxFor()
-        mvpView?.updateCreditCardSection(box.all.firstOrNull())
+        mvpView?.updateCreditCardSection()
     }
 
     fun sendMoney(model: TransactionModel){
@@ -29,7 +29,7 @@ class SendMoneyPresenter : BasePresenter<SendMoneyMvpView>() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     mvpView?.hideLoading()
-                    if (it != null) {
+                    if (it != null && it.Transaction!!.Success) {
                         mvpView?.showReceipt(it)
                     } else {
                         //mvpView?.showError()

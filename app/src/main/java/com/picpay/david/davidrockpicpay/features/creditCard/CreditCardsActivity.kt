@@ -10,6 +10,7 @@ import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import kotlinx.android.synthetic.main.activity_credit_cards.*
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
@@ -49,6 +50,8 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
                 recyclerViewCards.adapter = adapter
 
+                //Enviar evento de mudança de cartão padrão
+                EventBus.getDefault().post(item)
             }
         })
 

@@ -6,7 +6,7 @@ import com.picpay.david.davidrockpicpay.models.TransactionResponse
 
 interface SendMoneyMvpView : MvpView {
 
-    fun updateCreditCardSection(cc: CreditCard?)
+    fun updateCreditCardSection()
     fun showError(message: String?)
     fun hideLoading()
     fun showLoading()

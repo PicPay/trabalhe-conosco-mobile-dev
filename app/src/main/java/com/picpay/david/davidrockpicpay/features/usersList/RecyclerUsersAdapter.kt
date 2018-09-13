@@ -31,12 +31,13 @@ class RecyclerUsersAdapter(val items: ArrayList<User>, val listener: OnItemClick
         var img = itemView.userImage
         var imgMoney = itemView.imgMoney
         var imgChevron = itemView.imgChevron
+        var cv = itemView.cv
 
         fun bind(item: User, pos: Int, listener: OnItemClickListener) {
 
-            img.setOnClickListener { listener.onItemClick(item) }
-            imgMoney.setOnClickListener { listener.onItemClick(item) }
-            imgChevron.setOnClickListener { listener.onItemClick(item) }
+            cv.setOnClickListener { listener.onItemClick(item) }
+//            imgMoney.setOnClickListener { listener.onItemClick(item) }
+//            imgChevron.setOnClickListener { listener.onItemClick(item) }
 //            img.setOnClickListener(listener)
 
             Picasso.get().load(item.Img).into(img)
