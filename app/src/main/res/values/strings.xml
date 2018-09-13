@@ -25,7 +25,7 @@
     <string name="newcard_cardnumber">Número do Cartão</string>
     <string name="newcard_cardvalidity">Validade (mm/aaaa)</string>
     <string name="newcard_csc">Código de Segurança</string>
-    <string name="newcard_cep">Validade do Cartão</string>
+    <string name="newcard_cep">CEP do endereço da fatura</string>
     <string name="newcard_error_all_required">Preencha todos os campos!</string>
     <string name="sendmoney_pgto_confirmed">Pagamento Confirmado</string>
     <string name="sendmoney_pay_again">PAGAR NOVAMENTE</string>

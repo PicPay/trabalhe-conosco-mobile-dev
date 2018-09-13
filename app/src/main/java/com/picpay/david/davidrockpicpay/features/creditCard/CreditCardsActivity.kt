@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.Toast
 import com.google.gson.Gson
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
@@ -13,6 +14,8 @@ import com.picpay.david.davidrockpicpay.features.sendMoney.SendMoneyActivity
 import com.picpay.david.davidrockpicpay.features.usersList.RecyclerUsersAdapter
 import com.picpay.david.davidrockpicpay.models.User
 import com.picpay.david.davidrockpicpay.util.UiUtil
+import kotlinx.android.synthetic.main.activity_credit_cards.*
+import kotlinx.android.synthetic.main.activity_new_credit_card.*
 
 class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
@@ -25,18 +28,8 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         setContentView(R.layout.activity_credit_cards)
 
         presenter.attachView(this)
-        recyclerViewCards = findViewById(R.id.rv_cards)
 
-        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar) // Setting/replace toolbar as the ActionBar
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-
-        toolbar.setNavigationOnClickListener {
-            // back button pressed
-            finish()
-        }
-
+        buildView()
         getAllCards()
 
     }
@@ -61,5 +54,29 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
         recyclerViewCards.adapter = adapter
         UiUtil.Layout.decorateRecyclerView(this, recyclerViewCards)
+    }
+
+    fun buildView(){
+        recyclerViewCards = findViewById(R.id.rv_cards)
+
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar) // Setting/replace toolbar as the ActionBar
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            // back button pressed
+            finish()
+        }
+
+        btnNewCard.setOnClickListener {
+            var i = Intent(baseContext, NewCreditCardActivity::class.java)
+            startActivity(i)
+        }
+
+        btnSelectCard.setOnClickListener {
+            showMessage("falta ainda salvar qual é o cartao")
+            finish()
+        }
     }
 }

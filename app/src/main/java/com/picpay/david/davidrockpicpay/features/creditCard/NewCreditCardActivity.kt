@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ArrayAdapter
 import com.picpay.david.davidrockpicpay.R
+import com.picpay.david.davidrockpicpay.extensions.MaskEditUtil
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import kotlinx.android.synthetic.main.activity_new_credit_card.*
@@ -21,7 +22,7 @@ class NewCreditCardActivity : BaseActivity(), NewCreditCardMvpView {
         presenter.attachView(this)
 
         configView()
-
+        setEditMasks()
 
     }
 
@@ -57,6 +58,13 @@ class NewCreditCardActivity : BaseActivity(), NewCreditCardMvpView {
                         finish()
                     }
                 }, false, true)
+    }
+
+    fun setEditMasks(){
+        edCep.addTextChangedListener(MaskEditUtil.mask(edCep, MaskEditUtil.FORMAT_CEP))
+        edCardValidity.addTextChangedListener(MaskEditUtil.mask(edCardValidity, MaskEditUtil.FORMAT_DATE))
+        edCardCsc.addTextChangedListener(MaskEditUtil.mask(edCardCsc, MaskEditUtil.FORMAT_CC_CSC))
+        edCardNumber.addTextChangedListener(MaskEditUtil.mask(edCardNumber, MaskEditUtil.FORMAT_CREDIT_CARD))
     }
 
 
