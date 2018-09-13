@@ -13,7 +13,6 @@ import io.objectbox.kotlin.boxFor
 open class CreditCard {
 
 
-
     constructor(Id: Long, CardHolder: String, CardNumber: String?, Validity: String?, Cvv: Int?, Default: Boolean) {
         this.Id = Id
         this.CardHolder = CardHolder
@@ -37,8 +36,28 @@ open class CreditCard {
 
     fun getDefaultCard(): CreditCard? {
         val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
-        return box.all.firstOrNull()
+        return box.query().equal(CreditCard_.Default, true).build().findFirst()
+    }
 
+    fun setDefaultCard(card: CreditCard) {
+        val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
+
+        //Remover atributo de cartão padrão de todos antes de settar um cartão como padrão
+        var list = box.all
+        list.forEach {
+            it.Default = false
+            box.put(it)
+        }
+
+        card.Default = true
+        box.put(card)
+
+    }
+
+    fun getAll(): List<CreditCard> {
+        val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
+
+        return box.all
     }
 
 }

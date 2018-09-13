@@ -25,7 +25,7 @@
         <activity
             android:name=".features.sendMoney.SendMoneyActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".features.creditCard.NewCreditCardActivity"
             android:theme="@style/AppTheme"

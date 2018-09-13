@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.models.User
@@ -30,12 +31,31 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
 
         fun bind(item: CreditCard, pos: Int, listener: OnItemClickListener) {
 
-            card.setOnClickListener { listener.onItemClick(item) }
+            card.setOnClickListener {
+
+                listener.onItemClick(item)
+            }
 
             if (item.Default)
                 check.visibility = View.VISIBLE
 
             cardNumber.text = item.CardNumber.toString()
         }
+    }
+
+    fun update(lista: List<CreditCard>) {
+        if (items.isEmpty()) {
+            items.addAll(lista)
+            notifyDataSetChanged()
+            return
+        }
+        if (lista.size > items.size) {
+            val novasMensagens = lista.subList(items.size, lista.size)
+            for (mensagem in novasMensagens){
+                items.add(mensagem)
+                notifyItemInserted(items.lastIndex)
+            }
+        }
+
     }
 }

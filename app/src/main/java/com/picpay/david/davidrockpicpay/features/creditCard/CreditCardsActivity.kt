@@ -42,8 +42,9 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
         adapter = RecyclerCardsAdapter(ArrayList(cards), object : RecyclerCardsAdapter.OnItemClickListener {
             override fun onItemClick(item: CreditCard) {
-                showMessage("Recuperando cartões " + item.CardNumber)
-
+//                showMessage("Recuperando cartões " + item.CardNumber)
+                CreditCard().setDefaultCard(item)
+                adapter.update(CreditCard().getAll())
 
 //                var user = Gson().toJson(item)
 //                var i = Intent(baseContext, SendMoneyActivity::class.java)
@@ -75,7 +76,6 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         }
 
         btnSelectCard.setOnClickListener {
-            showMessage("falta ainda salvar qual é o cartao")
             finish()
         }
     }
