@@ -6,7 +6,7 @@ class Transaction {
     @SerializedName("id")
     var Id: Int = 0
     @SerializedName("timestamp")
-    var Timestamp: Int = 0
+    var Timestamp: Long = 0
     @SerializedName("value")
     var Value: Double = 0.toDouble()
     @SerializedName("destination_user")

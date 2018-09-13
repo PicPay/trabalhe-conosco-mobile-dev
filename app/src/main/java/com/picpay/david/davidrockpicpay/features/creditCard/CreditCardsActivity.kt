@@ -5,17 +5,13 @@ import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
-import android.widget.Toast
-import com.google.gson.Gson
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
-import com.picpay.david.davidrockpicpay.features.sendMoney.SendMoneyActivity
-import com.picpay.david.davidrockpicpay.features.usersList.RecyclerUsersAdapter
-import com.picpay.david.davidrockpicpay.models.User
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import kotlinx.android.synthetic.main.activity_credit_cards.*
-import kotlinx.android.synthetic.main.activity_new_credit_card.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
@@ -40,16 +36,19 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
     override fun fillList(cards: List<CreditCard>) {
 
-        adapter = RecyclerCardsAdapter(ArrayList(cards), object : RecyclerCardsAdapter.OnItemClickListener {
-            override fun onItemClick(item: CreditCard) {
-//                showMessage("Recuperando cartões " + item.CardNumber)
-                CreditCard().setDefaultCard(item)
-                adapter.update(CreditCard().getAll())
+        var arrCards = ArrayList(cards)
 
-//                var user = Gson().toJson(item)
-//                var i = Intent(baseContext, SendMoneyActivity::class.java)
-//                i.putExtra("user", user)
-//                startActivity(i)
+        adapter = RecyclerCardsAdapter(arrCards, object : RecyclerCardsAdapter.OnItemClickListener {
+            override fun onItemClick(item: CreditCard) {
+                showMessage("Cartão com final " + item.CardNumber.toString().takeLast(4) + " selecionado")
+                CreditCard().setDefaultCard(item)
+
+                arrCards.clear()
+                arrCards.addAll(CreditCard().getAll())
+                adapter.notifyDataSetChanged()
+
+                recyclerViewCards.adapter = adapter
+
             }
         })
 
@@ -79,4 +78,6 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
             finish()
         }
     }
+
+
 }

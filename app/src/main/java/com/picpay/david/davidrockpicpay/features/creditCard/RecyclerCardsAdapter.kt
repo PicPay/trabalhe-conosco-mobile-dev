@@ -33,7 +33,14 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
 
             card.setOnClickListener {
 
-                listener.onItemClick(item)
+                listener.onItemClick(item).also {
+
+                    if (item.Default)
+                        check.visibility = View.VISIBLE
+                    else
+                        check.visibility = View.INVISIBLE
+                }
+
             }
 
             if (item.Default)
@@ -51,7 +58,7 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
         }
         if (lista.size > items.size) {
             val novasMensagens = lista.subList(items.size, lista.size)
-            for (mensagem in novasMensagens){
+            for (mensagem in novasMensagens) {
                 items.add(mensagem)
                 notifyItemInserted(items.lastIndex)
             }

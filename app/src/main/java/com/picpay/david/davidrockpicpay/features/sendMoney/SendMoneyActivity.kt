@@ -29,6 +29,8 @@ import com.picpay.david.davidrockpicpay.features.creditCard.NewCreditCardActivit
 import com.picpay.david.davidrockpicpay.models.TransactionModel
 import com.picpay.david.davidrockpicpay.models.TransactionResponse
 import com.picpay.david.davidrockpicpay.util.UiUtil
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
@@ -121,12 +123,21 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     override fun showReceipt(response: TransactionResponse) {
         UiUtil.Dialogs.dialogAlertAction(this, response.Transaction!!.Status, DialogInterface.OnClickListener { dialog, which ->
             run {
-                Toast.makeText(this, "hmmm", Toast.LENGTH_SHORT).show()
+
+                dialog.dismiss()
+                var json = Gson().toJson(response)
+
                 var i = Intent(baseContext, ReceiptActivity::class.java)
+                i.putExtra("receipt", json)
                 startActivity(i)
+                finish()
             }
         }, false)
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onCardChangedEvent(it: CreditCard) {
+        updateCreditCardSection(it)
+    }
 
 }

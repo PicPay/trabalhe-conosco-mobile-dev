@@ -7,5 +7,5 @@ interface CreditCardsMvpView : MvpView {
 
     fun hideLoading()
     fun showError(message: String?)
-    fun fillList(users : List<CreditCard>)
+    fun fillList(cards : List<CreditCard>)
 }
