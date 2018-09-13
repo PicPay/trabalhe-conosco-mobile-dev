@@ -95,30 +95,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-
-    <com.rilixtech.materialfancybutton.MaterialFancyButton
+    <android.support.design.button.MaterialButton
         android:id="@+id/btnPay"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
+        android:text="@string/pagar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        fancy:mfb_borderColor="#FFFFFF"
-        fancy:mfb_borderWidth="1dp"
-        fancy:mfb_defaultColor="#7ab800"
-        fancy:mfb_focusColor="#c4ff50"
-        fancy:mfb_icon="@string/fawi_star"
-        fancy:mfb_iconPosition="left"
-        fancy:mfb_radius="30dp"
-        fancy:mfb_text="@string/pagar"
-        fancy:mfb_textColor="#FFFFFF" />
+        app:layout_constraintVertical_bias="1.0" />
+
 
     <TextView
         android:id="@+id/txtLink"

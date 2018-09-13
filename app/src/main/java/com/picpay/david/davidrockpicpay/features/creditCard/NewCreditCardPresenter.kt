@@ -18,6 +18,11 @@ class NewCreditCardPresenter : BasePresenter<NewCreditCardMvpView>() {
 
             val cc = CreditCard(0, edCardHolder, edCardNumber, edCardValidity, edCardCsc.toInt(), true)
             box.put(cc)
+
+            if(cc.Id <= 0 ){
+                mvpView?.showSuccessDialog("Cartão cadastrado com sucesso!")
+            }
+
             Log.d("PIC", "CreditCard Added, ID: " + cc.Id)
         } else {
 

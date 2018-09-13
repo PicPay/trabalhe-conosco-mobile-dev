@@ -24,6 +24,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.picpay.david.davidrockpicpay.entities.CreditCard
+import com.picpay.david.davidrockpicpay.features.creditCard.CreditCardsActivity
 import com.picpay.david.davidrockpicpay.features.creditCard.NewCreditCardActivity
 import com.picpay.david.davidrockpicpay.models.TransactionModel
 import com.picpay.david.davidrockpicpay.models.TransactionResponse
@@ -105,7 +106,11 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     override fun updateCreditCardSection(cc: CreditCard?) {
         if (cc != null) {
             tvCardTitle.text = resources.getString(R.string.cc_title)
-            txtLink.text = cc.CardNumber
+            txtLink.text = "Cartão de crédito com final " + cc.CardNumber!!.takeLast(4)
+            txtLink.setOnClickListener {
+                var i = Intent(baseContext, CreditCardsActivity::class.java)
+                startActivity(i)
+            }
         }
     }
 

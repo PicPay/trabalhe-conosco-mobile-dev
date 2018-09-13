@@ -1,12 +1,9 @@
 package com.picpay.david.davidrockpicpay.features.usersList
 
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.models.User
 import com.squareup.picasso.Picasso
