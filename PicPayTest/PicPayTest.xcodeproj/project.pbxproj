@@ -20,7 +20,6 @@
 		43E804CD214EE7F8004A8C8A /* PicPayTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E804CB214EE7F8004A8C8A /* PicPayTest.xcdatamodeld */; };
 		43E804CF214EF695004A8C8A /* EnviarCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804CE214EF695004A8C8A /* EnviarCodable.swift */; };
 		43FFB5422149E54500633381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5412149E54500633381 /* AppDelegate.swift */; };
-		43FFB5442149E54500633381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5432149E54500633381 /* ViewController.swift */; };
 		43FFB5472149E54500633381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB5452149E54500633381 /* Main.storyboard */; };
 		43FFB5492149E54700633381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB5482149E54700633381 /* Assets.xcassets */; };
 		43FFB54C2149E54700633381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB54A2149E54700633381 /* LaunchScreen.storyboard */; };
@@ -43,7 +42,6 @@
 		43E804CE214EF695004A8C8A /* EnviarCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCodable.swift; sourceTree = "<group>"; };
 		43FFB53E2149E54500633381 /* PicPayTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPayTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FFB5412149E54500633381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43FFB5432149E54500633381 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43FFB5462149E54500633381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43FFB5482149E54700633381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FFB54B2149E54700633381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,6 +95,25 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		43E804D0214F1B11004A8C8A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43FFB5532149E98D00633381 /* UsersListTableViewController.swift */,
+				43C161D2214CA71600D5AD96 /* DataPaymentTableViewController.swift */,
+				437C2CDA214EA5D300B36786 /* PaymentTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		43E804D1214F1B3E004A8C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43FFB55A2149EF8500633381 /* UserCodable.swift */,
+				43E804CE214EF695004A8C8A /* EnviarCodable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		43FFB5352149E54500633381 = {
 			isa = PBXGroup;
 			children = (
@@ -118,22 +135,18 @@
 		43FFB5402149E54500633381 /* PicPayTest */ = {
 			isa = PBXGroup;
 			children = (
+				43E804D1214F1B3E004A8C8A /* Model */,
+				43E804D0214F1B11004A8C8A /* Controllers */,
 				43E804CB214EE7F8004A8C8A /* PicPayTest.xcdatamodeld */,
 				43E804C0214ED2B8004A8C8A /* view */,
 				43C161D4214CAC8100D5AD96 /* Extensions */,
 				43FFB5412149E54500633381 /* AppDelegate.swift */,
-				43FFB5432149E54500633381 /* ViewController.swift */,
 				43FFB5452149E54500633381 /* Main.storyboard */,
 				43FFB5482149E54700633381 /* Assets.xcassets */,
 				43FFB54A2149E54700633381 /* LaunchScreen.storyboard */,
 				43FFB54D2149E54700633381 /* Info.plist */,
-				43FFB5532149E98D00633381 /* UsersListTableViewController.swift */,
-				43FFB55A2149EF8500633381 /* UserCodable.swift */,
 				431AB8B32149FC3D0044F848 /* ViewVazia.xib */,
-				43C161D2214CA71600D5AD96 /* DataPaymentTableViewController.swift */,
-				437C2CDA214EA5D300B36786 /* PaymentTableViewController.swift */,
 				43E804C7214ED9C7004A8C8A /* DataManager.swift */,
-				43E804CE214EF695004A8C8A /* EnviarCodable.swift */,
 			);
 			path = PicPayTest;
 			sourceTree = "<group>";
@@ -265,7 +278,6 @@
 				43C161D8214CACF700D5AD96 /* ExString.swift in Sources */,
 				43C161D6214CAC9700D5AD96 /* ExDouble.swift in Sources */,
 				43E804C8214ED9C7004A8C8A /* DataManager.swift in Sources */,
-				43FFB5442149E54500633381 /* ViewController.swift in Sources */,
 				437C2CDB214EA5D300B36786 /* PaymentTableViewController.swift in Sources */,
 				43FFB5542149E98D00633381 /* UsersListTableViewController.swift in Sources */,
 				43E804CF214EF695004A8C8A /* EnviarCodable.swift in Sources */,
