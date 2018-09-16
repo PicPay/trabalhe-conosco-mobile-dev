@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0648D2131E2438AB30460585 /* Pods_PicPayTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A72C64C2297EBB4AB21811 /* Pods_PicPayTest.framework */; };
+		431AB8B42149FC3D0044F848 /* ViewVazia.xib in Resources */ = {isa = PBXBuildFile; fileRef = 431AB8B32149FC3D0044F848 /* ViewVazia.xib */; };
+		437C2CDB214EA5D300B36786 /* PaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437C2CDA214EA5D300B36786 /* PaymentTableViewController.swift */; };
+		43C161D3214CA71600D5AD96 /* DataPaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C161D2214CA71600D5AD96 /* DataPaymentTableViewController.swift */; };
+		43C161D6214CAC9700D5AD96 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C161D5214CAC9700D5AD96 /* ExDouble.swift */; };
+		43C161D8214CACF700D5AD96 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C161D7214CACF700D5AD96 /* ExString.swift */; };
+		43E804C2214ED2CB004A8C8A /* CartoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804C1214ED2CB004A8C8A /* CartoesTableViewCell.swift */; };
+		43E804C4214ED2EA004A8C8A /* ValorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804C3214ED2EA004A8C8A /* ValorTableViewCell.swift */; };
+		43E804C6214ED33F004A8C8A /* CartoesNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804C5214ED33F004A8C8A /* CartoesNewTableViewCell.swift */; };
+		43E804C8214ED9C7004A8C8A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804C7214ED9C7004A8C8A /* DataManager.swift */; };
+		43E804CD214EE7F8004A8C8A /* PicPayTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E804CB214EE7F8004A8C8A /* PicPayTest.xcdatamodeld */; };
+		43E804CF214EF695004A8C8A /* EnviarCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E804CE214EF695004A8C8A /* EnviarCodable.swift */; };
+		43FFB5422149E54500633381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5412149E54500633381 /* AppDelegate.swift */; };
+		43FFB5442149E54500633381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5432149E54500633381 /* ViewController.swift */; };
+		43FFB5472149E54500633381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB5452149E54500633381 /* Main.storyboard */; };
+		43FFB5492149E54700633381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB5482149E54700633381 /* Assets.xcassets */; };
+		43FFB54C2149E54700633381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB54A2149E54700633381 /* LaunchScreen.storyboard */; };
+		43FFB5542149E98D00633381 /* UsersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5532149E98D00633381 /* UsersListTableViewController.swift */; };
+		43FFB5562149EE2200633381 /* UsersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB5552149EE2200633381 /* UsersListTableViewCell.swift */; };
+		43FFB55B2149EF8500633381 /* UserCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB55A2149EF8500633381 /* UserCodable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		431AB8B32149FC3D0044F848 /* ViewVazia.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewVazia.xib; sourceTree = "<group>"; };
+		437C2CDA214EA5D300B36786 /* PaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewController.swift; sourceTree = "<group>"; };
+		43C161D2214CA71600D5AD96 /* DataPaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPaymentTableViewController.swift; sourceTree = "<group>"; };
+		43C161D5214CAC9700D5AD96 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
+		43C161D7214CACF700D5AD96 /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
+		43E804C1214ED2CB004A8C8A /* CartoesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoesTableViewCell.swift; sourceTree = "<group>"; };
+		43E804C3214ED2EA004A8C8A /* ValorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorTableViewCell.swift; sourceTree = "<group>"; };
+		43E804C5214ED33F004A8C8A /* CartoesNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoesNewTableViewCell.swift; sourceTree = "<group>"; };
+		43E804C7214ED9C7004A8C8A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		43E804CC214EE7F8004A8C8A /* PicPayTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicPayTest.xcdatamodel; sourceTree = "<group>"; };
+		43E804CE214EF695004A8C8A /* EnviarCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCodable.swift; sourceTree = "<group>"; };
+		43FFB53E2149E54500633381 /* PicPayTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPayTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FFB5412149E54500633381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		43FFB5432149E54500633381 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43FFB5462149E54500633381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		43FFB5482149E54700633381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43FFB54B2149E54700633381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		43FFB54D2149E54700633381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43FFB5532149E98D00633381 /* UsersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewController.swift; sourceTree = "<group>"; };
+		43FFB5552149EE2200633381 /* UsersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewCell.swift; sourceTree = "<group>"; };
+		43FFB55A2149EF8500633381 /* UserCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodable.swift; sourceTree = "<group>"; };
+		5D19B8134C4E0C8BEE9E7C93 /* Pods-PicPayTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayTest/Pods-PicPayTest.release.xcconfig"; sourceTree = "<group>"; };
+		C9A72C64C2297EBB4AB21811 /* Pods_PicPayTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB887800FDE418BFC72BE202 /* Pods-PicPayTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayTest/Pods-PicPayTest.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43FFB53B2149E54500633381 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0648D2131E2438AB30460585 /* Pods_PicPayTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		381C2364029EAAEEE92D4EFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB887800FDE418BFC72BE202 /* Pods-PicPayTest.debug.xcconfig */,
+				5D19B8134C4E0C8BEE9E7C93 /* Pods-PicPayTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		43C161D4214CAC8100D5AD96 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				43C161D5214CAC9700D5AD96 /* ExDouble.swift */,
+				43C161D7214CACF700D5AD96 /* ExString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43E804C0214ED2B8004A8C8A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				43E804C1214ED2CB004A8C8A /* CartoesTableViewCell.swift */,
+				43E804C3214ED2EA004A8C8A /* ValorTableViewCell.swift */,
+				43FFB5552149EE2200633381 /* UsersListTableViewCell.swift */,
+				43E804C5214ED33F004A8C8A /* CartoesNewTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		43FFB5352149E54500633381 = {
+			isa = PBXGroup;
+			children = (
+				43FFB5402149E54500633381 /* PicPayTest */,
+				43FFB53F2149E54500633381 /* Products */,
+				381C2364029EAAEEE92D4EFD /* Pods */,
+				91CFC3593FE4B17BB887207F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		43FFB53F2149E54500633381 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43FFB53E2149E54500633381 /* PicPayTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43FFB5402149E54500633381 /* PicPayTest */ = {
+			isa = PBXGroup;
+			children = (
+				43E804CB214EE7F8004A8C8A /* PicPayTest.xcdatamodeld */,
+				43E804C0214ED2B8004A8C8A /* view */,
+				43C161D4214CAC8100D5AD96 /* Extensions */,
+				43FFB5412149E54500633381 /* AppDelegate.swift */,
+				43FFB5432149E54500633381 /* ViewController.swift */,
+				43FFB5452149E54500633381 /* Main.storyboard */,
+				43FFB5482149E54700633381 /* Assets.xcassets */,
+				43FFB54A2149E54700633381 /* LaunchScreen.storyboard */,
+				43FFB54D2149E54700633381 /* Info.plist */,
+				43FFB5532149E98D00633381 /* UsersListTableViewController.swift */,
+				43FFB55A2149EF8500633381 /* UserCodable.swift */,
+				431AB8B32149FC3D0044F848 /* ViewVazia.xib */,
+				43C161D2214CA71600D5AD96 /* DataPaymentTableViewController.swift */,
+				437C2CDA214EA5D300B36786 /* PaymentTableViewController.swift */,
+				43E804C7214ED9C7004A8C8A /* DataManager.swift */,
+				43E804CE214EF695004A8C8A /* EnviarCodable.swift */,
+			);
+			path = PicPayTest;
+			sourceTree = "<group>";
+		};
+		91CFC3593FE4B17BB887207F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9A72C64C2297EBB4AB21811 /* Pods_PicPayTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43FFB53D2149E54500633381 /* PicPayTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43FFB5502149E54700633381 /* Build configuration list for PBXNativeTarget "PicPayTest" */;
+			buildPhases = (
+				2D41149CDCEBE17F1C3D348C /* [CP] Check Pods Manifest.lock */,
+				43FFB53A2149E54500633381 /* Sources */,
+				43FFB53B2149E54500633381 /* Frameworks */,
+				43FFB53C2149E54500633381 /* Resources */,
+				1866666EFFBBCB16DA62AD57 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PicPayTest;
+			productName = PicPayTest;
+			productReference = 43FFB53E2149E54500633381 /* PicPayTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43FFB5362149E54500633381 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Halisson da Silva Jesus";
+				TargetAttributes = {
+					43FFB53D2149E54500633381 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 43FFB5392149E54500633381 /* Build configuration list for PBXProject "PicPayTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 43FFB5352149E54500633381;
+			productRefGroup = 43FFB53F2149E54500633381 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43FFB53D2149E54500633381 /* PicPayTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43FFB53C2149E54500633381 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				431AB8B42149FC3D0044F848 /* ViewVazia.xib in Resources */,
+				43FFB54C2149E54700633381 /* LaunchScreen.storyboard in Resources */,
+				43FFB5492149E54700633381 /* Assets.xcassets in Resources */,
+				43FFB5472149E54500633381 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1866666EFFBBCB16DA62AD57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicPayTest/Pods-PicPayTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPayTest/Pods-PicPayTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D41149CDCEBE17F1C3D348C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicPayTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43FFB53A2149E54500633381 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFB5562149EE2200633381 /* UsersListTableViewCell.swift in Sources */,
+				43C161D8214CACF700D5AD96 /* ExString.swift in Sources */,
+				43C161D6214CAC9700D5AD96 /* ExDouble.swift in Sources */,
+				43E804C8214ED9C7004A8C8A /* DataManager.swift in Sources */,
+				43FFB5442149E54500633381 /* ViewController.swift in Sources */,
+				437C2CDB214EA5D300B36786 /* PaymentTableViewController.swift in Sources */,
+				43FFB5542149E98D00633381 /* UsersListTableViewController.swift in Sources */,
+				43E804CF214EF695004A8C8A /* EnviarCodable.swift in Sources */,
+				43FFB5422149E54500633381 /* AppDelegate.swift in Sources */,
+				43E804C2214ED2CB004A8C8A /* CartoesTableViewCell.swift in Sources */,
+				43E804CD214EE7F8004A8C8A /* PicPayTest.xcdatamodeld in Sources */,
+				43C161D3214CA71600D5AD96 /* DataPaymentTableViewController.swift in Sources */,
+				43E804C6214ED33F004A8C8A /* CartoesNewTableViewCell.swift in Sources */,
+				43E804C4214ED2EA004A8C8A /* ValorTableViewCell.swift in Sources */,
+				43FFB55B2149EF8500633381 /* UserCodable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		43FFB5452149E54500633381 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43FFB5462149E54500633381 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		43FFB54A2149E54700633381 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43FFB54B2149E54700633381 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43FFB54E2149E54700633381 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		43FFB54F2149E54700633381 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43FFB5512149E54700633381 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB887800FDE418BFC72BE202 /* Pods-PicPayTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TYVLCUZB56;
+				INFOPLIST_FILE = PicPayTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hsj.PicPayTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		43FFB5522149E54700633381 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D19B8134C4E0C8BEE9E7C93 /* Pods-PicPayTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TYVLCUZB56;
+				INFOPLIST_FILE = PicPayTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hsj.PicPayTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43FFB5392149E54500633381 /* Build configuration list for PBXProject "PicPayTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43FFB54E2149E54700633381 /* Debug */,
+				43FFB54F2149E54700633381 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43FFB5502149E54700633381 /* Build configuration list for PBXNativeTarget "PicPayTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43FFB5512149E54700633381 /* Debug */,
+				43FFB5522149E54700633381 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		43E804CB214EE7F8004A8C8A /* PicPayTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				43E804CC214EE7F8004A8C8A /* PicPayTest.xcdatamodel */,
+			);
+			currentVersion = 43E804CC214EE7F8004A8C8A /* PicPayTest.xcdatamodel */;
+			path = PicPayTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 43FFB5362149E54500633381 /* Project object */;
+}
