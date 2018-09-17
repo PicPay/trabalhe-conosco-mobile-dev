@@ -54,7 +54,6 @@ class ListUsersActivity : BaseActivity(), ListUsersMvpView {
 
         adapter = RecyclerUsersAdapter(ArrayList(users), object : RecyclerUsersAdapter.OnItemClickListener {
             override fun onItemClick(item: User) {
-                showMessage("Pagando " + item.Name)
 
                 var user = Gson().toJson(item)
                 var i = Intent(baseContext, SendMoneyActivity::class.java)

@@ -67,6 +67,11 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
     }
 
     fun removeAt(position: Int) {
+
+        var i = items[position]
+        var cc = CreditCard().getById(i.Id)
+
+        CreditCard().removeCreditCard(items[position].Id)
         items.removeAt(position)
         notifyItemRemoved(position)
     }

@@ -1,11 +1,13 @@
 package com.picpay.david.davidrockpicpay.features.creditCard
 
 import android.content.Intent
+import android.graphics.Canvas
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
+import android.widget.Toast
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
@@ -40,8 +42,6 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
         adapter = RecyclerCardsAdapter(arrCards, object : RecyclerCardsAdapter.OnItemClickListener {
             override fun onItemClick(item: CreditCard) {
-                showMessage("Cartão com final " + item.CardNumber.toString().takeLast(4) + " selecionado")
-
 
                 CreditCard().setDefaultCard(item)
 
@@ -57,14 +57,26 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         })
 
         recyclerViewCards.adapter = adapter
-        val swipeHandler = object : SwipeToDeleteCallback(this) {
+
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false
+            }
+
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = recyclerViewCards.adapter as RecyclerCardsAdapter
+                // Row is swiped from recycler view
+                // remove it from adapter
+                UiUtil.Messages.message(applicationContext, "Cartão Removido!")
                 adapter.removeAt(viewHolder.adapterPosition)
             }
+
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+                // view the background view
+            }
         }
-        val itemTouchHelper = ItemTouchHelper(swipeHandler)
-        itemTouchHelper.attachToRecyclerView(recyclerViewCards)
+
+        // attaching the touch helper to recycler view
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerViewCards)
 
         UiUtil.Layout.decorateRecyclerView(this, recyclerViewCards)
     }

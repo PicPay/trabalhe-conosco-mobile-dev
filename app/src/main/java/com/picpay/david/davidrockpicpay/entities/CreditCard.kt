@@ -62,4 +62,15 @@ open class CreditCard {
         return box.all
     }
 
+    fun removeCreditCard(id: Long){
+        val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
+
+        box.remove(id)
+    }
+
+    fun getById(id: Long): CreditCard? {
+        val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
+
+        return box.query().equal(CreditCard_.Id, id).build().findFirst()
+    }
 }
