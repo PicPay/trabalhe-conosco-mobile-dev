@@ -10,12 +10,22 @@ import android.view.View
 import android.widget.Toast
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
+import com.picpay.david.davidrockpicpay.extensions.RecyclerItemTouchHelper
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import kotlinx.android.synthetic.main.activity_credit_cards.*
 import org.greenrobot.eventbus.EventBus
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.LinearLayoutManager
 
-class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
+
+
+class CreditCardsActivity : BaseActivity(), CreditCardsMvpView, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
+        UiUtil.Messages.message(applicationContext, "Cartão Removido!")
+        adapter.removeAt(viewHolder.adapterPosition)
+    }
 
     private var presenter = CreditCardsPresenter()
     private lateinit var recyclerViewCards: RecyclerView
@@ -40,6 +50,11 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
         var arrCards = ArrayList(cards)
 
+        val mLayoutManager = LinearLayoutManager(applicationContext)
+        recyclerViewCards.layoutManager = mLayoutManager
+        recyclerViewCards.itemAnimator = DefaultItemAnimator()
+        recyclerViewCards.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+
         adapter = RecyclerCardsAdapter(arrCards, object : RecyclerCardsAdapter.OnItemClickListener {
             override fun onItemClick(item: CreditCard) {
 
@@ -58,22 +73,7 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
         recyclerViewCards.adapter = adapter
 
-        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                // Row is swiped from recycler view
-                // remove it from adapter
-                UiUtil.Messages.message(applicationContext, "Cartão Removido!")
-                adapter.removeAt(viewHolder.adapterPosition)
-            }
-
-            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
-                // view the background view
-            }
-        }
+        val itemTouchHelperCallback = RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this)
 
         // attaching the touch helper to recycler view
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerViewCards)

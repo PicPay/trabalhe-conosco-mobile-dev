@@ -28,8 +28,12 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
         val cardNumber = itemView.tvNumber
         val check = itemView.imgDefault
         val card = itemView.cv
+        val viewBackground = itemView.view_background
+        val viewForeground = itemView.cv
 
         fun bind(item: CreditCard, pos: Int, listener: OnItemClickListener) {
+
+
 
             card.setOnClickListener {
 
