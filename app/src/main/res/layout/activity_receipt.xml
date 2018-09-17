@@ -7,13 +7,23 @@
     tools:context=".features.sendMoney.ReceiptActivity"
     tools:layout_editor_absoluteY="25dp">
 
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    </android.support.v7.widget.Toolbar>
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.64"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,12 +7,21 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     tools:context=".features.sendMoney.SendMoneyActivity">
 
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    </android.support.v7.widget.Toolbar>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/userImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="84dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="94dp"
         android:text="Nome do Usuario"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="176dp"
         android:ems="5"
         android:hint="R$ 0,00"
         android:inputType="number|numberDecimal"
@@ -75,7 +84,7 @@
         android:id="@+id/divider"
         android:layout_width="368dp"
         android:layout_height="2dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="115dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="?android:attr/listDivider"
@@ -84,16 +93,57 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tvCardTitle"
-        android:layout_width="260dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="60dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/sectionCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Nenhum cartão de crédito cadastrado"
-        android:textColor="@color/danger"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/tvCardTitle"
+            android:layout_width="260dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="8dp"
+            android:text="Nenhum cartão de crédito cadastrado"
+            android:textColor="@color/danger"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtLink"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="60dp"
+            android:autoLink="all"
+            android:text="@string/new_creditcard"
+            android:textColor="@color/danger"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btnPay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imgCardImage"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            fancy:srcCompat="@drawable/if_exclamationmark" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.design.button.MaterialButton
         android:id="@+id/btnPay"
@@ -105,44 +155,14 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/pagar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sectionCard"
         app:layout_constraintVertical_bias="1.0" />
-
-
-    <TextView
-        android:id="@+id/txtLink"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="60dp"
-        android:autoLink="all"
-        android:text="@string/new_creditcard"
-        android:textColor="@color/danger"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnPay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCardTitle"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imgCardImage"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnPay"
-        app:layout_constraintEnd_toStartOf="@+id/tvCardTitle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.0"
-        fancy:srcCompat="@drawable/if_exclamationmark" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -82,5 +82,8 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         }
     }
 
-
+    override fun onPostResume() {
+        super.onPostResume()
+        getAllCards()
+    }
 }

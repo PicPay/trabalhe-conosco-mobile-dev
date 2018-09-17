@@ -24,6 +24,7 @@ class SendMoneyPresenter : BasePresenter<SendMoneyMvpView>() {
     fun sendMoney(model: TransactionModel){
         checkViewAttached()
 
+        model.CardNumber = model.CardNumber?.replace(" ", "")
         val call = DavidRockPicPayApplication.api.SendMoney(model)
         call.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -32,7 +33,7 @@ class SendMoneyPresenter : BasePresenter<SendMoneyMvpView>() {
                     if (it != null && it.Transaction!!.Success) {
                         mvpView?.showReceipt(it)
                     } else {
-                        //mvpView?.showError()
+                        mvpView?.showError(it.Transaction!!.Status)
                         mvpView?.hideLoading()
                     }
 

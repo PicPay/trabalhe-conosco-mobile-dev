@@ -16,12 +16,14 @@ class NewCreditCardPresenter : BasePresenter<NewCreditCardMvpView>() {
         if (!edCardHolder.isNullOrEmpty() || !edCardNumber.isNullOrEmpty() || !edCardCsc.isNullOrEmpty() || !edCardValidity.isNullOrEmpty() || !edCep.isNullOrEmpty()) {
             val box: Box<CreditCard> = DavidRockPicPayApplication.boxStore.boxFor()
 
-            val cc = CreditCard(0, edCardHolder, edCardNumber, edCardValidity, edCardCsc.toInt(), false)
+            val cc = CreditCard(0, edCardHolder, edCardNumber, edCardValidity, edCardCsc.toInt(), true)
             box.put(cc)
 
             if(cc.Id > 0 ){
                 mvpView?.showSuccessDialog("Cartão cadastrado com sucesso!")
             }
+
+            CreditCard().setDefaultCard(cc)
 
             Log.d("PIC", "CreditCard Added, ID: " + cc.Id)
         } else {

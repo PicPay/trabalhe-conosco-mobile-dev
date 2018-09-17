@@ -19,6 +19,7 @@ import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Paint.UNDERLINE_TEXT_FLAG
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -31,6 +32,7 @@ import com.picpay.david.davidrockpicpay.models.TransactionResponse
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import java.text.DecimalFormat
 
 
 class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
@@ -43,12 +45,6 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     private lateinit var imgUser: ImageView
     private lateinit var valor: CurrencyEditText
 
-    override fun onPostResume() {
-        super.onPostResume()
-        updateCreditCardSection()
-        //updateCreditCardSection()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send_money)
@@ -60,6 +56,17 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
     }
 
     fun buildView() {
+
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar) // Setting/replace toolbar as the ActionBar
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            // back button pressed
+            finish()
+        }
+
         if (!intent.hasExtra("user")) {
 
             showError(getString(R.string.user_not_found))
@@ -84,7 +91,7 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
             userName.text = user.UserName
             Picasso.get().load(user.Img).into(imgUser)
 
-            txtLink.setOnClickListener {
+            sectionCard.setOnClickListener {
                 var i = Intent(baseContext, NewCreditCardActivity::class.java)
                 startActivity(i)
             }
@@ -93,11 +100,14 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
 
                 var card = CreditCard().getDefaultCard()
 
+                val nf = DecimalFormat("#,###.00")
+                var valor = nf.parse(edValor.text.toString().removePrefix("R$")).toDouble()
+
                 if (card != null) {
                     var model = TransactionModel(
                             card.CardNumber,
                             card.Cvv,
-                            edValor.text.toString().removePrefix("R$").replace(",", ".").toDouble(),
+                            valor,
                             card.Validity,
                             user.Id!!)
 
@@ -116,7 +126,7 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
         if (cc != null) {
             tvCardTitle.text = resources.getString(R.string.cc_title)
             txtLink.text = "Cartão de crédito com final " + cc.CardNumber!!.takeLast(4)
-            txtLink.setOnClickListener {
+            sectionCard.setOnClickListener {
                 var i = Intent(baseContext, CreditCardsActivity::class.java)
                 startActivity(i)
             }
@@ -142,7 +152,8 @@ class SendMoneyActivity : BaseActivity(), SendMoneyMvpView {
         }, false)
     }
 
-
-
-
+    override fun onResume() {
+        super.onResume()
+        updateCreditCardSection()
+    }
 }

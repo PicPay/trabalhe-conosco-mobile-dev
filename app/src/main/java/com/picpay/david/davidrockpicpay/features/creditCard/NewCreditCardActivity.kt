@@ -2,10 +2,12 @@ package com.picpay.david.davidrockpicpay.features.creditCard
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ArrayAdapter
 import com.picpay.david.davidrockpicpay.R
+import com.picpay.david.davidrockpicpay.entities.CreditCard
 import com.picpay.david.davidrockpicpay.extensions.MaskEditUtil
 import com.picpay.david.davidrockpicpay.features.base.BaseActivity
 import com.picpay.david.davidrockpicpay.util.UiUtil
@@ -42,9 +44,28 @@ class NewCreditCardActivity : BaseActivity(), NewCreditCardMvpView {
         spinner.setAdapter<ArrayAdapter<String>?>(arrayAdapter)
 
         btnCreateNewCreditCard.setOnClickListener {
-
+            if(validateFields())
             presenter.addCreditCard(edCardHolder.text.toString(), edCardNumber.text.toString(), edCardCsc.text.toString(), edCardValidity.text.toString(), edCep.text.toString())
         }
+
+
+
+    }
+
+    private fun validateFields(): Boolean {
+        UiUtil.Validates.textViewEmpty(edCardHolder, getString(R.string.newcard_cardholder))
+        UiUtil.Validates.textViewEmpty(edCardNumber, getString(R.string.newcard_cardnumber))
+        UiUtil.Validates.textViewEmpty(edCardCsc, getString(R.string.newcard_csc))
+        UiUtil.Validates.textViewEmpty(edCep, getString(R.string.newcard_cep))
+        UiUtil.Validates.textViewEmpty(edCardValidity, getString(R.string.newcard_cardvalidity))
+        UiUtil.Validates.textViewMinLength(edCardCsc, 3, getString(R.string.newcard_csc))
+        UiUtil.Validates.textViewMinLength(edCardNumber, 3, getString(R.string.newcard_cardnumber))
+
+        return (edCardHolder.error.isNullOrEmpty()
+                && edCardNumber.error.isNullOrEmpty()
+                && edCardCsc.error.isNullOrEmpty()
+                && edCardValidity.error.isNullOrEmpty()
+                && edCep.error.isNullOrEmpty())
     }
 
     override fun showErrorDialog(message: String?) {
@@ -55,7 +76,10 @@ class NewCreditCardActivity : BaseActivity(), NewCreditCardMvpView {
         UiUtil.Dialogs.dialogAlertAction(this, message,
                 DialogInterface.OnClickListener { _, _ ->
                     run {
-                        finish()
+                        Handler().postDelayed({
+                            finish()
+                        }, 1000)
+
                     }
                 }, false, true)
     }
