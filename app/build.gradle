@@ -81,4 +81,5 @@ dependencies {
     implementation "io.objectbox:objectbox-kotlin:$objectboxVersion"
 
     implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
+    implementation 'jp.wasabeef:recyclerview-animators:2.3.0'
 }

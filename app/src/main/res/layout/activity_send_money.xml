@@ -123,7 +123,6 @@
             android:text="@string/new_creditcard"
             android:textColor="@color/danger"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btnPay"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCardTitle"
             app:layout_constraintVertical_bias="0.0" />

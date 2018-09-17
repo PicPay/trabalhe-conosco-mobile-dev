@@ -18,18 +18,16 @@ import org.greenrobot.eventbus.EventBus
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
-
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 
 
 class CreditCardsActivity : BaseActivity(), CreditCardsMvpView, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
-        UiUtil.Messages.message(applicationContext, "Cartão Removido!")
-        adapter.removeAt(viewHolder.adapterPosition)
-    }
 
     private var presenter = CreditCardsPresenter()
     private lateinit var recyclerViewCards: RecyclerView
     private lateinit var adapter: RecyclerCardsAdapter
+    private lateinit var arrCards: ArrayList<CreditCard>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,14 +44,17 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView, RecyclerItemTouc
         presenter.getAllCards()
     }
 
+
+
     override fun fillList(cards: List<CreditCard>) {
 
-        var arrCards = ArrayList(cards)
+        arrCards = ArrayList(cards)
 
         val mLayoutManager = LinearLayoutManager(applicationContext)
         recyclerViewCards.layoutManager = mLayoutManager
-        recyclerViewCards.itemAnimator = DefaultItemAnimator()
+        recyclerViewCards.itemAnimator = SlideInLeftAnimator()
         recyclerViewCards.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+
 
         adapter = RecyclerCardsAdapter(arrCards, object : RecyclerCardsAdapter.OnItemClickListener {
             override fun onItemClick(item: CreditCard) {
@@ -103,6 +104,29 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView, RecyclerItemTouc
             finish()
         }
     }
+
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
+
+        var cc = CreditCard().getById(arrCards[position].Id)
+        if (cc!!.Default) {
+            UiUtil.Messages.message(baseContext, "Não é possível remover o cartão principal")
+            //adapter.undoSwipe(position)
+
+//            val itemTouchHelperCallback = RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this)
+//            ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerViewCards)
+
+            //adapter.notifyItemChanged(viewHolder.adapterPosition)
+            adapter.notifyDataSetChanged()
+
+        }
+        else{
+            adapter.removeAt(viewHolder.adapterPosition)
+            UiUtil.Messages.message(applicationContext, "Cartão Removido!")
+        }
+
+
+    }
+
 
     override fun onPostResume() {
         super.onPostResume()

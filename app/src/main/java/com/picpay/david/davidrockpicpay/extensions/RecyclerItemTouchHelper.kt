@@ -33,6 +33,7 @@ class RecyclerItemTouchHelper(dragDirs: Int, swipeDirs: Int, listener: RecyclerI
     override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
         val foregroundView = (viewHolder as RecyclerCardsAdapter.ViewHolder).viewForeground
         getDefaultUIUtil().clearView(foregroundView)
+
     }
 
     override fun onChildDraw(c: Canvas, recyclerView: RecyclerView,

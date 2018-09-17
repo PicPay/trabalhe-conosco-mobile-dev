@@ -34,7 +34,6 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
         fun bind(item: CreditCard, pos: Int, listener: OnItemClickListener) {
 
 
-
             card.setOnClickListener {
 
                 listener.onItemClick(item).also {
@@ -70,6 +69,10 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
 
     }
 
+    fun undoSwipe(position: Int){
+        notifyItemChanged(position)
+    }
+
     fun removeAt(position: Int) {
 
         var i = items[position]
@@ -78,5 +81,10 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
         CreditCard().removeCreditCard(items[position].Id)
         items.removeAt(position)
         notifyItemRemoved(position)
+    }
+
+    fun insertAt(position: Int, cc: CreditCard) {
+        items.add(position, cc)
+        notifyItemInserted(position)
     }
 }

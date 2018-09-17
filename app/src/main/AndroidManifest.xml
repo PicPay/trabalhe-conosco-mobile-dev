@@ -25,13 +25,13 @@
         <activity
             android:name=".features.sendMoney.SendMoneyActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan|stateVisible" />
         <activity
             android:name=".features.creditCard.NewCreditCardActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".features.sendMoney.ReceiptActivity" />
-        <activity android:name=".features.creditCard.CreditCardsActivity"></activity>
+        <activity android:name=".features.creditCard.CreditCardsActivity" />
     </application>
 
 </manifest>
