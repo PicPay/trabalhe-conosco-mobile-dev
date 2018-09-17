@@ -1,0 +1,34 @@
+<resources>
+    <string name="webservice">http://careers.picpay.com/tests/mobdev</string>
+    <string name="app_name">PicDavid</string>
+    <string name="txt_connection_error">"Não há conexões de rede no momento. Verifique sua conexão de rede.</string>
+
+
+    <!-- Validations -->
+    <string name="validate_empty">%1$s é obrigatório</string>
+    <string name="validate_email">%1$s não é um e-mail válido</string>
+    <string name="validate_length">%1$s deve ter %2$d caracteres</string>
+
+    <!-- Send Money -->
+    <string name="user_not_found">Ocorreu um erro ao identificar o usuário de destino. Volte e tente novamente</string>
+    <string name="pagar">Pagar</string>
+    <string name="new_creditcard_title">Nenhum cartão de crédito cadastrado</string>
+    <string name="new_creditcard">Cadastrar agora.</string>
+    <string name="cc_title">Forma de Pagamento:</string>
+    <string name="cc_value">Cartão de crédito com final </string>
+
+    <!-- New Card -->
+    <string name="newcard_cadastrar">CADASTRAR</string>
+    <string name="newcard_select_brand">Selecione a bandeira</string>
+    <string name="newcard_creditcard_title">Informe os dados do cartão</string>
+    <string name="newcard_cardholder">Nome escrito no cartão</string>
+    <string name="newcard_cardnumber">Número do Cartão</string>
+    <string name="newcard_cardvalidity">Validade (mm/aaaa)</string>
+    <string name="newcard_csc">Código de Segurança</string>
+    <string name="newcard_cep">CEP do endereço da fatura</string>
+    <string name="newcard_error_all_required">Preencha todos os campos!</string>
+    <string name="sendmoney_pgto_confirmed">Pagamento Confirmado</string>
+    <string name="sendmoney_pay_again">PAGAR NOVAMENTE</string>
+    <string name="sendmoney_back">VOLTAR</string>
+
+</resources>

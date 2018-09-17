@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0e2c51</color>
+    <color name="colorPrimaryDark">#072040</color>
+    <color name="colorBackground">#051a36</color>
+    <color name="colorPrimary_light">#C5CAE9</color>
+    <color name="colorNotification">#cfd8dc</color>
+    <color name="colorPrimaryLight">#5a65a9</color>
+    <color name="colorAccentSecondary">#e7b436</color>
+    <color name="colorAccent">#30b3b8</color>
+    <color name="colorV1">#1c2d59</color>
+
+    <color name="colorPrimary_text">#212121</color>
+    <color name="colorSecondary_text">#757575</color>
+
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="inativo">#797a7e</color>
+    <color name="white">#ffffff</color>
+    <!--<color name="azulinho">#140e2c51</color>-->
+    <color name="azulinho">@android:color/transparent</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="roxin">#55548A</color>
+    <color name="rozinha">#FF548A</color>
+    <color name="sucesso">#2caa61</color>
+    <color name="warning">#d84315</color>
+    <color name="warning_transparent">#40d84315</color>
+    <color name="red">#CC0001</color>
+    <color name="skyblue">#448aff</color>
+    <color name="danger">#ef5350</color>
+
+</resources>
