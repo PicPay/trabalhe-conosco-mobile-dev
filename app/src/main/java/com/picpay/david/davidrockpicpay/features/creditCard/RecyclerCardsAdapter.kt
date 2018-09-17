@@ -65,4 +65,9 @@ class RecyclerCardsAdapter(val items: ArrayList<CreditCard>, val listener: OnIte
         }
 
     }
+
+    fun removeAt(position: Int) {
+        items.removeAt(position)
+        notifyItemRemoved(position)
+    }
 }

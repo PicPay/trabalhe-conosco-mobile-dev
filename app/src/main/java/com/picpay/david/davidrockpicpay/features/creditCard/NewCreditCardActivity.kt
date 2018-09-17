@@ -59,7 +59,9 @@ class NewCreditCardActivity : BaseActivity(), NewCreditCardMvpView {
         UiUtil.Validates.textViewEmpty(edCep, getString(R.string.newcard_cep))
         UiUtil.Validates.textViewEmpty(edCardValidity, getString(R.string.newcard_cardvalidity))
         UiUtil.Validates.textViewMinLength(edCardCsc, 3, getString(R.string.newcard_csc))
-        UiUtil.Validates.textViewMinLength(edCardNumber, 3, getString(R.string.newcard_cardnumber))
+        UiUtil.Validates.textViewMinLength(edCardNumber, 16, getString(R.string.newcard_cardnumber))
+        UiUtil.Validates.textViewMinLength(edCep, 9, getString(R.string.newcard_cardnumber))
+        UiUtil.Validates.textViewMinLength(edCardValidity, 7, getString(R.string.newcard_cardnumber))
 
         return (edCardHolder.error.isNullOrEmpty()
                 && edCardNumber.error.isNullOrEmpty()

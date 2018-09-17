@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import com.picpay.david.davidrockpicpay.R
 import com.picpay.david.davidrockpicpay.entities.CreditCard
@@ -11,8 +12,6 @@ import com.picpay.david.davidrockpicpay.features.base.BaseActivity
 import com.picpay.david.davidrockpicpay.util.UiUtil
 import kotlinx.android.synthetic.main.activity_credit_cards.*
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
 
@@ -42,6 +41,8 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         adapter = RecyclerCardsAdapter(arrCards, object : RecyclerCardsAdapter.OnItemClickListener {
             override fun onItemClick(item: CreditCard) {
                 showMessage("Cartão com final " + item.CardNumber.toString().takeLast(4) + " selecionado")
+
+
                 CreditCard().setDefaultCard(item)
 
                 arrCards.clear()
@@ -56,6 +57,15 @@ class CreditCardsActivity : BaseActivity(), CreditCardsMvpView {
         })
 
         recyclerViewCards.adapter = adapter
+        val swipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = recyclerViewCards.adapter as RecyclerCardsAdapter
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(recyclerViewCards)
+
         UiUtil.Layout.decorateRecyclerView(this, recyclerViewCards)
     }
 
