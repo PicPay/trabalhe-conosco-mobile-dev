@@ -11,4 +11,15 @@ open class User {
     var Img: String? = null
     @SerializedName("username")
     var UserName: String? = null
+
+    constructor(Id: Int?, Name: String?, Img: String?, UserName: String?) {
+        this.Id = Id
+        this.Name = Name
+        this.Img = Img
+        this.UserName = UserName
+    }
+
+    constructor()
+
+
 }
