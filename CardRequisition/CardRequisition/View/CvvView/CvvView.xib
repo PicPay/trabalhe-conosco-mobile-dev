@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CvvView" customModule="CardRequisition" customModuleProvider="target">
+            <connections>
+                <outlet property="cvvImage" destination="lbL-02-6YJ" id="5sY-XQ-cAo"/>
+                <outlet property="cvvTextField" destination="i5B-NN-wVr" id="oSh-9q-hTs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="228" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5B-NN-wVr">
+                    <rect key="frame" x="32" y="228" width="164" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lbL-02-6YJ">
+                    <rect key="frame" x="32" y="32" width="164" height="164"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lbL-02-6YJ" secondAttribute="height" multiplier="1:1" id="iiL-G9-9Ks"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6W-8A-eCw">
+                    <rect key="frame" x="16" y="274" width="196" height="30"/>
+                    <state key="normal" title="Confirm"/>
+                    <connections>
+                        <action selector="didTapConfirmButton:" destination="-1" eventType="touchUpInside" id="eCg-iZ-rZV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.86653645840000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="i5B-NN-wVr" secondAttribute="trailing" constant="32" id="A1f-Zk-Sul"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v6W-8A-eCw" secondAttribute="trailing" constant="16" id="GKm-q9-FsE"/>
+                <constraint firstItem="i5B-NN-wVr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="J2d-z3-4JU"/>
+                <constraint firstItem="v6W-8A-eCw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="dfb-3E-bMY"/>
+                <constraint firstItem="v6W-8A-eCw" firstAttribute="top" secondItem="i5B-NN-wVr" secondAttribute="bottom" constant="16" id="fI7-SA-73C"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="v6W-8A-eCw" secondAttribute="bottom" constant="16" id="fmi-GV-K4N"/>
+                <constraint firstItem="lbL-02-6YJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="32" id="gGT-LI-fJt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lbL-02-6YJ" secondAttribute="trailing" constant="32" id="ior-Bl-9SE"/>
+                <constraint firstItem="lbL-02-6YJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="jqv-pe-FSh"/>
+                <constraint firstItem="i5B-NN-wVr" firstAttribute="top" secondItem="lbL-02-6YJ" secondAttribute="bottom" constant="32" id="pID-EY-12W"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-71" y="73"/>
+        </view>
+    </objects>
+</document>
