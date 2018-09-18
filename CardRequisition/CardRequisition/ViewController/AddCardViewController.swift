@@ -14,7 +14,7 @@ enum AddCardFieldError {
 }
 
 class AddCardViewController: UIViewController {
-    @IBOutlet weak var cardNumberTextField: UITextField! {
+    @IBOutlet private weak var cardNumberTextField: UITextField! {
         didSet {
             self.cardNumberTextField.placeholder = "Card Number"
             self.cardNumberTextField.keyboardType = .numberPad
@@ -22,7 +22,7 @@ class AddCardViewController: UIViewController {
             self.cardNumberTextField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
         }
     }
-    @IBOutlet weak var expiryDateTextField: UITextField! {
+    @IBOutlet private weak var expiryDateTextField: UITextField! {
         didSet {
             self.expiryDateTextField.placeholder = "Expiry Date"
             self.expiryDateTextField.keyboardType = .numberPad
@@ -31,7 +31,15 @@ class AddCardViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var addNewCardButton: UIButton!
+    @IBOutlet private weak var addNewCardButton: UIButton! {
+        didSet {
+            self.addNewCardButton.layer.cornerRadius = 10
+            self.addNewCardButton.layer.borderWidth = 1
+            self.addNewCardButton.clipsToBounds = true
+            self.addNewCardButton.setTitleColor(.black, for: .normal)
+            self.addNewCardButton.layer.borderColor = UIColor.black.cgColor
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +50,7 @@ class AddCardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didTapAddNewCard(_ sender: Any) {
+    @IBAction private func didTapAddNewCard(_ sender: Any) {
         let (success, fieldError) = self.validateFields()
         if !success, let fieldError = fieldError {
             self.showErrorAlert(fieldError: fieldError)
@@ -52,7 +60,7 @@ class AddCardViewController: UIViewController {
         }
     }
     
-    func validateFields() -> (Bool, AddCardFieldError?) {
+    private func validateFields() -> (Bool, AddCardFieldError?) {
         guard let cardNumber = self.cardNumberTextField.text, cardNumber.count == 19 else {
             return (false, .cardNumber)
         }
@@ -64,7 +72,7 @@ class AddCardViewController: UIViewController {
         return (true, nil)
     }
     
-    func showErrorAlert(fieldError: AddCardFieldError) {
+    private func showErrorAlert(fieldError: AddCardFieldError) {
         var alertController: UIAlertController
         switch fieldError {
         case .cardNumber:
@@ -84,7 +92,7 @@ class AddCardViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func saveCard() {
+    private func saveCard() {
         guard let cardNumberAux = self.cardNumberTextField.text, let expiryDate = self.expiryDateTextField.text else {
             return
         }

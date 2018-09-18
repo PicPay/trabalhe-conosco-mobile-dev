@@ -13,12 +13,12 @@ protocol CvvViewControllerDelegate: class {
 }
 
 class CvvViewController: UIViewController {
-    @IBOutlet weak var cvvView: CvvView! {
+    @IBOutlet private weak var cvvView: CvvView! {
         didSet {
             self.cvvView.delegate = self
         }
     }
-    @IBOutlet weak var exitButton: UIButton! {
+    @IBOutlet private weak var exitButton: UIButton! {
         didSet {
             self.exitButton.imageView?.contentMode = .scaleAspectFit
         }
@@ -39,7 +39,7 @@ class CvvViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func didTapExit(_ sender: Any) {
+    @IBAction private func didTapExit(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     

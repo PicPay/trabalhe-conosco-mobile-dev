@@ -15,14 +15,14 @@ enum CardSelectionFieldError {
 }
 
 class CardSelectionViewController: UIViewController {
-    @IBOutlet weak var valueTextField: UITextField! {
+    @IBOutlet private weak var valueTextField: UITextField! {
         didSet {
             self.valueTextField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged
             )
             self.valueTextField.keyboardType = .numberPad
         }
     }
-    @IBOutlet weak var cardTableView: UITableView! {
+    @IBOutlet private weak var cardTableView: UITableView! {
         didSet {
             self.cardTableView.delegate = self
             self.cardTableView.dataSource = self
@@ -30,22 +30,30 @@ class CardSelectionViewController: UIViewController {
             self.cardTableView.register(UINib(nibName: String(describing: CardTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: CardTableViewCell.self))
         }
     }
-    @IBOutlet weak var payButton: UIButton!
+    @IBOutlet private weak var payButton: UIButton! {
+        didSet {
+            self.payButton.layer.cornerRadius = 10
+            self.payButton.layer.borderWidth = 1
+            self.payButton.clipsToBounds = true
+            self.payButton.setTitleColor(.black, for: .normal)
+            self.payButton.layer.borderColor = UIColor.black.cgColor
+        }
+    }
     
-    @IBOutlet weak var loadingView: UIView! {
+    @IBOutlet private weak var loadingView: UIView! {
         didSet {
             self.loadingView.isHidden = true
         }
     }
     
     
-    var cards: [CardCoreData] = [] {
+    private var cards: [CardCoreData] = [] {
         didSet {
             self.cardTableView.reloadData()
         }
     }
     var user: User?
-    var selectedCard: CardCoreData?
+    private var selectedCard: CardCoreData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +90,7 @@ class CardSelectionViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapPay(_ sender: Any) {
+    @IBAction private func didTapPay(_ sender: Any) {
         let (success, fieldError) = self.valideteField()
         if !success, let fieldError = fieldError {
             self.showError(fieldError: fieldError)
@@ -132,7 +140,7 @@ class CardSelectionViewController: UIViewController {
         }
     }
     
-    func getValue() -> Double? {
+    private func getValue() -> Double? {
         guard let value = self.valueTextField.text, !value.isEmpty else {
             return nil
         }
@@ -145,7 +153,7 @@ class CardSelectionViewController: UIViewController {
         return doubleValue
     }
     
-    func paymentSuccess() {
+    private func paymentSuccess() {
         let alert: UIAlertController
         if let name = self.user?.name {
             alert = UIAlertController(title: "Success", message: String(format: "Your transaction with %@ was successfully", name) , preferredStyle: .alert)
@@ -158,7 +166,7 @@ class CardSelectionViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func paymentFailure() {
+    private func paymentFailure() {
         let alert: UIAlertController
         if let name = self.user?.name {
             alert = UIAlertController(title: "Error", message: String(format: "Your transaction with %@ was rejected", name) , preferredStyle: .alert)
@@ -170,7 +178,7 @@ class CardSelectionViewController: UIViewController {
     }
     
     
-    @objc func textChanged(_ textField: UITextField) {
+    @objc private func textChanged(_ textField: UITextField) {
         guard let text = textField.text else {
             return
         }

@@ -264,7 +264,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQz-KG-Mlz">
-                                <rect key="frame" x="112.5" y="188" width="95" height="30"/>
+                                <rect key="frame" x="16" y="188" width="288" height="30"/>
                                 <state key="normal" title="Add new card"/>
                                 <connections>
                                     <action selector="didTapAddNewCard:" destination="kPK-8W-qeK" eventType="touchUpInside" id="uWI-mh-Jcp"/>
@@ -274,7 +274,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nyf-iy-qQk" firstAttribute="trailing" secondItem="G8v-Hk-a5H" secondAttribute="trailing" constant="16" id="7zI-Ex-Kvv"/>
-                            <constraint firstItem="pQz-KG-Mlz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nyf-iy-qQk" secondAttribute="leading" constant="16" id="FDr-LK-wDY"/>
+                            <constraint firstItem="pQz-KG-Mlz" firstAttribute="leading" secondItem="nyf-iy-qQk" secondAttribute="leading" constant="16" id="FDr-LK-wDY"/>
                             <constraint firstItem="G8v-Hk-a5H" firstAttribute="top" secondItem="nyf-iy-qQk" secondAttribute="top" constant="32" id="Kg5-8d-OP7"/>
                             <constraint firstItem="pQz-KG-Mlz" firstAttribute="centerX" secondItem="k3i-H1-KJp" secondAttribute="centerX" id="LlA-Fr-BCh"/>
                             <constraint firstItem="D96-JI-JLk" firstAttribute="top" secondItem="G8v-Hk-a5H" secondAttribute="bottom" constant="16" id="PDv-xb-dxj"/>
@@ -282,7 +282,7 @@
                             <constraint firstItem="D96-JI-JLk" firstAttribute="leading" secondItem="nyf-iy-qQk" secondAttribute="leading" constant="16" id="ZGp-Ha-mBQ"/>
                             <constraint firstItem="nyf-iy-qQk" firstAttribute="trailing" secondItem="D96-JI-JLk" secondAttribute="trailing" constant="16" id="imQ-da-I0P"/>
                             <constraint firstItem="pQz-KG-Mlz" firstAttribute="top" secondItem="D96-JI-JLk" secondAttribute="bottom" constant="16" id="p3N-Qw-v6L"/>
-                            <constraint firstItem="nyf-iy-qQk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pQz-KG-Mlz" secondAttribute="trailing" constant="16" id="rvG-IF-fQ9"/>
+                            <constraint firstItem="nyf-iy-qQk" firstAttribute="trailing" secondItem="pQz-KG-Mlz" secondAttribute="trailing" constant="16" id="rvG-IF-fQ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nyf-iy-qQk"/>
                     </view>

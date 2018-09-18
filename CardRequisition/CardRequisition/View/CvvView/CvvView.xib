@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CvvView" customModule="CardRequisition" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButton" destination="v6W-8A-eCw" id="lWW-VK-DJR"/>
                 <outlet property="cvvImage" destination="lbL-02-6YJ" id="5sY-XQ-cAo"/>
                 <outlet property="cvvTextField" destination="i5B-NN-wVr" id="oSh-9q-hTs"/>
             </connections>

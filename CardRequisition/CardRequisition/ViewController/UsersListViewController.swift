@@ -9,7 +9,7 @@
 import UIKit
 
 class UsersListViewController: UIViewController {
-    @IBOutlet weak var usersTableView: UITableView! {
+    @IBOutlet private weak var usersTableView: UITableView! {
         didSet {
             self.usersTableView.delegate = self
             self.usersTableView.dataSource = self
