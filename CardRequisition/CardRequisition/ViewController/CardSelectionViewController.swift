@@ -17,9 +17,9 @@ enum CardSelectionFieldError {
 class CardSelectionViewController: UIViewController {
     @IBOutlet private weak var valueTextField: UITextField! {
         didSet {
-            self.valueTextField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged
-            )
+            self.valueTextField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
             self.valueTextField.keyboardType = .numberPad
+            self.valueTextField.delegate = self
         }
     }
     @IBOutlet private weak var cardTableView: UITableView! {
@@ -242,5 +242,12 @@ extension CardSelectionViewController: CvvViewControllerDelegate {
                 self.paymentFailure()
             }
         }
+    }
+}
+
+extension CardSelectionViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let string = string.trimmingCharacters(in: .decimalDigits)
+        return string.isEmpty
     }
 }

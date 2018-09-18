@@ -110,9 +110,9 @@ class AddCardViewController: UIViewController {
 extension AddCardViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.expiryDateTextField, let text = self.expiryDateTextField.text {
-            return text.count < 5 || string.isEmpty ? true : false
+            return text.count + string.count <= 5 || string.isEmpty ? true : false
         } else if textField == self.cardNumberTextField, let text = self.cardNumberTextField.text {
-            return text.count < 19 || string.isEmpty ? true : false
+            return text.count + string.count <= 19 || string.isEmpty ? true : false
         }
         
         return true

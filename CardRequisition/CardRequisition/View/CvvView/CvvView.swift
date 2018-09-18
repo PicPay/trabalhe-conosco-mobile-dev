@@ -92,6 +92,6 @@ extension CvvView: UITextFieldDelegate {
         guard let text = self.cvvTextField.text else {
             return true
         }
-        return text.count < 3 || string == ""
+        return text.count + string.count <= 3 || string == ""
     }
 }
