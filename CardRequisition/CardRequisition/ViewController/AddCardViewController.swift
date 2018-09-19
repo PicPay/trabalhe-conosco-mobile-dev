@@ -120,12 +120,25 @@ extension AddCardViewController: UITextFieldDelegate {
     
     @objc func textDidChange(_ textField: UITextField) {
         if textField == self.expiryDateTextField, let text = self.expiryDateTextField.text {
-            var newText = text.replacingOccurrences(of: "/", with: "")
-            if text.count > 2 {
-                newText.insert("/", at: String.Index.init(encodedOffset: 2))
+            if text.count == 2 {
+                if let month = Int(text), month > 0, month <= 12 {
+                    
+                } else {
+                    self.expiryDateTextField.text = ""
+                    let alert = UIAlertController(title: "Error", message: "Invalid expiry month", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                var newText = text.replacingOccurrences(of: "/", with: "")
+                if text.count > 2 {
+                    newText.insert("/", at: String.Index.init(encodedOffset: 2))
+                }
+                
+                self.expiryDateTextField.text = newText
             }
             
-            self.expiryDateTextField.text = newText
+            
         } else if textField == self.cardNumberTextField, let text = self.cardNumberTextField.text {
             let newText = StringUtils.formatCreditCardNumber(text: text)
             self.cardNumberTextField.text = newText
