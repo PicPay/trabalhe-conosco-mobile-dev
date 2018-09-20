@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/valorAdicionado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Digite o valor a ser adicionado"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/editMoney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o valor"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/borda_botao_verde"
+                android:text="Cancelar"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/buttonConfirmar"/>
+
+            <Button
+                android:id="@+id/buttonConfirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/botao_redondo_verde"
+                android:text="Confirmar"
+                android:textColor="@android:color/white"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/buttonCancel"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

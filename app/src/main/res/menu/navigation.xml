@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/inicio"
+        />
+
+    <item
+        android:id="@+id/carteira"
+        android:icon="@drawable/wallet"
+        android:title="@string/carteira"
+        />
+
+    <item
+        android:id="@+id/pagar"
+        android:icon="@drawable/money"
+        android:title="@string/pagar"
+        />
+
+    <item
+        android:id="@+id/notificacoes"
+        android:icon="@drawable/notifications"
+        android:title="@string/notificacoes"
+        />
+    <item
+        android:id="@+id/ajustes"
+        android:icon="@drawable/settings"
+        android:title="@string/ajustes"
+        />
+
+
+</menu>
