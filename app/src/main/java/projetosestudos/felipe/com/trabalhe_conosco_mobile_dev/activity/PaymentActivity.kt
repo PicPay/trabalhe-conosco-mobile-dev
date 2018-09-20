@@ -1,16 +1,21 @@
 package projetosestudos.felipe.com.trabalhe_conosco_mobile_dev.activity
 
+import android.app.Dialog
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.InflateException
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_input_money.view.*
 import kotlinx.android.synthetic.main.activity_payment.*
 import projetosestudos.felipe.com.trabalhe_conosco_mobile_dev.R
 import projetosestudos.felipe.com.trabalhe_conosco_mobile_dev.helper.ApiHelper
@@ -91,7 +96,43 @@ class PaymentActivity : AppCompatActivity() {
     }
 
     private fun payment(valorPagar: Double) {
-        val payment = Payment("1111111111111111", 111, valorPagar, mCardValidate!!, mUser!!.id!!)
+        var view: View? = null
+
+        try {
+            view = LayoutInflater.from(this).inflate(R.layout.activity_input_money, null)
+        } catch (e: InflateException) {
+            e.printStackTrace()
+        }
+
+        val valorAdicionado = view!!.valorAdicionado
+        valorAdicionado.text = "Digite o cvv do seu cartão cadastrado"
+        val editMoney = view.editMoney
+        editMoney.hint = "CVV"
+        val buttonCancel = view.buttonCancel
+        val buttonConfirmar = view.buttonConfirmar
+
+        val dialog = Dialog(this)
+        dialog.setContentView(view)
+        dialog.setCancelable(false)
+        dialog.create()
+        dialog.show()
+
+        buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        buttonConfirmar.setOnClickListener {
+            val valorDigitado = editMoney.text.toString()
+            if(valorDigitado!="") {
+                val cvv = valorDigitado.toInt()
+                post(valorPagar, cvv)
+            } else
+                Toast.makeText(applicationContext, "Digite um valor", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun post(valorPagar: Double, cvv: Int) {
+        val payment = Payment("1111111111111111", cvv, valorPagar, mCardValidate!!, mUser!!.id!!)
         val call: Call<ResponsePayment> = ApiHelper.RetrofitHelper.create().postPayment(payment)
         call.enqueue(object : Callback<ResponsePayment> {
             override fun onFailure(call: Call<ResponsePayment>, t: Throwable) {

@@ -29,7 +29,8 @@
         <activity
             android:name=".activity.AdicionarCartaoActivity"
             android:theme="@style/AppAddCard" />
-        <activity android:name=".activity.AddMoneyActivity" />
+        <activity android:name=".activity.AddMoneyActivity"
+            android:theme="@style/AppAddCard"/>
         <activity android:name=".activity.PaymentActivity"
             android:theme="@style/AppAddCard"></activity>
     </application>
