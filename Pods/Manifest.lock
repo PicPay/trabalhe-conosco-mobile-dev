@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.3)
+  - PlaceholderTextView (0.2.0)
+  - SwiftyJSON (4.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - PlaceholderTextView
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - PlaceholderTextView
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  PlaceholderTextView: 0489c5ccfc0f576d5a627b051131e01f4ab0e2e5
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+
+PODFILE CHECKSUM: 14ecad5f41f07aa6579cd55ba7b25d1e0e6b3318
+
+COCOAPODS: 1.5.0

@@ -1,0 +1,892 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10C002C249ED790A86B42713 /* Pods_PicPayRecrutamento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE066555C718D5287A0E47CE /* Pods_PicPayRecrutamento.framework */; };
+		324864442151C8B800C1D331 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324864432151C8B800C1D331 /* PayViewController.swift */; };
+		324864462151C92A00C1D331 /* CustomPayNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324864452151C92A00C1D331 /* CustomPayNavBar.swift */; };
+		3248E01F2156608800797BBF /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3248E01E2156608800797BBF /* MainCardView.swift */; };
+		324D6F54215423BA00261AE4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D6F53215423BA00261AE4 /* CardViewController.swift */; };
+		324D6F5A2154285D00261AE4 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D6F592154285D00261AE4 /* CardTableViewCell.swift */; };
+		324D6F5C21542AF000261AE4 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D6F5B21542AF000261AE4 /* CardViewModel.swift */; };
+		324D6F5E2154360500261AE4 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D6F5D2154360500261AE4 /* AddCardViewController.swift */; };
+		32502B2F214AC66D00F3D491 /* CustomHomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32502B2E214AC66D00F3D491 /* CustomHomeNavBar.swift */; };
+		326AB7A92153114E00F99D39 /* UserTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326AB7A82153114E00F99D39 /* UserTransactionView.swift */; };
+		32B814F3214AACC10020CA48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B814F2214AACC10020CA48 /* AppDelegate.swift */; };
+		32B814F5214AACC10020CA48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B814F4214AACC10020CA48 /* ViewController.swift */; };
+		32B814F8214AACC10020CA48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B814F6214AACC10020CA48 /* Main.storyboard */; };
+		32B814FA214AACC30020CA48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B814F9214AACC30020CA48 /* Assets.xcassets */; };
+		32B814FD214AACC30020CA48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B814FB214AACC30020CA48 /* LaunchScreen.storyboard */; };
+		32B81508214AACC30020CA48 /* PicPayRecrutamentoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B81507214AACC30020CA48 /* PicPayRecrutamentoTests.swift */; };
+		32B81513214AACC30020CA48 /* PicPayRecrutamentoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B81512214AACC30020CA48 /* PicPayRecrutamentoUITests.swift */; };
+		32CD937621505AE60077F87E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD937521505AE60077F87E /* User.swift */; };
+		32CD937921505BFF0077F87E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD937821505BFF0077F87E /* UserViewModel.swift */; };
+		32CD937C215064210077F87E /* UserViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD937B215064210077F87E /* UserViewCollectionViewCell.swift */; };
+		32CD937F21506D370077F87E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD937E21506D370077F87E /* HomeViewController.swift */; };
+		32CD938121506E820077F87E /* UserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD938021506E820077F87E /* UserCollectionView.swift */; };
+		32CD938321510D3F0077F87E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD938221510D3F0077F87E /* Card.swift */; };
+		32CD938521510ECA0077F87E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD938421510ECA0077F87E /* Transaction.swift */; };
+		32CD938721513A360077F87E /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD938621513A360077F87E /* UsersDataSource.swift */; };
+		C8D417514E37C66A02EF24E9 /* Pods_PicPayRecrutamentoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E4362C3BBFBD03984B67CF /* Pods_PicPayRecrutamentoUITests.framework */; };
+		F1278C783066EAB356C0553E /* Pods_PicPayRecrutamentoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C31C8417180A81794949E7 /* Pods_PicPayRecrutamentoTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32B81504214AACC30020CA48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B814E7214AACC10020CA48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32B814EE214AACC10020CA48;
+			remoteInfo = PicPayRecrutamento;
+		};
+		32B8150F214AACC30020CA48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B814E7214AACC10020CA48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32B814EE214AACC10020CA48;
+			remoteInfo = PicPayRecrutamento;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		324864432151C8B800C1D331 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		324864452151C92A00C1D331 /* CustomPayNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPayNavBar.swift; sourceTree = "<group>"; };
+		3248E01E2156608800797BBF /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
+		324D6F53215423BA00261AE4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		324D6F592154285D00261AE4 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		324D6F5B21542AF000261AE4 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		324D6F5D2154360500261AE4 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		32502B2E214AC66D00F3D491 /* CustomHomeNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHomeNavBar.swift; sourceTree = "<group>"; };
+		326AB7A82153114E00F99D39 /* UserTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTransactionView.swift; sourceTree = "<group>"; };
+		32B814EF214AACC10020CA48 /* PicPayRecrutamento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPayRecrutamento.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B814F2214AACC10020CA48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32B814F4214AACC10020CA48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32B814F7214AACC10020CA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32B814F9214AACC30020CA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32B814FC214AACC30020CA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		32B814FE214AACC30020CA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32B81503214AACC30020CA48 /* PicPayRecrutamentoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPayRecrutamentoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B81507214AACC30020CA48 /* PicPayRecrutamentoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPayRecrutamentoTests.swift; sourceTree = "<group>"; };
+		32B81509214AACC30020CA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32B8150E214AACC30020CA48 /* PicPayRecrutamentoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPayRecrutamentoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B81512214AACC30020CA48 /* PicPayRecrutamentoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPayRecrutamentoUITests.swift; sourceTree = "<group>"; };
+		32B81514214AACC30020CA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32CD937521505AE60077F87E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		32CD937821505BFF0077F87E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		32CD937B215064210077F87E /* UserViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		32CD937E21506D370077F87E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		32CD938021506E820077F87E /* UserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionView.swift; sourceTree = "<group>"; };
+		32CD938221510D3F0077F87E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		32CD938421510ECA0077F87E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		32CD938621513A360077F87E /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
+		32D42A5321513C5200FC2ADE /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C31C8417180A81794949E7 /* Pods_PicPayRecrutamentoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayRecrutamentoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB74D96672969FD3F82D474 /* Pods-PicPayRecrutamentoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamentoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamentoTests/Pods-PicPayRecrutamentoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75E4362C3BBFBD03984B67CF /* Pods_PicPayRecrutamentoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayRecrutamentoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86C3CC0FAC024B831E00C094 /* Pods-PicPayRecrutamentoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamentoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamentoUITests/Pods-PicPayRecrutamentoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE066555C718D5287A0E47CE /* Pods_PicPayRecrutamento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayRecrutamento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0885A8B8D852588E4DB6F7D /* Pods-PicPayRecrutamento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamento.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamento/Pods-PicPayRecrutamento.release.xcconfig"; sourceTree = "<group>"; };
+		D87EFAD026718658EBA54D08 /* Pods-PicPayRecrutamento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamento/Pods-PicPayRecrutamento.debug.xcconfig"; sourceTree = "<group>"; };
+		DE3C712464842A08E7D9370A /* Pods-PicPayRecrutamentoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamentoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamentoUITests/Pods-PicPayRecrutamentoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E50EF2238D82A964F0747EDC /* Pods-PicPayRecrutamentoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPayRecrutamentoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPayRecrutamentoTests/Pods-PicPayRecrutamentoTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32B814EC214AACC10020CA48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C002C249ED790A86B42713 /* Pods_PicPayRecrutamento.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B81500214AACC30020CA48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1278C783066EAB356C0553E /* Pods_PicPayRecrutamentoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B8150B214AACC30020CA48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8D417514E37C66A02EF24E9 /* Pods_PicPayRecrutamentoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		212837F59ED883FE3BB5A923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32D42A5321513C5200FC2ADE /* Alamofire.framework */,
+				AE066555C718D5287A0E47CE /* Pods_PicPayRecrutamento.framework */,
+				49C31C8417180A81794949E7 /* Pods_PicPayRecrutamentoTests.framework */,
+				75E4362C3BBFBD03984B67CF /* Pods_PicPayRecrutamentoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		324D6F552154281F00261AE4 /* UserViews */ = {
+			isa = PBXGroup;
+			children = (
+				32CD937B215064210077F87E /* UserViewCollectionViewCell.swift */,
+				32CD938021506E820077F87E /* UserCollectionView.swift */,
+				326AB7A82153114E00F99D39 /* UserTransactionView.swift */,
+			);
+			path = UserViews;
+			sourceTree = "<group>";
+		};
+		324D6F562154282A00261AE4 /* CardViews */ = {
+			isa = PBXGroup;
+			children = (
+				324D6F592154285D00261AE4 /* CardTableViewCell.swift */,
+				3248E01E2156608800797BBF /* MainCardView.swift */,
+			);
+			path = CardViews;
+			sourceTree = "<group>";
+		};
+		32502B2D214AC64A00F3D491 /* Bars */ = {
+			isa = PBXGroup;
+			children = (
+				32502B2E214AC66D00F3D491 /* CustomHomeNavBar.swift */,
+				324864452151C92A00C1D331 /* CustomPayNavBar.swift */,
+			);
+			path = Bars;
+			sourceTree = "<group>";
+		};
+		32B814E6214AACC10020CA48 = {
+			isa = PBXGroup;
+			children = (
+				32B814F1214AACC10020CA48 /* PicPayRecrutamento */,
+				32B81506214AACC30020CA48 /* PicPayRecrutamentoTests */,
+				32B81511214AACC30020CA48 /* PicPayRecrutamentoUITests */,
+				32B814F0214AACC10020CA48 /* Products */,
+				5D2C6AD70549DFBD97F4D681 /* Pods */,
+				212837F59ED883FE3BB5A923 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		32B814F0214AACC10020CA48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32B814EF214AACC10020CA48 /* PicPayRecrutamento.app */,
+				32B81503214AACC30020CA48 /* PicPayRecrutamentoTests.xctest */,
+				32B8150E214AACC30020CA48 /* PicPayRecrutamentoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32B814F1214AACC10020CA48 /* PicPayRecrutamento */ = {
+			isa = PBXGroup;
+			children = (
+				32B814F2214AACC10020CA48 /* AppDelegate.swift */,
+				32B814F4214AACC10020CA48 /* ViewController.swift */,
+				32B814F6214AACC10020CA48 /* Main.storyboard */,
+				32B814F9214AACC30020CA48 /* Assets.xcassets */,
+				32CD937D21506D170077F87E /* ViewControllers */,
+				32CD937A215063850077F87E /* Views */,
+				32CD937721505BA60077F87E /* ViewModels */,
+				32CD937421505ACD0077F87E /* Models */,
+				32502B2D214AC64A00F3D491 /* Bars */,
+				32B814FB214AACC30020CA48 /* LaunchScreen.storyboard */,
+				32B814FE214AACC30020CA48 /* Info.plist */,
+			);
+			path = PicPayRecrutamento;
+			sourceTree = "<group>";
+		};
+		32B81506214AACC30020CA48 /* PicPayRecrutamentoTests */ = {
+			isa = PBXGroup;
+			children = (
+				32B81507214AACC30020CA48 /* PicPayRecrutamentoTests.swift */,
+				32B81509214AACC30020CA48 /* Info.plist */,
+			);
+			path = PicPayRecrutamentoTests;
+			sourceTree = "<group>";
+		};
+		32B81511214AACC30020CA48 /* PicPayRecrutamentoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				32B81512214AACC30020CA48 /* PicPayRecrutamentoUITests.swift */,
+				32B81514214AACC30020CA48 /* Info.plist */,
+			);
+			path = PicPayRecrutamentoUITests;
+			sourceTree = "<group>";
+		};
+		32CD937421505ACD0077F87E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32CD937521505AE60077F87E /* User.swift */,
+				32CD938621513A360077F87E /* UsersDataSource.swift */,
+				32CD938221510D3F0077F87E /* Card.swift */,
+				32CD938421510ECA0077F87E /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32CD937721505BA60077F87E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				32CD937821505BFF0077F87E /* UserViewModel.swift */,
+				324D6F5B21542AF000261AE4 /* CardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		32CD937A215063850077F87E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				324D6F562154282A00261AE4 /* CardViews */,
+				324D6F552154281F00261AE4 /* UserViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32CD937D21506D170077F87E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32CD937E21506D370077F87E /* HomeViewController.swift */,
+				324864432151C8B800C1D331 /* PayViewController.swift */,
+				324D6F53215423BA00261AE4 /* CardViewController.swift */,
+				324D6F5D2154360500261AE4 /* AddCardViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5D2C6AD70549DFBD97F4D681 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D87EFAD026718658EBA54D08 /* Pods-PicPayRecrutamento.debug.xcconfig */,
+				D0885A8B8D852588E4DB6F7D /* Pods-PicPayRecrutamento.release.xcconfig */,
+				6EB74D96672969FD3F82D474 /* Pods-PicPayRecrutamentoTests.debug.xcconfig */,
+				E50EF2238D82A964F0747EDC /* Pods-PicPayRecrutamentoTests.release.xcconfig */,
+				86C3CC0FAC024B831E00C094 /* Pods-PicPayRecrutamentoUITests.debug.xcconfig */,
+				DE3C712464842A08E7D9370A /* Pods-PicPayRecrutamentoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32B814EE214AACC10020CA48 /* PicPayRecrutamento */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B81517214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamento" */;
+			buildPhases = (
+				B2F54EEFDBA8C39350535050 /* [CP] Check Pods Manifest.lock */,
+				32B814EB214AACC10020CA48 /* Sources */,
+				32B814EC214AACC10020CA48 /* Frameworks */,
+				32B814ED214AACC10020CA48 /* Resources */,
+				1D61D7F261467527574FDE51 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PicPayRecrutamento;
+			productName = PicPayRecrutamento;
+			productReference = 32B814EF214AACC10020CA48 /* PicPayRecrutamento.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32B81502214AACC30020CA48 /* PicPayRecrutamentoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B8151A214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamentoTests" */;
+			buildPhases = (
+				C08B61AB1620DE020E2EECFF /* [CP] Check Pods Manifest.lock */,
+				32B814FF214AACC30020CA48 /* Sources */,
+				32B81500214AACC30020CA48 /* Frameworks */,
+				32B81501214AACC30020CA48 /* Resources */,
+				19BA4ACB020D3967190C0E8D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32B81505214AACC30020CA48 /* PBXTargetDependency */,
+			);
+			name = PicPayRecrutamentoTests;
+			productName = PicPayRecrutamentoTests;
+			productReference = 32B81503214AACC30020CA48 /* PicPayRecrutamentoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		32B8150D214AACC30020CA48 /* PicPayRecrutamentoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B8151D214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamentoUITests" */;
+			buildPhases = (
+				E1AEEE30826D68452227A9C0 /* [CP] Check Pods Manifest.lock */,
+				32B8150A214AACC30020CA48 /* Sources */,
+				32B8150B214AACC30020CA48 /* Frameworks */,
+				32B8150C214AACC30020CA48 /* Resources */,
+				144B8CAF076974F0DFDE5FBB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32B81510214AACC30020CA48 /* PBXTargetDependency */,
+			);
+			name = PicPayRecrutamentoUITests;
+			productName = PicPayRecrutamentoUITests;
+			productReference = 32B8150E214AACC30020CA48 /* PicPayRecrutamentoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32B814E7214AACC10020CA48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Sandor Ferreira da Silva";
+				TargetAttributes = {
+					32B814EE214AACC10020CA48 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					32B81502214AACC30020CA48 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 32B814EE214AACC10020CA48;
+					};
+					32B8150D214AACC30020CA48 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 32B814EE214AACC10020CA48;
+					};
+				};
+			};
+			buildConfigurationList = 32B814EA214AACC10020CA48 /* Build configuration list for PBXProject "PicPayRecrutamento" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32B814E6214AACC10020CA48;
+			productRefGroup = 32B814F0214AACC10020CA48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32B814EE214AACC10020CA48 /* PicPayRecrutamento */,
+				32B81502214AACC30020CA48 /* PicPayRecrutamentoTests */,
+				32B8150D214AACC30020CA48 /* PicPayRecrutamentoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32B814ED214AACC10020CA48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B814FD214AACC30020CA48 /* LaunchScreen.storyboard in Resources */,
+				32B814FA214AACC30020CA48 /* Assets.xcassets in Resources */,
+				32B814F8214AACC10020CA48 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B81501214AACC30020CA48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B8150C214AACC30020CA48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		144B8CAF076974F0DFDE5FBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamentoUITests/Pods-PicPayRecrutamentoUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PlaceholderTextView/PlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamentoUITests/Pods-PicPayRecrutamentoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19BA4ACB020D3967190C0E8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamentoTests/Pods-PicPayRecrutamentoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PlaceholderTextView/PlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamentoTests/Pods-PicPayRecrutamentoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D61D7F261467527574FDE51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamento/Pods-PicPayRecrutamento-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PlaceholderTextView/PlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPayRecrutamento/Pods-PicPayRecrutamento-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2F54EEFDBA8C39350535050 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicPayRecrutamento-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C08B61AB1620DE020E2EECFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicPayRecrutamentoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1AEEE30826D68452227A9C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicPayRecrutamentoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32B814EB214AACC10020CA48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				326AB7A92153114E00F99D39 /* UserTransactionView.swift in Sources */,
+				32CD937621505AE60077F87E /* User.swift in Sources */,
+				32CD938321510D3F0077F87E /* Card.swift in Sources */,
+				32CD938121506E820077F87E /* UserCollectionView.swift in Sources */,
+				32502B2F214AC66D00F3D491 /* CustomHomeNavBar.swift in Sources */,
+				324D6F5A2154285D00261AE4 /* CardTableViewCell.swift in Sources */,
+				32CD938721513A360077F87E /* UsersDataSource.swift in Sources */,
+				32CD938521510ECA0077F87E /* Transaction.swift in Sources */,
+				324D6F5C21542AF000261AE4 /* CardViewModel.swift in Sources */,
+				32CD937C215064210077F87E /* UserViewCollectionViewCell.swift in Sources */,
+				324D6F5E2154360500261AE4 /* AddCardViewController.swift in Sources */,
+				324D6F54215423BA00261AE4 /* CardViewController.swift in Sources */,
+				324864442151C8B800C1D331 /* PayViewController.swift in Sources */,
+				324864462151C92A00C1D331 /* CustomPayNavBar.swift in Sources */,
+				32B814F5214AACC10020CA48 /* ViewController.swift in Sources */,
+				32CD937921505BFF0077F87E /* UserViewModel.swift in Sources */,
+				32CD937F21506D370077F87E /* HomeViewController.swift in Sources */,
+				32B814F3214AACC10020CA48 /* AppDelegate.swift in Sources */,
+				3248E01F2156608800797BBF /* MainCardView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B814FF214AACC30020CA48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B81508214AACC30020CA48 /* PicPayRecrutamentoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B8150A214AACC30020CA48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B81513214AACC30020CA48 /* PicPayRecrutamentoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32B81505214AACC30020CA48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32B814EE214AACC10020CA48 /* PicPayRecrutamento */;
+			targetProxy = 32B81504214AACC30020CA48 /* PBXContainerItemProxy */;
+		};
+		32B81510214AACC30020CA48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32B814EE214AACC10020CA48 /* PicPayRecrutamento */;
+			targetProxy = 32B8150F214AACC30020CA48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32B814F6214AACC10020CA48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B814F7214AACC10020CA48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32B814FB214AACC30020CA48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B814FC214AACC30020CA48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32B81515214AACC30020CA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		32B81516214AACC30020CA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32B81518214AACC30020CA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87EFAD026718658EBA54D08 /* Pods-PicPayRecrutamento.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamento/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamento;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		32B81519214AACC30020CA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0885A8B8D852588E4DB6F7D /* Pods-PicPayRecrutamento.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamento/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamento;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		32B8151B214AACC30020CA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB74D96672969FD3F82D474 /* Pods-PicPayRecrutamentoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamentoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamentoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicPayRecrutamento.app/PicPayRecrutamento";
+			};
+			name = Debug;
+		};
+		32B8151C214AACC30020CA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50EF2238D82A964F0747EDC /* Pods-PicPayRecrutamentoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamentoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamentoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicPayRecrutamento.app/PicPayRecrutamento";
+			};
+			name = Release;
+		};
+		32B8151E214AACC30020CA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86C3CC0FAC024B831E00C094 /* Pods-PicPayRecrutamentoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamentoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamentoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PicPayRecrutamento;
+			};
+			name = Debug;
+		};
+		32B8151F214AACC30020CA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3C712464842A08E7D9370A /* Pods-PicPayRecrutamentoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW5498NH3B;
+				INFOPLIST_FILE = PicPayRecrutamentoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandorferreira.PicPayRecrutamentoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PicPayRecrutamento;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32B814EA214AACC10020CA48 /* Build configuration list for PBXProject "PicPayRecrutamento" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B81515214AACC30020CA48 /* Debug */,
+				32B81516214AACC30020CA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32B81517214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamento" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B81518214AACC30020CA48 /* Debug */,
+				32B81519214AACC30020CA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32B8151A214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamentoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B8151B214AACC30020CA48 /* Debug */,
+				32B8151C214AACC30020CA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32B8151D214AACC30020CA48 /* Build configuration list for PBXNativeTarget "PicPayRecrutamentoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B8151E214AACC30020CA48 /* Debug */,
+				32B8151F214AACC30020CA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32B814E7214AACC10020CA48 /* Project object */;
+}

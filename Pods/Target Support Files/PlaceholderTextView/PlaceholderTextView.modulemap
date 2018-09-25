@@ -1,0 +1,6 @@
+framework module PlaceholderTextView {
+  umbrella header "PlaceholderTextView-umbrella.h"
+
+  export *
+  module * { export * }
+}
