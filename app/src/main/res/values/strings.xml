@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">PicpayAndroidx</string>
+    <string name="iv_contact_content_description">contact profile</string>
+    <string name="transaction_request_parcelable">transaction_request</string>
+    <string name="inserted_card_parcelable_key">parcelable_key</string>
+    <string name="insert_transaction_value">Insira o valor da transação.</string>
+    <string name="choose_card">Escolha um cartão ou insira um novo.</string>
+    <string name="Informe_valor_da_transacao">Informe um valor!</string>
+    <string name="transacao_realizada_para">Transação realizada para:</string>
+
+    <string name="pref_key">Preferences key</string>
+    <string name="pref_text">Preferences key</string>
+
+    <string name="just_added_card">just_added_card</string>
+
+    <string name="picpay_base_url">http://careers.picpay.com/tests/mobdev/</string>
+
+    <string name="success_intent_img_key">img_key</string>
+    <string name="success_intent_name_key">name_key</string>
+    <string name="success_intent_value_key">value_key</string>
+
+    <string name="json_object_transaction">transaction</string>
+    <string name="json_object_destination_user">destination_user</string>
+
+    <string name="detination_user_parameter_img">img</string>
+    <string name="detination_user_parameter_name">name</string>
+    <string name="detination_user_parameter_value">value</string>
+
+    <string name="no_card_registered">Nenhum cartão registrado.</string>
+    <string name="destination_user_id_key">destination_user_id_key</string>
+    <string name="is_card_just_added">is_card_just_added</string>
+    <string name="new_card">+ Adicionar cartão</string>
+    <string name="numero_cartao">Número do cartão</string>
+    <string name="data_de_validade">Data de validade</string>
+    <string name="codigo_seguranca">Código de segurança</string>
+    <string name="empty_value">R$0,00</string>
+    <string name="no_internet_connection">Sem conxão com a internet. Clique para tentar novamente</string>
+</resources>
