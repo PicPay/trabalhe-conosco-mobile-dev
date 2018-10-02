@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/spinner_layout"
+    android:background="@color/spinnerBackground">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_credit_card_black_24dp"
+        android:layout_gravity="top"/>
+
+    <TextView
+        android:id="@+id/tv_spinner_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="12dp"
+        android:text="Vc não possui cartão cadastrado"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/spinner_text_item"
+        />
+
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/spinner_text_item"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_arrow_drop_down_black_24dp"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

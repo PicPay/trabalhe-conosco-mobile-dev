@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.InsertCardActivity"
+    >
+
+    <TextView
+        android:id="@+id/tv_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/numero_cartao"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/et_card_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/et_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="0000.0000.0000.0000"
+        android:inputType="number"
+        android:maxLength="16"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/tv_expire_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_card_number"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_number" />
+
+    <TextView
+        android:id="@+id/tv_expire_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/data_de_validade"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/s_month"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_card_number" />
+
+    <Spinner
+        android:id="@+id/s_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:entries="@array/array_month"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/tv_cvv"
+        app:layout_constraintStart_toEndOf="@+id/tv_expire_date"
+        app:layout_constraintTop_toBottomOf="@+id/tv_expire_date" />
+
+    <Spinner
+        android:id="@+id/s_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:entries="@array/array_year"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/s_month"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/s_month"
+        app:layout_constraintTop_toTopOf="@+id/s_month" />
+
+    <TextView
+        android:id="@+id/tv_cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/codigo_seguranca"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/et_cvv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/s_month" />
+
+    <EditText
+        android:id="@+id/et_cvv"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:inputType="number"
+        android:maxLength="3"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_insert_card_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_cvv"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cvv" />
+
+    <Button
+        android:id="@+id/btn_insert_card_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@color/green"
+        android:onClick="onOkClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_cvv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
