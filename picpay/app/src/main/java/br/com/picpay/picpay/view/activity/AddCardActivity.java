@@ -51,25 +51,43 @@ public class AddCardActivity extends BaseActivity implements AddCardContract.Add
         if (card != null) {
             CreditCard creditCard = card.getCreditCard();
             numberCard.setTextEditText(creditCard.cardNumber);
-            validateCard.setTextEditText(CardUtil.getDateFormated(creditCard).replace("/", ""));
+            if (creditCard.expiryMonth > 0 && creditCard.expiryYear > 0) {
+                validateCard.setTextEditText(CardUtil.getDateFormated(creditCard).replace("/", ""));
+            }
             cvv.setTextEditText(creditCard.cvv);
             nameCard.setTextEditText(creditCard.cardholderName);
         }
     }
 
+    @Override
+    protected void onPause() {
+        saveCardInstance();
+        super.onPause();
+    }
+
+    private void saveCardInstance() {
+        if (card == null) {
+            card = new Card();
+        }
+
+        CreditCard creditCard = new CreditCard();
+
+        CreditCard creditCardNumber = ((CreditCardEditText) numberCard.getCustomEditText()).getCreditCard();
+        creditCard.cardNumber = creditCardNumber.cardNumber;
+
+        CreditCard creditCardDate = ((CardDateEditText) validateCard.getCustomEditText()).getCreditCard();
+        creditCard.expiryMonth = creditCardDate.expiryMonth;
+        creditCard.expiryYear = creditCardDate.expiryYear;
+
+        creditCard.cardholderName = nameCard.getText();
+        creditCard.cvv = cvv.getText();
+        card.setCreditCard(creditCard);
+    }
+
     @Click(R.id.btn_save_card)
     void onBtnSaveCard() {
         if (form.validate()) {
-            if (card == null) {
-                card = new Card();
-            }
-            CreditCard creditCardNumber = ((CreditCardEditText) numberCard.getCustomEditText()).getCreditCard();
-            CreditCard creditCardDate = ((CardDateEditText) validateCard.getCustomEditText()).getCreditCard();
-            creditCardNumber.expiryMonth = creditCardDate.expiryMonth;
-            creditCardNumber.expiryYear = creditCardDate.expiryYear;
-            creditCardNumber.cardholderName = nameCard.getText();
-            creditCardNumber.cvv = cvv.getText();
-            card.setCreditCard(creditCardNumber);
+            saveCardInstance();
             presenter.saveCard(card);
         }
     }

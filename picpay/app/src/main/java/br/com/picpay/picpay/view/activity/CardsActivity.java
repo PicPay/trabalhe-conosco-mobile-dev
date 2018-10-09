@@ -3,6 +3,7 @@ package br.com.picpay.picpay.view.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -53,14 +54,19 @@ public class CardsActivity extends BaseSubscribeActivity implements CardsContrac
     @InstanceState
     ArrayList<Card> listCards = new ArrayList<>();
 
-    private RecyclerViewAdapter<Card> adapter = new RecyclerViewAdapter<>(CardViewHolder.class, listCards);
+    private RecyclerViewAdapter<Card> adapter;
 
     @Override
     public void init() {
         super.init();
         presenter.setView(this);
+        adapter = new RecyclerViewAdapter<>(CardViewHolder.class, listCards);
         updateList(false);
         rvCards.setAdapter(adapter);
+        Fragment fragmentTransaction = getSupportFragmentManager().findFragmentByTag(TransactionFragment.class.getName());
+        if (fragmentTransaction instanceof TransactionFragment) {
+            ((TransactionFragment) fragmentTransaction).setTransactionListerner(transactionListerner);
+        }
     }
 
     @Click(R.id.btn_register_card)
@@ -122,15 +128,18 @@ public class CardsActivity extends BaseSubscribeActivity implements CardsContrac
     }
 
     private void showDialogTransaction(@NonNull Card card) {
-        TransactionFragment transactionFragment = new TransactionFragment(user, card, new TransactionListerner() {
-            @Override
-            public void execute(@NonNull User user, @NonNull Card card, float value) {
-                showLoading(getString(R.string.finishing_transaction));
-                presenter.executeTransaction(user, card, value);
-            }
-        });
+        TransactionFragment transactionFragment = new TransactionFragment(user, card);
+        transactionFragment.setTransactionListerner(transactionListerner);
         transactionFragment.show(getSupportFragmentManager(), TransactionFragment.class.getName());
     }
+
+    private TransactionListerner transactionListerner = new TransactionListerner() {
+        @Override
+        public void execute(@NonNull User user, @NonNull Card card, float value) {
+            showLoading(getString(R.string.finishing_transaction));
+            presenter.executeTransaction(user, card, value);
+        }
+    };
 
     @Override
     public void onSucessTransaction() {

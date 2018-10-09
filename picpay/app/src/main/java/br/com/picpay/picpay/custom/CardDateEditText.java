@@ -1,6 +1,7 @@
 package br.com.picpay.picpay.custom;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -45,8 +46,9 @@ public class CardDateEditText extends CustomEditText {
         }
     }
 
+    @NonNull
     public CreditCard getCreditCard() {
-        return creditCard;
+        return isValid() ? creditCard : new CreditCard();
     }
 
     public void setCreditCard(CreditCard creditCard) {

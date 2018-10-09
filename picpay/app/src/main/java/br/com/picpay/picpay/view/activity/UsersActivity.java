@@ -36,12 +36,13 @@ public class UsersActivity extends BaseSubscribeActivity implements UsersContrac
     @InstanceState
     ArrayList<User> listUsers = new ArrayList<>();
 
-    private RecyclerViewAdapter<User> adapter = new RecyclerViewAdapter<>(UserViewHolder.class, listUsers);
+    private RecyclerViewAdapter<User> adapter;
 
     @Override
     public void init() {
         super.init();
         presenter.setView(this);
+        adapter = new RecyclerViewAdapter<>(UserViewHolder.class, listUsers);
         rvUsers.setAdapter(adapter);
         if (listUsers.isEmpty()) {
             getUsers();
