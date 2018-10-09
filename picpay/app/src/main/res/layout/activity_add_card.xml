@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <br.com.picpay.picpay.custom.Form
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <br.com.picpay.picpay.custom.TitleEditText
+            android:id="@+id/number_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:customInputType="CARD"
+            app:required="true"
+            app:title="@string/number_card" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <br.com.picpay.picpay.custom.TitleEditText
+                android:id="@+id/validate_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:customInputType="DATE_CARD"
+                app:required="true"
+                app:title="@string/validate" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
+
+            <br.com.picpay.picpay.custom.TitleEditText
+                android:id="@+id/cvv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:customInputType="NUMBER"
+                app:required="true"
+                app:title="@string/cvv" />
+
+        </LinearLayout>
+
+        <br.com.picpay.picpay.custom.TitleEditText
+            android:id="@+id/name_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:customInputType="NAME"
+            app:required="true"
+            app:title="@string/name" />
+
+    </br.com.picpay.picpay.custom.Form>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_save_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:padding="10dp"
+            android:text="@string/save"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/capePalliser" />
+
+    </LinearLayout>
+
+</RelativeLayout>

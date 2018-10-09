@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5cbe69</color>
+    <color name="colorPrimaryDark">#5cbe69</color>
+    <color name="colorAccent">#5cbe69</color>
+    <color name="capePalliser">#9f6e4b</color>
+
+    <color name="colorSecondText">@android:color/black</color>
+    <color name="lineError">#b60623</color>
+    <color name="line_dark">#343434</color>
+    <color name="line">@color/capePalliser</color>
+    <color name="hint_dark">#a6a4a4</color>
+</resources>

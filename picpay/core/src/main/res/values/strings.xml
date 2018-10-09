@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pic Pay Core</string>
+    <string name="men_error_server">Ops! Estamos com problemas no momento, tente novamente mais tarde ; )</string>
+    <string name="user_unauthorized">Usuário ou senha inválidos</string>
+    <string name="internet_error">Verifique sua conexão e tente novamente</string>
+</resources>

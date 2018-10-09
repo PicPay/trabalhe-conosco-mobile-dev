@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.picpay.picpay">
+
+    <application
+        android:name=".AppApplication_"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".view.activity.SplashActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeSplash"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.activity.UsersActivity_"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/transfer"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name=".view.activity.CardsActivity_"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/cards"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".view.activity.AddCardActivity_"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/register_card"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+    </application>
+</manifest>

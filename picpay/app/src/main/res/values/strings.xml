@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">PicPay</string>
+    <string name="campo_obrigatorio">Campo obrigatório</string>
+    <string name="campo_invalido">Campo inválido</string>
+    <string name="nome_invalido">Nome inválido</string>
+    <string name="transfer">TRANSFERÊNCIA</string>
+    <string name="cards">Cartões</string>
+    <string name="register_card">Adicionar Cartão</string>
+    <string name="save">Salvar</string>
+    <string name="number_card">Número cartão</string>
+    <string name="validate">Validade</string>
+    <string name="cvv">cvv</string>
+    <string name="name">Nome</string>
+    <string name="update_card">Alterar Cartão</string>
+    <string name="change">ALTERAR</string>
+    <string name="delete">DELETAR</string>
+    <string name="warning_register_card">Nenhum cartão cadastrado!</string>
+    <string name="cancel">CANCELAR</string>
+    <string name="confirm">CONFIRMAR</string>
+    <string name="amount">Valor</string>
+    <string name="amount_hint">R$: 00,00</string>
+    <string name="transaction_confirmation">CONFIRMAR TRANSAÇÃO</string>
+    <string name="transaction_sucess">Transação efetuada com sucesso!</string>
+    <string name="finishing_transaction">Concluindo a transação...</string>
+    <string name="refused_transaction">Transação recusada!</string>
+</resources>

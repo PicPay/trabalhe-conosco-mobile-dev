@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TitleEditText">
+        <attr name="title" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="required" format="boolean" />
+        <attr name="editable" format="boolean" />
+        <attr name="dark" format="boolean" />
+        <attr name="allCaps" format="boolean" />
+        <attr name="titleTextSize" format="integer" />
+        <attr name="errorMessage" format="string" />
+        <attr name="maxLength" format="integer" />
+        <attr name="android:inputType" />
+        <attr name="customInputType" format="enum">
+            <enum name="NAME" value="0" />
+            <enum name="CARD" value="1" />
+            <enum name="DATE_CARD" value="2" />
+            <enum name="NUMBER" value="3" />
+            <enum name="VALUE" value="4" />
+        </attr>
+        <attr name="editTextPaddingLeft" format="dimension" />
+        <attr name="editTextPaddingRight" format="dimension" />
+        <attr name="editTextPaddingBottom" format="dimension" />
+        <attr name="editTextPaddingTop" format="dimension" />
+    </declare-styleable>
+</resources>
