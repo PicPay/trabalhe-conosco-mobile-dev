@@ -4,36 +4,51 @@
 
 O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
 
-Você deve fazer um ***Fork*** deste repositório e soliciar um ***Pull Request***, **com seu nome na descrição**, para nossa avaliação.
+By: VICTOR MORAES
+EMAIL: VICCTORMORAES@GMAIL.COM
 
-O seu usuário deverá escolher uma pessoa em uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se ele não possuir cartão de crédito cadastrado, deverá informar o dados do cartão (número do cartão, data de validade e CVV, além do id do usuário de destino) antes de finalizar o pagamento.
+# Entendendo o Projeto
 
-Os cartões devem ser persistidos no aplicativo para serem usados em pagamentos futuros.
+Esse projeto utiliza o conceito MVP (Model View Presenter) com **UseCases**, ou seja, temos a camada da **View** que se comunica com o **Presenter** no qual se comunica com os **UseCases** e os mesmo se comunicam com os Serviços(**core**).
 
------
-###### Lista de usuários
+![Scheme](images/print1.png)
 
-Para listar as pessoas que podem receber pagamentos, faça uma requisição para o json nessa url: http://careers.picpay.com/tests/mobdev/users
+**APP**
 
------
+* Tela - **View** responsável por mostrar informações ao usuário, como **Activity, Fragment, Dialog e etc**. 
 
-###### Pagamento
+![Scheme](images/print2.png)
 
-Realizar um `POST` para http://careers.picpay.com/tests/mobdev/transaction com os seguintes atributos:
-+ ID do usuário que irá receber o pagamento
-+ Número do cartão
-+ Vencimento do cartão
-+ CVV
-+ Valor total
+* Contract - **Interface** responsável por garantir o **contrato entre o Presenter e a View**.
 
-``` json
-{  
-   "card_number":"1111111111111111",
-   "cvv":789,
-   "value":79.9,
-   "expiry_date":"01/18",
-   "destination_user_id":1002
-}
-```
+![Scheme](images/print3.png)
 
-## Para fins de teste, o número de cartão 1111111111111111 aprova a transação, qualquer outro recusa. 
+* Presenter - responsável por fazer a comunicação entre a **View** e os **UseCase**, **(NO PRESENTER NÃO VAI REGRA DE NEGÓCIO, POIS SE NÃO O USECASE FICA SEM EMPREGO)**
+
+![Scheme](images/print4.png)
+
+* UseCase - responsável por fazer a comunicação entre **Presenter** e o Serviço(**core**), sendo aqui onde fica as regras de negócios e conversão dos objetos entre **App e Core** utilizando os **Mapper**, **(NADA DE FAZER CONVERSÃO FORA DOS MAPPERS, POIS ELES PRECISAM DESSE EMPREGO)**
+
+![Scheme](images/print5.png)
+
+* Model - responsável por representar os dados de um Objeto para as **View**
+
+![Scheme](images/print6.png)
+
+* Mapper - responsável por converter o **ModelResponse do Core** em **Model do App**
+
+![Scheme](images/print7.png)
+
+**CORE**
+
+* ModelRequest - Model que representa o conjunto de dados para uma requisição
+
+![Scheme](images/print8.png)
+
+* ModelResponse - Model que representa a resposta de uma requisição
+
+![Scheme](images/print9.png)
+
+* API - Classe que controla as chamadas 
+
+![Scheme](images/print10.png)
