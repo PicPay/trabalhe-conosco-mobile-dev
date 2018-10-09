@@ -4,7 +4,8 @@
 
 O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
 
-By: VICTOR MORAES
+BY: VICTOR MORAES
+
 EMAIL: VICCTORMORAES@GMAIL.COM
 
 # Entendendo o Projeto
