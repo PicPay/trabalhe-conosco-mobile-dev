@@ -93,6 +93,6 @@ public class CreditCardEditText extends CustomEditText implements TextWatcher {
 
     @NonNull
     public CreditCard getCreditCard() {
-        return creditCard;
+        return creditCard == null ? new CreditCard() : creditCard;
     }
 }

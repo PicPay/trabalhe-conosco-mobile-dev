@@ -3,6 +3,7 @@ package br.com.picpay.picpay.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import java.util.UUID;
 
@@ -66,7 +67,9 @@ public class Card extends RealmObject implements Parcelable {
     }
 
     public void setCreditCard(@NonNull CreditCard creditCard) {
-        this.cardNumber = creditCard.getFormattedCardNumber();
+        if (!TextUtils.isEmpty(creditCard.cardNumber)) {
+            this.cardNumber = creditCard.getFormattedCardNumber();
+        }
         this.expiryMonth = creditCard.expiryMonth;
         this.expiryYear = creditCard.expiryYear;
         this.cvv = creditCard.cvv;
