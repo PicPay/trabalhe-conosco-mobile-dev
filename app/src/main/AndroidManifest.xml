@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="stolato.com.br.paypalpayment">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Transition"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CartsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddCartActivity"
+            android:parentActivityName=".CartsActivity" />
+        <activity
+            android:name=".EditCartActivity"
+            android:parentActivityName=".CartsActivity" />
+        <activity android:name=".AboutActivity"></activity>
+    </application>
+
+</manifest>
