@@ -30,7 +30,7 @@ public class EditCartActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Editar Cartão");
         nome = (EditText) findViewById(R.id.nomeEdit);
         numero = (EditText) findViewById(R.id.numeroEdit);
-        numero.setText("TESTE");
+        numero.addTextChangedListener(Mask.insert("####.####.####.####",numero));
         expiry = (EditText) findViewById(R.id.expiryEdit);
         db.startBanco(getApplication());
         Bundle bundle = getIntent().getExtras();

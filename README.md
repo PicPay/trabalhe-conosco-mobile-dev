@@ -37,3 +37,7 @@ Realizar um `POST` para http://careers.picpay.com/tests/mobdev/transaction com o
 ```
 
 ## Para fins de teste, o número de cartão 1111111111111111 aprova a transação, qualquer outro recusa. 
+
+Imagem do projeto criado apartir da descrição citada acima,
+
+![Projeto](https://i.imgflip.com/2kq8yt.gif)

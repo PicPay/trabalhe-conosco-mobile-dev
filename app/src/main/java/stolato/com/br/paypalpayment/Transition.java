@@ -95,7 +95,8 @@ public class Transition extends AppCompatActivity {
         while (!cursor.isAfterLast()) {
             ids.add(cursor.getInt(IndiceID));
             cards.add(new Card(cursor.getInt(IndiceID),cursor.getString(IndiceNome),cursor.getString(IndiceNumber),cursor.getString(IndiceExpiry)));
-            list.add(cursor.getString(IndiceNome)+" - "+cursor.getString(IndiceNumber));
+            String numbr = cursor.getString(IndiceNumber);
+            list.add(cursor.getString(IndiceNome)+" - ( XXXX.XXXX.XXXX."+numbr.substring(15,19)+" )");
             cursor.moveToNext();
         }
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,list);
@@ -118,7 +119,7 @@ public class Transition extends AppCompatActivity {
         Data data = retrofit.create(Data.class);
         Card c = cards.get(card.getSelectedItemPosition());
         JSONObject jsonObject =  new JSONObject();
-        jsonObject.put("card_number",c.getNumber());
+        jsonObject.put("card_number",c.getNumber().replace(".",""));
         jsonObject.put("cvv",cvv.getText().toString());
         jsonObject.put("value",valor.getText().toString());
         jsonObject.put("expiry_date",c.getExpiry());
@@ -132,15 +133,14 @@ public class Transition extends AppCompatActivity {
                     if(response.body() != null) {
                         String t = response.body().string();
                         JSONObject object = new JSONObject(t);
-                        String st = object.getJSONObject("transaction").get("status").toString();
-                        if(st.equals("Aprovada")){
-                            //saveShare();
-                            alert("Sua transferência para " + cliente.getName() + " foi aprovada.", st, true);
+                        boolean st = Boolean.parseBoolean(object.getJSONObject("transaction").get("success").toString());
+                        if(st){
+                            alert("Sua transferência para " + cliente.getName() + " foi aprovada.", "Aprovado", true);
+                        }else{
+                            alert("Sua transferência para " + cliente.getName() + " foi recusada.", "Recusado", false);
                         }
                         Log.i("Resposta", t);
-                        Log.i("Resposta", st);
                     }
-                    Log.i("Resposta", response.message());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -158,12 +158,6 @@ public class Transition extends AppCompatActivity {
 
     public boolean check(){
         boolean t = true;
-        /*int ct = cart.getText().length();
-        Log.i("tam",ct+"");
-        if(cart.getText().toString().equals("") && ct < 16){
-            cart.setError("Preencha o campos");
-            return false;
-        }else if(cvv.getText().toString().equals("")){cvv.setError("Preencha o campos"); return false;}*/
         if(valor.getText().toString().equals("")){valor.setError("Preencha o campos"); return false;}
         else if(cvv.getText().toString().equals("")){cvv.setError("Preencha o campos"); return false;}
         return true;

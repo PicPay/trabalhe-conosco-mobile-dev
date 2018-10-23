@@ -25,6 +25,7 @@ public class AddCartActivity extends AppCompatActivity {
         nome = (EditText) findViewById(R.id.nomeAdd);
         expiry = (EditText) findViewById(R.id.expiry);
         numero = (EditText) findViewById(R.id.numeroAdd);
+        numero.addTextChangedListener(Mask.insert("####.####.####.####",numero));
         expiry.addTextChangedListener(Mask.insert("##/##", expiry));
         db = new Banco();
         db.startBanco(getApplicationContext());
