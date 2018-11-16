@@ -1,0 +1,27 @@
+buildscript {
+    ext {
+        androidGradlePluginVersion = '3.2.1'
+        androidGradleGoogleVersion = '3.1.0'
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$project.androidGradlePluginVersion"
+        classpath "com.google.gms:google-services:$project.androidGradleGoogleVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

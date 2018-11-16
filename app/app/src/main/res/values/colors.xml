@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#4CAF50</color>
+    <color name="color_primary_dark">#388E3C</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="color_accent">#8BC34A</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="color_background">#F7F7F7</color>
+    <color name="white_trans">#30FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- New CreditCard Colors -->
+    <color name="translucent_white">#80FFFFFF</color>
+    <color name="light_gray">#F0F5F5</color>
+    <color name="dark_gray">#243037</color>
+    <color name="light_blue">#59AAFF</color>
+    <color name="dark_blue">#1C6AC9</color>
+    <color name="blue">#2C7DE3</color>
+</resources>

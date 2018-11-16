@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".creditcard.view.ListCardsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar_main"
+                layout="@layout/z_toolbar_default" />
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_background">
+
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <include
+                        android:id="@+id/rv_main"
+                        layout="@layout/z_rv_list_data" />
+
+                    <include
+                        android:id="@+id/load_main"
+                        layout="@layout/z_pb_load_data" />
+
+                    <include
+                        android:id="@+id/tv_main"
+                        layout="@layout/z_tv_no_values" />
+
+                </FrameLayout>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

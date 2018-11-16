@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.view.HomeActivity">
+
+    <data>
+
+        <import type="java.lang.String" />
+
+        <variable
+            name="listerners"
+            type="project.picpay.test.home.view.HomeActivity.OnClickListerners" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/iv_profile"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:contentDescription="@string/app_name"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_flat_user" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/s_home"
+                        android:textAllCaps="false"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{listerners::listCreditCards}"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/ic_vector_credit_card" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/load_main"
+                        layout="@layout/z_pb_load_data" />
+
+                    <include
+                        android:id="@+id/rv_main"
+                        layout="@layout/z_rv_list_data" />
+
+                    <include
+                        android:id="@+id/tv_main"
+                        layout="@layout/z_tv_no_values" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!--<include
+                android:id="@+id/fab_main"
+                layout="@layout/z_fab_default"
+                android:onClick="@{listerners::newCreditCard}" />-->
+        </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
