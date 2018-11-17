@@ -241,6 +241,7 @@ public class NewCreditCardActivity extends AppCompatActivity {
         binding.viewPager.setCurrentItem(4);
         CreditCardModel card = new CreditCardModel();
         card.setCardNumber(binding.inputEditCardNumber.getText().toString());
+        card.setCardNumberFormated(binding.inputEditCardNumber.getText().toString());
         card.setExpiredDate(binding.inputEditExpiredDate.getText().toString());
         card.setCardHolder(binding.inputEditCardHolder.getText().toString());
         card.setCvvCode(binding.inputEditCvvCode.getText().toString());

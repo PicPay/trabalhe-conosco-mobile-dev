@@ -13,6 +13,9 @@
     <color name="white_trans">#30FFFFFF</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="error_color">#f03c3c</color>
+    <color name="success_color">#3dd400</color>
+
     <!-- New CreditCard Colors -->
     <color name="translucent_white">#80FFFFFF</color>
     <color name="light_gray">#F0F5F5</color>

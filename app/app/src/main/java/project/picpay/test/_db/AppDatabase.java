@@ -12,7 +12,7 @@ import project.picpay.test.creditcard.model.CreditCardModel;
  * Created by Rodrigo Oliveira on 16/08/2018 for sac-digital-importacao.
  * ContactModel us rodrigooliveira.tecinfo@gmail.com
  */
-@Database(entities = {CreditCardModel.class}, version = 1, exportSchema = false)
+@Database(entities = {CreditCardModel.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

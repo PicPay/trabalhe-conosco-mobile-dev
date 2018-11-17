@@ -15,6 +15,7 @@ public class CreditCardModel implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
     private String cardNumber;
+    private String cardNumberFormated;
     private String expiredDate;
     private String cardHolder;
     private String cvvCode;
@@ -62,6 +63,14 @@ public class CreditCardModel implements Serializable {
         this.cvvCode = cvvCode;
     }
 
+    public String getCardNumberFormated() {
+        return cardNumberFormated;
+    }
+
+    public void setCardNumberFormated(String cardNumberFormated) {
+        this.cardNumberFormated = cardNumberFormated;
+    }
+
     @Override
     public String toString() {
         return "Card info:\r\n" +
@@ -70,4 +79,5 @@ public class CreditCardModel implements Serializable {
                 "Card holder = " + cardHolder + "\r\n" +
                 "CVV code = " + cvvCode;
     }
+
 }

@@ -132,7 +132,7 @@ public class HomeActivity extends AppCompatActivity implements ListUserAdapter.O
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        DialogTransactionBinding binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.dialog_transaction, null, false);
+        DialogTransactionBinding binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.dialog_transaction_old, null, false);
         binding.setListerners(listerners);
         binding.setPost(user);
         dialog.setContentView(binding.getRoot());

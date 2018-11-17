@@ -15,6 +15,8 @@
     <!-- TransactionActivity -->
     <string name="s_message_put_value">Informe o Valor que Deseja Transferir</string>
     <string name="s_message_bt_pay">Pagar</string>
+    <string name="s_message_select_method_payment">Selecione um Cartão</string>
+    <string name="s_message_error_fields">É necessário informar um valor e selecionar um cartão para realizar a transação.</string>
 
 
     <!-- CreditCardActivity -->
@@ -33,7 +35,7 @@
     <string name="label_expired_date">MM/YY</string>
     <string name="label_card_holder">CARD HOLDER</string>
     <string name="label_cvv_code">CVV CODE</string>
-    <string name="hint_card_number">NÚMERO DO CARTÃO (16 DÍGITOS)</string>
+    <string name="hint_card_number">NÚMERO DO CARTÃO</string>
     <string name="hint_expired_date">DATA DE EXPIRAÇÃO</string>
     <string name="hint_card_holder">NOME NO CARTÃO</string>
     <string name="hint_cvv_code">CÓDIGO CVV</string>
@@ -43,6 +45,8 @@
     <string name="s_invalid_number">Número Inválido</string>
     <string name="s_title_new_transaction">Nova Transação</string>
     <string name="s_type_payment">Forma de Pagamento</string>
-    <string name="s_message_error_fields">É necessário que todos os campos estejam preenchidos.</string>
+    <string name="s_ok">OK</string>
+    <string name="s_message_transaction_success">Transação realizada\ncom sucesso!</string>
+    <string name="s_message_transaction_error">Houve um problema durante a transação.\nTente novamente.</string>
 
 </resources>
