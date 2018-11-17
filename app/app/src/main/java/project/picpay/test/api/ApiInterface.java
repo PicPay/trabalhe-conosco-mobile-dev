@@ -12,8 +12,8 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
- * Created by Rodrigo Oliveira on 09/08/2018 for sac-digital-chat.
- * ContactModel us rodrigooliveira.tecinfo@gmail.com
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public interface ApiInterface {
 

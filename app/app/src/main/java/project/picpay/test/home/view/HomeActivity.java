@@ -118,25 +118,10 @@ public class HomeActivity extends AppCompatActivity implements ListUserAdapter.O
             this.context = context;
         }
 
-        public void newCreditCard(View view) {
-
-        }
-
         public void listCreditCards(View view) {
             startActivity(new Intent(HomeActivity.this, ListCardsActivity.class));
         }
 
     }
-
-    /*private void showDialogTransaction(UserModel user) {
-        Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        DialogTransactionBinding binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.dialog_transaction_old, null, false);
-        binding.setListerners(listerners);
-        binding.setPost(user);
-        dialog.setContentView(binding.getRoot());
-        dialog.show();
-    }*/
 
 }

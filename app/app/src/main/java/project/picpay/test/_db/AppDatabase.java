@@ -9,8 +9,8 @@ import project.picpay.test._db.dao.CreditCardDao;
 import project.picpay.test.creditcard.model.CreditCardModel;
 
 /**
- * Created by Rodrigo Oliveira on 16/08/2018 for sac-digital-importacao.
- * ContactModel us rodrigooliveira.tecinfo@gmail.com
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 @Database(entities = {CreditCardModel.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {

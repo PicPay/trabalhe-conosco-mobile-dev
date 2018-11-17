@@ -4,10 +4,9 @@ import android.util.Log;
 
 import project.picpay.test.BuildConfig;
 
-
 /**
- * Created by Rodrigo Oliveira on 16/04/2018 for LeadsOnline.
- * ContactModel us rodrigooliveira.tecinfo@gmail.com
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public class Logger {
 

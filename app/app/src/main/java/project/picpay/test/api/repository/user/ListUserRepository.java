@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Rodrigo Oliveira on 28/08/2018 for GitSuper.
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
  * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public class ListUserRepository implements IUserRepository {

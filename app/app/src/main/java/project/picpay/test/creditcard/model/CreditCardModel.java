@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import java.io.Serializable;
 
 /**
- * Created by Rodrigo Oliveira on 15/11/2018 for app.
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
  * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 @Entity(tableName = "credit_card")

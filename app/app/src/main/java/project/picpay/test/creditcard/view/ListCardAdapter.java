@@ -13,8 +13,8 @@ import project.picpay.test.creditcard.model.CreditCardModel;
 import project.picpay.test.databinding.ItemListCardBinding;
 
 /**
- * Created by Rodrigo Oliveira on 16/08/2018 for sac-digital-importacao.
- * ContactModel us rodrigooliveira.tecinfo@gmail.com
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public class ListCardAdapter extends RecyclerView.Adapter<ListCardAdapter.RecyclerViewHolder> {
 

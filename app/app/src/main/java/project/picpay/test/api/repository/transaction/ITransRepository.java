@@ -7,7 +7,7 @@ import project.picpay.test.home.model.transaction_received.TransactionPost;
 import project.picpay.test.home.model.transaction_sended.ResponseTransaction;
 
 /**
- * Created by Rodrigo Oliveira on 29/08/2018 for PnWeather.
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
  * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public interface ITransRepository {

@@ -12,7 +12,7 @@ import project.picpay.test.creditcard.model.CreditCardModel;
 import static android.arch.persistence.room.OnConflictStrategy.ROLLBACK;
 
 /**
- * Created by Rodrigo Oliveira on 15/11/2018 for app.
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
  * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 @Dao

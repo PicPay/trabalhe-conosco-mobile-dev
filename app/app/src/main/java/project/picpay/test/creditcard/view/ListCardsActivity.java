@@ -16,6 +16,10 @@ import project.picpay.test.creditcard.viewmodel.CreditCardViewModel;
 import project.picpay.test.databinding.ActivityListCardsBinding;
 import project.picpay.test.transaction.TransactionActivity;
 
+/**
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
+ */
 public class ListCardsActivity extends AppCompatActivity implements ListCardAdapter.OnActionListerner {
 
     private static final String TAG = ListCardsActivity.class.getSimpleName();

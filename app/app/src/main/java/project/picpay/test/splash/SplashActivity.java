@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import project.picpay.test.home.view.HomeActivity;
 
 /**
- * Created by Rodrigo Oliveira on 29/08/2018 for PicTest.
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
  * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public class SplashActivity extends AppCompatActivity {

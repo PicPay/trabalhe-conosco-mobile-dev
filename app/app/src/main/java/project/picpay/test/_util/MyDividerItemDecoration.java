@@ -12,8 +12,8 @@ import android.util.TypedValue;
 import android.view.View;
 
 /**
- * Created by Rodrigo Oliveira on 17/08/2018 for sac-digital-importacao.
- * ContactModel us rodrigooliveira.tecinfo@gmail.com
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
  */
 public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
 

@@ -32,6 +32,10 @@ import project.picpay.test.creditcard.util.Utils;
 import project.picpay.test.creditcard.viewmodel.CreditCardViewModel;
 import project.picpay.test.databinding.ActivityNewCardBinding;
 
+/**
+ * Created by Rodrigo Oliveira on 17/11/2018 for PicPay Test.
+ * Contact us rodrigooliveira.tecinfo@gmail.com
+ */
 public class NewCreditCardActivity extends AppCompatActivity {
 
     private boolean showingGray = true;
