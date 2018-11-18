@@ -296,6 +296,9 @@
                                                 <state key="normal" title="Salvar">
                                                     <color key="titleColor" red="0.35089895129203796" green="0.76357346773147583" blue="0.37433859705924988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="salvarCartao:" destination="Uk7-xO-3ET" eventType="touchUpInside" id="g2J-Dt-ZFA"/>
                                                 </connections>

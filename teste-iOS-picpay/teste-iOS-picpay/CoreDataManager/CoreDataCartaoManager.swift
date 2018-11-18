@@ -45,7 +45,7 @@ class CoreDataCartaoManager {
     ///   - cvv: codigo de segurança do cartão
     ///   - expiryDate: data de validade
     /// - Returns: true ou false, dependendo de se o context conseguiu persistir
-    class func salvaCartao(numero: String, cvv: String, expiryDate: String) -> Bool {
+    class func salvaCartao(numero: String, cvv: Int, expiryDate: String) -> Bool {
         let context = CoreDataCartaoManager.getContext()
         let entity = NSEntityDescription.entity(forEntityName: "Cartao", in: context)
         let manageObject = NSManagedObject(entity: entity!, insertInto: context)

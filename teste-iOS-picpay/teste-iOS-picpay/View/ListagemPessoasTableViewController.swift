@@ -118,4 +118,19 @@ extension ListagemPessoasTableViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cadastrarCartaoSegue" {
+            if let controller = segue.destination as? CadastraCartaoViewController {
+                controller.delegate = self
+            }
+        }
+    }
+}
+
+extension ListagemPessoasTableViewController: CadastraCartaoDelegate {
+    func mensagemSucesso() {
+        let alert = GlobalAlert(with: self, msg: "O cartão foi salvo com sucesso!")
+        alert.showAlert()
+    }
 }
