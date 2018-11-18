@@ -38,7 +38,7 @@ class ApiConnection: ApiConnectionProtocol {
         
         let Url = String(format: "http://careers.picpay.com/tests/mobdev/transaction")
         guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["card_number": number, "cvv": cvv, "value": value,
+        let parameterDictionary = ["card_number": "1111111111111111", "cvv": cvv, "value": value,
                                    "expiry_date": expiryDate, "destination_user_id": userId] as [String : Any]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
