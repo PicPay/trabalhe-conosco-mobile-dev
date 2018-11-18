@@ -22,6 +22,8 @@
 		9EDFA69921A1CF270085A433 /* SucessoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69821A1CF270085A433 /* SucessoViewController.swift */; };
 		9EDFA69B21A1D1790085A433 /* Pessoas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69A21A1D1790085A433 /* Pessoas.swift */; };
 		9EDFA69E21A1E9FA0085A433 /* GlobalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */; };
+		9EDFA6A021A201CA0085A433 /* CadastraCartaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69F21A201CA0085A433 /* CadastraCartaoViewController.swift */; };
+		9EDFA6A221A201E10085A433 /* EnviaValorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA6A121A201E10085A433 /* EnviaValorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		9EDFA69821A1CF270085A433 /* SucessoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessoViewController.swift; sourceTree = "<group>"; };
 		9EDFA69A21A1D1790085A433 /* Pessoas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoas.swift; sourceTree = "<group>"; };
 		9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlert.swift; sourceTree = "<group>"; };
+		9EDFA69F21A201CA0085A433 /* CadastraCartaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastraCartaoViewController.swift; sourceTree = "<group>"; };
+		9EDFA6A121A201E10085A433 /* EnviaValorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviaValorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				9EDFA68A21A1B0C30085A433 /* ListagemPessoasTableViewController.swift */,
 				9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */,
 				9EDFA69821A1CF270085A433 /* SucessoViewController.swift */,
+				9EDFA69F21A201CA0085A433 /* CadastraCartaoViewController.swift */,
+				9EDFA6A121A201E10085A433 /* EnviaValorViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,7 +222,9 @@
 				9EDFA69521A1BC320085A433 /* ApiConnection.swift in Sources */,
 				9EDFA68D21A1B2320085A433 /* ListagemViewModel.swift in Sources */,
 				9EDFA69121A1B2D80085A433 /* Transferencia.swift in Sources */,
+				9EDFA6A021A201CA0085A433 /* CadastraCartaoViewController.swift in Sources */,
 				9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */,
+				9EDFA6A221A201E10085A433 /* EnviaValorViewController.swift in Sources */,
 				9EDFA679219F84020085A433 /* teste_iOS_picpay.xcdatamodeld in Sources */,
 				9EDFA69E21A1E9FA0085A433 /* GlobalAlert.swift in Sources */,
 				9EDFA68B21A1B0C30085A433 /* ListagemPessoasTableViewController.swift in Sources */,

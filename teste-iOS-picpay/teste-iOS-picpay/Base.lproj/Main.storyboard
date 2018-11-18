@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="2178.2608695652175" y="188.83928571428569"/>
         </scene>
-        <!--Modal Alerta Data De Fechamento View Controller-->
+        <!--Cadastra Cartao View Controller-->
         <scene sceneID="dOu-wt-Twf">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="Uk7-xO-3ET" customClass="ModalAlertaDataDeFechamentoViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Uk7-xO-3ET" customClass="CadastraCartaoViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xZR-J1-kc5"/>
                         <viewControllerLayoutGuide type="bottom" id="jC7-e2-RJM"/>
@@ -254,7 +254,10 @@
                                                 <rect key="frame" x="8" y="76" width="269" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" smartQuotesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Uk7-xO-3ET" id="LNo-nJ-jcW"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeE-Ru-Hxg">
                                                 <rect key="frame" x="8" y="51" width="55" height="17"/>
@@ -268,11 +271,14 @@
                                                 <color key="textColor" red="0.35089895129999998" green="0.76357346770000001" blue="0.3743385971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/YY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-GC-tYo">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-GC-tYo">
                                                 <rect key="frame" x="82" y="122" width="141" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Uk7-xO-3ET" id="64S-FX-uEp"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxU-w5-8ho">
                                                 <rect key="frame" x="8" y="185" width="60" height="17"/>
@@ -290,6 +296,9 @@
                                                 <state key="normal" title="Salvar">
                                                     <color key="titleColor" red="0.35089895129203796" green="0.76357346773147583" blue="0.37433859705924988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="salvarCartao:" destination="Uk7-xO-3ET" eventType="touchUpInside" id="g2J-Dt-ZFA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aY9-fY-Pac">
                                                 <rect key="frame" x="8" y="248" width="91" height="44"/>
@@ -301,6 +310,9 @@
                                                 <state key="normal" title="Cancelar">
                                                     <color key="titleColor" red="0.35089895129999998" green="0.76357346770000001" blue="0.3743385971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="cancelar:" destination="Uk7-xO-3ET" eventType="touchUpInside" id="huy-H5-Kkk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,7 +350,10 @@
                                         <rect key="frame" x="146.66666666666666" y="476" width="140.99999999999997" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Uk7-xO-3ET" id="3VJ-35-StR"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -364,15 +379,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="MAk-k4-Kml"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="cvvTextField" destination="kiV-GC-tYo" id="fjX-OU-X0q"/>
+                        <outlet property="numeroTextField" destination="Gji-0F-JE9" id="yO8-nL-BRB"/>
+                        <outlet property="salvarButton" destination="BQ4-RL-Rvc" id="Up6-re-rml"/>
+                        <outlet property="validadeTextField" destination="SqD-q7-og1" id="SL1-Ui-lAc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KD-Cg-xU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366.66666666666669" y="995.75892857142856"/>
         </scene>
-        <!--Modal Alerta Data De Fechamento View Controller-->
+        <!--Envia Valor View Controller-->
         <scene sceneID="Pff-Yo-yLo">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="yhm-01-O5V" customClass="ModalAlertaDataDeFechamentoViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="yhm-01-O5V" customClass="EnviaValorViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hwp-wq-N6s"/>
                         <viewControllerLayoutGuide type="bottom" id="oYv-sx-MLt"/>
@@ -407,6 +428,9 @@
                                                 <state key="normal" title="Enviar">
                                                     <color key="titleColor" red="0.35089895129999998" green="0.76357346770000001" blue="0.3743385971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="enviar:" destination="yhm-01-O5V" eventType="touchUpInside" id="8Mg-J5-56H"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V8-JI-eiM">
                                                 <rect key="frame" x="8" y="148" width="91" height="44"/>
@@ -418,12 +442,18 @@
                                                 <state key="normal" title="Cancelar">
                                                     <color key="titleColor" red="0.35089895129999998" green="0.76357346770000001" blue="0.3743385971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="cancelar:" destination="yhm-01-O5V" eventType="touchUpInside" id="uzh-eQ-CeT"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0,00 R$" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeV-He-Q0g">
                                                 <rect key="frame" x="8" y="85" width="269" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="yhm-01-O5V" id="BKN-cM-Z1h"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -468,6 +498,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="mEW-Mf-8vk"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="enviarButton" destination="gpR-6y-4us" id="5VA-RQ-eKI"/>
+                        <outlet property="valorTextField" destination="NeV-He-Q0g" id="HWo-S9-bPY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS4-Ec-cJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

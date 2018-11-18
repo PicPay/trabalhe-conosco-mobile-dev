@@ -73,10 +73,10 @@ class ListagemPessoasTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         viewModel.verificaCartaoCadastrado(onComplete: {
-            //HA UM CARTAO CADASTRADO
+            self.performSegue(withIdentifier: "valorSegue", sender: nil)
             
         }) {
-            //NAO HA UM CARTAO CADASTRADO
+            self.performSegue(withIdentifier: "cadastrarCartaoSegue", sender: nil)
         }
     }
     
