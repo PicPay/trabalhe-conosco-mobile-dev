@@ -18,6 +18,7 @@
 		9EDFA69121A1B2D80085A433 /* Transferencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69021A1B2D80085A433 /* Transferencia.swift */; };
 		9EDFA69321A1B3440085A433 /* CoreDataCartaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69221A1B3440085A433 /* CoreDataCartaoManager.swift */; };
 		9EDFA69521A1BC320085A433 /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69421A1BC320085A433 /* ApiConnection.swift */; };
+		9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9EDFA69021A1B2D80085A433 /* Transferencia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transferencia.swift; sourceTree = "<group>"; };
 		9EDFA69221A1B3440085A433 /* CoreDataCartaoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCartaoManager.swift; sourceTree = "<group>"; };
 		9EDFA69421A1BC320085A433 /* ApiConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
+		9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				9EDFA68A21A1B0C30085A433 /* ListagemPessoasTableViewController.swift */,
+				9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				9EDFA69521A1BC320085A433 /* ApiConnection.swift in Sources */,
 				9EDFA68D21A1B2320085A433 /* ListagemViewModel.swift in Sources */,
 				9EDFA69121A1B2D80085A433 /* Transferencia.swift in Sources */,
+				9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */,
 				9EDFA679219F84020085A433 /* teste_iOS_picpay.xcdatamodeld in Sources */,
 				9EDFA68B21A1B0C30085A433 /* ListagemPessoasTableViewController.swift in Sources */,
 				9EDFA68F21A1B2410085A433 /* SucessoViewModel.swift in Sources */,
