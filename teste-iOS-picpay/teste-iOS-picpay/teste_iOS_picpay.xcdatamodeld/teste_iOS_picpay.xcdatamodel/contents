@@ -4,9 +4,8 @@
         <attribute name="cvv" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="expiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cartao" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Cartao" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>
