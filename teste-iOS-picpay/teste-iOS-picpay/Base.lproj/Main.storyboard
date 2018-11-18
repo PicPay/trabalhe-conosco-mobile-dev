@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,9 +55,9 @@
                                                         <constraint firstAttribute="width" constant="8" id="eG4-Ld-gtX"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano com algum sobrenome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-YJ-WA6">
-                                                    <rect key="frame" x="16" y="35.333333333333336" width="388" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano com algum sobrenome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-YJ-WA6">
+                                                    <rect key="frame" x="16" y="32" width="388" height="26.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -96,10 +97,57 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contatos" id="s1c-C6-Bqi"/>
+                    <connections>
+                        <segue destination="Kiz-Zt-5RV" kind="presentation" identifier="sucessoSegue" id="HCK-dA-DDk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEd-hm-CWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1091.304347826087" y="193.52678571428569"/>
+        </scene>
+        <!--Sucesso View Controller-->
+        <scene sceneID="Eq5-p4-kwk">
+            <objects>
+                <viewController id="v7c-oc-2wS" customClass="SucessoViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uY2-Ae-7zC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="ksj-ND-kpt">
+                                <rect key="frame" x="79.666666666666686" y="161" width="255" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="Ptn-wT-DpG"/>
+                                    <constraint firstAttribute="width" constant="255" id="oW0-fj-OXt"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sucesso 🎉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vy-KT-vDY">
+                                <rect key="frame" x="121.66666666666669" y="375" width="171" height="38"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <color key="textColor" red="0.35096576809883118" green="0.76349133253097534" blue="0.37117823958396912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ksj-ND-kpt" firstAttribute="centerX" secondItem="uY2-Ae-7zC" secondAttribute="centerX" id="3io-rz-BUN"/>
+                            <constraint firstItem="0vy-KT-vDY" firstAttribute="top" secondItem="ksj-ND-kpt" secondAttribute="bottom" constant="50" id="QrH-UA-wgw"/>
+                            <constraint firstItem="ksj-ND-kpt" firstAttribute="top" secondItem="bwn-Cr-PbH" secondAttribute="top" constant="73" id="ZAg-Hw-DX7"/>
+                            <constraint firstItem="0vy-KT-vDY" firstAttribute="centerX" secondItem="uY2-Ae-7zC" secondAttribute="centerX" id="q0g-15-v3d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bwn-Cr-PbH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BW2-On-NGy">
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="V0Q-6e-D99">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="voltarAction:" destination="v7c-oc-2wS" id="izX-so-dtv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vjj-6M-eG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3088.4057971014495" y="188.83928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ViY-2c-Di2">
@@ -123,5 +171,27 @@
             </objects>
             <point key="canvasLocation" x="181.15942028985509" y="193.52678571428569"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PPG-pi-Xm1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kiz-Zt-5RV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aN5-NL-cnj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35096576809883118" green="0.76349133253097534" blue="0.37117823958396912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="v7c-oc-2wS" kind="relationship" relationship="rootViewController" id="8RY-Q8-6kr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-HM-td6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2178.2608695652175" y="188.83928571428569"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="checked" width="341.33334350585938" height="341.33334350585938"/>
+    </resources>
 </document>
