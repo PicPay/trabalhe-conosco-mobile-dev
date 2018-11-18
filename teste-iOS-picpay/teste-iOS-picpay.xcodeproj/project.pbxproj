@@ -20,6 +20,8 @@
 		9EDFA69521A1BC320085A433 /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69421A1BC320085A433 /* ApiConnection.swift */; };
 		9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */; };
 		9EDFA69921A1CF270085A433 /* SucessoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69821A1CF270085A433 /* SucessoViewController.swift */; };
+		9EDFA69B21A1D1790085A433 /* Pessoas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69A21A1D1790085A433 /* Pessoas.swift */; };
+		9EDFA69E21A1E9FA0085A433 /* GlobalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9EDFA69421A1BC320085A433 /* ApiConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
 		9EDFA69621A1BEDB0085A433 /* PessoaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaCell.swift; sourceTree = "<group>"; };
 		9EDFA69821A1CF270085A433 /* SucessoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessoViewController.swift; sourceTree = "<group>"; };
+		9EDFA69A21A1D1790085A433 /* Pessoas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoas.swift; sourceTree = "<group>"; };
+		9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				9EDFA68721A0735C0085A433 /* Model */,
 				9EDFA68621A073580085A433 /* ViewModel */,
 				9EDFA68521A073520085A433 /* View */,
+				9EDFA69C21A1E9E90085A433 /* Utils */,
 				9EDFA670219F84020085A433 /* AppDelegate.swift */,
 				9EDFA67A219F84030085A433 /* Assets.xcassets */,
 				9EDFA67C219F84030085A433 /* LaunchScreen.storyboard */,
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				9EDFA69021A1B2D80085A433 /* Transferencia.swift */,
+				9EDFA69A21A1D1790085A433 /* Pessoas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				9EDFA69221A1B3440085A433 /* CoreDataCartaoManager.swift */,
 			);
 			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		9EDFA69C21A1E9E90085A433 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +218,9 @@
 				9EDFA69121A1B2D80085A433 /* Transferencia.swift in Sources */,
 				9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */,
 				9EDFA679219F84020085A433 /* teste_iOS_picpay.xcdatamodeld in Sources */,
+				9EDFA69E21A1E9FA0085A433 /* GlobalAlert.swift in Sources */,
 				9EDFA68B21A1B0C30085A433 /* ListagemPessoasTableViewController.swift in Sources */,
+				9EDFA69B21A1D1790085A433 /* Pessoas.swift in Sources */,
 				9EDFA68F21A1B2410085A433 /* SucessoViewModel.swift in Sources */,
 				9EDFA671219F84020085A433 /* AppDelegate.swift in Sources */,
 				9EDFA69921A1CF270085A433 /* SucessoViewController.swift in Sources */,

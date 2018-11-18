@@ -9,15 +9,16 @@
 import Foundation
 
 protocol ListagemViewModelProtocol {
-    var pessoas: [String] {get set}
+    var pessoas: [PessoasRetornoElement] {get set}
     func numberOfSections() -> Int
     func numberOfRows(in section:Int) -> Int
-    func getPessoa(in indexPath: IndexPath) -> String
+    func getPessoa(in indexPath: IndexPath) -> PessoasRetornoElement?
+    func getListagemDePessoas(onComplete: @escaping () -> Void, onError: @escaping (_ mensagem: String) -> Void)
 }
 
 class ListagemViewModel: ListagemViewModelProtocol {
     
-    var pessoas: [String] = ["Cristiano", "Ronaldo", "Bruno", "Felipe", "Lucas", "Carol", "Sirlene", "Bruna"]
+    var pessoas: [PessoasRetornoElement] = [PessoasRetornoElement]()
     
     
     func numberOfSections() -> Int {
@@ -25,12 +26,19 @@ class ListagemViewModel: ListagemViewModelProtocol {
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return pessoas.count
+        return pessoas.isEmpty ? 0 : pessoas.count
     }
     
-    func getPessoa(in indexPath: IndexPath) -> String {
-        return pessoas[indexPath.row]
+    func getPessoa(in indexPath: IndexPath) -> PessoasRetornoElement? {
+        return pessoas.isEmpty ? nil : pessoas[indexPath.row]
     }
     
-    
+    func getListagemDePessoas(onComplete: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        ApiConnection.getListagemPessoas(onComplete: { (listaPessoas) in
+            self.pessoas = listaPessoas
+            onComplete()
+        }) { (msg) in
+            onError(msg)
+        }
+    }
 }

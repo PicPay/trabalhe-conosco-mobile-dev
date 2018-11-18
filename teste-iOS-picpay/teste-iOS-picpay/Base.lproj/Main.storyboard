@@ -14,7 +14,7 @@
         <scene sceneID="bby-7M-P7m">
             <objects>
                 <tableViewController id="nMd-uf-B5T" customClass="ListagemPessoasTableViewController" customModule="teste_iOS_picpay" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hQn-Kw-obv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="hQn-Kw-obv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.35096576809883118" green="0.76349133253097534" blue="0.37117823958396912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,26 +38,45 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseCell" rowHeight="100" id="rx5-8M-i87" customClass="PessoaCell" customModule="teste_iOS_picpay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="125" width="414" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseCell" rowHeight="160" id="rx5-8M-i87" customClass="PessoaCell" customModule="teste_iOS_picpay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="125" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rx5-8M-i87" id="ofJ-ut-8iH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7n-QU-Kwc">
-                                            <rect key="frame" x="5" y="5" width="404" height="90"/>
+                                            <rect key="frame" x="5" y="5" width="404" height="150"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ry3-SC-SQs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="8" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="8" height="150"/>
                                                     <color key="backgroundColor" red="0.35089895129203796" green="0.76357346773147583" blue="0.37433859705924988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="eG4-Ld-gtX"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano com algum sobrenome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-YJ-WA6">
-                                                    <rect key="frame" x="16" y="32" width="388" height="26.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zLG-dC-S5N">
+                                                    <rect key="frame" x="16" y="11" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="RB3-Pa-SMM"/>
+                                                        <constraint firstAttribute="height" constant="128" id="afE-hx-nUF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJ3-oL-tiH">
+                                                    <rect key="frame" x="152" y="20" width="244" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-E2-mUd">
+                                                    <rect key="frame" x="152" y="65" width="244" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmM-ye-BRp">
+                                                    <rect key="frame" x="152" y="106.66666666666667" width="244" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -65,11 +84,20 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Ry3-SC-SQs" secondAttribute="bottom" id="0gQ-RH-U29"/>
-                                                <constraint firstItem="tBZ-YJ-WA6" firstAttribute="leading" secondItem="Ry3-SC-SQs" secondAttribute="trailing" constant="8" id="6mX-MM-CNo"/>
-                                                <constraint firstItem="tBZ-YJ-WA6" firstAttribute="centerY" secondItem="a7n-QU-Kwc" secondAttribute="centerY" id="Bt5-6E-T91"/>
+                                                <constraint firstItem="XPd-E2-mUd" firstAttribute="trailing" secondItem="a7n-QU-Kwc" secondAttribute="trailingMargin" id="7kL-YD-L1D"/>
+                                                <constraint firstItem="eJ3-oL-tiH" firstAttribute="leading" secondItem="zLG-dC-S5N" secondAttribute="trailing" constant="8" id="9Sl-rU-ISA"/>
+                                                <constraint firstAttribute="bottom" secondItem="zLG-dC-S5N" secondAttribute="bottom" constant="11" id="DVb-J7-6TM"/>
+                                                <constraint firstItem="zLG-dC-S5N" firstAttribute="top" secondItem="a7n-QU-Kwc" secondAttribute="top" constant="11" id="E8z-pl-0lS"/>
                                                 <constraint firstItem="Ry3-SC-SQs" firstAttribute="leading" secondItem="a7n-QU-Kwc" secondAttribute="leading" id="Fv9-KT-28n"/>
+                                                <constraint firstItem="QmM-ye-BRp" firstAttribute="leading" secondItem="zLG-dC-S5N" secondAttribute="trailing" constant="8" id="KIM-JY-o7z"/>
+                                                <constraint firstItem="XPd-E2-mUd" firstAttribute="leading" secondItem="zLG-dC-S5N" secondAttribute="trailing" constant="8" id="M70-XH-dBp"/>
+                                                <constraint firstItem="XPd-E2-mUd" firstAttribute="top" secondItem="zLG-dC-S5N" secondAttribute="bottom" constant="-74" id="Pon-r1-dI9"/>
+                                                <constraint firstItem="QmM-ye-BRp" firstAttribute="trailing" secondItem="a7n-QU-Kwc" secondAttribute="trailingMargin" id="TTC-d7-6ty"/>
+                                                <constraint firstAttribute="bottom" secondItem="QmM-ye-BRp" secondAttribute="bottom" constant="23" id="WFc-VJ-9MC"/>
                                                 <constraint firstItem="Ry3-SC-SQs" firstAttribute="top" secondItem="a7n-QU-Kwc" secondAttribute="top" id="ZXU-xy-4gK"/>
-                                                <constraint firstAttribute="trailing" secondItem="tBZ-YJ-WA6" secondAttribute="trailing" id="rlg-pD-v1f"/>
+                                                <constraint firstItem="eJ3-oL-tiH" firstAttribute="trailing" secondItem="a7n-QU-Kwc" secondAttribute="trailingMargin" id="bcy-Y0-qLH"/>
+                                                <constraint firstItem="zLG-dC-S5N" firstAttribute="leading" secondItem="Ry3-SC-SQs" secondAttribute="trailing" constant="8" id="m7W-6V-aTP"/>
+                                                <constraint firstItem="eJ3-oL-tiH" firstAttribute="top" secondItem="a7n-QU-Kwc" secondAttribute="top" constant="20" id="mOg-Ka-Z5V"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -87,7 +115,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nomeLabel" destination="tBZ-YJ-WA6" id="SKF-5O-Pg7"/>
+                                    <outlet property="idLabel" destination="eJ3-oL-tiH" id="TBd-Jr-YAv"/>
+                                    <outlet property="imagem" destination="zLG-dC-S5N" id="0pb-bZ-dgf"/>
+                                    <outlet property="nomeLabel" destination="XPd-E2-mUd" id="mKC-dO-sPI"/>
+                                    <outlet property="usernameLabel" destination="QmM-ye-BRp" id="emO-k4-zjd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

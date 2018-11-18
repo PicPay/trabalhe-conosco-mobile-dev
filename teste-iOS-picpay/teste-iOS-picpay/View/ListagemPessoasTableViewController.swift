@@ -18,7 +18,7 @@ class ListagemPessoasTableViewController: UITableViewController {
 
         viewModel = ListagemViewModel()
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 100
+        tableView.tableHeaderView?.isHidden = true
         title = "Contatos"
     }
     
@@ -33,6 +33,8 @@ class ListagemPessoasTableViewController: UITableViewController {
             shadowImageView = findShadowImage(under: navigationController!.navigationBar)
         }
         shadowImageView?.isHidden = true
+        
+        loadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,8 +58,12 @@ class ListagemPessoasTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell") as? PessoaCell {
-            cell.preencheCelula(viewModel.getPessoa(in: indexPath))
-            return cell
+            if let pessoa = viewModel.getPessoa(in: indexPath) {
+                cell.preencheCelula(pessoa)
+                return cell
+            }
+            
+            return UITableViewCell()
         }
         
         return UITableViewCell()
@@ -69,7 +75,7 @@ class ListagemPessoasTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -91,5 +97,19 @@ extension ListagemPessoasTableViewController {
             }
         }
         return nil
+    }
+    
+    func loadData() {
+        viewModel.getListagemDePessoas(onComplete: {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.tableView.tableHeaderView?.isHidden = false
+            }
+        }) { (msg) in
+            DispatchQueue.main.async {
+                let alert = GlobalAlert(with: self, msg: msg)
+                alert.showAlert()
+            }
+        }
     }
 }
