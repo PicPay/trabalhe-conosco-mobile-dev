@@ -56,6 +56,11 @@
 		9EDFA66F219F84020085A433 /* teste-iOS-picpay */ = {
 			isa = PBXGroup;
 			children = (
+				9EDFA68921A1B01E0085A433 /* CoreDataManager */,
+				9EDFA68821A073610085A433 /* API */,
+				9EDFA68721A0735C0085A433 /* Model */,
+				9EDFA68621A073580085A433 /* ViewModel */,
+				9EDFA68521A073520085A433 /* View */,
 				9EDFA670219F84020085A433 /* AppDelegate.swift */,
 				9EDFA672219F84020085A433 /* ViewController.swift */,
 				9EDFA674219F84020085A433 /* Main.storyboard */,
@@ -65,6 +70,41 @@
 				9EDFA677219F84020085A433 /* teste_iOS_picpay.xcdatamodeld */,
 			);
 			path = "teste-iOS-picpay";
+			sourceTree = "<group>";
+		};
+		9EDFA68521A073520085A433 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EDFA68621A073580085A433 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9EDFA68721A0735C0085A433 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9EDFA68821A073610085A433 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9EDFA68921A1B01E0085A433 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
