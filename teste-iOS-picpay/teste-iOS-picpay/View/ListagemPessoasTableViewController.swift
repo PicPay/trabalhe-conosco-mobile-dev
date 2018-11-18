@@ -72,6 +72,12 @@ class ListagemPessoasTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        viewModel.verificaCartaoCadastrado(onComplete: {
+            //HA UM CARTAO CADASTRADO
+            
+        }) {
+            //NAO HA UM CARTAO CADASTRADO
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

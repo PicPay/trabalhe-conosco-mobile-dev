@@ -14,6 +14,8 @@ protocol ListagemViewModelProtocol {
     func numberOfRows(in section:Int) -> Int
     func getPessoa(in indexPath: IndexPath) -> PessoasRetornoElement?
     func getListagemDePessoas(onComplete: @escaping () -> Void, onError: @escaping (_ mensagem: String) -> Void)
+    func verificaCartaoCadastrado(onComplete: @escaping () -> Void,
+                                  onError: @escaping () -> Void) -> Void
 }
 
 class ListagemViewModel: ListagemViewModelProtocol {
@@ -40,5 +42,15 @@ class ListagemViewModel: ListagemViewModelProtocol {
         }) { (msg) in
             onError(msg)
         }
+    }
+    
+    func verificaCartaoCadastrado(onComplete: @escaping () -> Void,
+                                  onError: @escaping () -> Void) -> Void {
+        if CoreDataCartaoManager.fetchCartao() != nil {
+            onComplete()
+            return
+        }
+        
+        onError()
     }
 }
