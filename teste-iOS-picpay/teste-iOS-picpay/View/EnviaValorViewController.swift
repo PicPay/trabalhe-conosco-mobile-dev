@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EnviarDinheiroDelegate {
-    func finalizar()
+    func finalizar(_ valor: Double)
 }
 
 class EnviaValorViewController: UIViewController {
@@ -31,17 +31,34 @@ class EnviaValorViewController: UIViewController {
 
     @IBAction func enviar(_ sender: Any) {
         dismiss(animated: true) {
-            self.delegate.finalizar()
+            if let valor = self.valorTextField.text?.replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: "R$", with: "")
+                .replacingOccurrences(of: ",", with: ".").trimmingCharacters(in: .whitespaces) {
+                self.delegate.finalizar(Double(valor) ?? 0.0)
+            }
         }
     }
     
     @IBAction func cancelar(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 extension EnviaValorViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if !string.isEmpty {
+            let texto = textField.text! + string
+            textField.text = texto.currencyInputFormatting()
+            return false
+        } else if string.isEmpty {
+            let texto = textField.text!
+            textField.text = texto.currencyInputFormatting()
+        }
         
         return true
     }

@@ -13,8 +13,9 @@ protocol ApiConnectionProtocol {
     static func getListagemPessoas(onComplete: @escaping ([PessoasRetornoElement]) -> Void,
                                      onError: @escaping (_ message: String) -> Void)
     
-    static func getDetalheTransferencia(number: String, cvv: Int, expiryDate: String, userId: Int, value: Double, onComplete: @escaping (Transferencia) -> Void,
-                                   onError: @escaping (_ message: String) -> Void)
+    static func getDetalheTransferencia(number: String, cvv: Int, expiryDate: String,
+                                        userId: Int, value: Double,
+                                        onComplete: @escaping (Transferencia) -> Void, onError: @escaping (_ message: String) -> Void)
 }
 
 class ApiConnection: ApiConnectionProtocol {

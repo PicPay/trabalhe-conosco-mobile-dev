@@ -16,6 +16,8 @@ protocol ListagemViewModelProtocol {
     func getListagemDePessoas(onComplete: @escaping () -> Void, onError: @escaping (_ mensagem: String) -> Void)
     func verificaCartaoCadastrado(onComplete: @escaping () -> Void,
                                   onError: @escaping () -> Void) -> Void
+    func transfereValor(pessoa: PessoasRetornoElement, valor: Double, onComplete: @escaping () -> Void,
+                        onError: @escaping (_ mensagem: String) -> Void) -> Void
 }
 
 class ListagemViewModel: ListagemViewModelProtocol {
@@ -52,5 +54,32 @@ class ListagemViewModel: ListagemViewModelProtocol {
         }
         
         onError()
+    }
+    
+    func transfereValor(pessoa: PessoasRetornoElement, valor: Double,
+                        onComplete: @escaping () -> Void, onError: @escaping (String) -> Void) {
+       
+        let cartao = CoreDataCartaoManager.fetchCartao()
+        
+        if let numero = cartao?.numero, let cvv = cartao?.cvv, let expiryDate = cartao?.expiryDate,
+            let pessoaId = pessoa.id {
+            ApiConnection.getDetalheTransferencia(number: numero, cvv: Int(cvv), expiryDate: expiryDate,
+                                                  userId: pessoaId, value: valor, onComplete: { (transferenciaRetorno) in
+                
+                                                    if let status = transferenciaRetorno.success {
+                                                        if status {
+                                                            onComplete()
+                                                            return
+                                                        }
+                                                        
+                                                        onError("Não foi possível concluir a transação!")
+                                                        return
+                                                    }
+                                                    onError("Não foi possível concluir a transação!")
+                                                    return
+            }) { (msg) in
+                onError(msg)
+            }
+        }
     }
 }

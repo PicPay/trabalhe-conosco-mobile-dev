@@ -12,6 +12,7 @@ class ListagemPessoasTableViewController: UITableViewController {
     
     var viewModel: ListagemViewModelProtocol!
     private var shadowImageView: UIImageView?
+    var pessoaSelecionada: PessoasRetornoElement!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ class ListagemPessoasTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         viewModel.verificaCartaoCadastrado(onComplete: {
+            self.pessoaSelecionada = self.viewModel.getPessoa(in: indexPath)
             self.performSegue(withIdentifier: "valorSegue", sender: nil)
             
         }) {
@@ -125,6 +127,11 @@ extension ListagemPessoasTableViewController {
                 controller.delegate = self
             }
         }
+        if segue.identifier == "valorSegue" {
+            if let controller = segue.destination as? EnviaValorViewController {
+                controller.delegate = self
+            }
+        }
     }
 }
 
@@ -132,5 +139,17 @@ extension ListagemPessoasTableViewController: CadastraCartaoDelegate {
     func mensagemSucesso() {
         let alert = GlobalAlert(with: self, msg: "O cartão foi salvo com sucesso!")
         alert.showAlert()
+    }
+}
+
+extension ListagemPessoasTableViewController: EnviarDinheiroDelegate {
+    func finalizar(_ valor: Double) {
+        
+        viewModel.transfereValor(pessoa: pessoaSelecionada, valor: valor, onComplete: {
+            self.performSegue(withIdentifier: "sucessoSegue", sender: nil)
+        }) { (msg) in
+            let alert = GlobalAlert(with: self, msg: msg)
+            alert.showAlert()
+        }
     }
 }

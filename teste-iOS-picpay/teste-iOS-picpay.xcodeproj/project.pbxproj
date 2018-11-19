@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E42060521A21A3A002B1565 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E42060421A21A3A002B1565 /* ExString.swift */; };
 		9EDFA671219F84020085A433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA670219F84020085A433 /* AppDelegate.swift */; };
 		9EDFA676219F84020085A433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDFA674219F84020085A433 /* Main.storyboard */; };
 		9EDFA679219F84020085A433 /* teste_iOS_picpay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFA677219F84020085A433 /* teste_iOS_picpay.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E42060421A21A3A002B1565 /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
 		9EDFA66D219F84020085A433 /* teste-iOS-picpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "teste-iOS-picpay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDFA670219F84020085A433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EDFA675219F84020085A433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				9EDFA69D21A1E9FA0085A433 /* GlobalAlert.swift */,
+				9E42060421A21A3A002B1565 /* ExString.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				9EDFA68D21A1B2320085A433 /* ListagemViewModel.swift in Sources */,
 				9EDFA69121A1B2D80085A433 /* Transferencia.swift in Sources */,
 				9EDFA6A021A201CA0085A433 /* CadastraCartaoViewController.swift in Sources */,
+				9E42060521A21A3A002B1565 /* ExString.swift in Sources */,
 				9EDFA69721A1BEDB0085A433 /* PessoaCell.swift in Sources */,
 				9EDFA6A221A201E10085A433 /* EnviaValorViewController.swift in Sources */,
 				9EDFA679219F84020085A433 /* teste_iOS_picpay.xcdatamodeld in Sources */,
