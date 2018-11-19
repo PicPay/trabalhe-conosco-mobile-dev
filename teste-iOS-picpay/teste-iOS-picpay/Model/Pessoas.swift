@@ -1,15 +1,10 @@
-// To parse the JSON, add this file to your project and do:
 //
-//   let pessoasRetorno = try? newJSONDecoder().decode(PessoasRetorno.self, from: jsonData)
+//  Pessoas.swift
+//  teste-iOS-picpay
 //
-// To read values from URLs:
+//  Created by Bruno Lopes de Mello on 18/11/18.
+//  Copyright © 2018 Bruno Lopes de Mello. All rights reserved.
 //
-//   let task = URLSession.shared.pessoasRetornoTask(with: url) { pessoasRetorno, response, error in
-//     if let pessoasRetorno = pessoasRetorno {
-//       ...
-//     }
-//   }
-//   task.resume()
 
 import Foundation
 
