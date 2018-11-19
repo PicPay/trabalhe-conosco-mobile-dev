@@ -22,7 +22,7 @@ class EnviaValorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        enviarButton.isEnabled = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,17 +46,28 @@ class EnviaValorViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    
+    func freeButton(_ caracteres: Int) {
+        if caracteres > 6 {
+            enviarButton.isEnabled = true
+        } else {
+            enviarButton.isEnabled = false
+        }
+    }
 }
 
 extension EnviaValorViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if !string.isEmpty {
             let texto = textField.text! + string
+            freeButton(texto.count)
             textField.text = texto.currencyInputFormatting()
             return false
         } else if string.isEmpty {
             let texto = textField.text!
+            freeButton(texto.count)
             textField.text = texto.currencyInputFormatting()
         }
         
