@@ -47,8 +47,9 @@ class CadastraCartaoViewController: UIViewController {
     }
     
     func validaCampos() {
-        if numeroTextField.text?.count != 0 && cvvTextField.text?.count != 0 &&
-            validadeTextField.text?.count != 0 {
+        if numeroTextField.text?.count ?? 0 > 18 &&
+            cvvTextField.text?.count ?? 0 > 2 &&
+             validadeTextField.text?.count ?? 0 > 4 {
             salvarButton.isEnabled = true
         } else {
             salvarButton.isEnabled = false
