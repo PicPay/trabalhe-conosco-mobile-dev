@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':domain')
     implementation Dependencies.kotlinStdlibJdk7
     implementation Dependencies.appcompat
     implementation Dependencies.constraintLayout
