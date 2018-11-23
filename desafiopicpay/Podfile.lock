@@ -1,0 +1,34 @@
+PODS:
+  - CryptoSwift (0.13.0)
+  - IQKeyboardManagerSwift (6.2.0)
+  - Kingfisher (4.7.0)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+
+DEPENDENCIES:
+  - CryptoSwift
+  - IQKeyboardManagerSwift
+  - Kingfisher (= 4.7)
+  - RealmSwift (~> 3.10)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CryptoSwift
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+
+PODFILE CHECKSUM: 78623cfde768391ff7aee2aebbf4230f41fa3635
+
+COCOAPODS: 1.5.0
