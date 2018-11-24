@@ -49,6 +49,16 @@
 		59573C1321A95490007FDCC4 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1221A95490007FDCC4 /* UsersCoordinator.swift */; };
 		59573C1621A95548007FDCC4 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1521A95548007FDCC4 /* UsersViewController.swift */; };
 		59573C1921A95565007FDCC4 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1821A95565007FDCC4 /* UsersView.swift */; };
+		59573C1C21A9580D007FDCC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1B21A9580D007FDCC4 /* User.swift */; };
+		59573C1F21A95BA5007FDCC4 /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59573C1E21A95BA5007FDCC4 /* UsersViewController.xib */; };
+		59573C2121A95CBB007FDCC4 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2021A95CBB007FDCC4 /* UserDataSource.swift */; };
+		59573C2321A95D57007FDCC4 /* UsersUIViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2221A95D57007FDCC4 /* UsersUIViewCell.swift */; };
+		59573C2521A95D93007FDCC4 /* UsersUIViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59573C2421A95D93007FDCC4 /* UsersUIViewCell.xib */; };
+		59573C2821A96155007FDCC4 /* UsersProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2721A96155007FDCC4 /* UsersProviderProtocol.swift */; };
+		59573C2A21A9615F007FDCC4 /* UsersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2921A9615F007FDCC4 /* UsersProvider.swift */; };
+		59573C2D21A9674A007FDCC4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2C21A9674A007FDCC4 /* UserManager.swift */; };
+		59573C3021A967AF007FDCC4 /* UsersBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C2F21A967AF007FDCC4 /* UsersBusiness.swift */; };
+		59573C3221A97339007FDCC4 /* RoundedUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C3121A97339007FDCC4 /* RoundedUIImage.swift */; };
 		F91E4266449CD588DBBA86C3 /* Pods_PicPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +129,16 @@
 		59573C1221A95490007FDCC4 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
 		59573C1521A95548007FDCC4 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		59573C1821A95565007FDCC4 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		59573C1B21A9580D007FDCC4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		59573C1E21A95BA5007FDCC4 /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		59573C2021A95CBB007FDCC4 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
+		59573C2221A95D57007FDCC4 /* UsersUIViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersUIViewCell.swift; sourceTree = "<group>"; };
+		59573C2421A95D93007FDCC4 /* UsersUIViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersUIViewCell.xib; sourceTree = "<group>"; };
+		59573C2721A96155007FDCC4 /* UsersProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProviderProtocol.swift; sourceTree = "<group>"; };
+		59573C2921A9615F007FDCC4 /* UsersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProvider.swift; sourceTree = "<group>"; };
+		59573C2C21A9674A007FDCC4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		59573C2F21A967AF007FDCC4 /* UsersBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBusiness.swift; sourceTree = "<group>"; };
+		59573C3121A97339007FDCC4 /* RoundedUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImage.swift; sourceTree = "<group>"; };
 		5C9110DC69370A44AF62F0BE /* Pods_PicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C6C892BD67EEF844BCDEA9 /* Pods-PicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPay/Pods-PicPay.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				59159BD721A94D5900938AB3 /* infoArch.swift */,
-				59159C0021A94D5900938AB3 /* Info.plist */,
 				59159B9921A94D5900938AB3 /* CoreLayer */,
 				59159BCD21A94D5900938AB3 /* UILayer */,
 			);
@@ -205,11 +224,11 @@
 			isa = PBXGroup;
 			children = (
 				59573C0C21A953A3007FDCC4 /* Coordinator */,
-				59159B9A21A94D5900938AB3 /* Provider */,
 				59159B9D21A94D5900938AB3 /* Infrastructure */,
 				59159BAE21A94D5900938AB3 /* Model */,
 				59159BBF21A94D5900938AB3 /* Business */,
 				59159BC621A94D5900938AB3 /* Manager */,
+				59159B9A21A94D5900938AB3 /* Provider */,
 			);
 			name = CoreLayer;
 			sourceTree = "<group>";
@@ -219,6 +238,7 @@
 			children = (
 				59159B9B21A94D5900938AB3 /* ProviderProtocol.swift */,
 				59159BCB21A94D5900938AB3 /* infoProvider.swift */,
+				59573C2621A96142007FDCC4 /* Users */,
 			);
 			name = Provider;
 			sourceTree = "<group>";
@@ -265,8 +285,9 @@
 		59159BAE21A94D5900938AB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				59159BAF21A94D5900938AB3 /* BaseModelProtocol.swift */,
+				59573C1A21A957FF007FDCC4 /* User */,
 				59159BC921A94D5900938AB3 /* infoModel.swift */,
+				59159BAF21A94D5900938AB3 /* BaseModelProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -313,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BC021A94D5900938AB3 /* infoBusiness.swift */,
+				59573C2E21A967A0007FDCC4 /* Users */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -321,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BC721A94D5900938AB3 /* infoManager.swift */,
+				59573C2B21A9673D007FDCC4 /* Users */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -340,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BCF21A94D5900938AB3 /* infoUIComponents.swift */,
+				59573C3121A97339007FDCC4 /* RoundedUIImage.swift */,
 			);
 			name = UIComponents;
 			sourceTree = "<group>";
@@ -366,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BE021A94D5900938AB3 /* infoSupport.swift */,
+				59159C0021A94D5900938AB3 /* Info.plist */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -373,6 +398,7 @@
 		59159BF221A94D5900938AB3 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				59573C1D21A95B98007FDCC4 /* Users */,
 				59159BF321A94D5900938AB3 /* infoXIB.swift */,
 			);
 			name = XIBs;
@@ -426,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				59573C1521A95548007FDCC4 /* UsersViewController.swift */,
+				59573C2021A95CBB007FDCC4 /* UserDataSource.swift */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -434,6 +461,49 @@
 			isa = PBXGroup;
 			children = (
 				59573C1821A95565007FDCC4 /* UsersView.swift */,
+				59573C2221A95D57007FDCC4 /* UsersUIViewCell.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C1A21A957FF007FDCC4 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				59573C1B21A9580D007FDCC4 /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		59573C1D21A95B98007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C1E21A95BA5007FDCC4 /* UsersViewController.xib */,
+				59573C2421A95D93007FDCC4 /* UsersUIViewCell.xib */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C2621A96142007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C2721A96155007FDCC4 /* UsersProviderProtocol.swift */,
+				59573C2921A9615F007FDCC4 /* UsersProvider.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C2B21A9673D007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C2C21A9674A007FDCC4 /* UserManager.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C2E21A967A0007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C2F21A967AF007FDCC4 /* UsersBusiness.swift */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -557,7 +627,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59573C2521A95D93007FDCC4 /* UsersUIViewCell.xib in Resources */,
 				59159BF721A94D5900938AB3 /* iOS-Architecture.pdf in Resources */,
+				59573C1F21A95BA5007FDCC4 /* UsersViewController.xib in Resources */,
 				59159BFF21A94D5900938AB3 /* LaunchScreen.storyboard in Resources */,
 				59159BFC21A94D5900938AB3 /* Assets.xcassets in Resources */,
 			);
@@ -698,16 +770,21 @@
 				59159BA021A94D5900938AB3 /* UIDeviceExtension.swift in Sources */,
 				59159BF421A94D5900938AB3 /* infoXIB.swift in Sources */,
 				59573C1921A95565007FDCC4 /* UsersView.swift in Sources */,
+				59573C2821A96155007FDCC4 /* UsersProviderProtocol.swift in Sources */,
+				59573C2121A95CBB007FDCC4 /* UserDataSource.swift in Sources */,
 				59159BD321A94D5900938AB3 /* infoView.swift in Sources */,
 				59159BBE21A94D5900938AB3 /* Api.swift in Sources */,
 				59159BD621A94D5900938AB3 /* infoViewController.swift in Sources */,
 				59159BD021A94D5900938AB3 /* infoUIComponents.swift in Sources */,
 				59159BE521A94D5900938AB3 /* Debugger.swift in Sources */,
 				59159BC121A94D5900938AB3 /* infoBusiness.swift in Sources */,
+				59573C2321A95D57007FDCC4 /* UsersUIViewCell.swift in Sources */,
+				59573C2D21A9674A007FDCC4 /* UserManager.swift in Sources */,
 				59573C1621A95548007FDCC4 /* UsersViewController.swift in Sources */,
 				59159BB421A94D5900938AB3 /* infoStoryboards.swift in Sources */,
 				59159BA521A94D5900938AB3 /* Dynamic.swift in Sources */,
 				59159BE121A94D5900938AB3 /* infoSupport.swift in Sources */,
+				59573C2A21A9615F007FDCC4 /* UsersProvider.swift in Sources */,
 				59159BA921A94D5900938AB3 /* Utils.swift in Sources */,
 				59159BDE21A94D5900938AB3 /* infoResources.swift in Sources */,
 				59159B9C21A94D5900938AB3 /* ProviderProtocol.swift in Sources */,
@@ -721,10 +798,13 @@
 				59159BC521A94D5900938AB3 /* GenericErros.swift in Sources */,
 				59159BE321A94D5900938AB3 /* ImageStore.swift in Sources */,
 				59573C0E21A953CF007FDCC4 /* Coordinator.swift in Sources */,
+				59573C3021A967AF007FDCC4 /* UsersBusiness.swift in Sources */,
 				59159BA321A94D5900938AB3 /* Configuring.swift in Sources */,
 				59159BCC21A94D5900938AB3 /* infoProvider.swift in Sources */,
 				59159BC821A94D5900938AB3 /* infoManager.swift in Sources */,
+				59573C1C21A9580D007FDCC4 /* User.swift in Sources */,
 				59159BC321A94D5900938AB3 /* infoInfrastructure.swift in Sources */,
+				59573C3221A97339007FDCC4 /* RoundedUIImage.swift in Sources */,
 				59159BD821A94D5900938AB3 /* infoArch.swift in Sources */,
 				59159BCA21A94D5900938AB3 /* infoModel.swift in Sources */,
 			);

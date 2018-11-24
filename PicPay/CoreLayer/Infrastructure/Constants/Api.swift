@@ -9,10 +9,16 @@ import Foundation
 
 extension Env {
     struct Api {
-        static var baseGithubProfile: String = "https://github.com/marceloreis13"
-        static var baseLinkToApp: String = "https://itunes.apple.com/br/app/\(Env.System.slug)/id\(Env.System.appID)?mt=8"
-        static var baseUrlSchemeToApp: String = "itms-apps://itunes.apple.com/app"
+        static var basePath: String = "http://careers.picpay.com/tests/mobdev"
     }
 }
 
-struct Api {}
+struct Api {
+    static var users: Session {
+        let urlSession = URLSession(configuration: .ephemeral)
+        guard let baseURL = URL(string: Env.Api.basePath) else { fatalError("The baseURL cant be parsed to URL") }
+        
+        return Session(session: urlSession, baseURL: baseURL)
+    }
+
+}

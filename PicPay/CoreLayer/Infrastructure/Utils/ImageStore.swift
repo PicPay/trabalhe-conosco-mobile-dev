@@ -74,9 +74,9 @@ class ImageStore {
     }
     
     func fetchImage(for key: String, from url: URL, completion: @escaping (ImageStoreResult) -> Void) {
-        if let _image = self.image(forKey: key) {
+        if let img = self.image(forKey: key) {
             OperationQueue.main.addOperation {
-                completion(.success(_image))
+                completion(.success(img))
             }
             
             return

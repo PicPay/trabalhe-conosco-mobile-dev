@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+public final class UsersProvider: UsersProviderProtocol {
+    
+    public func fetch(completion: @escaping (ApiResult<Data>) -> Void) {
+        Api.users.GET(url: "/users", parameters: nil, header: nil) { result in
+            do {
+                let data = try result()
+                if let response = data {
+                    completion(.success(response))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+
+}

@@ -18,7 +18,15 @@ public final class UsersCoordinator: Coordinator {
     
     public func start() {
         let usersViewController = UsersViewController(nibName: nil, bundle: nil)
-//        usersViewController.delegate = self
+        usersViewController.delegate = self
         presenter.pushViewController(usersViewController, animated: true)
+    }
+}
+
+// MARK: - Delegates
+
+extension UsersCoordinator: UsersViewControllerProtocol {
+    public func goesToTransaction(to user: User) {
+        //
     }
 }

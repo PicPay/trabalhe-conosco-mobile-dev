@@ -14,7 +14,13 @@ public final class UsersView: UIView {
     static let storyboardId = "UsersView"
 
     // MARK: - Outlets
-    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.register(UsersUIViewCell.instanceFromNib(), forCellReuseIdentifier: UsersUIViewCell.storyboardId)
+            tableView.estimatedRowHeight = 70
+            tableView.rowHeight = UITableView.automaticDimension
+        }
+    }
 }
 
 // MARK: - Functions

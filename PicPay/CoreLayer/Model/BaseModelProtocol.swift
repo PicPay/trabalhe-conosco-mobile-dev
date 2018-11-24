@@ -10,6 +10,6 @@ import Foundation
 
 public typealias JSON = [String: Any]
 
-protocol BaseModelProtocol: Codable {
-    func toDictionary() -> [String: AnyObject]
+public protocol BaseModelProtocol: Codable {
+    func toDictionary() -> JSON
 }
