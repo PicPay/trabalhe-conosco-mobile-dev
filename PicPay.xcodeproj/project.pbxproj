@@ -44,6 +44,11 @@
 		59159BFF21A94D5900938AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59159BFD21A94D5900938AB3 /* LaunchScreen.storyboard */; };
 		59159C0A21A94D5A00938AB3 /* PicPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159C0921A94D5A00938AB3 /* PicPayTests.swift */; };
 		59159C1521A94D5A00938AB3 /* PicPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159C1421A94D5A00938AB3 /* PicPayUITests.swift */; };
+		59573C0E21A953CF007FDCC4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C0D21A953CF007FDCC4 /* Coordinator.swift */; };
+		59573C1021A953FA007FDCC4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C0F21A953FA007FDCC4 /* AppCoordinator.swift */; };
+		59573C1321A95490007FDCC4 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1221A95490007FDCC4 /* UsersCoordinator.swift */; };
+		59573C1621A95548007FDCC4 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1521A95548007FDCC4 /* UsersViewController.swift */; };
+		59573C1921A95565007FDCC4 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C1821A95565007FDCC4 /* UsersView.swift */; };
 		F91E4266449CD588DBBA86C3 /* Pods_PicPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +114,11 @@
 		59159C1021A94D5A00938AB3 /* PicPayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59159C1421A94D5A00938AB3 /* PicPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPayUITests.swift; sourceTree = "<group>"; };
 		59159C1621A94D5A00938AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59573C0D21A953CF007FDCC4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		59573C0F21A953FA007FDCC4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		59573C1221A95490007FDCC4 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
+		59573C1521A95548007FDCC4 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		59573C1821A95565007FDCC4 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		5C9110DC69370A44AF62F0BE /* Pods_PicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C6C892BD67EEF844BCDEA9 /* Pods-PicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPay/Pods-PicPay.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +204,7 @@
 		59159B9921A94D5900938AB3 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				59573C0C21A953A3007FDCC4 /* Coordinator */,
 				59159B9A21A94D5900938AB3 /* Provider */,
 				59159B9D21A94D5900938AB3 /* Infrastructure */,
 				59159BAE21A94D5900938AB3 /* Model */,
@@ -337,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BD221A94D5900938AB3 /* infoView.swift */,
+				59573C1721A9554F007FDCC4 /* Users */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -345,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BD521A94D5900938AB3 /* infoViewController.swift */,
+				59573C1421A9552D007FDCC4 /* Users */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -389,6 +402,40 @@
 				59159C1621A94D5A00938AB3 /* Info.plist */,
 			);
 			path = PicPayUITests;
+			sourceTree = "<group>";
+		};
+		59573C0C21A953A3007FDCC4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				59573C0D21A953CF007FDCC4 /* Coordinator.swift */,
+				59573C0F21A953FA007FDCC4 /* AppCoordinator.swift */,
+				59573C1121A95480007FDCC4 /* Users */,
+			);
+			name = Coordinator;
+			sourceTree = "<group>";
+		};
+		59573C1121A95480007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C1221A95490007FDCC4 /* UsersCoordinator.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C1421A9552D007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C1521A95548007FDCC4 /* UsersViewController.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		59573C1721A9554F007FDCC4 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				59573C1821A95565007FDCC4 /* UsersView.swift */,
+			);
+			name = Users;
 			sourceTree = "<group>";
 		};
 		C48BCC4CDE97D24752E3E810 /* Frameworks */ = {
@@ -646,15 +693,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				59159BA721A94D5900938AB3 /* UIViewExtension.swift in Sources */,
+				59573C1321A95490007FDCC4 /* UsersCoordinator.swift in Sources */,
 				59159BDA21A94D5900938AB3 /* Env.swift in Sources */,
 				59159BA021A94D5900938AB3 /* UIDeviceExtension.swift in Sources */,
 				59159BF421A94D5900938AB3 /* infoXIB.swift in Sources */,
+				59573C1921A95565007FDCC4 /* UsersView.swift in Sources */,
 				59159BD321A94D5900938AB3 /* infoView.swift in Sources */,
 				59159BBE21A94D5900938AB3 /* Api.swift in Sources */,
 				59159BD621A94D5900938AB3 /* infoViewController.swift in Sources */,
 				59159BD021A94D5900938AB3 /* infoUIComponents.swift in Sources */,
 				59159BE521A94D5900938AB3 /* Debugger.swift in Sources */,
 				59159BC121A94D5900938AB3 /* infoBusiness.swift in Sources */,
+				59573C1621A95548007FDCC4 /* UsersViewController.swift in Sources */,
 				59159BB421A94D5900938AB3 /* infoStoryboards.swift in Sources */,
 				59159BA521A94D5900938AB3 /* Dynamic.swift in Sources */,
 				59159BE121A94D5900938AB3 /* infoSupport.swift in Sources */,
@@ -665,10 +715,12 @@
 				59159BB921A94D5900938AB3 /* URLSessionBase.swift in Sources */,
 				59159BBB21A94D5900938AB3 /* UIImageExtension.swift in Sources */,
 				59159BB721A94D5900938AB3 /* Session.swift in Sources */,
+				59573C1021A953FA007FDCC4 /* AppCoordinator.swift in Sources */,
 				59159B9821A94D5900938AB3 /* AppDelegate.swift in Sources */,
 				59159BB021A94D5900938AB3 /* BaseModelProtocol.swift in Sources */,
 				59159BC521A94D5900938AB3 /* GenericErros.swift in Sources */,
 				59159BE321A94D5900938AB3 /* ImageStore.swift in Sources */,
+				59573C0E21A953CF007FDCC4 /* Coordinator.swift in Sources */,
 				59159BA321A94D5900938AB3 /* Configuring.swift in Sources */,
 				59159BCC21A94D5900938AB3 /* infoProvider.swift in Sources */,
 				59159BC821A94D5900938AB3 /* infoManager.swift in Sources */,

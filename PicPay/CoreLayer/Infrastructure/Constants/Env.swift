@@ -6,7 +6,7 @@
 //  Copyright © 2018 Marcelo Reis. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Env {
     //Storyboards
