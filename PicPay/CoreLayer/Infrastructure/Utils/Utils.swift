@@ -31,7 +31,6 @@ public final class Utils {
             
             switch networkStatus {
             case .none:
-                NotificationCenter.default.post(name: .notifyWhistle, object: "No internet connection")
                 return false
             default:
                 return true

@@ -14,8 +14,6 @@
 		59159BA521A94D5900938AB3 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BA421A94D5900938AB3 /* Dynamic.swift */; };
 		59159BA721A94D5900938AB3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BA621A94D5900938AB3 /* UIViewExtension.swift */; };
 		59159BA921A94D5900938AB3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BA821A94D5900938AB3 /* Utils.swift */; };
-		59159BAB21A94D5900938AB3 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BAA21A94D5900938AB3 /* NotificationExtension.swift */; };
-		59159BAD21A94D5900938AB3 /* Whistle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BAC21A94D5900938AB3 /* Whistle.swift */; };
 		59159BB021A94D5900938AB3 /* BaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BAF21A94D5900938AB3 /* BaseModelProtocol.swift */; };
 		59159BB421A94D5900938AB3 /* infoStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BB321A94D5900938AB3 /* infoStoryboards.swift */; };
 		59159BB721A94D5900938AB3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59159BB621A94D5900938AB3 /* Session.swift */; };
@@ -72,8 +70,6 @@
 		59159BA421A94D5900938AB3 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dynamic.swift; path = CoreLayer/Infrastructure/Dynamic.swift; sourceTree = "<group>"; };
 		59159BA621A94D5900938AB3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = CoreLayer/Infrastructure/Extensions/UIViewExtension.swift; sourceTree = "<group>"; };
 		59159BA821A94D5900938AB3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = CoreLayer/Infrastructure/Utils/Utils.swift; sourceTree = "<group>"; };
-		59159BAA21A94D5900938AB3 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationExtension.swift; path = CoreLayer/Infrastructure/Extensions/NotificationExtension.swift; sourceTree = "<group>"; };
-		59159BAC21A94D5900938AB3 /* Whistle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Whistle.swift; path = CoreLayer/Infrastructure/Utils/Whistle.swift; sourceTree = "<group>"; };
 		59159BAF21A94D5900938AB3 /* BaseModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseModelProtocol.swift; path = CoreLayer/Model/BaseModelProtocol.swift; sourceTree = "<group>"; };
 		59159BB321A94D5900938AB3 /* infoStoryboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = infoStoryboards.swift; path = CoreLayer/Infrastructure/Resources/Storyboards/infoStoryboards.swift; sourceTree = "<group>"; };
 		59159BB621A94D5900938AB3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Session.swift; path = CoreLayer/Infrastructure/HTTPRequest/Session.swift; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 			children = (
 				59159B9F21A94D5900938AB3 /* UIDeviceExtension.swift */,
 				59159BA621A94D5900938AB3 /* UIViewExtension.swift */,
-				59159BAA21A94D5900938AB3 /* NotificationExtension.swift */,
 				59159BBA21A94D5900938AB3 /* UIImageExtension.swift */,
 				59159BDB21A94D5900938AB3 /* UIColorExtension.swift */,
 			);
@@ -220,7 +215,6 @@
 			children = (
 				59159BA221A94D5900938AB3 /* Configuring.swift */,
 				59159BA821A94D5900938AB3 /* Utils.swift */,
-				59159BAC21A94D5900938AB3 /* Whistle.swift */,
 				59159BE221A94D5900938AB3 /* ImageStore.swift */,
 				59159BE421A94D5900938AB3 /* Debugger.swift */,
 			);
@@ -524,9 +518,7 @@
 				59159BA021A94D5900938AB3 /* UIDeviceExtension.swift in Sources */,
 				59159BF421A94D5900938AB3 /* infoXIB.swift in Sources */,
 				59159BD321A94D5900938AB3 /* infoView.swift in Sources */,
-				59159BAD21A94D5900938AB3 /* Whistle.swift in Sources */,
 				59159BBE21A94D5900938AB3 /* Api.swift in Sources */,
-				59159BAB21A94D5900938AB3 /* NotificationExtension.swift in Sources */,
 				59159BD621A94D5900938AB3 /* infoViewController.swift in Sources */,
 				59159BD021A94D5900938AB3 /* infoUIComponents.swift in Sources */,
 				59159BE521A94D5900938AB3 /* Debugger.swift in Sources */,
