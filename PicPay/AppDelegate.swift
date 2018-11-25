@@ -12,12 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var appCoordinator: AppCoordinator?
+    fileprivate var appCoordinator: AppCoordinator?
+    fileprivate let accountStore = AccountStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Initialize Coordinator
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let appCoordinator = AppCoordinator(window: window)
+        let appCoordinator = AppCoordinator(window: window, account: accountStore)
         
         self.window = window
         self.appCoordinator = appCoordinator

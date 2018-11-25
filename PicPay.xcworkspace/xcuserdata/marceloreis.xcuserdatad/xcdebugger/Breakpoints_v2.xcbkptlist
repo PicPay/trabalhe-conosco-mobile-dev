@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PicPay/UserDataSource.swift"
-            timestampString = "564753910.406258"
+            filePath = "PicPay/CredcardPaymentView.swift"
+            timestampString = "564796758.092924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "setUp()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PicPay/TransactionView.swift"
+            timestampString = "564796758.093811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "setUpPaymentView(delegate:accountStore:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

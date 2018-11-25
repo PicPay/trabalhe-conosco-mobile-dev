@@ -36,7 +36,7 @@ struct Env {
         static let white: String = "#FFFFFF"
         static let black: String = "#000000"
         static let yellow: String = "#FFE001"
-        static let green: String = "#00F900"
+        static let green: String = "#23C472"
     }
     
     struct Fonts {

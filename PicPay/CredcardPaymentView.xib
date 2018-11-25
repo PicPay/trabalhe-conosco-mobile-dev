@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CredcardPaymentView" customModule="PicPay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="71"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZOD-Vt-0dR" userLabel="lblMethod">
+                    <rect key="frame" x="16" y="16" width="244" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QHR-xd-i2q" userLabel="lblMethodTitle">
+                    <rect key="frame" x="16" y="34" width="244" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmd-zM-iQ2" userLabel="btnPayment" customClass="RoundedUIButton" customModule="PicPay" customModuleProvider="target">
+                    <rect key="frame" x="268" y="15.5" width="100" height="40"/>
+                    <color key="backgroundColor" red="0.13725490196078433" green="0.76862745098039209" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Dtv-sw-OVx"/>
+                        <constraint firstAttribute="width" constant="100" id="UYR-JW-xB6"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btnPaymentDidTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="nJ3-Zy-S0i"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-wh-URc" userLabel="btnMethod">
+                    <rect key="frame" x="0.0" y="0.0" width="252" height="71"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btnMethodDidTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zmj-Xb-CsG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vmd-zM-iQ2" firstAttribute="leading" secondItem="ZOD-Vt-0dR" secondAttribute="trailing" constant="8" id="9Zf-Sk-llN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="QHR-xd-i2q" secondAttribute="bottom" constant="16" id="HLy-lP-LgE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vmd-zM-iQ2" secondAttribute="trailing" constant="16" id="Hxq-Rs-R32"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="H7P-wh-URc" secondAttribute="bottom" id="Sfl-Sb-UZ3"/>
+                <constraint firstItem="QHR-xd-i2q" firstAttribute="trailing" secondItem="ZOD-Vt-0dR" secondAttribute="trailing" id="UAi-Xp-c9s"/>
+                <constraint firstItem="vmd-zM-iQ2" firstAttribute="leading" secondItem="H7P-wh-URc" secondAttribute="trailing" constant="16" id="V0w-1U-9vZ"/>
+                <constraint firstItem="ZOD-Vt-0dR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="YhS-Y7-3Sc"/>
+                <constraint firstItem="QHR-xd-i2q" firstAttribute="top" secondItem="ZOD-Vt-0dR" secondAttribute="bottom" id="eI9-lu-fYI"/>
+                <constraint firstItem="ZOD-Vt-0dR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="g17-By-R2q"/>
+                <constraint firstItem="H7P-wh-URc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jA8-lE-13d"/>
+                <constraint firstItem="H7P-wh-URc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kA9-rp-cuK"/>
+                <constraint firstItem="QHR-xd-i2q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="uAC-VA-mnK"/>
+                <constraint firstItem="vmd-zM-iQ2" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zvm-sF-3z4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnMethod" destination="H7P-wh-URc" id="LVe-84-bMr"/>
+                <outlet property="btnPayment" destination="vmd-zM-iQ2" id="me4-qU-nSE"/>
+                <outlet property="lblMethod" destination="ZOD-Vt-0dR" id="JqC-k6-b95"/>
+                <outlet property="lblMethodTitle" destination="QHR-xd-i2q" id="8Jh-eD-QO0"/>
+            </connections>
+            <point key="canvasLocation" x="145.59999999999999" y="-119.1904047976012"/>
+        </view>
+    </objects>
+</document>

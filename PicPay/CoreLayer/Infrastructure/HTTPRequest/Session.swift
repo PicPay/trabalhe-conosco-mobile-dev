@@ -9,7 +9,7 @@
 import Foundation
 
 public typealias URLSessionCompletion = (() throws -> Data?) -> Void
-public typealias URLSessionParameters = (bodyParameters: [String: AnyObject]?, queryParameters: [String: AnyObject]?)
+public typealias URLSessionParameters = (bodyParameters: JSON?, queryParameters: [String: AnyObject]?)
 public typealias SessionItemsCompletion = (SessionResult) -> Void
 
 public enum SessionResult {

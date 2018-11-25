@@ -21,4 +21,10 @@ struct Api {
         return Session(session: urlSession, baseURL: baseURL)
     }
 
+    static var transaction: Session {
+        let urlSession = URLSession(configuration: .ephemeral)
+        guard let baseURL = URL(string: Env.Api.basePath) else { fatalError("The baseURL cant be parsed to URL") }
+        
+        return Session(session: urlSession, baseURL: baseURL)
+    }
 }
