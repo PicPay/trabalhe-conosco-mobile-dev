@@ -20,7 +20,7 @@ public final class CredcardCreateViewController: UIViewController {
     
     static let storyboardId = "CredcardCreateViewController"
     fileprivate let manager: CredcardManager = CredcardManager()
-    public var accountStore: AccountStore?
+    public var accountStorage: AccountStorage?
     public weak var delegate: CredcardCreateViewControllerProtocol?
 
     // MARK: - Computed
@@ -46,7 +46,7 @@ public final class CredcardCreateViewController: UIViewController {
 extension CredcardCreateViewController {
     @IBAction func btnRegisterDidTapped(_ sender: UIButton) {
         guard let delegate = delegate else { return }
-        guard let accountStore = accountStore else { return }
+        guard let accountStorage = accountStorage else { return }
         guard let cardNumber = mainView.txtCardNumber?.text else { return }
         guard let cardValidate = mainView.txtCardValidate?.text else { return }
         guard let cardCvv = mainView.txtCardCvv?.text else { return }
@@ -57,7 +57,7 @@ extension CredcardCreateViewController {
             cvv: Int(cardCvv) ?? 0,
             isMainCard: true)
         
-        manager.register(card: card, with: accountStore) { [weak self] result in
+        manager.register(card: card, with: accountStorage) { [weak self] result in
             guard let wSelf = self else { return }
             
             switch result {

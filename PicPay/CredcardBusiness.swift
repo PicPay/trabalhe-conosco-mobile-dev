@@ -14,14 +14,14 @@ public final class CredcardBusiness {
         case failure(String)
     }
     
-    public func register(card: Card, with accountStore: AccountStore, completion: @escaping (DAOResult) -> Void) {
-        accountStore.account.cards.append(card)
-        setAsMainCard(card: card, with: accountStore)
+    public func register(card: Card, with accountStorage: AccountStorage, completion: @escaping (DAOResult) -> Void) {
+        accountStorage.account.cards.append(card)
+        setAsMainCard(card: card, with: accountStorage)
         
         validate(card: card) { result in
             switch result {
             case .success:
-                if accountStore.saveChanges() {
+                if accountStorage.saveChanges() {
                     completion(.success)
                 } else {
                     completion(.failure(GenericError.parse("Não foi possível salvar o cartão informado")))
@@ -32,13 +32,13 @@ public final class CredcardBusiness {
         }
     }
     
-    public func setAsMainCard(card: Card, with accountStore: AccountStore) {
-        accountStore.account.cards = accountStore.account.cards.map {
+    public func setAsMainCard(card: Card, with accountStorage: AccountStorage) {
+        accountStorage.account.cards = accountStorage.account.cards.map {
             let isMainCard = card.number == $0.number
             return Card(number: $0.number, validate: $0.validate, cvv: $0.cvv, isMainCard: isMainCard)
         }
         
-        accountStore.saveChanges()
+        accountStorage.saveChanges()
     }
     
     fileprivate func validate(card: Card, completion: @escaping (Validate) -> Void) {

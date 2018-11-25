@@ -18,7 +18,7 @@ public final class CredcardPaymentView: UIView {
     // MARK: - Properties
     static let storyboardId = "CredcardPaymentView"
     public weak var delegate: CredcardPaymentViewProtocol?
-    public var accountStore: AccountStore?
+    public var accountStorage: AccountStorage?
 
     // MARK: - Outlets
     @IBOutlet weak var lblMethod: UILabel!
@@ -51,13 +51,13 @@ extension CredcardPaymentView {
 
 extension CredcardPaymentView {
     public func setUp() {
-        guard let accountStore = accountStore else { return }
+        guard let accountStorage = accountStorage else { return }
         
         lblMethod.text = "Forma de pagamento"
         lblMethodTitle.text = "Nenhum cartão selecionado"
         btnPayment.setTitle("Pagar", for: .normal)
         btnMethod.setTitle("", for: .normal)
-        if let card = accountStore.account.activeCard {
+        if let card = accountStorage.account.activeCard {
             lblMethodTitle.text = "\(card.number)"
         }
     }

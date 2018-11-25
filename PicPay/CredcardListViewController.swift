@@ -20,7 +20,7 @@ public final class CredcardListViewController: UIViewController {
     // MARK: - Properties
     
     static let storyboardId = "CredcardListViewController"
-    public var accountStore: AccountStore?
+    public var accountStorage: AccountStorage?
     fileprivate var manager: CredcardManager = CredcardManager()
     public weak var delegate: CredcardListViewControllerProtocol?
     fileprivate var source: CredcardDataSource = CredcardDataSource()
@@ -56,9 +56,9 @@ extension CredcardListViewController {
     }
     
     fileprivate func fetch() {
-        guard let accountStore = accountStore else { return }
+        guard let accountStorage = accountStorage else { return }
         
-        source.model.content = accountStore.account.cards
+        source.model.content = accountStorage.account.cards
     }
 }
 
@@ -81,13 +81,13 @@ extension CredcardListViewController {
 
 extension CredcardListViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let accountStore = accountStore else { return }
+        guard let accountStorage = accountStorage else { return }
         guard indexPath.row < source.model.content.count else { dd("Can't load item from model"); return }
         guard let delegate = delegate else { return }
         
         // Selected user
         let card = source.model.content[indexPath.row]
-        manager.setAsMainCard(card: card, with: accountStore)
+        manager.setAsMainCard(card: card, with: accountStorage)
         delegate.goesToTransaction()
     }
     

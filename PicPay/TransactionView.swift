@@ -36,8 +36,8 @@ extension TransactionView {
         txtValue.becomeFirstResponder()
     }
     
-    public func update(_ user: User, _ accountStore: AccountStore, _ delegate: CredcardPaymentViewProtocol) {
-        setUpPaymentView(delegate: delegate, accountStore: accountStore)
+    public func update(_ user: User, _ accountStorage: AccountStorage, _ delegate: CredcardPaymentViewProtocol) {
+        setUpPaymentView(delegate: delegate, accountStorage: accountStorage)
         
         lblUsername.text = user.username
         lblName.text = user.name
@@ -59,10 +59,10 @@ extension TransactionView {
         }
     }
     
-    fileprivate func setUpPaymentView(delegate: CredcardPaymentViewProtocol, accountStore: AccountStore) {
+    fileprivate func setUpPaymentView(delegate: CredcardPaymentViewProtocol, accountStorage: AccountStorage) {
         let paymentView: CredcardPaymentView = .fromNib()
         paymentView.delegate = delegate
-        paymentView.accountStore = accountStore
+        paymentView.accountStorage = accountStorage
         
         txtValue.inputAccessoryView = paymentView
         txtMessage.inputAccessoryView = paymentView

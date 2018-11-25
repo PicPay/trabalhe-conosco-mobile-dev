@@ -13,18 +13,18 @@ public final class TransactionCoordinator: Coordinator {
     fileprivate var transactionViewController: UINavigationController?
     fileprivate var credcardListCoordinator: CredcardListCoordinator?
     fileprivate var user: User?
-    fileprivate var accountStore: AccountStore
+    fileprivate var accountStorage: AccountStorage
     
-    init(presenter: UINavigationController, user: User, account: AccountStore) {
+    init(presenter: UINavigationController, user: User, accountStorage: AccountStorage) {
         self.presenter = presenter
         self.user = user
-        self.accountStore = account
+        self.accountStorage = accountStorage
     }
     
     public func start() {
         let viewController = TransactionViewController(nibName: nil, bundle: nil)
         viewController.user = user
-        viewController.accountStore = accountStore
+        viewController.accountStorage = accountStorage
         viewController.modalPresentationStyle = .overFullScreen
         viewController.delegate = self
         transactionViewController = UINavigationController(rootViewController: viewController)
@@ -44,7 +44,7 @@ extension TransactionCoordinator: TransactionViewControllerProtocol {
     public func goesToCredcardList() {
         guard let transactionViewController = transactionViewController else { return }
         
-        credcardListCoordinator = CredcardListCoordinator(presenter: transactionViewController, account: accountStore)
+        credcardListCoordinator = CredcardListCoordinator(presenter: transactionViewController, account: accountStorage)
         credcardListCoordinator?.start()
     }
     

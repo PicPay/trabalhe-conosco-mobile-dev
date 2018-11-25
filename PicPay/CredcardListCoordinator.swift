@@ -11,17 +11,17 @@ import UIKit
 public final class CredcardListCoordinator: Coordinator {
     fileprivate var credcardCreateCoordinator: CredcardCreateCoordinator?
     fileprivate let presenter: UINavigationController
-    fileprivate var accountStore: AccountStore
+    fileprivate var accountStorage: AccountStorage
     
-    init(presenter: UINavigationController, account: AccountStore) {
+    init(presenter: UINavigationController, account: AccountStorage) {
         self.presenter = presenter
-        self.accountStore = account
+        self.accountStorage = account
     }
     
     public func start() {
         let credcardViewController = CredcardListViewController(nibName: nil, bundle: nil)
         credcardViewController.title = "Formas de pagamento"
-        credcardViewController.accountStore = accountStore
+        credcardViewController.accountStorage = accountStorage
         credcardViewController.delegate = self
         
         presenter.pushViewController(credcardViewController, animated: true)
@@ -32,7 +32,7 @@ public final class CredcardListCoordinator: Coordinator {
 
 extension CredcardListCoordinator: CredcardListViewControllerProtocol {
     public func goesToCredcardCreate() {
-        credcardCreateCoordinator = CredcardCreateCoordinator(presenter: presenter, account: accountStore)
+        credcardCreateCoordinator = CredcardCreateCoordinator(presenter: presenter, account: accountStorage)
         credcardCreateCoordinator?.start()
     }
     

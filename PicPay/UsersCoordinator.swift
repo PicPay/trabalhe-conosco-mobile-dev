@@ -12,11 +12,11 @@ public final class UsersCoordinator: Coordinator {
     fileprivate let presenter: UINavigationController
     fileprivate var usersViewController: UsersViewController?
     fileprivate var transactionCoordinator: TransactionCoordinator?
-    fileprivate var accountStore: AccountStore
+    fileprivate var accountStorage: AccountStorage
     
-    init(presenter: UINavigationController, account: AccountStore) {
+    init(presenter: UINavigationController, accountStorage: AccountStorage) {
         self.presenter = presenter
-        self.accountStore = account
+        self.accountStorage = accountStorage
     }
     
     public func start() {
@@ -31,7 +31,7 @@ public final class UsersCoordinator: Coordinator {
 
 extension UsersCoordinator: UsersViewControllerProtocol {
     public func goesToTransaction(to user: User) {
-        transactionCoordinator = TransactionCoordinator(presenter: presenter, user: user, account: accountStore)
+        transactionCoordinator = TransactionCoordinator(presenter: presenter, user: user, accountStorage: accountStorage)
         transactionCoordinator?.start()
     }
 }

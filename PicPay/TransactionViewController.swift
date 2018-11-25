@@ -22,7 +22,7 @@ public final class TransactionViewController: UIViewController {
     static let storyboardId = "TransactionViewController"
     public var user: User?
     fileprivate var manager: TransactionManager = TransactionManager()
-    public var accountStore: AccountStore?
+    public var accountStorage: AccountStorage?
     public weak var delegate: TransactionViewControllerProtocol?
 
     // MARK: - Computed
@@ -53,9 +53,9 @@ extension TransactionViewController {
 extension TransactionViewController {
     fileprivate func setUp() {
         guard let user = user else { dd("There's no user"); return }
-        guard let accountStore = accountStore else { dd("Account store not loaded"); return }
+        guard let accountStorage = accountStorage else { dd("Account store not loaded"); return }
         
-        mainView.update(user, accountStore, self)
+        mainView.update(user, accountStorage, self)
     }
     
 }
@@ -72,7 +72,7 @@ extension TransactionViewController: CredcardPaymentViewProtocol {
     public func btnPaymentDidTapped(_ sender: UIButton) {
         guard let value = mainView.txtValue.text else { return }
         guard let user = user else { return }
-        guard let card = accountStore?.account.activeCard else { return }
+        guard let card = accountStorage?.account.activeCard else { return }
         
         let transaction = Transaction(
             value: Float(value) ?? 0,

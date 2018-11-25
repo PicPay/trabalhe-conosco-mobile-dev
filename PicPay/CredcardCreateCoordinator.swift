@@ -10,18 +10,18 @@ import UIKit
 
 public final class CredcardCreateCoordinator: Coordinator {
     fileprivate let presenter: UINavigationController
-    fileprivate var accountStore: AccountStore
+    fileprivate var accountStorage: AccountStorage
     
-    init(presenter: UINavigationController, account: AccountStore) {
+    init(presenter: UINavigationController, account: AccountStorage) {
         self.presenter = presenter
-        self.accountStore = account
+        self.accountStorage = account
     }
     
     public func start() {
         let credcardViewController = CredcardCreateViewController(nibName: nil, bundle: nil)
         credcardViewController.delegate = self
         credcardViewController.title = "Novo cartão"
-        credcardViewController.accountStore = accountStore
+        credcardViewController.accountStorage = accountStorage
         
         presenter.pushViewController(credcardViewController, animated: true)
     }

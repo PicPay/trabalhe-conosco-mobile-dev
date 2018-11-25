@@ -73,7 +73,7 @@
 		59573C5921A9D731007FDCC4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C5821A9D731007FDCC4 /* Transaction.swift */; };
 		59573C5C21A9DD6E007FDCC4 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C5B21A9DD6E007FDCC4 /* TransactionManager.swift */; };
 		59573C6021A9DDA4007FDCC4 /* TransactionBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C5F21A9DDA4007FDCC4 /* TransactionBusiness.swift */; };
-		59573C6321AA0F4C007FDCC4 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6221AA0F4C007FDCC4 /* AccountStore.swift */; };
+		59573C6321AA0F4C007FDCC4 /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6221AA0F4C007FDCC4 /* AccountStorage.swift */; };
 		59573C6521AAAC5C007FDCC4 /* CredcardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6421AAAC5C007FDCC4 /* CredcardListView.swift */; };
 		59573C6821AAAC75007FDCC4 /* CredcardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6721AAAC75007FDCC4 /* CredcardListViewController.swift */; };
 		59573C6A21AAAC8F007FDCC4 /* CredcardListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59573C6921AAAC8F007FDCC4 /* CredcardListViewController.xib */; };
@@ -184,7 +184,7 @@
 		59573C5821A9D731007FDCC4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		59573C5B21A9DD6E007FDCC4 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		59573C5F21A9DDA4007FDCC4 /* TransactionBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBusiness.swift; sourceTree = "<group>"; };
-		59573C6221AA0F4C007FDCC4 /* AccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
+		59573C6221AA0F4C007FDCC4 /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		59573C6421AAAC5C007FDCC4 /* CredcardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListView.swift; sourceTree = "<group>"; };
 		59573C6721AAAC75007FDCC4 /* CredcardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListViewController.swift; sourceTree = "<group>"; };
 		59573C6921AAAC8F007FDCC4 /* CredcardListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredcardListViewController.xib; sourceTree = "<group>"; };
@@ -697,7 +697,7 @@
 		59573C6121AA0F30007FDCC4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				59573C6221AA0F4C007FDCC4 /* AccountStore.swift */,
+				59573C6221AA0F4C007FDCC4 /* AccountStorage.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -1036,7 +1036,7 @@
 				59159B9C21A94D5900938AB3 /* ProviderProtocol.swift in Sources */,
 				59573C5121A9CDB8007FDCC4 /* Card.swift in Sources */,
 				59573C4E21A9CD7B007FDCC4 /* Account.swift in Sources */,
-				59573C6321AA0F4C007FDCC4 /* AccountStore.swift in Sources */,
+				59573C6321AA0F4C007FDCC4 /* AccountStorage.swift in Sources */,
 				59159BDC21A94D5900938AB3 /* UIColorExtension.swift in Sources */,
 				59E9F1F721AAD2C4003A3035 /* CredcardBusiness.swift in Sources */,
 				59159BB921A94D5900938AB3 /* URLSessionBase.swift in Sources */,

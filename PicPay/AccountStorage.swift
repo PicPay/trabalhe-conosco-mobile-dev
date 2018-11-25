@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class AccountStore {
+public final class AccountStorage {
     
     var account: Account!
     let defaults = UserDefaults.standard
