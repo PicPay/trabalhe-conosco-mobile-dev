@@ -84,7 +84,12 @@ extension UsersViewController {
                 wSelf.source.model.content = users
                 wSelf.source.allUsers = users
             case let .failure(error):
-                let alert = UIAlertController(title: error.localizedDescription, message: "", preferredStyle: .alert)
+                var msgError = error.localizedDescription
+                if let error = error as? GenericError, case let .parse(msg) = error {
+                    msgError = msg
+                }
+                
+                let alert = UIAlertController(title: msgError, message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
                 wSelf.present(alert, animated: true, completion: nil)
             }

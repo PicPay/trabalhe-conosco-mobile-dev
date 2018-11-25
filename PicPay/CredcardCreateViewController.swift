@@ -66,12 +66,14 @@ extension CredcardCreateViewController {
                 alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: { _ in delegate.goesToTransaction() }))
                 wSelf.present(alert, animated: true, completion: nil)
             case let .failure(error):
-                guard let error = error as? GenericError else { return }
-                if case let .parse(msgError) = error {
-                    let alert = UIAlertController(title: "Dados incorretos", message: msgError, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
-                    wSelf.present(alert, animated: true, completion: nil)
+                var msgError = error.localizedDescription
+                if let error = error as? GenericError, case let .parse(msg) = error {
+                    msgError = msg
                 }
+                
+                let alert = UIAlertController(title: "Dados incorretos", message: msgError, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+                wSelf.present(alert, animated: true, completion: nil)
             }
         }
     }

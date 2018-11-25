@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import Reachability
 
 public final class UsersProvider: UsersProviderProtocol {
     
     public func fetch(completion: @escaping (ApiResult<Data>) -> Void) {
+        guard Utils.hasConnection else {
+            completion(.failure(GenericError.parse("Sem conexão, tente mais tarde")))
+            return
+        }
+        
         Api.users.GET(url: "/users", parameters: nil, header: nil) { result in
             do {
                 let data = try result()

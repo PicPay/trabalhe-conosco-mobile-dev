@@ -10,6 +10,10 @@ import Foundation
 
 public final class TransactionProvider: TransactionProviderProtocol {
     public func process(payment transaction: Transaction, completion: @escaping (ApiResult<Data>) -> Void) {
+        guard Utils.hasConnection else {
+            completion(.failure(GenericError.parse("Sem conexão, tente mais tarde")))
+            return
+        }
         
         let params: URLSessionParameters = (bodyParameters: transaction.toDictionary(), queryParameters: nil)
         Api.transaction.POST(url: "/transaction", parameters: params, header: nil) { result in
