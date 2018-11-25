@@ -43,12 +43,6 @@ public final class UsersViewController: UIViewController {
     }
 }
 
-// MARK: - IBActions
-
-extension UsersViewController {
-    // Make your IBActions here
-}
-
 // MARK: - Functions
 
 extension UsersViewController {
