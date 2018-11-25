@@ -53,20 +53,14 @@ extension UsersViewController {
 
 extension UsersViewController {
     fileprivate func setUp() {
-
-//        if #available(iOS 11.0, *) {
-//            navigationController?.navigationBar.prefersLargeTitles = true
-//            navigationController?.navigationItem.largeTitleDisplayMode = .always
-//            navigationItem.searchController = search
-//        }
-        
-        title = "Contatos"
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Quem você quer pagar?"
         search.searchResultsUpdater = self
         definesPresentationContext = true
         if #available(iOS 11.0, *) {
             navigationItem.searchController = search
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationItem.largeTitleDisplayMode = .always
         } else {
             mainView.tableView.tableHeaderView = search.searchBar
         }

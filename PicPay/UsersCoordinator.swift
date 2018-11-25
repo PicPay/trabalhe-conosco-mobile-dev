@@ -21,6 +21,7 @@ public final class UsersCoordinator: Coordinator {
     
     public func start() {
         let usersViewController = UsersViewController(nibName: nil, bundle: nil)
+        usersViewController.title = "Contatos"
         usersViewController.delegate = self
         presenter.pushViewController(usersViewController, animated: true)
     }
