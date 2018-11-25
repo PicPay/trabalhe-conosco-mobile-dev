@@ -9,36 +9,39 @@
 import Foundation
 
 public struct Card: BaseModelProtocol {
-    let id: Int
     let number: Int
-    let validate: Date
+    let validate: String
     let cvv: Int
-    let isActive: Bool
+    let isMainCard: Bool
     
     enum CodingKeys: String, CodingKey {
-        case id
         case number
         case validate
         case cvv
-        case isActive
+        case isMainCard
+    }
+    
+    public init(number: Int, validate: String, cvv: Int, isMainCard: Bool) {
+        self.number = number
+        self.validate = validate
+        self.cvv = cvv
+        self.isMainCard = isMainCard
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
         number = try values.decodeIfPresent(Int.self, forKey: .number) ?? 0
-        validate = try values.decodeIfPresent(Date.self, forKey: .validate) ?? Date()
+        validate = try values.decodeIfPresent(String.self, forKey: .validate) ?? ""
         cvv = try values.decodeIfPresent(Int.self, forKey: .cvv) ?? 0
-        isActive = try values.decodeIfPresent(Bool.self, forKey: .isActive) ?? false
+        isMainCard = try values.decodeIfPresent(Bool.self, forKey: .isMainCard) ?? false
     }
     
     public func toDictionary() -> JSON {
         let dict: JSON = [
-            CodingKeys.id.rawValue: id as Any,
             CodingKeys.number.rawValue: number as Any,
             CodingKeys.validate.rawValue: validate as Any,
             CodingKeys.cvv.rawValue: cvv as Any,
-            CodingKeys.isActive.rawValue: isActive as Any
+            CodingKeys.isMainCard.rawValue: isMainCard as Any
         ]
         
         return dict

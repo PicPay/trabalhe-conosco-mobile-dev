@@ -13,13 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     fileprivate var appCoordinator: AppCoordinator?
-    fileprivate let accountStore = AccountStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Initialize Coordinator
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let appCoordinator = AppCoordinator(window: window, account: accountStore)
+        let appCoordinator = AppCoordinator(window: window)
+        
+        // Set Barbuttons green by default
+        UIBarButtonItem.appearance().tintColor = UIColor(hex: Env.Palette.green)
         
         self.window = window
         self.appCoordinator = appCoordinator

@@ -11,21 +11,29 @@ import UIKit
 public final class AccountStore {
     
     var account: Account!
-    let accountArchiveURL: URL = {
-        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = documentsDirectories.first!
-        return documentDirectory.appendingPathComponent("account.archive")
-    }()
-    
+    let defaults = UserDefaults.standard
+    fileprivate let accountKey = "account.archive"
+
     init() {
-        let archivedAccount = NSKeyedUnarchiver.unarchiveObject(withFile: self.accountArchiveURL.path) as? Account
-        let newAccount = Account(id: 1, name: "User Test", cards: [])
-        
-        account = archivedAccount ?? newAccount
+        account = Account(id: 1, name: "User Test", cards: [])
+        if let data = defaults.object(forKey: accountKey) as? Data {
+            let decoder = JSONDecoder()
+            if let archivedAccount = try? decoder.decode(Account.self, from: data) {
+                account = archivedAccount
+            }
+        }
     }
     
+    @discardableResult
     func saveChanges() -> Bool {
-        return NSKeyedArchiver.archiveRootObject(account, toFile: self.accountArchiveURL.path)
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(account) {
+            defaults.set(encoded, forKey: accountKey)
+            
+            return true
+        } else {
+            return false
+        }
     }
 
 }

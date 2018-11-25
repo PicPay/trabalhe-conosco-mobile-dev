@@ -8,6 +8,11 @@
 
 import UIKit
 
+public protocol TransactionViewControllerProtocol: class {
+    func goesToCredcardList()
+    func dismiss()
+}
+
 // MARK: - Overrides
 
 public final class TransactionViewController: UIViewController {
@@ -16,7 +21,9 @@ public final class TransactionViewController: UIViewController {
     
     static let storyboardId = "TransactionViewController"
     public var user: User?
+    fileprivate var manager: TransactionManager = TransactionManager()
     public var accountStore: AccountStore?
+    public weak var delegate: TransactionViewControllerProtocol?
 
     // MARK: - Computed
     fileprivate var mainView: TransactionView {
@@ -39,9 +46,6 @@ public final class TransactionViewController: UIViewController {
 // MARK: - IBActions
 
 extension TransactionViewController {
-    @IBAction func dimiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 // MARK: - Functions
@@ -66,10 +70,49 @@ extension TransactionViewController: UITextViewDelegate {
 
 extension TransactionViewController: CredcardPaymentViewProtocol {
     public func btnPaymentDidTapped(_ sender: UIButton) {
-        dd("Send payment")
+        guard let value = mainView.txtValue.text else { return }
+        guard let user = user else { return }
+        guard let card = accountStore?.account.activeCard else { return }
+        
+        let transaction = Transaction(
+            value: Float(value) ?? 0,
+            user: user,
+            card: card)
+        
+        manager.process(payment: transaction) { [weak self] result in
+            guard let wSelf = self else { return }
+            
+            switch result {
+            case .success:
+                let alert = UIAlertController(title: "A transação foi efetuada com sucesso!", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: { _ in wSelf.dismiss() }))
+                wSelf.present(alert, animated: true, completion: nil)
+            case let .failure(error):
+                guard let error = error as? GenericError else { return }
+                if case let .parse(msgError) = error {
+                    let alert = UIAlertController(title: msgError, message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+                    wSelf.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     public func btnMethodDidTapped(_ sender: UIButton) {
-        dd("goes to cards list")
+        goesToCredcardList()
+    }
+}
+
+extension TransactionViewController: TransactionViewControllerProtocol {
+    public func dismiss() {
+        guard let delegate = delegate else { return }
+        
+        delegate.dismiss()
+    }
+    
+    public func goesToCredcardList() {
+        guard let delegate = delegate else { return }
+        
+        delegate.goesToCredcardList()
     }
 }

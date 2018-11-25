@@ -19,8 +19,26 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CredcardListView" customModule="PicPay" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3zJ-gQ-ehc">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="CmJ-8Q-OaY"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3zJ-gQ-ehc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2qa-MQ-UbQ"/>
+                <constraint firstItem="3zJ-gQ-ehc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Lqn-4H-tmt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3zJ-gQ-ehc" secondAttribute="trailing" id="XeB-2a-Kui"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3zJ-gQ-ehc" secondAttribute="bottom" id="dj0-Cc-drz"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="tableView" destination="3zJ-gQ-ehc" id="dM3-B9-QTX"/>
+            </connections>
         </view>
     </objects>
 </document>

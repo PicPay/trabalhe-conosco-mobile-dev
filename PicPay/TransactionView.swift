@@ -22,11 +22,19 @@ public final class TransactionView: UIView {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var txtValue: UITextField!
     @IBOutlet weak var txtMessage: UITextView!
+    
+    public override func awakeFromNib() {
+        setUp()
+    }
 }
 
 // MARK: - Functions
 
 extension TransactionView {
+    
+    fileprivate func setUp() {
+        txtValue.becomeFirstResponder()
+    }
     
     public func update(_ user: User, _ accountStore: AccountStore, _ delegate: CredcardPaymentViewProtocol) {
         setUpPaymentView(delegate: delegate, accountStore: accountStore)

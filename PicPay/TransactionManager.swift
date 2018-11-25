@@ -11,7 +11,7 @@ import Foundation
 public final class TransactionManager: NSObject {
     fileprivate let business: TransactionBusiness = TransactionBusiness()
     
-    public func process(payment transaction: Transaction, completion: @escaping (ApiResult<Data>) -> Void) {
+    public func process(payment transaction: Transaction, completion: @escaping (TransactionBusiness.ProcessStatus) -> Void) {
         OperationQueue.main.addOperation { [weak self] in
             self?.business.process(payment: transaction, completion: completion)
         }

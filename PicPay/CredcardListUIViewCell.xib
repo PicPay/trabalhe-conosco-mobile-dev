@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CredcardListUIViewCell" rowHeight="63" id="2TO-Xz-DJe" customClass="CredcardListUIViewCell" customModule="PicPay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="63"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2TO-Xz-DJe" id="yLR-hB-h20">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fba-8y-KB1" userLabel="viewContainer">
+                        <rect key="frame" x="8" y="4" width="382" height="54.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-f8-fmg" userLabel="lblCardNumber">
+                                <rect key="frame" x="8" y="8" width="308" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-9G-cSl" userLabel="lblIsMainCard">
+                                <rect key="frame" x="332" y="10" width="42" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="4Xg-LE-8Vl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-pp-Xoi" userLabel="lblCardValidate">
+                                <rect key="frame" x="8" y="29" width="366" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cRX-pp-Xoi" firstAttribute="top" secondItem="yeV-f8-fmg" secondAttribute="bottom" id="1Ax-4R-sZK"/>
+                            <constraint firstItem="yeV-f8-fmg" firstAttribute="leading" secondItem="fba-8y-KB1" secondAttribute="leading" constant="8" id="7hv-mX-g2S"/>
+                            <constraint firstItem="nQl-9G-cSl" firstAttribute="centerY" secondItem="yeV-f8-fmg" secondAttribute="centerY" id="NLX-wc-uOf"/>
+                            <constraint firstItem="cRX-pp-Xoi" firstAttribute="trailing" secondItem="nQl-9G-cSl" secondAttribute="trailing" id="Ozx-0X-DVx"/>
+                            <constraint firstItem="yeV-f8-fmg" firstAttribute="top" secondItem="fba-8y-KB1" secondAttribute="top" constant="8" id="Xyu-xm-eCw"/>
+                            <constraint firstAttribute="trailing" secondItem="nQl-9G-cSl" secondAttribute="trailing" constant="8" id="lfF-iF-Ntr"/>
+                            <constraint firstItem="cRX-pp-Xoi" firstAttribute="leading" secondItem="fba-8y-KB1" secondAttribute="leading" constant="8" id="tbM-sB-A6g"/>
+                            <constraint firstAttribute="bottom" secondItem="cRX-pp-Xoi" secondAttribute="bottom" constant="8.5" id="u8c-on-aNd"/>
+                            <constraint firstItem="nQl-9G-cSl" firstAttribute="leading" secondItem="yeV-f8-fmg" secondAttribute="trailing" constant="16" id="w3O-LB-HKE"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="fba-8y-KB1" secondAttribute="bottom" constant="4" id="3i3-04-b8U"/>
+                    <constraint firstItem="fba-8y-KB1" firstAttribute="leading" secondItem="yLR-hB-h20" secondAttribute="leading" constant="8" id="Hvp-nh-nTI"/>
+                    <constraint firstItem="fba-8y-KB1" firstAttribute="top" secondItem="yLR-hB-h20" secondAttribute="top" constant="4" id="TIx-gL-RUf"/>
+                    <constraint firstAttribute="trailing" secondItem="fba-8y-KB1" secondAttribute="trailing" constant="8" id="aYe-Ts-arK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblCardNumber" destination="yeV-f8-fmg" id="L75-fV-RRq"/>
+                <outlet property="lblCardValidate" destination="cRX-pp-Xoi" id="ajn-MT-huh"/>
+                <outlet property="lblIsMainCard" destination="nQl-9G-cSl" id="l1p-2V-4rZ"/>
+                <outlet property="viewContainer" destination="fba-8y-KB1" id="hjP-28-L9i"/>
+            </connections>
+            <point key="canvasLocation" x="107.2" y="8.5457271364317844"/>
+        </tableViewCell>
+    </objects>
+</document>

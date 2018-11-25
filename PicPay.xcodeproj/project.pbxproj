@@ -77,6 +77,19 @@
 		59573C6521AAAC5C007FDCC4 /* CredcardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6421AAAC5C007FDCC4 /* CredcardListView.swift */; };
 		59573C6821AAAC75007FDCC4 /* CredcardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6721AAAC75007FDCC4 /* CredcardListViewController.swift */; };
 		59573C6A21AAAC8F007FDCC4 /* CredcardListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59573C6921AAAC8F007FDCC4 /* CredcardListViewController.xib */; };
+		59573C6C21AAB108007FDCC4 /* UIButtonNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59573C6B21AAB108007FDCC4 /* UIButtonNavbar.swift */; };
+		59E9F1E221AAB550003A3035 /* CredcardListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1E121AAB550003A3035 /* CredcardListCoordinator.swift */; };
+		59E9F1E421AABC05003A3035 /* CredcardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1E321AABC05003A3035 /* CredcardDataSource.swift */; };
+		59E9F1E621AABC30003A3035 /* CredcardListUIViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1E521AABC30003A3035 /* CredcardListUIViewCell.swift */; };
+		59E9F1E821AAC0AA003A3035 /* CredcardListViewforFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1E721AAC0AA003A3035 /* CredcardListViewforFooter.swift */; };
+		59E9F1EA21AAC0E5003A3035 /* CredcardListViewforFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9F1E921AAC0E5003A3035 /* CredcardListViewforFooter.xib */; };
+		59E9F1EE21AAC504003A3035 /* CredcardCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1ED21AAC504003A3035 /* CredcardCreateView.swift */; };
+		59E9F1F021AAC516003A3035 /* CredcardCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1EF21AAC516003A3035 /* CredcardCreateViewController.swift */; };
+		59E9F1F221AAC548003A3035 /* CredcardCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9F1F121AAC548003A3035 /* CredcardCreateViewController.xib */; };
+		59E9F1F421AAC63A003A3035 /* CredcardCreateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1F321AAC63A003A3035 /* CredcardCreateCoordinator.swift */; };
+		59E9F1F721AAD2C4003A3035 /* CredcardBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1F621AAD2C4003A3035 /* CredcardBusiness.swift */; };
+		59E9F1FA21AAD35C003A3035 /* CredcardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9F1F921AAD35C003A3035 /* CredcardManager.swift */; };
+		59E9F1FC21AAE3AA003A3035 /* CredcardListUIViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9F1FB21AAE3AA003A3035 /* CredcardListUIViewCell.xib */; };
 		F91E4266449CD588DBBA86C3 /* Pods_PicPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +188,19 @@
 		59573C6421AAAC5C007FDCC4 /* CredcardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListView.swift; sourceTree = "<group>"; };
 		59573C6721AAAC75007FDCC4 /* CredcardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListViewController.swift; sourceTree = "<group>"; };
 		59573C6921AAAC8F007FDCC4 /* CredcardListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredcardListViewController.xib; sourceTree = "<group>"; };
+		59573C6B21AAB108007FDCC4 /* UIButtonNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonNavbar.swift; sourceTree = "<group>"; };
+		59E9F1E121AAB550003A3035 /* CredcardListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListCoordinator.swift; sourceTree = "<group>"; };
+		59E9F1E321AABC05003A3035 /* CredcardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardDataSource.swift; sourceTree = "<group>"; };
+		59E9F1E521AABC30003A3035 /* CredcardListUIViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListUIViewCell.swift; sourceTree = "<group>"; };
+		59E9F1E721AAC0AA003A3035 /* CredcardListViewforFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardListViewforFooter.swift; sourceTree = "<group>"; };
+		59E9F1E921AAC0E5003A3035 /* CredcardListViewforFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredcardListViewforFooter.xib; sourceTree = "<group>"; };
+		59E9F1ED21AAC504003A3035 /* CredcardCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardCreateView.swift; sourceTree = "<group>"; };
+		59E9F1EF21AAC516003A3035 /* CredcardCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardCreateViewController.swift; sourceTree = "<group>"; };
+		59E9F1F121AAC548003A3035 /* CredcardCreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredcardCreateViewController.xib; sourceTree = "<group>"; };
+		59E9F1F321AAC63A003A3035 /* CredcardCreateCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardCreateCoordinator.swift; sourceTree = "<group>"; };
+		59E9F1F621AAD2C4003A3035 /* CredcardBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardBusiness.swift; sourceTree = "<group>"; };
+		59E9F1F921AAD35C003A3035 /* CredcardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredcardManager.swift; sourceTree = "<group>"; };
+		59E9F1FB21AAE3AA003A3035 /* CredcardListUIViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredcardListUIViewCell.xib; sourceTree = "<group>"; };
 		5C9110DC69370A44AF62F0BE /* Pods_PicPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94A1C03F6A1924CA4398373 /* Pods_PicPayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C6C892BD67EEF844BCDEA9 /* Pods-PicPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPay/Pods-PicPay.release.xcconfig"; sourceTree = "<group>"; };
@@ -375,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BC021A94D5900938AB3 /* infoBusiness.swift */,
+				59E9F1F521AAD2B5003A3035 /* Credcard */,
 				59573C5E21A9DD9D007FDCC4 /* Transaction */,
 				59573C2E21A967A0007FDCC4 /* Users */,
 			);
@@ -385,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				59159BC721A94D5900938AB3 /* infoManager.swift */,
+				59E9F1F821AAD34E003A3035 /* Credcard */,
 				59573C5A21A9DD56007FDCC4 /* Transaction */,
 				59573C2B21A9673D007FDCC4 /* Users */,
 			);
@@ -408,6 +436,7 @@
 				59159BCF21A94D5900938AB3 /* infoUIComponents.swift */,
 				59573C3121A97339007FDCC4 /* RoundedUIImage.swift */,
 				59573C4A21A9C3D7007FDCC4 /* RoundedUIButton.swift */,
+				59573C6B21AAB108007FDCC4 /* UIButtonNavbar.swift */,
 			);
 			name = UIComponents;
 			sourceTree = "<group>";
@@ -485,6 +514,7 @@
 			children = (
 				59573C0D21A953CF007FDCC4 /* Coordinator.swift */,
 				59573C0F21A953FA007FDCC4 /* AppCoordinator.swift */,
+				59E9F1E021AAB53C003A3035 /* Credcard */,
 				59573C1121A95480007FDCC4 /* Users */,
 				59573C3C21A97A98007FDCC4 /* Transaction */,
 			);
@@ -596,6 +626,9 @@
 			children = (
 				59573C4021A9BDAE007FDCC4 /* CredcardPaymentView.xib */,
 				59573C6921AAAC8F007FDCC4 /* CredcardListViewController.xib */,
+				59E9F1E921AAC0E5003A3035 /* CredcardListViewforFooter.xib */,
+				59E9F1F121AAC548003A3035 /* CredcardCreateViewController.xib */,
+				59E9F1FB21AAE3AA003A3035 /* CredcardListUIViewCell.xib */,
 			);
 			name = Credcard;
 			sourceTree = "<group>";
@@ -605,6 +638,9 @@
 			children = (
 				59573C4321A9BDD0007FDCC4 /* CredcardPaymentView.swift */,
 				59573C6421AAAC5C007FDCC4 /* CredcardListView.swift */,
+				59E9F1E521AABC30003A3035 /* CredcardListUIViewCell.swift */,
+				59E9F1E721AAC0AA003A3035 /* CredcardListViewforFooter.swift */,
+				59E9F1ED21AAC504003A3035 /* CredcardCreateView.swift */,
 			);
 			name = Credcard;
 			sourceTree = "<group>";
@@ -670,6 +706,33 @@
 			isa = PBXGroup;
 			children = (
 				59573C6721AAAC75007FDCC4 /* CredcardListViewController.swift */,
+				59E9F1E321AABC05003A3035 /* CredcardDataSource.swift */,
+				59E9F1EF21AAC516003A3035 /* CredcardCreateViewController.swift */,
+			);
+			name = Credcard;
+			sourceTree = "<group>";
+		};
+		59E9F1E021AAB53C003A3035 /* Credcard */ = {
+			isa = PBXGroup;
+			children = (
+				59E9F1E121AAB550003A3035 /* CredcardListCoordinator.swift */,
+				59E9F1F321AAC63A003A3035 /* CredcardCreateCoordinator.swift */,
+			);
+			name = Credcard;
+			sourceTree = "<group>";
+		};
+		59E9F1F521AAD2B5003A3035 /* Credcard */ = {
+			isa = PBXGroup;
+			children = (
+				59E9F1F621AAD2C4003A3035 /* CredcardBusiness.swift */,
+			);
+			name = Credcard;
+			sourceTree = "<group>";
+		};
+		59E9F1F821AAD34E003A3035 /* Credcard */ = {
+			isa = PBXGroup;
+			children = (
+				59E9F1F921AAD35C003A3035 /* CredcardManager.swift */,
 			);
 			name = Credcard;
 			sourceTree = "<group>";
@@ -797,10 +860,13 @@
 				59573C4121A9BDAE007FDCC4 /* CredcardPaymentView.xib in Resources */,
 				59573C6A21AAAC8F007FDCC4 /* CredcardListViewController.xib in Resources */,
 				59159BF721A94D5900938AB3 /* iOS-Architecture.pdf in Resources */,
+				59E9F1FC21AAE3AA003A3035 /* CredcardListUIViewCell.xib in Resources */,
+				59E9F1F221AAC548003A3035 /* CredcardCreateViewController.xib in Resources */,
 				59573C1F21A95BA5007FDCC4 /* UsersViewController.xib in Resources */,
 				59159BFF21A94D5900938AB3 /* LaunchScreen.storyboard in Resources */,
 				59159BFC21A94D5900938AB3 /* Assets.xcassets in Resources */,
 				59573C3B21A97A20007FDCC4 /* TransactionViewController.xib in Resources */,
+				59E9F1EA21AAC0E5003A3035 /* CredcardListViewforFooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,13 +1015,17 @@
 				59573C4B21A9C3D7007FDCC4 /* RoundedUIButton.swift in Sources */,
 				59159BD021A94D5900938AB3 /* infoUIComponents.swift in Sources */,
 				59159BE521A94D5900938AB3 /* Debugger.swift in Sources */,
+				59E9F1E221AAB550003A3035 /* CredcardListCoordinator.swift in Sources */,
 				59573C5C21A9DD6E007FDCC4 /* TransactionManager.swift in Sources */,
 				59159BC121A94D5900938AB3 /* infoBusiness.swift in Sources */,
+				59573C6C21AAB108007FDCC4 /* UIButtonNavbar.swift in Sources */,
 				59573C2321A95D57007FDCC4 /* UsersUIViewCell.swift in Sources */,
 				59573C2D21A9674A007FDCC4 /* UserManager.swift in Sources */,
 				59573C1621A95548007FDCC4 /* UsersViewController.swift in Sources */,
 				59573C3821A979FA007FDCC4 /* TransactionView.swift in Sources */,
 				59159BB421A94D5900938AB3 /* infoStoryboards.swift in Sources */,
+				59E9F1E421AABC05003A3035 /* CredcardDataSource.swift in Sources */,
+				59E9F1F421AAC63A003A3035 /* CredcardCreateCoordinator.swift in Sources */,
 				59159BA521A94D5900938AB3 /* Dynamic.swift in Sources */,
 				59573C3521A979E6007FDCC4 /* TransactionViewController.swift in Sources */,
 				59159BE121A94D5900938AB3 /* infoSupport.swift in Sources */,
@@ -968,6 +1038,7 @@
 				59573C4E21A9CD7B007FDCC4 /* Account.swift in Sources */,
 				59573C6321AA0F4C007FDCC4 /* AccountStore.swift in Sources */,
 				59159BDC21A94D5900938AB3 /* UIColorExtension.swift in Sources */,
+				59E9F1F721AAD2C4003A3035 /* CredcardBusiness.swift in Sources */,
 				59159BB921A94D5900938AB3 /* URLSessionBase.swift in Sources */,
 				59159BBB21A94D5900938AB3 /* UIImageExtension.swift in Sources */,
 				59159BB721A94D5900938AB3 /* Session.swift in Sources */,
@@ -975,17 +1046,22 @@
 				59573C5421A9D44A007FDCC4 /* TransactionProvider.swift in Sources */,
 				59573C3E21A97AAC007FDCC4 /* TransactionCoordinator.swift in Sources */,
 				59159B9821A94D5900938AB3 /* AppDelegate.swift in Sources */,
+				59E9F1FA21AAD35C003A3035 /* CredcardManager.swift in Sources */,
 				59159BB021A94D5900938AB3 /* BaseModelProtocol.swift in Sources */,
 				59159BC521A94D5900938AB3 /* GenericErros.swift in Sources */,
 				59159BE321A94D5900938AB3 /* ImageStore.swift in Sources */,
 				59573C5921A9D731007FDCC4 /* Transaction.swift in Sources */,
 				59573C0E21A953CF007FDCC4 /* Coordinator.swift in Sources */,
 				59573C5621A9D452007FDCC4 /* TransactionProviderProtocol.swift in Sources */,
+				59E9F1F021AAC516003A3035 /* CredcardCreateViewController.swift in Sources */,
+				59E9F1E821AAC0AA003A3035 /* CredcardListViewforFooter.swift in Sources */,
 				59573C3021A967AF007FDCC4 /* UsersBusiness.swift in Sources */,
 				59159BA321A94D5900938AB3 /* Configuring.swift in Sources */,
 				59159BCC21A94D5900938AB3 /* infoProvider.swift in Sources */,
+				59E9F1E621AABC30003A3035 /* CredcardListUIViewCell.swift in Sources */,
 				59159BC821A94D5900938AB3 /* infoManager.swift in Sources */,
 				59573C1C21A9580D007FDCC4 /* User.swift in Sources */,
+				59E9F1EE21AAC504003A3035 /* CredcardCreateView.swift in Sources */,
 				59159BC321A94D5900938AB3 /* infoInfrastructure.swift in Sources */,
 				59573C3221A97339007FDCC4 /* RoundedUIImage.swift in Sources */,
 				59159BD821A94D5900938AB3 /* infoArch.swift in Sources */,

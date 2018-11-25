@@ -20,21 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-vK-OBX">
-                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                    <items>
-                        <navigationItem title="Nova Transação" id="LX4-R6-UrN">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Sv0-Ir-0dt">
-                                <color key="tintColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="dimiss:" destination="-1" id="IiQ-rh-Dsa"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pb-Za-4AK" userLabel="viewContainer">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="5Bn-9M-TTT" userLabel="imgAvatar" customClass="RoundedUIImage" customModule="PicPay" customModuleProvider="target">
                             <rect key="frame" x="16" y="16" width="72" height="72"/>
@@ -118,13 +105,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8pb-Za-4AK" firstAttribute="top" secondItem="PKh-vK-OBX" secondAttribute="bottom" id="7ND-zX-KLe"/>
                 <constraint firstItem="8Px-B7-5CF" firstAttribute="bottom" secondItem="8pb-Za-4AK" secondAttribute="bottom" id="AqQ-dB-WYz"/>
                 <constraint firstItem="8pb-Za-4AK" firstAttribute="leading" secondItem="8Px-B7-5CF" secondAttribute="leading" id="L90-zN-1b9"/>
-                <constraint firstItem="8Px-B7-5CF" firstAttribute="trailing" secondItem="PKh-vK-OBX" secondAttribute="trailing" id="NO5-0D-WNK"/>
                 <constraint firstItem="8Px-B7-5CF" firstAttribute="trailing" secondItem="8pb-Za-4AK" secondAttribute="trailing" id="eTn-XK-8nW"/>
-                <constraint firstItem="PKh-vK-OBX" firstAttribute="leading" secondItem="8Px-B7-5CF" secondAttribute="leading" id="pck-Sm-YDt"/>
-                <constraint firstItem="PKh-vK-OBX" firstAttribute="top" secondItem="8Px-B7-5CF" secondAttribute="top" id="pnz-CF-WWg"/>
+                <constraint firstItem="8pb-Za-4AK" firstAttribute="top" secondItem="8Px-B7-5CF" secondAttribute="top" id="zvP-PC-Xoj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="8Px-B7-5CF"/>
             <connections>

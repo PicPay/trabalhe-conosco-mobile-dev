@@ -84,7 +84,9 @@ extension UsersViewController {
                 wSelf.source.model.content = users
                 wSelf.source.allUsers = users
             case let .failure(error):
-                dd(error)
+                let alert = UIAlertController(title: error.localizedDescription, message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+                wSelf.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -112,7 +114,6 @@ extension UsersViewController {
 
 extension UsersViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Prevent index out of set
         guard indexPath.row < source.model.content.count else { dd("Can't load item from model"); return }
         guard let delegate = delegate else { return }
         

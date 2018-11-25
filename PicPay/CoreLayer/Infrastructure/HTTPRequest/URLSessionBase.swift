@@ -43,6 +43,10 @@ class URLSessionBase {
             //adding parameters to body
             if let bodyParameters = params.bodyParameters {
                 request.httpBody = try JSONSerialization.data(withJSONObject: bodyParameters, options: [])
+                
+                //HTTP Headers for json requests
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
             }
             
             //adding parameters to query string

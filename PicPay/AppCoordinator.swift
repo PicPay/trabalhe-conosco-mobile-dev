@@ -14,9 +14,9 @@ class AppCoordinator: Coordinator {
     let usersCoordinator: UsersCoordinator
     let accountStore: AccountStore
     
-    init(window: UIWindow, account: AccountStore) {
+    init(window: UIWindow) {
         self.window = window
-        self.accountStore = account
+        self.accountStore = AccountStore()
         rootViewController = UINavigationController()
         rootViewController.navigationBar.isUserInteractionEnabled = false
         usersCoordinator = UsersCoordinator(presenter: rootViewController, account: accountStore)

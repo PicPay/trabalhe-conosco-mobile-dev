@@ -14,7 +14,14 @@ public final class CredcardListView: UIView {
     static let storyboardId = "CredcardListView"
 
     // MARK: - Outlets
-    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.register(CredcardListUIViewCell.instanceFromNib(), forCellReuseIdentifier: CredcardListUIViewCell.storyboardId)
+            tableView.estimatedRowHeight = 70
+            tableView.rowHeight = UITableView.automaticDimension
+        }
+    }
+
 }
 
 // MARK: - Functions

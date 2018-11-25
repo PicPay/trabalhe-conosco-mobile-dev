@@ -11,10 +11,15 @@ import Foundation
 public struct Account: BaseModelProtocol {
     let id: Int
     let name: String
-    let cards: [Card]
+    var cards: [Card]
     var activeCard: Card? {
-        let card = cards.filter ({ $0.isActive }).first
+        let card = cards.filter ({ $0.isMainCard }).first
         return card
+    }
+    var isCardsEmpty: Bool? {
+        let qtCards = cards.count
+        
+        return qtCards == 0
     }
     
     enum CodingKeys: String, CodingKey {

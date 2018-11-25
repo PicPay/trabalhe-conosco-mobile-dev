@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CredcardCreateViewController" customModule="PicPay" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="J7F-UL-jwu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CredcardCreateView" customModule="PicPay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gt-FO-60a" userLabel="lblCardNumber">
+                    <rect key="frame" x="16" y="36" width="343" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DZP-wj-Q2W" userLabel="txtCardNumber">
+                    <rect key="frame" x="16" y="70.5" width="343" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="Ztu-kU-mOU"/>
+                    </constraints>
+                    <color key="textColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m6-TL-vAD" userLabel="lblCardValidate">
+                    <rect key="frame" x="16" y="134.5" width="343" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ol-Hr-XRT" userLabel="txtCardValidate">
+                    <rect key="frame" x="16" y="169" width="343" height="32"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poL-Yp-YRx" userLabel="lblCardCvv">
+                    <rect key="frame" x="16" y="233" width="343" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2o-xD-jIV" userLabel="txtCardCvv">
+                    <rect key="frame" x="16" y="267.5" width="343" height="32"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6O-7H-FrT" userLabel="btnRegister" customClass="RoundedUIButton" customModule="PicPay" customModuleProvider="target">
+                    <rect key="frame" x="87.5" y="349.5" width="200" height="40"/>
+                    <color key="backgroundColor" red="0.13725490200000001" green="0.76862745099999996" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="650-vW-lTn"/>
+                        <constraint firstAttribute="width" constant="200" id="v4u-R7-ThE"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnRegisterDidTapped:" destination="-1" eventType="touchUpInside" id="LpI-vU-ZTf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0ol-Hr-XRT" firstAttribute="trailing" secondItem="8m6-TL-vAD" secondAttribute="trailing" id="1Ax-Mt-yiA"/>
+                <constraint firstItem="8m6-TL-vAD" firstAttribute="top" secondItem="DZP-wj-Q2W" secondAttribute="bottom" constant="32" id="3hF-Lo-e9O"/>
+                <constraint firstItem="1gt-FO-60a" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="4Fv-Cc-FHI"/>
+                <constraint firstItem="a6O-7H-FrT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="4lN-PI-H83"/>
+                <constraint firstItem="DZP-wj-Q2W" firstAttribute="leading" secondItem="1gt-FO-60a" secondAttribute="leading" id="8sW-0S-et7"/>
+                <constraint firstItem="DZP-wj-Q2W" firstAttribute="trailing" secondItem="1gt-FO-60a" secondAttribute="trailing" id="BAY-ai-EUq"/>
+                <constraint firstItem="Z2o-xD-jIV" firstAttribute="height" secondItem="0ol-Hr-XRT" secondAttribute="height" id="I9m-A7-Yza"/>
+                <constraint firstItem="0ol-Hr-XRT" firstAttribute="top" secondItem="8m6-TL-vAD" secondAttribute="bottom" constant="8" id="NMo-xw-6Su"/>
+                <constraint firstItem="a6O-7H-FrT" firstAttribute="top" secondItem="Z2o-xD-jIV" secondAttribute="bottom" constant="50" id="PLe-bN-M6D"/>
+                <constraint firstItem="8m6-TL-vAD" firstAttribute="trailing" secondItem="DZP-wj-Q2W" secondAttribute="trailing" id="X4y-Jp-eSO"/>
+                <constraint firstItem="Z2o-xD-jIV" firstAttribute="top" secondItem="poL-Yp-YRx" secondAttribute="bottom" constant="8" id="eSu-jS-x1N"/>
+                <constraint firstItem="1gt-FO-60a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ej9-Ha-JS9"/>
+                <constraint firstItem="0ol-Hr-XRT" firstAttribute="height" secondItem="DZP-wj-Q2W" secondAttribute="height" id="fFs-rY-QMm"/>
+                <constraint firstItem="8m6-TL-vAD" firstAttribute="leading" secondItem="DZP-wj-Q2W" secondAttribute="leading" id="lC6-sV-FhC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1gt-FO-60a" secondAttribute="trailing" constant="16" id="mcl-KY-gB7"/>
+                <constraint firstItem="DZP-wj-Q2W" firstAttribute="top" secondItem="1gt-FO-60a" secondAttribute="bottom" constant="8" id="oy1-w4-zCW"/>
+                <constraint firstItem="poL-Yp-YRx" firstAttribute="leading" secondItem="0ol-Hr-XRT" secondAttribute="leading" id="qrB-To-23B"/>
+                <constraint firstItem="poL-Yp-YRx" firstAttribute="trailing" secondItem="0ol-Hr-XRT" secondAttribute="trailing" id="vW7-Zg-eTc"/>
+                <constraint firstItem="poL-Yp-YRx" firstAttribute="top" secondItem="0ol-Hr-XRT" secondAttribute="bottom" constant="32" id="wd0-uR-29h"/>
+                <constraint firstItem="Z2o-xD-jIV" firstAttribute="leading" secondItem="poL-Yp-YRx" secondAttribute="leading" id="xR6-BU-Php"/>
+                <constraint firstItem="0ol-Hr-XRT" firstAttribute="leading" secondItem="8m6-TL-vAD" secondAttribute="leading" id="xUx-DJ-0FO"/>
+                <constraint firstItem="Z2o-xD-jIV" firstAttribute="trailing" secondItem="poL-Yp-YRx" secondAttribute="trailing" id="ySy-Zv-Cj3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnRegister" destination="a6O-7H-FrT" id="xZ8-kg-3Va"/>
+                <outlet property="lblCardCvv" destination="poL-Yp-YRx" id="z7G-NI-WI2"/>
+                <outlet property="lblCardNumber" destination="1gt-FO-60a" id="ltd-r1-FZt"/>
+                <outlet property="lblCardValidate" destination="8m6-TL-vAD" id="pGF-5V-IEH"/>
+                <outlet property="txtCardCvv" destination="Z2o-xD-jIV" id="Jlx-zc-En3"/>
+                <outlet property="txtCardNumber" destination="DZP-wj-Q2W" id="Ydz-ZC-4vk"/>
+                <outlet property="txtCardValidate" destination="0ol-Hr-XRT" id="3Ch-ty-fRT"/>
+            </connections>
+        </view>
+    </objects>
+</document>

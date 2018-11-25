@@ -36,23 +36,14 @@ public struct Transaction: BaseModelProtocol {
     
     public func toDictionary() -> JSON {
         
-        let validate = extractDateValidateString(from: card.validate)
         let dict: JSON = [
             "card_number": card.number as Any,
             "cvv": card.cvv as Any,
             "value": value as Any,
-            "expiry_date": validate as Any,
+            "expiry_date": card.validate as Any,
             "destination_user_id": user.id as Any
         ]
         
         return dict
-    }
-    
-    fileprivate func extractDateValidateString(from date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/YY"
-        let validate = dateFormatter.string(from: date)
-
-        return validate
     }
 }
