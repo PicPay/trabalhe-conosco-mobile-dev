@@ -72,7 +72,13 @@ extension TransactionViewController: CredcardPaymentViewProtocol {
     public func btnPaymentDidTapped(_ sender: UIButton) {
         guard let value = mainView.txtValue.text else { return }
         guard let user = user else { return }
-        guard let card = accountStorage?.account.activeCard else { return }
+        guard let card = accountStorage?.account.activeCard else {
+            let alert = UIAlertController(title: "Cadastre pelo menos um cartão antes de fazer o pagamento", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+
+            return
+        }
         
         let transaction = Transaction(
             value: Float(value) ?? 0,

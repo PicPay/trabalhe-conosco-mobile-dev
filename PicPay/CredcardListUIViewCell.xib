@@ -22,17 +22,17 @@
                         <rect key="frame" x="8" y="4" width="382" height="54.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-f8-fmg" userLabel="lblCardNumber">
-                                <rect key="frame" x="8" y="8" width="308" height="21"/>
+                                <rect key="frame" x="8" y="8" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-9G-cSl" userLabel="lblIsMainCard">
-                                <rect key="frame" x="332" y="10" width="42" height="17"/>
+                                <rect key="frame" x="314" y="8.5" width="60" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="4Xg-LE-8Vl"/>
+                                    <constraint firstAttribute="width" constant="60" id="4Xg-LE-8Vl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

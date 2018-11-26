@@ -23,7 +23,7 @@ public final class UsersViewController: UIViewController {
     fileprivate var source: UserDataSource = UserDataSource()
     fileprivate var manager: UsersManager = UsersManager()
     fileprivate let search = UISearchController(searchResultsController: nil)
-
+    
     // MARK: - Computed
     fileprivate var mainView: UsersView {
         guard let _view = view as? UsersView else { preconditionFailure("Please, create the mainview to manager outlets.") }
@@ -70,8 +70,11 @@ extension UsersViewController {
     }
     
     fileprivate func fetch() {
+        mainView.activityIndicator.startAnimating()
+        
         manager.fetch { [weak self] result in
             guard let wSelf = self else { return }
+            wSelf.mainView.activityIndicator.stopAnimating()
             
             switch result {
             case let .success(users):

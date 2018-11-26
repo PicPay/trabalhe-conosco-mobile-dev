@@ -12,6 +12,7 @@ public final class UsersView: UIView {
     
     // MARK: - Properties
     static let storyboardId = "UsersView"
+    public let activityIndicator = UIActivityIndicatorView(style: .gray)
 
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView! {
@@ -21,10 +22,17 @@ public final class UsersView: UIView {
             tableView.rowHeight = UITableView.automaticDimension
         }
     }
+    
+    public override func awakeFromNib() {
+        setUp()
+    }
 }
 
 // MARK: - Functions
 
 extension UsersView {
-    // Make your functions here
+    fileprivate func setUp() {
+        addSubview(activityIndicator)
+        activityIndicator.frame = bounds
+    }
 }

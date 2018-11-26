@@ -57,9 +57,11 @@ extension CredcardCreateViewController {
             cvv: Int(cardCvv) ?? 0,
             isMainCard: true)
         
+        mainView.activityIndicator.startAnimating()
         manager.register(card: card, with: accountStorage) { [weak self] result in
             guard let wSelf = self else { return }
-            
+            wSelf.mainView.activityIndicator.stopAnimating()
+
             switch result {
             case .success:
                 let alert = UIAlertController(title: "Cartão registrado com sucesso!", message: "", preferredStyle: .alert)

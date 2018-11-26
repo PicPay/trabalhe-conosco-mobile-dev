@@ -12,6 +12,7 @@ public final class CredcardCreateView: UIView {
     
     // MARK: - Properties
     static let storyboardId = "CredcardCreateView"
+    public let activityIndicator = UIActivityIndicatorView(style: .gray)
 
     // MARK: - Outlets
     @IBOutlet weak var lblCardNumber: UILabel!
@@ -32,6 +33,9 @@ public final class CredcardCreateView: UIView {
 
 extension CredcardCreateView {
     fileprivate func setUp() {
+        addSubview(activityIndicator)
+        activityIndicator.frame = bounds
+
         lblCardNumber.text = "Número do cartão"
         txtCardNumber.placeholder = "Informe o número do cartão"
         lblCardValidate.text = "Validate do cartão"
