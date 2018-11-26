@@ -2,13 +2,17 @@
 
 # Teste Mobile
 
-O teste pode ser feito para iOS ou Android e é uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
+O teste consiste em se desenvolver um app nativo iOS ou Android, dessa forma, deverá ser implementado em Swift, Kotlin, Objective-C ou Java. É uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
 
-Você deve fazer um ***Fork*** deste repositório e soliciar um ***Pull Request***, **com seu nome na descrição**, para nossa avaliação.
-
-O seu usuário deverá escolher uma pessoa em uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se ele não possuir cartão de crédito cadastrado, deverá informar o dados do cartão (número do cartão, data de validade e CVV, além do id do usuário de destino) antes de finalizar o pagamento.
+O usuário deverá escolher um contato de uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se não houver cartão de créditos cadastrado, deverá informá-lo também (número do cartão, data de validade e o CVV) antes de finalizar o pagamento.
 
 Os cartões devem ser persistidos no aplicativo para serem usados em pagamentos futuros.
+
+Devem ser usadas boas práticas de programação, assim como padrões de projeto e Arquitetura.
+
+O layout está disponível em:
+Android - https://goo.gl/M5RFzY
+iOS - https://goo.gl/yi5AG7
 
 -----
 ###### Lista de usuários
