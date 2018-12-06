@@ -1,4 +1,4 @@
-package test.edney.picpay.api.model
+package test.edney.picpay.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
