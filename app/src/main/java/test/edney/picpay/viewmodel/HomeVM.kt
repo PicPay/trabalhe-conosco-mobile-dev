@@ -8,7 +8,7 @@ import retrofit2.Response
 import test.edney.picpay.api.ApiClient
 import test.edney.picpay.model.UserModel
 
-class HomeViewModel : ViewModel() {
+class HomeVM : ViewModel() {
 
     private val api = ApiClient().getRequests()
     val userResponse = MutableLiveData<List<UserModel>>()

@@ -1,4 +1,4 @@
-package test.edney.picpay.custom
+package test.edney.picpay.view
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

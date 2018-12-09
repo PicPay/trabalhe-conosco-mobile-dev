@@ -5,6 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "card")
 class CardEntity {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null
+    @PrimaryKey(autoGenerate = false)
+    var id: Int = 0
+    var number: String? = null
+    var name: String? = null
+    var expiration: String? = null
+    var cvv: String? = null
 }

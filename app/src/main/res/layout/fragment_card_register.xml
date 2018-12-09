@@ -35,6 +35,7 @@
                 android:layout_marginTop="40dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Número do cartão"/>
@@ -47,6 +48,7 @@
                 android:layout_marginTop="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nome do titular"/>
@@ -69,6 +71,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_expiration"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Vencimento"/>
@@ -87,6 +90,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_cvv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="CVV"/>
