@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable
+            name="user"
+            type="test.edney.picpay.model.UserModel"/>
         <variable
             name="ui"
             type="test.edney.picpay.view.payment.PaymentUI"/>
@@ -24,7 +27,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/avatar"/>
+                app:imageUrl="@{user.img}"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,7 +37,7 @@
                 android:ellipsize="end"
                 android:textSize="16sp"
                 android:textColor="@color/colorWhite"
-                android:text="julia"/>
+                android:text="@{user.username}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +84,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
-                    android:text=" EDITAR"/>
+                    android:text=" EDITAR"
+                    android:onClick="@{()-> ui.actionEditCard()}"/>
 
             </LinearLayout>
 

@@ -12,11 +12,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import test.edney.picpay.R
 import test.edney.picpay.custom.ReceiptDialog
 import test.edney.picpay.databinding.ActivityMainBinding
 import test.edney.picpay.model.UserModel
 import test.edney.picpay.view.card.CardActivity
+import test.edney.picpay.view.payment.PaymentActivity
 import test.edney.picpay.viewmodel.HomeVM
 
 
@@ -69,7 +71,15 @@ class HomeActivity : AppCompatActivity() {
     private fun configureListOfUser(){
         mUserAdapter = UserAdapter(object : UserAdapterListener{
             override fun onItemClick(user: UserModel) {
-                startActivity(Intent(this@HomeActivity, CardActivity::class.java))
+                if(!viewmodel.hasCard)
+                    startActivity(Intent(this@HomeActivity, CardActivity::class.java))
+                else {
+                    val gson = Gson()
+                    val intent = Intent(this@HomeActivity, PaymentActivity::class.java)
+
+                    intent.putExtra("user", gson.toJson(user))
+                    startActivity(intent)
+                }
             }
         })
         binding.rvUser.setHasFixedSize(true)
