@@ -7,14 +7,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import test.edney.picpay.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
+import test.edney.picpay.databinding.DialogReceiptBinding
+import test.edney.picpay.model.ReceiptModel
 
 class ReceiptDialog : BottomSheetDialogFragment() {
 
+    private lateinit var binding: DialogReceiptBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_receipt, container, false)
+
+        binding = DialogReceiptBinding.inflate(inflater, container, false)
+        if(arguments != null) {
+            val gson = Gson()
+            val jsonString = arguments?.getString("transaction")
+
+            if(jsonString != null){
+                val modelData = gson.fromJson(jsonString, ReceiptModel::class.java)
+
+                binding.model = modelData
+            }
+        }
+
+        return binding.root
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

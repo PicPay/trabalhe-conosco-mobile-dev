@@ -12,6 +12,7 @@ import test.edney.picpay.view.card.CardIntroUI
 class CardIntroFragment : Fragment() {
 
     private lateinit var binding: FragmentCardIntroBinding
+    private var userJson: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -23,17 +24,31 @@ class CardIntroFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        loadArgs()
         ui()
     }
 
     private fun ui(){
         binding.ui = object : CardIntroUI{
             override fun actionRegister() {
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.card_frame, CardRegisterFragment())
-                    ?.commit()
+                val fragment = CardRegisterFragment()
+                val args = Bundle()
+
+                if(userJson != null){
+                    args.putString("user", userJson)
+                    fragment.arguments = args
+
+                    activity?.supportFragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.card_frame, fragment)
+                        ?.commit()
+                }
             }
         }
+    }
+
+    private fun loadArgs(){
+        if(arguments != null)
+            userJson = arguments?.getString("user")
     }
 }

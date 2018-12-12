@@ -3,7 +3,7 @@ package test.edney.picpay.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class PaymentModel {
+class PaymentRequestModel {
     @SerializedName("card_number")
     @Expose
     var cardNumber: String? = null

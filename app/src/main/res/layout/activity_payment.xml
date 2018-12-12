@@ -55,13 +55,14 @@
                     android:text="R$"/>
 
                 <TextView
+                    android:id="@+id/tv_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_gravity="center"
                     android:textSize="46dp"
                     android:textColor="#64FFFFFF"
-                    android:text="0,00"/>
+                    android:text="34.00"/>
 
             </LinearLayout>
 
@@ -73,6 +74,7 @@
                 android:layout_marginTop="30dp">
 
                 <TextView
+                    android:id="@+id/tv_card_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"

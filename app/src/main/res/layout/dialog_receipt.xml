@@ -1,153 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/receipt_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="test.edney.picpay.model.ReceiptModel"/>
+    </data>
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/receipt_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="110dp"
-        android:orientation="vertical">
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="7dp"
-            android:paddingBottom="10dp"
-            android:background="@color/colorPrimaryDark">
-
-            <View
-                android:layout_width="40dp"
-                android:layout_height="3dp"
-                android:layout_gravity="center"
-                android:background="@drawable/receipt_card_marker"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textAlignment="center"
-                android:text="Recibo"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:paddingBottom="110dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:src="@drawable/avatar"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="Zelda.wilians"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:textColor="#BBFFFFFF"
-                android:textSize="14sp"
-                android:text="15/09/2018 às 16:34"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:textColor="#64FFFFFF"
-                android:textSize="12sp"
-                android:text="Transacao: 5263624"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/receipt_card_marker"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingTop="7dp"
+                android:paddingBottom="10dp"
+                android:background="@color/colorPrimaryDark">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/receipt_card_marker"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textStart"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
                     android:textStyle="bold"
-                    android:text="Cartão Master 1234"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:text="R$ 15,50"/>
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:text="Recibo"/>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/receipt_card_marker"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:imageUrl="@{model.img}"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textStart"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="Total pago"/>
+                    android:text="@{model.userName}"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#BBFFFFFF"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:text="R$ 15,50"/>
+                    android:text="@{model.timestamp}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"
+                    android:textColor="#64FFFFFF"
+                    android:textSize="12sp"
+                    android:text="@{model.id}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/receipt_card_marker"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:text="@{model.card}"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:text="@{model.value}"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/receipt_card_marker"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:text="Total pago"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:text="@{model.value}"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

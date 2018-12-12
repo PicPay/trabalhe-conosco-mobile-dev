@@ -3,6 +3,7 @@ package test.edney.picpay.view.card
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import test.edney.picpay.R
 import test.edney.picpay.databinding.ActivityCardBinding
@@ -34,6 +35,26 @@ class CardActivity : AppCompatActivity() {
     }
 
     fun configureFragment(){
-        supportFragmentManager.beginTransaction().replace(R.id.card_frame, CardIntroFragment()).commit()
+        val userJson = intent.getStringExtra("user")
+        val fragmentType = intent.getStringExtra("fragment_type")
+
+        if(userJson != null && fragmentType != null){
+            val args = Bundle()
+
+            args.putString("user", userJson)
+
+            if(fragmentType == "intro")
+                selectFragment(CardIntroFragment(), args)
+            else
+                selectFragment(CardRegisterFragment(), args)
+        }
+        else
+            selectFragment(CardIntroFragment(), null)
+    }
+
+    private fun selectFragment(fragment: Fragment, args: Bundle?){
+        if(args != null)
+            fragment.arguments = args
+        supportFragmentManager.beginTransaction().replace(R.id.card_frame, fragment).commit()
     }
 }

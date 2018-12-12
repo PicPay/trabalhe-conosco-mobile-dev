@@ -13,14 +13,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import org.json.JSONObject
 import test.edney.picpay.R
 import test.edney.picpay.custom.ReceiptDialog
 import test.edney.picpay.databinding.ActivityMainBinding
+import test.edney.picpay.model.PaymentResponseModel
+import test.edney.picpay.model.ReceiptModel
+import test.edney.picpay.model.TransactionModel
 import test.edney.picpay.model.UserModel
 import test.edney.picpay.view.card.CardActivity
 import test.edney.picpay.view.payment.PaymentActivity
 import test.edney.picpay.viewmodel.HomeVM
-
 
 class HomeActivity : AppCompatActivity() {
 
@@ -61,21 +64,45 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showReceipt(){
-        val args = intent.getStringExtra("receipt_name")
+        val args = intent.getStringExtra("transaction")
 
         if (args != null) {
-            Handler().postDelayed({ ReceiptDialog().show(supportFragmentManager, "receipt_dialog") }, receiptDelay)
+            val dialog = ReceiptDialog()
+            val argsToDialog = Bundle()
+            val gson = Gson()
+            val payment = gson.fromJson(args, PaymentResponseModel::class.java)
+            val receipt = ReceiptModel()
+
+            //TODO
+            receipt.id = payment.transaction?.id.toString()
+            receipt.card = "112122" //TODO CARTAO
+            receipt.img = payment.transaction?.destinationUser?.img
+            receipt.status = payment.transaction?.status
+            receipt.timestamp = payment.transaction?.timestamp.toString()
+            receipt.value = payment.transaction?.value.toString()
+            receipt.userName = payment.transaction?.destinationUser?.username
+            argsToDialog.putString("transaction", gson.toJson(receipt))
+            dialog.arguments = argsToDialog
+
+            Handler().postDelayed({ dialog.show(supportFragmentManager, "receipt_dialog") }, receiptDelay)
         }
     }
 
     private fun configureListOfUser(){
         mUserAdapter = UserAdapter(object : UserAdapterListener{
             override fun onItemClick(user: UserModel) {
-                if(!viewmodel.hasCard)
-                    startActivity(Intent(this@HomeActivity, CardActivity::class.java))
+                val gson = Gson()
+                val intent: Intent
+
+                if(!viewmodel.hasCard) {
+                    intent = Intent(this@HomeActivity, CardActivity::class.java)
+
+                    intent.putExtra("fragment_type", "intro")
+                    intent.putExtra("user", gson.toJson(user))
+                    startActivity(intent)
+                }
                 else {
-                    val gson = Gson()
-                    val intent = Intent(this@HomeActivity, PaymentActivity::class.java)
+                    intent = Intent(this@HomeActivity, PaymentActivity::class.java)
 
                     intent.putExtra("user", gson.toJson(user))
                     startActivity(intent)
