@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import test.edney.picpay.database.CardEntity
@@ -29,6 +30,8 @@ class CardRegisterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
         loadArgs()
         viewmodel()
         ui()
@@ -50,6 +53,9 @@ class CardRegisterFragment : Fragment() {
 
     private fun ui(){
         binding.ui = object : CardRegisterUI{
+            override fun actionBack() {
+                activity?.finish()
+            }
             override fun actionSave() {
                 val card = CardEntity()
                 val intent = Intent(activity, PaymentActivity::class.java)

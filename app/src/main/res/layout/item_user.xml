@@ -21,7 +21,7 @@
             android:adjustViewBounds="true"
             android:layout_gravity="center"
             android:contentDescription="@null"
-            app:imageUrl="@{model.img}"/>
+            imageUrl="@{model.img}"/>
 
         <LinearLayout
             android:layout_width="0dp"

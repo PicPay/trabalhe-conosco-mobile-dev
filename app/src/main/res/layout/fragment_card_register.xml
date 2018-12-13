@@ -1,119 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="ui"
             type="test.edney.picpay.view.card.fragment.CardRegisterUI"/>
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        style="@style/LayoutStyle"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+    <LinearLayout
         android:orientation="vertical"
-        tools:context=".view.card.fragment.CardRegisterFragment">
+        style="@style/LayoutStyle">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ImageButton
+            app:srcCompat="@drawable/ic_back"
+            android:contentDescription="@null"
+            android:onClick="@{()-> ui.actionBack()}"
+            style="@style/BackButton"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorWhite"
-                android:text="Cadastrar cartão"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Número do cartão"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nome do titular"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
+        <RelativeLayout style="@style/InternalLayout">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:text="@string/s_card_register_text_title"
+                    style="@style/TextTitle"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="40dp"
+                    style="@style/EditLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_number"
+                        android:hint="@string/s_card_register_hint_number"
+                        style="@style/EditText"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="20dp"
+                    style="@style/EditLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_name"
+                        android:hint="@string/s_card_register_hint_name"
+                        style="@style/EditText"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_expiration"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Vencimento"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/EditLayout">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/tv_expiration"
+                                android:hint="@string/s_card_register_hint_expiration"
+                                style="@style/EditText"/>
 
-                </LinearLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_cvv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="CVV"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/EditLayout">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/tv_cvv"
+                                android:hint="@string/s_card_register_hint_cvv"
+                                style="@style/EditText"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <Button
+                android:text="@string/s_card_register_label_save"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{()-> ui.actionSave()}"
+                style="@style/ActionButton"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/primary_button"
-            android:foreground="?android:selectableItemBackground"
-            android:text="Salvar"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:layout_gravity="bottom"
-            android:onClick="@{()-> ui.actionSave()}"/>
+        </RelativeLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+    </LinearLayout>
 </layout>

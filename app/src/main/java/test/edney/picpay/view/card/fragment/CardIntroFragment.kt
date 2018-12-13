@@ -30,6 +30,9 @@ class CardIntroFragment : Fragment() {
 
     private fun ui(){
         binding.ui = object : CardIntroUI{
+            override fun actionBack() {
+                activity?.finish()
+            }
             override fun actionRegister() {
                 val fragment = CardRegisterFragment()
                 val args = Bundle()

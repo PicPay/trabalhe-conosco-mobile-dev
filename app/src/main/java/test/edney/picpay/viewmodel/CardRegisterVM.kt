@@ -1,9 +1,9 @@
 package test.edney.picpay.viewmodel
 
 import android.app.Application
+import android.os.AsyncTask
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import io.fabric.sdk.android.services.concurrency.AsyncTask
 import test.edney.picpay.database.AppDatabase
 import test.edney.picpay.database.CardEntity
 

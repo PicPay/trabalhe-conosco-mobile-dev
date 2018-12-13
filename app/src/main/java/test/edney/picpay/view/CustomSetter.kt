@@ -8,7 +8,7 @@ import test.edney.picpay.R
 
 object CustomSetter {
     @JvmStatic
-    @BindingAdapter("app:imageUrl")
+    @BindingAdapter("imageUrl")
     fun loadImage(view: ImageView, url: String) {
         Glide.with(view.context)
             .load(url)

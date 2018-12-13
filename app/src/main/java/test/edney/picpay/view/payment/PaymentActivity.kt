@@ -1,8 +1,11 @@
 package test.edney.picpay.view.payment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -31,6 +34,8 @@ class PaymentActivity : AppCompatActivity() {
         loadArguments()
         viewmodel()
         ui()
+
+        //hideKeyboard()
     }
 
     private fun viewmodel(){
@@ -57,6 +62,9 @@ class PaymentActivity : AppCompatActivity() {
 
     private fun ui(){
         binding.ui = object : PaymentUI{
+            override fun actionBack() {
+                finish()
+            }
             override fun actionEditCard() {
                 val intent = Intent(this@PaymentActivity, CardActivity::class.java)
 
@@ -90,5 +98,9 @@ class PaymentActivity : AppCompatActivity() {
             if(userM != null)
                 binding.user = userM
         }
+    }
+
+    private fun hideKeyboard() {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 }

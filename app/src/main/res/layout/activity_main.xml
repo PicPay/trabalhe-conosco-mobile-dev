@@ -9,44 +9,41 @@
         tools:context=".view.home.HomeActivity">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:text="Contatos"/>
+            android:text="@string/s_main_label_contato"
+            style="@style/TextTitle"/>
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="80dp"
             app:elevation="0dp"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:background="@color/colorPrimary"
+                android:paddingTop="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="10dp"
+                android:focusableInTouchMode="true"
                 app:layout_scrollFlags="scroll">
 
                 <EditText
                     android:id="@+id/et_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
-                    android:hint="A quem você deseja pagar?"
+                    android:hint="@string/s_main_hint_search"
                     android:textColorHint="#97FFFFFF"
-                    android:background="@drawable/edittext"/>
+                    android:background="@drawable/edittext"
+                    android:inputType="text"/>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

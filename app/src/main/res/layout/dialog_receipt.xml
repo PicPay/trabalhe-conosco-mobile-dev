@@ -55,7 +55,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    app:imageUrl="@{model.img}"/>
+                    imageUrl="@{model.img}"/>
 
                 <TextView
                     android:layout_width="match_parent"

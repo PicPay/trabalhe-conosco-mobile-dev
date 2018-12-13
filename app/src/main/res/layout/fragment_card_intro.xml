@@ -1,63 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable
-            name="ui"
-            type="test.edney.picpay.view.card.CardIntroUI"/>
+        <variable name="ui" type="test.edney.picpay.view.card.CardIntroUI"/>
     </data>
 
-    <RelativeLayout
-        style="@style/LayoutStyle"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        tools:context=".view.card.fragment.CardIntroFragment"
-        android:orientation="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/LayoutStyle">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ImageButton
+            app:srcCompat="@drawable/ic_back"
+            android:contentDescription="@null"
+            android:onClick="@{()-> ui.actionBack()}"
+            style="@style/BackButton"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/ic_credit_card"/>
+        <RelativeLayout
+            style="@style/InternalLayout">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorWhite"
-                android:gravity="center"
-                android:text="Cadastre um cartão de crédito"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textColor="#CCFFFFFF"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:text="Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_credit_card"/>
 
-        </LinearLayout>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/s_card_intro_text_title"
+                    style="@style/TextTitle"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/primary_button"
-            android:foreground="?android:selectableItemBackground"
-            android:text="Cadastrar cartão"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:layout_alignParentBottom="true"
-            android:onClick="@{()-> ui.actionRegister()}"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="@string/s_card_intro_text"/>
 
-    </RelativeLayout>
+            </LinearLayout>
 
+            <Button
+                android:text="@string/s_card_intro_label_register"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{()-> ui.actionRegister()}"
+                style="@style/ActionButton"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </layout>
