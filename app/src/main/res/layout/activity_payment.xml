@@ -60,19 +60,20 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textSize="20sp"
-                        android:textColor="#64FFFFFF"
-                        android:text="R$"/>
+                        android:textColor="@color/colorText"
+                        android:text="@string/s_currency"/>
 
                     <EditText
-                        android:id="@+id/tv_value"
+                        android:id="@+id/ed_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:textSize="46sp"
-                        android:textColor="#64FFFFFF"
-                        android:text="34.00"/>
+                        android:text="@string/s_payment_default_value"
+                        android:textColor="@color/colorText"
+                        android:inputType="numberDecimal"/>
 
                 </LinearLayout>
 
@@ -88,15 +89,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:textColor="@color/colorWhite"
-                        android:text="Mastercard 1234 *"/>
+                        android:textColor="@color/colorWhite"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:textColor="@color/colorAccent"
-                        android:text=" EDITAR"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/s_payment_label_edit"
+                        android:textAllCaps="true"
                         android:onClick="@{()-> ui.actionEditCard()}"/>
 
                 </LinearLayout>
@@ -104,7 +106,8 @@
             </LinearLayout>
 
             <Button
-                android:text="Pagar"
+                android:id="@+id/bt_pay"
+                android:text="@string/s_payment_label_pay"
                 android:layout_alignParentBottom="true"
                 android:onClick="@{()-> ui.actionPay()}"
                 style="@style/ActionButton"/>

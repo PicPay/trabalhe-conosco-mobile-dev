@@ -1,68 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+      <data>
+            <variable name="ui" type="test.edney.picpay.view.home.HomeUI"/>
+      </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        style="@style/LayoutStyle"
-        tools:context=".view.home.HomeActivity">
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+              style="@style/LayoutStyle"
+              tools:context=".view.home.HomeActivity">
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/s_main_label_contato"
-            style="@style/TextTitle"/>
+            <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/s_main_label_contato"
+                    style="@style/TextTitle"/>
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            app:elevation="0dp"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:focusableInTouchMode="true"
-                app:layout_scrollFlags="scroll">
-
-                <EditText
-                    android:id="@+id/et_search"
+            <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:hint="@string/s_main_hint_search"
-                    android:textColorHint="#97FFFFFF"
-                    android:background="@drawable/edittext"
-                    android:inputType="text"/>
+                    android:layout_marginTop="80dp"
+                    app:elevation="0dp"
+                    android:theme="@style/AppTheme.AppBarOverlay">
 
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
+                  <com.google.android.material.appbar.CollapsingToolbarLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:paddingTop="10dp"
+                          android:paddingStart="15dp"
+                          android:paddingEnd="15dp"
+                          android:paddingBottom="10dp"
+                          app:layout_scrollFlags="scroll">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                        <RelativeLayout
+                                android:id="@+id/rl_search"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="15dp"
+                                android:focusableInTouchMode="true"
+                                android:background="@drawable/edittext">
 
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+                              <LinearLayout
+                                      android:id="@+id/ll_search"
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:animateLayoutChanges="true"
+                                      android:layout_centerHorizontal="true"
+                                      android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:scrollbars="none"
-            android:visibility="gone"/>
+                                    <ImageView
+                                            android:id="@+id/iv_search"
+                                            android:layout_width="28dp"
+                                            android:layout_height="28dp"
+                                            android:layout_marginEnd="5dp"
+                                            android:contentDescription="@null"
+                                            android:layout_gravity="center"
+                                            android:tint="#97FFFFFF"
+                                            app:srcCompat="@drawable/ic_search"/>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                                    <test.edney.picpay.custom.CustomEditText
+                                            android:id="@+id/et_search"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@android:color/transparent"
+                                            android:layout_gravity="center"
+                                            android:textSize="14sp"
+                                            android:hint="@string/s_main_hint_search"
+                                            android:textColorHint="#97FFFFFF"
+                                            android:inputType="text"/>
+
+                                    <ImageView
+                                            android:id="@+id/iv_search_close"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:tint="@color/colorWhite"
+                                            android:contentDescription="@null"
+                                            android:layout_gravity="center"
+                                            app:srcCompat="@drawable/ic_close"
+                                            android:onClick="@{()-> ui.actionCloseSearch()}"
+                                            android:visibility="gone"/>
+
+                              </LinearLayout>
+
+                        </RelativeLayout>
+
+                  </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:scrollbars="none"
+                    android:layoutAnimation="@anim/layout_anim"
+                    android:visibility="gone"/>
+
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

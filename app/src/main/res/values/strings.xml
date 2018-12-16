@@ -4,6 +4,7 @@
     <!--MAIN-->
     <string name="s_main_label_contato">Contato</string>
     <string name="s_main_hint_search">A quem você deseja pagar?</string>
+    <string name="s_main_message_no_user">Falha ao coletar usuários</string>
 
     <!--CARD-->
     <string name="s_card_intro_text_title">Cadastre um cartão de crédito</string>
@@ -15,5 +16,15 @@
     <string name="s_card_register_hint_name">Nome do titular</string>
     <string name="s_card_register_hint_expiration">Vencimento</string>
     <string name="s_card_register_hint_cvv">CVV</string>
+    
+    <!--PAYMENT-->
+    <string name="s_currency">R$</string>
+    <string name="s_payment_default_value">0,00</string>
+    <string name="s_payment_label_pay">Pagar</string>
+    <string name="s_payment_label_edit">Editar</string>
+    
+    <!--RECEIPT-->
+    <string name="s_recepit_title">Recibo</string>
+    <string name="s_receipt_label_payed">Total pago</string>
 
 </resources>

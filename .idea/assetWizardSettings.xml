@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/edney/Softwares/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_navigate_before_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/edney/Softwares/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_close_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_navigate" />
+                            <entry key="outputName" value="ic_close" />
                             <entry key="sourceFile" value="$USER_HOME$/Downloads/credit-card.svg" />
                           </map>
                         </option>
