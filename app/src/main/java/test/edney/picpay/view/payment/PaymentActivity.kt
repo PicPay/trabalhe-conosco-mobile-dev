@@ -2,8 +2,11 @@ package test.edney.picpay.view.payment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
-import android.view.KeyEvent
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -19,7 +22,6 @@ import test.edney.picpay.util.MyLog
 import test.edney.picpay.view.card.CardActivity
 import test.edney.picpay.view.home.HomeActivity
 import test.edney.picpay.viewmodel.PaymentVM;
-import java.lang.StringBuilder
 
 class PaymentActivity : AppCompatActivity() {
 
@@ -28,8 +30,8 @@ class PaymentActivity : AppCompatActivity() {
       private lateinit var viewmodel: PaymentVM
       private val hasValue = MutableLiveData<Boolean>()
       private var userJson: String? = null
-      private var auxValue = mutableListOf<Int>()
-      private var valueCount = 0
+      private val loading = MutableLiveData<Boolean>()
+      private val requestDelay = 1000L
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -40,14 +42,20 @@ class PaymentActivity : AppCompatActivity() {
             ui()
 
             observeValue()
+            observeLoading()
       }
 
       private fun viewmodel() {
             viewmodel = ViewModelProviders.of(this).get(PaymentVM::class.java)
 
             viewmodel.cardSave.observe(this, Observer {
-                  if (it != null) {
-                        binding.tvCardNumber.text = it.number
+                  if (it?.number != null){
+                        val cardNumber = it.number
+
+                        if(cardNumber != null) {
+                              val toShow = "Master ${cardNumber.substring(0, 4)} •"
+                              binding.tvCardNumber.text = toShow
+                        }
                   }
             })
 
@@ -56,10 +64,13 @@ class PaymentActivity : AppCompatActivity() {
                         val intent = Intent(this@PaymentActivity, HomeActivity::class.java)
                         val gson = Gson()
 
+                        binding.progress.visibility = View.GONE
                         intent.putExtra("transaction", gson.toJson(it))
                         startActivity(intent)
-                  } else
+                  } else {
+                        loading.value = false
                         Log.d("Payment", "falha")
+                  }
             })
       }
 
@@ -87,7 +98,11 @@ class PaymentActivity : AppCompatActivity() {
 
                               if (userJsonO.has("id") && !userJsonO.isNull("id")) {
                                     val userId: Int = userJsonO.getInt("id")
-                                    viewmodel.requestPayment(getPaymentValue(), userId)
+
+                                    loading.value = true
+                                    Handler().postDelayed({
+                                          viewmodel.requestPayment(getPaymentValue(), userId)
+                                    }, requestDelay)
                               } else
                                     Log.d("Payment", "falha JSON => " + userJsonO.toString())
                         }
@@ -95,43 +110,56 @@ class PaymentActivity : AppCompatActivity() {
             }
       }
 
-      private fun observeValue() {
-            hasValue.value = false
-            binding.edValue.setOnKeyListener { v, keyCode, event ->
-                  var result = false
-                  // 0.000.000,00
-                  log.showD("observeValue", "keyCode", keyCode)
-                  if(keyCode in 7..16 && event.action == KeyEvent.ACTION_DOWN){
-                        val number = keyCode - 7
-                        val formated = StringBuilder("0,00")
-
-                        log.showD("observeValue", "number", number)
-                        result = true
-                        if(auxValue.size <= 4){
-                              var count = formated.length - 1
-
-                              auxValue.add(number)
-                              for(i in 0 until  auxValue.size){
-                                    log.showD("observe","i", i)
-                                    if(count != 2) {
-                                          formated.setCharAt(count, number.toString()[0])
-                                          count--
-                                    }
-                                    else {
-                                          count--
-                                          formated.setCharAt(count, number.toString()[0])
-                                    }
-                              }
+      private fun observeLoading(){
+            loading.value = false
+            loading.observe(this, Observer {
+                  if(it != null){
+                        if(it) {
+                              binding.progress.visibility = View.VISIBLE
+                              binding.btPay.visibility = View.GONE
                         }
+                        else{
+                              binding.btPay.visibility = View.VISIBLE
+                              binding.progress.visibility = View.GONE
+                        }
+                  }
+            })
+      }
 
-                        log.showD("observeValue", "formated",  formated)
-                        binding.edValue.setText(formated)
+      private fun observeValue() {
+            binding.edValue.addTextChangedListener(object : TextWatcher{
+                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                  override fun afterTextChanged(s: Editable?) {
+                        val text = s?.toString()
+
+                        if(text != null ){
+                              val noPeriod = text.replace(".","")
+                              val noComma = noPeriod.replace(",", "")
+                              val clean = noComma.toInt().toString()
+                              var formated = if(clean.length == 1) "0,0" else if(clean.length == 2) "0" else ""
+
+                              hasValue.value = noComma.toInt() > 0
+                              binding.edValue.removeTextChangedListener(this)
+                              for (i in 0 until clean.length){
+                                    if((clean.length - 2) == i)
+                                          formated += ","
+
+                                    formated += clean[i]
+
+                                    if((clean.length - 6) == i)
+                                          formated += "."
+                              }
+
+                              binding.edValue.setText(formated)
+                              binding.edValue.setSelection(formated.length)
+                              binding.edValue.addTextChangedListener(this)
+                        }
+                        else
+                              hasValue.value = false
                   }
-                  else if(keyCode == KeyEvent.KEYCODE_DEL){
-                        result = true
-                  }
-                  true
-            }
+            })
+            hasValue.value = false
             hasValue.observe(this, Observer {
                   if (it != null) {
                         if (it) {
@@ -161,12 +189,11 @@ class PaymentActivity : AppCompatActivity() {
 
       private fun getPaymentValue(): Double{
             val text = binding.edValue.text.toString()
-            val replaced = text.replace(",", ".")
+            val noPeriod = text.replace(".", "")
+            val replaced = noPeriod.replace(",", ".")
 
             return replaced.toDouble()
       }
 
-      private fun findColor(id: Int): Int {
-            return ContextCompat.getColor(this, id);
-      }
+      private fun findColor(id: Int): Int { return ContextCompat.getColor(this, id) }
 }

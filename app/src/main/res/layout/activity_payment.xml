@@ -72,6 +72,7 @@
                         android:background="@null"
                         android:textSize="46sp"
                         android:text="@string/s_payment_default_value"
+                        android:maxLength="9"
                         android:textColor="@color/colorText"
                         android:inputType="numberDecimal"/>
 
@@ -99,16 +100,26 @@
                         android:layout_marginStart="10dp"
                         android:text="@string/s_payment_label_edit"
                         android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:onClick="@{()-> ui.actionEditCard()}"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+
             <Button
                 android:id="@+id/bt_pay"
                 android:text="@string/s_payment_label_pay"
                 android:layout_alignParentBottom="true"
+                android:visibility="visible"
                 android:onClick="@{()-> ui.actionPay()}"
                 style="@style/ActionButton"/>
 
