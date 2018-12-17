@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.MainActivity"
+        android:orientation="vertical"
+        android:id="@+id/rootView"
+        android:background="#000">
+
+    <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="@string/text_search"
+            android:drawableStart="@drawable/ic_search"
+            android:background="@drawable/rounded_edittext"
+            android:paddingStart="15dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/cinza" />
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_gravity="center"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvUserList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+</LinearLayout>
