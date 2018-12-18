@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_checkout"
+        tools:context=".ui.activities.CheckoutActivity"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+
+    <ImageView
+            android:id="@+id/ivUserImg"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+        <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="kassianoresende"
+        />
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$"
+            android:textColor="@color/cinza"
+            android:layout_marginRight="5dp"/>
+
+        <EditText android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="0,00"
+                  android:textColor="@color/verde"
+                  android:textColorHint="@color/cinza"
+                  android:textSize="48sp"
+                  android:inputType="numberDecimal"
+                  android:cursorVisible="false"
+                  android:backgroundTint="@android:color/transparent"
+
+        />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/tvCardFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Mastercard"
+                android:textColor="@android:color/white"
+                android:layout_marginRight="5dp"/>
+
+        <TextView
+                android:id="@+id/tvCardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1234"
+                android:textColor="@android:color/white" />
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="•"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_text"
+                android:textStyle="bold"
+                android:textColor="@color/verde" />
+
+    </LinearLayout>
+
+    <View android:layout_width="wrap_content" android:layout_height="20dp"/>
+
+    <Button
+            android:id="@+id/btPayUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_pay_text"
+            android:background="@color/verde"
+    />
+
+
+</LinearLayout>
+

@@ -48,13 +48,16 @@
         android:layout_weight="1" />
 
     <Button
+            android:id="@+id/btNewCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save_credit_cart"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:backgroundTint="#11c76f"
-            android:textColor="@android:color/white" />
+            android:backgroundTint="@color/verde"
+            android:textColor="@android:color/white"
+
+    />
 
 </LinearLayout>

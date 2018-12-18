@@ -11,5 +11,4 @@ class GetUsersUseCase @Inject constructor(private val userRepository: UserReposi
         userRepository.getUsers()
 
 
-
 }

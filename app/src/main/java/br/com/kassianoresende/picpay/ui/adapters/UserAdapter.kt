@@ -15,7 +15,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     private lateinit var userList: List<User>
 
-    lateinit var itemClick: View.OnClickListener
+    var itemClick: (User)->Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
 
@@ -49,7 +49,9 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
         holder.tvUserName.text = userList[position].username
         holder.tvFullName.text = userList[position].name
 
-        holder.view.setOnClickListener(itemClick)
+        holder.view.setOnClickListener{
+            itemClick(userList[position])
+        }
     }
 
 

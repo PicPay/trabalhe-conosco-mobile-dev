@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import br.com.kassianoresende.picpay.R
 import br.com.kassianoresende.picpay.ui.viewmodel.MainViewModel
+import br.com.kassianoresende.picpay.ui.viewstate.ListUsersState
+import br.com.kassianoresende.picpay.util.CkeckoutUserPrefs
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,51 +22,64 @@ class MainActivity : AppCompatActivity() {
 
     private var errorSnackbar: Snackbar? = null
 
+    val userPrefs by lazy {
+        CkeckoutUserPrefs(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
+        userPrefs.clear()
 
         rvUserList.apply {
             adapter = viewmodel.userAdapter
             layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
         }
 
-        viewmodel.loading.observe(this, Observer(::updateLoading))
-        viewmodel.errorMessage.observe(this, Observer(::showError))
+        viewmodel.viewstate.observe(this, Observer(::updateUI))
 
         viewmodel.loadUsers()
         viewmodel.searchUser(etSearch)
 
-        viewmodel.userAdapter.itemClick = View.OnClickListener {
-            startActivity(Intent(this, CreditCardActivity::class.java))
-        }
+        viewmodel.userAdapter.itemClick = {
+            user->
 
-    }
-
-    fun updateLoading(loading:Boolean?){
-
-        if(loading!=null && loading){
-            progressBar.visibility = View.VISIBLE
-            rvUserList.visibility = View.GONE
-        }else{
-            progressBar.visibility = View.GONE
-            rvUserList.visibility = View.VISIBLE
-        }
-    }
-
-    fun showError(errorMessage:Int?){
-
-        if(errorMessage!=null) {
-
-            errorSnackbar = Snackbar.make(rootView , errorMessage, Snackbar.LENGTH_INDEFINITE).apply {
-                setAction(R.string.retry, viewmodel.errorClickListener)
-                show()
+            userPrefs.apply {
+                userId = user.id
+                userName = user.username
+                userImage = user.img
             }
 
-        }else{
-            errorSnackbar?.dismiss()
+            val intent = Intent(this, CreditCardListActivity::class.java)
+            startActivity(intent)
         }
+
+    }
+
+    fun updateUI(viewstate: ListUsersState?){
+
+        when(viewstate){
+            is ListUsersState.LoadError-> {
+                errorSnackbar = Snackbar.make(rootView , getString(R.string.user_error), Snackbar.LENGTH_INDEFINITE).apply {
+                    setAction(R.string.retry, viewmodel.errorClickListener)
+                    show()
+                }
+            }
+
+            is ListUsersState.StartLoading -> {
+                progressBar.visibility = View.VISIBLE
+                rvUserList.visibility = View.GONE
+            }
+
+            is ListUsersState.FinishLoading -> {
+                progressBar.visibility = View.GONE
+                rvUserList.visibility = View.VISIBLE
+            }
+
+            is ListUsersState.Sucess -> errorSnackbar?.dismiss()
+        }
+
     }
 
 }

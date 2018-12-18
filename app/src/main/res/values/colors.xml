@@ -3,7 +3,9 @@
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#D81B60</color>
+
     <color name="cinza">#8C9099</color>
     <color name="black">#000</color>
+    <color name="verde">#11c76f</color>
 
 </resources>

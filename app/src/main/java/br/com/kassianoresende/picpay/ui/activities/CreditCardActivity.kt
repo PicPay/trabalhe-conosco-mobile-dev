@@ -1,9 +1,11 @@
 package br.com.kassianoresende.picpay.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.kassianoresende.picpay.R
 import kotlinx.android.synthetic.main.activity_credit_card.*
+import kotlinx.android.synthetic.main.content_credit_card.*
 
 class CreditCardActivity : AppCompatActivity() {
 
@@ -14,6 +16,10 @@ class CreditCardActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+        btNewCard.setOnClickListener {
+            startActivity(Intent(this, NewCreditCardActivity::class.java))
+        }
     }
 
 }

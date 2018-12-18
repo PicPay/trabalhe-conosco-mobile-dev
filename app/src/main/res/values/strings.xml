@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PicPay</string>
     <string name="user_error">An error occurred while loading users</string>
+    <string name="loading_cards_error">An error occurred while loading cards</string>
     <string name="retry">Retry</string>
     <string name="text_search">A quem você deseja pagar?</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_credit_card"></string>
     <string name="credit_cart_title">Cadastre um cartão de crédito</string>
 
@@ -12,5 +12,18 @@
     </string>
     <string name="save_credit_cart">Cadastrar Cartão</string>
     <string name="title_activity_credit_card2">CreditCard2Activity</string>
-    <string name="title_activity_new_credit_card">NewCreditCardActivity</string>
+    <string name="title_activity_new_credit_card"></string>
+    <string name="add_card_title">Cadastrar cartão</string>
+    <string name="card_number_hint">Número do cartão</string>
+    <string name="user_name_hint">Nome do titular</string>
+    <string name="due_date_hint">Vencimento</string>
+    <string name="cvv_hint">CVV</string>
+    <string name="empty_field">Campo vazio</string>
+    <string name="generic_error">Erro ao efetuar operação</string>
+    <string name="title_activity_pay_user">PayUserActivity</string>
+    <string name="title_activity_credit_card_list"></string>
+    <string name="choose_card_text">Escolha um cartão</string>
+    <string name="title_activity_checkout"></string>
+    <string name="bt_pay_text">Pagar</string>
+    <string name="edit_text">editar</string>
 </resources>

@@ -16,4 +16,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="CardTextInputLayout" parent="AppTheme">
+        <item name="colorAccent">@color/cinza</item>
+        <item name="android:textColorHint">@color/cinza</item>
+    </style>
+
+
+    <style name="ActivityTitle" parent="AppTheme">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

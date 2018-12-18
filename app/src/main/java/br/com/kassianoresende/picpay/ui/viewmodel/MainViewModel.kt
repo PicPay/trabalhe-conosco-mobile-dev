@@ -3,9 +3,9 @@ package br.com.kassianoresende.picpay.ui.viewmodel
 import android.arch.lifecycle.MutableLiveData
 import android.view.View
 import android.widget.EditText
-import br.com.kassianoresende.picpay.R
 import br.com.kassianoresende.picpay.model.User
 import br.com.kassianoresende.picpay.ui.adapters.UserAdapter
+import br.com.kassianoresende.picpay.ui.viewstate.ListUsersState
 import br.com.kassianoresende.picpay.usecase.GetUsersUseCase
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
@@ -23,14 +23,13 @@ class MainViewModel: BaseViewModel() {
     private lateinit var subscription : Disposable
     private lateinit var subscriptionSearch : Disposable
 
-    val loading: MutableLiveData<Boolean> = MutableLiveData()
-    val errorMessage: MutableLiveData<Int> = MutableLiveData()
     val userAdapter = UserAdapter()
 
     val errorClickListener = View.OnClickListener { loadUsers() }
 
     lateinit var users: List<User>
 
+    val viewstate = MutableLiveData<ListUsersState>()
 
     fun searchUser(editText:EditText){
 
@@ -72,26 +71,27 @@ class MainViewModel: BaseViewModel() {
 
 
     fun onRetrieveUsersStart(){
-        loading.value = true
+        viewstate.value = ListUsersState.StartLoading
     }
 
     fun onRetrieveUsersFinish(){
-        loading.value = false
+        viewstate.value = ListUsersState.FinishLoading
     }
 
     fun onRetrieveUsersSuccess(results:List<User>){
         users = results
         userAdapter.updateUserList(results)
+        viewstate.value = ListUsersState.Sucess
     }
 
     fun onRetrieveUsersError(){
-        errorMessage.value = R.string.user_error
+        viewstate.value = ListUsersState.LoadError
     }
 
     override fun onCleared() {
         super.onCleared()
-        subscription.dispose()
-        subscriptionSearch.dispose()
+        if(::subscription.isInitialized) subscription.dispose()
+        if(::subscriptionSearch.isInitialized) subscriptionSearch.dispose()
     }
 
 }

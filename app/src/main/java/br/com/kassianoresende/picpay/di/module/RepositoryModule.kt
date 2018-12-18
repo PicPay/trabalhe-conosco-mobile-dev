@@ -1,5 +1,8 @@
 package br.com.kassianoresende.picpay.di.module
 
+import br.com.kassianoresende.picpay.model.AppDatabase
+import br.com.kassianoresende.picpay.repository.CreditCardRepository
+import br.com.kassianoresende.picpay.repository.CreditCardRepositoryImpl
 import br.com.kassianoresende.picpay.repository.UserRepository
 import br.com.kassianoresende.picpay.repository.UserRepositoryImpl
 import br.com.kassianoresende.picpay.service.ApiService
@@ -18,5 +21,10 @@ object RepositoryModule{
         UserRepositoryImpl(apiService)
 
 
+    @Provides
+    @Reusable
+    @JvmStatic
+    fun provideCreditRepository(db: AppDatabase): CreditCardRepository =
+        CreditCardRepositoryImpl(db)
 
 }

@@ -5,6 +5,7 @@ buildscript {
     ext.retrofit_version = "2.4.0"
     ext.dagger2_version = "2.16"
     ext.lifecycle_version = "1.1.1"
+    ext.room_version = "1.1.1"
 
     repositories {
         google()

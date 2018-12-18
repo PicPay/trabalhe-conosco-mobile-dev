@@ -9,14 +9,113 @@
         tools:showIn="@layout/activity_new_credit_card"
         tools:context=".ui.activities.NewCreditCardActivity"
         android:background="@color/black"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-                android:text="Cadastrar cartão"
-    />
+              android:text="@string/add_card_title"
+              android:textColor="@android:color/white"
+              android:textSize="28sp"
+              android:textStyle="bold"
+              android:layout_marginBottom="40dp" />
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/CardTextInputLayout">
+
+        <EditText
+                android:id="@+id/etCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/card_number_hint"
+                android:backgroundTint="@color/cinza"
+                android:textColor="@android:color/white"
+                tools:text="1111111111111111"
+                android:inputType="number"
+        />
+
+    </android.support.design.widget.TextInputLayout>
 
 
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/CardTextInputLayout"
+    >
+
+        <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_name_hint"
+                android:backgroundTint="@color/cinza"
+                android:textColor="@android:color/white"
+                tools:text="Kassiano Resende"
+                android:inputType="textPersonName"
+        />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/CardTextInputLayout"
+                android:layout_marginRight="5dp"
+        >
+
+            <EditText
+                    android:id="@+id/etDueDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/due_date_hint"
+                    android:backgroundTint="@color/cinza"
+                    android:textColor="@android:color/white"
+                    tools:text="01/18"
+                    android:inputType="date"
+            />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:theme="@style/CardTextInputLayout"
+                android:layout_marginLeft="5dp">
+
+            <EditText
+                    android:id="@+id/etCvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cvv_hint"
+                    android:backgroundTint="@color/cinza"
+                    android:textColor="@android:color/white"
+                    tools:text="789"
+                    android:inputType="number"
+                    android:maxLength="3"
+            />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/btSaveCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde"
+            android:text="salvar"
+            android:textColor="@android:color/white" />
 
 </LinearLayout>
