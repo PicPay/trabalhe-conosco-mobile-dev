@@ -3,18 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="ui" type="test.edney.picpay.view.card.CardIntroUI"/>
+        <variable name="ui" type="test.edney.picpay.view.card.fragment.CardIntroUI"/>
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         style="@style/LayoutStyle">
-
-        <ImageButton
-            app:srcCompat="@drawable/ic_back"
-            android:contentDescription="@null"
-            android:onClick="@{()-> ui.actionBack()}"
-            style="@style/BackButton"/>
 
         <RelativeLayout
             style="@style/InternalLayout">

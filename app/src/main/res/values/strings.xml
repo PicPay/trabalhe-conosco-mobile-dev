@@ -26,5 +26,7 @@
     <!--RECEIPT-->
     <string name="s_recepit_title">Recibo</string>
     <string name="s_receipt_label_payed">Total pago</string>
+      <string name="s_receipt_internal_erro">Erro</string>
+    <string name="s_receipt_erro">Falha ao exibir dados</string>
 
 </resources>

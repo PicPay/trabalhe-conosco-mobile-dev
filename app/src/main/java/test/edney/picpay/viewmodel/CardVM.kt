@@ -5,7 +5,19 @@ import android.os.AsyncTask
 import androidx.lifecycle.AndroidViewModel
 import test.edney.picpay.database.AppDatabase
 
-class CardVM(application: Application) : AndroidViewModel(application){
+class CardVM(application: Application) : AndroidViewModel(application) {
 
-    private val database = AppDatabase.get(application)
+      var hasCard = false
+
+      init {
+            hasCard = HasCardTask(AppDatabase.get(application))
+                  .execute()
+                  .get()
+      }
+
+      class HasCardTask(private var database: AppDatabase?) : AsyncTask<Void, Void, Boolean>() {
+            override fun doInBackground(vararg params: Void?): Boolean {
+                  return database?.cardDao()?.hasCard() ?: false
+            }
+      }
 }

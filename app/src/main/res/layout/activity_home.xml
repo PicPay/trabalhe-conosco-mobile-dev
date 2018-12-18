@@ -43,6 +43,7 @@
                                 android:paddingStart="15dp"
                                 android:paddingEnd="15dp"
                                 android:focusableInTouchMode="true"
+                                android:onClick="@{()-> ui.actionSearch()}"
                                 android:background="@drawable/edittext">
 
                               <LinearLayout
@@ -66,7 +67,7 @@
                                     <test.edney.picpay.custom.CustomEditText
                                             android:id="@+id/et_search"
                                             android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
+                                            android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@android:color/transparent"
                                             android:layout_gravity="center"

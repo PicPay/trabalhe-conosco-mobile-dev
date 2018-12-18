@@ -13,6 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import test.edney.picpay.database.CardEntity
 import test.edney.picpay.databinding.FragmentCardRegisterBinding
+import test.edney.picpay.util.AppUtil
+import test.edney.picpay.util.ExtrasName
 import test.edney.picpay.util.MyLog
 import test.edney.picpay.view.payment.PaymentActivity
 import test.edney.picpay.viewmodel.CardRegisterVM
@@ -34,8 +36,6 @@ class CardRegisterFragment : Fragment() {
 
       override fun onActivityCreated(savedInstanceState: Bundle?) {
             super.onActivityCreated(savedInstanceState)
-
-            //activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
             loadArgs()
             viewmodel()
@@ -60,10 +60,6 @@ class CardRegisterFragment : Fragment() {
 
       private fun ui() {
             binding.ui = object : CardRegisterUI {
-                  override fun actionBack() {
-                        activity?.finish()
-                  }
-
                   override fun actionSave() {
                         val card = CardEntity()
                         val intent = Intent(activity, PaymentActivity::class.java)
@@ -74,7 +70,7 @@ class CardRegisterFragment : Fragment() {
                         card.cvv = binding.tvCvv.text.toString()
                         viewmodel.addCard(card)
 
-                        intent.putExtra("user", userJson)
+                        intent.putExtra(ExtrasName.user, userJson)
                         startActivity(intent)
                         activity?.finish()
                   }
@@ -104,25 +100,18 @@ class CardRegisterFragment : Fragment() {
                         val checkArray = canRegister.value
                         val text = s?.toString()
 
+                        binding.tvNumber.removeTextChangedListener(this)
                         if(text != null ){
-                              val clean = text.replace(" ", "")
-                              var formated = ""
-
-                              binding.tvNumber.removeTextChangedListener(this)
-                              for(i in 0 until clean.length){
-                                    if(i == 4 || i == 8 || i == 12)
-                                          formated += " "
-                                    formated += clean[i]
-                              }
+                              val formated = AppUtil.formatCardNumber(text)
 
                               checkArray!![0] = formated.length == 19
                               binding.tvNumber.setText(formated)
                               binding.tvNumber.setSelection(formated.length)
-                              binding.tvNumber.addTextChangedListener(this)
                         }
                         else
                               checkArray!![0] = false
 
+                        binding.tvNumber.addTextChangedListener(this)
                         canRegister.value = checkArray
                   }
             })
@@ -144,25 +133,18 @@ class CardRegisterFragment : Fragment() {
                         val checkArray = canRegister.value
                         val text = s?.toString()
 
+                        binding.tvExpiration.removeTextChangedListener(this)
                         if(text != null ){
-                              val clean = text.replace("/", "")
-                              var formated = ""
-
-                              binding.tvExpiration.removeTextChangedListener(this)
-                              for(i in 0 until clean.length){
-                                    if(i == 2)
-                                          formated += "/"
-                                    formated += clean[i]
-                              }
+                              val formated = AppUtil.formartDate(text)
 
                               checkArray!![2] = formated.length == 5
                               binding.tvExpiration.setText(formated)
                               binding.tvExpiration.setSelection(formated.length)
-                              binding.tvExpiration.addTextChangedListener(this)
                         }
                         else
                               checkArray!![2] = false
 
+                        binding.tvExpiration.addTextChangedListener(this)
                         canRegister.value = checkArray
                   }
             })
@@ -181,6 +163,6 @@ class CardRegisterFragment : Fragment() {
 
       private fun loadArgs() {
             if (arguments != null)
-                  userJson = arguments?.getString("user")
+                  userJson = arguments?.getString(ExtrasName.user)
       }
 }

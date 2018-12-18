@@ -7,54 +7,53 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import test.edney.picpay.R
 import test.edney.picpay.databinding.ActivityCardBinding
+import test.edney.picpay.util.ExtrasName
 import test.edney.picpay.view.card.fragment.CardIntroFragment
 import test.edney.picpay.view.card.fragment.CardRegisterFragment
 import test.edney.picpay.viewmodel.CardVM
 
 class CardActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCardBinding
-    private lateinit var viewmodel: CardVM
+      private lateinit var binding: ActivityCardBinding
+      private lateinit var viewmodel: CardVM
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+      override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_card)
-        viewmodel = ViewModelProviders.of(this).get(CardVM::class.java)
-        ui()
+            binding = DataBindingUtil.setContentView(this, R.layout.activity_card)
+            viewmodel = ViewModelProviders.of(this).get(CardVM::class.java)
+            ui()
 
-        configureFragment()
-    }
+            configureFragment()
+      }
 
-    private fun ui(){
-        binding.ui = object : CardUI{
-            override fun actionBack() {
-
+      private fun ui() {
+            binding.ui = object : CardUI {
+                  override fun actionBack() {
+                        finish()
+                  }
             }
-        }
-    }
+      }
 
-    fun configureFragment(){
-        val userJson = intent.getStringExtra("user")
-        val fragmentType = intent.getStringExtra("fragment_type")
+      private fun configureFragment() {
+            val userJson = intent.getStringExtra(ExtrasName.user)
 
-        if(userJson != null && fragmentType != null){
-            val args = Bundle()
+            if (userJson != null ) {
+                  val args = Bundle()
 
-            args.putString("user", userJson)
+                  args.putString(ExtrasName.user, userJson)
 
-            if(fragmentType == "intro")
-                selectFragment(CardIntroFragment(), args)
-            else
-                selectFragment(CardRegisterFragment(), args)
-        }
-        else
-            selectFragment(CardIntroFragment(), null)
-    }
+                  if (!viewmodel.hasCard)
+                        selectFragment(CardIntroFragment(), args)
+                  else
+                        selectFragment(CardRegisterFragment(), args)
+            } else
+                  selectFragment(CardIntroFragment(), null)
+      }
 
-    private fun selectFragment(fragment: Fragment, args: Bundle?){
-        if(args != null)
-            fragment.arguments = args
-        supportFragmentManager.beginTransaction().replace(R.id.card_frame, fragment).commit()
-    }
+      private fun selectFragment(fragment: Fragment, args: Bundle?) {
+            if (args != null)
+                  fragment.arguments = args
+            supportFragmentManager.beginTransaction().replace(R.id.card_frame, fragment).commit()
+      }
 }

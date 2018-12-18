@@ -18,10 +18,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import test.edney.picpay.R
-import test.edney.picpay.custom.ReceiptDialog
-import test.edney.picpay.databinding.ActivityMainBinding
-import test.edney.picpay.model.PaymentResponseModel
-import test.edney.picpay.model.ReceiptModel
+import test.edney.picpay.view.ReceiptDialog
+import test.edney.picpay.databinding.ActivityHomeBinding
 import test.edney.picpay.model.UserModel
 import test.edney.picpay.view.card.CardActivity
 import test.edney.picpay.view.payment.PaymentActivity
@@ -29,20 +27,20 @@ import test.edney.picpay.viewmodel.HomeVM
 import android.view.inputmethod.InputMethodManager
 import android.widget.RelativeLayout
 import android.animation.LayoutTransition
-
-
+import test.edney.picpay.util.ExtrasName
 
 class HomeActivity : AppCompatActivity() {
 
-      private lateinit var binding: ActivityMainBinding
+      private lateinit var binding: ActivityHomeBinding
       private lateinit var viewmodel: HomeVM
       private lateinit var mUserAdapter: UserAdapter
       private val receiptDelay = 400L
+      private val mGson = Gson()
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
-            binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+            binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
             viewmodel()
             ui()
 
@@ -67,6 +65,10 @@ class HomeActivity : AppCompatActivity() {
 
       private fun ui(){
             binding.ui = object : HomeUI{
+                  override fun actionSearch() {
+                       if(!binding.etSearch.isFocused)
+                             binding.etSearch.requestFocus()
+                  }
                   override fun actionCloseSearch() {
                         binding.etSearch.setText("")
                   }
@@ -78,7 +80,9 @@ class HomeActivity : AppCompatActivity() {
 
             binding.etSearch.addTextChangedListener(object : TextWatcher {
                   override fun afterTextChanged(s: Editable?) {
-                        mUserAdapter.getFilter().filter(s.toString())
+                        val text = s.toString()
+
+                        mUserAdapter.getFilter().filter(text)
                   }
                   override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                   override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -103,7 +107,7 @@ class HomeActivity : AppCompatActivity() {
 
                   binding.ivSearchClose.visibility = if(hasFocus) VISIBLE else GONE
             }
-            binding.etSearch.setOnKeyListener { v, keyCode, event ->
+            binding.etSearch.setOnKeyListener { _, keyCode, event ->
                   var stop = false
 
                   if (keyCode == KeyEvent.KEYCODE_BACK
@@ -117,26 +121,17 @@ class HomeActivity : AppCompatActivity() {
       }
 
       private fun showReceipt() {
-            val args = intent.getStringExtra("transaction")
+            val args = intent.getStringExtra(ExtrasName.transaction)
 
             if (args != null) {
                   val dialog = ReceiptDialog()
                   val argsToDialog = Bundle()
-                  val gson = Gson()
-                  val payment = gson.fromJson(args, PaymentResponseModel::class.java)
-                  val receipt = ReceiptModel()
+                  val cardNumber = intent.getStringExtra(ExtrasName.card_number)
 
-                  //TODO
-                  receipt.id = payment.transaction?.id.toString()
-                  receipt.card = "112122" //TODO CARTAO
-                  receipt.img = payment.transaction?.destinationUser?.img
-                  receipt.status = payment.transaction?.status
-                  receipt.timestamp = payment.transaction?.timestamp.toString()
-                  receipt.value = payment.transaction?.value.toString()
-                  receipt.userName = payment.transaction?.destinationUser?.username
-                  argsToDialog.putString("transaction", gson.toJson(receipt))
+                  if(cardNumber != null)
+                        argsToDialog.putString(ExtrasName.card_number, cardNumber)
+                  argsToDialog.putString(ExtrasName.transaction, args)
                   dialog.arguments = argsToDialog
-
                   Handler().postDelayed({ dialog.show(supportFragmentManager, "receipt_dialog") }, receiptDelay)
             }
       }
@@ -146,21 +141,10 @@ class HomeActivity : AppCompatActivity() {
 
             mUserAdapter = UserAdapter(object : UserAdapterListener {
                   override fun onItemClick(user: UserModel) {
-                        val gson = Gson()
-                        val intent: Intent
-
-                        if (!viewmodel.hasCard) {
-                              intent = Intent(this@HomeActivity, CardActivity::class.java)
-
-                              intent.putExtra("fragment_type", "intro")
-                              intent.putExtra("user", gson.toJson(user))
-                              startActivity(intent)
-                        } else {
-                              intent = Intent(this@HomeActivity, PaymentActivity::class.java)
-
-                              intent.putExtra("user", gson.toJson(user))
-                              startActivity(intent)
+                        val intent = Intent(this@HomeActivity, PaymentActivity::class.java).apply {
+                              putExtra(ExtrasName.user, mGson.toJson(user))
                         }
+                        startActivity(intent)
                   }
             })
             binding.rvUser.setHasFixedSize(true)

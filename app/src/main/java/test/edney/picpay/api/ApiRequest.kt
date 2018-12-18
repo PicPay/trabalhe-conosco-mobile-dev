@@ -7,7 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import test.edney.picpay.BuildConfig
-import test.edney.picpay.model.PaymentRequestModel
 import test.edney.picpay.model.PaymentResponseModel
 import test.edney.picpay.model.UserModel
 

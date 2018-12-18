@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat
@@ -15,9 +14,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.gson.Gson
 import org.json.JSONObject
+import test.edney.picpay.App
 import test.edney.picpay.R
 import test.edney.picpay.databinding.ActivityPaymentBinding
 import test.edney.picpay.model.UserModel
+import test.edney.picpay.util.AppUtil
+import test.edney.picpay.util.ExtrasName
 import test.edney.picpay.util.MyLog
 import test.edney.picpay.view.card.CardActivity
 import test.edney.picpay.view.home.HomeActivity
@@ -32,6 +34,7 @@ class PaymentActivity : AppCompatActivity() {
       private var userJson: String? = null
       private val loading = MutableLiveData<Boolean>()
       private val requestDelay = 1000L
+      private val mGson = Gson()
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -62,14 +65,19 @@ class PaymentActivity : AppCompatActivity() {
             viewmodel.paymentResponse.observe(this, Observer {
                   if (it != null) {
                         val intent = Intent(this@PaymentActivity, HomeActivity::class.java)
-                        val gson = Gson()
 
                         binding.progress.visibility = View.GONE
-                        intent.putExtra("transaction", gson.toJson(it))
+                        intent.putExtra(ExtrasName.transaction, mGson.toJson(it))
+                        intent.putExtra(
+                              ExtrasName.card_number,
+                              viewmodel.cardSave.value?.number.toString()
+                        )
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
+                        finish()
                   } else {
                         loading.value = false
-                        Log.d("Payment", "falha")
+                        log.showD("paymentResponse", "falha")
                   }
             })
       }
@@ -81,11 +89,10 @@ class PaymentActivity : AppCompatActivity() {
                   }
 
                   override fun actionEditCard() {
-                        val intent = Intent(this@PaymentActivity, CardActivity::class.java)
-
                         if (userJson != null) {
-                              intent.putExtra("fragment_type", "register")
-                              intent.putExtra("user", userJson)
+                              val intent = Intent(this@PaymentActivity, CardActivity::class.java).apply {
+                                    putExtra(ExtrasName.user, userJson)
+                              }
                               startActivity(intent)
                         }
                   }
@@ -101,10 +108,10 @@ class PaymentActivity : AppCompatActivity() {
 
                                     loading.value = true
                                     Handler().postDelayed({
-                                          viewmodel.requestPayment(getPaymentValue(), userId)
+                                          viewmodel.requestPayment(AppUtil.getPaymentValue(binding.edValue.text.toString()), userId)
                                     }, requestDelay)
                               } else
-                                    Log.d("Payment", "falha JSON => " + userJsonO.toString())
+                                    log.showD("actionPay", "falha JSON => " + userJsonO.toString())
                         }
                   }
             }
@@ -133,30 +140,18 @@ class PaymentActivity : AppCompatActivity() {
                   override fun afterTextChanged(s: Editable?) {
                         val text = s?.toString()
 
+                        binding.edValue.removeTextChangedListener(this)
                         if(text != null ){
-                              val noPeriod = text.replace(".","")
-                              val noComma = noPeriod.replace(",", "")
-                              val clean = noComma.toInt().toString()
-                              var formated = if(clean.length == 1) "0,0" else if(clean.length == 2) "0" else ""
+                              val formated = AppUtil.formatCurrency(text)
 
-                              hasValue.value = noComma.toInt() > 0
-                              binding.edValue.removeTextChangedListener(this)
-                              for (i in 0 until clean.length){
-                                    if((clean.length - 2) == i)
-                                          formated += ","
-
-                                    formated += clean[i]
-
-                                    if((clean.length - 6) == i)
-                                          formated += "."
-                              }
-
+                              hasValue.value = AppUtil.formartCurrencyNumber(text) > 0
                               binding.edValue.setText(formated)
                               binding.edValue.setSelection(formated.length)
-                              binding.edValue.addTextChangedListener(this)
                         }
                         else
                               hasValue.value = false
+
+                        binding.edValue.addTextChangedListener(this)
                   }
             })
             hasValue.value = false
@@ -176,23 +171,14 @@ class PaymentActivity : AppCompatActivity() {
       }
 
       private fun loadArguments() {
-            userJson = intent.getStringExtra("user")
+            userJson = intent.getStringExtra(ExtrasName.user)
 
             if (userJson != null) {
-                  val gson = Gson()
-                  val userM = gson.fromJson(userJson, UserModel::class.java)
+                  val userM = mGson.fromJson(userJson, UserModel::class.java)
 
                   if (userM != null)
                         binding.user = userM
             }
-      }
-
-      private fun getPaymentValue(): Double{
-            val text = binding.edValue.text.toString()
-            val noPeriod = text.replace(".", "")
-            val replaced = noPeriod.replace(",", ".")
-
-            return replaced.toDouble()
       }
 
       private fun findColor(id: Int): Int { return ContextCompat.getColor(this, id) }
