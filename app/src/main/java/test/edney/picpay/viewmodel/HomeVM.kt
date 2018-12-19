@@ -17,7 +17,7 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
       private val database = AppDatabase.get(application)
       val userResponse = MutableLiveData<List<UserModel>>()
 
-      fun requestUsers(){
+      fun requestUsers() {
             api.getUsers().enqueue(object : Callback<List<UserModel>> {
                   override fun onFailure(call: Call<List<UserModel>>, t: Throwable) {
                         userResponse.value = null
@@ -29,7 +29,7 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             })
       }
 
-      fun hasCard(): Boolean{
+      fun hasCard(): Boolean {
             return HasCardTask(database).execute().get()
       }
 

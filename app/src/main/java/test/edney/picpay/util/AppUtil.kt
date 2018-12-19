@@ -1,5 +1,6 @@
 package test.edney.picpay.util
 
+import android.util.Log
 import java.util.*
 
 object AppUtil {
@@ -37,12 +38,12 @@ object AppUtil {
             return formated
       }
 
-      fun formartDate(text: String): String{
+      fun formartDate(text: String): String {
             val clean = text.replace("/", "")
             var formated = ""
 
-            for(i in 0 until clean.length){
-                  if(i == 2)
+            for (i in 0 until clean.length) {
+                  if (i == 2)
                         formated += "/"
                   formated += clean[i]
             }
@@ -50,12 +51,12 @@ object AppUtil {
             return formated
       }
 
-      fun formatCardNumber(text: String): String{
+      fun formatCardNumber(text: String): String {
             val clean = text.replace(" ", "")
             var formated = ""
 
-            for(i in 0 until clean.length){
-                  if(i == 4 || i == 8 || i == 12)
+            for (i in 0 until clean.length) {
+                  if (i == 4 || i == 8 || i == 12)
                         formated += " "
                   formated += clean[i]
             }
@@ -63,8 +64,8 @@ object AppUtil {
             return formated
       }
 
-      fun formatTimeStamp(time: Long?): String?{
-            if(time != null) {
+      fun formatTimeStamp(time: Long?): String? {
+            if (time != null) {
                   val c = Calendar.getInstance()
 
                   c.timeInMillis = time
@@ -75,7 +76,7 @@ object AppUtil {
                   val hour = c.get(Calendar.HOUR_OF_DAY)
                   val min = c.get(Calendar.MINUTE)
 
-                  return "$day/${if(month < 10) "0$month" else month.toString()}/$year às $hour:$min"
+                  return "$day/${if (month < 10) "0$month" else month.toString()}/$year às $hour:$min"
             }
 
             return null

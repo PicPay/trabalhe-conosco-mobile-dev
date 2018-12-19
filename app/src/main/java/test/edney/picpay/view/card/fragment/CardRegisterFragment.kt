@@ -2,6 +2,7 @@ package test.edney.picpay.view.card.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
@@ -77,80 +78,84 @@ class CardRegisterFragment : Fragment() {
             }
       }
 
-      private fun observeValues(){
+      private fun observeValues() {
             canRegister.observe(this, Observer {
                   val isVisible = binding.btRegister.visibility
 
-                  if(it != null){
+                  if (it != null ) {
                         log.showD("observeValues", "canRegister", it)
-                        if(it[0] && it[1] && it[2] && it[3] && isVisible != View.VISIBLE)
+                        if (it[0] && it[1] && it[2] && it[3] && isVisible != View.VISIBLE)
                               binding.btRegister.visibility = View.VISIBLE
-                        else if(isVisible != View.GONE)
+                        else if (isVisible != View.GONE)
                               binding.btRegister.visibility = View.GONE
                   }
             })
       }
 
       private fun configureInputs() {
-            canRegister.value = BooleanArray(4){false}
-            binding.tvNumber.addTextChangedListener(object: TextWatcher{
-                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
-                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+            canRegister.value = BooleanArray(4) { false }
+            binding.tvNumber.addTextChangedListener(object : TextWatcher {
+                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                   override fun afterTextChanged(s: Editable?) {
                         val checkArray = canRegister.value
                         val text = s?.toString()
 
                         binding.tvNumber.removeTextChangedListener(this)
-                        if(text != null ){
+                        if (text != null) {
                               val formated = AppUtil.formatCardNumber(text)
 
                               checkArray!![0] = formated.length == 19
                               binding.tvNumber.setText(formated)
                               binding.tvNumber.setSelection(formated.length)
-                        }
-                        else
+                        } else
                               checkArray!![0] = false
 
                         binding.tvNumber.addTextChangedListener(this)
                         canRegister.value = checkArray
                   }
             })
-            binding.tvName.addTextChangedListener(object : TextWatcher{
-                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
-                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+
+            binding.tvName.addTextChangedListener(object : TextWatcher {
+                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                   override fun afterTextChanged(s: Editable?) {
+                        val check = canRegister.value!![1]
                         val checkArray = canRegister.value
                         val text = s?.toString()
 
                         checkArray!![1] = text != null && text.isNotEmpty()
-                        canRegister.value = checkArray
+
+                        if(check != checkArray[1])
+                              canRegister.value = checkArray
                   }
             })
-            binding.tvExpiration.addTextChangedListener(object: TextWatcher{
-                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
-                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+
+            binding.tvExpiration.addTextChangedListener(object : TextWatcher {
+                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                   override fun afterTextChanged(s: Editable?) {
                         val checkArray = canRegister.value
                         val text = s?.toString()
 
                         binding.tvExpiration.removeTextChangedListener(this)
-                        if(text != null ){
+                        if (text != null) {
                               val formated = AppUtil.formartDate(text)
 
                               checkArray!![2] = formated.length == 5
                               binding.tvExpiration.setText(formated)
                               binding.tvExpiration.setSelection(formated.length)
-                        }
-                        else
+                        } else
                               checkArray!![2] = false
 
                         binding.tvExpiration.addTextChangedListener(this)
                         canRegister.value = checkArray
                   }
             })
+
             binding.tvCvv.addTextChangedListener(object : TextWatcher {
-                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
-                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+                  override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                  override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                   override fun afterTextChanged(s: Editable?) {
                         val checkArray = canRegister.value
                         val text = s?.toString()

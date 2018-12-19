@@ -34,7 +34,7 @@ class CardActivity : AppCompatActivity() {
       private fun configureFragment() {
             val userJson = intent.getStringExtra(ExtrasName.user)
 
-            if (userJson != null ) {
+            if (userJson != null) {
                   val hasCard = intent.getBooleanExtra(ExtrasName.has_card, false)
                   val args = Bundle()
 

@@ -63,19 +63,20 @@ class HomeActivity : AppCompatActivity() {
             })
       }
 
-      private fun ui(){
-            binding.ui = object : HomeUI{
+      private fun ui() {
+            binding.ui = object : HomeUI {
                   override fun actionSearch() {
-                       if(!binding.etSearch.isFocused)
-                             binding.etSearch.requestFocus()
+                        if (!binding.etSearch.isFocused)
+                              binding.etSearch.requestFocus()
                   }
+
                   override fun actionCloseSearch() {
                         binding.etSearch.setText("")
                   }
             }
       }
 
-      private fun configureSearch(){
+      private fun configureSearch() {
             binding.llSearch.layoutTransition = LayoutTransition()
 
             binding.etSearch.addTextChangedListener(object : TextWatcher {
@@ -84,12 +85,13 @@ class HomeActivity : AppCompatActivity() {
 
                         mUserAdapter.getFilter().filter(text)
                   }
+
                   override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                   override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             })
             binding.etSearch.setOnFocusChangeListener { _, hasFocus ->
                   val layout = RelativeLayout.LayoutParams(
-                        if(hasFocus) RelativeLayout.LayoutParams.MATCH_PARENT
+                        if (hasFocus) RelativeLayout.LayoutParams.MATCH_PARENT
                         else RelativeLayout.LayoutParams.WRAP_CONTENT,
                         RelativeLayout.LayoutParams.WRAP_CONTENT
                   )
@@ -98,14 +100,17 @@ class HomeActivity : AppCompatActivity() {
                   binding.llSearch.requestLayout()
 
                   binding.rlSearch.setBackgroundResource(
-                        if(hasFocus) R.drawable.edittext_focused else R.drawable.edittext
+                        if (hasFocus) R.drawable.edittext_focused else R.drawable.edittext
                   )
 
-                  binding.ivSearch.setColorFilter(ContextCompat.getColor(this,
-                        if(hasFocus) R.color.colorWhite else R.color.colorSearchText)
+                  binding.ivSearch.setColorFilter(
+                        ContextCompat.getColor(
+                              this,
+                              if (hasFocus) R.color.colorWhite else R.color.colorSearchText
+                        )
                   )
 
-                  binding.ivSearchClose.visibility = if(hasFocus) VISIBLE else GONE
+                  binding.ivSearchClose.visibility = if (hasFocus) VISIBLE else GONE
             }
             binding.etSearch.setOnKeyListener { _, keyCode, event ->
                   var stop = false
@@ -128,7 +133,7 @@ class HomeActivity : AppCompatActivity() {
                   val argsToDialog = Bundle()
                   val cardNumber = intent.getStringExtra(ExtrasName.card_number)
 
-                  if(cardNumber != null)
+                  if (cardNumber != null)
                         argsToDialog.putString(ExtrasName.card_number, cardNumber)
                   argsToDialog.putString(ExtrasName.transaction, args)
                   dialog.arguments = argsToDialog
@@ -144,13 +149,12 @@ class HomeActivity : AppCompatActivity() {
                         val hasCard = viewmodel.hasCard()
                         val intent: Intent
 
-                        if(hasCard){
+                        if (hasCard) {
                               intent = Intent(this@HomeActivity, PaymentActivity::class.java).apply {
                                     putExtra(ExtrasName.has_card, hasCard)
                                     putExtra(ExtrasName.user, mGson.toJson(user))
                               }
-                        }
-                        else{
+                        } else {
                               intent = Intent(this@HomeActivity, CardActivity::class.java).apply {
                                     putExtra(ExtrasName.has_card, hasCard)
                                     putExtra(ExtrasName.user, mGson.toJson(user))
@@ -171,7 +175,7 @@ class HomeActivity : AppCompatActivity() {
             binding.rvUser.visibility = VISIBLE
       }
 
-      private fun removeSearchFocus(){
+      private fun removeSearchFocus() {
             binding.etSearch.clearFocus()
             if (currentFocus != null) {
                   val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

@@ -1,55 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable name="model" type="test.edney.picpay.model.UserModel"/>
-        <variable name="ui" type="test.edney.picpay.view.home.UserAdapterListener"/>
-    </data>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:onClick="@{()-> ui.onItemClick(model)}">
+      <data>
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center"
-            android:contentDescription="@null"
-            imageUrl="@{model.img}"/>
+            <variable
+                    name="model"
+                    type="test.edney.picpay.model.UserModel"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            <variable
+                    name="ui"
+                    type="test.edney.picpay.view.home.UserAdapterListener"/>
+      </data>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:textSize="16sp"
-                android:textColor="@color/colorWhite"
-                android:text="@{model.username}"/>
+      <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="80dp"
+              android:orientation="horizontal"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              android:onClick="@{()-> ui.onItemClick(model)}">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:textSize="14sp"
-                android:textColor="#64FFFFFF"
-                android:text="@{model.name}"/>
+            <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    imageUrl="@{model.img}"/>
 
-        </LinearLayout>
-        
-    </LinearLayout>
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="15dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                  <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:maxLines="1"
+                          android:ellipsize="end"
+                          android:textSize="16sp"
+                          android:textColor="@color/colorWhite"
+                          android:text="@{model.username}"/>
+
+                  <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:maxLines="1"
+                          android:ellipsize="end"
+                          android:textSize="14sp"
+                          android:textColor="#64FFFFFF"
+                          android:text="@{model.name}"/>
+
+            </LinearLayout>
+
+      </LinearLayout>
 </layout>

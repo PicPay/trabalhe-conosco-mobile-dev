@@ -11,11 +11,11 @@ import test.edney.picpay.model.PaymentResponseModel
 import test.edney.picpay.model.UserModel
 
 interface ApiRequest {
-    @Headers("Content-Type: application/json")
-    @GET(BuildConfig.USERS)
-    fun getUsers(): Call<List<UserModel>>
+      @Headers("Content-Type: application/json")
+      @GET(BuildConfig.USERS)
+      fun getUsers(): Call<List<UserModel>>
 
-    @Headers("Content-Type: application/json")
-    @POST(BuildConfig.TRANSACTION)
-    fun sendPayment(@Body registerParams: RequestBody): Call<PaymentResponseModel>
+      @Headers("Content-Type: application/json")
+      @POST(BuildConfig.TRANSACTION)
+      fun sendPayment(@Body registerParams: RequestBody): Call<PaymentResponseModel>
 }

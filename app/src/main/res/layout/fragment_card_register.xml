@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
         xmlns:android="http://schemas.android.com/apk/res/android">
+
       <data>
+
             <variable
                     name="ui"
                     type="test.edney.picpay.view.card.fragment.CardRegisterUI"/>
@@ -18,7 +20,7 @@
                     android:scrollbars="none">
 
                   <RelativeLayout
-                          style="@style/InternalLayout" >
+                          style="@style/InternalLayout">
 
                         <LinearLayout
                                 android:layout_width="match_parent"
@@ -49,7 +51,7 @@
 
                                     <com.google.android.material.textfield.TextInputEditText
                                             android:id="@+id/tv_name"
-                                            android:inputType="text"
+                                            android:inputType="textNoSuggestions"
                                             android:maxLength="40"
                                             android:hint="@string/s_card_register_hint_name"
                                             style="@style/EditText"/>

@@ -8,19 +8,19 @@ import test.edney.picpay.BuildConfig
 import test.edney.picpay.database.dao.CardDao
 
 @Database(entities = [CardEntity::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase(){
+abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun cardDao() : CardDao
+      abstract fun cardDao(): CardDao
 
-    companion object {
-        private var instance: AppDatabase? = null
+      companion object {
+            private var instance: AppDatabase? = null
 
-        fun get(context: Context) = instance ?: synchronized(this) {
-            instance = Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java, BuildConfig.DATABASE_NAME
-            ).fallbackToDestructiveMigration().build()
-            instance
-        }
-    }
+            fun get(context: Context) = instance ?: synchronized(this) {
+                  instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java, BuildConfig.DATABASE_NAME
+                  ).fallbackToDestructiveMigration().build()
+                  instance
+            }
+      }
 }

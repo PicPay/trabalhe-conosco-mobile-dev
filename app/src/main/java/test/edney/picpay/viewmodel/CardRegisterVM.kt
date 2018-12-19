@@ -7,22 +7,22 @@ import androidx.lifecycle.MutableLiveData
 import test.edney.picpay.database.AppDatabase
 import test.edney.picpay.database.CardEntity
 
-class CardRegisterVM(application: Application) : AndroidViewModel(application){
+class CardRegisterVM(application: Application) : AndroidViewModel(application) {
 
-    private val database = AppDatabase.get(application)
-    val card = MutableLiveData<CardEntity>()
+      private val database = AppDatabase.get(application)
+      val card = MutableLiveData<CardEntity>()
 
-    init {
-        card.value = GetCardTask(database).execute().get()
-    }
+      init {
+            card.value = GetCardTask(database).execute().get()
+      }
 
-    fun addCard(card: CardEntity){
-        AsyncTask.execute { database?.cardDao()?.addCard(card) }
-    }
+      fun addCard(card: CardEntity) {
+            AsyncTask.execute { database?.cardDao()?.addCard(card) }
+      }
 
-    class GetCardTask(private val db: AppDatabase?) : android.os.AsyncTask<Void, Void, CardEntity?>() {
-        override fun doInBackground(vararg params: Void?): CardEntity? {
-            return db?.cardDao()?.getCard()
-        }
-    }
+      class GetCardTask(private val db: AppDatabase?) : android.os.AsyncTask<Void, Void, CardEntity?>() {
+            override fun doInBackground(vararg params: Void?): CardEntity? {
+                  return db?.cardDao()?.getCard()
+            }
+      }
 }

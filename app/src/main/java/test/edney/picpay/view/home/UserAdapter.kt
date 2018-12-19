@@ -9,59 +9,61 @@ import test.edney.picpay.model.UserModel
 
 class UserAdapter(private val listener: UserAdapterListener) : RecyclerView.Adapter<UserAdapter.UserViewModel>() {
 
-    private var data = listOf<UserModel>()
-    private var filteredData = listOf<UserModel>()
+      private var data = listOf<UserModel>()
+      private var filteredData = listOf<UserModel>()
 
-    fun postUsers(data: List<UserModel>){
-        this.data = data
-        filteredData = data
-        notifyDataSetChanged()
-    }
+      fun postUsers(data: List<UserModel>) {
+            this.data = data
+            filteredData = data
+            notifyDataSetChanged()
+      }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewModel {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewModel {
+            val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        binding.ui = listener
+            binding.ui = listener
 
-        return UserViewModel(binding)
-    }
+            return UserViewModel(binding)
+      }
 
-    override fun getItemCount(): Int { return filteredData.size }
+      override fun getItemCount(): Int {
+            return filteredData.size
+      }
 
-    override fun onBindViewHolder(holder: UserViewModel, position: Int) {
-        val model = filteredData[position]
+      override fun onBindViewHolder(holder: UserViewModel, position: Int) {
+            val model = filteredData[position]
 
-        holder.binding.model = model
-    }
+            holder.binding.model = model
+      }
 
-    fun getFilter() = object : Filter() {
-        override fun performFiltering(constraint: CharSequence?): FilterResults {
-            val toFind = constraint.toString().toLowerCase()
-            val filtered = mutableListOf<UserModel>()
-            val results = FilterResults()
+      fun getFilter() = object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                  val toFind = constraint.toString().toLowerCase()
+                  val filtered = mutableListOf<UserModel>()
+                  val results = FilterResults()
 
-            for (model: UserModel in data){
-                if(model.name != null){
-                    val compare = model.name?.toLowerCase()
+                  for (model: UserModel in data) {
+                        if (model.name != null) {
+                              val compare = model.name?.toLowerCase()
 
-                    if(compare!!.contains(toFind))
-                        filtered.add(model)
-                }
+                              if (compare!!.contains(toFind))
+                                    filtered.add(model)
+                        }
+                  }
+
+                  results.values = filtered
+
+                  return results
             }
 
-            results.values = filtered
-
-            return results
-        }
-
-        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            if(results?.values != null){
-                @Suppress("UNCHECKED_CAST")
-                filteredData = results.values as List<UserModel>
-                notifyDataSetChanged()
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                  if (results?.values != null) {
+                        @Suppress("UNCHECKED_CAST")
+                        filteredData = results.values as List<UserModel>
+                        notifyDataSetChanged()
+                  }
             }
-        }
-    }
+      }
 
-    class UserViewModel(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
+      class UserViewModel(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
 }

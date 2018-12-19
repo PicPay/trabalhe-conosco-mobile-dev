@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -54,10 +55,10 @@ class PaymentActivity : AppCompatActivity() {
             viewmodel = ViewModelProviders.of(this).get(PaymentVM::class.java)
 
             viewmodel.cardSave.observe(this, Observer {
-                  if (it?.number != null){
+                  if (it?.number != null) {
                         val cardNumber = it.number
 
-                        if(cardNumber != null) {
+                        if (cardNumber != null) {
                               val toShow = "Master ${cardNumber.substring(0, 4)} •"
                               binding.tvCardNumber.text = toShow
                         }
@@ -80,6 +81,8 @@ class PaymentActivity : AppCompatActivity() {
                   } else {
                         loading.value = false
                         log.showD("paymentResponse", "falha")
+                        Toast.makeText(this@PaymentActivity, getString(R.string.s_payment_message_erro), Toast.LENGTH_LONG)
+                              .show()
                   }
             })
       }
@@ -116,7 +119,10 @@ class PaymentActivity : AppCompatActivity() {
                                     hideKeyboard()
                                     loading.value = true
                                     Handler().postDelayed({
-                                          viewmodel.requestPayment(AppUtil.getPaymentValue(binding.edValue.text.toString()), userId)
+                                          viewmodel.requestPayment(
+                                                AppUtil.getPaymentValue(binding.edValue.text.toString()),
+                                                userId
+                                          )
                                     }, requestDelay)
                               } else
                                     log.showD("actionPay", "falha JSON => " + userJsonO.toString())
@@ -125,15 +131,14 @@ class PaymentActivity : AppCompatActivity() {
             }
       }
 
-      private fun observeLoading(){
+      private fun observeLoading() {
             loading.value = false
             loading.observe(this, Observer {
-                  if(it != null){
-                        if(it) {
+                  if (it != null) {
+                        if (it) {
                               binding.progress.visibility = View.VISIBLE
                               binding.btPay.visibility = View.GONE
-                        }
-                        else{
+                        } else {
                               binding.btPay.visibility = View.VISIBLE
                               binding.progress.visibility = View.GONE
                         }
@@ -142,21 +147,20 @@ class PaymentActivity : AppCompatActivity() {
       }
 
       private fun observeValue() {
-            binding.edValue.addTextChangedListener(object : TextWatcher{
+            binding.edValue.addTextChangedListener(object : TextWatcher {
                   override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                   override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                   override fun afterTextChanged(s: Editable?) {
                         val text = s?.toString()
 
                         binding.edValue.removeTextChangedListener(this)
-                        if(text != null ){
+                        if (text != null) {
                               val formated = AppUtil.formatCurrency(text)
 
                               hasValue.value = AppUtil.formartCurrencyNumber(text) > 0
                               binding.edValue.setText(formated)
                               binding.edValue.setSelection(formated.length)
-                        }
-                        else
+                        } else
                               hasValue.value = false
 
                         binding.edValue.addTextChangedListener(this)
@@ -189,10 +193,12 @@ class PaymentActivity : AppCompatActivity() {
             }
       }
 
-      private fun hideKeyboard(){
+      private fun hideKeyboard() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
       }
 
-      private fun findColor(id: Int): Int { return ContextCompat.getColor(this, id) }
+      private fun findColor(id: Int): Int {
+            return ContextCompat.getColor(this, id)
+      }
 }
