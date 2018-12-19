@@ -79,6 +79,7 @@
                                             android:layout_marginStart="10dp"
                                             android:layout_gravity="center"
                                             android:background="@null"
+                                            android:selection="@{4}"
                                             android:textSize="46sp"
                                             android:text="@string/s_payment_default_value"
                                             android:maxLength="9"

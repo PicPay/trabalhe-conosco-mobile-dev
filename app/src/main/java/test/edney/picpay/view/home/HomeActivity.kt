@@ -21,13 +21,13 @@ import test.edney.picpay.R
 import test.edney.picpay.view.ReceiptDialog
 import test.edney.picpay.databinding.ActivityHomeBinding
 import test.edney.picpay.model.UserModel
-import test.edney.picpay.view.card.CardActivity
 import test.edney.picpay.view.payment.PaymentActivity
-import test.edney.picpay.viewmodel.HomeVM
 import android.view.inputmethod.InputMethodManager
 import android.widget.RelativeLayout
 import android.animation.LayoutTransition
 import test.edney.picpay.util.ExtrasName
+import test.edney.picpay.view.card.CardActivity
+import test.edney.picpay.viewmodel.HomeVM
 
 class HomeActivity : AppCompatActivity() {
 
@@ -141,8 +141,20 @@ class HomeActivity : AppCompatActivity() {
 
             mUserAdapter = UserAdapter(object : UserAdapterListener {
                   override fun onItemClick(user: UserModel) {
-                        val intent = Intent(this@HomeActivity, PaymentActivity::class.java).apply {
-                              putExtra(ExtrasName.user, mGson.toJson(user))
+                        val hasCard = viewmodel.hasCard()
+                        val intent: Intent
+
+                        if(hasCard){
+                              intent = Intent(this@HomeActivity, PaymentActivity::class.java).apply {
+                                    putExtra(ExtrasName.has_card, hasCard)
+                                    putExtra(ExtrasName.user, mGson.toJson(user))
+                              }
+                        }
+                        else{
+                              intent = Intent(this@HomeActivity, CardActivity::class.java).apply {
+                                    putExtra(ExtrasName.has_card, hasCard)
+                                    putExtra(ExtrasName.user, mGson.toJson(user))
+                              }
                         }
                         startActivity(intent)
                   }

@@ -1,11 +1,13 @@
 package test.edney.picpay.view.payment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -85,12 +87,17 @@ class PaymentActivity : AppCompatActivity() {
       private fun ui() {
             binding.ui = object : PaymentUI {
                   override fun actionBack() {
+                        val intent = Intent(this@PaymentActivity, HomeActivity::class.java)
+
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
                         finish()
                   }
 
                   override fun actionEditCard() {
                         if (userJson != null) {
                               val intent = Intent(this@PaymentActivity, CardActivity::class.java).apply {
+                                    putExtra(ExtrasName.has_card, true)
                                     putExtra(ExtrasName.user, userJson)
                               }
                               startActivity(intent)
@@ -106,6 +113,7 @@ class PaymentActivity : AppCompatActivity() {
                               if (userJsonO.has("id") && !userJsonO.isNull("id")) {
                                     val userId: Int = userJsonO.getInt("id")
 
+                                    hideKeyboard()
                                     loading.value = true
                                     Handler().postDelayed({
                                           viewmodel.requestPayment(AppUtil.getPaymentValue(binding.edValue.text.toString()), userId)
@@ -179,6 +187,11 @@ class PaymentActivity : AppCompatActivity() {
                   if (userM != null)
                         binding.user = userM
             }
+      }
+
+      private fun hideKeyboard(){
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
       }
 
       private fun findColor(id: Int): Int { return ContextCompat.getColor(this, id) }

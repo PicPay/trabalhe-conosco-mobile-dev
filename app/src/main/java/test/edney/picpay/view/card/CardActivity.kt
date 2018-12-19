@@ -4,24 +4,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import test.edney.picpay.R
 import test.edney.picpay.databinding.ActivityCardBinding
 import test.edney.picpay.util.ExtrasName
 import test.edney.picpay.view.card.fragment.CardIntroFragment
 import test.edney.picpay.view.card.fragment.CardRegisterFragment
-import test.edney.picpay.viewmodel.CardVM
 
 class CardActivity : AppCompatActivity() {
 
       private lateinit var binding: ActivityCardBinding
-      private lateinit var viewmodel: CardVM
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
             binding = DataBindingUtil.setContentView(this, R.layout.activity_card)
-            viewmodel = ViewModelProviders.of(this).get(CardVM::class.java)
             ui()
 
             configureFragment()
@@ -39,14 +35,15 @@ class CardActivity : AppCompatActivity() {
             val userJson = intent.getStringExtra(ExtrasName.user)
 
             if (userJson != null ) {
+                  val hasCard = intent.getBooleanExtra(ExtrasName.has_card, false)
                   val args = Bundle()
 
                   args.putString(ExtrasName.user, userJson)
 
-                  if (!viewmodel.hasCard)
-                        selectFragment(CardIntroFragment(), args)
-                  else
+                  if (hasCard)
                         selectFragment(CardRegisterFragment(), args)
+                  else
+                        selectFragment(CardIntroFragment(), args)
             } else
                   selectFragment(CardIntroFragment(), null)
       }

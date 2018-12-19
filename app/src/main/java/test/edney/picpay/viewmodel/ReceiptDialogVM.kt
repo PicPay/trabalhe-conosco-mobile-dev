@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import test.edney.picpay.model.PaymentResponseModel
 import test.edney.picpay.model.ReceiptModel
+import test.edney.picpay.util.AppUtil
 
 class ReceiptDialogVM : ViewModel(){
 
@@ -13,14 +14,17 @@ class ReceiptDialogVM : ViewModel(){
             val payment = mGson.fromJson(json, PaymentResponseModel::class.java)
 
             if (payment != null) {
+                  val time = payment.transaction?.timestamp?.toLong()
+
                   model = ReceiptModel()
-                  model.id = payment.transaction?.id.toString()
-                  model.card = cardNumber ?: "-"
+                  model.id = "Transação: "+payment.transaction?.id.toString()
+                  model.card = "Cartão Master "+(cardNumber?.substring(0, 4) ?: "-")
                   model.img = payment.transaction?.destinationUser?.img ?: "-"
                   model.status = payment.transaction?.status ?: "-"
-                  model.timestamp = payment.transaction?.timestamp.toString()
-                  model.value = payment.transaction?.value.toString()
+                  model.timestamp = AppUtil.formatTimeStamp(time) ?: "-"
+                  model.value = "R$ "+(payment.transaction?.value.toString().replace(".", ","))
                   model.userName = payment.transaction?.destinationUser?.username ?: "-"
+                  model.status = payment.transaction?.status ?: "-"
             } else
                   model = null
 

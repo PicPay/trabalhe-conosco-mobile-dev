@@ -1,5 +1,7 @@
 package test.edney.picpay.util
 
+import java.util.*
+
 object AppUtil {
 
       fun getPaymentValue(text: String): Double {
@@ -59,5 +61,23 @@ object AppUtil {
             }
 
             return formated
+      }
+
+      fun formatTimeStamp(time: Long?): String?{
+            if(time != null) {
+                  val c = Calendar.getInstance()
+
+                  c.timeInMillis = time
+
+                  val day = c.get(Calendar.DAY_OF_MONTH)
+                  val month = c.get(Calendar.MONTH) + 1
+                  val year = c.get(Calendar.YEAR)
+                  val hour = c.get(Calendar.HOUR_OF_DAY)
+                  val min = c.get(Calendar.MINUTE)
+
+                  return "$day/${if(month < 10) "0$month" else month.toString()}/$year às $hour:$min"
+            }
+
+            return null
       }
 }

@@ -36,7 +36,7 @@ class PaymentVM(application: Application) : AndroidViewModel(application) {
             val gson = Gson()
             val model = PaymentRequestModel()
 
-            model.cardNumber = card.number
+            model.cardNumber = card.number?.replace(" ", "") ?: "-"
             model.cvv = card.cvv?.toInt()
             model.value = value
             model.expiryDate = card.expiration

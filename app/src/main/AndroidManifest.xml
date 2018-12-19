@@ -30,13 +30,13 @@
             <activity
                     android:name=".view.card.CardActivity"
                     android:theme="@style/AppTheme.NoActionBar"
-                    android:windowSoftInputMode="adjustResize"
+                    android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
                     android:screenOrientation="portrait"/>
 
             <activity
                     android:name=".view.payment.PaymentActivity"
                     android:theme="@style/AppTheme.NoActionBar"
-                    android:windowSoftInputMode="adjustResize"
+                    android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
                     android:screenOrientation="portrait"/>
 
       </application>
