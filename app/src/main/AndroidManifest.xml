@@ -35,8 +35,8 @@
 
             <activity
                     android:name=".view.payment.PaymentActivity"
-                    android:windowSoftInputMode="adjustResize"
                     android:theme="@style/AppTheme.NoActionBar"
+                    android:windowSoftInputMode="adjustResize"
                     android:screenOrientation="portrait"/>
 
       </application>

@@ -1,112 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable
-            name="user"
-            type="test.edney.picpay.model.UserModel"/>
-        <variable
-            name="ui"
-            type="test.edney.picpay.view.payment.PaymentUI"/>
-    </data>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:orientation="vertical"
-        style="@style/LayoutStyle">
+      <data>
 
-        <ImageButton
-            app:srcCompat="@drawable/ic_back"
-            android:contentDescription="@null"
-            android:onClick="@{()-> ui.actionBack()}"
-            style="@style/BackButton"/>
+            <variable
+                    name="user"
+                    type="test.edney.picpay.model.UserModel"/>
 
-        <RelativeLayout style="@style/InternalLayout">
+            <variable
+                    name="ui"
+                    type="test.edney.picpay.view.payment.PaymentUI"/>
+      </data>
+
+      <LinearLayout
+              style="@style/LayoutStyle"
+              android:orientation="vertical">
+
+            <ImageButton
+                    app:srcCompat="@drawable/ic_back"
+                    android:contentDescription="@null"
+                    android:onClick="@{()-> ui.actionBack()}"
+                    style="@style/BackButton"/>
+
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none">
+
+                  <RelativeLayout style="@style/InternalLayout">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                              <ImageView
+                                      android:layout_width="55dp"
+                                      android:layout_height="55dp"
+                                      android:contentDescription="@null"
+                                      android:layout_gravity="center"
+                                      imageUrl="@{user.img}"/>
+
+                              <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:layout_marginTop="5dp"
+                                      android:maxLines="1"
+                                      android:ellipsize="end"
+                                      android:textSize="16sp"
+                                      android:textColor="@color/colorWhite"
+                                      android:text="@{user.username}"/>
+
+                              <LinearLayout
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:focusableInTouchMode="true"
+                                      android:layout_marginTop="30dp"
+                                      android:gravity="center"
+                                      android:orientation="horizontal">
+
+                                    <TextView
+                                            android:id="@+id/tv_currency"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:textSize="20sp"
+                                            android:textColor="@color/colorText"
+                                            android:text="@string/s_currency"/>
+
+                                    <EditText
+                                            android:id="@+id/ed_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_gravity="center"
+                                            android:background="@null"
+                                            android:textSize="46sp"
+                                            android:text="@string/s_payment_default_value"
+                                            android:maxLength="9"
+                                            android:textColor="@color/colorText"
+                                            android:inputType="numberDecimal"/>
+
+                              </LinearLayout>
+
+                        </LinearLayout>
+
+                  </RelativeLayout>
+
+            </ScrollView>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:contentDescription="@null"
-                    android:layout_gravity="center"
-                    imageUrl="@{user.img}"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textSize="16sp"
-                    android:textColor="@color/colorWhite"
-                    android:text="@{user.username}"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusableInTouchMode="true"
-                    android:layout_marginTop="30dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tv_currency"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textSize="20sp"
-                        android:textColor="@color/colorText"
-                        android:text="@string/s_currency"/>
-
-                    <EditText
-                        android:id="@+id/ed_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="center"
-                        android:background="@null"
-                        android:textSize="46sp"
-                        android:text="@string/s_payment_default_value"
-                        android:maxLength="9"
-                        android:textColor="@color/colorText"
-                        android:inputType="numberDecimal"/>
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp">
 
-                    <TextView
-                        android:id="@+id/tv_card_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorWhite"/>
+                  <TextView
+                          android:id="@+id/tv_card_number"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="16sp"
+                          android:textColor="@color/colorWhite"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorAccent"
-                        android:text="@string/s_payment_label_edit"
-                        android:textAllCaps="true"
-                        android:textStyle="bold"
-                        android:onClick="@{()-> ui.actionEditCard()}"/>
-
-                </LinearLayout>
+                  <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:paddingTop="8dp"
+                          android:paddingBottom="8dp"
+                          android:paddingStart="10dp"
+                          android:paddingEnd="10dp"
+                          android:textSize="16sp"
+                          android:textColor="@color/colorAccent"
+                          android:text="@string/s_payment_label_edit"
+                          android:textAllCaps="true"
+                          android:textStyle="bold"
+                          android:onClick="@{()-> ui.actionEditCard()}"/>
 
             </LinearLayout>
 
@@ -114,20 +128,20 @@
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
 
             <Button
-                android:id="@+id/bt_pay"
-                android:text="@string/s_payment_label_pay"
-                android:layout_alignParentBottom="true"
-                android:visibility="visible"
-                android:onClick="@{()-> ui.actionPay()}"
-                style="@style/ActionButton"/>
+                    android:id="@+id/bt_pay"
+                    android:text="@string/s_payment_label_pay"
+                    android:visibility="visible"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:onClick="@{()-> ui.actionPay()}"
+                    style="@style/ActionButton"/>
 
-        </RelativeLayout>
-
-    </LinearLayout>
+      </LinearLayout>
 
 </layout>
