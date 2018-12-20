@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:gravity="center_horizontal">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/finish_checkout"
+              android:textColor="@android:color/white"
+              android:textSize="28sp"
+              android:textStyle="bold"
+              android:layout_marginBottom="40dp" />
+
+    <ImageView
+            android:id="@+id/ivUserImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:text="kassianoresende"
+            android:layout_marginBottom="10dp"/>
+
+    <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cinza"
+            android:textSize="14sp"
+            tools:text="15/12/2022 as 16:34" />
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp"
+                  android:layout_marginBottom="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/cinza"
+                android:textSize="12sp"
+                tools:text="Transação: " />
+
+        <TextView
+                android:id="@+id/tvTransasctionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/cinza"
+                android:textSize="12sp"
+                tools:text="23410001" />
+
+    </LinearLayout>
+
+
+    <View android:layout_width="match_parent" android:layout_height="2dp"
+        android:background="@color/cinza"/>
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp"
+                  android:layout_marginBottom="10dp">
+
+        <TextView
+                android:id="@+id/tvCardNumber"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                tools:text="Mastercard 1234" />
+
+        <TextView
+                android:id="@+id/tvValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                tools:text="R$ 16,00" />
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="2dp"
+          android:background="@color/cinza"/>
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp"
+                  android:layout_marginBottom="10dp">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:text="@string/total_text" />
+
+        <TextView
+                android:id="@+id/tvTotalValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="R$ 16,00" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

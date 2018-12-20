@@ -27,5 +27,9 @@
     <string name="bt_pay_text">Pagar</string>
     <string name="edit_text">editar</string>
     <string name="pay_user_error">An error occurred while paying the user.</string>
-    <string name="title_activity_finish_checkout">FinishCheckoutActivity</string>
+    <string name="title_activity_finish_checkout"></string>
+    <string name="finish_checkout">Recibo</string>
+    <string name="total_text">Total</string>
+    <string name="pay_unauthorized">Operação não autorizada.</string>
+    <string name="pay_approved">Pagamento aprovado</string>
 </resources>

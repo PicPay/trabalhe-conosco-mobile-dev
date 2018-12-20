@@ -8,7 +8,9 @@ class PayUserUseCase @Inject constructor(private val repository: PayUserReposito
 
 
     fun payUser(transaction: PayUserTransaction) =
-            repository.payUser(transaction)
+        repository.payUser(transaction)
+
+
 
 
 }

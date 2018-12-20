@@ -1,18 +1,19 @@
 package br.com.kassianoresende.picpay.model
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
+
 
 class PayUserTransaction(
 
-        @Json(name = "card_number")
+        @SerializedName("card_number")
         val cardNumber:String,
 
         val cvv:Int,
         val value:Double,
 
-        @Json(name = "expiry_date")
+        @SerializedName("expiry_date")
         val expiryDate:String,
 
-        @Json(name = "destination_user_id")
+        @SerializedName("destination_user_id")
         val destinationUserId:Int
     )

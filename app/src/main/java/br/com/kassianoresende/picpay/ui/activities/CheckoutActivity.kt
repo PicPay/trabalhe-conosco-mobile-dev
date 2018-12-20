@@ -2,12 +2,13 @@ package br.com.kassianoresende.picpay.ui.activities
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
 import br.com.kassianoresende.picpay.R
 import br.com.kassianoresende.picpay.model.PayUserTransaction
+import br.com.kassianoresende.picpay.model.TransactionResponse
 import br.com.kassianoresende.picpay.ui.viewmodel.CheckoutViewModel
 import br.com.kassianoresende.picpay.ui.viewstate.PayUserState
 import br.com.kassianoresende.picpay.util.CkeckoutUserPrefs
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_checkout.*
 import kotlinx.android.synthetic.main.content_checkout.*
+import java.text.NumberFormat
 
 class CheckoutActivity : AppCompatActivity() {
 
@@ -68,6 +70,8 @@ class CheckoutActivity : AppCompatActivity() {
 
         viewmodel.viewstate.observe(this, Observer(::updateUI))
 
+        viewmodel.transactionResponse.observe(this, Observer(::updateFinishUI))
+
     }
 
     private fun getIntentValues() {
@@ -86,15 +90,24 @@ class CheckoutActivity : AppCompatActivity() {
 
         tvUserName.text = userPrefs.userName
         tvCardFlag.text = cardFlag
-        tvCardNumber.text = cardNumber
+        tvCardNumber.text = cardNumber.takeLast(4)
 
+        etValue.requestFocus()
     }
 
     fun updateUI(viewstate: PayUserState? ){
 
         when(viewstate){
-            is PayUserState.Sucess -> {
-                startActivity(Intent(this, FinishCheckoutActivity::class.java))
+            is PayUserState.Unauthorized -> {
+                Toast.makeText(this, getString(R.string.pay_unauthorized), Toast.LENGTH_SHORT).show()
+            }
+            is PayUserState.Approved -> {
+
+                Toast.makeText(this, getString(R.string.pay_approved), Toast.LENGTH_SHORT).show()
+                mainContainer.visibility = View.GONE
+                finishContainer.visibility = View.VISIBLE
+                titleFinish.visibility = View.VISIBLE
+
             }
             is PayUserState.PayError -> {
                 Toast.makeText(this, getString(R.string.pay_user_error), Toast.LENGTH_SHORT).show()
@@ -105,6 +118,24 @@ class CheckoutActivity : AppCompatActivity() {
             is PayUserState.FinishLoading -> {
                 print("Finish loading")
             }
+        }
+    }
+
+
+    fun updateFinishUI(response: TransactionResponse?){
+
+        if(response!= null){
+
+            tvDate.text = response.transaction.timestamp.toString()
+            tvCardNumberFlag.text = "$cardFlag ${cardNumber.takeLast(4)}"
+            tvTransasctionNumber.text = "${response.transaction.id}"
+
+            NumberFormat.getCurrencyInstance().apply {
+                tvValue.text = format(response.transaction.value)
+                tvTotalValue.text =  format(response.transaction.value)
+            }
+
+
         }
     }
 

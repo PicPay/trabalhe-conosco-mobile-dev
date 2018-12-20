@@ -20,6 +20,8 @@ class CheckoutViewModel: BaseViewModel() {
 
     val viewstate = MutableLiveData<PayUserState>()
 
+    val transactionResponse = MutableLiveData<TransactionResponse>()
+
     fun payUsers(transaction:PayUserTransaction){
 
         subscription = useCase
@@ -47,7 +49,13 @@ class CheckoutViewModel: BaseViewModel() {
     }
 
     fun onPayUserSuccess(response:TransactionResponse){
-        viewstate.value = PayUserState.Sucess
+        transactionResponse.value = response
+
+        if(response.transaction.success) {
+            viewstate.value = PayUserState.Approved
+        }else{
+            viewstate.value = PayUserState.Unauthorized
+        }
     }
 
     fun onPayUserError(){
