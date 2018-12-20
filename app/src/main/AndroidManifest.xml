@@ -67,6 +67,15 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="br.com.kassianoresende.picpay.ui.activities.CreditCardListActivity"/>
         </activity>
+        <activity
+                android:name=".ui.activities.FinishCheckoutActivity"
+                android:label="@string/title_activity_finish_checkout"
+                android:parentActivityName=".ui.activities.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="br.com.kassianoresende.picpay.ui.activities.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

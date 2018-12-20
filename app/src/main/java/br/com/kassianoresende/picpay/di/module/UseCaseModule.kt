@@ -1,9 +1,11 @@
 package br.com.kassianoresende.picpay.di.module
 
 import br.com.kassianoresende.picpay.repository.CreditCardRepository
+import br.com.kassianoresende.picpay.repository.PayUserRepository
 import br.com.kassianoresende.picpay.repository.UserRepository
 import br.com.kassianoresende.picpay.usecase.GetCreditCardsUseCase
 import br.com.kassianoresende.picpay.usecase.GetUsersUseCase
+import br.com.kassianoresende.picpay.usecase.PayUserUseCase
 import br.com.kassianoresende.picpay.usecase.SaveCreditCardUseCase
 import dagger.Module
 import dagger.Provides
@@ -30,5 +32,12 @@ object UseCaseModule{
     @JvmStatic
     fun provideGetCreditCardUseCase(repository: CreditCardRepository)=
         GetCreditCardsUseCase(repository)
+
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    fun providePayUserUseCase(repository: PayUserRepository)=
+        PayUserUseCase(repository)
 
 }

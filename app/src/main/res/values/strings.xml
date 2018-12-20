@@ -26,4 +26,6 @@
     <string name="title_activity_checkout"></string>
     <string name="bt_pay_text">Pagar</string>
     <string name="edit_text">editar</string>
+    <string name="pay_user_error">An error occurred while paying the user.</string>
+    <string name="title_activity_finish_checkout">FinishCheckoutActivity</string>
 </resources>

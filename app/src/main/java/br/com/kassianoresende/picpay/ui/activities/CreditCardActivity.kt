@@ -21,5 +21,4 @@ class CreditCardActivity : AppCompatActivity() {
             startActivity(Intent(this, NewCreditCardActivity::class.java))
         }
     }
-
 }

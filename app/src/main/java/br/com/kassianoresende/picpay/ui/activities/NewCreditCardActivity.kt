@@ -46,7 +46,7 @@ class NewCreditCardActivity : AppCompatActivity() {
     fun updateUI(viewstate: NewCreditCardState?){
 
         when(viewstate){
-            is Sucess-> startActivity(Intent(this, PayUserActivity::class.java))
+            is Sucess-> startActivity(Intent(this, CreditCardListActivity::class.java))
             is EmptyCardNumber-> etCardNumber.error = getString(R.string.empty_field)
             is EmptyName -> etUserName.error = getString(R.string.empty_field)
             is EmptyDueDate-> etDueDate.error = getString(R.string.empty_field)
