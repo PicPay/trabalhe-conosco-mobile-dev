@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 class SaveCreditCardUseCase @Inject constructor(val respository: CreditCardRepository) {
 
-    fun saveCreditCard(card:CreditCard){
-        respository.saveCard(card)
-    }
+    fun saveCreditCard(card:CreditCard) =
+            respository.saveCard(card)
+
+
 }

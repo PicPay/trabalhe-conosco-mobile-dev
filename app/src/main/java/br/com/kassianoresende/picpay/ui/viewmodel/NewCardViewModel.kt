@@ -4,7 +4,6 @@ import android.arch.lifecycle.MutableLiveData
 import br.com.kassianoresende.picpay.model.CreditCard
 import br.com.kassianoresende.picpay.ui.viewstate.NewCreditCardState
 import br.com.kassianoresende.picpay.usecase.SaveCreditCardUseCase
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -23,9 +22,7 @@ class NewCardViewModel : BaseViewModel() {
 
         val card = CreditCard( 0,cardNumber,"Mastercard",name,dueDate, cvv)
 
-        subscription = Observable.fromCallable {
-            useCase.saveCreditCard(card)
-        }
+        subscription = useCase.saveCreditCard(card)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(

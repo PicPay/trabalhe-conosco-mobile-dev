@@ -8,7 +8,9 @@ import javax.inject.Inject
 class CreditCardRepositoryImpl @Inject constructor(val db:AppDatabase): CreditCardRepository {
 
     override fun saveCard(card: CreditCard) =
-         db.creditCardDao().insert(card)
+        Observable.fromCallable {
+            db.creditCardDao().insert(card)
+        }
 
 
     override fun getCards(): Observable<List<CreditCard>> =

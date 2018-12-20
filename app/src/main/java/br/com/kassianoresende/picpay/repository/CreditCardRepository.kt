@@ -5,7 +5,7 @@ import io.reactivex.Observable
 
 interface CreditCardRepository {
 
-    fun saveCard(card:CreditCard):Long
+    fun saveCard(card:CreditCard):  Observable<Long>
 
     fun getCards(): Observable<List<CreditCard>>
 }

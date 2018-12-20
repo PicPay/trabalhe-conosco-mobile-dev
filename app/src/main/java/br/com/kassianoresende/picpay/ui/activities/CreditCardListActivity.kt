@@ -80,6 +80,5 @@ class CreditCardListActivity : AppCompatActivity() {
                 rvCardList.visibility= View.VISIBLE
             }
         }
-
     }
 }
