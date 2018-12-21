@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinator_contacts"
+        android:background="@color/colorPrimary"
+        tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/coordinator_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:id="@+id/coordinator_toolbar"
+                app:titleTextColor="@color/color_withe"
+                app:title="@string/contacts_title"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:focusableInTouchMode="true"
+                android:focusable="true"/>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:background="@drawable/shape">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/coordinator_edit_text"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/shape"
+                    android:textSize="14sp"
+                    android:textColor="@color/color_withe"
+                    android:inputType="text"
+                    android:hint="@string/search_hint"
+                    android:gravity="center"
+                    android:textColorHint="@color/search_text"
+                    android:drawableLeft="@drawable/ic_search_24dp"
+                    android:drawableStart="@drawable/ic_search_24dp"/>
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
