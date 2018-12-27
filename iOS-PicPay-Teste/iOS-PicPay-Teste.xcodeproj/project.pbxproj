@@ -1,0 +1,1125 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F4B122A1E0494DB5B19B9B9 /* Pods_iOS_PicPay_Teste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AA242EFB305D5B1EF5B509 /* Pods_iOS_PicPay_Teste.framework */; };
+		CB03024D21CAF8780082229E /* Brunofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03024C21CAF8780082229E /* Brunofire.swift */; };
+		CB17DBDF21B8899D0085D688 /* NaviBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DBDE21B8899D0085D688 /* NaviBarCustom.swift */; };
+		CB17DBE121B88E6F0085D688 /* CheckingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DBE021B88E6F0085D688 /* CheckingView.swift */; };
+		CB17DBE821B89FFA0085D688 /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DBE721B89FFA0085D688 /* PaymentRequest.swift */; };
+		CB17DBEA21B8A11D0085D688 /* ContactStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DBE921B8A11D0085D688 /* ContactStruct.swift */; };
+		CB17DBEF21B8AB7F0085D688 /* CredCardCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DBEE21B8AB7F0085D688 /* CredCardCoreData.swift */; };
+		CB2EE26C21D44E540098523A /* MasksPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EE26B21D44E540098523A /* MasksPayment.swift */; };
+		CB2EE27121D450ED0098523A /* MasksForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EE27021D450ED0098523A /* MasksForm.swift */; };
+		CB710DA721B5F04A000D0503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DA621B5F04A000D0503 /* AppDelegate.swift */; };
+		CB710DA921B5F04A000D0503 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DA821B5F04A000D0503 /* ContactsViewController.swift */; };
+		CB710DAC21B5F04A000D0503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB710DAA21B5F04A000D0503 /* Main.storyboard */; };
+		CB710DAF21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB710DAD21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodeld */; };
+		CB710DB121B5F04F000D0503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB710DB021B5F04F000D0503 /* Assets.xcassets */; };
+		CB710DB421B5F04F000D0503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB710DB221B5F04F000D0503 /* LaunchScreen.storyboard */; };
+		CB710DBF21B5F050000D0503 /* iOS_PicPay_TesteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DBE21B5F050000D0503 /* iOS_PicPay_TesteTests.swift */; };
+		CB710DCA21B5F050000D0503 /* iOS_PicPay_TesteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DC921B5F050000D0503 /* iOS_PicPay_TesteUITests.swift */; };
+		CB710DDC21B5F1D6000D0503 /* MainListContactsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DDB21B5F1D6000D0503 /* MainListContactsCellTableViewCell.swift */; };
+		CB710DDF21B5F71B000D0503 /* ExtensionsAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DDE21B5F71B000D0503 /* ExtensionsAnchor.swift */; };
+		CB710DE421B5FD05000D0503 /* ContactFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DE321B5FD05000D0503 /* ContactFetch.swift */; };
+		CB710DE721B5FD2E000D0503 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB710DE621B5FD2E000D0503 /* URL.swift */; };
+		CB73D2FB21B69C750000F40E /* PrimingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73D2FA21B69C750000F40E /* PrimingController.swift */; };
+		CB73D2FD21B69CA30000F40E /* PrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73D2FC21B69CA30000F40E /* PrimingView.swift */; };
+		CB73D2FF21B6A13E0000F40E /* CustomCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73D2FE21B6A13E0000F40E /* CustomCapabilities.swift */; };
+		CB73D30221B6B1A80000F40E /* NewCredCardFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73D30121B6B1A80000F40E /* NewCredCardFormVC.swift */; };
+		CB73D30521B6B3140000F40E /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73D30421B6B3140000F40E /* FormView.swift */; };
+		CB7B9A1E21C823EF001B8A50 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B9A1D21C823EF001B8A50 /* SearchBar.swift */; };
+		CB809E8B21B720C700A4C40A /* TableFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E8A21B720C600A4C40A /* TableFormVC.swift */; };
+		CB809E8F21B7293E00A4C40A /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E8E21B7293E00A4C40A /* PaymentViewController.swift */; };
+		CB809E9321B739FE00A4C40A /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E9221B739FE00A4C40A /* PaymentView.swift */; };
+		CB809E9521B7454200A4C40A /* PaymentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E9421B7454100A4C40A /* PaymentTextField.swift */; };
+		CB809E9721B7571B00A4C40A /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E9621B7571B00A4C40A /* PaymentVC.swift */; };
+		CB809E9921B7585900A4C40A /* CheckingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB809E9821B7585900A4C40A /* CheckingViewController.swift */; };
+		CB83FE4721BF309D00A299D8 /* BaseTableViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83FE4621BF309D00A299D8 /* BaseTableViewControler.swift */; };
+		CB83FE4921BF3C5E00A299D8 /* BaseTableViewCStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83FE4821BF3C5E00A299D8 /* BaseTableViewCStatic.swift */; };
+		CBCCCD4021CECE9400A7515E /* TicketDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCCD3F21CECE9400A7515E /* TicketDataSource.swift */; };
+		CBE6EBBC21D42DA00087756F /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6EBBB21D42DA00087756F /* CustomNavView.swift */; };
+		CBE6EBBE21D42ED90087756F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6EBBD21D42ED90087756F /* Protocols.swift */; };
+		CBEFA06321BC334E00DA8E64 /* NavBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFA06221BC334E00DA8E64 /* NavBarViewModel.swift */; };
+		CBEFA06521BC496600DA8E64 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFA06421BC496600DA8E64 /* LineView.swift */; };
+		CBEFA06721BC5D5900DA8E64 /* TopIndicatorGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFA06621BC5D5900DA8E64 /* TopIndicatorGesture.swift */; };
+		CBF6EA6821BB342900224680 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6EA6721BB342900224680 /* UIColor.swift */; };
+		CBF6EA6B21BB48FB00224680 /* ContatosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6EA6A21BB48FB00224680 /* ContatosViewModel.swift */; };
+		CBF6EA7321BB4EB700224680 /* CredCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6EA7221BB4EB700224680 /* CredCardViewModel.swift */; };
+		CBF6EA7821BB508E00224680 /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6EA7721BB508E00224680 /* TicketModel.swift */; };
+		CBF6EA7B21BB51FD00224680 /* TicketViewModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6EA7A21BB51FD00224680 /* TicketViewModelUser.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB710DBB21B5F050000D0503 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB710D9B21B5F04A000D0503 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB710DA221B5F04A000D0503;
+			remoteInfo = "iOS-PicPay-Teste";
+		};
+		CB710DC621B5F050000D0503 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB710D9B21B5F04A000D0503 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB710DA221B5F04A000D0503;
+			remoteInfo = "iOS-PicPay-Teste";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A0CF0625922DAA711CE69C /* Pods-iOS-PicPay-Teste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PicPay-Teste.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PicPay-Teste/Pods-iOS-PicPay-Teste.release.xcconfig"; sourceTree = "<group>"; };
+		0E042AAF01A8052BE606CDB1 /* Pods-iOS-PicPay-Teste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PicPay-Teste.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PicPay-Teste/Pods-iOS-PicPay-Teste.debug.xcconfig"; sourceTree = "<group>"; };
+		80AA242EFB305D5B1EF5B509 /* Pods_iOS_PicPay_Teste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PicPay_Teste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB03024C21CAF8780082229E /* Brunofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brunofire.swift; sourceTree = "<group>"; };
+		CB17DBDE21B8899D0085D688 /* NaviBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBarCustom.swift; sourceTree = "<group>"; };
+		CB17DBE021B88E6F0085D688 /* CheckingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingView.swift; sourceTree = "<group>"; };
+		CB17DBE721B89FFA0085D688 /* PaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		CB17DBE921B8A11D0085D688 /* ContactStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStruct.swift; sourceTree = "<group>"; };
+		CB17DBEE21B8AB7F0085D688 /* CredCardCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredCardCoreData.swift; sourceTree = "<group>"; };
+		CB2EE26B21D44E540098523A /* MasksPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasksPayment.swift; sourceTree = "<group>"; };
+		CB2EE27021D450ED0098523A /* MasksForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasksForm.swift; sourceTree = "<group>"; };
+		CB710DA321B5F04A000D0503 /* iOS-PicPay-Teste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PicPay-Teste.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB710DA621B5F04A000D0503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB710DA821B5F04A000D0503 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		CB710DAB21B5F04A000D0503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB710DAE21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_PicPay_Teste.xcdatamodel; sourceTree = "<group>"; };
+		CB710DB021B5F04F000D0503 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB710DB321B5F04F000D0503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB710DB521B5F04F000D0503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB710DBA21B5F050000D0503 /* iOS-PicPay-TesteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-PicPay-TesteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB710DBE21B5F050000D0503 /* iOS_PicPay_TesteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_PicPay_TesteTests.swift; sourceTree = "<group>"; };
+		CB710DC021B5F050000D0503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB710DC521B5F050000D0503 /* iOS-PicPay-TesteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-PicPay-TesteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB710DC921B5F050000D0503 /* iOS_PicPay_TesteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_PicPay_TesteUITests.swift; sourceTree = "<group>"; };
+		CB710DCB21B5F050000D0503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB710DDB21B5F1D6000D0503 /* MainListContactsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListContactsCellTableViewCell.swift; sourceTree = "<group>"; };
+		CB710DDE21B5F71B000D0503 /* ExtensionsAnchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsAnchor.swift; sourceTree = "<group>"; };
+		CB710DE321B5FD05000D0503 /* ContactFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFetch.swift; sourceTree = "<group>"; };
+		CB710DE621B5FD2E000D0503 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		CB73D2FA21B69C750000F40E /* PrimingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimingController.swift; sourceTree = "<group>"; };
+		CB73D2FC21B69CA30000F40E /* PrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimingView.swift; sourceTree = "<group>"; };
+		CB73D2FE21B6A13E0000F40E /* CustomCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapabilities.swift; sourceTree = "<group>"; };
+		CB73D30121B6B1A80000F40E /* NewCredCardFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCredCardFormVC.swift; sourceTree = "<group>"; };
+		CB73D30421B6B3140000F40E /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		CB7B9A1D21C823EF001B8A50 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CB809E8A21B720C600A4C40A /* TableFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFormVC.swift; sourceTree = "<group>"; };
+		CB809E8E21B7293E00A4C40A /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		CB809E9221B739FE00A4C40A /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		CB809E9421B7454100A4C40A /* PaymentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTextField.swift; sourceTree = "<group>"; };
+		CB809E9621B7571B00A4C40A /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		CB809E9821B7585900A4C40A /* CheckingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingViewController.swift; sourceTree = "<group>"; };
+		CB83FE4621BF309D00A299D8 /* BaseTableViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewControler.swift; sourceTree = "<group>"; };
+		CB83FE4821BF3C5E00A299D8 /* BaseTableViewCStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCStatic.swift; sourceTree = "<group>"; };
+		CBCCCD3F21CECE9400A7515E /* TicketDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDataSource.swift; sourceTree = "<group>"; };
+		CBE6EBBB21D42DA00087756F /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
+		CBE6EBBD21D42ED90087756F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		CBEFA06221BC334E00DA8E64 /* NavBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarViewModel.swift; sourceTree = "<group>"; };
+		CBEFA06421BC496600DA8E64 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		CBEFA06621BC5D5900DA8E64 /* TopIndicatorGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopIndicatorGesture.swift; sourceTree = "<group>"; };
+		CBF6EA6721BB342900224680 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		CBF6EA6A21BB48FB00224680 /* ContatosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosViewModel.swift; sourceTree = "<group>"; };
+		CBF6EA7221BB4EB700224680 /* CredCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredCardViewModel.swift; sourceTree = "<group>"; };
+		CBF6EA7721BB508E00224680 /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
+		CBF6EA7A21BB51FD00224680 /* TicketViewModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewModelUser.swift; sourceTree = "<group>"; };
+		CBF6EA8621BB64BC00224680 /* iOS_PicPay_Test_MVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_PicPay_Test_MVVM.swift; sourceTree = "<group>"; };
+		CBF6EA8821BB64BC00224680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB710DA021B5F04A000D0503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F4B122A1E0494DB5B19B9B9 /* Pods_iOS_PicPay_Teste.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DB721B5F050000D0503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DC221B5F050000D0503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A63D7AD358B7AC72DAFC3FE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80AA242EFB305D5B1EF5B509 /* Pods_iOS_PicPay_Teste.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB03024B21CAF8620082229E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB03024C21CAF8780082229E /* Brunofire.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB17DBDD21B889740085D688 /* CustomNavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DBDE21B8899D0085D688 /* NaviBarCustom.swift */,
+			);
+			path = CustomNavigationView;
+			sourceTree = "<group>";
+		};
+		CB2EE26D21D4507D0098523A /* Masks */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EE26F21D4508F0098523A /* Form */,
+				CB2EE26E21D450830098523A /* Paymeny */,
+			);
+			path = Masks;
+			sourceTree = "<group>";
+		};
+		CB2EE26E21D450830098523A /* Paymeny */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EE26B21D44E540098523A /* MasksPayment.swift */,
+			);
+			path = Paymeny;
+			sourceTree = "<group>";
+		};
+		CB2EE26F21D4508F0098523A /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EE27021D450ED0098523A /* MasksForm.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		CB710D9A21B5F04A000D0503 = {
+			isa = PBXGroup;
+			children = (
+				CB710DA521B5F04A000D0503 /* iOS-PicPay-Teste */,
+				CB710DBD21B5F050000D0503 /* iOS-PicPay-TesteTests */,
+				CB710DC821B5F050000D0503 /* iOS-PicPay-TesteUITests */,
+				CBF6EA8521BB64BC00224680 /* iOS-PicPay-Test-MVVM */,
+				CB710DA421B5F04A000D0503 /* Products */,
+				F2AFD574FDEBCC153F579F67 /* Pods */,
+				A63D7AD358B7AC72DAFC3FE3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB710DA421B5F04A000D0503 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DA321B5F04A000D0503 /* iOS-PicPay-Teste.app */,
+				CB710DBA21B5F050000D0503 /* iOS-PicPay-TesteTests.xctest */,
+				CB710DC521B5F050000D0503 /* iOS-PicPay-TesteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB710DA521B5F04A000D0503 /* iOS-PicPay-Teste */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DD721B5F0AB000D0503 /* Utils */,
+				CB710DD921B5F175000D0503 /* MainSource */,
+				CB710DA621B5F04A000D0503 /* AppDelegate.swift */,
+				CB710DAA21B5F04A000D0503 /* Main.storyboard */,
+				CB710DB021B5F04F000D0503 /* Assets.xcassets */,
+				CB710DB221B5F04F000D0503 /* LaunchScreen.storyboard */,
+				CB710DB521B5F04F000D0503 /* Info.plist */,
+				CB710DAD21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodeld */,
+			);
+			path = "iOS-PicPay-Teste";
+			sourceTree = "<group>";
+		};
+		CB710DBD21B5F050000D0503 /* iOS-PicPay-TesteTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DBE21B5F050000D0503 /* iOS_PicPay_TesteTests.swift */,
+				CB710DC021B5F050000D0503 /* Info.plist */,
+			);
+			path = "iOS-PicPay-TesteTests";
+			sourceTree = "<group>";
+		};
+		CB710DC821B5F050000D0503 /* iOS-PicPay-TesteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DC921B5F050000D0503 /* iOS_PicPay_TesteUITests.swift */,
+				CB710DCB21B5F050000D0503 /* Info.plist */,
+			);
+			path = "iOS-PicPay-TesteUITests";
+			sourceTree = "<group>";
+		};
+		CB710DD721B5F0AB000D0503 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EE26D21D4507D0098523A /* Masks */,
+				CB03024B21CAF8620082229E /* Services */,
+				CB710DE521B5FD22000D0503 /* URL */,
+				CB710DDD21B5F6F7000D0503 /* Class */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CB710DD921B5F175000D0503 /* MainSource */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE4521BF308300A299D8 /* GenericTableViewController */,
+				CB809E9121B739EA00A4C40A /* Checking */,
+				CB809E8C21B7291A00A4C40A /* Payment */,
+				CB73D30021B6B18C0000F40E /* Form */,
+				CB73D2F821B69C4A0000F40E /* Priming */,
+				CB73D2F721B69C3C0000F40E /* Home */,
+			);
+			path = MainSource;
+			sourceTree = "<group>";
+		};
+		CB710DDD21B5F6F7000D0503 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DDE21B5F71B000D0503 /* ExtensionsAnchor.swift */,
+				CBF6EA6721BB342900224680 /* UIColor.swift */,
+				CB73D2FE21B6A13E0000F40E /* CustomCapabilities.swift */,
+				CB809E9421B7454100A4C40A /* PaymentTextField.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		CB710DE521B5FD22000D0503 /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DE621B5FD2E000D0503 /* URL.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		CB73D2F721B69C3C0000F40E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE5B21BF40EE00A299D8 /* Model */,
+				CB83FE5A21BF40E900A299D8 /* View */,
+				CB83FE5921BF40E200A299D8 /* ViewModel */,
+				CB83FE5821BF40DD00A299D8 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CB73D2F821B69C4A0000F40E /* Priming */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE5721BF40C100A299D8 /* View */,
+				CB83FE5621BF40BB00A299D8 /* Controller */,
+			);
+			path = Priming;
+			sourceTree = "<group>";
+		};
+		CB73D30021B6B18C0000F40E /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE5521BF405F00A299D8 /* Model */,
+				CB83FE5421BF405600A299D8 /* View */,
+				CB83FE5221BF404700A299D8 /* Controller */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		CB809E8C21B7291A00A4C40A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE5021BF3FFA00A299D8 /* Model */,
+				CB83FE4F21BF3FF500A299D8 /* View */,
+				CB83FE4E21BF3FE400A299D8 /* ViewModel */,
+				CB83FE5121BF403200A299D8 /* Controller */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		CB809E9121B739EA00A4C40A /* Checking */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE4D21BF3F9700A299D8 /* Model */,
+				CB83FE4B21BF3F7E00A299D8 /* ViewModel */,
+				CB83FE4A21BF3F7800A299D8 /* View */,
+				CB83FE4C21BF3F8500A299D8 /* Controller */,
+			);
+			path = Checking;
+			sourceTree = "<group>";
+		};
+		CB83FE4521BF308300A299D8 /* GenericTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB83FE4621BF309D00A299D8 /* BaseTableViewControler.swift */,
+				CB83FE4821BF3C5E00A299D8 /* BaseTableViewCStatic.swift */,
+			);
+			path = GenericTableViewController;
+			sourceTree = "<group>";
+		};
+		CB83FE4A21BF3F7800A299D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DBE021B88E6F0085D688 /* CheckingView.swift */,
+				CBEFA06421BC496600DA8E64 /* LineView.swift */,
+				CBEFA06621BC5D5900DA8E64 /* TopIndicatorGesture.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB83FE4B21BF3F7E00A299D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBF6EA7521BB507500224680 /* TicketViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB83FE4C21BF3F8500A299D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB809E9821B7585900A4C40A /* CheckingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB83FE4D21BF3F9700A299D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBBF865221CDAFCF00B96F2C /* TicketModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB83FE4E21BF3FE400A299D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFA06121BC333500DA8E64 /* NaviBarModel */,
+				CBF6EA7221BB4EB700224680 /* CredCardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB83FE4F21BF3FF500A299D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DBDD21B889740085D688 /* CustomNavigationView */,
+				CB809E9221B739FE00A4C40A /* PaymentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB83FE5021BF3FFA00A299D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DBE721B89FFA0085D688 /* PaymentRequest.swift */,
+				CBCCCD3F21CECE9400A7515E /* TicketDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB83FE5121BF403200A299D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB809E8E21B7293E00A4C40A /* PaymentViewController.swift */,
+				CB809E9621B7571B00A4C40A /* PaymentVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB83FE5221BF404700A299D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB73D30121B6B1A80000F40E /* NewCredCardFormVC.swift */,
+				CB809E8A21B720C600A4C40A /* TableFormVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB83FE5421BF405600A299D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB73D30421B6B3140000F40E /* FormView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB83FE5521BF405F00A299D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DBEE21B8AB7F0085D688 /* CredCardCoreData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB83FE5621BF40BB00A299D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB73D2FA21B69C750000F40E /* PrimingController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB83FE5721BF40C100A299D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB73D2FC21B69CA30000F40E /* PrimingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB83FE5821BF40DD00A299D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DA821B5F04A000D0503 /* ContactsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB83FE5921BF40E200A299D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBF6EA6A21BB48FB00224680 /* ContatosViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB83FE5A21BF40E900A299D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DDB21B5F1D6000D0503 /* MainListContactsCellTableViewCell.swift */,
+				CB7B9A1D21C823EF001B8A50 /* SearchBar.swift */,
+				CBE6EBBB21D42DA00087756F /* CustomNavView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB83FE5B21BF40EE00A299D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB710DE321B5FD05000D0503 /* ContactFetch.swift */,
+				CB17DBE921B8A11D0085D688 /* ContactStruct.swift */,
+				CBE6EBBD21D42ED90087756F /* Protocols.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBBF865221CDAFCF00B96F2C /* TicketModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBF6EA7721BB508E00224680 /* TicketModel.swift */,
+			);
+			path = TicketModel;
+			sourceTree = "<group>";
+		};
+		CBEFA06121BC333500DA8E64 /* NaviBarModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFA06221BC334E00DA8E64 /* NavBarViewModel.swift */,
+			);
+			path = NaviBarModel;
+			sourceTree = "<group>";
+		};
+		CBF6EA7521BB507500224680 /* TicketViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CBF6EA7A21BB51FD00224680 /* TicketViewModelUser.swift */,
+			);
+			path = TicketViewModel;
+			sourceTree = "<group>";
+		};
+		CBF6EA8521BB64BC00224680 /* iOS-PicPay-Test-MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				CBF6EA8621BB64BC00224680 /* iOS_PicPay_Test_MVVM.swift */,
+				CBF6EA8821BB64BC00224680 /* Info.plist */,
+			);
+			path = "iOS-PicPay-Test-MVVM";
+			sourceTree = "<group>";
+		};
+		F2AFD574FDEBCC153F579F67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E042AAF01A8052BE606CDB1 /* Pods-iOS-PicPay-Teste.debug.xcconfig */,
+				04A0CF0625922DAA711CE69C /* Pods-iOS-PicPay-Teste.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB710DA221B5F04A000D0503 /* iOS-PicPay-Teste */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB710DCE21B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-Teste" */;
+			buildPhases = (
+				3E8B305F99473C9427BBD315 /* [CP] Check Pods Manifest.lock */,
+				CB710D9F21B5F04A000D0503 /* Sources */,
+				CB710DA021B5F04A000D0503 /* Frameworks */,
+				CB710DA121B5F04A000D0503 /* Resources */,
+				4CF4B7941C3C29AC30DCA195 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-PicPay-Teste";
+			productName = "iOS-PicPay-Teste";
+			productReference = CB710DA321B5F04A000D0503 /* iOS-PicPay-Teste.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB710DB921B5F050000D0503 /* iOS-PicPay-TesteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB710DD121B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-TesteTests" */;
+			buildPhases = (
+				CB710DB621B5F050000D0503 /* Sources */,
+				CB710DB721B5F050000D0503 /* Frameworks */,
+				CB710DB821B5F050000D0503 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB710DBC21B5F050000D0503 /* PBXTargetDependency */,
+			);
+			name = "iOS-PicPay-TesteTests";
+			productName = "iOS-PicPay-TesteTests";
+			productReference = CB710DBA21B5F050000D0503 /* iOS-PicPay-TesteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB710DC421B5F050000D0503 /* iOS-PicPay-TesteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB710DD421B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-TesteUITests" */;
+			buildPhases = (
+				CB710DC121B5F050000D0503 /* Sources */,
+				CB710DC221B5F050000D0503 /* Frameworks */,
+				CB710DC321B5F050000D0503 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB710DC721B5F050000D0503 /* PBXTargetDependency */,
+			);
+			name = "iOS-PicPay-TesteUITests";
+			productName = "iOS-PicPay-TesteUITests";
+			productReference = CB710DC521B5F050000D0503 /* iOS-PicPay-TesteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB710D9B21B5F04A000D0503 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Bruno iOS Dev";
+				TargetAttributes = {
+					CB710DA221B5F04A000D0503 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					CB710DB921B5F050000D0503 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CB710DA221B5F04A000D0503;
+					};
+					CB710DC421B5F050000D0503 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CB710DA221B5F04A000D0503;
+					};
+				};
+			};
+			buildConfigurationList = CB710D9E21B5F04A000D0503 /* Build configuration list for PBXProject "iOS-PicPay-Teste" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB710D9A21B5F04A000D0503;
+			productRefGroup = CB710DA421B5F04A000D0503 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB710DA221B5F04A000D0503 /* iOS-PicPay-Teste */,
+				CB710DB921B5F050000D0503 /* iOS-PicPay-TesteTests */,
+				CB710DC421B5F050000D0503 /* iOS-PicPay-TesteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB710DA121B5F04A000D0503 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB710DB421B5F04F000D0503 /* LaunchScreen.storyboard in Resources */,
+				CB710DB121B5F04F000D0503 /* Assets.xcassets in Resources */,
+				CB710DAC21B5F04A000D0503 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DB821B5F050000D0503 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DC321B5F050000D0503 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E8B305F99473C9427BBD315 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS-PicPay-Teste-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CF4B7941C3C29AC30DCA195 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-PicPay-Teste/Pods-iOS-PicPay-Teste-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-PicPay-Teste/Pods-iOS-PicPay-Teste-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB710D9F21B5F04A000D0503 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF6EA7B21BB51FD00224680 /* TicketViewModelUser.swift in Sources */,
+				CB17DBE121B88E6F0085D688 /* CheckingView.swift in Sources */,
+				CBF6EA6821BB342900224680 /* UIColor.swift in Sources */,
+				CB710DAF21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodeld in Sources */,
+				CBCCCD4021CECE9400A7515E /* TicketDataSource.swift in Sources */,
+				CB17DBDF21B8899D0085D688 /* NaviBarCustom.swift in Sources */,
+				CB73D30521B6B3140000F40E /* FormView.swift in Sources */,
+				CBE6EBBC21D42DA00087756F /* CustomNavView.swift in Sources */,
+				CB03024D21CAF8780082229E /* Brunofire.swift in Sources */,
+				CBE6EBBE21D42ED90087756F /* Protocols.swift in Sources */,
+				CB7B9A1E21C823EF001B8A50 /* SearchBar.swift in Sources */,
+				CB17DBEF21B8AB7F0085D688 /* CredCardCoreData.swift in Sources */,
+				CBF6EA6B21BB48FB00224680 /* ContatosViewModel.swift in Sources */,
+				CBEFA06721BC5D5900DA8E64 /* TopIndicatorGesture.swift in Sources */,
+				CBEFA06521BC496600DA8E64 /* LineView.swift in Sources */,
+				CB73D2FD21B69CA30000F40E /* PrimingView.swift in Sources */,
+				CBF6EA7821BB508E00224680 /* TicketModel.swift in Sources */,
+				CB83FE4921BF3C5E00A299D8 /* BaseTableViewCStatic.swift in Sources */,
+				CB809E9921B7585900A4C40A /* CheckingViewController.swift in Sources */,
+				CB2EE26C21D44E540098523A /* MasksPayment.swift in Sources */,
+				CBF6EA7321BB4EB700224680 /* CredCardViewModel.swift in Sources */,
+				CB2EE27121D450ED0098523A /* MasksForm.swift in Sources */,
+				CB17DBE821B89FFA0085D688 /* PaymentRequest.swift in Sources */,
+				CB809E8B21B720C700A4C40A /* TableFormVC.swift in Sources */,
+				CB710DE421B5FD05000D0503 /* ContactFetch.swift in Sources */,
+				CB809E9321B739FE00A4C40A /* PaymentView.swift in Sources */,
+				CB73D2FF21B6A13E0000F40E /* CustomCapabilities.swift in Sources */,
+				CB710DDF21B5F71B000D0503 /* ExtensionsAnchor.swift in Sources */,
+				CB809E8F21B7293E00A4C40A /* PaymentViewController.swift in Sources */,
+				CB809E9521B7454200A4C40A /* PaymentTextField.swift in Sources */,
+				CB710DDC21B5F1D6000D0503 /* MainListContactsCellTableViewCell.swift in Sources */,
+				CB17DBEA21B8A11D0085D688 /* ContactStruct.swift in Sources */,
+				CB73D2FB21B69C750000F40E /* PrimingController.swift in Sources */,
+				CB809E9721B7571B00A4C40A /* PaymentVC.swift in Sources */,
+				CBEFA06321BC334E00DA8E64 /* NavBarViewModel.swift in Sources */,
+				CB83FE4721BF309D00A299D8 /* BaseTableViewControler.swift in Sources */,
+				CB710DA921B5F04A000D0503 /* ContactsViewController.swift in Sources */,
+				CB73D30221B6B1A80000F40E /* NewCredCardFormVC.swift in Sources */,
+				CB710DA721B5F04A000D0503 /* AppDelegate.swift in Sources */,
+				CB710DE721B5FD2E000D0503 /* URL.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DB621B5F050000D0503 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB710DBF21B5F050000D0503 /* iOS_PicPay_TesteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB710DC121B5F050000D0503 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB710DCA21B5F050000D0503 /* iOS_PicPay_TesteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB710DBC21B5F050000D0503 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB710DA221B5F04A000D0503 /* iOS-PicPay-Teste */;
+			targetProxy = CB710DBB21B5F050000D0503 /* PBXContainerItemProxy */;
+		};
+		CB710DC721B5F050000D0503 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB710DA221B5F04A000D0503 /* iOS-PicPay-Teste */;
+			targetProxy = CB710DC621B5F050000D0503 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB710DAA21B5F04A000D0503 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB710DAB21B5F04A000D0503 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB710DB221B5F04F000D0503 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB710DB321B5F04F000D0503 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB710DCC21B5F050000D0503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB710DCD21B5F050000D0503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB710DCF21B5F050000D0503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E042AAF01A8052BE606CDB1 /* Pods-iOS-PicPay-Teste.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-Teste/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-Teste";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB710DD021B5F050000D0503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04A0CF0625922DAA711CE69C /* Pods-iOS-PicPay-Teste.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-Teste/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-Teste";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CB710DD221B5F050000D0503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-TesteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-TesteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-PicPay-Teste.app/iOS-PicPay-Teste";
+			};
+			name = Debug;
+		};
+		CB710DD321B5F050000D0503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-TesteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-TesteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-PicPay-Teste.app/iOS-PicPay-Teste";
+			};
+			name = Release;
+		};
+		CB710DD521B5F050000D0503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-TesteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-TesteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "iOS-PicPay-Teste";
+			};
+			name = Debug;
+		};
+		CB710DD621B5F050000D0503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LM5T6VK6J8;
+				INFOPLIST_FILE = "iOS-PicPay-TesteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BrunoDev.iOS-PicPay-TesteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "iOS-PicPay-Teste";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB710D9E21B5F04A000D0503 /* Build configuration list for PBXProject "iOS-PicPay-Teste" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB710DCC21B5F050000D0503 /* Debug */,
+				CB710DCD21B5F050000D0503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB710DCE21B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-Teste" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB710DCF21B5F050000D0503 /* Debug */,
+				CB710DD021B5F050000D0503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB710DD121B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-TesteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB710DD221B5F050000D0503 /* Debug */,
+				CB710DD321B5F050000D0503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB710DD421B5F050000D0503 /* Build configuration list for PBXNativeTarget "iOS-PicPay-TesteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB710DD521B5F050000D0503 /* Debug */,
+				CB710DD621B5F050000D0503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB710DAD21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB710DAE21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodel */,
+			);
+			currentVersion = CB710DAE21B5F04A000D0503 /* iOS_PicPay_Teste.xcdatamodel */;
+			path = iOS_PicPay_Teste.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CB710D9B21B5F04A000D0503 /* Project object */;
+}
