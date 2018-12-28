@@ -46,7 +46,7 @@ class TicketDataSource {
     func FetchRequest(with name: String) -> [Ticket]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Ticket")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
-//        fetchrequest.predicate = NSPredicate(format: "friend.date = %@", name)
+        fetchRequest.predicate = NSPredicate(format: "friend.username = %@", name)
         do {
             let fetch = try self._context.fetch(fetchRequest) as! [Ticket]
             return fetch
@@ -58,14 +58,13 @@ class TicketDataSource {
     
     
     func createTicketForFriend(use ticketU: TicketUser) -> Ticket {
-        let friend = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-        friend.nome = ticketU.transaction.destination_user.name
-        friend.id = NSDecimalNumber(integerLiteral: ticketU.transaction.destination_user.id)
-        friend.img = ticketU.transaction.destination_user.img
-        friend.username = ticketU.transaction.destination_user.username
+        self._friend.nome = ticketU.transaction.destination_user.name
+        self._friend.id = NSDecimalNumber(integerLiteral: ticketU.transaction.destination_user.id)
+        self._friend.img = ticketU.transaction.destination_user.img
+        self._friend.username = ticketU.transaction.destination_user.username
         
         let ticket = NSEntityDescription.insertNewObject(forEntityName: "Ticket", into: self._context) as! Ticket
-        ticket.friend = friend
+        ticket.friend = self._friend
         ticket.id = Int64(ticketU.transaction.id)
         ticket.status = ticketU.transaction.status
         ticket.success = ticketU.transaction.success

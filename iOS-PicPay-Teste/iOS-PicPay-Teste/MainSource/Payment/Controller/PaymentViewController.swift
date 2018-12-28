@@ -119,12 +119,11 @@ extension PaymentViewController: UITextFieldDelegate {
     
     //MARK:- Payment request Protocols
     func didPaymentSuccess(_ ticketU: TicketUser) {
-        self.delegate.didPaymentSuccess(with: ticketU)
-        self.navigationController?.popToRootViewController(animated: true)
-        
         let data = TicketDataSource()
         let _ = data.createTicketForFriend(use: ticketU)
         data.save()
+        self.delegate.didPaymentSuccess(with: ticketU)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func didPaymentFailure(_ ticketU: TicketUser) {

@@ -15,8 +15,6 @@ class ContactsViewController: BaseTableViewController<MainListContactsCell, Cont
     func didPaymentSuccess(with ticketUser: TicketUser) {
         let viewc = CheckingViewController()
         viewc.ticket = ticketUser
-        let ticket = TicketDataSource()
-        let _ = ticket.createTicketForFriend(use: ticketUser)
         viewc.modalPresentationStyle = .overFullScreen
         self.present(viewc, animated: true, completion: nil)
     }
@@ -59,8 +57,9 @@ class ContactsViewController: BaseTableViewController<MainListContactsCell, Cont
         configureViewController()
         configureSearchDelegate()
         FetchContacts()
-        confgigureTopSearchBar()
+        configureTopSearchBar()
         configureTableView()
+        configureSelections()
     }
     
     
@@ -97,18 +96,18 @@ class ContactsViewController: BaseTableViewController<MainListContactsCell, Cont
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.keyboardDismissMode = .onDrag
-        self.tableView.separatorStyle = .none
         self.view.addSubview(titleViewc)
-        
+    }
+    
+    //MARK:- Selections
+    fileprivate func configureSelections() {
         self.didSelect = { contato in
             let ctc = Contato(contato)
             self.pushViewController(ctc)
         }
     }
-    
-    
     //Concigure the static searchbar on top
-    fileprivate func confgigureTopSearchBar() {
+    fileprivate func configureTopSearchBar() {
         self.view.addSubview(self.tableView)
         self.tableView.fillSuperview()
         self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
@@ -163,17 +162,6 @@ class ContactsViewController: BaseTableViewController<MainListContactsCell, Cont
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return searchBar
     }
-    
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let receives = UIContextualAction(style: .destructive, title: "Recibos") { (action, view, nil) in
-            print("recibos")
-        }
-        receives.backgroundColor = .lightGreen
-        let actions = UISwipeActionsConfiguration(actions: [receives])
-        return actions
-    }
-    
     
     
     // MARK: - UISearchResultsUpdating Delegate

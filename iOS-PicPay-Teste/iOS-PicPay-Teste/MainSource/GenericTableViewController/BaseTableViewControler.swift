@@ -12,7 +12,7 @@ class BaseTableViewController<B: BaseCell<I>, I>: UIViewController, UITableViewD
     
     let cellid = "id"
     var didSelect: (I) -> () = { _ in }
-    
+
     var tableView: UITableView = {
         let table = UITableView(frame: CGRect(), style: .grouped)
         table.backgroundColor = .clear
@@ -24,6 +24,7 @@ class BaseTableViewController<B: BaseCell<I>, I>: UIViewController, UITableViewD
         super.viewDidLoad()
         tableView.register(B.self, forCellReuseIdentifier: cellid)
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         let rc = UIRefreshControl()
         rc.tintColor = .white
         rc.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
