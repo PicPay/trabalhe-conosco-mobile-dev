@@ -10,6 +10,9 @@ import UIKit
 
 class PaymentViewController: BaseTableViewCStatic {
 
+    deinit {
+        print("Removeu referência")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         let cerd = CredCoreData()
@@ -85,11 +88,11 @@ class PaymentViewController: BaseTableViewCStatic {
         let payment = self.payment.valuePayment.text!
         let pay = PaymentRequest(cred: credcardmodel!, destination: self.contato, payment: payment)
         
-        pay.PaymentRequest { (request: TicketUser) in
+        pay.PaymentRequest { [weak self] (request: TicketUser) in
             if request.transaction.success {
-                self.didPaymentSuccess(request)
+                self?.didPaymentSuccess(request)
             } else {
-                self.didPaymentFailure(request)
+                self?.didPaymentFailure(request)
             }
         }
     }

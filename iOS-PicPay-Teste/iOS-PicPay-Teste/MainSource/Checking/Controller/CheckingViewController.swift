@@ -20,6 +20,9 @@ class CheckingViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    deinit {
+        print("Removeu referência")
+    }
     
     //Constants
     var ticket: TicketUser!

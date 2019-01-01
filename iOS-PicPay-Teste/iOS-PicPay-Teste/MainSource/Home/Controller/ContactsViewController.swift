@@ -10,6 +10,9 @@ import UIKit
 
 class ContactsViewController: BaseTableViewController<MainListContactsCell, ContatosViewModel>, CheckViewControllerProtocol {
     
+    deinit {
+        print("Removeu referência")
+    }
     
     //MARK:- Call Child CheckingViewController
     func didPaymentSuccess(with ticketUser: TicketUser) {
@@ -66,12 +69,12 @@ class ContactsViewController: BaseTableViewController<MainListContactsCell, Cont
     //MARK:- Download Main Contacts
     fileprivate func FetchContacts() {
         let url = BASEURL + LIST_USERS
-        ContactsFetch.shared.FetchData(url) { (feed: Array<Contato>) in
-            let contacts = feed.map( {return ContatosViewModel(contato: $0)} )
-            self.items = contacts.sorted(by: { $0.name < $1.name })
-            self.filtered = self.items
-            self.tableView.reloadData()
-            self.tableView.refreshControl?.endRefreshing()
+        ContactsFetch.shared.FetchData(url) { [weak self] (feed: Array<Contato>) in
+            let contacts = feed.map(  {return ContatosViewModel(contato: $0)} )
+            self?.items = contacts.sorted(by: { $0.name < $1.name })
+            self?.filtered = self!.items
+            self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         }
     }
     

@@ -32,8 +32,8 @@ class iOS_PicPay_TesteTests: XCTestCase {
     }
     
     func testShouldBeOk() {
-        let contatos = Contatos(id: 9, img: "link", name: "Bruno Vieira", username: "@bruno.vieira")
-        let couserViewModel = ContatosViewModel(contatos: contatos)
+        
+        let couserViewModel = ContatosViewModel(contato: <#T##Contato#>)
         XCTAssertEqual(contatos.username, couserViewModel.username)
     }
 

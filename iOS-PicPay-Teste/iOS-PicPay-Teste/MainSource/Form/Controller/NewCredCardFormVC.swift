@@ -11,6 +11,11 @@ import CoreData
 
 class NewCredCardFormVC: BaseTableViewCStatic {
     
+    deinit {
+        print("Removeu referência")
+    }
+    
+    
     //Replace the color of next viewcontroller and change he's color to green
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
