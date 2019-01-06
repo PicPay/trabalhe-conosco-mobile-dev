@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_1x">8dp</dimen>
+    <dimen name="material_2x">16dp</dimen>
+    <dimen name="material_3x">24dp</dimen>
+    <dimen name="material_4x">32dp</dimen>
+    <dimen name="material_8x">64dp</dimen>
+
+    <dimen name="main_activity_margin">20dp</dimen>
+    <dimen name="rv_contacts_margin_top">24dp</dimen>
+</resources>

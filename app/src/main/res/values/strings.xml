@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TesteMobilePicPay</string>
+
+    <string name="card_priming_title">Cadastre um cartão\n de crédito</string>
+    <string name="card_priming_description">Para fazer pagamentos para outras\n pessoas você precisa cadastrar um\n cartão de crédito pessoal.</string>
+</resources>
