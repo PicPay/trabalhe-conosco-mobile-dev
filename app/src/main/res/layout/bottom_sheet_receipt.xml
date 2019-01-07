@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_bottom_sheet_receipt"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="@color/colorPrimaryDark"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_header_receipt"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/darkGray_151516"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            <View android:id="@+id/hanger"
+                  android:layout_width="40dp"
+                  android:layout_height="5dp"
+                  android:layout_marginTop="@dimen/material_1x"
+                  android:background="@drawable/hanger_rounded"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView android:id="@+id/tv_title_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      style="@style/TextFontDefaultMedium"
+                      android:textSize="17sp"
+                      android:textColor="@android:color/white"
+                      android:text="@string/receipt"
+                      app:layout_constraintTop_toBottomOf="@+id/hanger"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_body_receipt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_header_receipt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_contact_payment"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_launcher_background"
+                    app:civ_border_color="@color/darkGray_2B2C2F"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView android:id="@+id/tv_username_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      style="@style/TextFontDefault"
+                      android:textStyle="bold"
+                      android:textSize="20sp"
+                      app:layout_constraintTop_toBottomOf="@+id/iv_contact_payment"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      tools:text="\@username"/>
+
+            <TextView android:id="@+id/tv_date_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/material_1x"
+                      android:textColor="@color/gray_66FFFFFF"
+                      android:textSize="14sp"
+                      app:layout_constraintTop_toBottomOf="@+id/tv_username_receipt"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      tools:text="00/00/0000 às 00:00"/>
+
+            <TextView android:id="@+id/tv_transaction_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/material_1x"
+                      android:textColor="@color/gray_66FFFFFF"
+                      android:textSize="12sp"
+                      app:layout_constraintTop_toBottomOf="@+id/tv_date_receipt"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      tools:text="Transação: 0000000"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_detail_receipt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/main_activity_margin"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_body_receipt"
+                app:layout_constraintStart_toStartOf="parent">
+
+            <View android:id="@+id/separator_1"
+                  android:layout_width="match_parent"
+                  android:layout_height="1dp"
+                  android:background="@color/darkGray_3D4451"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView android:id="@+id/tv_card_info_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      style="@style/TextFontDefaultMedium"
+                      android:textSize="13sp"
+                      app:layout_constraintTop_toBottomOf="@+id/separator_1"
+                      app:layout_constraintStart_toStartOf="parent"
+                      tools:text="Cartão Master 1234"/>
+
+            <TextView android:id="@+id/tv_card_value_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      style="@style/TextFontDefaultMedium"
+                      android:textSize="13sp"
+                      app:layout_constraintTop_toBottomOf="@+id/separator_1"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      tools:text="R$ 16,90"/>
+
+            <View android:id="@+id/separator_2"
+                  android:layout_width="match_parent"
+                  android:layout_height="2dp"
+                  android:layout_marginTop="12dp"
+                  android:background="@color/darkGray_3D4451"
+                  app:layout_constraintTop_toBottomOf="@+id/tv_card_value_receipt"
+                  app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView android:id="@+id/tv_total_title_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      android:textSize="17sp"
+                      android:textStyle="bold"
+                      android:text="@string/total_payed"
+                      app:layout_constraintTop_toBottomOf="@+id/separator_2"
+                      app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView android:id="@+id/tv_total_value_receipt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="12dp"
+                      android:textSize="17sp"
+                      android:textStyle="bold"
+                      app:layout_constraintTop_toBottomOf="@+id/separator_2"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      tools:text="R$ 16,90"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

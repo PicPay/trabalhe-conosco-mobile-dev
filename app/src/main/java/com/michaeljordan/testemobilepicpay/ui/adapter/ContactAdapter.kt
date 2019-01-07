@@ -5,18 +5,28 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import com.michaeljordan.testemobilepicpay.databinding.ContactListItemBinding
 import com.michaeljordan.testemobilepicpay.model.Contact
+import com.michaeljordan.testemobilepicpay.ui.ContactFilter
 import com.squareup.picasso.Picasso
 
 class ContactAdapter(val context: Context, val listener: ContactAdapterOnClickListener) :
-    RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
-
+    RecyclerView.Adapter<ContactAdapter.ContactViewHolder>(), Filterable {
+    private var filter: ContactFilter? = null
     private var items: List<Contact> = ArrayList()
-    private var itemsFiltered: List<Contact> = ArrayList()
+    private var itemsFiltered: ArrayList<Contact> = ArrayList()
 
     interface ContactAdapterOnClickListener {
         fun onClick(contact: Contact)
+    }
+
+    override fun getFilter(): Filter {
+        if (filter == null) {
+            filter = ContactFilter(itemsFiltered, this)
+        }
+        return filter as ContactFilter
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -29,9 +39,9 @@ class ContactAdapter(val context: Context, val listener: ContactAdapterOnClickLi
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) = holder.bind(items[position])
 
-    fun setData(movies: List<Contact>) {
-        items = movies
-        itemsFiltered = movies
+    fun setData(items: List<Contact>) {
+        this.items = items
+        itemsFiltered = items as ArrayList<Contact>
         notifyDataSetChanged()
     }
 
@@ -42,11 +52,11 @@ class ContactAdapter(val context: Context, val listener: ContactAdapterOnClickLi
         }
 
         fun bind(item: Contact) {
-            binding.tvUsername.text = item?.username
-            binding.tvName.text = item?.name
+            binding.tvUsername.text = item.username
+            binding.tvName.text = item.name
 
             Picasso.with(context)
-                .load(item?.image)
+                .load(item.image)
                 //.error(R.drawable.ic_no_poster)
                 .into(binding.ivContact)
         }

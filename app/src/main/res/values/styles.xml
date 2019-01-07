@@ -1,11 +1,59 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/gray_ACB1BD</item>
+        <item name="android:fontFamily">@string/default_font</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="colorPrimaryDark">@color/gray_ACB1BD</item>
+        <item name="android:textColorPrimary">@color/gray_ACB1BD</item>
+        <item name="android:textColorSecondary">@color/gray_ACB1BD</item>
+    </style>
+
+    <style name="TextFontDefault" parent="AppTheme">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextFontDefaultMedium" parent="AppTheme">
+        <item name="android:fontFamily">@string/font_fontFamily_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextFontDefaultLight" parent="AppTheme">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ButtonStyle" parent="TextFontDefaultMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/selector_bt_rounded</item>
+    </style>
+
+    <style name="TitleActivityStyle" parent="TextFontDefault">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/gray_66FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/gray_66FFFFFF</item>
+        <item name="colorControlActivated">@color/gray_66FFFFFF</item>
+    </style>
+    <style name="EditTextStyle" parent="TextLabel">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:backgroundTint">@color/gray_66FFFFFF</item>
+    </style>
 </resources>

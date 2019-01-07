@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/rv_contacts_margin_top"
-    android:background="@color/backgroundDefault">
+            android:background="@color/colorPrimaryDark">
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_contact"
@@ -15,7 +15,7 @@
                 android:layout_height="52dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_launcher_background"
-                app:civ_border_color="@color/colorAccent"
+                app:civ_border_color="@color/darkGray_2B2C2F"
                 app:civ_border_width="1dp"/>
 
         <TextView
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintTop_toTopOf="@+id/iv_contact"
                 app:layout_constraintStart_toEndOf="@+id/iv_contact"
                 tools:text="\@username"/>
@@ -33,7 +33,9 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="2dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray_80FFFFFF"
                 app:layout_constraintStart_toStartOf="@+id/tv_username"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_contact"
                 tools:text="name"/>

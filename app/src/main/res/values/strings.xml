@@ -1,6 +1,29 @@
 <resources>
-    <string name="app_name">TesteMobilePicPay</string>
+    <string name="app_name">Teste Mobile PicPay</string>
 
     <string name="card_priming_title">Cadastre um cartão\n de crédito</string>
     <string name="card_priming_description">Para fazer pagamentos para outras\n pessoas você precisa cadastrar um\n cartão de crédito pessoal.</string>
+
+    <string name="date_formated">%s às %s</string>
+    <string name="transaction_title">Transação: %s</string>
+    <string name="mastercard_title">Mastercard: %s  • </string>
+
+    <string name="error">erro: %s</string>
+    <string name="contentDescriptor">ImageView</string>
+    
+    <string name="register_card">Cadastrar cartão</string>
+    <string name="card_number">Número do cartão</string>
+    <string name="holder_name">Nome do titular</string>
+    <string name="expiry_date">Vencimento</string>
+    <string name="cvv">CVV</string>
+    <string name="save">Salvar</string>
+    <string name="contacts">Contatos</string>
+    <string name="real_symbol">R$</string>
+    <string name="default_value_zero">0,00</string>
+    <string name="edit_allcaps">EDITAR</string>
+    <string name="pay">Pagar</string>
+    <string name="receipt">Recibo</string>
+    <string name="total_payed">Total pago</string>
+
+    <string name="default_font" translatable="false">sans-serif</string>
 </resources>

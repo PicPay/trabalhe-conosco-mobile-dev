@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_content_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/main_activity_margin"
+            android:paddingEnd="@dimen/main_activity_margin"
+            android:layout_marginTop="@dimen/material_2x"
+            android:background="@color/colorPrimaryDark"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.SearchView
+                android:id="@+id/sv_contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_gray"
+                style="@style/SearchViewStyle"
+                app:iconifiedByDefault="false"
+                app:queryHint="A quem você deseja pagar?"
+                app:queryBackground="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/material_2x"
+                app:layout_constraintTop_toBottomOf="@+id/sv_contacts"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                tools:visibility="visible"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

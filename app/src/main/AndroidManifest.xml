@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.michaeljordan.testemobilepicpay">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="false"
@@ -11,7 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+            tools:ignore="GoogleAppIndexingWarning"
+            android:usesCleartextTraffic="true">
 
         <activity android:name=".ui.view.MainActivity">
             <intent-filter>
@@ -21,9 +22,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.view.PaymentActivity" />
-        <activity android:name=".ui.view.CardPrimingActivity" />
-        <activity android:name=".ui.view.CardRegisterActivity" />
+        <activity android:name=".ui.view.PaymentActivity"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.view.CardPrimingActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.view.CardRegisterActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

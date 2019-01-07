@@ -23,6 +23,10 @@ class CardPrimingActivity : AppCompatActivity() {
         binding.btOpenCardRegister.setOnClickListener {
             openCardRegister()
         }
+
+        binding.toolbarCardPriming.ibBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun openCardRegister() {
