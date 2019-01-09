@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TestePicPay</string>
+
+    //Network related strings
+    <string name="base_url">http://careers.picpay.com/tests/mobdev/</string>
 </resources>
