@@ -14,13 +14,10 @@ struct ContatosViewModel {
     let name: String
     let username: String
     
-    let imageView = UIImageView()
     init(contato: Contato) {
         self.id = contato.id
         self.img = contato.img
         self.name = contato.name
         self.username = contato.username
-    
-        self.imageView.sd_setImage(with: URL(string: self.img), placeholderImage: UIImage(named: "noprofile.png"))
     }
 }

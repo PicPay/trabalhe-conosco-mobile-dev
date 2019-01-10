@@ -37,7 +37,7 @@ class MainListContactsCell: BaseCell<ContatosViewModel> {
         didSet {
             self.labelname.text = item.name
             self.labelnickname.text = item.username
-            self.imgavatar.image = item.imageView.image
+            self.imgavatar.sd_setImage(with: URL(string: item.img), placeholderImage: UIImage(named: "noprofile.png"))
         }
     }
     

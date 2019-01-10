@@ -30,11 +30,5 @@ class iOS_PicPay_TesteTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    func testShouldBeOk() {
-        
-        let couserViewModel = ContatosViewModel(contato: <#T##Contato#>)
-        XCTAssertEqual(contatos.username, couserViewModel.username)
-    }
 
 }
