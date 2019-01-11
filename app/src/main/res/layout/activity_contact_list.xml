@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".contacts.view.ContactsListActivity">
+
     <data>
 
         <variable
@@ -9,31 +11,54 @@
             type="rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel" />
     </data>
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/default_margin"
-        android:orientation="vertical">
+        android:layout_margin="@dimen/default_margin">
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:text="@string/contacts_title"
-            android:textSize="@dimen/title_size"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/default_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RelativeLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:gravity="center"
-            android:background="@drawable/rounded_search_view">
+            android:fitsSystemWindows="true">
 
-        <EditText
-            android:id="@+id/search"
-            style="@style/SearchView" />
-        </RelativeLayout>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/contacts_title"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_view"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/searchEditText"
+                            style="@style/SearchView" />
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </ScrollView>
+        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

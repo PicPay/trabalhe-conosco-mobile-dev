@@ -27,7 +27,7 @@ android {
 
 dependencies {
     def retrofitVersion = '2.4.0'
-    def lifecycleVersion = '1.1.0'
+    def lifecycleVersion = '1.1.1'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -41,4 +41,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
     implementation "android.arch.lifecycle:viewmodel:$lifecycleVersion"
+    implementation "com.android.support:design:28.0.0"
 }
