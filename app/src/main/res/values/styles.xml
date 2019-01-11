@@ -9,8 +9,25 @@
     </style>
 
     <style name="PicPay" parent="Theme.AppCompat" >
-        <item name="android:colorAccent">@color/accent_material_dark</item>
-        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SearchView" parent="Widget.AppCompat.EditText">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingTop">@dimen/single_space</item>
+        <item name="android:paddingBottom">@dimen/single_space</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/unfocused_element</item>
+        <item name="android:hint">@string/searchbar_hint</item>
+        <item name="android:drawableLeft">@drawable/ic_search</item>
+        <item name="android:drawablePadding">@dimen/single_space</item>
+        <item name="colorControlNormal">@color/unfocused_element</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
     </style>
 
 </resources>

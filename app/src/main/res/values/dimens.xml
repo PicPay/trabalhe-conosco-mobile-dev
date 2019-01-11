@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="single_space">8dp</dimen>
+    <dimen name="double_space">16dp</dimen>
+    <dimen name="triple_space">24dp</dimen>
+    <dimen name="quad_space">32dp</dimen>
+
+    <dimen name="title_size">36sp</dimen>
+    <dimen name="default_margin">24dp</dimen>
+</resources>

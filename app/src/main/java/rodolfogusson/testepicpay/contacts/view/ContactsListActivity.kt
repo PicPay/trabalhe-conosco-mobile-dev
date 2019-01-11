@@ -26,8 +26,13 @@ class ContactsListActivity : AppCompatActivity() {
                 setLifecycleOwner(this@ContactsListActivity)
                 viewModel = contactsListViewModel
             }
+        setupLayout()
         registerObserver()
         contactsListViewModel.getUsers()
+    }
+
+    private fun setupLayout() {
+        supportActionBar?.hide()
     }
 
     private fun registerObserver() {
@@ -37,9 +42,9 @@ class ContactsListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-                for (item in list) {
-                    textView.append(item.username + " ")
-                }
+//                for (item in list) {
+//                    tv.append(item.username + " ")
+//                }
             }
         })
     }
