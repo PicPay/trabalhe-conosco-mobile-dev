@@ -26,31 +26,16 @@ class ContactsListActivity : AppCompatActivity() {
                 viewModel = contactsListViewModel
             }
 
-        contactsListViewModel.data.observe(this, Observer {
-            //            if(it != null) {
-//                for(item in it) {
-//                    textView.append(item.username + " ")
-//                }
-//            }
-
-            if (it != null) {
-                if (it.response != null) {
-                    val ir = it.response
-                    for (item in ir!!) {
-                        textView.append(item.username + " ")
-                    }
+        contactsListViewModel.users.observe(this, Observer {
+            it?.error?.let {
+                //show error
+                return@Observer
+            }
+            it?.data?.let {
+                for(item in it) {
+                    textView.append(item.username + " ")
                 }
             }
-
-//            it?.error?.let {
-//                //show error
-//                return@Observer
-//            }
-//            it?.response?.let {
-//                for(item in it) {
-//                    textView.append(item.username + " ")
-//                }
-//            }
         })
 
         contactsListViewModel.getUsers()
