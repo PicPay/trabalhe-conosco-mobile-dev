@@ -7,6 +7,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel
+import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 
 class ContactsListActivity : AppCompatActivity() {
@@ -25,19 +26,21 @@ class ContactsListActivity : AppCompatActivity() {
                 setLifecycleOwner(this@ContactsListActivity)
                 viewModel = contactsListViewModel
             }
+        registerObserver()
+        contactsListViewModel.getUsers()
+    }
 
+    private fun registerObserver() {
         contactsListViewModel.users.observe(this, Observer {
-            it?.error?.let {
-                //show error
+            it?.error?.let { error ->
+                showErrorDialog(error.localizedMessage, this)
                 return@Observer
             }
-            it?.data?.let {
-                for(item in it) {
+            it?.data?.let { list ->
+                for (item in list) {
                     textView.append(item.username + " ")
                 }
             }
         })
-
-        contactsListViewModel.getUsers()
     }
 }
