@@ -11,12 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/PicPay">
-        <activity android:name="rodolfogusson.testepicpay.contacts.view.ContactsListActivity">
+        <activity android:name=".contacts.view.ContactsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".contacts.view.TestActivity">
         </activity>
     </application>
 

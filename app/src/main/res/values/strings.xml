@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">TestePicPay</string>
 
-    //  ContactsList
+    // ContactsList
     <string name="contacts_title">Contatos</string>
     <string name="searchbar_hint">A quem você deseja pagar?</string>
-    
-    //  Dialog strings
+
+    // Dialog strings
     <string name="error">Erro</string>
     <string name="ok">OK</string>
 </resources>

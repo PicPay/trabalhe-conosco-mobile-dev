@@ -9,6 +9,7 @@
         <variable
             name="viewModel"
             type="rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel" />
+
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -31,34 +32,40 @@
                 android:textStyle="bold"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed" />
 
-            <ScrollView
+            <RelativeLayout
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_search_view"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                app:layout_scrollFlags="enterAlways">
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    style="@style/SearchView" />
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content" />
 
-                    <RelativeLayout
-                        android:id="@+id/searchView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_search_view"
-                        android:focusableInTouchMode="true"
-                        android:gravity="center">
+            </android.support.v4.widget.NestedScrollView>
 
-                        <EditText
-                            android:id="@+id/searchEditText"
-                            style="@style/SearchView" />
-                    </RelativeLayout>
+        </RelativeLayout>
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </ScrollView>
-        </android.support.design.widget.AppBarLayout>
     </android.support.design.widget.CoordinatorLayout>
+
 </layout>

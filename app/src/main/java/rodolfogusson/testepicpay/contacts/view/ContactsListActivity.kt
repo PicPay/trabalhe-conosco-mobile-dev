@@ -70,7 +70,7 @@ class ContactsListActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MyAdapter(animals, this)
-
+        recyclerView.isNestedScrollingEnabled = false
     }
 
     private fun setupLayout() {
