@@ -27,7 +27,7 @@ android {
 
 dependencies {
     def retrofitVersion = '2.4.0'
-    def lifecycleVersion = '1.1.1'
+    def lifecycleVersion = '1.1.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
