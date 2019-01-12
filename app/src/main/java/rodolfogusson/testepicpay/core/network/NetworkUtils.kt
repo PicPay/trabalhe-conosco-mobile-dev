@@ -5,7 +5,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import rodolfogusson.testepicpay.core.data.Resource
 
-// Function defined to simplify writing callbacks in rest calls when using Retrofit.
+// Function defined to simplify writing callbacks in Retrofit network calls.
 private fun <T> callback(callResponse: (response: Response<T>?,
                                 error: Throwable?) -> Unit): Callback<T> {
     return object : Callback<T> {
@@ -19,7 +19,7 @@ private fun <T> callback(callResponse: (response: Response<T>?,
     }
 }
 
-// Request function to be used in every request made by the app.
+// Function used to make every network request in the application.
 fun <T> request(call: Call<T>, completion: (Resource<T>) -> Unit) {
     call.enqueue( callback { response, error ->
         val resource = Resource<T>()

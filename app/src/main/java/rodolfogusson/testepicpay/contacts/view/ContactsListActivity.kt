@@ -5,8 +5,10 @@ import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import rodolfogusson.testepicpay.R
+import rodolfogusson.testepicpay.contacts.model.contact.Contact
 import rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel
 import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
@@ -28,18 +30,14 @@ class ContactsListActivity : AppCompatActivity() {
                 viewModel = contactsListViewModel
             }
         setupLayout()
-        setupRecyclerView()
         registerObserver()
         contactsListViewModel.getUsers()
     }
 
-    private fun setupRecyclerView() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.isNestedScrollingEnabled = false
-    }
-
     private fun setupLayout() {
         supportActionBar?.hide()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.isNestedScrollingEnabled = false
     }
 
     private fun registerObserver() {
@@ -49,10 +47,13 @@ class ContactsListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-                val adapter = ContactsAdapter(list)
+                val adapter = ContactsAdapter(list, ::onContactClicked)
                 recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
             }
         })
+    }
+
+    private fun onContactClicked(contact: Contact) {
     }
 }

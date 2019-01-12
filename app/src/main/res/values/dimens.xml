@@ -8,6 +8,5 @@
     <dimen name="search_view_padding">12dp</dimen>
 
     <dimen name="title_size">36sp</dimen>
-    <dimen name="medium_text_size">20sp</dimen>
     <dimen name="default_margin">24dp</dimen>
 </resources>

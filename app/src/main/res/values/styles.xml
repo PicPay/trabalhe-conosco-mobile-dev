@@ -23,8 +23,7 @@
     </style>
 
     <style name="UsernameTextView" parent="android:Widget.TextView">
-
-        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="NameTextView" parent="android:Widget.TextView">

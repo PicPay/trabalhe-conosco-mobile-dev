@@ -8,7 +8,8 @@ import rodolfogusson.testepicpay.contacts.model.contact.Contact
 import rodolfogusson.testepicpay.contacts.view.ContactsAdapter.ContactHolder
 import rodolfogusson.testepicpay.databinding.ContactItemBinding
 
-class ContactsAdapter(private val contacts: List<Contact>) : Adapter<ContactHolder>() {
+class ContactsAdapter(private val contacts: List<Contact>,
+                      private val clickListener: (Contact) -> Unit) : Adapter<ContactHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,11 +19,12 @@ class ContactsAdapter(private val contacts: List<Contact>) : Adapter<ContactHold
 
     override fun getItemCount(): Int = contacts.size
 
-    override fun onBindViewHolder(holder: ContactHolder, position: Int) = holder.bind(contacts[position])
+    override fun onBindViewHolder(holder: ContactHolder, position: Int) = holder.bind(contacts[position], clickListener)
 
     class ContactHolder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Contact){
+        fun bind(item: Contact, clickListener: (Contact) -> Unit) {
             binding.item = item
+            binding.root.setOnClickListener { clickListener(item) }
             binding.executePendingBindings()
         }
     }
