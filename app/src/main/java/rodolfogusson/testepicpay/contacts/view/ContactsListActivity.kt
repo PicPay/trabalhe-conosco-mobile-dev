@@ -34,42 +34,7 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        val animals: ArrayList<String> = ArrayList()
-        animals.add("dog")
-        animals.add("cat")
-        animals.add("owl")
-        animals.add("cheetah")
-        animals.add("raccoon")
-        animals.add("bird")
-        animals.add("snake")
-        animals.add("lizard")
-        animals.add("hamster")
-        animals.add("bear")
-        animals.add("lion")
-        animals.add("tiger")
-        animals.add("horse")
-        animals.add("frog")
-        animals.add("fish")
-        animals.add("shark")
-        animals.add("turtle")
-        animals.add("elephant")
-        animals.add("cow")
-        animals.add("beaver")
-        animals.add("bison")
-        animals.add("porcupine")
-        animals.add("rat")
-        animals.add("mouse")
-        animals.add("goose")
-        animals.add("deer")
-        animals.add("fox")
-        animals.add("moose")
-        animals.add("buffalo")
-        animals.add("monkey")
-        animals.add("penguin")
-        animals.add("parrot")
-
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MyAdapter(animals, this)
         recyclerView.isNestedScrollingEnabled = false
     }
 
@@ -84,9 +49,9 @@ class ContactsListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-//                for (item in list) {
-//                    tv.append(item.username + " ")
-//                }
+                val adapter = ContactsAdapter(list)
+                recyclerView.adapter = adapter
+                adapter.notifyDataSetChanged()
             }
         })
     }

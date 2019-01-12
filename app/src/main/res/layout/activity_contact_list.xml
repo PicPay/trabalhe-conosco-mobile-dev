@@ -17,47 +17,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/default_margin">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
-
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-                <TextView
-                    android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:layout_marginBottom="@dimen/triple_space"
-                    android:text="@string/contacts_title"
-                    android:textSize="@dimen/title_size"
-                    android:textStyle="bold"
-                    app:layout_collapseMode="none" />
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-            <RelativeLayout
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_search_view"
-                android:focusableInTouchMode="true"
-                android:layout_marginBottom="@dimen/single_space"
-                android:gravity="center">
-
-                <EditText
-                    android:id="@+id/searchEditText"
-                    style="@style/SearchView" />
-
-            </RelativeLayout>
-
-        </android.support.design.widget.AppBarLayout>
+        <include layout="@layout/contact_list_header"/>
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"

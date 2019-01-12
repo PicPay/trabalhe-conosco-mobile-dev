@@ -1,6 +1,6 @@
-package rodolfogusson.testepicpay.contacts.model.user
+package rodolfogusson.testepicpay.contacts.model.contact
 
-data class User(
+data class Contact(
     val id: Int,
     val img: String,
     val name: String,
