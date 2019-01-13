@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="cinza">#ACB1BD</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="backgroud">#1D1E20</color>
+    <color name="hint_default">#999999</color>
+    <color name="button_color">#11C76F</color>
+    <color name="button_color_dark">#489670</color>
+    <color name="button_disabled">#8F929D</color>
+
+</resources>

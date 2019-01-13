@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">PicPay - Teste</string>
+
+    <string name="id_ex">"@aliceromero"</string>
+    <string name="nome_ex">Alice Romero</string>
+
+    <string name="contatos">Contatos</string>
+
+    <string name="add_cartao">Cadastre um cartão de crédito</string>
+    <string name="add_cartao_info">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.</string>
+
+    <string name="bt_cadastrar_cartao">Cadastrar cartão</string>
+
+
+    <string name="hint_numcard">Número do cartão</string>
+    <string name="hint_nometitular">Nome do titular</string>
+    <string name="hint_vencimento">Vencimento</string>
+    <string name="hint_cvv">CVV</string>
+    <string name="hint_monetaria">0,00</string>
+
+    <string name="bt_salvar_cartao">Salvar</string>
+    <string name="bt_pagar">Pagar</string>
+
+
+    <string name="name_composicao_teste">"@zelda.williams"</string>
+</resources>
