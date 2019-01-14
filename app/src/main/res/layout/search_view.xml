@@ -9,6 +9,6 @@
 
     <EditText
         android:id="@+id/searchEditText"
-        style="@style/SearchView" />
+        style="@style/SearchViewEditText" />
 
 </RelativeLayout>

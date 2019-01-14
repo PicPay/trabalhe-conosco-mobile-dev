@@ -5,9 +5,8 @@ import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_contact_list.*
-import kotlinx.android.synthetic.main.contact_list_header.view.*
+import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.contacts.model.contact.Contact
 import rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel
@@ -17,6 +16,7 @@ import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 class ContactsListActivity : AppCompatActivity() {
 
     private lateinit var contactsListViewModel: ContactsListViewModel
+    private lateinit var adapter : ContactsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +39,6 @@ class ContactsListActivity : AppCompatActivity() {
         supportActionBar?.hide()
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.isNestedScrollingEnabled = false
-//        header.search_view.setOnClickListener { v ->
-//            Toast.makeText(this, "TESTE", Toast.LENGTH_SHORT).show()
-//        }
     }
 
     private fun registerObserver() {
@@ -51,9 +48,10 @@ class ContactsListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-                val adapter = ContactsAdapter(list, ::onContactClicked)
+                adapter = ContactsAdapter(list, ::onContactClicked)
                 recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
+                searchView.search = adapter::filterBy
             }
         })
     }

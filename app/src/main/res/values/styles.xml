@@ -6,7 +6,7 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="SearchView" parent="Widget.AppCompat.EditText">
+    <style name="SearchViewEditText" parent="Widget.AppCompat.EditText">
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
