@@ -32,7 +32,6 @@ class ContactsListActivity : AppCompatActivity() {
             }
         setupLayout()
         registerObserver()
-        contactsListViewModel.getContacts()
     }
 
     private fun setupLayout() {
@@ -42,7 +41,7 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun registerObserver() {
-        contactsListViewModel.users.observe(this, Observer {
+        contactsListViewModel.contacts.observe(this, Observer {
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
                 return@Observer

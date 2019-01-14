@@ -10,7 +10,6 @@ class ContactRepository {
 
     private val service: PaymentService = ServiceGenerator.paymentService()
 
-    fun getContacts(completion: (LiveData<Resource<List<Contact>>>) -> Unit) =
-        request(service.getContacts(), completion)
+    fun getContacts(): LiveData<Resource<List<Contact>>> = request(service.getContacts())
 }
 

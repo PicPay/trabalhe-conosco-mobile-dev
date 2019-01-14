@@ -8,8 +8,12 @@ import retrofit2.Response
 import rodolfogusson.testepicpay.core.data.Resource
 
 // Function defined to simplify writing callbacks in Retrofit network calls.
-private fun <T> callback(callResponse: (response: Response<T>?,
-                                error: Throwable?) -> Unit): Callback<T> {
+private fun <T> callback(
+    callResponse: (
+        response: Response<T>?,
+        error: Throwable?
+    ) -> Unit
+): Callback<T> {
     return object : Callback<T> {
         override fun onResponse(call: Call<T>?, response: Response<T>?) {
             callResponse(response, null)
@@ -22,11 +26,11 @@ private fun <T> callback(callResponse: (response: Response<T>?,
 }
 
 // Function used to make every network request in the application.
-fun <T> request(call: Call<T>, completion: (LiveData<Resource<T>>) -> Unit) {
-
-    call.enqueue( callback { response, error ->
+fun <T> request(call: Call<T>): LiveData<Resource<T>> {
+    val liveData = MutableLiveData<Resource<T>>()
+    call.enqueue(callback { response, error ->
         val resource = Resource(response?.body(), error)
-        val liveData = MutableLiveData<Resource<T>>().apply { value = resource }
-        completion(liveData)
+        liveData.value = resource
     })
+    return liveData
 }

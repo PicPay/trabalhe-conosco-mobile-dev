@@ -17,9 +17,7 @@ class CreditCardRepository(context: Context) {
         creditCards = creditCardDao.getAllCreditCards()
     }
 
-    fun getCreditCards(completion: (LiveData<List<CreditCard>>) -> Unit) {
-        completion(creditCards)
-    }
+    fun getCreditCards(): LiveData<List<CreditCard>> = creditCards
 
     fun insert(card: CreditCard) {
         GlobalScope.launch {
