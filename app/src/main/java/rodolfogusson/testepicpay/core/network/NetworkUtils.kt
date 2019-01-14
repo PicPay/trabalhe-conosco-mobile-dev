@@ -1,5 +1,7 @@
 package rodolfogusson.testepicpay.core.network
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,18 +22,11 @@ private fun <T> callback(callResponse: (response: Response<T>?,
 }
 
 // Function used to make every network request in the application.
-fun <T> request(call: Call<T>, completion: (Resource<T>) -> Unit) {
+fun <T> request(call: Call<T>, completion: (LiveData<Resource<T>>) -> Unit) {
+
     call.enqueue( callback { response, error ->
-        val resource = Resource<T>()
-
-        response?.body()?.let {
-            resource.data = it
-        }
-
-        error?.let {
-            resource.error = it
-        }
-
-        completion(resource)
+        val resource = Resource(response?.body(), error)
+        val liveData = MutableLiveData<Resource<T>>().apply { value = resource }
+        completion(liveData)
     })
 }

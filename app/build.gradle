@@ -34,6 +34,7 @@ dependencies {
     def persistenceVersion = '1.1.1'
     def picassoVersion = "2.71828"
     def circleImageViewVersion = '3.0.0'
+    def coroutinesVersion = '1.1.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -60,4 +61,7 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picassoVersion"
 
     implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 }
