@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true" >
 
     <android.support.design.widget.CollapsingToolbarLayout
         android:layout_width="match_parent"
@@ -20,23 +20,15 @@
             android:text="@string/contacts_title"
             android:textSize="@dimen/title_size"
             android:textStyle="bold"
-            app:layout_collapseMode="none" />
+            app:layout_collapseMode="none"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
 
     </android.support.design.widget.CollapsingToolbarLayout>
 
-    <RelativeLayout
-        android:id="@+id/searchView"
+    <rodolfogusson.testepicpay.contacts.view.ContactsSearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/single_space"
-        android:background="@drawable/rounded_search_view"
-        android:focusableInTouchMode="true"
-        android:gravity="center">
-
-        <EditText
-            android:id="@+id/searchEditText"
-            style="@style/SearchView" />
-
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
 </android.support.design.widget.AppBarLayout>

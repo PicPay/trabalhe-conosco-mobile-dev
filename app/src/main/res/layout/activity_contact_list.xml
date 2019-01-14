@@ -17,7 +17,8 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/default_margin">
 
-        <include layout="@layout/contact_list_header"/>
+        <include android:id="@+id/header"
+            layout="@layout/contact_list_header"/>
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"

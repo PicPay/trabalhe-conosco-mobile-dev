@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_contact_list.*
+import kotlinx.android.synthetic.main.contact_list_header.view.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.contacts.model.contact.Contact
 import rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel
@@ -38,6 +39,9 @@ class ContactsListActivity : AppCompatActivity() {
         supportActionBar?.hide()
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.isNestedScrollingEnabled = false
+//        header.search_view.setOnClickListener { v ->
+//            Toast.makeText(this, "TESTE", Toast.LENGTH_SHORT).show()
+//        }
     }
 
     private fun registerObserver() {
