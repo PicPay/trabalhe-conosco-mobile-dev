@@ -26,7 +26,7 @@
 
     </android.support.design.widget.CollapsingToolbarLayout>
 
-    <rodolfogusson.testepicpay.contacts.view.ContactsSearchView
+    <rodolfogusson.testepicpay.payment.view.contacts.ContactsSearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

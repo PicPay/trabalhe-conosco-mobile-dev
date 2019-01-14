@@ -1,11 +1,11 @@
-package rodolfogusson.testepicpay.contacts.view
+package rodolfogusson.testepicpay.payment.view.contacts
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
-import rodolfogusson.testepicpay.contacts.model.contact.Contact
-import rodolfogusson.testepicpay.contacts.view.ContactsAdapter.ContactHolder
+import rodolfogusson.testepicpay.payment.model.contact.Contact
+import rodolfogusson.testepicpay.payment.view.contacts.ContactsAdapter.ContactHolder
 import rodolfogusson.testepicpay.databinding.ContactItemBinding
 
 class ContactsAdapter(private val contacts: List<Contact>,
@@ -14,8 +14,8 @@ class ContactsAdapter(private val contacts: List<Contact>,
     private var filteredContacts = contacts
 
     fun filterBy(text: String) {
-        filteredContacts = contacts.filter { it.name.contains(text, true)
-                || it.username.contains(text, true)}
+        filteredContacts = contacts.filter {
+            it.name.contains(text, true) || it.username.contains(text, true) }
         notifyDataSetChanged()
     }
 

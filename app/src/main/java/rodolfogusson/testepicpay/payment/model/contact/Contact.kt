@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.contacts.model.contact
+package rodolfogusson.testepicpay.payment.model.contact
 
 data class Contact(
     val id: Int,

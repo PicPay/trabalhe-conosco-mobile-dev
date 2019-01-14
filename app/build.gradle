@@ -28,10 +28,12 @@ android {
 }
 
 dependencies {
+    def androidSupportVersion = '28.0.0'
     def retrofitVersion = '2.4.0'
     def lifecycleVersion = '1.1.1'
-    def androidSupportVersion = '28.0.0'
+    def persistenceVersion = '1.1.1'
     def picassoVersion = "2.71828"
+    def circleImageViewVersion = '3.0.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -42,12 +44,20 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //added dependencies:
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
-    implementation "android.arch.lifecycle:viewmodel:$lifecycleVersion"
     implementation "com.android.support:design:$androidSupportVersion"
     implementation "com.android.support:exifinterface:$androidSupportVersion"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    implementation "android.arch.lifecycle:viewmodel:$lifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycleVersion"
+
+    implementation "android.arch.persistence.room:runtime:$persistenceVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$persistenceVersion"
+
     implementation "com.squareup.picasso:picasso:$picassoVersion"
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 }

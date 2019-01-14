@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.contacts.view
+package rodolfogusson.testepicpay.payment.view.contacts
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -8,8 +8,8 @@ import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.contacts.model.contact.Contact
-import rodolfogusson.testepicpay.contacts.viewmodel.ContactsListViewModel
+import rodolfogusson.testepicpay.payment.model.contact.Contact
+import rodolfogusson.testepicpay.payment.viewmodel.contacts.ContactsListViewModel
 import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 
@@ -32,7 +32,7 @@ class ContactsListActivity : AppCompatActivity() {
             }
         setupLayout()
         registerObserver()
-        contactsListViewModel.getUsers()
+        contactsListViewModel.getContacts()
     }
 
     private fun setupLayout() {

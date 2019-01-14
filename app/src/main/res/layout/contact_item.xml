@@ -5,7 +5,7 @@
 
         <variable
             name="item"
-            type="rodolfogusson.testepicpay.contacts.model.contact.Contact" />
+            type="rodolfogusson.testepicpay.payment.model.contact.Contact" />
 
     </data>
 
