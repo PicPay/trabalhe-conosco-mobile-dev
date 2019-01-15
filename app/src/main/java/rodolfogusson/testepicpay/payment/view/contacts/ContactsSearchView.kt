@@ -17,6 +17,7 @@ class ContactsSearchView @JvmOverloads constructor(
 
     private val searchEditText: EditText
     private val clearButton: ImageButton
+    private val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     var search: ((String) -> Unit)? = null
 
     init {
@@ -31,12 +32,10 @@ class ContactsSearchView @JvmOverloads constructor(
 
     private fun editTextFocusChanged(view: View?, hasFocus: Boolean) {
         this.isSelected = hasFocus
-        //if (hasFocus) clearButton.visibility = VISIBLE else clearButton.visibility = GONE
     }
 
     private fun onEditTextClicked(v: View){
         searchEditText.requestFocus()
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(searchEditText, 0)
     }
 
@@ -60,5 +59,6 @@ class ContactsSearchView @JvmOverloads constructor(
     private fun clearEditText(v: View) {
         searchEditText.setText("")
         searchEditText.clearFocus()
+        imm.hideSoftInputFromWindow(v.windowToken, 0)
     }
 }
