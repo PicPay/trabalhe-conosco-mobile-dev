@@ -13,7 +13,9 @@
         <item name="android:paddingTop">@dimen/search_view_padding</item>
         <item name="android:paddingBottom">@dimen/search_view_padding</item>
         <item name="android:layout_marginStart">@dimen/double_space</item>
-        <item name="android:layout_marginEnd">@dimen/double_space</item>
+        <item name="android:layout_marginEnd">@dimen/quad_space</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@color/unfocused_element</item>
         <item name="android:hint">@string/searchbar_hint</item>

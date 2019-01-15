@@ -31,7 +31,7 @@ class ContactsSearchView @JvmOverloads constructor(
 
     private fun editTextFocusChanged(view: View?, hasFocus: Boolean) {
         this.isSelected = hasFocus
-        if (hasFocus) clearButton.visibility = VISIBLE else clearButton.visibility = GONE
+        //if (hasFocus) clearButton.visibility = VISIBLE else clearButton.visibility = GONE
     }
 
     private fun onEditTextClicked(v: View){
@@ -43,7 +43,10 @@ class ContactsSearchView @JvmOverloads constructor(
     private fun observeEditText() {
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                search?.let { it(s.toString()) }
+                if (s.isNullOrBlank()) clearButton.visibility = View.GONE else clearButton.visibility = VISIBLE
+                search?.let {
+                    it(s.toString())
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
