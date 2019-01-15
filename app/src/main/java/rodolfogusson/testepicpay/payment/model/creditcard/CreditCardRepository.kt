@@ -12,11 +12,10 @@ class CreditCardRepository private constructor(context: Context) {
         @Volatile
         private var INSTANCE: CreditCardRepository? = null
 
-        fun getInstance(context: Context) {
+        fun getInstance(context: Context) =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: CreditCardRepository(context).also { INSTANCE = it }
             }
-        }
     }
 
     private val creditCardDao: CreditCardDao
@@ -26,6 +25,7 @@ class CreditCardRepository private constructor(context: Context) {
         val database = CreditCardDatabase.getInstance(context)
         creditCardDao = database.creditCardDao()
         creditCards = creditCardDao.getAllCreditCards()
+        println(creditCards.value)
     }
 
     fun getCreditCards(): LiveData<List<CreditCard>> = creditCards

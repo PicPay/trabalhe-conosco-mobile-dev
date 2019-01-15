@@ -4,10 +4,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
+import androidx.room.TypeConverters
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCardDao
 
-@Database(entities = [CreditCard::class], version = 1)
+@Database(entities = [CreditCard::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class CreditCardDatabase : RoomDatabase() {
 
     abstract fun creditCardDao(): CreditCardDao
