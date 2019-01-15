@@ -11,4 +11,15 @@
         android:id="@+id/searchEditText"
         style="@style/SearchViewEditText" />
 
+    <ImageButton
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingTop="@dimen/search_view_padding"
+        android:paddingBottom="@dimen/search_view_padding"
+        android:layout_toRightOf="@id/searchEditText"
+        android:src="@drawable/ic_close"
+        android:visibility="gone"/>
+
 </RelativeLayout>

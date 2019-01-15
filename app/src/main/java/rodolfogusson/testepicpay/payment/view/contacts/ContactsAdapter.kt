@@ -15,7 +15,9 @@ class ContactsAdapter(private val contacts: List<Contact>,
 
     fun filterBy(text: String) {
         filteredContacts = contacts.filter {
-            it.name.contains(text, true) || it.username.contains(text, true) }
+            it.name.contains(text, true)
+                    || it.username.contains(text, true)
+        }
         notifyDataSetChanged()
     }
 
@@ -27,7 +29,8 @@ class ContactsAdapter(private val contacts: List<Contact>,
 
     override fun getItemCount(): Int = filteredContacts.size
 
-    override fun onBindViewHolder(holder: ContactHolder, position: Int) = holder.bind(filteredContacts[position], clickListener)
+    override fun onBindViewHolder(holder: ContactHolder, position: Int) =
+        holder.bind(filteredContacts[position], clickListener)
 
     class ContactHolder(private val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Contact, clickListener: (Contact) -> Unit) {

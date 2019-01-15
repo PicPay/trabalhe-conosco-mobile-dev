@@ -66,7 +66,6 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun onContactClicked(contact: Contact) {
-
         if (registeredCard == null) {
             Toast.makeText(this, "NAO TEMOS CARTAO", Toast.LENGTH_SHORT).show()
             contactsListViewModel.creditCardRepository.insert(

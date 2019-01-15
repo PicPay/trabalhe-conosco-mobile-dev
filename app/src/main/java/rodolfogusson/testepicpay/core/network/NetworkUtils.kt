@@ -7,12 +7,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import rodolfogusson.testepicpay.core.data.Resource
 
-// Function defined to simplify writing callbacks in Retrofit network calls.
+/**
+ * Simplifies writing callbacks in Retrofit network calls,
+ * using this function and passing a lambda expression
+ * as argument.
+ */
 private fun <T> callback(
-    callResponse: (
-        response: Response<T>?,
-        error: Throwable?
-    ) -> Unit
+    callResponse: (response: Response<T>?, error: Throwable?) -> Unit
 ): Callback<T> {
     return object : Callback<T> {
         override fun onResponse(call: Call<T>?, response: Response<T>?) {
@@ -25,7 +26,12 @@ private fun <T> callback(
     }
 }
 
-// Function used to make every network request in the application.
+/**
+ * Used to make every network request in the application.
+ * Initially returns a reference to a LiveData, that will
+ * be populated in the future, inside the callback,
+ * with a Resource<T>.
+ */
 fun <T> request(call: Call<T>): LiveData<Resource<T>> {
     val liveData = MutableLiveData<Resource<T>>()
     call.enqueue(callback { response, error ->

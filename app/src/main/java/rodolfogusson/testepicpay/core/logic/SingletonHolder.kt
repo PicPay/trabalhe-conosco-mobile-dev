@@ -1,5 +1,9 @@
 package rodolfogusson.testepicpay.core.logic
 
+/**
+ * Used when it is necessary to create a Singleton of type T that
+ * needs an argument of type A to be instantiated.
+ */
 open class SingletonHolder<out T, in A>(creator: (A) -> T) {
     private var creator: ((A) -> T)? = creator
     @Volatile private var instance: T? = null
