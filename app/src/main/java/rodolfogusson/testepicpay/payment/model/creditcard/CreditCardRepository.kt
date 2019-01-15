@@ -5,18 +5,11 @@ import android.content.Context
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.core.data.CreditCardDatabase
+import rodolfogusson.testepicpay.core.logic.SingletonHolder
 
 class CreditCardRepository private constructor(context: Context) {
 
-    companion object {
-        @Volatile
-        private var INSTANCE: CreditCardRepository? = null
-
-        fun getInstance(context: Context) =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: CreditCardRepository(context).also { INSTANCE = it }
-            }
-    }
+    companion object : SingletonHolder<CreditCardRepository, Context>(::CreditCardRepository)
 
     private val creditCardDao: CreditCardDao
     private var creditCards: LiveData<List<CreditCard>>

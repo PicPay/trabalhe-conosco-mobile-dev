@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.TypeConverters
+import rodolfogusson.testepicpay.core.logic.SingletonHolder
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCardDao
 
@@ -14,19 +15,11 @@ abstract class CreditCardDatabase : RoomDatabase() {
 
     abstract fun creditCardDao(): CreditCardDao
 
-    companion object {
-        @Volatile
-        private var INSTANCE: CreditCardDatabase? = null
-
-        fun getInstance(context: Context): CreditCardDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
-            }
-
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(
+    companion object : SingletonHolder<CreditCardDatabase, Context>({ context ->
+        Room.databaseBuilder(
             context.applicationContext,
             CreditCardDatabase::class.java,
             "creditCardDatabase.db")
             .build()
-    }
+    })
 }
