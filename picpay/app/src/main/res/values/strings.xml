@@ -3,4 +3,9 @@
 
     <string name="contacts_title">Contacts</string>
     <string name="search_hint">Who wants to pay?</string>
+
+
+    <string name="example_username">\@aliceromero</string>
+    <string name="example_name">Alice Romero</string>
+
 </resources>

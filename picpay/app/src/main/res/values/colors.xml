@@ -5,6 +5,7 @@
     <color name="colorAccent">#11C76F</color>
 
     <color name="color_withe">#FFFFFF</color>
+    <color name="color_withe_opacity">#80FFFFFF</color>
 
     <color name="search_background">#2B2C2F</color>
     <color name="search_text">#ACB1BD</color>
