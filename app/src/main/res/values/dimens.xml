@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="half_space">4dp</dimen>
     <dimen name="single_space">8dp</dimen>
     <dimen name="double_space">16dp</dimen>
     <dimen name="triple_space">24dp</dimen>
     <dimen name="quad_space">32dp</dimen>
 
     <dimen name="search_view_padding">12dp</dimen>
+
+    <dimen name="button_padding">12dp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
 
     <dimen name="title_size">36sp</dimen>
     <dimen name="default_margin">24dp</dimen>

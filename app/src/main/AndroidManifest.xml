@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/PicPayTheme">
-        <activity android:name=".payment.view.contacts.ContactsListActivity">
+        <activity android:name=".payment.view.creditcardpriming.CreditCardPrimingActivity"
+            android:parentActivityName=".payment.view.contacts.ContactsListActivity" />
+        <activity android:name=".payment.view.contacts.ContactsListActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

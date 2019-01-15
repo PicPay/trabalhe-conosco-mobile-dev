@@ -1,5 +1,6 @@
 package rodolfogusson.testepicpay.payment.view.contacts
 
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import rodolfogusson.testepicpay.payment.viewmodel.contacts.ContactsListViewMode
 import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
+import rodolfogusson.testepicpay.payment.view.creditcardpriming.CreditCardPrimingActivity
 import java.util.*
 
 class ContactsListActivity : AppCompatActivity() {
@@ -66,17 +68,19 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun onContactClicked(contact: Contact) {
-        if (registeredCard == null) {
-            Toast.makeText(this, "NAO TEMOS CARTAO", Toast.LENGTH_SHORT).show()
-            contactsListViewModel.creditCardRepository.insert(
-                CreditCard(123,
-                    "123456",
-                    "Joao",
-                    Date(),
-                    "654")
-            )
-        } else {
-            Toast.makeText(this@ContactsListActivity, registeredCard?.cardName, Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(this, CreditCardPrimingActivity::class.java)
+        startActivity(intent)
+//        if (registeredCard == null) {
+//            Toast.makeText(this, "NAO TEMOS CARTAO", Toast.LENGTH_SHORT).show()
+//            contactsListViewModel.creditCardRepository.insert(
+//                CreditCard(123,
+//                    "123456",
+//                    "Joao",
+//                    Date(),
+//                    "654")
+//            )
+//        } else {
+//            Toast.makeText(this@ContactsListActivity, registeredCard?.cardName, Toast.LENGTH_SHORT).show()
+//        }
     }
 }

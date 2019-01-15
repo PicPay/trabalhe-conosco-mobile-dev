@@ -4,6 +4,11 @@
     // ContactsList
     <string name="contacts_title">Contatos</string>
     <string name="searchbar_hint">A quem você deseja pagar?</string>
+    
+    // CreditCardPriming
+    <string name="priming_title">Cadastre um cartão\nde crédito</string>
+    <string name="priming_text">Para fazer pagamentos para outras\npessoas você precisa cadastrar um\ncartão de crédito pessoal.</string>
+    <string name="register_card_button">Cadastrar cartão</string>
 
     // Dialog strings
     <string name="error">Erro</string>
