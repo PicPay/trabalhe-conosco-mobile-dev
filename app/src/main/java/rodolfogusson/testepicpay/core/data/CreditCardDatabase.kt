@@ -13,18 +13,18 @@ abstract class CreditCardDatabase : RoomDatabase() {
     abstract fun creditCardDao(): CreditCardDao
 
     companion object {
-        private lateinit var INSTANCE: CreditCardDatabase
+        @Volatile
+        private var INSTANCE: CreditCardDatabase? = null
 
-        fun getInstance(context: Context): CreditCardDatabase {
-            synchronized(CreditCardDatabase::class) {
-                INSTANCE = Room.databaseBuilder(
-                    context.applicationContext,
-                    CreditCardDatabase::class.java,
-                    "creditCardDatabase.db"
-                )
-                    .build()
+        fun getInstance(context: Context): CreditCardDatabase =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
-            return INSTANCE
-        }
+
+        private fun buildDatabase(context: Context) = Room.databaseBuilder(
+            context.applicationContext,
+            CreditCardDatabase::class.java,
+            "creditCardDatabase.db")
+            .build()
     }
 }

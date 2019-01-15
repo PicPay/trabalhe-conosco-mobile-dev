@@ -56,5 +56,6 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun onContactClicked(contact: Contact) {
+
     }
 }

@@ -7,10 +7,10 @@ import rodolfogusson.testepicpay.payment.model.contact.ContactRepository
 import rodolfogusson.testepicpay.core.data.Resource
 
 class ContactsListViewModel: ViewModel(){
-    private val repository = ContactRepository()
+    private val contactRepository = ContactRepository()
     val contacts: LiveData<Resource<List<Contact>>>
 
     init {
-        contacts = repository.getContacts()
+        contacts = contactRepository.getContacts()
     }
 }
