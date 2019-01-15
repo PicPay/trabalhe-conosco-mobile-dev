@@ -1,6 +1,6 @@
 package rodolfogusson.testepicpay.payment.model.contact
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import rodolfogusson.testepicpay.core.data.Resource
 import rodolfogusson.testepicpay.core.network.ServiceGenerator
 import rodolfogusson.testepicpay.core.network.request

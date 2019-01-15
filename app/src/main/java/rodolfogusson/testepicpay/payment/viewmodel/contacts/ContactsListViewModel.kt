@@ -1,7 +1,7 @@
 package rodolfogusson.testepicpay.payment.viewmodel.contacts
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import rodolfogusson.testepicpay.payment.model.contact.Contact
 import rodolfogusson.testepicpay.payment.model.contact.ContactRepository
 import rodolfogusson.testepicpay.core.data.Resource

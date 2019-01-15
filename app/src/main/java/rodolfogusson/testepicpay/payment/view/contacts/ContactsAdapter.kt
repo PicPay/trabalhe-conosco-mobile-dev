@@ -1,8 +1,8 @@
 package rodolfogusson.testepicpay.payment.view.contacts
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 
-import android.support.v7.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import rodolfogusson.testepicpay.payment.model.contact.Contact
 import rodolfogusson.testepicpay.payment.view.contacts.ContactsAdapter.ContactHolder
