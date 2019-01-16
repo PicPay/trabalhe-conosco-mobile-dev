@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:lineSpacingExtra="@dimen/half_space"
-            android:textSize="18sp"
+            android:textSize="@dimen/small_text"
+            android:textColor="#CCFFFFFF"
             android:text="@string/priming_text"/>
 
     </LinearLayout>

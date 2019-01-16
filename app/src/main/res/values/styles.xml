@@ -7,16 +7,17 @@
     </style>
 
     <style name="SearchViewEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:paddingTop">@dimen/search_view_padding</item>
         <item name="android:paddingBottom">@dimen/search_view_padding</item>
-        <item name="android:layout_marginStart">@dimen/double_space</item>
-        <item name="android:layout_marginEnd">@dimen/quad_space</item>
+        <item name="android:layout_marginLeft">@dimen/single_space</item>
+        <item name="android:layout_marginRight">@dimen/single_space</item>
         <item name="android:maxLines">1</item>
         <item name="android:inputType">text</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/small_text</item>
         <item name="android:textColorHint">@color/unfocused_element</item>
         <item name="android:hint">@string/searchbar_hint</item>
         <item name="android:drawableLeft">@drawable/ic_search</item>
@@ -27,17 +28,18 @@
     </style>
 
     <style name="Title" parent="android:Widget.TextView">
-        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textSize">@dimen/title_text</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="UsernameTextView" parent="android:Widget.TextView">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="NameTextView" parent="android:Widget.TextView">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/unfocused_element</item>
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColor">@color/semitransparent_text</item>
     </style>
 
     <style name="GreenButton" parent="Base.Widget.AppCompat.Button">
@@ -48,7 +50,7 @@
         <item name="android:paddingTop">@dimen/button_padding</item>
         <item name="android:paddingBottom">@dimen/button_padding</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textSize">@dimen/button_text</item>
         <item name="android:background">@drawable/green_button</item>
     </style>
 

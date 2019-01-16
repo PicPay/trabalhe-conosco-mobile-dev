@@ -17,8 +17,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="@dimen/round_picture"
+            android:layout_height="@dimen/round_picture"
             android:layout_alignParentLeft="true"
             app:imageUrl="@{item.img}" />
 

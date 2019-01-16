@@ -4,11 +4,14 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.RelativeLayout
+import android.widget.Toast
 import rodolfogusson.testepicpay.R
 
 class ContactsSearchView @JvmOverloads constructor(
@@ -16,7 +19,8 @@ class ContactsSearchView @JvmOverloads constructor(
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val searchEditText: EditText
-    private val clearButton: ImageButton
+    private val searchDrawable = context.getDrawable(R.drawable.ic_search)
+    private val closeDrawable = context.getDrawable(R.drawable.ic_close)
     private val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     var search: ((String) -> Unit)? = null
 
@@ -24,17 +28,51 @@ class ContactsSearchView @JvmOverloads constructor(
         View.inflate(context, R.layout.search_view, this)
         searchEditText = findViewById(R.id.searchEditText)
         searchEditText.setOnFocusChangeListener(::editTextFocusChanged)
-        clearButton = findViewById(R.id.clearButton)
-        clearButton.setOnClickListener(::clearEditText)
-        this.setOnClickListener(::onEditTextClicked)
+        searchEditText.setOnTouchListener(::onRightDrawableTouched)
+        this.setOnClickListener(::onContainerViewClicked)
         observeEditText()
     }
 
     private fun editTextFocusChanged(view: View?, hasFocus: Boolean) {
         this.isSelected = hasFocus
+        if (view is EditText) changeWidth(view, hasFocus)
     }
 
-    private fun onEditTextClicked(v: View){
+    private fun changeWidth(editText: EditText, hasFocus: Boolean) {
+        if (hasFocus) {
+            editText.layoutParams.width = MATCH_PARENT
+            editText.setCompoundDrawablesWithIntrinsicBounds(
+                searchDrawable,
+                null,
+                closeDrawable,
+                null)
+        } else {
+            editText.layoutParams.width = WRAP_CONTENT
+            editText.setCompoundDrawablesWithIntrinsicBounds(
+                searchDrawable,
+                null,
+                null,
+                null)
+        }
+    }
+
+    private fun onRightDrawableTouched(v: View, event: MotionEvent): Boolean {
+        // Other drawable indexes declared for the sake of readability
+        val DRAWABLE_LEFT = 0
+        val DRAWABLE_TOP = 1
+        val DRAWABLE_RIGHT = 2
+        val DRAWABLE_BOTTOM = 3
+
+        if (v !is EditText || v.compoundDrawables[DRAWABLE_RIGHT] == null) return false
+
+        if(event.x >= (v.width - v.compoundDrawables[DRAWABLE_RIGHT].bounds.width())) {
+            clearEditText(v)
+            return true
+        }
+        return false
+    }
+
+    private fun onContainerViewClicked(v: View){
         searchEditText.requestFocus()
         imm.showSoftInput(searchEditText, 0)
     }
@@ -42,7 +80,6 @@ class ContactsSearchView @JvmOverloads constructor(
     private fun observeEditText() {
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (s.isNullOrBlank()) clearButton.visibility = View.GONE else clearButton.visibility = VISIBLE
                 search?.let {
                     it(s.toString())
                 }

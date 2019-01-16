@@ -9,5 +9,6 @@
     <color name="background_material_dark">#000000</color>
     <color name="primary_dark_material_dark">#000000</color>
 
-    <color name="unfocused_element">#ABAFBB</color>
+    <color name="unfocused_element">#ACB1BD</color>
+    <color name="semitransparent_text">#80FFFFFF</color>
 </resources>

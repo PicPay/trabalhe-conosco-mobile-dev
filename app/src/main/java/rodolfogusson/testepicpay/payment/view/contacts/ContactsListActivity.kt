@@ -5,7 +5,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
@@ -16,7 +15,6 @@ import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.payment.view.creditcardpriming.CreditCardPrimingActivity
-import java.util.*
 
 class ContactsListActivity : AppCompatActivity() {
 
