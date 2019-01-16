@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.view.contacts
+package rodolfogusson.testepicpay.payment.view.contact
 
 import android.content.Context
 import android.text.Editable
@@ -11,10 +11,9 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.RelativeLayout
-import android.widget.Toast
 import rodolfogusson.testepicpay.R
 
-class ContactsSearchView @JvmOverloads constructor(
+class ContactSearchView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 

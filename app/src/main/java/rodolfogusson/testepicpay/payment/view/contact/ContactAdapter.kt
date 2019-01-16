@@ -1,15 +1,15 @@
-package rodolfogusson.testepicpay.payment.view.contacts
+package rodolfogusson.testepicpay.payment.view.contact
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.view.contacts.ContactsAdapter.ContactHolder
+import rodolfogusson.testepicpay.payment.view.contact.ContactAdapter.ContactHolder
 import rodolfogusson.testepicpay.databinding.ContactItemBinding
 
-class ContactsAdapter(private val contacts: List<Contact>,
-                      private val clickListener: (Contact) -> Unit) : Adapter<ContactHolder>() {
+class ContactAdapter(private val contacts: List<Contact>,
+                     private val clickListener: (Contact) -> Unit) : Adapter<ContactHolder>() {
 
     private var filteredContacts = contacts
 

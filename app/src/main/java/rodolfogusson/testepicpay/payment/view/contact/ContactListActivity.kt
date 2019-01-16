@@ -1,10 +1,11 @@
-package rodolfogusson.testepicpay.payment.view.contacts
+package rodolfogusson.testepicpay.payment.view.contact
 
 import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
@@ -16,10 +17,10 @@ import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.payment.view.creditcardpriming.CreditCardPrimingActivity
 
-class ContactsListActivity : AppCompatActivity() {
+class ContactListActivity : AppCompatActivity() {
 
     private lateinit var contactsListViewModel: ContactsListViewModel
-    private lateinit var adapter: ContactsAdapter
+    private lateinit var adapter: ContactAdapter
     private var registeredCard: CreditCard? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,7 @@ class ContactsListActivity : AppCompatActivity() {
 
         ActivityContactListBinding.inflate(layoutInflater)
             .apply {
-                setLifecycleOwner(this@ContactsListActivity)
+                setLifecycleOwner(this@ContactListActivity)
                 viewModel = contactsListViewModel
             }
         setupLayout()
@@ -51,10 +52,11 @@ class ContactsListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-                adapter = ContactsAdapter(list, ::onContactClicked)
+                adapter = ContactAdapter(list, ::onContactClicked)
                 recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
                 searchView.search = adapter::filterBy
+                progressBar.visibility = GONE
             }
         })
 
@@ -78,7 +80,7 @@ class ContactsListActivity : AppCompatActivity() {
 //                    "654")
 //            )
 //        } else {
-//            Toast.makeText(this@ContactsListActivity, registeredCard?.cardName, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this@ContactListActivity, registeredCard?.cardName, Toast.LENGTH_SHORT).show()
 //        }
     }
 }

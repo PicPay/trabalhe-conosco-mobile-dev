@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".payment.view.contacts.ContactsListActivity">
+    tools:context=".payment.view.contact.ContactListActivity">
 
     <data>
 
@@ -12,12 +12,19 @@
 
     </data>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/default_margin">
 
-        <include layout="@layout/contact_list_header"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <include layout="@layout/contact_list_header" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

@@ -13,9 +13,9 @@
         android:theme="@style/PicPayTheme">
         <activity
             android:name=".payment.view.creditcardpriming.CreditCardPrimingActivity"
-            android:parentActivityName=".payment.view.contacts.ContactsListActivity" />
+            android:parentActivityName=".payment.view.contact.ContactListActivity" />
         <activity
-            android:name=".payment.view.contacts.ContactsListActivity"
+            android:name=".payment.view.contact.ContactListActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
