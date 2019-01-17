@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="rodolfogusson.testepicpay.payment.viewmodel.contacts.ContactsListViewModel" />
+            type="rodolfogusson.testepicpay.payment.viewmodel.contact.ContactListViewModel" />
 
     </data>
 

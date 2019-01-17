@@ -10,16 +10,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.viewmodel.contacts.ContactsListViewModel
+import rodolfogusson.testepicpay.payment.viewmodel.contact.ContactListViewModel
 import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
+import rodolfogusson.testepicpay.payment.model.contact.Contact
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.payment.view.creditcardpriming.CreditCardPrimingActivity
+import rodolfogusson.testepicpay.payment.view.priming.CreditCardPrimingActivity
+import rodolfogusson.testepicpay.payment.view.register.CreditCardRegisterActivity
 
 class ContactListActivity : AppCompatActivity() {
 
-    private lateinit var contactsListViewModel: ContactsListViewModel
+    private lateinit var contactListViewModel: ContactListViewModel
     private lateinit var adapter: ContactAdapter
     private var registeredCard: CreditCard? = null
 
@@ -27,13 +28,13 @@ class ContactListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_list)
 
-        contactsListViewModel = ViewModelProviders.of(this)
-            .get(ContactsListViewModel::class.java)
+        contactListViewModel = ViewModelProviders.of(this)
+            .get(ContactListViewModel::class.java)
 
         ActivityContactListBinding.inflate(layoutInflater)
             .apply {
                 setLifecycleOwner(this@ContactListActivity)
-                viewModel = contactsListViewModel
+                viewModel = contactListViewModel
             }
         setupLayout()
         registerObservers()
@@ -46,7 +47,7 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
-        contactsListViewModel.contacts.observe(this, Observer {
+        contactListViewModel.contacts.observe(this, Observer {
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
                 return@Observer
@@ -60,27 +61,23 @@ class ContactListActivity : AppCompatActivity() {
             }
         })
 
-        contactsListViewModel.creditCards.observe(this, Observer {
-            if (!it.isNullOrEmpty()) {
-                registeredCard = it[0]
-            }
+        contactListViewModel.registeredCard.observe(this, Observer {
+            registeredCard = it
         })
     }
 
     private fun onContactClicked(contact: Contact) {
-        val intent = Intent(this, CreditCardPrimingActivity::class.java)
-        startActivity(intent)
-//        if (registeredCard == null) {
-//            Toast.makeText(this, "NAO TEMOS CARTAO", Toast.LENGTH_SHORT).show()
-//            contactsListViewModel.creditCardRepository.insert(
-//                CreditCard(123,
-//                    "123456",
-//                    "Joao",
-//                    Date(),
-//                    "654")
-//            )
-//        } else {
-//            Toast.makeText(this@ContactListActivity, registeredCard?.cardName, Toast.LENGTH_SHORT).show()
-//        }
+        if (registeredCard == null) {
+            navigateTo(CreditCardPrimingActivity::class.java, contact)
+        } else {
+            navigateTo(CreditCardRegisterActivity::class.java, contact)
+        }
+    }
+
+    private fun navigateTo(nextActivity: Class<out AppCompatActivity>, contact: Contact) {
+        Intent(this, nextActivity).apply {
+            putExtra(Contact.key, contact)
+            startActivity(this)
+        }
     }
 }

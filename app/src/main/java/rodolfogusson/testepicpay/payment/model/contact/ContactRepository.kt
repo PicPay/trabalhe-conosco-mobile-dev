@@ -4,12 +4,16 @@ import androidx.lifecycle.LiveData
 import rodolfogusson.testepicpay.core.data.Resource
 import rodolfogusson.testepicpay.core.network.ServiceGenerator
 import rodolfogusson.testepicpay.core.network.request
-import rodolfogusson.testepicpay.core.network.services.PaymentService
 
 class ContactRepository {
 
-    private val service: PaymentService = ServiceGenerator.paymentService()
+    private val service = ServiceGenerator.paymentService()
+    private val contacts: LiveData<Resource<List<Contact>>>
 
-    fun getContacts(): LiveData<Resource<List<Contact>>> = request(service.getContacts())
+    init {
+        contacts = request(service.getContacts())
+    }
+
+    fun getContacts(): LiveData<Resource<List<Contact>>> = contacts
 }
 

@@ -11,15 +11,15 @@ import rodolfogusson.testepicpay.payment.model.creditcard.CreditCardDao
 
 @Database(entities = [CreditCard::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-abstract class CreditCardDatabase : RoomDatabase() {
+abstract class ApplicationDatabase : RoomDatabase() {
 
     abstract fun creditCardDao(): CreditCardDao
 
-    companion object : SingletonHolder<CreditCardDatabase, Context>({ context ->
+    companion object : SingletonHolder<ApplicationDatabase, Context>({ context ->
         Room.databaseBuilder(
             context.applicationContext,
-            CreditCardDatabase::class.java,
-            "creditCardDatabase.db")
+            ApplicationDatabase::class.java,
+            "database.db")
             .build()
     })
 }
