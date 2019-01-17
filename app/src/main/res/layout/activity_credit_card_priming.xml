@@ -41,6 +41,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button"
         android:text="@string/register_card_button"
         android:layout_marginBottom="@dimen/default_margin"
         android:layout_alignParentBottom="true"

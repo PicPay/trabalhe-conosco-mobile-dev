@@ -20,7 +20,7 @@
             android:layout_marginBottom="@dimen/triple_space"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:text="@string/contacts_title"
+            android:text="@string/contact_list_title"
             app:layout_collapseMode="parallax"
             app:layout_collapseParallaxMultiplier="1" />
 

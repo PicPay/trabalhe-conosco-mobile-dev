@@ -35,7 +35,7 @@ private fun <T> callback(
 fun <T> request(call: Call<T>): LiveData<Resource<T>> {
     val liveData = MutableLiveData<Resource<T>>()
     call.enqueue(callback { response, error ->
-        val resource = Resource(response?.body(), error)
+        val resource = Resource(response, error)
         liveData.value = resource
     })
     return liveData

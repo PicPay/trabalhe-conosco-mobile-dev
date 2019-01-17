@@ -2,6 +2,7 @@ package rodolfogusson.testepicpay.core.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import androidx.appcompat.app.ActionBar
 import rodolfogusson.testepicpay.R
 
 /**
@@ -14,4 +15,13 @@ fun showErrorDialog(message: String, context: Context) {
         .setNeutralButton(context.getString(R.string.ok)){_, _ ->  }
         .create()
         .show()
+}
+
+/**
+ * Customizes the ActionBar to fit the app's layout.
+ */
+fun ActionBar.customize() {
+    title = ""
+    setDisplayHomeAsUpEnabled(true)
+    setHomeAsUpIndicator(R.drawable.green_back_arrow)
 }
