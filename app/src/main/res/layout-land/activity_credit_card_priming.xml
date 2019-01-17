@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.view.priming.CreditCardPrimingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:paddingBottom="@dimen/single_space"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/button">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:maxWidth="50dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+
+            android:layout_marginBottom="@dimen/single_space"
+            android:src="@drawable/blue_card"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/priming_title"
+            android:textAlignment="center"
+            android:layout_marginBottom="@dimen/single_space"
+            style="@style/Title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:lineSpacingExtra="@dimen/half_space"
+            android:textSize="@dimen/small_text"
+            android:textColor="#CCFFFFFF"
+            android:text="@string/priming_text_land"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:text="@string/register_card_button"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_alignParentBottom="true"
+        style="@style/GreenButton"/>
+
+</RelativeLayout>

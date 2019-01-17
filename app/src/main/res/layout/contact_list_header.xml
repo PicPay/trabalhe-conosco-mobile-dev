@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
@@ -13,15 +13,16 @@
 
         <TextView
             android:id="@+id/titleTextView"
+            style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
             android:layout_marginBottom="@dimen/triple_space"
-            android:text="@string/contacts_title"
-            app:layout_collapseMode="none"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            style="@style/Title" />
+            android:text="@string/contacts_title"
+            app:layout_collapseMode="parallax"
+            app:layout_collapseParallaxMultiplier="1" />
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 

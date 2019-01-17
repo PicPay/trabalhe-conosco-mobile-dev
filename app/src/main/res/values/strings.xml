@@ -8,6 +8,7 @@
     // CreditCardPriming
     <string name="priming_title">Cadastre um cartão\nde crédito</string>
     <string name="priming_text">Para fazer pagamentos para outras\npessoas você precisa cadastrar um\ncartão de crédito pessoal.</string>
+    <string name="priming_text_land">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.</string>
     <string name="register_card_button">Cadastrar cartão</string>
 
     // Dialog strings
