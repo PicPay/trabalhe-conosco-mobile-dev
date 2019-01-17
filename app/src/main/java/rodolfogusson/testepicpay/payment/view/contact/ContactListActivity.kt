@@ -48,16 +48,17 @@ class ContactListActivity : AppCompatActivity() {
 
     private fun registerObservers() {
         contactListViewModel.contacts.observe(this, Observer {
+            progressBar.visibility = GONE
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
                 return@Observer
             }
             it?.data?.let { list ->
-                adapter = ContactAdapter(list, ::onContactClicked)
-                recyclerView.adapter = adapter
-                adapter.notifyDataSetChanged()
-                searchView.search = adapter::filterBy
-                progressBar.visibility = GONE
+                ContactAdapter(list, ::onContactClicked).apply {
+                    recyclerView.adapter = this
+                    notifyDataSetChanged()
+                    searchView.search = ::filterBy
+                }
             }
         })
 
