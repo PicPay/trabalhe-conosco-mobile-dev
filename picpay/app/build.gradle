@@ -35,6 +35,7 @@ dependencies {
     def dagger2_version = '2.16'
     def support_version = '28.0.0'
     def glide_version = '4.8.0'
+    def archRoomVersion = '1.1.1'
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -75,4 +76,8 @@ dependencies {
 
     //Circle ImageView
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    //Room database
+    implementation "android.arch.persistence.room:runtime:$archRoomVersion"
+    kapt "android.arch.persistence.room:compiler:$archRoomVersion"
 }

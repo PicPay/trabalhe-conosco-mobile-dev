@@ -4,6 +4,16 @@
     <string name="contacts_title">Contacts</string>
     <string name="search_hint">Who wants to pay?</string>
 
+    <string name="priming_title">Register a credit card</string>
+    <string name="priming_text">To make payments to other people you need register a person credit card.</string>
+    <string name="priming_button">Register card</string>
+
+    <string name="register_field_card">Card number</string>
+    <string name="register_field_name">Cardholder name</string>
+    <string name="register_field_expiration">Expiration</string>
+    <string name="register_field_cvv">CVV</string>
+    <string name="register_button_save">Save</string>
+    <string name="register_error_date">Expiration date incorrect</string>
 
     <string name="example_username">\@aliceromero</string>
     <string name="example_name">Alice Romero</string>

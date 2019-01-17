@@ -6,13 +6,21 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import br.com.picpay.picpay.R
+import br.com.picpay.picpay.adapter.ItemListener
 import br.com.picpay.picpay.adapter.UserAdapter
 import br.com.picpay.picpay.base.BaseActivity
+import br.com.picpay.picpay.model.User
 import kotlinx.android.synthetic.main.activity_contacts.*
 
 class ContactActivity : BaseActivity<ContactViewModel>() {
 
     private lateinit var adapter: UserAdapter
+
+    private val itemListener = object : ItemListener<User> {
+        override fun onClick(item: User) {
+            viewModel?.setActivityPriming(this@ContactActivity)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +28,7 @@ class ContactActivity : BaseActivity<ContactViewModel>() {
         setSupportActionBar(coordinator_toolbar)
         supportActionBar?.title = ""
 
-        adapter = UserAdapter(this)
+        adapter = UserAdapter(this, itemListener)
 
         contact_list.layoutManager = LinearLayoutManager(this)
         contact_list.setHasFixedSize(true)

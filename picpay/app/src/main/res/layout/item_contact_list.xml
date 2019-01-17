@@ -27,14 +27,14 @@
                 android:id="@+id/item_contact_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_withe"
+                android:textColor="@color/color_white"
                 android:textSize="16sp"
                 android:text="@string/example_username"/>
         <TextView
                 android:id="@+id/item_contact_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_withe_opacity"
+                android:textColor="@color/color_white_opacity_5"
                 android:layout_marginTop="3dp"
                 android:textSize="14sp"
                 android:text="@string/example_name"/>

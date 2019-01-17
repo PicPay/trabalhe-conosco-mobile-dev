@@ -14,13 +14,27 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".ui.contact.ContactActivity"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".ui.priming.PrimingActivity"
+                android:theme="@style/AppTheme"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:parentActivityName=".ui.contact.ContactActivity"/>
+        <activity
+                android:name=".ui.register.RegisterCreditCardActivity"
+                android:theme="@style/AppTheme"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:parentActivityName=".ui.contact.ContactActivity"
+                android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

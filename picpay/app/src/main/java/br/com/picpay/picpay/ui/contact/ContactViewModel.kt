@@ -1,10 +1,14 @@
 package br.com.picpay.picpay.ui.contact
 
 import android.arch.lifecycle.MutableLiveData
+import android.content.Context
+import android.content.Intent
 import android.view.View
 import br.com.picpay.picpay.base.BaseViewModel
 import br.com.picpay.picpay.model.User
 import br.com.picpay.picpay.remote.EndPoints
+import br.com.picpay.picpay.ui.priming.PrimingActivity
+import br.com.picpay.picpay.ui.register.RegisterCreditCardActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -24,7 +28,7 @@ class ContactViewModel: BaseViewModel() {
         loadingUsers()
     }
 
-    fun loadingUsers() {
+    private fun loadingUsers() {
         val call = api.create(EndPoints::class.java)
 
         subscription = call.getUsers().subscribeOn(Schedulers.io())
@@ -34,6 +38,15 @@ class ContactViewModel: BaseViewModel() {
             .subscribe(
                 {result -> onSuccessResponse(result)},
                 {error -> onErrorResponse(error.message)})
+    }
+
+    fun setActivityPriming(context: Context){
+        val intent = Intent(context, PrimingActivity::class.java)
+        context.startActivity(intent)
+    }
+
+    fun setActivityTransaction(context: Context, user: User){
+
     }
 
     private fun onSuccessResponse(result: List<User>?) {

@@ -18,7 +18,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/contacts_title"
                 android:textSize="28sp"
-                android:textColor="@color/color_withe"
+                android:textColor="@color/color_white"
                 android:textStyle="bold"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"

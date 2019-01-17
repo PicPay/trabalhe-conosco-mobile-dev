@@ -12,7 +12,8 @@ import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.item_contact_list.view.*
 
-class UserAdapter (var context: Context): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class UserAdapter (var context: Context,
+                   var itemListener: ItemListener<User>): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     private var list = ArrayList<User>(0)
 
@@ -28,6 +29,9 @@ class UserAdapter (var context: Context): RecyclerView.Adapter<UserAdapter.UserV
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val item = list[position]
         holder.fillData(item, context)
+        holder.itemView.setOnClickListener {
+            itemListener.onClick(item)
+        }
     }
 
     fun insertData(data: List<User>){
