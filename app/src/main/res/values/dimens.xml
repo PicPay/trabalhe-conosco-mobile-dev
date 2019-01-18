@@ -17,5 +17,5 @@
 
     <dimen name="round_picture">52dp</dimen>
 
-    <dimen name="default_margin">20dp</dimen>
+    <dimen name="default_margin">24dp</dimen>
 </resources>

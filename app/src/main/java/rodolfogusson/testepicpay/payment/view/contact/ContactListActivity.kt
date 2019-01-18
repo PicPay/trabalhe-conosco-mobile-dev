@@ -21,7 +21,6 @@ import rodolfogusson.testepicpay.payment.view.register.CreditCardRegisterActivit
 class ContactListActivity : AppCompatActivity() {
 
     private lateinit var contactListViewModel: ContactListViewModel
-    private lateinit var adapter: ContactAdapter
     private var registeredCard: CreditCard? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +53,8 @@ class ContactListActivity : AppCompatActivity() {
                 return@Observer
             }
             it?.data?.let { list ->
-                ContactAdapter(list, ::onContactClicked).apply {
+                ContactAdapter(list, ::onContactClicked)
+                    .apply {
                     recyclerView.adapter = this
                     notifyDataSetChanged()
                     searchView.search = ::filterBy
