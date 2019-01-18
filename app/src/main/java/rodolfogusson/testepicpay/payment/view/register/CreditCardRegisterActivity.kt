@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import kotlinx.android.synthetic.main.activity_credit_card_register.*
+import androidx.lifecycle.ViewModelProviders
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
 import rodolfogusson.testepicpay.databinding.ActivityCreditCardRegisterBinding
@@ -14,14 +14,17 @@ import rodolfogusson.testepicpay.payment.viewmodel.register.CreditCardRegisterVi
 class CreditCardRegisterActivity : AppCompatActivity() {
 
     var contact: Contact? = null
+    lateinit var viewModel: CreditCardRegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel = ViewModelProviders.of(this).get(CreditCardRegisterViewModel::class.java)
+
         val binding: ActivityCreditCardRegisterBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_credit_card_register)
-        binding.viewModel =
-                CreditCardRegisterViewModel(cardNumber.id, cardholderName.id, expiryDate.id, cvv.id)
+        binding.setLifecycleOwner(this)
+        binding.viewModel = viewModel
 
         contact = intent.getParcelableExtra(Contact.key)
         setupLayout()
