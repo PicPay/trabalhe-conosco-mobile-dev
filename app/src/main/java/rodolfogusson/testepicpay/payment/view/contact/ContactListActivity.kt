@@ -15,8 +15,8 @@ import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.payment.model.contact.Contact
 import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.payment.view.priming.CreditCardPrimingActivity
-import rodolfogusson.testepicpay.payment.view.register.CreditCardRegisterActivity
+import rodolfogusson.testepicpay.payment.view.priming.CardPrimingActivity
+import rodolfogusson.testepicpay.payment.view.register.CardRegisterActivity
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -69,9 +69,9 @@ class ContactListActivity : AppCompatActivity() {
 
     private fun onContactClicked(contact: Contact) {
         if (registeredCard == null) {
-            navigateTo(CreditCardPrimingActivity::class.java, contact)
+            navigateTo(CardPrimingActivity::class.java, contact)
         } else {
-            navigateTo(CreditCardRegisterActivity::class.java, contact)
+            navigateTo(CardRegisterActivity::class.java, contact)
         }
     }
 

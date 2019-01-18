@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="rodolfogusson.testepicpay.payment.viewmodel.register.CreditCardRegisterViewModel" />
+            type="rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel" />
 
     </data>
 
@@ -22,7 +22,7 @@
             android:layout_marginLeft="@dimen/default_margin"
             android:layout_marginRight="@dimen/default_margin"
             android:orientation="vertical"
-            tools:context=".payment.view.register.CreditCardRegisterActivity">
+            tools:context=".payment.view.register.CardRegisterActivity">
 
             <TextView
                 android:id="@+id/titleTextView"

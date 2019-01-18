@@ -5,25 +5,30 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
-import rodolfogusson.testepicpay.databinding.ActivityCreditCardRegisterBinding
+import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
 import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.viewmodel.register.CreditCardRegisterViewModel
+import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel
+import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModelFactory
 
-class CreditCardRegisterActivity : AppCompatActivity() {
+class CardRegisterActivity : AppCompatActivity() {
 
     var contact: Contact? = null
-    lateinit var viewModel: CreditCardRegisterViewModel
+    lateinit var viewModel: CardRegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(CreditCardRegisterViewModel::class.java)
-
-        val binding: ActivityCreditCardRegisterBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_credit_card_register)
+        val binding: ActivityCardRegisterBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_card_register)
         binding.setLifecycleOwner(this)
+
+        viewModel = ViewModelProviders
+            .of(this, CardRegisterViewModelFactory(cardNumber.id, cardholderName.id, expiryDate.id, cvv.id))
+            .get(CardRegisterViewModel::class.java)
+
         binding.viewModel = viewModel
 
         contact = intent.getParcelableExtra(Contact.key)
