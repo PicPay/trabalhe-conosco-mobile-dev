@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import kotlinx.android.synthetic.main.activity_credit_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
 import rodolfogusson.testepicpay.databinding.ActivityCreditCardRegisterBinding
@@ -19,7 +20,8 @@ class CreditCardRegisterActivity : AppCompatActivity() {
 
         val binding: ActivityCreditCardRegisterBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_credit_card_register)
-        binding.viewModel = CreditCardRegisterViewModel()
+        binding.viewModel =
+                CreditCardRegisterViewModel(cardNumber.id, cardholderName.id, expiryDate.id, cvv.id)
 
         contact = intent.getParcelableExtra(Contact.key)
         setupLayout()

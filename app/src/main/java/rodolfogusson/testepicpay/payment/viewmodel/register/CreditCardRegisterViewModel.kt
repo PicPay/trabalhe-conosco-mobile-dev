@@ -1,27 +1,35 @@
 package rodolfogusson.testepicpay.payment.viewmodel.register
 
+import android.view.View
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import com.google.android.material.textfield.TextInputEditText
 import rodolfogusson.testepicpay.BR
 
 
-class CreditCardRegisterViewModel : BaseObservable() {
-
-    var cardNumberText: String = ""
+class CreditCardRegisterViewModel(
+    val cardNumberId: Int,
+    val cardholderNameId: Int,
+    val expiryDateId: Int,
+    val cvvId: Int
+) : BaseObservable() {
 
     @Bindable
-    fun getCardNumber(): String {
-        return cardNumberText
-    }
-
-    fun setCardNumber(value: String) {
-        // Avoids infinite loops.
-        if (cardNumberText != value) {
-            cardNumberText = value
-
-            // Notify observers of a new value.
+    var cardNumber: String = ""
+    set(value) {
+        if (cardNumber != value) {
+            field = value
             notifyPropertyChanged(BR.cardNumber)
         }
     }
 
+    fun onFocusChange(view: View, hasFocus: Boolean) {
+        if (view !is TextInputEditText || hasFocus) return
+        when (view.id) {
+//            cardNumberId -> validateCardNumber(view)
+//            cardholderNameId -> validateCardholderName(view)
+//            expiryDateId -> validateExpiryDate(view)
+//            cvvId -> validateCvv(view)
+        }
+    }
 }

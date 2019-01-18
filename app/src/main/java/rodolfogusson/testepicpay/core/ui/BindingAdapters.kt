@@ -1,7 +1,9 @@
 package rodolfogusson.testepicpay.core.ui
 
+import android.view.View
 import androidx.databinding.BindingAdapter
 import android.widget.ImageView
+import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 
 /**
@@ -14,4 +16,9 @@ fun setImageUrl(imageView: ImageView, url: String?) {
         .get()
         .load(url)
         .into(imageView)
+}
+
+@BindingAdapter("onFocusChange")
+fun setFocusChangeListener(view: TextInputEditText, listener: View.OnFocusChangeListener) {
+    view.onFocusChangeListener = listener
 }
