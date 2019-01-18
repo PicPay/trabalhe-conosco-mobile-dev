@@ -43,6 +43,7 @@
                     android:id="@+id/cardNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.cardNumber}"
                     android:hint="@string/card_number" />
 
             </com.google.android.material.textfield.TextInputLayout>

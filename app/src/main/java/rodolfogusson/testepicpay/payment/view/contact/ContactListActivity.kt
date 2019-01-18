@@ -20,20 +20,20 @@ import rodolfogusson.testepicpay.payment.view.register.CreditCardRegisterActivit
 
 class ContactListActivity : AppCompatActivity() {
 
-    private lateinit var contactListViewModel: ContactListViewModel
+    private lateinit var viewModel: ContactListViewModel
     private var registeredCard: CreditCard? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_list)
 
-        contactListViewModel = ViewModelProviders.of(this)
+        viewModel = ViewModelProviders.of(this)
             .get(ContactListViewModel::class.java)
 
         ActivityContactListBinding.inflate(layoutInflater)
-            .apply {
-                setLifecycleOwner(this@ContactListActivity)
-                viewModel = contactListViewModel
+            .let {
+                it.setLifecycleOwner(this@ContactListActivity)
+                it.viewModel = viewModel
             }
         setupLayout()
         registerObservers()
@@ -46,7 +46,7 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
-        contactListViewModel.contacts.observe(this, Observer {
+        viewModel.contacts.observe(this, Observer {
             progressBar.visibility = GONE
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
@@ -62,7 +62,7 @@ class ContactListActivity : AppCompatActivity() {
             }
         })
 
-        contactListViewModel.registeredCard.observe(this, Observer {
+        viewModel.registeredCard.observe(this, Observer {
             registeredCard = it
         })
     }
