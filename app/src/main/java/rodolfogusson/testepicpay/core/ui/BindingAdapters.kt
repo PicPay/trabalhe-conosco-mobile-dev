@@ -5,6 +5,13 @@ import androidx.databinding.BindingAdapter
 import android.widget.ImageView
 import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
+import com.google.android.material.textfield.TextInputLayout
+import android.text.TextWatcher
+import android.widget.EditText
+
+
+
+
 
 /**
  * Function defined to enable the use of the parameter app:imageUrl = ...
@@ -18,7 +25,12 @@ fun setImageUrl(imageView: ImageView, url: String?) {
         .into(imageView)
 }
 
-@BindingAdapter("onFocusChange")
-fun setFocusChangeListener(view: TextInputEditText, listener: View.OnFocusChangeListener) {
-    view.onFocusChangeListener = listener
+//@BindingAdapter("onFocusChange")
+//fun setFocusChangeListener(view: TextInputEditText, listener: View.OnFocusChangeListener) {
+//    view.onFocusChangeListener = listener
+//}
+
+@BindingAdapter("errorText")
+fun setErrorMessage(view: TextInputLayout, errorMessage: String?) {
+    view.error = errorMessage
 }

@@ -37,6 +37,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorText="@{viewModel.cardNumberError}"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -44,7 +45,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@={viewModel.cardNumber}"
-                    app:onFocusChange="@{viewModel::onFocusChange}"
                     android:hint="@string/card_number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -52,12 +52,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/quad_space">
+                android:layout_marginTop="@dimen/quad_space"
+                app:errorText="@{viewModel.cardHolderNameError}"
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cardholderName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.cardHolderName}"
                     android:hint="@string/cardholder_name" />
 
             </com.google.android.material.textfield.TextInputLayout>
