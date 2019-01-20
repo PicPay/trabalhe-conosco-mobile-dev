@@ -23,16 +23,22 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     private var timer = Timer()
     private val delay: Long = 1000
 
-    private class ValidationData(val error: MutableLiveData<String>,
-                              val validationFunction: (Boolean) -> Boolean)
+    private class Validation(val data: MutableLiveData<String>,
+                             val error: MutableLiveData<String>,
+                             val validationFunction: (Boolean) -> Boolean) {
+        fun validate() {
+            if ( &&
+        }
+    }
+    //TODO: FAZER VALIDAÇAO AQUI DENTRO?
 
-    fun validate(data: MutableLiveData<String>) {
+    fun validateFieldData(data: MutableLiveData<String>) {
 
         //check if button should be shown (all fields filled)
 
         val validation = when (data) {
-            cardNumber -> ValidationData(cardNumberError, this::validateCardNumber)
-            cardHolderName -> ValidationData(cardHolderNameError, this::validateCardHolderName)
+            cardNumber -> Validation(data, cardNumberError, this::validateCardNumber)
+            cardHolderName -> Validation(data, cardHolderNameError, this::validateCardHolderName)
             else -> null
         }
 
@@ -44,7 +50,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         timer = Timer()
         timer.schedule(object : TimerTask() {
             override fun run() {
-                validation?.validationFunction?.invoke(false)
+                validation?.validate()
             }
         }, delay)
     }
@@ -53,10 +59,10 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         return getApplication<Application>().resources.getString(id)
     }
 
-    private fun validateCardNumber(immediately: Boolean): Boolean {
+    private fun validateCardNumber(delayedValidation: Boolean): Boolean {
         val number = cardNumber.value?.replace("\\s".toRegex(), "")
         if (number.isNullOrEmpty()) {
-            if (immediately) {
+            if (!delayedValidation) {
                 cardNumberError.postValue(getString(R.string.error_required_field))
                 return false
             }
@@ -69,9 +75,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         return true
     }
 
-    private fun validateCardHolderName(immediately: Boolean): Boolean {
+    private fun validateCardHolderName(delayedValidation: Boolean): Boolean {
         if (cardHolderName.value.isNullOrEmpty()) {
-            if (immediately) {
+            if (!delayedValidation) {
                 cardHolderNameError.postValue(getString(R.string.error_required_field))
                 return false
             }
@@ -79,5 +85,14 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
 
         cardHolderNameError.postValue(null)
         return true
+    }
+
+    private fun validateExpiryDate(delayedValidation: Boolean) : Boolean {
+        if (expiryDate.value.isNullOrEmpty()) {
+            if (!delayedValidation) {
+                expiryDateError.postValue()
+                return false
+            }
+        }
     }
 }

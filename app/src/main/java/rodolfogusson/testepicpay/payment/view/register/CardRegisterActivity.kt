@@ -53,7 +53,7 @@ class CardRegisterActivity : AppCompatActivity() {
 
     private fun observe(data: MutableLiveData<String>) {
         data.observe(this, Observer {
-            viewModel.validate(data)
+            viewModel.validateFieldData(data)
         })
     }
 
