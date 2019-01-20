@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#efeef4</color>
+    <color name="hint">#999</color>
+    <color name="darkHint">#777</color>
+    <color name="subtitle">#535456</color>
+    <color name="divider">#ccc</color>
+
+    <color name="white">#fff</color>
+    <color name="gray">#DFE4E7</color>
+    <color name="black">#000</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+    <color name="blue">#007aff</color>
+
+    <color name="borderInput">#555</color>
+    <color name="imageViewBackground">#84878c</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="PrimaryColor">#130f40</color>
+    <color name="SecondaryColor">#bdc3c7</color>
+    <color name="toolbarText">#ffffff</color>
+
+    <color name="contactName">#7B7D7F</color>
+
+    <color name="colorPrimary">#1D1E20</color>
+    <color name="colorPrimaryLight">#2B2C30</color>
+    <color name="colorPrimaryDark">#1D1E20</color>
+    <color name="colorAccent">#21C15F</color>
+</resources>

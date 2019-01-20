@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PicPay</string>
+    <string name="loading">carregando</string>
+    <string name="cordinatorLayoutText">Contatos</string>
+</resources>
