@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import android.view.View
 import br.com.picpay.picpay.R
 import br.com.picpay.picpay.base.BaseActivity
-import br.com.picpay.picpay.model.CreditCard
 import kotlinx.android.synthetic.main.activity_register_creditcard.*
 import br.com.picpay.picpay.utils.CreditCardFormatTextWatcher
 
@@ -28,6 +27,9 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
             if (error != null) {
                 checkError(error)
             }
+        })
+        viewModel?.finish?.observe(this, Observer {
+            viewModel?.setContactActivity(this)
         })
 
         behaviorFields()
@@ -91,13 +93,10 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
 
     private fun listenButton() {
         register_save_button.setOnClickListener {
-            val creditCard = CreditCard()
-            creditCard.cardNumber = register_card_number.text.toString().trim().toInt()
-            creditCard.cardholderName = register_cardholder_name.text.toString()
-            creditCard.expiryDate = register_card_expiration.text.toString()
-            creditCard.cvv = register_card_cvv.text.toString().toInt()
-
-            viewModel?.saveCreditCard(creditCard)
+            viewModel?.saveCreditCard(register_card_number.text.toString().trim(),
+                register_cardholder_name.text.toString(),
+                register_card_expiration.text.toString(),
+                register_card_cvv.text.toString().toInt())
         }
     }
 

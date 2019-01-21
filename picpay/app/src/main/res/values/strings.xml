@@ -17,5 +17,10 @@
 
     <string name="example_username">\@aliceromero</string>
     <string name="example_name">Alice Romero</string>
+    <string name="currency_symbol">R$</string>
+    <string name="currency_value">0,00</string>
+    <string name="transaction_card">Mastercard 1234 •</string>
+    <string name="transaction_edit">Edit</string>
+    <string name="transaction_pay">Pay</string>
 
 </resources>

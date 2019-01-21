@@ -35,6 +35,13 @@
                 android:screenOrientation="portrait"
                 android:parentActivityName=".ui.contact.ContactActivity"
                 android:windowSoftInputMode="adjustResize"/>
+        <activity
+                android:name=".ui.transaction.TransactionActivity"
+                android:theme="@style/AppTheme"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:parentActivityName=".ui.contact.ContactActivity"
+                android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

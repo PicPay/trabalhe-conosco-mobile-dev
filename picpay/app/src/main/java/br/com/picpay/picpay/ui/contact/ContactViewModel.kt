@@ -3,12 +3,16 @@ package br.com.picpay.picpay.ui.contact
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import br.com.picpay.picpay.base.BaseViewModel
+import br.com.picpay.picpay.model.Transaction
 import br.com.picpay.picpay.model.User
 import br.com.picpay.picpay.remote.EndPoints
 import br.com.picpay.picpay.ui.priming.PrimingActivity
-import br.com.picpay.picpay.ui.register.RegisterCreditCardActivity
+import br.com.picpay.picpay.ui.transaction.TransactionActivity
+import br.com.picpay.picpay.utils.Constants.Companion.SAVE_CARD
+import br.com.picpay.picpay.utils.Constants.Companion.USER
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -40,13 +44,15 @@ class ContactViewModel: BaseViewModel() {
                 {error -> onErrorResponse(error.message)})
     }
 
-    fun setActivityPriming(context: Context){
-        val intent = Intent(context, PrimingActivity::class.java)
-        context.startActivity(intent)
+    fun setActivityPriming(activity: AppCompatActivity){
+        val intent = Intent(activity, PrimingActivity::class.java)
+        activity.startActivityForResult(intent, SAVE_CARD)
     }
 
     fun setActivityTransaction(context: Context, user: User){
-
+        val intent = Intent(context, TransactionActivity::class.java)
+        intent.putExtra(USER, user)
+        context.startActivity(intent)
     }
 
     private fun onSuccessResponse(result: List<User>?) {

@@ -3,6 +3,7 @@ package br.com.picpay.picpay
 import android.app.Application
 import br.com.picpay.picpay.di.component.ApplicationComponent
 import br.com.picpay.picpay.di.component.DaggerApplicationComponent
+import br.com.picpay.picpay.di.module.DatabaseModule
 import br.com.picpay.picpay.di.module.NetworkModule
 
 class PicpayApplication: Application() {
@@ -18,6 +19,7 @@ class PicpayApplication: Application() {
         graph = DaggerApplicationComponent
             .builder()
             .networkModule(NetworkModule(this))
+            .databaseModule(DatabaseModule(this))
             .build()
 
         graph.inject(this)

@@ -11,6 +11,8 @@
 
     <color name="color_tint">#999999</color>
 
+    <color name="color_button_disable">#8F929D</color>
+
     <color name="search_background">#2B2C2F</color>
     <color name="search_text">#ACB1BD</color>
 </resources>
