@@ -18,7 +18,6 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/double_space"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -69,6 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/cardholder_name"
+                    android:inputType="text"
                     android:text="@={viewModel.cardHolderName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +126,6 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/expiryAndCvvContainer"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/double_space"
                 android:layout_marginTop="@dimen/double_space"
                 android:gravity="bottom">
 
@@ -135,6 +134,7 @@
                     style="@style/GreenButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/double_space"
                     android:text="@string/save"
                     android:visibility="@{viewModel.saveButtonVisible ? View.VISIBLE : View.GONE}" />
 
