@@ -1,9 +1,10 @@
 package com.jvtnascimento.picpay.models
 
 data class Transaction (
-    var card_number: String,
-    var cvv: Int,
-    var value: Float,
-    var expiry_date: String,
-    var destination_user_id: String
+    var id: Int,
+    var value: Double,
+    var success: Boolean,
+    var status: String,
+    var destination_user: User,
+    var timestamp: String
 )

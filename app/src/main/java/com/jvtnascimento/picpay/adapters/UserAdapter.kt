@@ -1,6 +1,7 @@
 package com.jvtnascimento.picpay.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.jvtnascimento.picpay.models.User
 import kotlinx.android.synthetic.main.item_user.view.*
 import android.widget.Filter
 import android.widget.Filterable
+import com.jvtnascimento.picpay.view.CreditCardPrimingActivity
+import com.jvtnascimento.picpay.view.PaymentActivity
 
 
 class UserAdapter(private val items : ArrayList<User>, private val context: Context) :
@@ -43,9 +46,9 @@ class UserAdapter(private val items : ArrayList<User>, private val context: Cont
         holder.userUsername.text = user.username
 
         holder.itemView.setOnClickListener {
-//            val intent = Intent( context, JokeActivity::class.java)
-//            intent.putExtra("category", category)
-//            context.startActivity(intent)
+            val intent = Intent( context, PaymentActivity::class.java)
+            intent.putExtra("user", user)
+            context.startActivity(intent)
         }
     }
 

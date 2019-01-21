@@ -17,10 +17,10 @@ import com.jvtnascimento.picpay.adapters.UserAdapter
 import com.jvtnascimento.picpay.application.BaseApplication
 import com.jvtnascimento.picpay.models.User
 import com.jvtnascimento.picpay.presenter.MainPresenter
-import com.jvtnascimento.picpay.view.contracts.ViewContractInterface
+import com.jvtnascimento.picpay.view.contracts.MainViewContractInterface
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), ViewContractInterface {
+class MainActivity : AppCompatActivity(), MainViewContractInterface {
 
     @BindView(R.id.userList) lateinit var userList: RecyclerView
     @BindView(R.id.searchView) lateinit var searchView: SearchView
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), ViewContractInterface {
 
         ButterKnife.bind(this)
 
-        this.configureActivity()
+        this.configureComponents()
         this.loadData()
     }
 
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), ViewContractInterface {
         this.presenter.getUsers()
     }
 
-    private fun configureActivity() {
+    private fun configureComponents() {
         (application as BaseApplication).component.inject(this)
         this.presenter.attach(this)
     }

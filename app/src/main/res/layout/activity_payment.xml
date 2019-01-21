@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorPrimary"
+        tools:context=".view.PaymentActivity">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:layout_margin="16dp"
+                    android:focusableInTouchMode="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userPicture"
+                        android:layout_marginBottom="8dp"
+                        android:src="@color/colorPrimaryLight"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal"
+                        app:civ_border_color="@color/colorPrimaryLight"/>
+
+                <TextView
+                        android:id="@+id/userUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/loading"/>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_margin="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content">
+
+                    <TextView
+                            android:id="@+id/prefix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/contactName"
+                            android:text="R$"/>
+
+                    <EditText
+                            android:id="@+id/value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:hint="0,00"
+                            android:inputType="numberDecimal"
+                            android:textColorHint="@color/contactName"
+                            android:background="@null"
+                            android:textSize="50sp"
+                            android:textColor="@color/colorAccent"
+                            android:backgroundTint="@color/contactName"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content">
+
+                    <TextView
+                            android:id="@+id/creditCardInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:text="@string/loading"/>
+
+                    <Button
+                            android:id="@+id/editCreditCardButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Editar"
+                            android:background="@null"
+                            android:textColor="@color/colorAccent"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0">
+            <Button
+                    android:id="@+id/bottomButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_disabled_bottom_button"
+                    android:text="Pagar"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:layout_margin="16dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+</RelativeLayout>

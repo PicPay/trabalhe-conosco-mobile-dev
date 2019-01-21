@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".view.CreditCardRegisterActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cadastrar cartão"
+                    android:textColor="@color/white"
+                    android:layout_margin="16dp"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:gravity="center"/>
+
+            <android.support.design.widget.TextInputLayout
+                    android:id="@+id/text_input_layout"
+                    android:layout_width="match_parent"
+                    android:textColorHint="@color/contactName"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/creditCardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Número do Cartão"
+                        android:maxLength="16"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/contactName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:textColorHint="@color/contactName"
+                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/creditCardName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nome do titular"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/contactName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/contactName"
+                        android:layout_margin="16dp">
+
+                    <EditText
+                            android:id="@+id/creditCardExpirationDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Vencimento"
+                            android:inputType="date"
+                            android:maxLength="5"
+                            android:textColor="@color/white"
+                            android:backgroundTint="@color/contactName"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:textColorHint="@color/contactName"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1">
+
+                    <EditText
+                            android:id="@+id/creditCardCvv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="CVV"
+                            android:maxLength="3"
+                            android:textColor="@color/white"
+                            android:inputType="number"
+                            android:backgroundTint="@color/contactName"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
+        <Button
+                android:id="@+id/bottomButton"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bottom_button"
+                android:text="Salvar"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_margin="16dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

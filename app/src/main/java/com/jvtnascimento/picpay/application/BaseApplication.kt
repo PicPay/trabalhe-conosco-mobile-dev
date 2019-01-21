@@ -1,9 +1,7 @@
 package com.jvtnascimento.picpay.application
 
 import android.app.Application
-import com.jvtnascimento.picpay.dagger.AppComponent
-import com.jvtnascimento.picpay.dagger.DaggerAppComponent
-import com.jvtnascimento.picpay.dagger.MainPresenterModule
+import com.jvtnascimento.picpay.dagger.*
 
 class BaseApplication: Application() {
 
@@ -18,6 +16,8 @@ class BaseApplication: Application() {
     private fun configureDaggerComponent() {
         this.component = DaggerAppComponent.builder()
             .mainPresenterModule(MainPresenterModule())
+            .creditCardPresenterModule(CreditCardPresenterModule(applicationContext))
+            .creditCardServiceModule(CreditCardServiceModule(applicationContext))
             .build()
     }
 }

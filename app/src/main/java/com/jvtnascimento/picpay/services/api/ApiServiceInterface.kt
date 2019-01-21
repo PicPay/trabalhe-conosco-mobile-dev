@@ -1,6 +1,8 @@
 package com.jvtnascimento.picpay.services.api
 
 import com.jvtnascimento.picpay.models.Transaction
+import com.jvtnascimento.picpay.models.TransactionRequest
+import com.jvtnascimento.picpay.models.TransactionResponse
 import com.jvtnascimento.picpay.models.User
 import com.jvtnascimento.picpay.services.Constants
 import io.reactivex.Observable
@@ -17,7 +19,7 @@ interface ApiServiceInterface {
     fun getUsers(): Observable<ArrayList<User>>
 
     @POST("transaction")
-    fun payment(@Body transaction: Transaction)
+    fun pay(@Body transaction: TransactionRequest): Observable<TransactionResponse>
 
     companion object {
         var retrofit: Retrofit? = null
