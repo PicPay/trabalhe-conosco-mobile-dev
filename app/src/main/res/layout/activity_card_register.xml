@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".payment.view.register.CardRegisterActivity">
 
     <data>
 
@@ -13,128 +14,135 @@
 
     </data>
 
-
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/double_space"
+        android:fillViewport="true">
 
-        <ScrollView
-            android:id="@+id/scrollview"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="80dp">
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/register_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardNumberContainer"
+                android:layout_below="@id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/default_margin"
-                android:layout_marginRight="@dimen/default_margin"
-                android:orientation="vertical"
-                tools:context=".payment.view.register.CardRegisterActivity">
+                app:errorEnabled="true"
+                app:errorText="@{viewModel.cardNumberError}">
 
-                <TextView
-                    android:id="@+id/titleTextView"
-                    style="@style/Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="60dp"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:text="@string/register_title" />
-
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/card_number"
+                    android:inputType="datetime"
+                    android:text="@={viewModel.cardNumber}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardholderNameContainer"
+                android:layout_below="@id/cardNumberContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/quad_space"
+                app:errorEnabled="true"
+                app:errorText="@{viewModel.cardHolderNameError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardholderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cardholder_name"
+                    android:text="@={viewModel.cardHolderName}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/expiryAndCvvContainer"
+                android:layout_below="@id/cardholderNameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/quad_space"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     app:errorEnabled="true"
-                    app:errorText="@{viewModel.cardNumberError}">
+                    app:errorText="@{viewModel.expiryDateError}">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/cardNumber"
+                        android:id="@+id/expiryDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/card_number"
-                        android:inputType="datetime"
-                        android:text="@={viewModel.cardNumber}" />
+                        android:hint="@string/expiry_date"
+                        android:inputType="date"
+                        android:text="@={viewModel.expiryDate}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <Space
+                    android:layout_width="22dp"
+                    android:layout_height="1dp" />
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/quad_space"
+                    android:layout_weight="1"
                     app:errorEnabled="true"
-                    app:errorText="@{viewModel.cardHolderNameError}">
+                    app:errorText="@{viewModel.cvvError}">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/cardholderName"
+                        android:id="@+id/cvv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/cardholder_name"
-                        android:text="@={viewModel.cardHolderName}" />
+                        android:hint="@string/cvv"
+                        android:inputType="number"
+                        android:text="@={viewModel.cvv}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/quad_space"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:errorEnabled="true"
-                        app:errorText="@{viewModel.expiryDateError}">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/expiryDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/expiry_date"
-                            android:inputType="date"
-                            android:text="@={viewModel.expiryDate}" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <Space
-                        android:layout_width="22dp"
-                        android:layout_height="1dp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:errorEnabled="true"
-                        app:errorText="@{viewModel.cvvError}">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/cvv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/cvv"
-                            android:inputType="number"
-                            android:text="@={viewModel.cvv}" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
 
             </LinearLayout>
 
-        </ScrollView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/expiryAndCvvContainer"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/double_space"
+                android:layout_marginTop="@dimen/double_space"
+                android:gravity="bottom">
 
-        <Button
-            android:id="@+id/saveButton"
-            style="@style/GreenButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="@dimen/double_space"
-            android:layout_alignParentBottom="true"
-            android:text="@string/save"
-            android:visibility="@{viewModel.saveButtonVisible ? View.VISIBLE : View.GONE}" />
+                <Button
+                    android:id="@+id/saveButton"
+                    style="@style/GreenButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:visibility="@{viewModel.saveButtonVisible ? View.VISIBLE : View.GONE}" />
 
-    </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </layout>
 

@@ -2,6 +2,7 @@ package rodolfogusson.testepicpay.core.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.res.Resources
 import androidx.appcompat.app.ActionBar
 import rodolfogusson.testepicpay.R
 
@@ -25,3 +26,12 @@ fun ActionBar.customize() {
     setDisplayHomeAsUpEnabled(true)
     setHomeAsUpIndicator(R.drawable.green_back_arrow)
 }
+
+/**
+ * Int extensions to convert dp into pixels and vice-versa.
+ */
+val Int.dp: Int
+    get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+
+val Int.pixel: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()

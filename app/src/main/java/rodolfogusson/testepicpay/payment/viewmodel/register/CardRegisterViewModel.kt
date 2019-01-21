@@ -86,6 +86,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
                 !cardHolderName.value.isNullOrEmpty() &&
                 !expiryDate.value.isNullOrEmpty() &&
                 !cvv.value.isNullOrEmpty()
+//        for (validation in validations) {
+//            if (validation.validate())
+//        }
     }
 
     private fun getString(id: Int): String? {
