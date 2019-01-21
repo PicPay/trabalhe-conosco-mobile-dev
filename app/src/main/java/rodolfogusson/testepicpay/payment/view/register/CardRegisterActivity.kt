@@ -2,6 +2,8 @@ package rodolfogusson.testepicpay.payment.view.register
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -49,6 +51,20 @@ class CardRegisterActivity : AppCompatActivity() {
         observe(viewModel.cardHolderName)
         observe(viewModel.expiryDate)
         observe(viewModel.cvv)
+        viewModel.saveButtonVisible.observe(this, Observer { visible ->
+//            val params = scrollview.layoutParams as? ViewGroup.
+//            params?.let { param -> param. = if (it) 80 else 0 }
+            val scale = resources.displayMetrics.density
+            val pixelPadding = if (visible) 100 else 0
+            scrollview.setPadding(
+                0,
+                0,
+                0,
+                (pixelPadding * scale + 0.5f).toInt())
+            scrollview.post {
+                scrollview.fullScroll(View.FOCUS_DOWN)
+            }
+        })
     }
 
     private fun observe(data: MutableLiveData<String>) {

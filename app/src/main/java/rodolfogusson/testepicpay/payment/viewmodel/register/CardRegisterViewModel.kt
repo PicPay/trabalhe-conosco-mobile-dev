@@ -25,11 +25,13 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     val cvv = MutableLiveData<String>()
     val cvvError = MutableLiveData<String>()
 
+    var saveButtonVisible = MutableLiveData<Boolean>().apply { value = false }
+
     private val validations = arrayOf(
-        Validation(cardNumber, cardNumberError, this::isCardNumberValid),
+        Validation(cardNumber, cardNumberError, this::cardNumberIsValid),
         Validation(cardHolderName, cardHolderNameError, null),
-        Validation(expiryDate, expiryDateError, this::isExpiryDateValid),
-        Validation(cvv, cvvError, this::validateCvv)
+        Validation(expiryDate, expiryDateError, this::expiryDateIsValid),
+        Validation(cvv, cvvError, this::cvvIsValid)
     )
 
     private inner class Validation(val data: MutableLiveData<String>,
@@ -60,7 +62,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
 
     fun onDataChanged(data: MutableLiveData<String>) {
 
-        //check if button should be shown (all fields filled)
+        // Check if button should be shown (all fields are filled)
+        val visibility = allFieldsAreFilled()
+        if (visibility != saveButtonVisible.value) saveButtonVisible.postValue(visibility)
 
         validations.firstOrNull { it.data == data }?.let { validation ->
             // Reset error when new characters are typed
@@ -77,11 +81,18 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
+    private fun allFieldsAreFilled() : Boolean {
+        return !cardNumber.value.isNullOrEmpty() &&
+                !cardHolderName.value.isNullOrEmpty() &&
+                !expiryDate.value.isNullOrEmpty() &&
+                !cvv.value.isNullOrEmpty()
+    }
+
     private fun getString(id: Int): String? {
         return getApplication<Application>().resources.getString(id)
     }
 
-    private fun isCardNumberValid(validation: Validation): Boolean {
+    private fun cardNumberIsValid(validation: Validation): Boolean {
         validation.data.value?.let { string ->
             val numberString = string.replace("\\s".toRegex(), "")
             if (numberString.length != 16) {
@@ -94,7 +105,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     }
 
 
-    private fun isExpiryDateValid(validation: Validation) : Boolean {
+    private fun expiryDateIsValid(validation: Validation) : Boolean {
         validation.data.value?.let { string ->
             if (string.length == 5) {
                 val parts = string.split("/")
@@ -124,7 +135,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         return true
     }
 
-    private fun validateCvv(validation: Validation) : Boolean {
+    private fun cvvIsValid(validation: Validation) : Boolean {
         validation.data.value?.let { string ->
             if (string.length != 3) {
                 validation.error.postValue(getString(R.string.error_cvv_length))

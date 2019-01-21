@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/PicPayTheme">
-        <activity android:name=".payment.view.register.CardRegisterActivity"></activity>
+        <activity android:name=".payment.view.register.CardRegisterActivity" />
         <activity
             android:name=".payment.view.priming.CardPrimingActivity"
             android:parentActivityName=".payment.view.contact.ContactListActivity" />
