@@ -19,6 +19,8 @@
     <string name="cvv">CVV</string>
     <string name="error_required_field">Campo obrigatório</string>
     <string name="error_card_number_length">O numero do cartão deve conter 16 dígitos</string>
+    <string name="error_expiry_date_not_valid">Data inválida</string>
+    <string name="error_cvv_length">O CVV deve conter 3 dígitos</string>
 
     // Dialog strings
     <string name="error">Erro</string>

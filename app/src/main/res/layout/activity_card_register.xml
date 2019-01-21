@@ -44,6 +44,7 @@
                     android:id="@+id/cardNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="datetime"
                     android:text="@={viewModel.cardNumber}"
                     android:hint="@string/card_number" />
 
@@ -74,12 +75,16 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    app:errorText="@{viewModel.expiryDateError}"
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/expiryDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:text="@={viewModel.expiryDate}"
                         android:hint="@string/expiry_date" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -91,12 +96,16 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    app:errorText="@{viewModel.cvvError}"
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/cvv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="@={viewModel.cvv}"
                         android:hint="@string/cvv" />
 
                 </com.google.android.material.textfield.TextInputLayout>
