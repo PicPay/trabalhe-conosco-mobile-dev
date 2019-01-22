@@ -8,6 +8,8 @@ import java.util.*
 import java.lang.Exception
 import java.time.DateTimeException
 import java.time.LocalDate
+import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
+import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
 
 class CardRegisterViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -23,7 +25,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     val cvv = MutableLiveData<String>()
     val cvvError = MutableLiveData<String>()
 
-    var saveButtonVisible = MutableLiveData<Boolean>().apply { value = false }
+    val saveButtonVisible = MutableLiveData<Boolean>().apply { value = false }
 
     private val validations = arrayOf(
         Validation(cardNumber, cardNumberError, this::cardNumberIsValid),
@@ -32,70 +34,85 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         Validation(cvv, cvvError, this::cvvIsValid)
     )
 
-    private inner class Validation(val data: MutableLiveData<String>,
-                                   val error: MutableLiveData<String>,
-                                   val hasValidData: ((Validation) -> Boolean)?) {
+    /**
+     * Objects of this class represent the validation of one field on the screen.
+     */
+    private inner class Validation(
+        val data: MutableLiveData<String>,
+        val error: MutableLiveData<String>,
+        val hasValidData: ((Validation) -> Boolean)?
+    ) {
 
         private var timer = Timer()
         private val delay: Long = 1000
         var passed = false
 
-        fun validate() {
+        fun validate(mode: ValidationMode) {
+            timer.cancel()
             if (data.value.isNullOrEmpty()) {
                 passed = false
-                saveButtonVisible.postValue(false)
+                error.postValue(null)
                 return
             } else {
                 if (hasValidData == null) {
                     passed = true
-                    checkAllFields()
                     return
                 }
-                // Delayed validation
-                timer.cancel()
-                timer = Timer()
-                timer.schedule(object : TimerTask() {
-                    override fun run() {
-                        passed = hasValidData.invoke(this@Validation)
-                        checkAllFields()
-                    }
-                }, delay)
+                if (mode == Immediate) {
+                    // Immediate validation
+                    passed = hasValidData.invoke(this)
+                } else {
+                    // Delayed validation
+                    timer = Timer()
+                    timer.schedule(object : TimerTask() {
+                        override fun run() {
+                            passed = hasValidData.invoke(this@Validation)
+                        }
+                    }, delay)
+                }
             }
         }
     }
 
-    fun onDataChanged(data: MutableLiveData<String>) {
+    private enum class ValidationMode {
+        Immediate, Delayed
+    }
+
+    fun onFieldDataChanged(data: MutableLiveData<String>) {
+        // Get the validation object corresponding to the altered field
         validations.firstOrNull { it.data == data }?.let { validation ->
             // Reset error when new characters are typed
             validation.error.postValue(null)
-            // Make save button not visible until all fields are validated again
-            saveButtonVisible.postValue(false)
-            validation.validate()
+            // Show save button if all fields are filled
+            saveButtonVisible.postValue(allFieldsAreFilled())
+            // Validate the newly entered data
+            validation.validate(Delayed)
         }
     }
 
-    private fun allFieldsAreValid() : Boolean {
+    fun validateAllFields(): Boolean {
         for (validation in validations) {
+            validation.validate(Immediate)
             if (!validation.passed) return false
         }
+        //TODO: save data and go to next screen
         return true
     }
 
-    private fun checkAllFields() {
-        val visibility = allFieldsAreValid()
-        if (saveButtonVisible.value != visibility) saveButtonVisible.postValue(visibility)
+    private fun allFieldsAreFilled(): Boolean {
+        return !cardNumber.value.isNullOrEmpty() &&
+                !cardHolderName.value.isNullOrEmpty() &&
+                !expiryDate.value.isNullOrEmpty() &&
+                !cvv.value.isNullOrEmpty()
     }
-
-//    private fun allFieldsAreFilled() : Boolean {
-//        return !cardNumber.value.isNullOrEmpty() &&
-//                !cardHolderName.value.isNullOrEmpty() &&
-//                !expiryDate.value.isNullOrEmpty() &&
-//                !cvv.value.isNullOrEmpty()
-//    }
 
     private fun getString(id: Int): String? {
         return getApplication<Application>().resources.getString(id)
     }
+
+    /**
+     * Validation functions:
+     */
 
     private fun cardNumberIsValid(validation: Validation): Boolean {
         validation.data.value?.let { string ->
@@ -109,8 +126,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         return true
     }
 
-
-    private fun expiryDateIsValid(validation: Validation) : Boolean {
+    private fun expiryDateIsValid(validation: Validation): Boolean {
         validation.data.value?.let { string ->
             if (string.length == 5) {
                 val parts = string.split("/")
@@ -125,9 +141,12 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
                 try {
                     val month = monthString.toInt()
                     val year = yearString.toInt()
-                    val enteredDate = LocalDate.of(year, month, 1)
-                    if (enteredDate < currentDate) throw DateTimeException("Data passada")
+                    val initialDate = LocalDate.of(year, month, 1)
+                    // Expiry dates are relative to the last day of its month
+                    val expiry = initialDate.withDayOfMonth(initialDate.lengthOfMonth())
+                    if (expiry < currentDate) throw Exception()
                 } catch (e: Exception) {
+                    // Entered date has wrong format or is before today
                     validation.error.postValue(getString(R.string.error_expiry_date_not_valid))
                     return false
                 }
@@ -140,7 +159,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         return true
     }
 
-    private fun cvvIsValid(validation: Validation) : Boolean {
+    private fun cvvIsValid(validation: Validation): Boolean {
         validation.data.value?.let { string ->
             if (string.length != 3) {
                 validation.error.postValue(getString(R.string.error_cvv_length))

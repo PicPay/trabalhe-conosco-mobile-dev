@@ -1,10 +1,7 @@
 package rodolfogusson.testepicpay.payment.view.register
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -15,7 +12,6 @@ import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
-import rodolfogusson.testepicpay.core.ui.dp
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
 import rodolfogusson.testepicpay.payment.model.contact.Contact
 import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel
@@ -49,10 +45,10 @@ class CardRegisterActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
-        observe(viewModel.cardNumber)
-        observe(viewModel.cardHolderName)
-        observe(viewModel.expiryDate)
-        observe(viewModel.cvv)
+        observeField(viewModel.cardNumber)
+        observeField(viewModel.cardHolderName)
+        observeField(viewModel.expiryDate)
+        observeField(viewModel.cvv)
         viewModel.saveButtonVisible.observe(this, Observer { visible ->
             if (visible) scrollToTheBottom()
         })
@@ -64,9 +60,9 @@ class CardRegisterActivity : AppCompatActivity() {
         }, 100)
     }
 
-    private fun observe(data: MutableLiveData<String>) {
+    private fun observeField(data: MutableLiveData<String>) {
         data.observe(this, Observer {
-            viewModel.onDataChanged(data)
+            viewModel.onFieldDataChanged(data)
         })
     }
 
