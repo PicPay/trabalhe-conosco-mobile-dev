@@ -59,9 +59,7 @@
                 android:layout_below="@id/cardNumberContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/quad_space"
-                app:errorEnabled="true"
-                app:errorText="@{viewModel.cardHolderNameError}">
+                android:layout_marginTop="@dimen/quad_space">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cardholderName"
@@ -136,8 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/double_space"
                     android:text="@string/save"
-                    android:visibility="@{safeUnbox(viewModel.saveButtonVisible) ? View.VISIBLE : View.GONE}"
-                    android:onClick="@{() -> viewModel.validateAllFields()}"/>
+                    android:visibility="@{safeUnbox(viewModel.saveButtonVisible) ? View.VISIBLE : View.GONE}" />
 
             </RelativeLayout>
 

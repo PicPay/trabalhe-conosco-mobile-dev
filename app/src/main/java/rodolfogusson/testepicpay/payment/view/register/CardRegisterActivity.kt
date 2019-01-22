@@ -3,6 +3,7 @@ package rodolfogusson.testepicpay.payment.view.register
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_card_register.*
+import kotlinx.coroutines.runBlocking
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
@@ -42,6 +44,11 @@ class CardRegisterActivity : AppCompatActivity() {
         mask(cardNumber, "[0000] [0000] [0000] [0000]")
         mask(expiryDate, "[00]/[00]")
         mask(cvv, "[000]")
+        saveButton.setOnClickListener {
+            if (viewModel.saveCreditCard()) {
+                //TODO: Go to next activity
+            }
+        }
     }
 
     private fun registerObservers() {
@@ -62,7 +69,7 @@ class CardRegisterActivity : AppCompatActivity() {
 
     private fun observeField(data: MutableLiveData<String>) {
         data.observe(this, Observer {
-            viewModel.onFieldDataChanged(data)
+            viewModel.validate(data)
         })
     }
 
