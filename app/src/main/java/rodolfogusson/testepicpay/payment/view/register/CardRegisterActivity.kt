@@ -53,6 +53,15 @@ class CardRegisterActivity : AppCompatActivity() {
         observe(viewModel.cardHolderName)
         observe(viewModel.expiryDate)
         observe(viewModel.cvv)
+        viewModel.saveButtonVisible.observe(this, Observer { visible ->
+            if (visible) scrollToTheBottom()
+        })
+    }
+
+    private fun scrollToTheBottom() {
+        scrollview.postDelayed({
+            scrollview.scrollTo(0, scrollview.bottom + 500)
+        }, 100)
     }
 
     private fun observe(data: MutableLiveData<String>) {

@@ -5,8 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import rodolfogusson.testepicpay.R
 import java.util.*
-import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediately
-import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
 import java.lang.Exception
 import java.time.DateTimeException
 import java.time.LocalDate
@@ -40,55 +38,43 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
 
         var timer = Timer()
         val delay: Long = 1000
+        var passed = false
 
-        fun validate(mode: ValidationMode) : Boolean {
+        fun validate() {
             if (data.value.isNullOrEmpty()) {
-                if (mode == Immediately) {
-                    // Field is required at this moment and can't be null or empty! Show an error
-                    error.postValue(getString(R.string.error_required_field))
-                    return false
-                }
+                passed = false
+                return
             } else if (hasValidData != null && !hasValidData.invoke(this)) {
-                return false
+                passed = false
+                return
             }
             error.postValue(null)
-            return true
+            passed = true
         }
     }
 
-    enum class ValidationMode {
-        Immediately, Delayed
-    }
-
     fun onDataChanged(data: MutableLiveData<String>) {
-
-        // Check if button should be shown (all fields are filled)
-        val visibility = allFieldsAreFilled()
-        if (visibility != saveButtonVisible.value) saveButtonVisible.postValue(visibility)
-
         validations.firstOrNull { it.data == data }?.let { validation ->
             // Reset error when new characters are typed
             validation.error.postValue(null)
-
             // Delayed validation, as new characters are typed in the fields
             validation.timer.cancel()
             validation.timer = Timer()
             validation.timer.schedule(object : TimerTask() {
                 override fun run() {
-                    validation.validate(Delayed)
+                    validation.validate()
+                    val visibility = allFieldsAreValid()
+                    if (visibility != saveButtonVisible.value) saveButtonVisible.postValue(visibility)
                 }
             }, validation.delay)
         }
     }
 
-    private fun allFieldsAreFilled() : Boolean {
-        return !cardNumber.value.isNullOrEmpty() &&
-                !cardHolderName.value.isNullOrEmpty() &&
-                !expiryDate.value.isNullOrEmpty() &&
-                !cvv.value.isNullOrEmpty()
-//        for (validation in validations) {
-//            if (validation.validate())
-//        }
+    private fun allFieldsAreValid() : Boolean {
+        for (validation in validations) {
+            if (!validation.passed) return false
+        }
+        return true
     }
 
     private fun getString(id: Int): String? {
