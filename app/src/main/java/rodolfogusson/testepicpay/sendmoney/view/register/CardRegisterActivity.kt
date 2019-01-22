@@ -1,5 +1,6 @@
-package rodolfogusson.testepicpay.payment.view.register
+package rodolfogusson.testepicpay.sendmoney.view.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.EditText
@@ -13,8 +14,10 @@ import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
-import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel
+import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
+import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
+import rodolfogusson.testepicpay.sendmoney.payment.PaymentActivity
+import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel
 
 class CardRegisterActivity : AppCompatActivity() {
 
@@ -42,11 +45,7 @@ class CardRegisterActivity : AppCompatActivity() {
         mask(cardNumber, "[0000] [0000] [0000] [0000]")
         mask(expiryDate, "[00]/[00]")
         mask(cvv, "[000]")
-        saveButton.setOnClickListener {
-            if (viewModel.saveCreditCard()) {
-                //TODO: Go to next activity
-            }
-        }
+        saveButton.setOnClickListener { viewModel.saveCreditCard() }
     }
 
     private fun registerObservers() {
@@ -57,11 +56,18 @@ class CardRegisterActivity : AppCompatActivity() {
         viewModel.saveButtonVisible.observe(this, Observer { visible ->
             if (visible) scrollToTheBottom()
         })
+        viewModel.registeredCreditCard.observe(this, Observer { card ->
+            Intent(this, PaymentActivity::class.java).apply {
+                putExtra(Contact.key, contact)
+                putExtra(CreditCard.key, card)
+                startActivity(this)
+            }
+        })
     }
 
     private fun scrollToTheBottom() {
         scrollview.postDelayed({
-            scrollview.scrollTo(0, scrollview.bottom + 500)
+            scrollview.scrollTo(0, scrollview.bottom)
         }, 100)
     }
 
@@ -75,13 +81,5 @@ class CardRegisterActivity : AppCompatActivity() {
         val listener = MaskedTextChangedListener(mask, editText)
         editText.addTextChangedListener(listener)
         editText.onFocusChangeListener = listener
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home) {
-            onBackPressed()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 }

@@ -1,16 +1,16 @@
-package rodolfogusson.testepicpay.payment.viewmodel.register
+package rodolfogusson.testepicpay.sendmoney.viewmodel.register
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.payment.model.creditcard.CreditCardRepository
+import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
+import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCardRepository
 import java.util.*
 import java.lang.Exception
 import java.time.LocalDate
-import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
-import rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
+import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
+import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
 
 class CardRegisterViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -20,7 +20,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     val cardHolderName = MutableLiveData<String>()
 
     val expiryDate = MutableLiveData<String>()
-    var expiryLocalDate: LocalDate? = null
+    private var expiryLocalDate: LocalDate? = null
     val expiryDateError = MutableLiveData<String>()
 
     val cvv = MutableLiveData<String>()
@@ -28,7 +28,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
 
     val saveButtonVisible = MutableLiveData<Boolean>().apply { value = false }
 
-    val creditCardRepository = CreditCardRepository.getInstance(application)
+    val registeredCreditCard = MutableLiveData<CreditCard>()
+
+    private val creditCardRepository = CreditCardRepository.getInstance(application)
 
     private val validations = arrayOf(
         Validation(cardNumber, cardNumberError, this::cardNumberIsValid),
@@ -96,7 +98,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
-    fun saveCreditCard(): Boolean {
+    fun saveCreditCard()  {
         if (allFieldsAreValid()) {
             val numberString = cardNumber.value
             val nameString = cardHolderName.value
@@ -116,10 +118,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
                 )
 
                 creditCardRepository.insert(creditCard)
-                return true
+                registeredCreditCard.postValue(creditCard)
             }
         }
-        return false
     }
 
     private fun allFieldsAreValid(): Boolean {

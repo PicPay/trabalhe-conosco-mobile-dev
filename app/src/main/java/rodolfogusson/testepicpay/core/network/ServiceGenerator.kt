@@ -2,7 +2,7 @@ package rodolfogusson.testepicpay.core.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import rodolfogusson.testepicpay.core.network.services.PaymentService
+import rodolfogusson.testepicpay.core.network.services.SendMoneyService
 
 object ServiceGenerator {
 
@@ -15,5 +15,5 @@ object ServiceGenerator {
             .build()
     }
 
-    fun paymentService() = retrofit.create(PaymentService::class.java)
+    fun sendMoneyService(): SendMoneyService = retrofit.create(SendMoneyService::class.java)
 }

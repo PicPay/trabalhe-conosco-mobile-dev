@@ -1,7 +1,8 @@
-package rodolfogusson.testepicpay.payment.model.creditcard
+package rodolfogusson.testepicpay.sendmoney.model.creditcard
 
 import androidx.lifecycle.LiveData
 import android.content.Context
+import androidx.lifecycle.Transformations
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.core.data.ApplicationDatabase
@@ -20,7 +21,11 @@ class CreditCardRepository private constructor(context: Context) {
         creditCards = creditCardDao.getAllCreditCards()
     }
 
-    fun getCreditCards(): LiveData<List<CreditCard>> = creditCards
+    /**
+     * For the sake of simplicity, this app only uses the last card registered by the user.
+     */
+    fun lastRegisteredCreditCard() : LiveData<CreditCard> =
+        Transformations.map(creditCards) { if(it.isNotEmpty()) it.last() else null }
 
     fun insert(card: CreditCard) {
         GlobalScope.launch {

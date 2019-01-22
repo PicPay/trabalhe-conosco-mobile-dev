@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.view.contact
+package rodolfogusson.testepicpay.sendmoney.view.contact
 
 import android.content.Context
 import android.text.Editable

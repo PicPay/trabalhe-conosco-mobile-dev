@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.model.contact
+package rodolfogusson.testepicpay.sendmoney.model.contact
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

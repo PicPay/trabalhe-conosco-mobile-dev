@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.model.creditcard
+package rodolfogusson.testepicpay.sendmoney.model.creditcard
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

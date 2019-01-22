@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.view.priming
+package rodolfogusson.testepicpay.sendmoney.view.priming
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_card_priming.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
-import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.view.register.CardRegisterActivity
+import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
+import rodolfogusson.testepicpay.sendmoney.view.register.CardRegisterActivity
 
 class CardPrimingActivity : AppCompatActivity() {
 

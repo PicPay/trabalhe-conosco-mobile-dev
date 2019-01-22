@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".payment.view.register.CardRegisterActivity">
+    tools:context=".sendmoney.view.register.CardRegisterActivity">
 
     <data>
 
@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="rodolfogusson.testepicpay.payment.viewmodel.register.CardRegisterViewModel" />
+            type="rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel" />
 
     </data>
 

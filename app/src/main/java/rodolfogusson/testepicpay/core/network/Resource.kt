@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.core.data
+package rodolfogusson.testepicpay.core.network
 
 import retrofit2.Response
 

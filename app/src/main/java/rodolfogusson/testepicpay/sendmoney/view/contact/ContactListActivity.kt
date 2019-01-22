@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.payment.view.contact
+package rodolfogusson.testepicpay.sendmoney.view.contact
 
 import android.content.Intent
 import androidx.lifecycle.Observer
@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.payment.viewmodel.contact.ContactListViewModel
+import rodolfogusson.testepicpay.sendmoney.viewmodel.contact.ContactListViewModel
 import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
-import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.payment.view.priming.CardPrimingActivity
-import rodolfogusson.testepicpay.payment.view.register.CardRegisterActivity
+import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
+import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
+import rodolfogusson.testepicpay.sendmoney.payment.PaymentActivity
+import rodolfogusson.testepicpay.sendmoney.view.priming.CardPrimingActivity
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -62,7 +62,7 @@ class ContactListActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.registeredCard.observe(this, Observer {
+        viewModel.lastRegisteredCard.observe(this, Observer {
             registeredCard = it
         })
     }
@@ -71,13 +71,16 @@ class ContactListActivity : AppCompatActivity() {
         if (registeredCard == null) {
             navigateTo(CardPrimingActivity::class.java, contact)
         } else {
-            navigateTo(CardRegisterActivity::class.java, contact)
+            navigateTo(PaymentActivity::class.java, contact, registeredCard)
         }
     }
 
-    private fun navigateTo(nextActivity: Class<out AppCompatActivity>, contact: Contact) {
+    private fun navigateTo(nextActivity: Class<out AppCompatActivity>,
+                           contact: Contact,
+                           creditCard: CreditCard? = null) {
         Intent(this, nextActivity).apply {
             putExtra(Contact.key, contact)
+            creditCard?.let { putExtra(CreditCard.key, creditCard) }
             startActivity(this)
         }
     }

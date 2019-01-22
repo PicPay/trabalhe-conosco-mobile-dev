@@ -1,11 +1,11 @@
-package rodolfogusson.testepicpay.payment.view.contact
+package rodolfogusson.testepicpay.sendmoney.view.contact
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
-import rodolfogusson.testepicpay.payment.model.contact.Contact
-import rodolfogusson.testepicpay.payment.view.contact.ContactAdapter.ContactHolder
+import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
+import rodolfogusson.testepicpay.sendmoney.view.contact.ContactAdapter.ContactHolder
 import rodolfogusson.testepicpay.databinding.ContactItemBinding
 
 class ContactAdapter(private val contacts: List<Contact>,
