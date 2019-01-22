@@ -93,6 +93,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/com/picpay/picpay/model/Payment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/com/picpay/picpay/model/Reponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/com/picpay/picpay/model/ResponseTransaction.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/br/com/picpay/picpay/model/Transaction.kt">
           <value>
             <set />
@@ -204,6 +219,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/br/com/picpay/picpay/utils/Validations.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/button_selector.xml">
           <value>
             <set />
           </value>

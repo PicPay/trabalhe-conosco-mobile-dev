@@ -53,7 +53,7 @@ class RegisterCreditCardViewModel: BaseViewModel() {
         showButton()
     }
 
-    fun setContactActivity(activity: AppCompatActivity) {
+    fun setActivityContact(activity: AppCompatActivity) {
         if (control) {
             preferences = activity.getSharedPreferences(SHARED_USER, Context.MODE_PRIVATE)
             val editor = preferences.edit()

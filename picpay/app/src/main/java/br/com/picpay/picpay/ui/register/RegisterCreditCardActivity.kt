@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
 import android.view.View
 import br.com.picpay.picpay.R
 import br.com.picpay.picpay.base.BaseActivity
@@ -17,6 +18,7 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_creditcard)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel?.loadingVisibility?.observe(this, Observer { visibility->
             if (visibility != null) {
@@ -29,7 +31,7 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
             }
         })
         viewModel?.finish?.observe(this, Observer {
-            viewModel?.setContactActivity(this)
+            viewModel?.setActivityContact(this)
         })
 
         behaviorFields()
@@ -106,7 +108,10 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
             .get(RegisterCreditCardViewModel::class.java)
     }
 
-    override fun onBackPressed() {
-        viewModel?.setContactActivity(this)
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

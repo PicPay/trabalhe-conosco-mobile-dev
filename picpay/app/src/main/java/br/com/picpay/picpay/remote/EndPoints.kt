@@ -1,7 +1,7 @@
 package br.com.picpay.picpay.remote
 
 import br.com.picpay.picpay.model.ResponseTransaction
-import br.com.picpay.picpay.model.Transaction
+import br.com.picpay.picpay.model.Payment
 import br.com.picpay.picpay.model.User
 import io.reactivex.Observable
 import retrofit2.http.Body
@@ -13,6 +13,6 @@ interface EndPoints {
     @GET("users")
     fun getUsers(): Observable<List<User>>
 
-    @POST("transaction")
-    fun sendTransaction(@Body transaction: Transaction): Observable<ResponseTransaction>
+    @POST("payment")
+    fun sendTransaction(@Body payment: Payment): Observable<ResponseTransaction>
 }

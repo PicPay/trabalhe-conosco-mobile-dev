@@ -5,12 +5,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
+        android:id="@+id/constraint_transaction"
         tools:context=".ui.transaction.TransactionActivity">
+    <FrameLayout
+            android:id="@+id/transaction_loading_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:visibility="gone">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+            <ProgressBar
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </FrameLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <LinearLayout
+                android:layout_marginTop="2dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -37,6 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                 <TextView
+                        android:id="@+id/transaction_currency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
@@ -100,7 +120,8 @@
                 android:id="@+id/transaction_pay_button"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/shape_button_disable"/>
+                android:background="@drawable/button_selector"
+                android:enabled="false"/>
     </LinearLayout>
 
 

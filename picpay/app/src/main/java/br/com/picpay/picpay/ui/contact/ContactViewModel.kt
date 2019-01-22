@@ -6,7 +6,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import br.com.picpay.picpay.base.BaseViewModel
-import br.com.picpay.picpay.model.Transaction
 import br.com.picpay.picpay.model.User
 import br.com.picpay.picpay.remote.EndPoints
 import br.com.picpay.picpay.ui.priming.PrimingActivity

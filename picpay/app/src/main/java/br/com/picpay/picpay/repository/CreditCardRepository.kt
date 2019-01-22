@@ -3,6 +3,7 @@ package br.com.picpay.picpay.repository
 import br.com.picpay.picpay.PicpayApplication
 import br.com.picpay.picpay.db.CreditCard
 import br.com.picpay.picpay.db.CreditCardDao
+import io.reactivex.Single
 import javax.inject.Inject
 
 class CreditCardRepository {
@@ -19,8 +20,7 @@ class CreditCardRepository {
         creditCardDao.save(creditCard)
     }
 
-    fun getCreditCard(): CreditCard {
-        val creditCard = creditCardDao.getCreditCard()
-        return creditCard[0]
+    fun getCreditCard(): Single<List<CreditCard>> {
+        return creditCardDao.getCreditCard()
     }
 }

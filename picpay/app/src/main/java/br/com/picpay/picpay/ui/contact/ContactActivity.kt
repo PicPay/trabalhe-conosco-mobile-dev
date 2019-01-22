@@ -9,7 +9,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
 import br.com.picpay.picpay.R
 import br.com.picpay.picpay.adapter.ItemListener
 import br.com.picpay.picpay.adapter.UserAdapter
@@ -61,7 +60,7 @@ class ContactActivity : BaseActivity<ContactViewModel>() {
     }
 
     private fun showLoading(visibility: Int) {
-        loading_screen.visibility = visibility
+        contact_loading_screen.visibility = visibility
     }
 
     private fun setErrorResult(error: String?) {

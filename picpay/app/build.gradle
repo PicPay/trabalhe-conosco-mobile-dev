@@ -79,5 +79,6 @@ dependencies {
 
     //Room database
     implementation "android.arch.persistence.room:runtime:$archRoomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$archRoomVersion"
     kapt "android.arch.persistence.room:compiler:$archRoomVersion"
 }

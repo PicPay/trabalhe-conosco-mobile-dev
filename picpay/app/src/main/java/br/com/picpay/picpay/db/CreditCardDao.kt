@@ -1,6 +1,7 @@
 package br.com.picpay.picpay.db
 
 import android.arch.persistence.room.*
+import io.reactivex.Single
 
 @Dao
 interface CreditCardDao {
@@ -12,5 +13,5 @@ interface CreditCardDao {
     fun remove ()
 
     @Query("SELECT * FROM credit_card")
-    fun getCreditCard(): List<CreditCard>
+    fun getCreditCard(): Single<List<CreditCard>>
 }

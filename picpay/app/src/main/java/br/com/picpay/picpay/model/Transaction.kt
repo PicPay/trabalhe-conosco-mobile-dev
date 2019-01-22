@@ -4,30 +4,25 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-class Transaction (@SerializedName("card_number")
-                   var cardNumber: Int = 0,
-                   var cvv: Int = 0,
-                   var value: Float = 0F,
-                   @SerializedName("expiry_date")
-                   var expiryDate: String? = "",
-                   @SerializedName("destination_user_id")
-                   var destinationUserId: Int = 0): Parcelable {
+class Transaction(var id: Int = 0,
+                  var timestamp: Long = 0,
+                  var value: Float = 0F,
+                  @SerializedName("destination_user")
+                  var destinationUser: User? = null): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
-        parcel.readInt(),
+        parcel.readLong(),
         parcel.readFloat(),
-        parcel.readString(),
-        parcel.readInt()
+        parcel.readParcelable(User::class.java.classLoader)
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(cardNumber)
-        parcel.writeInt(cvv)
+        parcel.writeInt(id)
+        parcel.writeLong(timestamp)
         parcel.writeFloat(value)
-        parcel.writeString(expiryDate)
-        parcel.writeInt(destinationUserId)
+        parcel.writeParcelable(destinationUser, flags)
     }
 
     override fun describeContents(): Int {

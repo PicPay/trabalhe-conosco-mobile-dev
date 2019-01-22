@@ -8,5 +8,6 @@ class Constants {
         const val USER = "user_selected"
         const val SAVED_CARD = "sc"
         const val SHARED_USER = "su"
+        const val RECEIPT = "receipt"
     }
 }
