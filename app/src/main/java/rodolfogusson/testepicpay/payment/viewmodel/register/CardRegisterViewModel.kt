@@ -36,20 +36,31 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
                                    val error: MutableLiveData<String>,
                                    val hasValidData: ((Validation) -> Boolean)?) {
 
-        var timer = Timer()
-        val delay: Long = 1000
+        private var timer = Timer()
+        private val delay: Long = 1000
         var passed = false
 
         fun validate() {
             if (data.value.isNullOrEmpty()) {
                 passed = false
+                saveButtonVisible.postValue(false)
                 return
-            } else if (hasValidData != null && !hasValidData.invoke(this)) {
-                passed = false
-                return
+            } else {
+                if (hasValidData == null) {
+                    passed = true
+                    checkAllFields()
+                    return
+                }
+                // Delayed validation
+                timer.cancel()
+                timer = Timer()
+                timer.schedule(object : TimerTask() {
+                    override fun run() {
+                        passed = hasValidData.invoke(this@Validation)
+                        checkAllFields()
+                    }
+                }, delay)
             }
-            error.postValue(null)
-            passed = true
         }
     }
 
@@ -57,16 +68,9 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         validations.firstOrNull { it.data == data }?.let { validation ->
             // Reset error when new characters are typed
             validation.error.postValue(null)
-            // Delayed validation, as new characters are typed in the fields
-            validation.timer.cancel()
-            validation.timer = Timer()
-            validation.timer.schedule(object : TimerTask() {
-                override fun run() {
-                    validation.validate()
-                    val visibility = allFieldsAreValid()
-                    if (visibility != saveButtonVisible.value) saveButtonVisible.postValue(visibility)
-                }
-            }, validation.delay)
+            // Make save button not visible until all fields are validated again
+            saveButtonVisible.postValue(false)
+            validation.validate()
         }
     }
 
@@ -76,6 +80,18 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
         }
         return true
     }
+
+    private fun checkAllFields() {
+        val visibility = allFieldsAreValid()
+        if (saveButtonVisible.value != visibility) saveButtonVisible.postValue(visibility)
+    }
+
+//    private fun allFieldsAreFilled() : Boolean {
+//        return !cardNumber.value.isNullOrEmpty() &&
+//                !cardHolderName.value.isNullOrEmpty() &&
+//                !expiryDate.value.isNullOrEmpty() &&
+//                !cvv.value.isNullOrEmpty()
+//    }
 
     private fun getString(id: Int): String? {
         return getApplication<Application>().resources.getString(id)
