@@ -15,7 +15,7 @@ import rodolfogusson.testepicpay.core.ui.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendmoney.payment.PaymentActivity
+import rodolfogusson.testepicpay.sendmoney.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendmoney.view.priming.CardPrimingActivity
 
 class ContactListActivity : AppCompatActivity() {

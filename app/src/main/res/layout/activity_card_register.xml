@@ -41,6 +41,7 @@
                 android:layout_below="@id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/card_number"
                 app:errorEnabled="true"
                 app:errorText="@{viewModel.cardNumberError}">
 
@@ -48,9 +49,8 @@
                     android:id="@+id/cardNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/card_number"
                     android:inputType="datetime"
-                    android:text="@={viewModel.cardNumber}" />
+                    android:text="@={viewModel.cardNumberField}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,15 +59,15 @@
                 android:layout_below="@id/cardNumberContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/quad_space">
+                android:layout_marginTop="@dimen/quad_space"
+                android:hint="@string/cardholder_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cardholderName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/cardholder_name"
                     android:inputType="text"
-                    android:text="@={viewModel.cardHolderName}" />
+                    android:text="@={viewModel.cardholderNameField}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,6 +83,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="@string/expiry_date"
                     app:errorEnabled="true"
                     app:errorText="@{viewModel.expiryDateError}">
 
@@ -90,9 +91,8 @@
                         android:id="@+id/expiryDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/expiry_date"
                         android:inputType="date"
-                        android:text="@={viewModel.expiryDate}" />
+                        android:text="@={viewModel.expiryDateField}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,6 +104,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="@string/cvv"
                     app:errorEnabled="true"
                     app:errorText="@{viewModel.cvvError}">
 
@@ -111,9 +112,8 @@
                         android:id="@+id/cvv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/cvv"
                         android:inputType="number"
-                        android:text="@={viewModel.cvv}" />
+                        android:text="@={viewModel.cvvField}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

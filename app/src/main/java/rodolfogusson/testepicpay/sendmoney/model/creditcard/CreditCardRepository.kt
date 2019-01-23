@@ -2,7 +2,6 @@ package rodolfogusson.testepicpay.sendmoney.model.creditcard
 
 import androidx.lifecycle.LiveData
 import android.content.Context
-import androidx.lifecycle.Transformations
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.core.data.ApplicationDatabase
@@ -14,18 +13,19 @@ class CreditCardRepository private constructor(context: Context) {
 
     private val creditCardDao: CreditCardDao
     private val creditCards: LiveData<List<CreditCard>>
+    private val lastRegisteredCard: LiveData<CreditCard>
 
-    init {
-        val database = ApplicationDatabase.getInstance(context)
-        creditCardDao = database.creditCardDao()
-        creditCards = creditCardDao.getAllCreditCards()
-    }
+            init {
+                val database = ApplicationDatabase.getInstance(context)
+                creditCardDao = database.creditCardDao()
+                creditCards = creditCardDao.getAllCreditCards()
+                lastRegisteredCard = creditCardDao.getLastCardInserted()
+            }
 
     /**
      * For the sake of simplicity, this app only uses the last card registered by the user.
      */
-    fun lastRegisteredCreditCard() : LiveData<CreditCard> =
-        Transformations.map(creditCards) { if(it.isNotEmpty()) it.last() else null }
+    fun getLastRegisteredCreditCard() = creditCardDao.getLastCardInserted()
 
     fun insert(card: CreditCard) {
         GlobalScope.launch {

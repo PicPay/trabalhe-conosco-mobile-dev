@@ -15,26 +15,31 @@ import rodolfogusson.testepicpay.core.ui.customize
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendmoney.payment.PaymentActivity
+import rodolfogusson.testepicpay.sendmoney.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel
+import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModelFactory
 
 class CardRegisterActivity : AppCompatActivity() {
 
-    var contact: Contact? = null
+    lateinit var contact: Contact
     lateinit var viewModel: CardRegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        contact = intent.getParcelableExtra(Contact.key)
+        val creditCard: CreditCard? = intent.getParcelableExtra(CreditCard.key)
+
         val binding: ActivityCardRegisterBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_card_register)
         binding.setLifecycleOwner(this)
 
-        viewModel = ViewModelProviders.of(this).get(CardRegisterViewModel::class.java)
+        viewModel = ViewModelProviders
+            .of(this, CardRegisterViewModelFactory(application, creditCard))
+            .get(CardRegisterViewModel::class.java)
 
         binding.viewModel = viewModel
 
-        contact = intent.getParcelableExtra(Contact.key)
         setupLayout()
         registerObservers()
     }
@@ -48,14 +53,14 @@ class CardRegisterActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
-        observeField(viewModel.cardNumber)
-        observeField(viewModel.cardHolderName)
-        observeField(viewModel.expiryDate)
-        observeField(viewModel.cvv)
+        observeField(viewModel.cardNumberField)
+        observeField(viewModel.cardholderNameField)
+        observeField(viewModel.expiryDateField)
+        observeField(viewModel.cvvField)
         viewModel.saveButtonVisible.observe(this, Observer { visible ->
             if (visible) scrollToTheBottom()
         })
-        viewModel.registeredCreditCard.observe(this, Observer { creditCard ->
+        viewModel.savedCreditCard.observe(this, Observer { creditCard ->
             Intent(this, PaymentActivity::class.java).apply {
                 putExtra(Contact.key, contact)
                 putExtra(CreditCard.key, creditCard)
@@ -70,9 +75,9 @@ class CardRegisterActivity : AppCompatActivity() {
         }, 100)
     }
 
-    private fun observeField(data: MutableLiveData<String>) {
-        data.observe(this, Observer {
-            viewModel.validate(data)
+    private fun observeField(field: MutableLiveData<String>) {
+        field.observe(this, Observer {
+            viewModel.validate(field)
         })
     }
 

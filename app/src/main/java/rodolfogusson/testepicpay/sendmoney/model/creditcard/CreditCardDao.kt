@@ -10,8 +10,11 @@ import androidx.room.OnConflictStrategy.REPLACE
 interface CreditCardDao {
 
     @Insert(onConflict = REPLACE)
-    fun insert(card: CreditCard)
+    fun insert(card: CreditCard): Long
 
     @Query("SELECT * FROM creditCardsTable")
     fun getAllCreditCards() : LiveData<List<CreditCard>>
+
+    @Query("SELECT * FROM creditCardsTable ORDER BY id DESC LIMIT 1")
+    fun getLastCardInserted() : LiveData<CreditCard>
 }

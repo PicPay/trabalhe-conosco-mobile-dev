@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/PicPayTheme">
 
-        <activity android:name=".sendmoney.payment.PaymentActivity"
+        <activity android:name="rodolfogusson.testepicpay.sendmoney.view.payment.PaymentActivity"
             android:parentActivityName=".sendmoney.view.contact.ContactListActivity"/>
 
         <activity android:name=".sendmoney.view.register.CardRegisterActivity" />

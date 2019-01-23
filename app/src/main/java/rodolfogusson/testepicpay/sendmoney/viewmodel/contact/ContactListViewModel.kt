@@ -19,6 +19,6 @@ class ContactListViewModel(application: Application) : AndroidViewModel(applicat
 
     init {
         contacts = contactRepository.getContacts()
-        lastRegisteredCard = creditCardRepository.lastRegisteredCreditCard()
+        lastRegisteredCard = creditCardRepository.getLastRegisteredCreditCard()
     }
 }
