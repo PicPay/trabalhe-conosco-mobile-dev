@@ -45,7 +45,7 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
     private inner class Validation(
         val field: MutableLiveData<String>,
         val error: MutableLiveData<String>?,
-        val hasValidData: ((Validation) -> Boolean)?
+        val specificValidation: ((Validation) -> Boolean)?
     ) {
 
         private var timer = Timer()
@@ -59,22 +59,28 @@ class CardRegisterViewModel(application: Application) : AndroidViewModel(applica
                 error?.postValue(null)
                 return
             } else {
-                if (hasValidData == null) {
-                    passed = true
-                    return
-                }
-                if (mode == Immediate) {
-                    // Immediate validation
-                    passed = hasValidData.invoke(this)
-                } else {
-                    // Delayed validation
-                    timer = Timer()
-                    timer.schedule(object : TimerTask() {
-                        override fun run() {
-                            passed = hasValidData.invoke(this@Validation)
-                        }
-                    }, delay)
-                }
+                executeSpecificValidation(mode)
+            }
+        }
+
+        private fun executeSpecificValidation(mode: ValidationMode) {
+            if (specificValidation == null) {
+                // No need for any specific validation in this case
+                passed = true
+                return
+            }
+
+            if (mode == Immediate) {
+                // Immediate validation
+                passed = specificValidation.invoke(this)
+            } else {
+                // Delayed validation
+                timer = Timer()
+                timer.schedule(object : TimerTask() {
+                    override fun run() {
+                        passed = specificValidation.invoke(this@Validation)
+                    }
+                }, delay)
             }
         }
     }

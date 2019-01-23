@@ -3,7 +3,6 @@ package rodolfogusson.testepicpay.sendmoney.viewmodel.contact
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.contact.ContactRepository
 import rodolfogusson.testepicpay.core.network.Resource

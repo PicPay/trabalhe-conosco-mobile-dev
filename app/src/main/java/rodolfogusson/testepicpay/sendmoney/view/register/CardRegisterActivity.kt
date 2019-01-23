@@ -2,7 +2,6 @@ package rodolfogusson.testepicpay.sendmoney.view.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -56,10 +55,10 @@ class CardRegisterActivity : AppCompatActivity() {
         viewModel.saveButtonVisible.observe(this, Observer { visible ->
             if (visible) scrollToTheBottom()
         })
-        viewModel.registeredCreditCard.observe(this, Observer { card ->
+        viewModel.registeredCreditCard.observe(this, Observer { creditCard ->
             Intent(this, PaymentActivity::class.java).apply {
                 putExtra(Contact.key, contact)
-                putExtra(CreditCard.key, card)
+                putExtra(CreditCard.key, creditCard)
                 startActivity(this)
             }
         })
