@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view.components
+package com.jvtnascimento.picpay.ui.components
 
 import android.content.Context
 import android.widget.Toast

@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.db
+package com.jvtnascimento.picpay.services.repository
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
@@ -7,7 +7,7 @@ import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.parseOpt
 import org.jetbrains.anko.db.select
 
-class CreditCardService(database: SQLiteDatabase){
+class CreditCardRepository(database: SQLiteDatabase){
 
     private var database: SQLiteDatabase = database
 

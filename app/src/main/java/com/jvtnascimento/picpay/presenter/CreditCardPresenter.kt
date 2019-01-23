@@ -2,15 +2,15 @@ package com.jvtnascimento.picpay.presenter
 
 import android.content.Context
 import com.jvtnascimento.picpay.application.BaseApplication
-import com.jvtnascimento.picpay.db.CreditCardService
+import com.jvtnascimento.picpay.services.repository.CreditCardRepository
 import com.jvtnascimento.picpay.models.CreditCard
 import com.jvtnascimento.picpay.presenter.contracts.CreditCardPresenterContractInterface
-import com.jvtnascimento.picpay.view.contracts.CreditCardViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.CreditCardViewContractInterface
 import javax.inject.Inject
 
 class CreditCardPresenter(context: Context): CreditCardPresenterContractInterface {
 
-    @Inject lateinit var creditCardService: CreditCardService
+    @Inject lateinit var creditCardRepository: CreditCardRepository
 
     lateinit var view: CreditCardViewContractInterface
 
@@ -23,17 +23,17 @@ class CreditCardPresenter(context: Context): CreditCardPresenterContractInterfac
     }
 
     override fun create(creditCard: CreditCard) {
-        this.creditCardService.create(creditCard)
+        this.creditCardRepository.create(creditCard)
         this.view.returnSuccess(creditCard)
     }
 
     override fun update(creditCard: CreditCard) {
-        this.creditCardService.update(creditCard)
+        this.creditCardRepository.update(creditCard)
         this.view.returnSuccess(creditCard)
     }
 
     override fun findOne() {
-        val creditCard = this.creditCardService.findOne()
+        val creditCard = this.creditCardRepository.findOne()
         this.view.getCreditCard(creditCard)
     }
 }

@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view.contracts
+package com.jvtnascimento.picpay.ui.contracts
 import com.jvtnascimento.picpay.models.CreditCard
 
 interface CreditCardViewContractInterface: BaseContractInterface {

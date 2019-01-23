@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.dagger
+package com.jvtnascimento.picpay.dagger.modules
 
 import com.jvtnascimento.picpay.presenter.MainPresenter
 import dagger.Module

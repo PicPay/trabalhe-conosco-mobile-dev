@@ -5,8 +5,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/colorPrimary"
-        tools:context=".view.PaymentActivity">
+        tools:context=".ui.views.PaymentActivity">
     <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -65,6 +66,7 @@
                             android:layout_weight="1"
                             android:layout_marginStart="8dp"
                             android:hint="0,00"
+                            android:maxLength="7"
                             android:inputType="numberDecimal"
                             android:textColorHint="@color/contactName"
                             android:background="@null"
@@ -125,7 +127,6 @@
     <ProgressBar
             android:id="@+id/progressBar"
             android:visibility="gone"
-            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminate="true"

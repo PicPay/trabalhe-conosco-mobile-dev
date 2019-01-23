@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view.utils
+package com.jvtnascimento.picpay.ui.utils
 
 import android.text.Editable
 import android.text.TextWatcher

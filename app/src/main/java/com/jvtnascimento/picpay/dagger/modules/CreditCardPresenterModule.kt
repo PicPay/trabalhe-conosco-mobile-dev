@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.dagger
+package com.jvtnascimento.picpay.dagger.modules
 
 import android.content.Context
 import com.jvtnascimento.picpay.presenter.CreditCardPresenter

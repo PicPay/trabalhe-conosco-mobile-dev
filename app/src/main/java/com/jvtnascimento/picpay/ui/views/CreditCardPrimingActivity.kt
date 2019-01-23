@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view
+package com.jvtnascimento.picpay.ui.views
 
 import android.app.Activity
 import android.content.Intent

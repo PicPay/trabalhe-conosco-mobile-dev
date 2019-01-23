@@ -2,4 +2,6 @@
     <string name="app_name">PicPay</string>
     <string name="loading">carregando</string>
     <string name="cordinatorLayoutText">Contatos</string>
+    <string name="transaction_id_text">Transação: </string>
+    <string name="card_info_text">Cartão master </string>
 </resources>

@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view
+package com.jvtnascimento.picpay.ui.views
 
 import android.app.Activity
 import android.content.Intent
@@ -14,9 +14,8 @@ import butterknife.ButterKnife
 import com.jvtnascimento.picpay.R
 import com.jvtnascimento.picpay.application.BaseApplication
 import com.jvtnascimento.picpay.models.CreditCard
-import com.jvtnascimento.picpay.models.User
 import com.jvtnascimento.picpay.presenter.CreditCardPresenter
-import com.jvtnascimento.picpay.view.contracts.CreditCardViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.CreditCardViewContractInterface
 import javax.inject.Inject
 
 class CreditCardRegisterActivity : AppCompatActivity(), TextWatcher, CreditCardViewContractInterface {

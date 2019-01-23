@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.db
+package com.jvtnascimento.picpay.services.repository
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

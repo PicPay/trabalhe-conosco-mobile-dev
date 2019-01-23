@@ -12,14 +12,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.PaymentActivity">
+        <activity
+                android:name=".ui.ReceiptActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
-        <activity android:name=".view.CreditCardRegisterActivity">
+        <activity android:name=".ui.views.PaymentActivity">
         </activity>
-        <activity android:name=".view.CreditCardPrimingActivity">
+        <activity android:name=".ui.views.CreditCardRegisterActivity">
+        </activity>
+        <activity android:name=".ui.views.CreditCardPrimingActivity">
         </activity>
         <activity
-                android:name=".view.MainActivity"
+                android:name=".ui.views.MainActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

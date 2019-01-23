@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view
+package com.jvtnascimento.picpay.ui.views
 
 import android.app.SearchManager
 import android.content.Context
@@ -17,7 +17,7 @@ import com.jvtnascimento.picpay.adapters.UserAdapter
 import com.jvtnascimento.picpay.application.BaseApplication
 import com.jvtnascimento.picpay.models.User
 import com.jvtnascimento.picpay.presenter.MainPresenter
-import com.jvtnascimento.picpay.view.contracts.MainViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.MainViewContractInterface
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainViewContractInterface {

@@ -1,4 +1,4 @@
-package com.jvtnascimento.picpay.view
+package com.jvtnascimento.picpay.ui.views
 
 import android.app.Activity
 import android.content.Intent
@@ -14,19 +14,20 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.jvtnascimento.picpay.R
 import com.jvtnascimento.picpay.application.BaseApplication
-import com.jvtnascimento.picpay.dagger.GlideApp
+import com.jvtnascimento.picpay.dagger.modules.GlideApp
 import com.jvtnascimento.picpay.models.*
 import com.jvtnascimento.picpay.presenter.CreditCardPresenter
 import com.jvtnascimento.picpay.presenter.MainPresenter
-import com.jvtnascimento.picpay.presenter.contracts.MainPresenterContractInterface
-import com.jvtnascimento.picpay.view.components.Toaster
-import com.jvtnascimento.picpay.view.contracts.CreditCardViewContractInterface
-import com.jvtnascimento.picpay.view.contracts.MainViewContractInterface
+import com.jvtnascimento.picpay.ui.components.BottomSheetDialog
+import com.jvtnascimento.picpay.ui.components.Toaster
+import com.jvtnascimento.picpay.ui.contracts.CreditCardViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.MainViewContractInterface
 import de.hdodenhof.circleimageview.CircleImageView
 import javax.inject.Inject
 
 class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, MainViewContractInterface {
 
+    @BindView(R.id.content) lateinit var content: LinearLayout
     @BindView(R.id.userPicture) lateinit var userPicture: CircleImageView
     @BindView(R.id.userUsername) lateinit var userUsername: TextView
     @BindView(R.id.value) lateinit var value: EditText
@@ -67,7 +68,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
                     val creditCard = data.getSerializableExtra("creditCard") as CreditCard
                     if (creditCard !== this.creditCard) {
                         this.creditCard = creditCard
-                        this.creditCardInfo.text = "Cartão Master " + creditCard.firstFourNumbers
+                        this.creditCardInfo.text = getString(R.string.card_info_text) + " " + creditCard.firstFourNumbers
                     }
                 }
             }
@@ -76,7 +77,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
                     val creditCard = data.getSerializableExtra("creditCard") as CreditCard
                     if (creditCard !== this.creditCard) {
                         this.creditCard = creditCard
-                        this.creditCardInfo.text = "Cartão Master " + creditCard.firstFourNumbers
+                        this.creditCardInfo.text = getString(R.string.card_info_text) + " " + creditCard.firstFourNumbers
                     }
                 }
             }
@@ -93,11 +94,13 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
     }
 
     override fun showProgressBar() {
+        this.content.visibility = View.GONE
         this.progressBar.visibility = View.VISIBLE
     }
 
     override fun hideProgressBar() {
         this.progressBar.visibility = View.GONE
+        this.content.visibility = View.VISIBLE
     }
 
     override fun showError(error: Throwable) {
@@ -105,7 +108,13 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
     }
 
     override fun showResult(transaction: TransactionResponse) {
-        Toaster.showMessage("Pagamento efetuado com sucesso! =)", this)
+        if (transaction.transaction.success) {
+            val bottomSheetDialog = BottomSheetDialog()
+            bottomSheetDialog.setUpModels(transaction, this.creditCard!!)
+            bottomSheetDialog.show(supportFragmentManager, bottomSheetDialog.tag)
+        } else {
+            Toaster.showMessage("O pagamento não pode ser processado com sucesso =(", this)
+        }
     }
 
     private fun configureComponents() {
@@ -150,7 +159,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
 
     private fun configureView() {
         if (this.creditCard != null) {
-            this.creditCardInfo.text = "Cartão Master " + this.creditCard!!.firstFourNumbers
+            this.creditCardInfo.text = getString(R.string.card_info_text) + " " + this.creditCard!!.firstFourNumbers
         } else {
             showCreditCardPrimingActivity()
         }
@@ -162,7 +171,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
                 .placeholder(R.color.imageViewBackground)
                 .into(userPicture)
 
-            this.userUsername.setText(this.user!!.username)
+            this.userUsername.text = this.user!!.username
         }
     }
 

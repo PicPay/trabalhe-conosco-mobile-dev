@@ -1,7 +1,7 @@
 package com.jvtnascimento.picpay.presenter.contracts
 
 import com.jvtnascimento.picpay.models.CreditCard
-import com.jvtnascimento.picpay.view.contracts.CreditCardViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.CreditCardViewContractInterface
 
 interface CreditCardPresenterContractInterface {
     fun attach(view: CreditCardViewContractInterface)

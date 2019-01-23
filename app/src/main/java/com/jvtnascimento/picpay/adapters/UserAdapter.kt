@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jvtnascimento.picpay.R
-import com.jvtnascimento.picpay.dagger.GlideApp
 import com.jvtnascimento.picpay.models.User
 import kotlinx.android.synthetic.main.item_user.view.*
 import android.widget.Filter
 import android.widget.Filterable
-import com.jvtnascimento.picpay.view.CreditCardPrimingActivity
-import com.jvtnascimento.picpay.view.PaymentActivity
+import com.jvtnascimento.picpay.dagger.modules.GlideApp
+import com.jvtnascimento.picpay.ui.views.PaymentActivity
 
 
 class UserAdapter(private val items : ArrayList<User>, private val context: Context) :
@@ -80,8 +79,6 @@ class UserAdapter(private val items : ArrayList<User>, private val context: Cont
             }
         }
     }
-
-
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         val userName = view.userName!!

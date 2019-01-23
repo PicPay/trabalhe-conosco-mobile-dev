@@ -1,12 +1,11 @@
 package com.jvtnascimento.picpay.presenter
 
-import com.jvtnascimento.picpay.models.Transaction
 import com.jvtnascimento.picpay.models.TransactionRequest
 import com.jvtnascimento.picpay.models.TransactionResponse
 import com.jvtnascimento.picpay.models.User
 import com.jvtnascimento.picpay.presenter.contracts.MainPresenterContractInterface
 import com.jvtnascimento.picpay.services.api.ApiServiceInterface
-import com.jvtnascimento.picpay.view.contracts.MainViewContractInterface
+import com.jvtnascimento.picpay.ui.contracts.MainViewContractInterface
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
