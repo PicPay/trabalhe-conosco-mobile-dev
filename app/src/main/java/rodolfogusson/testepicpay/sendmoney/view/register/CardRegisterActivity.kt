@@ -12,6 +12,7 @@ import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize
+import rodolfogusson.testepicpay.core.ui.mask
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
@@ -46,9 +47,9 @@ class CardRegisterActivity : AppCompatActivity() {
 
     private fun setupLayout() {
         supportActionBar?.customize()
-        mask(cardNumber, "[0000] [0000] [0000] [0000]")
-        mask(expiryDate, "[00]/[00]")
-        mask(cvv, "[000]")
+        cardNumber.mask("[0000] [0000] [0000] [0000]")
+        expiryDate.mask("[00]/[00]")
+        cvv.mask("[000]")
         saveButton.setOnClickListener { viewModel.saveCreditCard() }
     }
 
@@ -79,11 +80,5 @@ class CardRegisterActivity : AppCompatActivity() {
         field.observe(this, Observer {
             viewModel.validate(field)
         })
-    }
-
-    private fun mask(editText: EditText, mask: String) {
-        val listener = MaskedTextChangedListener(mask, editText)
-        editText.addTextChangedListener(listener)
-        editText.onFocusChangeListener = listener
     }
 }
