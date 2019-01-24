@@ -10,7 +10,7 @@ import android.view.View
 import br.com.picpay.picpay.R
 import br.com.picpay.picpay.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_register_creditcard.*
-import br.com.picpay.picpay.utils.CreditCardFormatTextWatcher
+import br.com.picpay.picpay.utils.CreditCardTextWatcher
 
 
 class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
@@ -19,6 +19,7 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_creditcard)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.elevation = 0F
 
         viewModel?.loadingVisibility?.observe(this, Observer { visibility->
             if (visibility != null) {
@@ -39,7 +40,11 @@ class RegisterCreditCardActivity: BaseActivity<RegisterCreditCardViewModel>() {
     }
 
     private fun behaviorFields() {
-        register_card_number.addTextChangedListener(CreditCardFormatTextWatcher(register_card_number))
+        register_card_number.addTextChangedListener(
+            CreditCardTextWatcher(
+                register_card_number
+            )
+        )
         register_card_number.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 if (s != null){

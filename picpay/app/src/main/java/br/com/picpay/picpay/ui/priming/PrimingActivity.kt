@@ -15,6 +15,7 @@ class PrimingActivity: BaseActivity<PrimingViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_priming_creditcard)
+        supportActionBar?.elevation = 0F
 
         listenButton()
     }

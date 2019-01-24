@@ -33,7 +33,7 @@ class TransactionViewModel: BaseViewModel() {
     val responseTransaction = MutableLiveData<ResponseTransaction>()
 
     private lateinit var subscription: Disposable
-    private val creditCard: CreditCard? = null
+    private var creditCard: CreditCard? = null
     init {
         loadCreditCard()
     }
@@ -50,9 +50,9 @@ class TransactionViewModel: BaseViewModel() {
     fun startTransaction (value: Float, userId: Int) {
         if (creditCard != null) {
             val payment = Payment()
-            payment.cardNumber = creditCard.cardNumber
-            payment.cvv = creditCard.cvv
-            payment.expiryDate = creditCard.expiryDate
+            payment.cardNumber = creditCard!!.cardNumber
+            payment.cvv = creditCard!!.cvv
+            payment.expiryDate = creditCard!!.expiryDate
             payment.value = value
             payment.destinationUserId = userId
 
@@ -77,7 +77,7 @@ class TransactionViewModel: BaseViewModel() {
 
     fun setActivityContact(activity: AppCompatActivity){
         val intent = Intent(activity, ContactActivity::class.java)
-        intent.putExtra(RECEIPT, responseTransaction.value)
+        intent.putExtra(RECEIPT, responseTransaction.value?.transaction)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         activity.startActivity(intent)
         activity.finish()
@@ -97,6 +97,7 @@ class TransactionViewModel: BaseViewModel() {
 
     private fun onSuccessResponseDatabase(result: List<CreditCard>?) {
         if (result != null) {
+            creditCard = result[0]
             cardNumber.value = result[0].cardNumber
         } else onErrorResponse(null)
     }

@@ -4,20 +4,17 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class ResponseTransaction(var transaction: Transaction? = null,
-                          var success: Boolean = false,
-                          var status: String? = ""): Parcelable {
+                          var status: Int = 0): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readParcelable(Transaction::class.java.classLoader),
-        parcel.readByte() != 0.toByte(),
-        parcel.readString()
+        parcel.readInt()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeParcelable(transaction, flags)
-        parcel.writeByte(if (success) 1 else 0)
-        parcel.writeString(status)
+        parcel.writeInt(status)
     }
 
     override fun describeContents(): Int {

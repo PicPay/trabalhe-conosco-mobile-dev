@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/colorPrimary"
         android:id="@+id/constraint_transaction"
         tools:context=".ui.transaction.TransactionActivity">
@@ -74,7 +75,8 @@
                         android:layout_height="wrap_content"
                         android:cursorVisible="false"
                         android:textSize="54sp"
-                        android:maxLength="9"
+                        android:maxLength="10"
+                        android:digits="0123456789"
                         android:textColor="@color/color_white"
                         android:hint="@string/currency_value"
                         android:textColorHint="@color/color_white"

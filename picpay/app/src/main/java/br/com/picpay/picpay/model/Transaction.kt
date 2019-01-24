@@ -8,13 +8,16 @@ class Transaction(var id: Int = 0,
                   var timestamp: Long = 0,
                   var value: Float = 0F,
                   @SerializedName("destination_user")
-                  var destinationUser: User? = null): Parcelable {
-
+                  var destinationUser: User? = null,
+                  var success: Boolean = false,
+                  var status: String? = ""): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readLong(),
         parcel.readFloat(),
-        parcel.readParcelable(User::class.java.classLoader)
+        parcel.readParcelable(User::class.java.classLoader),
+        parcel.readByte() != 0.toByte(),
+        parcel.readString()
     ) {
     }
 
@@ -23,6 +26,8 @@ class Transaction(var id: Int = 0,
         parcel.writeLong(timestamp)
         parcel.writeFloat(value)
         parcel.writeParcelable(destinationUser, flags)
+        parcel.writeByte(if (success) 1 else 0)
+        parcel.writeString(status)
     }
 
     override fun describeContents(): Int {

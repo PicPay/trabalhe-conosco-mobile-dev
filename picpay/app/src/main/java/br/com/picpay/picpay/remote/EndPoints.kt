@@ -13,6 +13,6 @@ interface EndPoints {
     @GET("users")
     fun getUsers(): Observable<List<User>>
 
-    @POST("payment")
+    @POST("transaction")
     fun sendTransaction(@Body payment: Payment): Observable<ResponseTransaction>
 }

@@ -15,7 +15,7 @@ import android.widget.TextView;
 /**
  * Format a credit card number with padding every 4 digits. Optionally cut to specified maxLength
  */
-public class CreditCardFormatTextWatcher implements TextWatcher {
+public class CreditCardTextWatcher implements TextWatcher {
     public static final int NO_MAX_LENGTH = -1;
     private int maxLength = NO_MAX_LENGTH;
     private int paddingPx;
@@ -26,7 +26,7 @@ public class CreditCardFormatTextWatcher implements TextWatcher {
      *
      * @param paddingPx padding in pixels unit
      */
-    public CreditCardFormatTextWatcher(int paddingPx) {
+    public CreditCardTextWatcher(int paddingPx) {
         setPaddingPx(paddingPx);
     }
 
@@ -37,7 +37,7 @@ public class CreditCardFormatTextWatcher implements TextWatcher {
      *
      * @param textView the widget you want to format
      */
-    public CreditCardFormatTextWatcher(@NonNull TextView textView) {
+    public CreditCardTextWatcher(@NonNull TextView textView) {
         setPaddingEm(textView, 1f);
     }
 
@@ -49,7 +49,7 @@ public class CreditCardFormatTextWatcher implements TextWatcher {
      * @param textView  the widget you want to format
      * @param paddingEm padding in em unit (character size unit)
      */
-    public CreditCardFormatTextWatcher(@NonNull TextView textView, float paddingEm) {
+    public CreditCardTextWatcher(@NonNull TextView textView, float paddingEm) {
         setPaddingEm(textView, paddingEm);
     }
 
@@ -59,7 +59,7 @@ public class CreditCardFormatTextWatcher implements TextWatcher {
      * @param context   any Context
      * @param paddingSp the padding in SP unit
      */
-    public CreditCardFormatTextWatcher(@NonNull Context context, float paddingSp) {
+    public CreditCardTextWatcher(@NonNull Context context, float paddingSp) {
         setPaddingSp(context, paddingSp);
     }
 
