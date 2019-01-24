@@ -1,0 +1,12 @@
+package rodolfogusson.testepicpay.sendmoney.model.payment
+
+import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
+
+data class Transaction(
+    @SerializedName("card_number") val cardNumber: String,
+    val cvv: Int,
+    val value: BigDecimal,
+    @SerializedName("expiry_date") val expiryDate: String,
+    @SerializedName("destination_user_id") val destinationUserId: Int
+)

@@ -2,13 +2,11 @@ package rodolfogusson.testepicpay.sendmoney.view.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.ui.customize

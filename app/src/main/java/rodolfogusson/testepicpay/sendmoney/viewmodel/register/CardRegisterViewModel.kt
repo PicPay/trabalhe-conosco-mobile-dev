@@ -5,15 +5,16 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import rodolfogusson.testepicpay.R
+import rodolfogusson.testepicpay.core.ui.asExpiryString
+import rodolfogusson.testepicpay.core.ui.removeWhitespaces
+import rodolfogusson.testepicpay.core.ui.toExpiryDate
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCardRepository
-import java.util.*
-import java.lang.Exception
-import java.time.LocalDate
-import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
 import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
-import java.time.YearMonth
+import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class CardRegisterViewModel(
     application: Application,
@@ -28,8 +29,6 @@ class CardRegisterViewModel(
     val expiryDateField = MutableLiveData<String>()
     val expiryDateError = MutableLiveData<String>()
     private var expiryDate: LocalDate? = null
-    private val formatter = DateTimeFormatter.ofPattern("MM/yy")
-
 
     val cvvField = MutableLiveData<String>()
     val cvvError = MutableLiveData<String>()
@@ -63,7 +62,7 @@ class CardRegisterViewModel(
         with(creditCard) {
             cardNumberField.value = number
             cardholderNameField.value = name
-            expiryDateField.value = expiryDate.format(formatter)
+            expiryDateField.value = expiryDate.asExpiryString()
             cvvField.value = cvv
         }
     }
@@ -95,6 +94,9 @@ class CardRegisterViewModel(
                 date != null &&
                 cvvString != null) {
 
+                /*  If no creditCard was passed in the constructor, a new one will be inserted.
+                 *  Otherwise, we'll use the id of the passed card to replace it in the database.
+                 */
                 val creditCardToBeSaved = CreditCard(
                     id = creditCard?.id,
                     number = numberString,
@@ -128,13 +130,11 @@ class CardRegisterViewModel(
         return getApplication<Application>().resources.getString(id)
     }
 
-    /**
-     * Validation functions:
-     */
+    // Validation functions:
 
     private fun cardNumberIsValid(validation: Validation): Boolean {
         validation.field.value?.let { string ->
-            val numberString = string.replace("\\s".toRegex(), "")
+            val numberString = string.removeWhitespaces()
             if (numberString.length != 16) {
                 validation.error?.postValue(getString(R.string.error_card_number_length))
                 return false
@@ -146,7 +146,7 @@ class CardRegisterViewModel(
 
     private fun expiryDateIsValid(validation: Validation): Boolean {
         validation.field.value?.let { string ->
-            val date = localDateFrom(string)
+            val date = string.toExpiryDate()
             expiryDate = date
             if (date == null || date < LocalDate.now()) {
                 validation.error?.postValue(getString(R.string.error_expiry_date_not_valid))
@@ -155,22 +155,6 @@ class CardRegisterViewModel(
         }
         validation.error?.postValue(null)
         return true
-    }
-
-    private fun localDateFrom(string: String): LocalDate? {
-        return if (string.length == 5) {
-            try {
-                val yearMonth = YearMonth.parse(string, formatter)
-                // Expiry dates are relative to the last day of its month
-                yearMonth.atDay(yearMonth.lengthOfMonth())
-            } catch (e: Exception) {
-                // Entered date has wrong format
-                null
-            }
-        } else {
-            // Entered date has wrong format
-            null
-        }
     }
 
     private fun cvvIsValid(validation: Validation): Boolean {
