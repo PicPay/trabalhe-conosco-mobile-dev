@@ -19,6 +19,9 @@ class UserAdapter(private val items : ArrayList<User>, private val context: Cont
     RecyclerView.Adapter<UserAdapter.ViewHolder>(),
     Filterable {
 
+
+    var onClick: (User) -> Unit = {}
+
     internal var filterListResult: ArrayList<User> = ArrayList()
 
     init {
@@ -45,9 +48,7 @@ class UserAdapter(private val items : ArrayList<User>, private val context: Cont
         holder.userUsername.text = user.username
 
         holder.itemView.setOnClickListener {
-            val intent = Intent( context, PaymentActivity::class.java)
-            intent.putExtra("user", user)
-            context.startActivity(intent)
+            this.onClick(user)
         }
     }
 

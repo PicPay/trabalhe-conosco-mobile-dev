@@ -42,7 +42,6 @@ class MainPresenter: MainPresenterContractInterface {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result : TransactionResponse ->
-                this.view.hideProgressBar()
                 this.view.showResult(result)
             }, { error ->
                 error.printStackTrace()

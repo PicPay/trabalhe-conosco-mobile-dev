@@ -45,6 +45,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
 
     private var user: User? = null
     private var creditCard: CreditCard? = null
+    private var result = Intent()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,11 +110,14 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
 
     override fun showResult(transaction: TransactionResponse) {
         if (transaction.transaction.success) {
-            val bottomSheetDialog = BottomSheetDialog()
-            bottomSheetDialog.setUpModels(transaction, this.creditCard!!)
-            bottomSheetDialog.show(supportFragmentManager, bottomSheetDialog.tag)
+            this.result.putExtra("creditCard", this.creditCard)
+            this.result.putExtra("transaction", transaction)
+            setResult(Activity.RESULT_OK, result)
+            finish()
         } else {
-            Toaster.showMessage("O pagamento não pode ser processado com sucesso =(", this)
+            this.hideProgressBar()
+            val status = transaction.transaction.status
+            Toaster.showMessage("Status: $status. O pagamento não pode ser efetuado =(", this)
         }
     }
 
@@ -190,7 +194,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
         if (this.creditCard != null && this.user != null) {
             val transaction = TransactionRequest(
                 this.value.text.toString().toFloat(),
-                this.creditCard!!.number,
+                this.creditCard!!.number.replace("-", ""),
                 this.creditCard!!.expirationDate,
                 this.creditCard!!.cvv,
                 this.user!!.id

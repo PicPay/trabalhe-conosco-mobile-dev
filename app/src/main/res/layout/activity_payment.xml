@@ -57,7 +57,7 @@
                             android:textSize="16sp"
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/contactName"
-                            android:text="R$"/>
+                            android:text="@string/currency"/>
 
                     <EditText
                             android:id="@+id/value"
@@ -65,7 +65,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="8dp"
-                            android:hint="0,00"
+                            android:hint="@string/default_payment_value"
                             android:maxLength="7"
                             android:inputType="numberDecimal"
                             android:textColorHint="@color/contactName"
@@ -96,7 +96,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Editar"
+                            android:text="@string/edit_credit_card"
                             android:background="@null"
                             android:textColor="@color/colorAccent"/>
                 </LinearLayout>
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_disabled_bottom_button"
-                    android:text="Pagar"
+                    android:text="@string/pay_button"
                     android:textColor="@color/white"
                     android:textAllCaps="false"
                     android:textSize="16sp"

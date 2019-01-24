@@ -16,6 +16,7 @@ import com.jvtnascimento.picpay.application.BaseApplication
 import com.jvtnascimento.picpay.models.CreditCard
 import com.jvtnascimento.picpay.presenter.CreditCardPresenter
 import com.jvtnascimento.picpay.ui.contracts.CreditCardViewContractInterface
+import com.jvtnascimento.picpay.ui.utils.MaskWatcher
 import javax.inject.Inject
 
 class CreditCardRegisterActivity : AppCompatActivity(), TextWatcher, CreditCardViewContractInterface {
@@ -89,6 +90,10 @@ class CreditCardRegisterActivity : AppCompatActivity(), TextWatcher, CreditCardV
         this.creditCardName.addTextChangedListener(this)
         this.creditCardExpirationDate.addTextChangedListener(this)
         this.creditCardCvv.addTextChangedListener(this)
+
+        this.creditCardNumber.addTextChangedListener(MaskWatcher("####-####-####-####"))
+        this.creditCardExpirationDate.addTextChangedListener(MaskWatcher("##/##"))
+        this.creditCardCvv.addTextChangedListener(MaskWatcher("###"))
 
         this.bottomButton.setOnClickListener {
             this.onBottomButtonTap()

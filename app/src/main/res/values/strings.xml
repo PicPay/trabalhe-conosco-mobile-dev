@@ -4,4 +4,8 @@
     <string name="cordinatorLayoutText">Contatos</string>
     <string name="transaction_id_text">Transação: </string>
     <string name="card_info_text">Cartão master </string>
+    <string name="default_payment_value">0,00</string>
+    <string name="currency">R$</string>
+    <string name="edit_credit_card">Editar</string>
+    <string name="pay_button">Pagar</string>
 </resources>

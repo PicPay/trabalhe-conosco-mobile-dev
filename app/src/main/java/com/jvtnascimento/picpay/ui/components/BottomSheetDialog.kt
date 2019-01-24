@@ -53,11 +53,11 @@ class BottomSheetDialog: BottomSheetDialogFragment() {
 
         this.userUsername.text = user.username
 
-        val formatter = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = transaction.timestamp.toLong()
+        val milliseconds = transaction.timestamp.toLong()
+        val date = SimpleDateFormat("dd/MM/yyyy").format(Date(milliseconds))
+        val time = SimpleDateFormat("HH:mm").format(Date(milliseconds))
 
-        this.transactionDate.text = formatter.format(calendar.time)
+        this.transactionDate.text = "$date às $time"
         this.transactionId.text = getString(R.string.transaction_id_text) + " " + transaction.id.toString()
         this.creditCardInfo.text = getString(R.string.card_info_text) + " " + creditCard.firstFourNumbers
         this.transactionValue.text = "R$ " + "%.2f".format(transaction.value).replace(".", ",")

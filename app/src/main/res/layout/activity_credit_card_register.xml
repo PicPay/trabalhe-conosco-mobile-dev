@@ -40,8 +40,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Número do Cartão"
-                        android:maxLength="16"
-                        android:inputType="number"
+                        android:maxLength="19"
+                        android:inputType="date"
                         android:textColor="@color/white"
                         android:backgroundTint="@color/contactName"/>
             </android.support.design.widget.TextInputLayout>
@@ -99,7 +99,7 @@
                             android:hint="CVV"
                             android:maxLength="3"
                             android:textColor="@color/white"
-                            android:inputType="number"
+                            android:inputType="date"
                             android:backgroundTint="@color/contactName"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
