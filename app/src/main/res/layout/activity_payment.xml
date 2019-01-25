@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,101 +10,115 @@
             type="rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModel" />
 
     </data>
-    
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/slidingPanelLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        tools:context=".sendmoney.view.payment.PaymentActivity">
+        android:gravity="bottom">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="@dimen/round_picture_small"
-                android:layout_height="@dimen/round_picture_small"
-                android:layout_marginBottom="@dimen/single_space"
-                app:imageUrl="@{viewModel.contact.img}"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/quad_space"
-                style="@style/UsernameSmall"
-                android:text="@{viewModel.contact.username}"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            tools:context=".sendmoney.view.payment.PaymentActivity">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/quad_space"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/currency_symbol"
-                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"/>
-
-                <faranjit.currency.edittext.CurrencyEditText
-                    android:id="@+id/paymentValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:background="@android:color/transparent"
-                    android:textSize="54sp"
-                    app:locale="pt_BR"
-                    android:maxLength="12"
-                    android:ellipsize="end"
-                    android:gravity="right"
-                    app:showSymbol="false"
-                    android:text="@={viewModel.paymentValue}"
-                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="29dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/cardBrandAndInitialNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_text"
-                    android:text="@{viewModel.cardIdentifierString}"/>
-
-                <TextView
-                    android:id="@+id/editButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/half_space"
-                    android:textSize="@dimen/small_text"
-                    android:textColor="@color/colorAccent"
-                    android:background="@android:color/transparent"
-                    android:text="@string/edit" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/payButton"
-                style="@style/GreenButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pay"
-                android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"/>
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/round_picture_small"
+                    android:layout_height="@dimen/round_picture_small"
+                    android:layout_marginBottom="@dimen/single_space"
+                    app:imageUrl="@{viewModel.contact.img}" />
 
-    </ScrollView>
+                <TextView
+                    style="@style/UsernameSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/quad_space"
+                    android:text="@{viewModel.contact.username}" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/quad_space"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currency_symbol"
+                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"
+                        android:textSize="18sp" />
+
+                    <faranjit.currency.edittext.CurrencyEditText
+                        android:id="@+id/paymentValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="right"
+                        android:maxLength="12"
+                        android:text="@={viewModel.paymentValue}"
+                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"
+                        android:textSize="54sp"
+                        app:locale="pt_BR"
+                        app:showSymbol="false" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="29dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/cardBrandAndInitialNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardIdentifierString}"
+                        android:textSize="@dimen/small_text" />
+
+                    <TextView
+                        android:id="@+id/editButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/half_space"
+                        android:background="@android:color/transparent"
+                        android:text="@string/edit"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/small_text" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/payButton"
+                    style="@style/GreenButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"
+                    android:enabled="@{!viewModel.isValueZero()}"
+                    android:text="@string/pay" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/receiptView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="0.88"
+            layout="@layout/payment_receipt" />
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
 </layout>

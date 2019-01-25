@@ -1,19 +1,20 @@
 package rodolfogusson.testepicpay.sendmoney.view.payment
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.network.ServiceProvider
 import rodolfogusson.testepicpay.core.network.request
 import rodolfogusson.testepicpay.core.utils.asExpiryString
 import rodolfogusson.testepicpay.core.utils.customize
+import rodolfogusson.testepicpay.core.utils.hideKeyboard
 import rodolfogusson.testepicpay.core.utils.removeWhitespaces
 import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
@@ -63,6 +64,27 @@ class PaymentActivity : AppCompatActivity() {
             val editText = v as? EditText
             editText?.setSelection(editText.text.length)
         }
+
+        payButton.setOnClickListener {
+            slidingPanelLayout.panelState  = SlidingUpPanelLayout.PanelState.EXPANDED
+            payButton.hideKeyboard()
+        }
+
+        slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
+        slidingPanelLayout.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
+            override fun onPanelSlide(panel: View?, slideOffset: Float) {}
+
+            override fun onPanelStateChanged(
+                panel: View?,
+                previousState: SlidingUpPanelLayout.PanelState?,
+                newState: SlidingUpPanelLayout.PanelState?
+            ) {
+                if (previousState == SlidingUpPanelLayout.PanelState.DRAGGING
+                && newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+                    slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
+                }
+            }
+        })
     }
 
     fun test() {

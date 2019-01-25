@@ -73,4 +73,5 @@ dependencies {
 
     implementation 'com.redmadrobot:inputmask:4.0.0'
     implementation 'com.github.faranjit:currency-edittext:1.0.1'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 }

@@ -3,6 +3,8 @@ package rodolfogusson.testepicpay.core.utils
 import android.app.AlertDialog
 import android.app.Application
 import android.content.Context
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.AndroidViewModel
@@ -13,6 +15,8 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
+
+fun String.removeWhitespaces(): String = this.replace("\\s".toRegex(), "")
 
 /**
  * Used to get a string resource inside classes that inherit from AndroidViewModel
@@ -51,13 +55,25 @@ fun EditText.mask(mask: String) {
     this.onFocusChangeListener = listener
 }
 
-fun String.removeWhitespaces(): String = this.replace("\\s".toRegex(), "")
+/**
+ * Property and methods to show/hide keyboard from a View.
+ */
+private val View.inputMethodManager: InputMethodManager
+get() = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+fun View.hideKeyboard() {
+    inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
+}
+
+fun View.showKeyboard() {
+    inputMethodManager.showSoftInput(this, 0)
+}
+
 
 /**
  * Functions to transform from LocalDate to an expiry date string, required by the UI
  * and back to LocalDate.
  */
-
 private val expiryDateFormatter = DateTimeFormatter.ofPattern("MM/yy")
 
 fun LocalDate.asExpiryString(): String {

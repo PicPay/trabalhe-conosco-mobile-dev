@@ -12,6 +12,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.RelativeLayout
 import rodolfogusson.testepicpay.R
+import rodolfogusson.testepicpay.core.utils.hideKeyboard
+import rodolfogusson.testepicpay.core.utils.showKeyboard
 
 class ContactSearchView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -20,7 +22,6 @@ class ContactSearchView @JvmOverloads constructor(
     private val searchEditText: EditText
     private val searchDrawable = context.getDrawable(R.drawable.ic_search)
     private val closeDrawable = context.getDrawable(R.drawable.ic_close)
-    private val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     var search: ((String) -> Unit)? = null
 
     init {
@@ -65,7 +66,7 @@ class ContactSearchView @JvmOverloads constructor(
         if (v !is EditText || v.compoundDrawables[DRAWABLE_RIGHT] == null) return false
 
         if(event.x >= (v.width - v.compoundDrawables[DRAWABLE_RIGHT].bounds.width())) {
-            clearEditText(v)
+            clearEditText()
             return true
         }
         return false
@@ -73,7 +74,7 @@ class ContactSearchView @JvmOverloads constructor(
 
     private fun onContainerViewClicked(v: View){
         searchEditText.requestFocus()
-        imm.showSoftInput(searchEditText, 0)
+        showKeyboard()
     }
 
     private fun observeEditText() {
@@ -92,9 +93,9 @@ class ContactSearchView @JvmOverloads constructor(
         })
     }
 
-    private fun clearEditText(v: View) {
+    private fun clearEditText() {
         searchEditText.setText("")
         searchEditText.clearFocus()
-        imm.hideSoftInputFromWindow(v.windowToken, 0)
+        hideKeyboard()
     }
 }
