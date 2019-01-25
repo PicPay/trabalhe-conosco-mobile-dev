@@ -82,6 +82,7 @@
                         android:textColorHint="@color/color_white"
                         android:inputType="numberDecimal"
                         tools:ignore="Autofill"/>
+                        <!--android:fontFamily="@font/font_weight_300"/>-->
             </LinearLayout>
 
             <LinearLayout

@@ -10,13 +10,18 @@ class Transaction(var id: Int = 0,
                   @SerializedName("destination_user")
                   var destinationUser: User? = null,
                   var success: Boolean = false,
-                  var status: String? = ""): Parcelable {
+                  var status: String? = "",
+                  var cardCompany: String? = "",
+                  var cardLastNumbers: String? = ""): Parcelable {
+
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readLong(),
         parcel.readFloat(),
         parcel.readParcelable(User::class.java.classLoader),
         parcel.readByte() != 0.toByte(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString()
     ) {
     }
@@ -28,6 +33,8 @@ class Transaction(var id: Int = 0,
         parcel.writeParcelable(destinationUser, flags)
         parcel.writeByte(if (success) 1 else 0)
         parcel.writeString(status)
+        parcel.writeString(cardCompany)
+        parcel.writeString(cardLastNumbers)
     }
 
     override fun describeContents(): Int {

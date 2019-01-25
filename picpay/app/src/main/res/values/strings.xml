@@ -24,5 +24,11 @@
     <string name="transaction_pay">Pay</string>
 
     <string name="default_response">Something is wrong, try again later\.\.\.</string>
+    <string name="receipt_title">Receipt</string>
+    <string name="receipt_date">%1$s at %2$s</string>
+    <string name="receipt_transaction">Transaction: %1$s</string>
+    <string name="receipt_card">Card %1$s %2$s</string>
+    <string name="receipt_value">R$ %1$s</string>
+    <string name="receipt_total">Total paid</string>
 
 </resources>

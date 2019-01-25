@@ -8,6 +8,7 @@
     <color name="color_white_opacity_5">#80FFFFFF</color>
     <color name="color_white_opacity_8">#CCFFFFFF</color>
     <color name="color_white_opacity_4">#66FFFFFF</color>
+    <color name="color_white_opacity_6">#99FFFFFF</color>
 
     <color name="color_tint">#999999</color>
 
@@ -15,4 +16,7 @@
 
     <color name="search_background">#2B2C2F</color>
     <color name="search_text">#ACB1BD</color>
+
+    <color name="swipe_bar_color">#3D4451</color>
+    <color name="color_swipe">#151516</color>
 </resources>

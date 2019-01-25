@@ -55,10 +55,6 @@ class TransactionActivity: BaseActivity<TransactionViewModel>() {
         viewModel?.error?.observe(this, Observer { error->
             setErrorResult(error)
         })
-
-        viewModel?.loadingVisibility?.observe(this, Observer { visibility ->
-            if (visibility != null) showLoading(visibility)
-        })
     }
 
     private fun listenButtons() {
@@ -115,18 +111,9 @@ class TransactionActivity: BaseActivity<TransactionViewModel>() {
     }
 
     private fun setCreditCardInfo(cardNumber: String) {
-        val company = setCardCompany(cardNumber)
+        val company = viewModel?.setCardCompany(cardNumber)
         val lastNumbers = cardNumber.substring(12)
         transaction_card.text = getString(br.com.picpay.picpay.R.string.transaction_card, company, lastNumbers)
-    }
-
-    private fun setCardCompany(cardNumber: String): String {
-        //logic to set the card company
-        return "Mastercard"
-    }
-
-    private fun showLoading(visibility: Int) {
-        transaction_loading_screen.visibility = visibility
     }
 
     private fun setErrorResult(error: String?) {

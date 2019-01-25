@@ -13,10 +13,13 @@ import br.com.picpay.picpay.R
 import br.com.picpay.picpay.adapter.ItemListener
 import br.com.picpay.picpay.adapter.UserAdapter
 import br.com.picpay.picpay.base.BaseActivity
+import br.com.picpay.picpay.model.Transaction
 import br.com.picpay.picpay.model.User
 import br.com.picpay.picpay.utils.Constants
+import br.com.picpay.picpay.utils.Constants.Companion.RECEIPT
 import br.com.picpay.picpay.utils.Constants.Companion.SAVE_CARD
 import br.com.picpay.picpay.utils.Constants.Companion.SHARED_USER
+import br.com.picpay.picpay.utils.ReceiptSwipeDialog
 import kotlinx.android.synthetic.main.activity_contacts.*
 
 class ContactActivity : BaseActivity<ContactViewModel>() {
@@ -24,6 +27,7 @@ class ContactActivity : BaseActivity<ContactViewModel>() {
     private lateinit var adapter: UserAdapter
     private lateinit var selectedUser: User
     private lateinit var preferences: SharedPreferences
+    private var transaction: Transaction? = null
 
     private val itemListener = object : ItemListener<User> {
         override fun onClick(item: User) {
@@ -39,6 +43,16 @@ class ContactActivity : BaseActivity<ContactViewModel>() {
         setContentView(R.layout.activity_contacts)
         setSupportActionBar(coordinator_toolbar)
         supportActionBar?.title = ""
+
+        val bundle = intent?.extras
+        bundle?.let {
+            transaction = it.getParcelable(RECEIPT)!!
+        }
+
+        if (transaction != null){
+            ReceiptSwipeDialog.newInstance(transaction!!)
+                .show(supportFragmentManager, "Receipt")
+        }
 
         adapter = UserAdapter(this, itemListener)
         preferences = getSharedPreferences(SHARED_USER, Context.MODE_PRIVATE)

@@ -29,7 +29,6 @@ class TransactionViewModel: BaseViewModel() {
 
     val cardNumber = MutableLiveData<String>()
     val error = MutableLiveData<String>()
-    val loadingVisibility = MutableLiveData<Int>()
     val responseTransaction = MutableLiveData<ResponseTransaction>()
 
     private lateinit var subscription: Disposable
@@ -61,8 +60,6 @@ class TransactionViewModel: BaseViewModel() {
             subscription = call.sendTransaction(payment)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { onRetrieveTransactionStart() }
-                .doOnTerminate { onRetrieveTransactionFinish() }
                 .subscribe(
                     {result -> onSuccessResponseService(result)},
                     {error -> onErrorResponse(error.message)})
@@ -77,18 +74,13 @@ class TransactionViewModel: BaseViewModel() {
 
     fun setActivityContact(activity: AppCompatActivity){
         val intent = Intent(activity, ContactActivity::class.java)
-        intent.putExtra(RECEIPT, responseTransaction.value?.transaction)
+        val transaction = responseTransaction.value?.transaction
+        transaction?.cardCompany = setCardCompany(null)
+        transaction?.cardLastNumbers = cardNumber.value?.substring(12)
+        intent.putExtra(RECEIPT, transaction)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         activity.startActivity(intent)
         activity.finish()
-    }
-
-    private fun onRetrieveTransactionStart() {
-        loadingVisibility.value = View.VISIBLE
-    }
-
-    private fun onRetrieveTransactionFinish() {
-        loadingVisibility.value = View.GONE
     }
 
     private fun onSuccessResponseService(result: ResponseTransaction?) {
@@ -104,5 +96,12 @@ class TransactionViewModel: BaseViewModel() {
 
     private fun onErrorResponse(error: String?) {
         this.error.value = error
+    }
+
+    fun setCardCompany(cardNumber: String?): String? {
+        //logic to set the card company
+
+        if (cardNumber != null) return "Mastercard"
+        else return "Master"
     }
 }
