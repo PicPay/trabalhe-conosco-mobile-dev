@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.network.Resource
@@ -20,6 +19,8 @@ import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.payment.PaymentResponse
+import rodolfogusson.testepicpay.sendmoney.model.payment.Transaction
+import rodolfogusson.testepicpay.sendmoney.view.contact.ContactListActivity
 import rodolfogusson.testepicpay.sendmoney.view.register.CardRegisterActivity
 import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModel
 import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModelFactory
@@ -52,6 +53,8 @@ class PaymentActivity : AppCompatActivity() {
     private fun setupLayout() {
         supportActionBar?.customize()
 
+        pinPaymentValueCaret()
+
         editButton.setOnClickListener {
             Intent(this, CardRegisterActivity::class.java).apply {
                 putExtra(Contact.key, contact)
@@ -63,12 +66,9 @@ class PaymentActivity : AppCompatActivity() {
         payButton.setOnClickListener {
             payButton.hideKeyboard()
             paymentValue.clearFocus()
-            progressBar.visibility = View.VISIBLE
+            paymentProgressBar.visibility = View.VISIBLE
             observeTransaction(viewModel.makePayment())
         }
-
-        pinPaymentValueCaret()
-        setupSlidingPanel()
     }
 
     private fun pinPaymentValueCaret() {
@@ -81,35 +81,19 @@ class PaymentActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupSlidingPanel() {
-        slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
-        slidingPanelLayout.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
-            override fun onPanelSlide(panel: View?, slideOffset: Float) {}
-
-            override fun onPanelStateChanged(
-                panel: View?,
-                previousState: SlidingUpPanelLayout.PanelState?,
-                newState: SlidingUpPanelLayout.PanelState?
-            ) {
-                if (previousState == SlidingUpPanelLayout.PanelState.DRAGGING
-                    && newState == SlidingUpPanelLayout.PanelState.COLLAPSED
-                ) {
-                    slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
-                }
-            }
-        })
-    }
-
     private fun observeTransaction(data: LiveData<Resource<PaymentResponse>>) {
         data.observe(this, Observer {
-            progressBar.visibility = View.GONE
+            paymentProgressBar.visibility = View.GONE
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
                 return@Observer
             }
             it?.data?.let { response ->
                 if (response.transaction.success) {
-                    slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
+                    Intent(this, ContactListActivity::class.java).apply {
+                        putExtra(Transaction.key, response.transaction)
+                        startActivity(this)
+                    }
                 } else {
                     showErrorDialog(response.transaction.status, this)
                 }

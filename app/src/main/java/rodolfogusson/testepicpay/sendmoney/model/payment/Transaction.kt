@@ -1,9 +1,12 @@
 package rodolfogusson.testepicpay.sendmoney.model.payment
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import java.math.BigDecimal
 
+@Parcelize
 data class Transaction(
     val id: Int,
     val timestamp: Long,
@@ -11,4 +14,6 @@ data class Transaction(
     @SerializedName("destination_user") val destinationUser: Contact,
     val success: Boolean,
     val status: String
-)
+) : Parcelable {
+    companion object { const val key = "TRANSACTION_KEY" }
+}

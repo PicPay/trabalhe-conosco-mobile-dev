@@ -11,123 +11,109 @@
 
     </data>
 
-    <com.sothree.slidinguppanel.SlidingUpPanelLayout
-        android:id="@+id/slidingPanelLayout"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom">
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
+        tools:context=".sendmoney.view.payment.PaymentActivity">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
-            tools:context=".sendmoney.view.payment.PaymentActivity">
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/round_picture_small"
+                android:layout_height="@dimen/round_picture_small"
+                android:layout_marginBottom="@dimen/single_space"
+                app:imageUrl="@{viewModel.contact.img}" />
+
+            <TextView
+                style="@style/UsernameSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/quad_space"
+                android:text="@{viewModel.contact.username}" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="@dimen/round_picture_small"
-                    android:layout_height="@dimen/round_picture_small"
-                    android:layout_marginBottom="@dimen/single_space"
-                    app:imageUrl="@{viewModel.contact.img}" />
+                android:layout_marginBottom="@dimen/quad_space"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
-                    style="@style/UsernameSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/quad_space"
-                    android:text="@{viewModel.contact.username}" />
+                    android:text="@string/currency_symbol"
+                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
+                    android:textSize="18sp" />
 
-                <LinearLayout
+                <faranjit.currency.edittext.CurrencyEditText
+                    android:id="@+id/paymentValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/quad_space"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/currency_symbol"
-                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
-                        android:textSize="18sp" />
-
-                    <faranjit.currency.edittext.CurrencyEditText
-                        android:id="@+id/paymentValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:ellipsize="end"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="right"
-                        android:maxLength="12"
-                        android:text="@={viewModel.paymentValue}"
-                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
-                        android:textSize="54sp"
-                        app:locale="pt_BR"
-                        app:showSymbol="false" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="29dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/cardBrandAndInitialNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:text="@{viewModel.cardIdentifierString}"
-                        android:textSize="@dimen/small_text" />
-
-                    <TextView
-                        android:id="@+id/editButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/half_space"
-                        android:background="@android:color/transparent"
-                        android:text="@string/edit"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/small_text" />
-
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/payButton"
-                    style="@style/GreenButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/triple_space"
-                    android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"
-                    android:enabled="@{!viewModel.isValueZero()}"
-                    android:text="@string/pay" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone" />
+                    android:background="@android:color/transparent"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="right"
+                    android:maxLength="12"
+                    android:text="@={viewModel.paymentValue}"
+                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
+                    android:textSize="54sp"
+                    app:locale="pt_BR"
+                    app:showSymbol="false" />
 
             </LinearLayout>
 
-        </ScrollView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="29dp"
+                android:orientation="horizontal">
 
-        <include
-            android:id="@+id/receiptView"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:layout_weight="0.88"
-            layout="@layout/payment_receipt" />
+                <TextView
+                    android:id="@+id/cardBrandAndInitialNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.cardIdentifierString}"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold" />
 
-    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+                <TextView
+                    android:id="@+id/editButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/half_space"
+                    android:background="@android:color/transparent"
+                    android:text="@string/edit"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/payButton"
+                style="@style/GreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/triple_space"
+                android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"
+                android:enabled="@{!viewModel.isValueZero()}"
+                android:text="@string/pay" />
+
+            <ProgressBar
+                android:id="@+id/paymentProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </layout>
