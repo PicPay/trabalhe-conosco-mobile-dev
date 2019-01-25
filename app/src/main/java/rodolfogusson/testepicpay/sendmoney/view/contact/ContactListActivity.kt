@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_contact_list.*
@@ -20,6 +21,7 @@ import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.payment.Transaction
 import rodolfogusson.testepicpay.sendmoney.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendmoney.view.priming.CardPrimingActivity
+import rodolfogusson.testepicpay.sendmoney.viewmodel.contact.ContactViewModelFactory
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -29,10 +31,18 @@ class ContactListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_list)
 
-        viewModel = ViewModelProviders.of(this)
+        val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
+
+        val binding: ActivityContactListBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_contact_list)
+        binding.setLifecycleOwner(this)
+
+        viewModel = ViewModelProviders
+            .of(this, ContactViewModelFactory(application, transaction))
             .get(ContactListViewModel::class.java)
+
+        binding.viewModel = viewModel
 
         ActivityContactListBinding.inflate(layoutInflater)
             .let {
@@ -42,10 +52,6 @@ class ContactListActivity : AppCompatActivity() {
 
         setupLayout()
         registerObservers()
-
-        intent.getParcelableExtra<Transaction>(Transaction.key)?.let {
-            showTransactionReceipt(it)
-        }
     }
 
     private fun setupLayout() {
@@ -77,7 +83,9 @@ class ContactListActivity : AppCompatActivity() {
     private fun registerObservers() {
         observeContacts()
         observeLastRegisteredCard()
+        observeTransactionCompleted()
     }
+
 
     private fun observeContacts() {
         viewModel.contacts.observe(this, Observer {
@@ -103,6 +111,12 @@ class ContactListActivity : AppCompatActivity() {
         })
     }
 
+    private fun observeTransactionCompleted() {
+        viewModel.transactionCompleted.observe(this, Observer {
+            showTransactionReceipt()
+        })
+    }
+
     private fun onContactClicked(contact: Contact) {
         if (registeredCard == null) {
             navigateTo(CardPrimingActivity::class.java, contact)
@@ -121,7 +135,7 @@ class ContactListActivity : AppCompatActivity() {
         }
     }
 
-    private fun showTransactionReceipt(transaction: Transaction) {
+    private fun showTransactionReceipt() {
         slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
     }
 }
