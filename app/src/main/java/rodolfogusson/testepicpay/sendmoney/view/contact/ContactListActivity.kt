@@ -21,6 +21,7 @@ import rodolfogusson.testepicpay.sendmoney.view.priming.CardPrimingActivity
 class ContactListActivity : AppCompatActivity() {
 
     private lateinit var viewModel: ContactListViewModel
+
     private var registeredCard: CreditCard? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +47,11 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
+        observeContacts()
+        observeLastRegisteredCard()
+    }
+
+    private fun observeContacts() {
         viewModel.contacts.observe(this, Observer {
             progressBar.visibility = GONE
             it?.error?.let { error ->
@@ -55,13 +61,15 @@ class ContactListActivity : AppCompatActivity() {
             it?.data?.let { list ->
                 ContactAdapter(list, ::onContactClicked)
                     .apply {
-                    recyclerView.adapter = this
-                    notifyDataSetChanged()
-                    searchView.search = ::filterBy
-                }
+                        recyclerView.adapter = this
+                        notifyDataSetChanged()
+                        searchView.search = ::filterBy
+                    }
             }
         })
+    }
 
+    private fun observeLastRegisteredCard() {
         viewModel.lastRegisteredCard.observe(this, Observer {
             registeredCard = it
         })

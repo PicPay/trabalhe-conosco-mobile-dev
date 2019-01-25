@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/currency_symbol"
-                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"
+                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                         android:textSize="18sp" />
 
                     <faranjit.currency.edittext.CurrencyEditText
@@ -67,7 +67,7 @@
                         android:gravity="right"
                         android:maxLength="12"
                         android:text="@={viewModel.paymentValue}"
-                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"
+                        android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                         android:textSize="54sp"
                         app:locale="pt_BR"
                         app:showSymbol="false" />
@@ -84,6 +84,7 @@
                         android:id="@+id/cardBrandAndInitialNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="@{viewModel.cardIdentifierString}"
                         android:textSize="@dimen/small_text" />
 
@@ -94,6 +95,7 @@
                         android:layout_marginLeft="@dimen/half_space"
                         android:background="@android:color/transparent"
                         android:text="@string/edit"
+                        android:textStyle="bold"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/small_text" />
 
@@ -104,9 +106,16 @@
                     style="@style/GreenButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/triple_space"
                     android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"
                     android:enabled="@{!viewModel.isValueZero()}"
                     android:text="@string/pay" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

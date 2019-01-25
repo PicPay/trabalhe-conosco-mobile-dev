@@ -6,20 +6,20 @@ import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.core.network.ServiceProvider
-import rodolfogusson.testepicpay.core.network.request
-import rodolfogusson.testepicpay.core.utils.asExpiryString
+import rodolfogusson.testepicpay.core.network.Resource
 import rodolfogusson.testepicpay.core.utils.customize
 import rodolfogusson.testepicpay.core.utils.hideKeyboard
-import rodolfogusson.testepicpay.core.utils.removeWhitespaces
+import rodolfogusson.testepicpay.core.utils.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendmoney.model.payment.Transaction
+import rodolfogusson.testepicpay.sendmoney.model.payment.PaymentResponse
 import rodolfogusson.testepicpay.sendmoney.view.register.CardRegisterActivity
 import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModel
 import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModelFactory
@@ -51,6 +51,7 @@ class PaymentActivity : AppCompatActivity() {
 
     private fun setupLayout() {
         supportActionBar?.customize()
+
         editButton.setOnClickListener {
             Intent(this, CardRegisterActivity::class.java).apply {
                 putExtra(Contact.key, contact)
@@ -58,18 +59,29 @@ class PaymentActivity : AppCompatActivity() {
                 startActivity(this)
             }
         }
-        // Ensures that paymentValue EditText's caret will always be on the right side
+
+        payButton.setOnClickListener {
+            payButton.hideKeyboard()
+            paymentValue.clearFocus()
+            progressBar.visibility = View.VISIBLE
+            observeTransaction(viewModel.makePayment())
+        }
+
+        pinPaymentValueCaret()
+        setupSlidingPanel()
+    }
+
+    private fun pinPaymentValueCaret() {
+        // Ensures that paymentValue EditText's caret will always be fixed on the right side
+        paymentValue.requestFocus()
         paymentValue.setSelection(paymentValue.text.length)
-        paymentValue.setOnClickListener { v->
+        paymentValue.setOnClickListener { v ->
             val editText = v as? EditText
             editText?.setSelection(editText.text.length)
         }
+    }
 
-        payButton.setOnClickListener {
-            slidingPanelLayout.panelState  = SlidingUpPanelLayout.PanelState.EXPANDED
-            payButton.hideKeyboard()
-        }
-
+    private fun setupSlidingPanel() {
         slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
         slidingPanelLayout.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
             override fun onPanelSlide(panel: View?, slideOffset: Float) {}
@@ -80,21 +92,28 @@ class PaymentActivity : AppCompatActivity() {
                 newState: SlidingUpPanelLayout.PanelState?
             ) {
                 if (previousState == SlidingUpPanelLayout.PanelState.DRAGGING
-                && newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+                    && newState == SlidingUpPanelLayout.PanelState.COLLAPSED
+                ) {
                     slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
                 }
             }
         })
     }
 
-    fun test() {
-        val t = Transaction(
-            creditCard.number.removeWhitespaces(),
-            123,
-            15.96.toBigDecimal(),
-            creditCard.expiryDate.asExpiryString(),
-            1001)
-        val call = ServiceProvider.sendMoneyService().sendTransaction(t)
-        val ld = request(call)
+    private fun observeTransaction(data: LiveData<Resource<PaymentResponse>>) {
+        data.observe(this, Observer {
+            progressBar.visibility = View.GONE
+            it?.error?.let { error ->
+                showErrorDialog(error.localizedMessage, this)
+                return@Observer
+            }
+            it?.data?.let { response ->
+                if (response.transaction.success) {
+                    slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
+                } else {
+                    showErrorDialog(response.transaction.status, this)
+                }
+            }
+        })
     }
 }

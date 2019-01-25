@@ -23,7 +23,7 @@ Para listar as pessoas que podem receber pagamentos, faça uma requisição para
 
 ###### Pagamento
 
-Realizar um `POST` para http://careers.picpay.com/tests/mobdev/transaction com os seguintes atributos:
+Realizar um `POST` para http://careers.picpay.com/tests/mobdev/paymentRequest com os seguintes atributos:
 + ID do usuário que irá receber o pagamento
 + Número do cartão
 + Vencimento do cartão
