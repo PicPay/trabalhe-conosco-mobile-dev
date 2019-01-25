@@ -1,11 +1,12 @@
 package rodolfogusson.testepicpay.sendmoney.view.payment
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
@@ -45,7 +46,6 @@ class PaymentActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
         setupLayout()
-        //test()
     }
 
     private fun setupLayout() {

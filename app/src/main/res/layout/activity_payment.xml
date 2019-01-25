@@ -48,7 +48,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="@string/currency_symbol"/>
+                    android:text="@string/currency_symbol"
+                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"/>
 
                 <faranjit.currency.edittext.CurrencyEditText
                     android:id="@+id/paymentValue"
@@ -62,7 +63,8 @@
                     android:ellipsize="end"
                     android:gravity="right"
                     app:showSymbol="false"
-                    android:text="0,00" />
+                    android:text="@={viewModel.paymentValue}"
+                    android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @android:color/white}"/>
 
             </LinearLayout>
 
@@ -96,7 +98,8 @@
                 style="@style/GreenButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pay" />
+                android:text="@string/pay"
+                android:background="@{viewModel.isValueZero() ? @drawable/unfocused_button : @drawable/green_button}"/>
 
         </LinearLayout>
 

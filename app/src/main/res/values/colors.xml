@@ -11,4 +11,5 @@
 
     <color name="unfocused_element">#ACB1BD</color>
     <color name="semitransparent_text">#80FFFFFF</color>
+    <color name="button_color">@color/colorAccent</color>
 </resources>
