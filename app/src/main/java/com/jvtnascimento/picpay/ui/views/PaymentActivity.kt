@@ -67,9 +67,13 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
             if (requestCode == CREDIT_CARD_RESULT) {
                 if (data != null) {
                     val creditCard = data.getSerializableExtra("creditCard") as CreditCard
-                    if (creditCard !== this.creditCard) {
+                    val shouldFinish = data.getBooleanExtra("shouldFinish", false)
+                    if (!shouldFinish && creditCard !== this.creditCard) {
                         this.creditCard = creditCard
                         this.creditCardInfo.text = getString(R.string.card_info_text) + " " + creditCard.firstFourNumbers
+                    }
+                    else {
+                        finish()
                     }
                 }
             }
@@ -79,6 +83,11 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
                     if (creditCard !== this.creditCard) {
                         this.creditCard = creditCard
                         this.creditCardInfo.text = getString(R.string.card_info_text) + " " + creditCard.firstFourNumbers
+
+                        if (value.text.toString() != "") {
+                            bottomButton.background = ContextCompat.getDrawable(this, R.drawable.shape_bottom_button)
+                            prefix.setTextColor(Color.parseColor("#21C15F"))
+                        }
                     }
                 }
             }
@@ -137,7 +146,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
         }
 
         this.bottomButton.setOnClickListener {
-            if (this.value.text.toString() != "") {
+            if (this.value.text.toString() != "" &&  this.creditCard != null) {
                 this.onBottomButtonTap()
             }
         }
@@ -149,7 +158,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable) {
-                if (value.text.toString() != "") {
+                if (value.text.toString() != "" && creditCard != null) {
                     bottomButton.background = ContextCompat.getDrawable(self, R.drawable.shape_bottom_button)
                     prefix.setTextColor(Color.parseColor("#21C15F"))
                 }
@@ -165,6 +174,7 @@ class PaymentActivity : AppCompatActivity(), CreditCardViewContractInterface, Ma
         if (this.creditCard != null) {
             this.creditCardInfo.text = getString(R.string.card_info_text) + " " + this.creditCard!!.firstFourNumbers
         } else {
+            this.creditCardInfo.text = "Cartão não informado."
             showCreditCardPrimingActivity()
         }
 

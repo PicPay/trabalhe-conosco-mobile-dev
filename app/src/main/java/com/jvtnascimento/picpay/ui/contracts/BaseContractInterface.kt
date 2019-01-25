@@ -1,6 +1,6 @@
 package com.jvtnascimento.picpay.ui.contracts
 
 interface BaseContractInterface {
-    fun showProgressBar()
-    fun hideProgressBar()
+    fun showProgressBar() {}
+    fun hideProgressBar() {}
 }

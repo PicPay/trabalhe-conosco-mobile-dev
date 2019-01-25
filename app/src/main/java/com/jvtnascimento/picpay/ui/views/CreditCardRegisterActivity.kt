@@ -38,11 +38,16 @@ class CreditCardRegisterActivity : AppCompatActivity(), TextWatcher, CreditCardV
 
         ButterKnife.bind(this)
 
-        if (this.intent.hasExtra("creditCard"))
-            this.creditCard = this.intent.getSerializableExtra("creditCard") as CreditCard
+        if (this.intent.hasExtra("creditCard")) {
+            val extra = this.intent.getSerializableExtra("creditCard")
+
+            if (extra != null) {
+                this.creditCard = this.intent.getSerializableExtra("creditCard") as CreditCard
+                this.configureView()
+            }
+        }
 
         this.configureComponents()
-        this.configureView()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -67,14 +72,6 @@ class CreditCardRegisterActivity : AppCompatActivity(), TextWatcher, CreditCardV
         this.result.putExtra("creditCard", creditCard)
         setResult(Activity.RESULT_OK, result)
         finish()
-    }
-
-    override fun showProgressBar() {
-
-    }
-
-    override fun hideProgressBar() {
-
     }
 
     private fun configureComponents() {
