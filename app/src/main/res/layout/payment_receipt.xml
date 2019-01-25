@@ -52,6 +52,29 @@
                 android:layout_marginTop="24dp"
                 app:imageUrl="@{viewModel.transactionCompleted.destinationUser.img}"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                style="@style/UsernameLarge"
+                android:text="@{viewModel.transactionCompleted.destinationUser.username}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:layout_marginTop="@dimen/single_space"
+                android:textSize="14sp"
+                android:text="@{String.format(@string/receipt_date_hour, viewModel.transactionDate, viewModel.transactionTime)}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#66FFFFFF"
+                android:layout_marginTop="@dimen/single_space"
+                android:textSize="12sp"
+                android:text="@{String.format(@string/receipt_id, viewModel.transactionCompleted.id)}"/>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">TestePicPay</string>
 
     // ContactList
@@ -31,8 +32,11 @@
 
     // Receipt
     <string name="receipt">Recibo</string>
+    <string name="receipt_date_hour">%1$s às %2$s</string>
+    <string name="receipt_id">Transação: %1$d</string>
 
     // Dialog strings
     <string name="error">Erro</string>
     <string name="ok">OK</string>
+
 </resources>
