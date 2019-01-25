@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.sendmoney.viewmodel.contact.ContactListViewModel
-import rodolfogusson.testepicpay.core.ui.showErrorDialog
+import rodolfogusson.testepicpay.core.utils.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard

@@ -1,16 +1,25 @@
-package rodolfogusson.testepicpay.core.ui
+package rodolfogusson.testepicpay.core.utils
 
 import android.app.AlertDialog
+import android.app.Application
 import android.content.Context
-import android.content.res.Resources
 import android.widget.EditText
 import androidx.appcompat.app.ActionBar
+import androidx.lifecycle.AndroidViewModel
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import rodolfogusson.testepicpay.R
 import java.lang.Exception
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
+
+
+/**
+ * Used to get a string resource inside classes that inherit from AndroidViewModel
+ */
+fun AndroidViewModel.getString(id: Int): String? {
+    return getApplication<Application>().resources.getString(id)
+}
 
 /**
  * Shows an AlertDialog, with an error "message", given the appropriate "context".
@@ -19,7 +28,7 @@ fun showErrorDialog(message: String, context: Context) {
     AlertDialog.Builder(context)
         .setTitle(context.getString(R.string.error))
         .setMessage(message)
-        .setNeutralButton(context.getString(R.string.ok)){_, _ ->  }
+        .setNeutralButton(context.getString(R.string.ok)) { _, _ -> }
         .create()
         .show()
 }

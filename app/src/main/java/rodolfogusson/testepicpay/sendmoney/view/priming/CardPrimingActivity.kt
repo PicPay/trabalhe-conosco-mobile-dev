@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_card_priming.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.core.ui.customize
+import rodolfogusson.testepicpay.core.utils.customize
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.view.register.CardRegisterActivity
 

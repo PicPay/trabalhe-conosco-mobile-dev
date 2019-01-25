@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.core.ui
+package rodolfogusson.testepicpay.core.utils
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

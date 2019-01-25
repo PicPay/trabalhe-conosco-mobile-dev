@@ -17,8 +17,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/picture"
-            android:layout_width="@dimen/round_picture"
-            android:layout_height="@dimen/round_picture"
+            android:layout_width="@dimen/round_picture_medium"
+            android:layout_height="@dimen/round_picture_medium"
             android:layout_alignParentLeft="true"
             app:imageUrl="@{item.img}" />
 
@@ -34,7 +34,7 @@
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/UsernameTextView"
+                style="@style/UsernameMedium"
                 android:text="@{item.username}"/>
 
             <TextView

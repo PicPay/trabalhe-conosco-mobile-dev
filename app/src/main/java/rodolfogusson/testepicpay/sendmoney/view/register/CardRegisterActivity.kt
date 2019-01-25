@@ -9,8 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_card_register.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.core.ui.customize
-import rodolfogusson.testepicpay.core.ui.mask
+import rodolfogusson.testepicpay.core.utils.customize
+import rodolfogusson.testepicpay.core.utils.mask
 import rodolfogusson.testepicpay.databinding.ActivityCardRegisterBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
@@ -20,8 +20,8 @@ import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewMo
 
 class CardRegisterActivity : AppCompatActivity() {
 
-    lateinit var contact: Contact
-    lateinit var viewModel: CardRegisterViewModel
+    private lateinit var contact: Contact
+    private lateinit var viewModel: CardRegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -32,9 +32,20 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="UsernameTextView" parent="android:Widget.TextView">
-        <item name="android:textSize">@dimen/medium_text</item>
+    <style name="Username" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="UsernameSmall" parent="Username">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="UsernameMedium" parent="Username">
+        <item name="android:textSize">@dimen/medium_text</item>
+    </style>
+
+    <style name="UsernameLarge" parent="Username">
+        <item name="android:textSize">@dimen/large_text</item>
     </style>
 
     <style name="NameTextView" parent="android:Widget.TextView">

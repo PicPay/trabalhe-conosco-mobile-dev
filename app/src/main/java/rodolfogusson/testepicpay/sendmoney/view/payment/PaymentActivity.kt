@@ -1,35 +1,51 @@
 package rodolfogusson.testepicpay.sendmoney.view.payment
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.network.ServiceProvider
 import rodolfogusson.testepicpay.core.network.request
-import rodolfogusson.testepicpay.core.ui.asExpiryString
-import rodolfogusson.testepicpay.core.ui.customize
-import rodolfogusson.testepicpay.core.ui.removeWhitespaces
+import rodolfogusson.testepicpay.core.utils.asExpiryString
+import rodolfogusson.testepicpay.core.utils.customize
+import rodolfogusson.testepicpay.core.utils.removeWhitespaces
+import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendmoney.model.contact.Contact
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.payment.Transaction
 import rodolfogusson.testepicpay.sendmoney.view.register.CardRegisterActivity
-import java.time.LocalDate
+import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModel
+import rodolfogusson.testepicpay.sendmoney.viewmodel.payment.PaymentViewModelFactory
 
 class PaymentActivity : AppCompatActivity() {
 
     private lateinit var contact: Contact
     private lateinit var creditCard: CreditCard
+    private lateinit var viewModel: PaymentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment)
 
         contact = intent.getParcelableExtra(Contact.key)
         creditCard = intent.getParcelableExtra(CreditCard.key)
 
+        val binding: ActivityPaymentBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_payment)
+        binding.setLifecycleOwner(this)
+
+        viewModel = ViewModelProviders
+            .of(this, PaymentViewModelFactory(application, creditCard, contact))
+            .get(PaymentViewModel::class.java)
+
+        binding.viewModel = viewModel
+
         setupLayout()
-        test()
+        //test()
     }
 
     private fun setupLayout() {
@@ -40,6 +56,12 @@ class PaymentActivity : AppCompatActivity() {
                 putExtra(CreditCard.key, creditCard)
                 startActivity(this)
             }
+        }
+        // Ensures that paymentValue EditText's caret will always be on the right side
+        paymentValue.setSelection(paymentValue.text.length)
+        paymentValue.setOnClickListener { v->
+            val editText = v as? EditText
+            editText?.setSelection(editText.text.length)
         }
     }
 

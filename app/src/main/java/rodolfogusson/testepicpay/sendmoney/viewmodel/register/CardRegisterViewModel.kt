@@ -5,20 +5,20 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.core.ui.asExpiryString
-import rodolfogusson.testepicpay.core.ui.removeWhitespaces
-import rodolfogusson.testepicpay.core.ui.toExpiryDate
+import rodolfogusson.testepicpay.core.utils.asExpiryString
+import rodolfogusson.testepicpay.core.utils.getString
+import rodolfogusson.testepicpay.core.utils.removeWhitespaces
+import rodolfogusson.testepicpay.core.utils.toExpiryDate
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCardRepository
 import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Delayed
 import rodolfogusson.testepicpay.sendmoney.viewmodel.register.CardRegisterViewModel.ValidationMode.Immediate
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class CardRegisterViewModel(
     application: Application,
-    private val creditCard: CreditCard?
+    private val providedCreditCard: CreditCard?
     ) : AndroidViewModel(application) {
 
     val cardNumberField = MutableLiveData<String>()
@@ -48,8 +48,8 @@ class CardRegisterViewModel(
     private var creditCardWasSaved = false
 
     init {
-        creditCard?.let {
-            fillFieldsWith(creditCard)
+        providedCreditCard?.let {
+            fillFieldsWith(providedCreditCard)
         }
         savedCreditCard.addSource(lastRegisteredCreditCard) {
             if (creditCardWasSaved) {
@@ -94,11 +94,11 @@ class CardRegisterViewModel(
                 date != null &&
                 cvvString != null) {
 
-                /*  If no creditCard was passed in the constructor, a new one will be inserted.
+                /*  If no providedCreditCard was passed in the constructor, a new one will be inserted.
                  *  Otherwise, we'll use the id of the passed card to replace it in the database.
                  */
                 val creditCardToBeSaved = CreditCard(
-                    id = creditCard?.id,
+                    id = providedCreditCard?.id,
                     number = numberString,
                     name = nameString,
                     expiryDate = date,
@@ -124,10 +124,6 @@ class CardRegisterViewModel(
                 !cardholderNameField.value.isNullOrEmpty() &&
                 !expiryDateField.value.isNullOrEmpty() &&
                 !cvvField.value.isNullOrEmpty()
-    }
-
-    private fun getString(id: Int): String? {
-        return getApplication<Application>().resources.getString(id)
     }
 
     // Validation functions:

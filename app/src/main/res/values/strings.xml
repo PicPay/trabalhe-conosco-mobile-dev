@@ -23,6 +23,13 @@
     <string name="error_cvv_length">O CVV deve conter 3 dígitos</string>
     <string name="save">Salvar</string>
 
+    // Payment
+    <string name="currency_symbol">R$</string>
+    <string name="card_brand_and_initial_number">Mastercard %1$s •</string>
+    <string name="pay">Pagar</string>
+    <string name="edit">EDITAR</string>
+    <string name="value_zero">0,00</string>
+
     // Dialog strings
     <string name="error">Erro</string>
     <string name="ok">OK</string>
