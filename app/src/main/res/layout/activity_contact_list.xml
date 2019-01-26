@@ -32,7 +32,8 @@
                 android:id="@+id/contactsProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:visibility="gone"/>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"

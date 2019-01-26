@@ -1,7 +1,7 @@
 package rodolfogusson.testepicpay.sendpayment.model.creditcard
 
-import androidx.lifecycle.LiveData
 import android.content.Context
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.core.data.ApplicationDatabase

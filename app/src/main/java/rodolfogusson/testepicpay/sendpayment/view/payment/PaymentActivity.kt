@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.network.Resource
-import rodolfogusson.testepicpay.core.utils.customize
-import rodolfogusson.testepicpay.core.utils.hideKeyboard
-import rodolfogusson.testepicpay.core.utils.showErrorDialog
+import rodolfogusson.testepicpay.core.utils.*
 import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
@@ -66,8 +64,7 @@ class PaymentActivity : AppCompatActivity() {
         payButton.setOnClickListener {
             payButton.hideKeyboard()
             paymentValue.clearFocus()
-            paymentProgressBar.visibility = View.VISIBLE
-            observeTransaction(viewModel.makePayment())
+            executeIfHasConnection(::observeTransaction)
         }
     }
 
@@ -81,8 +78,9 @@ class PaymentActivity : AppCompatActivity() {
         }
     }
 
-    private fun observeTransaction(data: LiveData<Resource<PaymentResponse>>) {
-        data.observe(this, Observer {
+    private fun observeTransaction() {
+        paymentProgressBar.visibility = View.VISIBLE
+        viewModel.makePayment().observe(this, Observer {
             paymentProgressBar.visibility = View.GONE
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)
