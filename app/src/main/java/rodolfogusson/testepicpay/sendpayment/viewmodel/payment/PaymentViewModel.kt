@@ -49,10 +49,11 @@ class PaymentViewModel(
 
     fun makePayment(): LiveData<Resource<PaymentResponse>> {
         paymentValue.value?.let {
+            val value = it.replace("[,]".toRegex(), ".").toBigDecimal()
             val paymentRequest = PaymentRequest(
                 providedCreditCard.number.removeWhitespaces(),
                 providedCreditCard.cvv.toInt(),
-                it.replace("[,]".toRegex(), ".").toBigDecimal(),
+                value,
                 providedCreditCard.expiryDate.asExpiryString(),
                 providedContact.id
             )

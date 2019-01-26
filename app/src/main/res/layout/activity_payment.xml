@@ -50,7 +50,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/currency_symbol"
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="@dimen/single_space"/>
 
                 <faranjit.currency.edittext.CurrencyEditText
                     android:id="@+id/paymentValue"
@@ -61,10 +63,11 @@
                     android:fontFamily="sans-serif-light"
                     android:gravity="right"
                     android:maxLength="12"
-                    android:text="@={viewModel.paymentValue}"
+                    android:text="@={viewModel.paymentValue.replace()}"
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                     android:textSize="54sp"
-                    app:locale="pt_BR"
+                    app:groupDivider="."
+                    app:monetaryDivider=","
                     app:showSymbol="false" />
 
             </LinearLayout>
@@ -81,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="@{viewModel.cardIdentifierString}"
                     android:textSize="@dimen/small_text"
-                    android:textStyle="bold" />
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:id="@+id/editButton"
@@ -92,7 +95,7 @@
                     android:text="@string/edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/small_text"
-                    android:textStyle="bold" />
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
 

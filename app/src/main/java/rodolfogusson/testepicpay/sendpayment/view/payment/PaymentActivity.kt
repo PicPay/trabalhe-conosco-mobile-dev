@@ -6,22 +6,24 @@ import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_payment.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.core.network.Resource
-import rodolfogusson.testepicpay.core.utils.*
+import rodolfogusson.testepicpay.core.utils.customize
+import rodolfogusson.testepicpay.core.utils.executeIfHasConnection
+import rodolfogusson.testepicpay.core.utils.hideKeyboard
+import rodolfogusson.testepicpay.core.utils.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityPaymentBinding
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendpayment.model.payment.PaymentResponse
 import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction
 import rodolfogusson.testepicpay.sendpayment.view.contact.ContactListActivity
 import rodolfogusson.testepicpay.sendpayment.view.register.CardRegisterActivity
 import rodolfogusson.testepicpay.sendpayment.viewmodel.payment.PaymentViewModel
 import rodolfogusson.testepicpay.sendpayment.viewmodel.payment.PaymentViewModelFactory
+import java.util.*
+
 
 class PaymentActivity : AppCompatActivity() {
 

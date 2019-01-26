@@ -32,20 +32,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Username" parent="android:Widget.TextView">
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="UsernameSmall" parent="Username">
+    <style name="UsernameSmall" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="UsernameMedium" parent="Username">
+    <style name="UsernameMedium" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="UsernameLarge" parent="Username">
+    <style name="UsernameLarge" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="NameTextView" parent="android:Widget.TextView">
@@ -60,6 +59,7 @@
         <item name="android:paddingBottom">@dimen/button_padding</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:background">@drawable/green_button</item>
     </style>
 
