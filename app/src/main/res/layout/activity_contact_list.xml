@@ -27,6 +27,13 @@
 
             <include layout="@layout/contact_list_header" />
 
+
+            <ProgressBar
+                android:id="@+id/contactsProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -35,12 +42,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <ProgressBar
-                        android:id="@+id/contactsProgressBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true" />
 
                     <Space
                         android:id="@+id/space"
@@ -61,11 +62,11 @@
 
         <include
             android:id="@+id/receiptView"
-            android:layout_height="match_parent"
+            layout="@layout/payment_receipt"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="0.90"
-            app:viewModel="@{viewModel}"
-            layout="@layout/payment_receipt" />
+            app:viewModel="@{viewModel}" />
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
