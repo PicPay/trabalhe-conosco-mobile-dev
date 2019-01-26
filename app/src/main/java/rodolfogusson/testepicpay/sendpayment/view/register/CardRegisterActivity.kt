@@ -2,6 +2,7 @@ package rodolfogusson.testepicpay.sendpayment.view.register
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
@@ -58,6 +59,7 @@ class CardRegisterActivity : AppCompatActivity() {
         observeField(viewModel.cvvField)
         viewModel.saveButtonVisible.observe(this, Observer { visible ->
             if (visible) scrollToTheBottom()
+
         })
         viewModel.savedCreditCard.observe(this, Observer { creditCard ->
             Intent(this, PaymentActivity::class.java).apply {
@@ -78,5 +80,13 @@ class CardRegisterActivity : AppCompatActivity() {
         field.observe(this, Observer {
             viewModel.validate(field)
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
