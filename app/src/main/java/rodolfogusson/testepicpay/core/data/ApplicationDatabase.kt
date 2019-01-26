@@ -6,8 +6,8 @@ import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.TypeConverters
 import rodolfogusson.testepicpay.core.logic.SingletonHolder
-import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCardDao
+import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
+import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCardDao
 
 @Database(entities = [CreditCard::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

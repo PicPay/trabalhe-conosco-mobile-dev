@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/default_margin"
     android:layout_marginRight="@dimen/default_margin"
-    tools:context=".sendmoney.view.priming.CardPrimingActivity">
+    tools:context=".sendpayment.view.priming.CardPrimingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

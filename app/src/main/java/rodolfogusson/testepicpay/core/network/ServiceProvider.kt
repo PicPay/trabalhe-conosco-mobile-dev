@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import rodolfogusson.testepicpay.core.network.services.SendMoneyService
+import rodolfogusson.testepicpay.core.network.services.SendPaymentService
 
 object ServiceProvider {
 
@@ -24,5 +24,5 @@ object ServiceProvider {
             .build()
     }
 
-    fun sendMoneyService(): SendMoneyService = retrofit.create(SendMoneyService::class.java)
+    fun sendPaymentService(): SendPaymentService = retrofit.create(SendPaymentService::class.java)
 }

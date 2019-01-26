@@ -12,19 +12,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/PicPayTheme">
+        android:theme="@style/PicPayTheme"
+        android:usesCleartextTraffic="true">
 
-        <activity android:name="rodolfogusson.testepicpay.sendmoney.view.payment.PaymentActivity"
-            android:parentActivityName=".sendmoney.view.contact.ContactListActivity"/>
+        <activity android:name="rodolfogusson.testepicpay.sendpayment.view.payment.PaymentActivity"
+            android:parentActivityName=".sendpayment.view.contact.ContactListActivity"/>
 
-        <activity android:name=".sendmoney.view.register.CardRegisterActivity" />
-
-        <activity
-            android:name=".sendmoney.view.priming.CardPrimingActivity"
-            android:parentActivityName=".sendmoney.view.contact.ContactListActivity" />
+        <activity android:name=".sendpayment.view.register.CardRegisterActivity" />
 
         <activity
-            android:name=".sendmoney.view.contact.ContactListActivity"
+            android:name=".sendpayment.view.priming.CardPrimingActivity"
+            android:parentActivityName=".sendpayment.view.contact.ContactListActivity" />
+
+        <activity
+            android:name=".sendpayment.view.contact.ContactListActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
