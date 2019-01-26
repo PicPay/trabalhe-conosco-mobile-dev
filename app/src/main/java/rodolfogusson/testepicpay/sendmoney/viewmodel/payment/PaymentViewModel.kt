@@ -25,15 +25,16 @@ class PaymentViewModel(
 
     val contact = MutableLiveData<Contact>()
 
-    var cardIdentifierString: String? = null
+    val isValueZero = MediatorLiveData<Boolean>()
+
+    val paymentValue = MutableLiveData<String>()
 
     // Initial string value for paymentValue
     private val ZERO = "0,00"
-    val paymentValue = MutableLiveData<String>()
 
-    var isValueZero = MediatorLiveData<Boolean>()
+    var cardIdentifierString: String? = null
 
-    var transactionRepository = TransactionRepository()
+    private val transactionRepository = TransactionRepository()
 
     init {
         contact.value = providedContact
@@ -51,7 +52,7 @@ class PaymentViewModel(
             val paymentRequest = PaymentRequest(
                 providedCreditCard.number.removeWhitespaces(),
                 providedCreditCard.cvv.toInt(),
-                it.replace("[,.]".toRegex(), "").toBigDecimal(),
+                it.replace("[,]".toRegex(), ".").toBigDecimal(),
                 providedCreditCard.expiryDate.asExpiryString(),
                 providedContact.id
             )

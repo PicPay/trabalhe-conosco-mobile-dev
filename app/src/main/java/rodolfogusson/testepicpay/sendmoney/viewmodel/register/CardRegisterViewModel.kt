@@ -43,8 +43,11 @@ class CardRegisterViewModel(
     val saveButtonVisible = MutableLiveData<Boolean>().apply { value = false }
 
     private val creditCardRepository = CreditCardRepository.getInstance(application)
+
     private val lastRegisteredCreditCard = creditCardRepository.getLastRegisteredCreditCard()
+
     val savedCreditCard = MediatorLiveData<CreditCard>()
+
     private var creditCardWasSaved = false
 
     init {
@@ -167,7 +170,7 @@ class CardRegisterViewModel(
     /**
      * Objects of this class represent the validation of one field on the screen.
      */
-    private inner class Validation(
+    private class Validation(
         val field: MutableLiveData<String>,
         val error: MutableLiveData<String>?,
         val specificValidation: ((Validation) -> Boolean)?

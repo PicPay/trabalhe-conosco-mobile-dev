@@ -14,7 +14,7 @@
     <dimen name="round_picture_medium">52dp</dimen>
     <dimen name="round_picture_large">100dp</dimen>
 
-    <dimen name="default_margin">24dp</dimen>
+    <dimen name="default_margin">20dp</dimen>
 
     <dimen name="title_text">28sp</dimen>
     <dimen name="button_text">18sp</dimen>

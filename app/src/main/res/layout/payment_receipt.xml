@@ -4,13 +4,17 @@
 
     <data>
 
-        <variable name="viewModel" type="rodolfogusson.testepicpay.sendmoney.viewmodel.contact.ContactListViewModel"/>
+        <variable
+            name="viewModel"
+            type="rodolfogusson.testepicpay.sendmoney.viewmodel.contact.ContactListViewModel" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
         android:focusable="true"
         android:orientation="vertical">
 
@@ -32,48 +36,86 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="17sp"
                 android:layout_marginTop="11dp"
-                android:text="@string/receipt"/>
+                android:text="@string/receipt"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif-medium" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#1D1E20"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:background="#1D1E20">
+            android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="@dimen/round_picture_large"
                 android:layout_height="@dimen/round_picture_large"
                 android:layout_marginTop="24dp"
-                app:imageUrl="@{viewModel.transactionCompleted.destinationUser.img}"/>
+                app:imageUrl="@{viewModel.transactionCompleted.destinationUser.img}" />
 
             <TextView
+                style="@style/UsernameLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                style="@style/UsernameLarge"
-                android:text="@{viewModel.transactionCompleted.destinationUser.username}"/>
+                android:text="@{viewModel.transactionCompleted.destinationUser.username}" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/single_space"
+                android:text="@{String.format(@string/receipt_date_hour, viewModel.transactionDate, viewModel.transactionTime)}"
                 android:textColor="#99FFFFFF"
-                android:layout_marginTop="@dimen/single_space"
-                android:textSize="14sp"
-                android:text="@{String.format(@string/receipt_date_hour, viewModel.transactionDate, viewModel.transactionTime)}"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#66FFFFFF"
                 android:layout_marginTop="@dimen/single_space"
-                android:textSize="12sp"
-                android:text="@{String.format(@string/receipt_id, viewModel.transactionCompleted.id)}"/>
+                android:text="@{String.format(@string/receipt_id, viewModel.transactionCompleted.id)}"
+                android:textColor="#66FFFFFF"
+                android:textSize="12sp" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin">
+
+                <View
+                    android:id="@+id/first_separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/triple_space"
+                    android:background="#3D4451" />
+
+                <TextView
+                    android:layout_below="@id/first_separator"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@{String.format(@string/receipt_card_number, viewModel.first4NumbersOfCreditCard)}"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_below="@id/first_separator"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:decimalValue="@{viewModel.transactionCompleted.value}"
+                    app:decimalTextFormat="@{@string/receipt_partial_value}"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+            </RelativeLayout>
+
 
         </LinearLayout>
 

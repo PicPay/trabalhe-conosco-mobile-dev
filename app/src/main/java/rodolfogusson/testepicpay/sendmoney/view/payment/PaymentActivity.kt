@@ -92,6 +92,7 @@ class PaymentActivity : AppCompatActivity() {
                 if (response.transaction.success) {
                     Intent(this, ContactListActivity::class.java).apply {
                         putExtra(Transaction.key, response.transaction)
+                        putExtra(CreditCard.key, creditCard)
                         startActivity(this)
                     }
                 } else {

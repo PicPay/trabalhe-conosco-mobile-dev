@@ -33,13 +33,14 @@ class ContactListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
+        val cardUsedInTransaction: CreditCard? = intent.getParcelableExtra(CreditCard.key)
 
         val binding: ActivityContactListBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_contact_list)
         binding.setLifecycleOwner(this)
 
         viewModel = ViewModelProviders
-            .of(this, ContactViewModelFactory(application, transaction))
+            .of(this, ContactViewModelFactory(application, transaction, cardUsedInTransaction))
             .get(ContactListViewModel::class.java)
 
         binding.viewModel = viewModel

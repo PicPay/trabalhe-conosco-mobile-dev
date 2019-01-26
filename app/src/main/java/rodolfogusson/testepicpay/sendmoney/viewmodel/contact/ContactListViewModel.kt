@@ -9,13 +9,13 @@ import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendmoney.model.creditcard.CreditCardRepository
 import rodolfogusson.testepicpay.sendmoney.model.payment.Transaction
 import java.time.Instant
-import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class ContactListViewModel(
     application: Application,
-    transaction: Transaction?
+    transaction: Transaction?,
+    cardUsedInTransaction: CreditCard?
 ) : AndroidViewModel(application) {
 
     val contacts: LiveData<Resource<List<Contact>>>
@@ -24,33 +24,29 @@ class ContactListViewModel(
 
     val transactionCompleted = MutableLiveData<Transaction>()
 
-    val transactionDate = MediatorLiveData<String>()
+    val transactionDate = MutableLiveData<String>()
 
-    val transactionTime = MediatorLiveData<String>()
+    val transactionTime = MutableLiveData<String>()
+
+    val first4NumbersOfCreditCard = MutableLiveData<String>()
 
     private val creditCardRepository = CreditCardRepository.getInstance(application)
 
     private val contactRepository = ContactRepository()
 
-    private lateinit var dateTime: LocalDateTime
-
     init {
         contacts = contactRepository.getContacts()
         lastRegisteredCard = creditCardRepository.getLastRegisteredCreditCard()
 
-        transactionDate.addSource(transactionCompleted) {
-            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            transactionDate.setValue(dateTime.format(formatter))
-        }
-
-        transactionTime.addSource(transactionCompleted) {
-            val formatter = DateTimeFormatter.ofPattern("HH:mm")
-            transactionTime.setValue(dateTime.format(formatter))
-        }
-
         transaction?.let {
-            dateTime = Instant.ofEpochSecond(it.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
             transactionCompleted.value = it
+            var dateTime = Instant.ofEpochSecond(it.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
+            transactionDate.value = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+            transactionTime.value = dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))
+        }
+
+        cardUsedInTransaction?.let {
+            first4NumbersOfCreditCard.value = cardUsedInTransaction.number.take(4)
         }
     }
 }

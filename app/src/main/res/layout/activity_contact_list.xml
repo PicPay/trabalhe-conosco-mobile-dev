@@ -63,7 +63,7 @@
             android:id="@+id/receiptView"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="0.88"
+            android:layout_weight="0.90"
             app:viewModel="@{viewModel}"
             layout="@layout/payment_receipt" />
 
