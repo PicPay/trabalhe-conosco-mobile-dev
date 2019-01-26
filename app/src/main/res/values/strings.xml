@@ -36,6 +36,7 @@
     <string name="receipt_id">Transação: %1$d</string>
     <string name="receipt_card_number">Cartão Master %1$s</string>
     <string name="receipt_partial_value">R$&#160;&#160;%1$.2f</string>
+    <string name="total_paid">Total pago</string>
     <string name="receipt_total_value">R$%1$.2f</string>
 
     // Dialog strings

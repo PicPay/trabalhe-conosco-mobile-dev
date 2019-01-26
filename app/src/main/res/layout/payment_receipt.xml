@@ -94,6 +94,7 @@
                     android:background="#3D4451" />
 
                 <TextView
+                    android:id="@+id/cardIdentifier"
                     android:layout_below="@id/first_separator"
                     android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
@@ -113,6 +114,35 @@
                     app:decimalTextFormat="@{@string/receipt_partial_value}"
                     android:textSize="13sp"
                     android:fontFamily="sans-serif-medium" />
+
+                <View
+                    android:layout_below="@id/cardIdentifier"
+                    android:id="@+id/second_separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#3D4451" />
+
+                <TextView
+                    android:layout_below="@id/second_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/total_paid"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_below="@id/second_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="12dp"
+                    app:decimalValue="@{viewModel.transactionCompleted.value}"
+                    app:decimalTextFormat="@{@string/receipt_total_value}"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
 
             </RelativeLayout>
 
