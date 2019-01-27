@@ -52,7 +52,7 @@
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                     android:textSize="18sp" />
 
-                <faranjit.currency.edittext.CurrencyEditText
+                <rodolfogusson.testepicpay.core.CurrencyEditText
                     android:id="@+id/paymentValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +64,8 @@
                     android:text="@={viewModel.paymentValue}"
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                     android:textSize="54sp"
-                    app:locale="pt_BR"
+                    app:groupDivider="."
+                    app:monetaryDivider=","
                     app:showSymbol="false" />
 
             </LinearLayout>

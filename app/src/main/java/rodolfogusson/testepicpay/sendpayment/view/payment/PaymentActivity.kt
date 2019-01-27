@@ -74,7 +74,7 @@ class PaymentActivity : AppCompatActivity() {
     private fun pinPaymentValueCaret() {
         // Ensures that paymentValue EditText's caret will always be fixed on the right side
         paymentValue.requestFocus()
-        paymentValue.setSelection(paymentValue.text.length)
+        paymentValue.text?.let { paymentValue.setSelection(it.length) }
         paymentValue.setOnClickListener { v ->
             val editText = v as? EditText
             editText?.setSelection(editText.text.length)
