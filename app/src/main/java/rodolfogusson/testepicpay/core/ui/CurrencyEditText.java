@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.core;
+package rodolfogusson.testepicpay.core.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;

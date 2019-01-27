@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.core.utils
+package rodolfogusson.testepicpay.core.ui
 
 import android.widget.ImageView
 import android.widget.TextView

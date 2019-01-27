@@ -52,7 +52,7 @@
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                     android:textSize="18sp" />
 
-                <rodolfogusson.testepicpay.core.CurrencyEditText
+                <rodolfogusson.testepicpay.core.ui.CurrencyEditText
                     android:id="@+id/paymentValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

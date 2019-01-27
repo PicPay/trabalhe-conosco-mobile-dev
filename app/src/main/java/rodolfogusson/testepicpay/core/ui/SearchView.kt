@@ -1,4 +1,4 @@
-package rodolfogusson.testepicpay.sendpayment.view.contact
+package rodolfogusson.testepicpay.core.ui
 
 import android.content.Context
 import android.text.Editable
@@ -14,7 +14,7 @@ import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.utils.hideKeyboard
 import rodolfogusson.testepicpay.core.utils.showKeyboard
 
-class ContactSearchView @JvmOverloads constructor(
+class SearchView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
@@ -56,15 +56,15 @@ class ContactSearchView @JvmOverloads constructor(
     }
 
     private fun onRightDrawableTouched(v: View, event: MotionEvent): Boolean {
-        // Other drawable indexes declared for the sake of readability
-        val DRAWABLE_LEFT = 0
-        val DRAWABLE_TOP = 1
-        val DRAWABLE_RIGHT = 2
-        val DRAWABLE_BOTTOM = 3
+        // Other drawable indexes shown as commented, to increase readability
+        //val drawableLeft = 0
+        //val drawableTop = 1
+        val drawableRight = 2
+        //val drawableBottom = 3
 
-        if (v !is EditText || v.compoundDrawables[DRAWABLE_RIGHT] == null) return false
+        if (v !is EditText || v.compoundDrawables[drawableRight] == null) return false
 
-        if(event.x >= (v.width - v.compoundDrawables[DRAWABLE_RIGHT].bounds.width())) {
+        if(event.x >= (v.width - v.compoundDrawables[drawableRight].bounds.width())) {
             clearEditText()
             return true
         }
