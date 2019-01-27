@@ -10,6 +10,7 @@ import rodolfogusson.testepicpay.core.network.Resource
 import rodolfogusson.testepicpay.core.utils.asExpiryString
 import rodolfogusson.testepicpay.core.utils.getString
 import rodolfogusson.testepicpay.core.utils.removeWhitespaces
+import rodolfogusson.testepicpay.core.utils.toBigDecimalFromCurrency
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendpayment.model.payment.PaymentRequest
@@ -52,7 +53,7 @@ class PaymentViewModel(
             val paymentRequest = PaymentRequest(
                 providedCreditCard.number.removeWhitespaces(),
                 providedCreditCard.cvv.toInt(),
-                it.replace("[.]".toRegex(), "").replace("[,]".toRegex(), ".").toBigDecimal(),
+                it.toBigDecimalFromCurrency(),
                 providedCreditCard.expiryDate.asExpiryString(),
                 providedContact.id
             )

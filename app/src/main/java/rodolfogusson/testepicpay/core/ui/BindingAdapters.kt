@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout
 import com.squareup.picasso.Picasso
+import rodolfogusson.testepicpay.core.utils.toCurrencyString
 import java.math.BigDecimal
 
 @BindingAdapter("imageUrl")
@@ -22,5 +23,6 @@ fun setErrorMessage(view: TextInputLayout, errorMessage: String?) {
 
 @BindingAdapter("decimalValue", "decimalTextFormat", requireAll = true)
 fun setDecimalText(view: TextView, decimalValue: BigDecimal?, decimalTextFormat: String) {
-    view.text = String.format(decimalTextFormat, decimalValue).replace(".", ",")
+    val string = decimalValue?.toCurrencyString()
+    view.text = String.format(decimalTextFormat, string)
 }

@@ -104,8 +104,6 @@ public class CurrencyEditText extends androidx.appcompat.widget.AppCompatEditTex
 
                 currencySymbol = symbols.getCurrencySymbol();
 
-                //DecimalFormat df = (DecimalFormat) DecimalFormat.getCurrencyInstance(locale);
-                //DecimalFormat df = (DecimalFormat) DecimalFormat.getCurrencyInstance(locale);
                 numberFormat = new DecimalFormat("#,###,##0.00", symbols);
 
                 success = true;

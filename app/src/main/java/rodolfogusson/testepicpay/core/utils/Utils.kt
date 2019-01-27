@@ -11,12 +11,46 @@ import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.AndroidViewModel
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import rodolfogusson.testepicpay.R
+import java.math.BigDecimal
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 fun String.removeWhitespaces(): String = this.replace("\\s".toRegex(), "")
+
+/**
+ * Used to get a string resource inside classes that inherit from AndroidViewModel
+ */
+fun AndroidViewModel.getString(id: Int): String? {
+    return getApplication<Application>().resources.getString(id)
+}
+
+/**
+ * Elements to transform from currency String to BigDecimal and vice-versa
+ */
+fun String.toBigDecimalFromCurrency(): BigDecimal =
+    this.replace("[.]".toRegex(), "").replace("[,]".toRegex(), ".").toBigDecimal()
+
+fun BigDecimal.toCurrencyString(): String = BigDecimalFormatter.format(this)
+
+private object BigDecimalFormatter {
+
+    val currencyFormat: DecimalFormat
+
+    init {
+        val locale = Locale("pt", "BR")
+        val format = DecimalFormat.getCurrencyInstance(locale) as DecimalFormat
+        val symbols = DecimalFormatSymbols.getInstance(locale)
+        symbols.currencySymbol = ""
+        currencyFormat = DecimalFormat(format.toPattern(), symbols)
+    }
+
+    fun format(bigDecimal: BigDecimal): String = currencyFormat.format(bigDecimal)
+}
 
 /**
  * Function that executes an action if internet access is available.
@@ -30,13 +64,6 @@ fun Context.executeIfHasConnection(action: () -> Unit) {
     } else {
         showErrorDialog(resources.getString(R.string.no_internet), this) { executeIfHasConnection(action) }
     }
-}
-
-/**
- * Used to get a string resource inside classes that inherit from AndroidViewModel
- */
-fun AndroidViewModel.getString(id: Int): String? {
-    return getApplication<Application>().resources.getString(id)
 }
 
 /**
