@@ -63,7 +63,7 @@
                     android:fontFamily="sans-serif-light"
                     android:gravity="right"
                     android:maxLength="12"
-                    android:text="@={viewModel.paymentValue.replace()}"
+                    android:text="@={viewModel.paymentValue}"
                     android:textColor="@{viewModel.isValueZero() ? @color/unfocused_element : @color/colorAccent}"
                     android:textSize="54sp"
                     app:groupDivider="."
