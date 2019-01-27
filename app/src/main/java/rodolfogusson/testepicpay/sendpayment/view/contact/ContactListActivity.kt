@@ -2,6 +2,7 @@ package rodolfogusson.testepicpay.sendpayment.view.contact
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.utils.executeIfHasConnection
 import rodolfogusson.testepicpay.core.utils.showErrorDialog
@@ -84,9 +88,9 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
+        Handler().postDelayed({ observeTransactionCompleted() }, 200)
         executeIfHasConnection(::observeContacts)
         observeLastRegisteredCard()
-        observeTransactionCompleted()
     }
 
 
