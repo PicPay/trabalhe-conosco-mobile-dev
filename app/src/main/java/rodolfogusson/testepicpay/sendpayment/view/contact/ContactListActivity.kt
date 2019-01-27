@@ -1,19 +1,20 @@
 package rodolfogusson.testepicpay.sendpayment.view.contact
 
 import android.content.Intent
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
 import rodolfogusson.testepicpay.R
-import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactListViewModel
+import rodolfogusson.testepicpay.core.utils.executeIfHasConnection
 import rodolfogusson.testepicpay.core.utils.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
@@ -21,6 +22,7 @@ import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction
 import rodolfogusson.testepicpay.sendpayment.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendpayment.view.priming.CardPrimingActivity
+import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactListViewModel
 import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactViewModelFactory
 
 class ContactListActivity : AppCompatActivity() {
@@ -82,13 +84,14 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun registerObservers() {
-        observeContacts()
+        executeIfHasConnection(::observeContacts)
         observeLastRegisteredCard()
         observeTransactionCompleted()
     }
 
 
     private fun observeContacts() {
+        contactsProgressBar.visibility = VISIBLE
         viewModel.contacts.observe(this, Observer {
             contactsProgressBar.visibility = GONE
             it?.error?.let { error ->

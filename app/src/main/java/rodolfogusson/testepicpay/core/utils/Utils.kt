@@ -3,6 +3,7 @@ package rodolfogusson.testepicpay.core.utils
 import android.app.AlertDialog
 import android.app.Application
 import android.content.Context
+import android.net.ConnectivityManager
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -10,13 +11,26 @@ import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.AndroidViewModel
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import rodolfogusson.testepicpay.R
-import java.lang.Exception
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
 
 fun String.removeWhitespaces(): String = this.replace("\\s".toRegex(), "")
+
+/**
+ * Function that executes an action if internet access is available.
+ * Otherwise, an error dialog is shown, in which the user may retry that action
+ * if desired.
+ */
+fun Context.executeIfHasConnection(action: () -> Unit) {
+    val manager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    if (manager.activeNetworkInfo?.isConnected == true) {
+        action.invoke()
+    } else {
+        showErrorDialog(resources.getString(R.string.no_internet), this) { executeIfHasConnection(action) }
+    }
+}
 
 /**
  * Used to get a string resource inside classes that inherit from AndroidViewModel
@@ -27,14 +41,23 @@ fun AndroidViewModel.getString(id: Int): String? {
 
 /**
  * Shows an AlertDialog, with an error "message", given the appropriate "context".
+ * If a retry function is passed to it, this function will be executed when the
+ * "try again" button is clicked.
  */
-fun showErrorDialog(message: String, context: Context) {
-    AlertDialog.Builder(context)
+fun showErrorDialog(message: String, context: Context, retry: (() -> Unit)? = null) {
+    val builder = AlertDialog.Builder(context)
         .setTitle(context.getString(R.string.error))
         .setMessage(message)
-        .setNeutralButton(context.getString(R.string.ok)) { _, _ -> }
-        .create()
-        .show()
+
+    builder.setPositiveButton(
+        if (retry == null) context.getString(R.string.ok) else context.getString(R.string.retry)
+    ) { _, _ -> retry?.invoke() }
+
+    retry?.let {
+        builder.setNegativeButton(context.getString(R.string.cancel)) { dialog, _ -> dialog.dismiss() }
+    }
+
+    builder.create().show()
 }
 
 /**
@@ -59,7 +82,7 @@ fun EditText.mask(mask: String) {
  * Property and methods to show/hide keyboard from a View.
  */
 private val View.inputMethodManager: InputMethodManager
-get() = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    get() = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
 fun View.hideKeyboard() {
     inputMethodManager.hideSoftInputFromWindow(windowToken, 0)

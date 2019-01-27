@@ -1,10 +1,12 @@
 package rodolfogusson.testepicpay.sendpayment.viewmodel.contact
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import rodolfogusson.testepicpay.core.network.Resource
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
 import rodolfogusson.testepicpay.sendpayment.model.contact.ContactRepository
-import rodolfogusson.testepicpay.core.network.Resource
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCardRepository
 import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction

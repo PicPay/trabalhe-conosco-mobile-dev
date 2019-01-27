@@ -42,5 +42,8 @@
     // Dialog strings
     <string name="error">Erro</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="no_internet">Verifique sua conexão com a internet e tente novamente.</string>
+    <string name="retry">Tentar novamente</string>
 
 </resources>
