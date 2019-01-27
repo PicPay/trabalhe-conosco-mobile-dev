@@ -52,7 +52,7 @@ class PaymentViewModel(
             val paymentRequest = PaymentRequest(
                 providedCreditCard.number.removeWhitespaces(),
                 providedCreditCard.cvv.toInt(),
-                it.replace("[,]".toRegex(), ".").toBigDecimal(),
+                it.replace("[.]".toRegex(), "").replace("[,]".toRegex(), ".").toBigDecimal(),
                 providedCreditCard.expiryDate.asExpiryString(),
                 providedContact.id
             )
