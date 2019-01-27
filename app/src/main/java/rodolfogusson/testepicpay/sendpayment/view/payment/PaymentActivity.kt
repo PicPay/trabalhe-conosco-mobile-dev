@@ -22,7 +22,6 @@ import rodolfogusson.testepicpay.sendpayment.view.contact.ContactListActivity
 import rodolfogusson.testepicpay.sendpayment.view.register.CardRegisterActivity
 import rodolfogusson.testepicpay.sendpayment.viewmodel.payment.PaymentViewModel
 import rodolfogusson.testepicpay.sendpayment.viewmodel.payment.PaymentViewModelFactory
-import java.util.*
 
 
 class PaymentActivity : AppCompatActivity() {

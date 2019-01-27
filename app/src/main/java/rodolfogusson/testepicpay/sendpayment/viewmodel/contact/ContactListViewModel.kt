@@ -42,7 +42,7 @@ class ContactListViewModel(
 
         transaction?.let {
             transactionCompleted.value = it
-            var dateTime = Instant.ofEpochSecond(it.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
+            val dateTime = Instant.ofEpochSecond(it.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
             transactionDate.value = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             transactionTime.value = dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))
         }
