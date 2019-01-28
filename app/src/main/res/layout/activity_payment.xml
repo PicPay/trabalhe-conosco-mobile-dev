@@ -82,7 +82,7 @@
                     android:id="@+id/cardBrandAndInitialNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.cardIdentifierString}"
+                    android:text="@{viewModel.cardIdentifier}"
                     android:textSize="@dimen/small_text"
                     android:fontFamily="sans-serif-medium" />
 

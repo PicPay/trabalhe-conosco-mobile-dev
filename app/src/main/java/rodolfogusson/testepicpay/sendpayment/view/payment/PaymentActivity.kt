@@ -49,6 +49,14 @@ class PaymentActivity : AppCompatActivity() {
         setupLayout()
     }
 
+    override fun onNewIntent(newIntent: Intent?) {
+        newIntent?.let {
+            intent = it
+            creditCard = intent.getParcelableExtra(CreditCard.key)
+            viewModel.updateCreditCard(creditCard)
+        }
+    }
+
     private fun setupLayout() {
         supportActionBar?.customize()
 
@@ -81,7 +89,7 @@ class PaymentActivity : AppCompatActivity() {
 
     private fun observeTransaction() {
         paymentProgressBar.visibility = View.VISIBLE
-        viewModel.makePayment().observe(this, Observer {
+        viewModel.makePayment()?.observe(this, Observer {
             paymentProgressBar.visibility = View.GONE
             it?.error?.let { error ->
                 showErrorDialog(error.localizedMessage, this)

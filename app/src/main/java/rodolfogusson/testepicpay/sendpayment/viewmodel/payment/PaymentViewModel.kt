@@ -20,11 +20,15 @@ import rodolfogusson.testepicpay.sendpayment.model.payment.TransactionRepository
 
 class PaymentViewModel(
     application: Application,
-    private val providedCreditCard: CreditCard,
-    private val providedContact: Contact
+    providedCreditCard: CreditCard,
+    providedContact: Contact
 ) : AndroidViewModel(application) {
 
+    private val creditCard = MutableLiveData<CreditCard>()
+
     val contact = MutableLiveData<Contact>()
+
+    var cardIdentifier = MediatorLiveData<String>()
 
     val isValueZero = MediatorLiveData<Boolean>()
 
@@ -33,31 +37,44 @@ class PaymentViewModel(
     // Initial string value for paymentValue
     private val ZERO = "0,00"
 
-    var cardIdentifierString: String? = null
-
     private val transactionRepository = TransactionRepository()
 
     init {
         contact.value = providedContact
-        getString(R.string.card_brand_and_initial_number)?.let {
-            cardIdentifierString = String.format(it, providedCreditCard.number.take(4))
+
+        cardIdentifier.addSource(creditCard) {
+            getString(R.string.card_brand_and_initial_number)?.let { string ->
+                cardIdentifier.value = String.format(string, it.number.take(4))
+            }
         }
+
+        creditCard.value = providedCreditCard
+
         paymentValue.value = ZERO
+
         isValueZero.addSource(paymentValue) {
             isValueZero.value = it == ZERO
         }
     }
 
-    fun makePayment(): LiveData<Resource<PaymentResponse>> {
-        paymentValue.value?.let {
+    fun updateCreditCard(newCreditCard: CreditCard) {
+        creditCard.value = newCreditCard
+    }
+
+    fun makePayment(): LiveData<Resource<PaymentResponse>>? {
+        val value = paymentValue.value
+        val card = creditCard.value
+        val contact = contact.value
+        if (value != null && card != null && contact != null) {
             val paymentRequest = PaymentRequest(
-                providedCreditCard.number.removeWhitespaces(),
-                providedCreditCard.cvv.toInt(),
-                it.toBigDecimalFromCurrency(),
-                providedCreditCard.expiryDate.asExpiryString(),
-                providedContact.id
+                card.number.removeWhitespaces(),
+                card.cvv.toInt(),
+                value.toBigDecimalFromCurrency(),
+                card.expiryDate.asExpiryString(),
+                contact.id
             )
             return transactionRepository.makePayment(paymentRequest)
         }
+        return null
     }
 }

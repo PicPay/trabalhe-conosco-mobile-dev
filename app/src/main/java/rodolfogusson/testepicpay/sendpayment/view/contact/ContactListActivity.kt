@@ -20,11 +20,11 @@ import rodolfogusson.testepicpay.core.utils.showErrorDialog
 import rodolfogusson.testepicpay.databinding.ActivityContactListBinding
 import rodolfogusson.testepicpay.sendpayment.model.contact.Contact
 import rodolfogusson.testepicpay.sendpayment.model.creditcard.CreditCard
-import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction
 import rodolfogusson.testepicpay.sendpayment.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendpayment.view.priming.CardPrimingActivity
 import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactListViewModel
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.*
+import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -54,16 +54,14 @@ class ContactListActivity : AppCompatActivity() {
         registerObservers()
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        intent?.let { setIntent(it) }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
-        val cardUsedInTransaction: CreditCard? = intent.getParcelableExtra(CreditCard.key)
-        if (transaction != null && cardUsedInTransaction != null) {
-            viewModel.setTransactionData(transaction, cardUsedInTransaction)
+    override fun onNewIntent(newIntent: Intent?) {
+        newIntent?.let {
+            intent = it
+            val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
+            val cardUsedInTransaction: CreditCard? = intent.getParcelableExtra(CreditCard.key)
+            if (transaction != null && cardUsedInTransaction != null) {
+                viewModel.setTransactionData(transaction, cardUsedInTransaction)
+            }
         }
     }
 

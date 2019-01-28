@@ -17,7 +17,8 @@
         android:usesCleartextTraffic="true">
 
         <activity android:name="rodolfogusson.testepicpay.sendpayment.view.payment.PaymentActivity"
-            android:parentActivityName=".sendpayment.view.contact.ContactListActivity"/>
+            android:parentActivityName=".sendpayment.view.contact.ContactListActivity"
+            android:launchMode="singleTop"/>
 
         <activity android:name=".sendpayment.view.register.CardRegisterActivity" />
 
