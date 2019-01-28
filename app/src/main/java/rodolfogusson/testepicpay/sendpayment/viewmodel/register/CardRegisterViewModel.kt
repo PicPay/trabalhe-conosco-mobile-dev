@@ -124,10 +124,15 @@ class CardRegisterViewModel(
     }
 
     private fun allFieldsAreFilled(): Boolean {
-        return cardNumberField.value?.length == 19 &&
-                !cardholderNameField.value.isNullOrEmpty() &&
-                expiryDateField.value?.length == 5 &&
-                cvvField.value?.length == 3
+        val cardNumber = cardNumberField.value
+        val name = cardholderNameField.value
+        val expiryDate = expiryDateField.value
+        val cvv = cvvField.value
+
+        return cardNumber != null && cardNumber.length >= 19 &&
+                !name.isNullOrEmpty() &&
+                expiryDate != null && expiryDate.length >= 5 &&
+                cvv != null && cvv.length >= 3
     }
 
     // Validation functions:
