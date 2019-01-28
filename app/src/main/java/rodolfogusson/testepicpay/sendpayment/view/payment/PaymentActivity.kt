@@ -90,9 +90,11 @@ class PaymentActivity : AppCompatActivity() {
             it?.data?.let { response ->
                 if (response.transaction.success) {
                     Intent(this, ContactListActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                         putExtra(Transaction.key, response.transaction)
                         putExtra(CreditCard.key, creditCard)
                         startActivity(this)
+                        finish()
                     }
                 } else {
                     showErrorDialog(response.transaction.status, this)

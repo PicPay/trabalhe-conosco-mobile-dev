@@ -63,9 +63,11 @@ class CardRegisterActivity : AppCompatActivity() {
         })
         viewModel.savedCreditCard.observe(this, Observer { creditCard ->
             Intent(this, PaymentActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 putExtra(Contact.key, contact)
                 putExtra(CreditCard.key, creditCard)
                 startActivity(this)
+                finish()
             }
         })
     }

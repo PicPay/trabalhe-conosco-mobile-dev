@@ -78,7 +78,8 @@ class CardRegisterViewModel(
             validation.error?.postValue(null)
 
             // Show save button if all fields are filled
-            saveButtonVisible.postValue(allFieldsAreFilled())
+            val visibility = allFieldsAreFilled()
+            if (saveButtonVisible.value != visibility) saveButtonVisible.postValue(visibility)
 
             // Validate the newly entered data
             validation.validate(Delayed)
@@ -123,10 +124,10 @@ class CardRegisterViewModel(
     }
 
     private fun allFieldsAreFilled(): Boolean {
-        return !cardNumberField.value.isNullOrEmpty() &&
+        return cardNumberField.value?.length == 19 &&
                 !cardholderNameField.value.isNullOrEmpty() &&
-                !expiryDateField.value.isNullOrEmpty() &&
-                !cvvField.value.isNullOrEmpty()
+                expiryDateField.value?.length == 5 &&
+                cvvField.value?.length == 3
     }
 
     // Validation functions:

@@ -14,11 +14,7 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class ContactListViewModel(
-    application: Application,
-    transaction: Transaction?,
-    cardUsedInTransaction: CreditCard?
-) : AndroidViewModel(application) {
+class ContactListViewModel(application: Application) : AndroidViewModel(application) {
 
     val contacts: LiveData<Resource<List<Contact>>>
 
@@ -39,16 +35,13 @@ class ContactListViewModel(
     init {
         contacts = contactRepository.getContacts()
         lastRegisteredCard = creditCardRepository.getLastRegisteredCreditCard()
+    }
 
-        transaction?.let {
-            transactionCompleted.value = it
-            val dateTime = Instant.ofEpochSecond(it.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
-            transactionDate.value = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-            transactionTime.value = dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))
-        }
-
-        cardUsedInTransaction?.let {
-            first4NumbersOfCreditCard.value = cardUsedInTransaction.number.take(4)
-        }
+    fun setTransactionData(transaction: Transaction, creditCard: CreditCard) {
+        transactionCompleted.value = transaction
+        val dateTime = Instant.ofEpochSecond(transaction.timestamp).atZone(ZoneId.systemDefault()).toLocalDateTime()
+        transactionDate.value = dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+        transactionTime.value = dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))
+        first4NumbersOfCreditCard.value = creditCard.number.take(4)
     }
 }

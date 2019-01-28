@@ -14,9 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_contact_list.*
 import kotlinx.android.synthetic.main.contact_list_header.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import rodolfogusson.testepicpay.R
 import rodolfogusson.testepicpay.core.utils.executeIfHasConnection
 import rodolfogusson.testepicpay.core.utils.showErrorDialog
@@ -27,7 +24,7 @@ import rodolfogusson.testepicpay.sendpayment.model.payment.Transaction
 import rodolfogusson.testepicpay.sendpayment.view.payment.PaymentActivity
 import rodolfogusson.testepicpay.sendpayment.view.priming.CardPrimingActivity
 import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactListViewModel
-import rodolfogusson.testepicpay.sendpayment.viewmodel.contact.ContactViewModelFactory
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.*
 
 class ContactListActivity : AppCompatActivity() {
 
@@ -38,16 +35,12 @@ class ContactListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
-        val cardUsedInTransaction: CreditCard? = intent.getParcelableExtra(CreditCard.key)
-
         val binding: ActivityContactListBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_contact_list)
         binding.setLifecycleOwner(this)
 
         viewModel = ViewModelProviders
-            .of(this, ContactViewModelFactory(application, transaction, cardUsedInTransaction))
-            .get(ContactListViewModel::class.java)
+            .of(this).get(ContactListViewModel::class.java)
 
         binding.viewModel = viewModel
 
@@ -61,6 +54,19 @@ class ContactListActivity : AppCompatActivity() {
         registerObservers()
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        intent?.let { setIntent(it) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val transaction: Transaction? = intent.getParcelableExtra(Transaction.key)
+        val cardUsedInTransaction: CreditCard? = intent.getParcelableExtra(CreditCard.key)
+        if (transaction != null && cardUsedInTransaction != null) {
+            viewModel.setTransactionData(transaction, cardUsedInTransaction)
+        }
+    }
+
     private fun setupLayout() {
         supportActionBar?.hide()
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -69,7 +75,7 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun setupSlidingPanel() {
-        slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
+        slidingPanelLayout.panelState = HIDDEN
         slidingPanelLayout.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
             override fun onPanelSlide(panel: View?, slideOffset: Float) {}
 
@@ -78,13 +84,21 @@ class ContactListActivity : AppCompatActivity() {
                 previousState: SlidingUpPanelLayout.PanelState?,
                 newState: SlidingUpPanelLayout.PanelState?
             ) {
-                if (previousState == SlidingUpPanelLayout.PanelState.DRAGGING
-                    && newState == SlidingUpPanelLayout.PanelState.COLLAPSED
+                if (previousState == DRAGGING && newState == COLLAPSED
                 ) {
-                    slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
+                    slidingPanelLayout.panelState = HIDDEN
                 }
             }
         })
+    }
+
+    override fun onBackPressed() {
+        if (slidingPanelLayout.panelState == EXPANDED ||
+            slidingPanelLayout.panelState == DRAGGING) {
+                slidingPanelLayout.panelState = HIDDEN
+            } else {
+            super.onBackPressed()
+        }
     }
 
     private fun registerObservers() {
@@ -144,6 +158,6 @@ class ContactListActivity : AppCompatActivity() {
     }
 
     private fun showTransactionReceipt() {
-        slidingPanelLayout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
+        slidingPanelLayout.panelState = EXPANDED
     }
 }
