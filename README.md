@@ -1,43 +1,28 @@
 ![PicPay](https://user-images.githubusercontent.com/1765696/26998603-711fcf30-4d5c-11e7-9281-0d9eb20337ad.png)
 
-# Teste Mobile
+# Teste Mobile (Mobile test)
 
-O teste consiste em se desenvolver um app nativo iOS ou Android, dessa forma, deverá ser implementado em Swift, Kotlin, Objective-C ou Java. É uma simulação de envio de dinheiro para uma outra pessoa via cartão de crédito.
+Foi desenvolvido uma solução Android nativo implementado em Kotlin que tem como objetivo o envio de dinheiro para uma outra pessoa via cartão de crédito, seguindo os requisitos impostos. Esta aplicação oferece suporte mínimo para a versão do Android 4.1 - Jelly Bean (API 16), que cobre cerca de 99% dos dipositivos atuais.
 
-O usuário deverá escolher um contato de uma lista, informar o valor a ser enviado e finalizar o pagamento com o cartão de crédito cadastrado. Se não houver cartão de créditos cadastrado, deverá informá-lo também (número do cartão, data de validade e o CVV) antes de finalizar o pagamento.
-
-Os cartões devem ser persistidos no aplicativo para serem usados em pagamentos futuros.
-
-Devem ser usadas boas práticas de programação, assim como padrões de projeto e Arquitetura.
-
-O layout está disponível em:
-Android - https://goo.gl/M5RFzY
-iOS - https://goo.gl/yi5AG7
+We developed a native Android solution implemented in Kotlin that aims to send money to another person via credit card, following the imposed requirements. This application offers minimal support for the Android 4.1 version - Jelly Bean (API 16), which covers about 99% of current devices.
 
 -----
-###### Lista de usuários
+###### Padrão de projeto utilizado (Used design pattern)
 
-Para listar as pessoas que podem receber pagamentos, faça uma requisição para o json nessa url: http://careers.picpay.com/tests/mobdev/users
+Para este projeto foi utilizado o padrão de projeto MVVM (Model-View-ViewModel), de modo que para cada View existe uma ViewModel correspondente que se comunica com a camada Model, isolando assim as camadas View e Model e estabelecendo uma clara separação de responsabilidades.
+
+For this project we used the MVVM (Model-View-ViewModel) design pattern, where for each View there is a corresponding ViewModel that communicates with the Model layer, thus isolating the View and Model layers and establishing a clear separation of responsibilities.
+
+![mvvm](images/pattern_mvvm_scheme.png)
 
 -----
+###### Dependências utilizadas (Used dependencies)
 
-###### Pagamento
-
-Realizar um `POST` para http://careers.picpay.com/tests/mobdev/transaction com os seguintes atributos:
-+ ID do usuário que irá receber o pagamento
-+ Número do cartão
-+ Vencimento do cartão
-+ CVV
-+ Valor total
-
-``` json
-{  
-   "card_number":"1111111111111111",
-   "cvv":789,
-   "value":79.9,
-   "expiry_date":"01/18",
-   "destination_user_id":1002
-}
-```
-
-## Para fins de teste, o número de cartão 1111111111111111 aprova a transação, qualquer outro recusa. 
++ LiveData & ViewModel
++ Retrofit
++ Gson
++ Dagger
++ ReactiveX
++ Glide
++ Circle ImageView
++ Room database
