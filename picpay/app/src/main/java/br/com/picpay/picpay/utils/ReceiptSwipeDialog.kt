@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import br.com.picpay.picpay.R
 import br.com.picpay.picpay.model.Transaction
 import br.com.picpay.picpay.utils.Constants.Companion.RECEIPT
 import com.bumptech.glide.Glide
@@ -16,6 +15,12 @@ import java.sql.Timestamp
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import android.support.design.widget.BottomSheetBehavior
+import android.support.design.widget.BottomSheetDialog
+import android.widget.FrameLayout
+import android.view.ViewTreeObserver
+
+
 
 class ReceiptSwipeDialog: BottomSheetDialogFragment() {
 
@@ -40,20 +45,27 @@ class ReceiptSwipeDialog: BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.receipt, container, false)
+        val view = inflater.inflate(br.com.picpay.picpay.R.layout.fragment_receipt, container, false)
+
+        view.viewTreeObserver.addOnGlobalLayoutListener(ViewTreeObserver.OnGlobalLayoutListener {
+            val dialog = dialog as BottomSheetDialog
+            val bottomSheet = dialog.findViewById<FrameLayout>(android.support.design.R.id.design_bottom_sheet)
+            val behavior = BottomSheetBehavior.from(bottomSheet)
+            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        })
 
         val args = arguments
         args?.let {
             transaction = it.getParcelable(RECEIPT)!!
         }
 
-        image = view.findViewById(R.id.receipt_image)
-        username = view.findViewById(R.id.receipt_username)
-        timestamp = view.findViewById(R.id.receipt_timestamp)
-        transactionId = view.findViewById(R.id.receipt_transaction_id)
-        card = view.findViewById(R.id.receipt_card)
-        value = view.findViewById(R.id.receipt_value)
-        totalValue = view.findViewById(R.id.receipt_value_total)
+        image = view.findViewById(br.com.picpay.picpay.R.id.receipt_image)
+        username = view.findViewById(br.com.picpay.picpay.R.id.receipt_username)
+        timestamp = view.findViewById(br.com.picpay.picpay.R.id.receipt_timestamp)
+        transactionId = view.findViewById(br.com.picpay.picpay.R.id.receipt_transaction_id)
+        card = view.findViewById(br.com.picpay.picpay.R.id.receipt_card)
+        value = view.findViewById(br.com.picpay.picpay.R.id.receipt_value)
+        totalValue = view.findViewById(br.com.picpay.picpay.R.id.receipt_value_total)
 
         fillData(view.context)
 
@@ -74,16 +86,16 @@ class ReceiptSwipeDialog: BottomSheetDialogFragment() {
         val date = format.format(dt)
         val hour = (calendar.get(Calendar.HOUR_OF_DAY).toString() + ":" + calendar.get(Calendar.MINUTE).toString())
 
-        timestamp.text = context.getString(R.string.receipt_date, date, hour)
-        transactionId.text = context.getString(R.string.receipt_transaction, transaction.id.toString())
-        card.text = context.getString(R.string.receipt_card, transaction.cardCompany, transaction.cardLastNumbers)
+        timestamp.text = context.getString(br.com.picpay.picpay.R.string.receipt_date, date, hour)
+        transactionId.text = context.getString(br.com.picpay.picpay.R.string.receipt_transaction, transaction.id.toString())
+        card.text = context.getString(br.com.picpay.picpay.R.string.receipt_card, transaction.cardCompany, transaction.cardLastNumbers)
 
         var formatted = NumberFormat
             .getCurrencyInstance(Locale("pt", "BR"))
             .format(transaction.value)
 
         formatted = formatted.replace("[R$]".toRegex(), "")
-        value.text = getString(R.string.receipt_value, formatted)
-        totalValue.text = getString(R.string.receipt_value, formatted)
+        value.text = getString(br.com.picpay.picpay.R.string.receipt_value, formatted)
+        totalValue.text = getString(br.com.picpay.picpay.R.string.receipt_value, formatted)
     }
 }

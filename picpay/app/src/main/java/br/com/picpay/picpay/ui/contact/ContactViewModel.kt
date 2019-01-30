@@ -27,6 +27,8 @@ class ContactViewModel: BaseViewModel() {
     val resultUsers: MutableLiveData<List<User>> = MutableLiveData()
     private lateinit var subscription: Disposable
 
+    private lateinit var sortedList: List<User>
+
     init {
         loadingUsers()
     }
@@ -54,8 +56,28 @@ class ContactViewModel: BaseViewModel() {
         context.startActivity(intent)
     }
 
+    fun sortList(query: String) {
+
+        if (!query.isEmpty()) {
+            val filteredList = ArrayList<User>()
+            for (user in sortedList) {
+                if (user.username!!.toLowerCase().contains(query) ||
+                    user.name!!.toLowerCase().contains(query)){
+                    filteredList.add(user)
+                }
+            }
+            resultUsers.value = filteredList
+        } else {
+            resultUsers.value = sortedList
+        }
+
+    }
+
     private fun onSuccessResponse(result: List<User>?) {
-        resultUsers.value = result
+        if (result != null) {
+            resultUsers.value = result
+            sortedList = result
+        }
     }
 
     private fun onErrorResponse(error: String?) {

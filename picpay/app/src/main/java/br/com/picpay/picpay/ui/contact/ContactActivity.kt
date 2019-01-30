@@ -8,7 +8,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.EditText
+import android.widget.ImageView
 import br.com.picpay.picpay.R
 import br.com.picpay.picpay.adapter.ItemListener
 import br.com.picpay.picpay.adapter.UserAdapter
@@ -70,6 +73,36 @@ class ContactActivity : BaseActivity<ContactViewModel>() {
 
         viewModel?.resultUsers?.observe(this, Observer { response ->
             if (response != null) adapter.insertData(response)
+        })
+
+        searchListener()
+    }
+
+    private fun searchListener() {
+        val editText = contact_search.findViewById<EditText>(android.support.v7.appcompat.R.id.search_src_text)
+        editText.setHintTextColor(ContextCompat.getColor(this, R.color.search_text))
+        editText.setTextColor(ContextCompat.getColor(this, R.color.color_white))
+        val icon = contact_search.findViewById<ImageView>(android.support.v7.appcompat.R.id.search_mag_icon)
+
+        contact_search.setOnQueryTextListener(object : android.support.v7.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText != null) {
+                    viewModel?.sortList(newText)
+                    if (adapter.itemCount == 0) setErrorResult(getString(R.string.error_not_found))
+                    if (!newText.isNullOrEmpty()){
+                        contact_search.background = ContextCompat.getDrawable(this@ContactActivity, R.drawable.shape_search)
+                        icon.setImageDrawable(ContextCompat.getDrawable(this@ContactActivity, R.drawable.ic_search_white))
+                    } else {
+                        contact_search.background = ContextCompat.getDrawable(this@ContactActivity, R.drawable.shape_search_disable)
+                        icon.setImageDrawable(ContextCompat.getDrawable(this@ContactActivity, R.drawable.ic_search_24dp))
+                    }
+                }
+                return false
+            }
         })
     }
 

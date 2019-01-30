@@ -21,13 +21,29 @@
                 android:textSize="28sp"
                 android:textColor="@color/color_white"
                 android:textStyle="bold"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="24dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                app:layout_scrollFlags="scroll|enterAlways|snap"/>
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
         <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                android:id="@+id/coordinator_toolbar"/>
+                android:id="@+id/coordinator_toolbar">
+            <android.support.v7.widget.SearchView
+                    android:background="@drawable/shape_search_disable"
+                    android:id="@+id/contact_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:iconifiedByDefault="false"
+                    app:searchIcon="@drawable/ic_search_24dp"
+                    app:closeIcon="@drawable/ic_close_white"
+                    app:queryHint="@string/search_hint"/>
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout

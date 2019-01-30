@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PicPay</string>
+
+    <string name="contacts_title">Contatos</string>
+    <string name="search_hint">A quem você deseja pagar?</string>
+
+    <string name="priming_title">Cadastre um cartão de crédito</string>
+    <string name="priming_text">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.</string>
+    <string name="priming_button">Cadastrar cartão</string>
+
+    <string name="register_field_card">Número do cartão</string>
+    <string name="register_field_name">Nome do titular</string>
+    <string name="register_field_expiration">Vencimento</string>
+    <string name="register_field_cvv">CVV</string>
+    <string name="register_button_save">Salvar</string>
+    <string name="register_error_date">Data de vencimento incorreta.</string>
+
+    <string name="example_username">\@username</string>
+    <string name="example_name">Jane Doe</string>
+    <string name="currency_symbol">R$</string>
+    <string name="currency_value">0,00</string>
+    <string name="transaction_card">%1$s %2$s •</string>
+    <string name="transaction_edit">Editar</string>
+    <string name="transaction_pay">Pagar</string>
+
+    <string name="default_response">Algo errado, tente novamente mais tarde\.\.\.</string>
+    <string name="receipt_title">Recibo</string>
+    <string name="receipt_date">%1$s às %2$s</string>
+    <string name="receipt_transaction">Transação: %1$s</string>
+    <string name="receipt_card">Card %1$s %2$s</string>
+    <string name="receipt_value">R$ %1$s</string>
+    <string name="receipt_total">Total pago</string>
+    <string name="error_not_found">Não encontrado.</string>
+
+</resources>

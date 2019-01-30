@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Picpay</string>
+    <string name="app_name">PicPay</string>
 
     <string name="contacts_title">Contacts</string>
     <string name="search_hint">Who wants to pay?</string>
@@ -30,5 +30,6 @@
     <string name="receipt_card">Card %1$s %2$s</string>
     <string name="receipt_value">R$ %1$s</string>
     <string name="receipt_total">Total paid</string>
+    <string name="error_not_found">Not found</string>
 
 </resources>
