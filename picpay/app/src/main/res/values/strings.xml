@@ -2,7 +2,7 @@
     <string name="app_name">PicPay</string>
 
     <string name="contacts_title">Contacts</string>
-    <string name="search_hint">Who wants to pay?</string>
+    <string name="search_hint">Who do you want to pay?</string>
 
     <string name="priming_title">Register a credit card</string>
     <string name="priming_text">To make payments to other people you need register a person credit card.</string>
