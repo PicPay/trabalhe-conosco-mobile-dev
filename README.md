@@ -4,4 +4,4 @@
 
 Para mais informações sobre nosso desafio acesse:
 
-https://picpay.com/site/jobs/mobile-challenge
+https://picpay.com/jobs/desafio-mobile
