@@ -1,5 +1,3 @@
-![PicPay](https://user-images.githubusercontent.com/1765696/26998603-711fcf30-4d5c-11e7-9281-0d9eb20337ad.png)
-
 # Teste Mobile (Mobile test)
 
 Foi desenvolvido uma solução Android nativo implementado em Kotlin que tem como objetivo o envio de dinheiro para uma outra pessoa via cartão de crédito, seguindo os requisitos impostos. Esta aplicação oferece suporte mínimo para a versão do Android 4.1 - Jelly Bean (API 16), que cobre cerca de 99% dos dipositivos atuais.
@@ -26,3 +24,9 @@ For this project we used the MVVM (Model-View-ViewModel) design pattern, where f
 + Glide
 + Circle ImageView
 + Room database
+=======
+# Desafio Mobile
+
+Para mais informações sobre nosso desafio acesse:
+
+https://picpay.com/jobs/desafio-mobile
