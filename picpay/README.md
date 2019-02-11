@@ -13,7 +13,7 @@ Para este projeto foi utilizado o padrão de projeto MVVM (Model-View-ViewModel)
 
 For this project we used the MVVM (Model-View-ViewModel) design pattern, where for each View there is a corresponding ViewModel that communicates with the Model layer, thus isolating the View and Model layers and establishing a clear separation of responsibilities.
 
-![mvvm](images/pattern_mvvm_scheme.png)
+![pattern_mvvm_scheme](https://user-images.githubusercontent.com/9947813/52567678-032c0f00-2df4-11e9-9a28-6236a897a877.png)
 
 -----
 ###### Dependências utilizadas (Used dependencies)
